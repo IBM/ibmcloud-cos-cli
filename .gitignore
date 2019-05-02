@@ -1,0 +1,10 @@
+.idea/**
+.DS_Store
+.vscode/**
+main
+**/*.DS_Store
+vendor/**
+build/**
+logs/**
+
+

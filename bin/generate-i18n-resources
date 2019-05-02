@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+echo "Generating i18n resource file ..."
+$( go env GOPATH )/bin/go-bindata -pkg resources -o resources/i18n_resources.go i18n/resources
+echo "Done."

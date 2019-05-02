@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ROOT_DIR=$(cd $(dirname $(dirname $0)) && pwd)
+
+i18n4go -c checkup -v | sed -E 's/(.+) exists in the code, but not in en_US/{"id": \1, "translation": \1},/g'
+# i18n4go -c checkup -v | sed -E "s/(.+) exists in the code, but not in en_US/\1/g"
+# cd ..

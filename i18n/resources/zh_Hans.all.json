@@ -1,0 +1,890 @@
+[
+  {
+    "id": " buckets found in your account:\n",
+    "translation": " 个存储区位于您的帐户中：\n"
+  },
+  {
+    "id": " downloaded.",
+    "translation": " 已下载。"
+  },
+  {
+    "id": " multipart uploads in bucket '",
+    "translation": " 多重部件上传位于存储区中 '"
+  },
+  {
+    "id": " objects in bucket '",
+    "translation": " 对象位于存储区中 '"
+  },
+  {
+    "id": " parts in the multipart upload for '",
+    "translation": " 多重部件上传中的部件用于 '"
+  },
+  {
+    "id": "(`SOURCE`) The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.",
+    "translation": "(`SOURCE`) 源存储区的名称和源对象的键名，使用斜杠 (/) 隔开。必须为 URL 编码形式。"
+  },
+  {
+    "id": "1 bucket found in your account:\n",
+    "translation": "1 个存储区位于您的帐户中：\n"
+  },
+  {
+    "id": "1 multipart upload in bucket '",
+    "translation": "1 个多重部件上传位于存储区中 '"
+  },
+  {
+    "id": "1 object in bucket '",
+    "translation": "1 个对象位于存储区中 '"
+  },
+  {
+    "id": "1 part in the multipart upload for '",
+    "translation": "多重部件上传中的 1 个部件用于 '"
+  },
+  {
+    "id": "A `DELIMITER` is a character you use to group keys.",
+    "translation": "`DELIMITER` 是用于对键进行分组的字符。"
+  },
+  {
+    "id": "A `MAP` of metadata to store. Syntax: KeyName1=string,KeyName2=string",
+    "translation": "要存储的元数据的 `MAP`。语法：KeyName1=string,KeyName2=string"
+  },
+  {
+    "id": "A `TOKEN` to specify where to start paginating. This is the NextToken from a previously truncated response.",
+    "translation": "用于指定分页开始位置的 `TOKEN`。这是来自先前截断的响应的 NextToken。"
+  },
+  {
+    "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
+    "translation": "您的帐户中已存在指定名称的存储区。请使用新的名称创建存储区。"
+  },
+  {
+    "id": "A standard `MIME` type describing the format of the object data.",
+    "translation": "标准的 `MIME` 类型，用于描述对象数据的格式。"
+  },
+  {
+    "id": "Aborting multipart upload...",
+    "translation": "正在中止多重部件上传..."
+  },
+  {
+    "id": "Aborts a multipart upload instance.",
+    "translation": "异常中止多重部件上传实例。"
+  },
+  {
+    "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
+    "translation": "已拒绝对您的 IBM Cloud 帐户的访问。请通过输入 ibmcloud login --sso 再次登录。"
+  },
+  {
+    "id": "Are you sure you would like to continue?",
+    "translation": "确定要继续吗？"
+  },
+  {
+    "id": "Are you sure you would like to overwrite it?",
+    "translation": "确定要将其覆盖吗？"
+  },
+  {
+    "id": "Authentication Method",
+    "translation": "认证方法"
+  },
+  {
+    "id": "Authentication `METHOD`.",
+    "translation": "认证 `METHOD`。"
+  },
+  {
+    "id": "Bucket '{{.bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
+    "translation": "在您的 IBM Cloud Object Storage 帐户中发现区域 {{.region}} 中的存储区“{{.bucket}}”。"
+  },
+  {
+    "id": "CRN",
+    "translation": "CRN"
+  },
+  {
+    "id": "Changes plugin configuration",
+    "translation": "更改插件配置"
+  },
+  {
+    "id": "Class: {{.class}}",
+    "translation": "类：{{.class}}"
+  },
+  {
+    "id": "Clear the option value.",
+    "translation": "清除选项值。"
+  },
+  {
+    "id": "Complete an existing multipart upload instance.",
+    "translation": "完成现有多重部件上传实例。"
+  },
+  {
+    "id": "Completing multipart upload...",
+    "translation": "正在完成多重部件上传..."
+  },
+  {
+    "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
+    "translation": "如果对象在指定日期 (`TIMESTAMP`) 后进行了修改，请复制该对象。"
+  },
+  {
+    "id": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`).",
+    "translation": "如果对象在指定日期 (`TIMESTAMP`) 后未进行修改，请复制该对象。"
+  },
+  {
+    "id": "Copies the object if its entity tag (ETag) is different than the specified tag (`ETAG`).",
+    "translation": "如果对象的实体标记 (ETag) 与指定的标记 (`ETAG`) 不同，请复制对象。"
+  },
+  {
+    "id": "Copies the object if its entity tag (Etag) matches the specified tag (`ETAG`).",
+    "translation": "如果对象的实体标记 (Etag) 与指定的标记 (`ETAG`) 匹配，请复制对象。"
+  },
+  {
+    "id": "Copy an object from one bucket to another.",
+    "translation": "将对象从一个存储区复制到另一个存储区。"
+  },
+  {
+    "id": "Copying object...",
+    "translation": "正在复制对象..."
+  },
+  {
+    "id": "Create a new bucket.",
+    "translation": "创建新存储区。"
+  },
+  {
+    "id": "Create a new multipart upload instance.",
+    "translation": "创建新多重部件上传实例。"
+  },
+  {
+    "id": "Creating bucket...",
+    "translation": "正在创建存储区..."
+  },
+  {
+    "id": "Creating new multipart upload instance...",
+    "translation": "正在创建新的多重部件上传实例..."
+  },
+  {
+    "id": "Date Created",
+    "translation": "创建日期"
+  },
+  {
+    "id": "Default Region",
+    "translation": "缺省区域"
+  },
+  {
+    "id": "Delete '{{.Key}}' from bucket '{{.Bucket}}' ran successfully.",
+    "translation": "已成功运行从存储区“{{.Bucket}}”中删除“{{.Key}}”的操作。"
+  },
+  {
+    "id": "Delete an existing bucket.",
+    "translation": "删除现有存储区。"
+  },
+  {
+    "id": "Delete an object from a bucket.",
+    "translation": "从存储区中删除对象。"
+  },
+  {
+    "id": "Delete multiple objects from a bucket",
+    "translation": "从存储区中删除多个对象"
+  },
+  {
+    "id": "Delete multiple objects from bucket '{{.Bucket}}' ran successfully.",
+    "translation": "已成功运行从存储区“{{.Bucket}}”中删除多个对象的操作。"
+  },
+  {
+    "id": "Delete the CORS configuration from a bucket.",
+    "translation": "从存储区中删除 CORS 配置。"
+  },
+  {
+    "id": "Deleting CORS from the bucket...",
+    "translation": "正在从存储区中删除 CORS..."
+  },
+  {
+    "id": "Deleting bucket...",
+    "translation": "正在删除存储区..."
+  },
+  {
+    "id": "Deleting object...",
+    "translation": "正在删除对象..."
+  },
+  {
+    "id": "Deleting objects...",
+    "translation": "正在删除对象..."
+  },
+  {
+    "id": "Details about bucket {{.details}}:",
+    "translation": "有关存储区 {{.details}} 的详细信息："
+  },
+  {
+    "id": "Details about your multipart upload instance:",
+    "translation": "有关多重部件上传实例的详细信息："
+  },
+  {
+    "id": "Determine if a specified bucket exists in your account.",
+    "translation": "确定帐户中是否存在指定的存储区。"
+  },
+  {
+    "id": "Determine if an object exists within a bucket.",
+    "translation": "确定存储区中是否存在对象。"
+  },
+  {
+    "id": "Display the list of uploaded parts of an object.",
+    "translation": "显示对象已上传部分的列表。"
+  },
+  {
+    "id": "Download Location",
+    "translation": "下载位置"
+  },
+  {
+    "id": "Download an object from a bucket.",
+    "translation": "从存储区下载对象。"
+  },
+  {
+    "id": "Downloading object...",
+    "translation": "正在下载对象..."
+  },
+  {
+    "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
+    "translation": "下载指定 `RANGE` 字节的对象。有关 HTTP Range 头的更多信息，请访问 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35。"
+  },
+  {
+    "id": "Empty source bucket.",
+    "translation": "空源存储区。"
+  },
+  {
+    "id": "Error opening '{{.dl}}' to write ",
+    "translation": "在打开“{{.dl}}”进行写操作时出错"
+  },
+  {
+    "id": "Found ",
+    "translation": "已找到"
+  },
+  {
+    "id": "Get the CORS configuration from a bucket.",
+    "translation": "从存储区中获取 CORS 配置。"
+  },
+  {
+    "id": "Get the region and class of a bucket.",
+    "translation": "获取存储区的区域和类。"
+  },
+  {
+    "id": "Getting bucket CORS ...",
+    "translation": "正在获取存储区 CORS..."
+  },
+  {
+    "id": "Incorrect Usage.",
+    "translation": "用法不正确。"
+  },
+  {
+    "id": "Initiated",
+    "translation": "已启动"
+  },
+  {
+    "id": "Interact with IBM Cloud Object Storage services",
+    "translation": "与 IBM Cloud Object Storage 服务交互"
+  },
+  {
+    "id": "It was last updated on {{.lastupdated}}.",
+    "translation": "上次更新时间：{{.lastupdated}}."
+  },
+  {
+    "id": "Key",
+    "translation": "键"
+  },
+  {
+    "id": "Last Modified",
+    "translation": "上次修改时间"
+  },
+  {
+    "id": "Last Modified: {{.lastmodified}}",
+    "translation": "上次修改时间：{{.lastmodified}}"
+  },
+  {
+    "id": "Last Updated",
+    "translation": "上次更新时间"
+  },
+  {
+    "id": "Limits the response to keys that begin with the specified `PREFIX`.",
+    "translation": "将响应限于以指定的 `PREFIX` 开头的键。"
+  },
+  {
+    "id": "List all objects in a specific bucket.",
+    "translation": "列示指定存储区中的所有对象。"
+  },
+  {
+    "id": "List all the buckets in your IBM Cloud Object Storage account.",
+    "translation": "列示 IBM Cloud Object Storage 帐户中的所有存储区。"
+  },
+  {
+    "id": "List configuration",
+    "translation": "列示配置"
+  },
+  {
+    "id": "List configuration values.",
+    "translation": "列示配置值。"
+  },
+  {
+    "id": "Listing Multipart Uploads...",
+    "translation": "正在列示多重部件上传..."
+  },
+  {
+    "id": "Listing objects...",
+    "translation": "正在列示对象..."
+  },
+  {
+    "id": "Listing parts...",
+    "translation": "正在列示部件..."
+  },
+  {
+    "id": "Loading buckets...",
+    "translation": "正在加载存储区..."
+  },
+  {
+    "id": "Location: %s",
+    "translation": "位置：%s"
+  },
+  {
+    "id": "Name",
+    "translation": "名称"
+  },
+  {
+    "id": "No buckets found in your account.",
+    "translation": "在您的帐户中找不到存储区。"
+  },
+  {
+    "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
+    "translation": "在存储区“{{.Bucket}}”中找到对象“{{.Key}}”。"
+  },
+  {
+    "id": "Object Size",
+    "translation": "对象大小"
+  },
+  {
+    "id": "Object Size: {{.objectsize}}",
+    "translation": "对象大小：{{.objectsize}}"
+  },
+  {
+    "id": "Object data location (`FILE_PATH`).",
+    "translation": "对象数据位置 (`FILE_PATH`)。"
+  },
+  {
+    "id": "Operation canceled.",
+    "translation": "操作已取消。"
+  },
+  {
+    "id": "Part Number",
+    "translation": "产品编号"
+  },
+  {
+    "id": "Part `NUMBER` of part being uploaded. This is a positive integer between 1 and 10,000.",
+    "translation": "要上传的部件的部件 `NUMBER`。这是范围介于 1 到 10,000 之间的正整数。"
+  },
+  {
+    "id": "Part number `VALUE` after which listing begins",
+    "translation": "部件号 `VALUE`，在其后列表开始"
+  },
+  {
+    "id": "Putting object...",
+    "translation": "正在放置对象..."
+  },
+  {
+    "id": "Region: {{.region}}",
+    "translation": "区域：{{.region}}"
+  },
+  {
+    "id": "Regions endpoint `URL`.",
+    "translation": "区域端点 `URL`。"
+  },
+  {
+    "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
+    "translation": "请求对响应中的对象密钥进行编码，并指定要使用的编码 `METHOD`。"
+  },
+  {
+    "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified).",
+    "translation": "仅当在指定 `TIMESTAMP` 后对象已发生修改的情况下，才返回对象，否则返回 304（未修改）。"
+  },
+  {
+    "id": "Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed).",
+    "translation": "仅当在指定 `TIMESTAMP` 后对象未发生修改的情况下，才返回对象，否则返回 412（未满足前置条件）。"
+  },
+  {
+    "id": "Return the object only if its entity tag (ETag) is different from the `ETAG` specified, otherwise return a 304 (not modified).",
+    "translation": "仅当对象的实体标记 (ETag) 与指定的 `ETAG` 不同的情况下，才返回对象，否则返回 304（未修改）。"
+  },
+  {
+    "id": "Return the object only if its entity tag (ETag) is the same as the `ETAG` specified, otherwise return a 412 (precondition failed).",
+    "translation": "仅当对象的实体标记 (ETag) 与指定的 `ETAG` 相同的情况下，才返回对象，否则返回 412（未满足前置条件）。"
+  },
+  {
+    "id": "Returns the class type of the specified bucket.",
+    "translation": "返回指定存储区的类别类型。"
+  },
+  {
+    "id": "Saving default download location...",
+    "translation": "正在保存缺省下载位置..."
+  },
+  {
+    "id": "Saving new Service Instance ID...",
+    "translation": "正在保存新的服务实例标识..."
+  },
+  {
+    "id": "Set a valid download location using 'cos config --ddl'",
+    "translation": "使用“cos config --ddl”设置有效的下载位置"
+  },
+  {
+    "id": "Set regions endpoint URL.",
+    "translation": "设置区域端点 URL。"
+  },
+  {
+    "id": "Set the CORS configuration on a bucket.",
+    "translation": "在存储区上设置 CORS 配置。"
+  },
+  {
+    "id": "Set the default location for downloads.",
+    "translation": "设置下载的缺省位置。"
+  },
+  {
+    "id": "Sets the Cache-Control `HEADER` of the response.",
+    "translation": "设置响应的高速缓存控制 `HEADER`。"
+  },
+  {
+    "id": "Sets the Content-Disposition `HEADER` of the response.",
+    "translation": "设置响应的内容配置 `HEADER`。"
+  },
+  {
+    "id": "Sets the Content-Encoding `HEADER` of the response.",
+    "translation": "设置响应的内容编码 `HEADER`。"
+  },
+  {
+    "id": "Sets the Content-Language `HEADER` of the response.",
+    "translation": "设置响应的内容语言 `HEADER`。"
+  },
+  {
+    "id": "Sets the Content-Type `HEADER` of the response.",
+    "translation": "设置响应的内容类型 `HEADER`。"
+  },
+  {
+    "id": "Sets the Expires `HEADER` of the response.",
+    "translation": "设置响应的到期 `HEADER`。"
+  },
+  {
+    "id": "Sets the IBM Service Instance `ID` in the request.",
+    "translation": "在请求中设置 IBM 服务实例 `ID`。"
+  },
+  {
+    "id": "Setting bucket CORS...",
+    "translation": "正在设置存储区 CORS..."
+  },
+  {
+    "id": "Size",
+    "translation": "大小"
+  },
+  {
+    "id": "Specifies `CACHING_DIRECTIVES` for the request/reply chain.",
+    "translation": "为请求/应答链指定 `CACHING_DIRECTIVES`。"
+  },
+  {
+    "id": "Specifies presentational information (`DIRECTIVES`).",
+    "translation": "指定表示信息 (`DIRECTIVES`)。"
+  },
+  {
+    "id": "Specifies the `KEY` to start with when listing objects in a bucket.",
+    "translation": "指定在存储区中列示对象时开头所用的 `KEY`。"
+  },
+  {
+    "id": "Specifies what content encodings (`CONTENT_ENCODING`) have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.",
+    "translation": "指定已应用于对象的内容编码 (`CONTENT_ENCODING`) 以及为获取内容类型头字段引用的介质类型而必须应用的解码机制。"
+  },
+  {
+    "id": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. `DIRECTIVE` values: COPY, REPLACE.",
+    "translation": "指定是从源对象复制元数据，还是将其替换为请求中提供的元数据。`DIRECTIVE` 值：COPY 或 REPLACE。"
+  },
+  {
+    "id": "Store CRN in the config.",
+    "translation": "将 CRN 存储在配置中。"
+  },
+  {
+    "id": "Store Default Download Location in the config.",
+    "translation": "将缺省下载位置存储在配置中。"
+  },
+  {
+    "id": "Store Default Region in the config.",
+    "translation": "将缺省区域存储在配置中。"
+  },
+  {
+    "id": "Store HMAC credentials in the config.",
+    "translation": "将 HMAC 凭证存储在配置中。"
+  },
+  {
+    "id": "Store your service instance ID (`CRN`) in the config.",
+    "translation": "将服务实例标识 (`CRN`) 存储在配置中。"
+  },
+  {
+    "id": "Successfully aborted a multipart upload instance with key '{{.Key}}' and bucket '{{.Bucket}}'.",
+    "translation": "已成功中止了键为“{{.Key}}”且存储区为“{{.Bucket}}”的多重部件上传实例。"
+  },
+  {
+    "id": "Successfully cleared regions endpoint URL.",
+    "translation": "已成功清除区域端点 URL。"
+  },
+  {
+    "id": "Successfully copied '{{.object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
+    "translation": "已成功将“{{.object}}”从存储区“{{.bucket1}}”复制到存储区“{{.bucket2}}”。"
+  },
+  {
+    "id": "Successfully created bucket '{{.bucket}}'.",
+    "translation": "已成功创建存储区“{{.bucket}}”。"
+  },
+  {
+    "id": "Successfully deleted CORS configuration on bucket: {{.Bucket}}",
+    "translation": "已成功在存储区上删除 CORS 配置：{{.Bucket}}"
+  },
+  {
+    "id": "Successfully deleted bucket '{{.Bucket}}'. The bucket '{{.Bucket}}' will be available for reuse after 15 minutes.",
+    "translation": "已成功删除存储区“{{.Bucket}}”。存储区“{{.Bucket}}”将在 15 分钟后可复用。"
+  },
+  {
+    "id": "Successfully downloaded '{{.Key}}' from bucket '{{.Bucket}}'",
+    "translation": "已成功从存储区“{{.Bucket}}”中下载“{{.Key}}”。"
+  },
+  {
+    "id": "Successfully saved HMAC Credentials to file.",
+    "translation": "已成功将 HMAC 凭证保存至文件。"
+  },
+  {
+    "id": "Successfully saved default region. The program will look for buckets in the region {{.region}}.",
+    "translation": "已成功保存缺省区域。程序将在区域 {{.region}} 中查找存储区。"
+  },
+  {
+    "id": "Successfully saved download location. New files will be downloaded to '",
+    "translation": "已成功保存下载位置。新文件将下载至 '"
+  },
+  {
+    "id": "Successfully set CORS configuration on bucket: {{.Bucket}}",
+    "translation": "已成功在存储区上设置 CORS 配置：{{.Bucket}}"
+  },
+  {
+    "id": "Successfully stored your service instance ID.",
+    "translation": "已成功存储服务实例标识。"
+  },
+  {
+    "id": "Successfully switched to {{.Auth}}-based authentication. The program will access your Cloud Object Storage account using your {{.Auth}} Credentials.",
+    "translation": "已成功切换至基于 {{.Auth}} 的认证。程序将使用您的 {{.Auth}} 凭证访问 Cloud Object Storage 帐户。"
+  },
+  {
+    "id": "Successfully updated regions endpoint URL to {{.URL}}.",
+    "translation": "已成功将区域端点 URL 更新至 {{.URL}}。"
+  },
+  {
+    "id": "Successfully uploaded '{{.Key}}' to bucket '{{.Bucket}}'.",
+    "translation": "已成功将“{{.Key}}”上传到存储区“{{.Bucket}}”。"
+  },
+  {
+    "id": "Successfully uploaded object '{{.Key}}' to bucket '{{.Bucket}}'.",
+    "translation": "已成功将对象“{{.Key}}”上传到存储区“{{.Bucket}}”。"
+  },
+  {
+    "id": "Switch between HMAC and IAM authentication",
+    "translation": "在 HMAC 和 IAM 认证之间进行切换"
+  },
+  {
+    "id": "Switch between HMAC and IAM authentication.",
+    "translation": "在 HMAC 和 IAM 认证之间进行切换。"
+  },
+  {
+    "id": "The CORS configuration of ",
+    "translation": "的 CORS 配置"
+  },
+  {
+    "id": "The `KEY` of the object.",
+    "translation": "对象的 `KEY`。"
+  },
+  {
+    "id": "The `LANGUAGE` the content is in.",
+    "translation": "内容采用的语言为 `LANGUAGE`。"
+  },
+  {
+    "id": "The `REGION` where the bucket is present. If this flag is not provided, the program will use the default option specified in config.",
+    "translation": "存储区所在的 `REGION`。如果未提供此标记，那么程序将使用配置中指定的缺省选项。"
+  },
+  {
+    "id": "The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the service calls from timing out.",
+    "translation": "要在服务调用中获取的每个页面的 `SIZE`。这不影响命令输出中返回的项数。设置更小的页面大小会导致增加对 AWS 服务执行的调用数量，从而减少每次调用中检索的项数。这有助于防止服务调用超时。"
+  },
+  {
+    "id": "The `VALUE` of CorsConfiguration to set.",
+    "translation": "要设置的 CorsConfiguration 的 `VALUE`。"
+  },
+  {
+    "id": "The `VALUE` of CreateBucketConfiguration to set.",
+    "translation": "要设置的 CreateBucketConfiguration 的 `VALUE`。"
+  },
+  {
+    "id": "The `VALUE` of Delete to set. Syntax: Objects=[{Key=string},{Key=string}],Quiet=boolean",
+    "translation": "要设置的 Delete 的 `VALUE`。语法：Objects=[{Key=string},{Key=string}],Quiet=boolean"
+  },
+  {
+    "id": "The `VALUE` of MultipartUpload to set.",
+    "translation": "要设置的 MultipartUpload 的 `VALUE`。"
+  },
+  {
+    "id": "The base64-encoded 128-bit `MD5` digest of the data.",
+    "translation": "数据的基本 64 位编码的 128 位 `MD5` 摘要。"
+  },
+  {
+    "id": "The download destination '{{.dl}}' is a directory.",
+    "translation": "下载目标“{{.dl}}”是一个目录。"
+  },
+  {
+    "id": "The download directory '{{.dl}}' is invalid",
+    "translation": "下载目录“{{.dl}}”无效"
+  },
+  {
+    "id": "The download directory '{{.dl}}' is invalid.",
+    "translation": "下载目录“{{.dl}}”无效。"
+  },
+  {
+    "id": "The name (`BUCKET_NAME`) of the bucket.",
+    "translation": "存储区的名称 (`BUCKET_NAME`)。"
+  },
+  {
+    "id": "The name (`CLASS_NAME`) of the Class.",
+    "translation": "类的名称 (`CLASS_NAME`)。"
+  },
+  {
+    "id": "The operation will do not ask for confirmation.",
+    "translation": "此操作不会请求确认。"
+  },
+  {
+    "id": "The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB.",
+    "translation": "要从源对象复制的字节的范围。范围值必须使用 bytes=first-last 格式，其中 first 和 last 为要复制的基于 0 的字节偏移量。例如，bytes=0-9 指示要复制源的前十个字节。仅当源对象大于 5 MB 时，才可复制范围。"
+  },
+  {
+    "id": "The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.",
+    "translation": "请求的存储区名称不可用。存储区名称空间由系统的所有用户共享。请选择不同的名称并重试。"
+  },
+  {
+    "id": "The specified bucket is not empty. Delete all the files in the bucket, then try again.",
+    "translation": "指定的存储区不为空。请删除该存储区中的所有文件，然后重试。"
+  },
+  {
+    "id": "The specified bucket name is invalid. Bucket names must start and end in alphanumeric characters (from 3 to 63) and are limited to lowercase, numbers, non-consecutive dots, and hyphens.",
+    "translation": "指定的存储区名称无效。存储区名称必须以字母数字字符开头和结尾（3 到 63 个字符），限于小写字母、数字、不连续的点以及连字符。"
+  },
+  {
+    "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region for the bucket to delete. Provide the bucket's correct region and try again.",
+    "translation": "在您的 IBM Cloud 帐户中找不到指定的存储区。这可能是因为您为要删除的存储区提供的区域不正确。请提供存储区的正确区域并重试。"
+  },
+  {
+    "id": "The specified bucket was not found in your account. Ensure that you have set the correct region with the region flag.",
+    "translation": "在您的帐户中找不到指定的存储区。请确保您使用区域标志设置了正确的区域。"
+  },
+  {
+    "id": "The specified download location does not exist on your system. Try again with a valid download path.",
+    "translation": "系统上不存在指定的下载位置。请使用有效的下载路径重试。"
+  },
+  {
+    "id": "The specified download location is not valid. Try again with a valid download path.",
+    "translation": "指定的下载位置无效。请使用有效的下载路径重试。"
+  },
+  {
+    "id": "The total `NUMBER` of items to return in the command's output.",
+    "translation": "要在命令输出中返回的项总数 `NUMBER`。"
+  },
+  {
+    "id": "This operation lists in-progress multipart uploads.",
+    "translation": "此操作将列示正在进行的多重部件上传。"
+  },
+  {
+    "id": "To retrieve the next set of multipart uploads, use the following markers in the next command:",
+    "translation": "要检索下一组多重部件上传，请在下一条命令中使用以下标记："
+  },
+  {
+    "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
+    "translation": "要检索下一组对象，请使用此键作为下一条命令的 --marker："
+  },
+  {
+    "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",
+    "translation": "要检索下一组部件，请使用此标记作为下一条命令的 part-number-marker："
+  },
+  {
+    "id": "Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.",
+    "translation": "结合 key-marker 一起指定多重部件上传，上传后应开始列示多重部件。如果未指定 key-marker，那么将忽略 upload-id-marker 参数。"
+  },
+  {
+    "id": "Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.",
+    "translation": "此参数结合 upload-id-marker 一起可用于指定多重部件上传，上传后应开始列示多重部件。"
+  },
+  {
+    "id": "Try logging in using 'ibmcloud login'.",
+    "translation": "请尝试使用“ibmcloud login”登录。"
+  },
+  {
+    "id": "Unable to clear regions endpoint URL.",
+    "translation": "无法清除区域端点 URL。"
+  },
+  {
+    "id": "Unable to get Default Download Location.",
+    "translation": "无法获取缺省下载位置。"
+  },
+  {
+    "id": "Unable to get Region.",
+    "translation": "无法获取区域。"
+  },
+  {
+    "id": "Unable to get new CRN.",
+    "translation": "无法获取新 CRN。"
+  },
+  {
+    "id": "Unable to load config method.",
+    "translation": "无法装入配置方法。"
+  },
+  {
+    "id": "Unable to load default Region.",
+    "translation": "无法装入缺省区域。"
+  },
+  {
+    "id": "Unable to load default download location.",
+    "translation": "无法装入缺省下载位置。"
+  },
+  {
+    "id": "Unable to load region.",
+    "translation": "无法装入区域。"
+  },
+  {
+    "id": "Unable to open object '{{.Key}}' for upload.",
+    "translation": "无法打开对象“{{.Key}}”以上传。"
+  },
+  {
+    "id": "Unable to open object '{{.object}}' for upload.",
+    "translation": "无法打开文件“{{.object}}”以上传。"
+  },
+  {
+    "id": "Unable to parse authentication method.",
+    "translation": "无法解析认证方法。"
+  },
+  {
+    "id": "Unable to read new Authentication Method.",
+    "translation": "无法读取新的认证方法。"
+  },
+  {
+    "id": "Unable to read new default download location.",
+    "translation": "无法读取新的缺省下载位置。"
+  },
+  {
+    "id": "Unable to read new region.",
+    "translation": "无法读取新区域。"
+  },
+  {
+    "id": "Unable to save new region.",
+    "translation": "无法保存新区域。"
+  },
+  {
+    "id": "Unable to save new regions endpoint URL.",
+    "translation": "无法保存新的区域端点 URL。"
+  },
+  {
+    "id": "Unable to store Access key.",
+    "translation": "无法存储访问键。"
+  },
+  {
+    "id": "Unable to store Secret key.",
+    "translation": "无法存储密钥。"
+  },
+  {
+    "id": "Unable to store new download location.",
+    "translation": "无法存储新下载位置。"
+  },
+  {
+    "id": "Unable to switch authentication method.",
+    "translation": "无法切换认证方法。"
+  },
+  {
+    "id": "Upload `ID` identifying the multipart upload.",
+    "translation": "用于标识多重部件上传的上传 `ID`。"
+  },
+  {
+    "id": "Upload a part by copying data from an existing object.",
+    "translation": "通过从现有对象中复制数据来上传部件。"
+  },
+  {
+    "id": "Upload a part of an object.",
+    "translation": "上传部分对象。"
+  },
+  {
+    "id": "Upload an object to a bucket.",
+    "translation": "将对象上传到存储区。"
+  },
+  {
+    "id": "UploadId",
+    "translation": "UploadId"
+  },
+  {
+    "id": "Uploaded part '{{.part}}' of object '{{.object}}'.",
+    "translation": "已上传对象“{{.object}}”的“{{.part}}”部分。"
+  },
+  {
+    "id": "Uploaded part copy '{{.part}}' of object '{{.object}}'.",
+    "translation": "已上传对象“{{.object}}”的部分副本“{{.part}}”。"
+  },
+  {
+    "id": "Uploading file part...",
+    "translation": "正在上传文件部分..."
+  },
+  {
+    "id": "Uploading part copy...",
+    "translation": "正在上传部分副本..."
+  },
+  {
+    "id": "Value",
+    "translation": "值"
+  },
+  {
+    "id": "WARNING: An object with the name '{{.file}}' already exists at '{{.dl}}'.",
+    "translation": "警告：“{{.dl}}”中已存在名为“{{.file}}”的对象。"
+  },
+  {
+    "id": "WARNING: This will permanently delete the bucket '{{.Bucket}}' from your account.",
+    "translation": "警告：这将从您的帐户中永久删除存储区“{{.Bucket}}”。"
+  },
+  {
+    "id": "WARNING: This will permanently delete the object '{{.Key}}' from the bucket '{{.Bucket}}'.",
+    "translation": "警告：这将从存储区“{{.Bucket}}”中永久删除对象“{{.Key}}”。"
+  },
+  {
+    "id": "WARNING: You have already stored a service instance ID before.",
+    "translation": "警告：您之前已存储了服务实例标识。"
+  },
+  {
+    "id": "Wait until 200 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.",
+    "translation": "轮询 head-bucket 时，请等待至收到 200 响应为止。它将每隔 5 秒轮询一次，直至达到成功状态为止。这样将在检查失败 20 次后退出并显示返回码 255。"
+  },
+  {
+    "id": "Wait until 200 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
+    "translation": "轮询 head-object 时，请等待至收到 200 响应为止。它将每隔 5 秒轮询一次，直至达到成功状态为止。这样将在检查失败 20 次后退出并显示返回码 255。"
+  },
+  {
+    "id": "Wait until 404 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
+    "translation": "轮询 head-bucket 时，请等待至收到 404 响应为止。它将每隔 5 秒轮询一次，直至达到成功状态为止。这样将在检查失败 20 次后退出并显示返回码 255。"
+  },
+  {
+    "id": "Wait until 404 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
+    "translation": "轮询 head-object 时，请等待至收到 404 响应为止。它将每隔 5 秒轮询一次，直至达到成功状态为止。这样将在检查失败 20 次后退出并显示返回码 255。"
+  },
+  {
+    "id": "Wait until a particular condition is satisfied.  Each subcommand polls an API until the listed requirement is met.",
+    "translation": "等待至满足特定条件为止。每条子命令都会轮询 API 直至满足列示的要求为止。"
+  },
+  {
+    "id": "Your proposed upload is smaller than the minimum allowed size. File parts must be greater than 5 MB in size, except for the last part.",
+    "translation": "您建议的上传量小于允许的最小值。文件部分的大小必须大于 5 MB（最后一部分除外）。"
+  },
+  {
+    "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",
+    "translation": "主体的 `SIZE`（字节）。当无法自动确定主体大小时，适用此参数。"
+  },
+  {
+    "id": "no multipart uploads in bucket '",
+    "translation": "存储区中没有任何多重部件上传 '"
+  },
+  {
+    "id": "no objects in bucket '",
+    "translation": "存储区中没有任何对象 '"
+  },
+  {
+    "id": "no parts in the multipart upload for '",
+    "translation": "多重部件上传中没有任何部件用于 '"
+  }
+]

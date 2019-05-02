@@ -1,0 +1,65 @@
+#!/usr/bin/env ruby
+
+require 'json'
+
+ROOT = File.expand_path(File.join(File.dirname(__FILE__), ".."))
+RESOURCES_DIR = File.join(ROOT, "i18n", "resources")
+
+SRC_LANG = "en_US"
+
+def run
+  srcLangFile = sourceLangFile()
+  srcTranslations = loadFromFile(srcLangFile)
+
+  Dir.glob(File.join(RESOURCES_DIR, "*.all.json")) do |file|
+    puts "*** Process #{File.basename(file)}"
+    if file == srcLangFile
+      translations = srcTranslations
+    else
+      translations = getTranslations(srcTranslations, file)
+    end
+    normalized = normalize(translations)
+    saveToFile(normalized, file)
+  end
+end
+
+def sourceLangFile
+  return File.join(RESOURCES_DIR, SRC_LANG + ".all.json")
+end
+
+def loadFromFile(file)
+  array = JSON.parse(File.read(file))
+  translations = {}
+  array.each{ |t| translations[t["id"]] = t["translation"] unless t["id"].to_s.empty? }
+  return translations
+end
+
+def getTranslations(srcTranslations, file)
+  translations = loadFromFile(file)
+  result = {}
+  srcTranslations.each do |k,v|
+    if translations.include? k
+      result[k] = translations[k]
+    else
+      result[k] = ""
+    end
+  end
+  return result
+end
+
+def normalize(translations)
+  result = {}
+  sorted = Hash[translations.sort]
+  sorted.each {|k,v| result[k] = v.to_s.empty?? k : v}
+  return result
+end
+
+def saveToFile(translations, path)
+  json = []
+  translations.each { |k,v| json << {"id" => k, "translation" => v} }
+  File.open(path,"w") do |f|
+    f.write(JSON.pretty_generate(json))
+  end
+end
+
+run

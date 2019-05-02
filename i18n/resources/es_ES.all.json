@@ -1,0 +1,890 @@
+[
+  {
+    "id": " buckets found in your account:\n",
+    "translation": " depósitos encontrados en su cuenta:\n"
+  },
+  {
+    "id": " downloaded.",
+    "translation": " descargados."
+  },
+  {
+    "id": " multipart uploads in bucket '",
+    "translation": " cargas multiparte en depósito '"
+  },
+  {
+    "id": " objects in bucket '",
+    "translation": " objetos en depósito '"
+  },
+  {
+    "id": " parts in the multipart upload for '",
+    "translation": " partes de la carga multiparte de '"
+  },
+  {
+    "id": "(`SOURCE`) The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.",
+    "translation": "(`SOURCE`) Nombre del depósito de origen y nombre de clave del objeto de origen, separado por una barra inclinada (/). Debe tener codificación URL."
+  },
+  {
+    "id": "1 bucket found in your account:\n",
+    "translation": "1 depósito encontrado en su cuenta:\n"
+  },
+  {
+    "id": "1 multipart upload in bucket '",
+    "translation": "1 carga multiparte en depósito '"
+  },
+  {
+    "id": "1 object in bucket '",
+    "translation": "1 objeto en depósito '"
+  },
+  {
+    "id": "1 part in the multipart upload for '",
+    "translation": "1 parte de la carga multiparte de '"
+  },
+  {
+    "id": "A `DELIMITER` is a character you use to group keys.",
+    "translation": "`DELIMITER` es un carácter que se utiliza para agrupar claves."
+  },
+  {
+    "id": "A `MAP` of metadata to store. Syntax: KeyName1=string,KeyName2=string",
+    "translation": "`MAP` de metadatos que se van a almacenar. Sintaxis: KeyName1=string,KeyName2=string"
+  },
+  {
+    "id": "A `TOKEN` to specify where to start paginating. This is the NextToken from a previously truncated response.",
+    "translation": "`TOKEN` para especificar dónde empieza la paginación. Es theNextToken de una respuesta truncada anteriormente."
+  },
+  {
+    "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
+    "translation": "Ya existe un depósito con el nombre especificado en su cuenta. Cree un nuevo depósito con un nuevo nombre."
+  },
+  {
+    "id": "A standard `MIME` type describing the format of the object data.",
+    "translation": "Tipo `MIME` estándar que describe el formato de los datos de objeto."
+  },
+  {
+    "id": "Aborting multipart upload...",
+    "translation": "Terminación anormal de la carga multiparte..."
+  },
+  {
+    "id": "Aborts a multipart upload instance.",
+    "translation": "Termina anormalmente una instancia de carga multiparte."
+  },
+  {
+    "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
+    "translation": "Se ha denegado el acceso a su cuenta de IBM Cloud. Vuelva a iniciar sesión escribiendo ibmcloud login --sso."
+  },
+  {
+    "id": "Are you sure you would like to continue?",
+    "translation": "¿Está seguro de que desea continuar?"
+  },
+  {
+    "id": "Are you sure you would like to overwrite it?",
+    "translation": "¿Está seguro de que desea sobrescribirlo?"
+  },
+  {
+    "id": "Authentication Method",
+    "translation": "Método de autenticación"
+  },
+  {
+    "id": "Authentication `METHOD`.",
+    "translation": "`METHOD` de autenticación."
+  },
+  {
+    "id": "Bucket '{{.bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
+    "translation": "Se ha encontrado el depósito '{{.bucket}}' en la región {{.region}} en su cuenta de IBM Cloud Object Storage."
+  },
+  {
+    "id": "CRN",
+    "translation": "CRN"
+  },
+  {
+    "id": "Changes plugin configuration",
+    "translation": "Cambia la configuración del plug-in"
+  },
+  {
+    "id": "Class: {{.class}}",
+    "translation": "Clase: {{.class}}"
+  },
+  {
+    "id": "Clear the option value.",
+    "translation": "Borre el valor de opción."
+  },
+  {
+    "id": "Complete an existing multipart upload instance.",
+    "translation": "Complete una instancia de carga multiparte existente."
+  },
+  {
+    "id": "Completing multipart upload...",
+    "translation": "Completando carga multiparte..."
+  },
+  {
+    "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
+    "translation": "Copia el objeto si se ha modificado desde el tiempo especificado (`TIMESTAMP`)."
+  },
+  {
+    "id": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`).",
+    "translation": "Copia el objeto si no se ha modificado desde el tiempo especificado (`TIMESTAMP`)."
+  },
+  {
+    "id": "Copies the object if its entity tag (ETag) is different than the specified tag (`ETAG`).",
+    "translation": "Copia el objeto si su etiqueta de entidad (ETag) difiere de la etiqueta especificada (`ETAG`)."
+  },
+  {
+    "id": "Copies the object if its entity tag (Etag) matches the specified tag (`ETAG`).",
+    "translation": "Copia el objeto si su etiqueta de entidad (Etag) coincide con la etiqueta especificada (`ETAG`)."
+  },
+  {
+    "id": "Copy an object from one bucket to another.",
+    "translation": "Copie un objeto de un depósito en otro."
+  },
+  {
+    "id": "Copying object...",
+    "translation": "Copiando objeto..."
+  },
+  {
+    "id": "Create a new bucket.",
+    "translation": "Cree un nuevo depósito."
+  },
+  {
+    "id": "Create a new multipart upload instance.",
+    "translation": "Cree una nueva instancia de carga multiparte."
+  },
+  {
+    "id": "Creating bucket...",
+    "translation": "Creación de depósito..."
+  },
+  {
+    "id": "Creating new multipart upload instance...",
+    "translation": "Creando una nueva instancia de carga multiparte..."
+  },
+  {
+    "id": "Date Created",
+    "translation": "Fecha de creación"
+  },
+  {
+    "id": "Default Region",
+    "translation": "Región predeterminada"
+  },
+  {
+    "id": "Delete '{{.Key}}' from bucket '{{.Bucket}}' ran successfully.",
+    "translation": "La supresión de '{{.Key}}' del depósito '{{.Bucket}}' se ha ejecutado correctamente."
+  },
+  {
+    "id": "Delete an existing bucket.",
+    "translation": "Suprima un depósito existente."
+  },
+  {
+    "id": "Delete an object from a bucket.",
+    "translation": "Suprima un objeto de un depósito."
+  },
+  {
+    "id": "Delete multiple objects from a bucket",
+    "translation": "Suprimir varios objetos de un depósito"
+  },
+  {
+    "id": "Delete multiple objects from bucket '{{.Bucket}}' ran successfully.",
+    "translation": "La supresión de varios objetos del depósito '{{.Bucket}}' se ha ejecutado correctamente."
+  },
+  {
+    "id": "Delete the CORS configuration from a bucket.",
+    "translation": "Suprima la configuración CORS de un depósito."
+  },
+  {
+    "id": "Deleting CORS from the bucket...",
+    "translation": "Suprimiendo CORS del depósito..."
+  },
+  {
+    "id": "Deleting bucket...",
+    "translation": "Suprimiendo depósito..."
+  },
+  {
+    "id": "Deleting object...",
+    "translation": "Suprimiendo objeto..."
+  },
+  {
+    "id": "Deleting objects...",
+    "translation": "Suprimiendo objetos..."
+  },
+  {
+    "id": "Details about bucket {{.details}}:",
+    "translation": "Detalles sobre el depósito {{.details}}:"
+  },
+  {
+    "id": "Details about your multipart upload instance:",
+    "translation": "Detalles sobre su instancia de carga multiparte:"
+  },
+  {
+    "id": "Determine if a specified bucket exists in your account.",
+    "translation": "Determine si existe un depósito específico en su cuenta."
+  },
+  {
+    "id": "Determine if an object exists within a bucket.",
+    "translation": "Determine si existe un objeto dentro de un depósito."
+  },
+  {
+    "id": "Display the list of uploaded parts of an object.",
+    "translation": "Muestre la lista de partes cargadas de un objeto."
+  },
+  {
+    "id": "Download Location",
+    "translation": "Ubicación de descarga"
+  },
+  {
+    "id": "Download an object from a bucket.",
+    "translation": "Descargue un objeto de un depósito."
+  },
+  {
+    "id": "Downloading object...",
+    "translation": "Descargando objeto..."
+  },
+  {
+    "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
+    "translation": "Descarga los bytes `RANGE` especificados de un objeto. Para obtener más información sobre la cabecera de rango HTTP, vaya a http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35."
+  },
+  {
+    "id": "Empty source bucket.",
+    "translation": "Depósito de origen vacío."
+  },
+  {
+    "id": "Error opening '{{.dl}}' to write ",
+    "translation": "Error al abrir '{{.dl}}' para escribir "
+  },
+  {
+    "id": "Found ",
+    "translation": "Se ha encontrado "
+  },
+  {
+    "id": "Get the CORS configuration from a bucket.",
+    "translation": "Obtenga la configuración CORS de un depósito."
+  },
+  {
+    "id": "Get the region and class of a bucket.",
+    "translation": "Obtenga la región y la clase de un depósito."
+  },
+  {
+    "id": "Getting bucket CORS ...",
+    "translation": "Obteniendo CORS del depósito..."
+  },
+  {
+    "id": "Incorrect Usage.",
+    "translation": "Uso incorrecto."
+  },
+  {
+    "id": "Initiated",
+    "translation": "Iniciado"
+  },
+  {
+    "id": "Interact with IBM Cloud Object Storage services",
+    "translation": "Interactúe con los servicios de IBM Cloud Object Storage"
+  },
+  {
+    "id": "It was last updated on {{.lastupdated}}.",
+    "translation": "Se actualizó por última vez el {{.lastupdated}}."
+  },
+  {
+    "id": "Key",
+    "translation": "Clave"
+  },
+  {
+    "id": "Last Modified",
+    "translation": "Última modificación"
+  },
+  {
+    "id": "Last Modified: {{.lastmodified}}",
+    "translation": "Última modificación: {{.lastmodified}}"
+  },
+  {
+    "id": "Last Updated",
+    "translation": "Última actualización"
+  },
+  {
+    "id": "Limits the response to keys that begin with the specified `PREFIX`.",
+    "translation": "Limita la respuesta a claves que empiezan por el valor `PREFIX` especificado."
+  },
+  {
+    "id": "List all objects in a specific bucket.",
+    "translation": "Liste todos los objetos en un depósito específico."
+  },
+  {
+    "id": "List all the buckets in your IBM Cloud Object Storage account.",
+    "translation": "Lista todos los depósitos de una cuenta de IBM Cloud Object Storage."
+  },
+  {
+    "id": "List configuration",
+    "translation": "Configuración de lista"
+  },
+  {
+    "id": "List configuration values.",
+    "translation": "Valores de configuración de lista."
+  },
+  {
+    "id": "Listing Multipart Uploads...",
+    "translation": "Listando cargas multiparte..."
+  },
+  {
+    "id": "Listing objects...",
+    "translation": "Listando objetos..."
+  },
+  {
+    "id": "Listing parts...",
+    "translation": "Listando partes..."
+  },
+  {
+    "id": "Loading buckets...",
+    "translation": "Cargando depósitos..."
+  },
+  {
+    "id": "Location: %s",
+    "translation": "Ubicación: %s"
+  },
+  {
+    "id": "Name",
+    "translation": "Nombre"
+  },
+  {
+    "id": "No buckets found in your account.",
+    "translation": "No se ha encontrado ningún depósito en la cuenta."
+  },
+  {
+    "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
+    "translation": "Se ha encontrado el objeto '{{.Key}}' en el depósito '{{.Bucket}}'."
+  },
+  {
+    "id": "Object Size",
+    "translation": "Tamaño de objeto"
+  },
+  {
+    "id": "Object Size: {{.objectsize}}",
+    "translation": "Tamaño de objeto: {{.objectsize}}"
+  },
+  {
+    "id": "Object data location (`FILE_PATH`).",
+    "translation": "Ubicación de datos de objeto (`FILE_PATH`)."
+  },
+  {
+    "id": "Operation canceled.",
+    "translation": "Operación cancelada."
+  },
+  {
+    "id": "Part Number",
+    "translation": "Número de pieza"
+  },
+  {
+    "id": "Part `NUMBER` of part being uploaded. This is a positive integer between 1 and 10,000.",
+    "translation": "Se está subiendo un número `NUMBER` de pieza. Es un entero positivo entre 1 y 10.000."
+  },
+  {
+    "id": "Part number `VALUE` after which listing begins",
+    "translation": "Número de pieza `VALUE` después del cual se inicia el listado"
+  },
+  {
+    "id": "Putting object...",
+    "translation": "Colocando objeto..."
+  },
+  {
+    "id": "Region: {{.region}}",
+    "translation": "Región: {{.region}}"
+  },
+  {
+    "id": "Regions endpoint `URL`.",
+    "translation": "`URL` de punto final de regiones."
+  },
+  {
+    "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
+    "translation": "Solicita codificar las claves de objetos en la respuesta y especifica el método `METHOD` de codificación que se va a utilizar."
+  },
+  {
+    "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified).",
+    "translation": "Devuelva el objeto solo si se ha modificado desde la indicación de fecha y hora `TIMESTAMP` especificada, de lo contrario devuelva un 304 (no modificado)."
+  },
+  {
+    "id": "Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed).",
+    "translation": "Devuelva el objeto solo si no se ha modificado desde la indicación de fecha y hora `TIMESTAMP` especificada, de lo contrario devuelva un 412 (error de condición previa)."
+  },
+  {
+    "id": "Return the object only if its entity tag (ETag) is different from the `ETAG` specified, otherwise return a 304 (not modified).",
+    "translation": "Devuelva el objeto solo si su etiqueta de entidad (ETag) es distinta de la `ETAG` especificada, de lo contrario devuelva un 304 (no modificado)."
+  },
+  {
+    "id": "Return the object only if its entity tag (ETag) is the same as the `ETAG` specified, otherwise return a 412 (precondition failed).",
+    "translation": "Devuelva el objeto solo si su etiqueta de entidad (ETag) es igual que la `ETAG` especificada, de lo contrario devuelva un 412 (error de condición previa)."
+  },
+  {
+    "id": "Returns the class type of the specified bucket.",
+    "translation": "Devuelve el tipo de clase del depósito especificado."
+  },
+  {
+    "id": "Saving default download location...",
+    "translation": "Guardando la ubicación de carga predeterminada..."
+  },
+  {
+    "id": "Saving new Service Instance ID...",
+    "translation": "Guardando el nuevo ID de instancia de servicio..."
+  },
+  {
+    "id": "Set a valid download location using 'cos config --ddl'",
+    "translation": "Establezca una ubicación válida de descargas utilizando 'cos config --ddl'"
+  },
+  {
+    "id": "Set regions endpoint URL.",
+    "translation": "Establezca un URL de punto final de regiones."
+  },
+  {
+    "id": "Set the CORS configuration on a bucket.",
+    "translation": "Establezca la configuración CORS en un depósito."
+  },
+  {
+    "id": "Set the default location for downloads.",
+    "translation": "Establezca la ubicación predeterminada para las descargas."
+  },
+  {
+    "id": "Sets the Cache-Control `HEADER` of the response.",
+    "translation": "Establece `HEADER` de control de caché de la respuesta."
+  },
+  {
+    "id": "Sets the Content-Disposition `HEADER` of the response.",
+    "translation": "Establece `HEADER` de disposición de contenido de la respuesta."
+  },
+  {
+    "id": "Sets the Content-Encoding `HEADER` of the response.",
+    "translation": "Establece `HEADER` de codificación de contenido de la respuesta."
+  },
+  {
+    "id": "Sets the Content-Language `HEADER` of the response.",
+    "translation": "Establece `HEADER` de idioma de contenido de la respuesta."
+  },
+  {
+    "id": "Sets the Content-Type `HEADER` of the response.",
+    "translation": "Establece `HEADER` de tipo de contenido de la respuesta."
+  },
+  {
+    "id": "Sets the Expires `HEADER` of the response.",
+    "translation": "Establece `HEADER` para el elemento Caduca de la respuesta."
+  },
+  {
+    "id": "Sets the IBM Service Instance `ID` in the request.",
+    "translation": "Establece `ID` de IBM Service Instance en la respuesta."
+  },
+  {
+    "id": "Setting bucket CORS...",
+    "translation": "Estableciendo CORS de depósito..."
+  },
+  {
+    "id": "Size",
+    "translation": "Tamaño"
+  },
+  {
+    "id": "Specifies `CACHING_DIRECTIVES` for the request/reply chain.",
+    "translation": "Especifica `CACHING_DIRECTIVES` para la cadena solicitud/respuesta."
+  },
+  {
+    "id": "Specifies presentational information (`DIRECTIVES`).",
+    "translation": "Especifica la información de presentación (`DIRECTIVES`)."
+  },
+  {
+    "id": "Specifies the `KEY` to start with when listing objects in a bucket.",
+    "translation": "Especifica la clave `KEY` con la que empezar al escuchar objetos en un depósito."
+  },
+  {
+    "id": "Specifies what content encodings (`CONTENT_ENCODING`) have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.",
+    "translation": "Especifica qué codificaciones de contenido (`CONTENT_ENCODING`) se han aplicado al objeto y, por tanto, qué mecanismos de decodificación deben aplicarse para obtener el tipo de medios referenciados por el campo de cabecera Content-Type."
+  },
+  {
+    "id": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. `DIRECTIVE` values: COPY, REPLACE.",
+    "translation": "Especifica si los metadatos se copian del objeto de origen o se sustituyen por los metadatos proporcionados en la solicitud. Valores de `DIRECTIVE`: COPY, REPLACE."
+  },
+  {
+    "id": "Store CRN in the config.",
+    "translation": "Almacene CRN en la configuración."
+  },
+  {
+    "id": "Store Default Download Location in the config.",
+    "translation": "Almacene la ubicación de descarga predeterminada en la configuración."
+  },
+  {
+    "id": "Store Default Region in the config.",
+    "translation": "Almacene la región predeterminada en la configuración."
+  },
+  {
+    "id": "Store HMAC credentials in the config.",
+    "translation": "Almacene credenciales HMAC en la configuración."
+  },
+  {
+    "id": "Store your service instance ID (`CRN`) in the config.",
+    "translation": "Almacene su ID de instancia de servicio (`CRN`) en la configuración."
+  },
+  {
+    "id": "Successfully aborted a multipart upload instance with key '{{.Key}}' and bucket '{{.Bucket}}'.",
+    "translation": "Se ha terminado anormalmente una instancia de carga multiparte con clave '{{.Key}}' y depósito '{{.Bucket}}'."
+  },
+  {
+    "id": "Successfully cleared regions endpoint URL.",
+    "translation": "Se ha borrado correctamente el URL de punto final de regiones."
+  },
+  {
+    "id": "Successfully copied '{{.object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
+    "translation": "Se ha copiado satisfactoriamente '{{.object}}' del depósito '{{.bucket1}}' en el depósito '{{.bucket2}}'."
+  },
+  {
+    "id": "Successfully created bucket '{{.bucket}}'.",
+    "translation": "Se ha creado satisfactoriamente el depósito '{{.bucket}}'."
+  },
+  {
+    "id": "Successfully deleted CORS configuration on bucket: {{.Bucket}}",
+    "translation": "Se ha suprimido correctamente la configuración CORS en el depósito: {{.Bucket}}"
+  },
+  {
+    "id": "Successfully deleted bucket '{{.Bucket}}'. The bucket '{{.Bucket}}' will be available for reuse after 15 minutes.",
+    "translation": "Se ha suprimido correctamente el depósito '{{.Bucket}}'. El depósito '{{.Bucket}}' estará disponible para volver a utilizarlo después de 15 minutos."
+  },
+  {
+    "id": "Successfully downloaded '{{.Key}}' from bucket '{{.Bucket}}'",
+    "translation": "Se ha descargado correctamente '{{.Key}}' del depósito '{{.Bucket}}'"
+  },
+  {
+    "id": "Successfully saved HMAC Credentials to file.",
+    "translation": "Las credenciales HMAC se han guardado satisfactoriamente en el archivo."
+  },
+  {
+    "id": "Successfully saved default region. The program will look for buckets in the region {{.region}}.",
+    "translation": "La región predeterminada se ha guardado satisfactoriamente. El programa buscará depósitos en la región {{.region}}."
+  },
+  {
+    "id": "Successfully saved download location. New files will be downloaded to '",
+    "translation": "La ubicación de descarga se ha guardado satisfactoriamente. Los nuevos archivos se descargarán en"
+  },
+  {
+    "id": "Successfully set CORS configuration on bucket: {{.Bucket}}",
+    "translation": "Se ha establecido correctamente la configuración CORS en el depósito: {{.Bucket}}"
+  },
+  {
+    "id": "Successfully stored your service instance ID.",
+    "translation": "Su ID de instancia de servicio se ha guardado satisfactoriamente."
+  },
+  {
+    "id": "Successfully switched to {{.Auth}}-based authentication. The program will access your Cloud Object Storage account using your {{.Auth}} Credentials.",
+    "translation": "Se ha conmutado satisfactoriamente a la autenticación basada en {{.Auth}}. El programa accederá a su cuenta de Cloud Object Storage utilizando sus credenciales de {{.Auth}}."
+  },
+  {
+    "id": "Successfully updated regions endpoint URL to {{.URL}}.",
+    "translation": "El URL de punto final de regiones se ha actualizado correctamente en {{.URL}}."
+  },
+  {
+    "id": "Successfully uploaded '{{.Key}}' to bucket '{{.Bucket}}'.",
+    "translation": "'{{.Key}}' se ha cargado satisfactoriamente en el depósito '{{.Bucket}}'."
+  },
+  {
+    "id": "Successfully uploaded object '{{.Key}}' to bucket '{{.Bucket}}'.",
+    "translation": "El objeto '{{.Key}}' se ha cargado satisfactoriamente en el depósito '{{.Bucket}}'."
+  },
+  {
+    "id": "Switch between HMAC and IAM authentication",
+    "translation": "Conmutar entre autenticación HMAC e IAM"
+  },
+  {
+    "id": "Switch between HMAC and IAM authentication.",
+    "translation": "Conmute entre autenticación HMAC e IAM."
+  },
+  {
+    "id": "The CORS configuration of ",
+    "translation": "La configuración CORS de "
+  },
+  {
+    "id": "The `KEY` of the object.",
+    "translation": "`KEY` del objeto."
+  },
+  {
+    "id": "The `LANGUAGE` the content is in.",
+    "translation": "`LANGUAGE` (idioma) del contenido."
+  },
+  {
+    "id": "The `REGION` where the bucket is present. If this flag is not provided, the program will use the default option specified in config.",
+    "translation": "`REGION` donde se encuentra el depósito. Si este distintivo no se proporciona, el programa utilizará la opción predeterminada especificada en la configuración."
+  },
+  {
+    "id": "The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the service calls from timing out.",
+    "translation": "`SIZE` de cada página para obtener la llamada de servicio. Esto no afecta al número de elementos devueltos en la salida del mandato. Si establece un tamaño de página más pequeño da como resultado más llamadas al servicio AWS, recuperando menos elementos en cada llamada. Esto puede evitar que las llamadas de servicio excedan el tiempo de espera."
+  },
+  {
+    "id": "The `VALUE` of CorsConfiguration to set.",
+    "translation": "`VALUE` de Configuración CORS que se va a establecer."
+  },
+  {
+    "id": "The `VALUE` of CreateBucketConfiguration to set.",
+    "translation": "`VALUE` de Crear configuración de depósito que se va a establecer."
+  },
+  {
+    "id": "The `VALUE` of Delete to set. Syntax: Objects=[{Key=string},{Key=string}],Quiet=boolean",
+    "translation": "`VALUE` de Suprimir que se va a establecer. Sintaxis: Objects=[{Key=string},{Key=string}],Quiet=boolean"
+  },
+  {
+    "id": "The `VALUE` of MultipartUpload to set.",
+    "translation": "`VALUE` de Carga multiparte que se va a establecer."
+  },
+  {
+    "id": "The base64-encoded 128-bit `MD5` digest of the data.",
+    "translation": "Resumen `MD5` de 128 bits de base 64 de los datos."
+  },
+  {
+    "id": "The download destination '{{.dl}}' is a directory.",
+    "translation": "El destino de descarga '{{.dl}}' es un directorio."
+  },
+  {
+    "id": "The download directory '{{.dl}}' is invalid",
+    "translation": "El directorio de descargas '{{.dl}}' no es válido"
+  },
+  {
+    "id": "The download directory '{{.dl}}' is invalid.",
+    "translation": "El directorio de descargas '{{.dl}}' no es válido."
+  },
+  {
+    "id": "The name (`BUCKET_NAME`) of the bucket.",
+    "translation": "Nombre (`BUCKET_NAME`) del depósito."
+  },
+  {
+    "id": "The name (`CLASS_NAME`) of the Class.",
+    "translation": "Nombre (`CLASS_NAME`) de la clase."
+  },
+  {
+    "id": "The operation will do not ask for confirmation.",
+    "translation": "La operación no solicitará confirmación."
+  },
+  {
+    "id": "The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB.",
+    "translation": "Rango de bytes que se copia del objeto de origen. El valor de rango debe utilizar el formato bytes=first-last, donde el primero y el último (first-last) son desplazamientos de bytes basados en cero que se van a copiar. Por ejemplo, bytes=0-9 indica que desea copiar los primeros 10 bytes del origen. Puede copiar un rango solo si el objeto de origen es mayor de 5 MB."
+  },
+  {
+    "id": "The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.",
+    "translation": "El nombre de depósito solicitado no está disponible. El espacio de nombres del depósito es compartido por todos los usuarios del sistema. Seleccione un nombre diferente y vuelva a intentar la operación."
+  },
+  {
+    "id": "The specified bucket is not empty. Delete all the files in the bucket, then try again.",
+    "translation": "El depósito especificado no está vacío. Suprima todos los archivos en el depósito y vuelva a intentarlo."
+  },
+  {
+    "id": "The specified bucket name is invalid. Bucket names must start and end in alphanumeric characters (from 3 to 63) and are limited to lowercase, numbers, non-consecutive dots, and hyphens.",
+    "translation": "El nombre de depósito especificado no es válido. Los nombres de depósito deben empezar y finalizar en caracteres alfanuméricos (de 3 a 63) y están limitados a minúsculas, números, punto no consecutivos y guiones."
+  },
+  {
+    "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region for the bucket to delete. Provide the bucket's correct region and try again.",
+    "translation": "El depósito especificado se ha encontrado en la cuenta de IBM Cloud. Esto puede deberse a que se proporcionó la región equivocada para que el depósito se borrara. Proporcione la región correcta del depósito y vuelva a intentarlo."
+  },
+  {
+    "id": "The specified bucket was not found in your account. Ensure that you have set the correct region with the region flag.",
+    "translation": "El depósito especificado no se ha encontrado en su cuenta. Asegúrese de que ha establecido la región correcta con el distintivo de región."
+  },
+  {
+    "id": "The specified download location does not exist on your system. Try again with a valid download path.",
+    "translation": "La ubicación de descarga especificada no existe en el sistema. Vuelva a intentarlo con una vía de acceso de descarga válida."
+  },
+  {
+    "id": "The specified download location is not valid. Try again with a valid download path.",
+    "translation": "La ubicación de descarga especificada no es válida. Vuelva a intentarlo con una vía de acceso de descarga válida."
+  },
+  {
+    "id": "The total `NUMBER` of items to return in the command's output.",
+    "translation": "`NUMBER` total de elementos que se va a devolver en la salida del mandato."
+  },
+  {
+    "id": "This operation lists in-progress multipart uploads.",
+    "translation": "Esta operación lista las cargas multiparte en curso."
+  },
+  {
+    "id": "To retrieve the next set of multipart uploads, use the following markers in the next command:",
+    "translation": "Para recuperar el conjunto siguiente de cargas multiparte, utilice los siguientes marcadores en el mandato siguiente:"
+  },
+  {
+    "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
+    "translation": "Para recuperar el conjunto siguiente de objetos, utilice esta clave como --marker en el mandato siguiente:"
+  },
+  {
+    "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",
+    "translation": "Para recuperar el conjunto siguiente de partes, utilice este marcador como marcador de número de pieza en el mandato siguiente: "
+  },
+  {
+    "id": "Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.",
+    "translation": "Junto con key-marker, especifica la carga multiparte tras la cual debe empezar el listado. Si no se especifica key-marker, se ignora el parámetro upload-id-marker."
+  },
+  {
+    "id": "Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.",
+    "translation": "Junto con upload-id-marker, este parámetro especifica la carga multiparte tras la cual debe empezar el listado."
+  },
+  {
+    "id": "Try logging in using 'ibmcloud login'.",
+    "translation": "Pruebe a iniciar sesión con 'ibmcloud login'."
+  },
+  {
+    "id": "Unable to clear regions endpoint URL.",
+    "translation": "No se puede borrar el URL de punto final de regiones."
+  },
+  {
+    "id": "Unable to get Default Download Location.",
+    "translation": "No se puede obtener la ubicación de carga predeterminada."
+  },
+  {
+    "id": "Unable to get Region.",
+    "translation": "No se puede obtener la región."
+  },
+  {
+    "id": "Unable to get new CRN.",
+    "translation": "No se puede obtener el nuevo CRN."
+  },
+  {
+    "id": "Unable to load config method.",
+    "translation": "No se puede cargar el método de configuración."
+  },
+  {
+    "id": "Unable to load default Region.",
+    "translation": "No se puede cargar la región predeterminada."
+  },
+  {
+    "id": "Unable to load default download location.",
+    "translation": "No se puede cargar la ubicación predeterminada de descargas."
+  },
+  {
+    "id": "Unable to load region.",
+    "translation": "No se puede cargar la región."
+  },
+  {
+    "id": "Unable to open object '{{.Key}}' for upload.",
+    "translation": "No se ha podido abrir el objeto '{{.Key}}' para su carga."
+  },
+  {
+    "id": "Unable to open object '{{.object}}' for upload.",
+    "translation": "No se ha podido abrir el archivo '{{.object}}' para su carga."
+  },
+  {
+    "id": "Unable to parse authentication method.",
+    "translation": "No se puede analizar el método de autenticación."
+  },
+  {
+    "id": "Unable to read new Authentication Method.",
+    "translation": "No se puede leer el nuevo método de autenticación."
+  },
+  {
+    "id": "Unable to read new default download location.",
+    "translation": "No se puede leer la nueva ubicación predeterminada de descargas."
+  },
+  {
+    "id": "Unable to read new region.",
+    "translation": "No se puede leer la nueva región."
+  },
+  {
+    "id": "Unable to save new region.",
+    "translation": "No se puede guardar la nueva región."
+  },
+  {
+    "id": "Unable to save new regions endpoint URL.",
+    "translation": "No se puede guardar el URL de punto final de regiones."
+  },
+  {
+    "id": "Unable to store Access key.",
+    "translation": "No se puede almacenar la clave de acceso."
+  },
+  {
+    "id": "Unable to store Secret key.",
+    "translation": "No se puede almacenar la clave secreta."
+  },
+  {
+    "id": "Unable to store new download location.",
+    "translation": "No se puede almacenar la nueva ubicación de descargas."
+  },
+  {
+    "id": "Unable to switch authentication method.",
+    "translation": "No se puede conmutar el método de autenticación."
+  },
+  {
+    "id": "Upload `ID` identifying the multipart upload.",
+    "translation": "`ID` de carga que identifica la carga multiparte."
+  },
+  {
+    "id": "Upload a part by copying data from an existing object.",
+    "translation": "Cargue una parte copiando datos de un objeto existente."
+  },
+  {
+    "id": "Upload a part of an object.",
+    "translation": "Cargue una parte de un objeto."
+  },
+  {
+    "id": "Upload an object to a bucket.",
+    "translation": "Cargue un objeto en un depósito."
+  },
+  {
+    "id": "UploadId",
+    "translation": "ID de carga"
+  },
+  {
+    "id": "Uploaded part '{{.part}}' of object '{{.object}}'.",
+    "translation": "Parte cargada '{{.part}}' de objeto '{{.object}}'."
+  },
+  {
+    "id": "Uploaded part copy '{{.part}}' of object '{{.object}}'.",
+    "translation": "Se ha cargado la copia de parte '{{.part}}' del objeto '{{.object}}'."
+  },
+  {
+    "id": "Uploading file part...",
+    "translation": "Cargando parte de archivo..."
+  },
+  {
+    "id": "Uploading part copy...",
+    "translation": "Cargando copia de parte..."
+  },
+  {
+    "id": "Value",
+    "translation": "Valor"
+  },
+  {
+    "id": "WARNING: An object with the name '{{.file}}' already exists at '{{.dl}}'.",
+    "translation": "AVISO: Un objeto con el nombre '{{.file}}' ya existe en '{{.dl}}'."
+  },
+  {
+    "id": "WARNING: This will permanently delete the bucket '{{.Bucket}}' from your account.",
+    "translation": "AVISO: Esto suprimirá de forma definitiva el depósito '{{.Bucket}}' de la cuenta."
+  },
+  {
+    "id": "WARNING: This will permanently delete the object '{{.Key}}' from the bucket '{{.Bucket}}'.",
+    "translation": "AVISO: Esto suprimirá de forma definitiva el objeto '{{.Key}}' del depósito '{{.Bucket}}'."
+  },
+  {
+    "id": "WARNING: You have already stored a service instance ID before.",
+    "translation": "AVISO: Ya ha almacenado un ID de instancia de servicio antes."
+  },
+  {
+    "id": "Wait until 200 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.",
+    "translation": "Espere hasta recibir la respuesta 200 cuando sondee con head-bucket.  Se sondeará cada 5 segundos hasta alcanzar un estado correcto. Esto provocará una salida con un código de retorno 255 después de 20 comprobaciones con error."
+  },
+  {
+    "id": "Wait until 200 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
+    "translation": "Espere hasta recibir la respuesta 200 cuando sondee con head-object.  Se sondeará cada 5 segundos hasta alcanzar un estado correcto.  Esto provocará una salida con un código de retorno 255 después de 20 comprobaciones con error."
+  },
+  {
+    "id": "Wait until 404 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
+    "translation": "Espere hasta recibir la respuesta 404 cuando sondee con head-bucket.  Se sondeará cada 5 segundos hasta alcanzar un estado correcto.  Esto provocará una salida con un código de retorno 255 después de 20 comprobaciones con error."
+  },
+  {
+    "id": "Wait until 404 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
+    "translation": "Espere hasta recibir la respuesta 404 cuando sondee con head-object.  Se sondeará cada 5 segundos hasta alcanzar un estado correcto.  Esto provocará una salida con un código de retorno 255 después de 20 comprobaciones con error."
+  },
+  {
+    "id": "Wait until a particular condition is satisfied.  Each subcommand polls an API until the listed requirement is met.",
+    "translation": "Espere hasta que se satisfaga una condición determinada.  Cada submandato sondea una API hasta cumplir el requisito de la lista."
+  },
+  {
+    "id": "Your proposed upload is smaller than the minimum allowed size. File parts must be greater than 5 MB in size, except for the last part.",
+    "translation": "Su carga propuesta es más pequeña que el tamaño mínimo permitido. Las partes del archivo deben tener un tamaño superior a 5 MB, excepto la última parte."
+  },
+  {
+    "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",
+    "translation": "`SIZE` del cuerpo en bytes. Este parámetro es útil cuando el tamaño del cuerpo no se puede determinar automáticamente."
+  },
+  {
+    "id": "no multipart uploads in bucket '",
+    "translation": "ninguna carga multiparte en el depósito '"
+  },
+  {
+    "id": "no objects in bucket '",
+    "translation": "ningún objeto en el depósito '"
+  },
+  {
+    "id": "no parts in the multipart upload for '",
+    "translation": "ninguna parte de la carga multiparte de '"
+  }
+]

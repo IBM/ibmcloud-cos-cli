@@ -1,0 +1,890 @@
+[
+  {
+    "id": " buckets found in your account:\n",
+    "translation": " アカウントにバケットが見つかりました:\n"
+  },
+  {
+    "id": " downloaded.",
+    "translation": " ダウンロードされました。"
+  },
+  {
+    "id": " multipart uploads in bucket '",
+    "translation": " バケットにマルチパート・アップロードがあります '"
+  },
+  {
+    "id": " objects in bucket '",
+    "translation": " バケットにオブジェクトがあります '"
+  },
+  {
+    "id": " parts in the multipart upload for '",
+    "translation": " 次のマルチパート・アップロードにパーツがあります: '"
+  },
+  {
+    "id": "(`SOURCE`) The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.",
+    "translation": "(`SOURCE`) スラッシュ (/) で区切られた、ソース・バケットの名前とソース・オブジェクトのキー名。 URL エンコードされていなければなりません。"
+  },
+  {
+    "id": "1 bucket found in your account:\n",
+    "translation": "アカウントに 1 個のバケットが見つかりました:\n"
+  },
+  {
+    "id": "1 multipart upload in bucket '",
+    "translation": "バケットに 1 個のマルチパート・アップロードがあります '"
+  },
+  {
+    "id": "1 object in bucket '",
+    "translation": "バケットに 1 個のオブジェクトがあります '"
+  },
+  {
+    "id": "1 part in the multipart upload for '",
+    "translation": "次のマルチパート・アップロードに 1 個のパーツがあります: '"
+  },
+  {
+    "id": "A `DELIMITER` is a character you use to group keys.",
+    "translation": "`DELIMITER` はキーをグループ化するために使用する文字です。"
+  },
+  {
+    "id": "A `MAP` of metadata to store. Syntax: KeyName1=string,KeyName2=string",
+    "translation": "保管するメタデータの `MAP` です。 構文: KeyName1=string,KeyName2=string"
+  },
+  {
+    "id": "A `TOKEN` to specify where to start paginating. This is the NextToken from a previously truncated response.",
+    "translation": "ページ編集を開始する場所を指定するための `TOKEN`。 これは以前に切り捨てられた応答からの theNextToken です。"
+  },
+  {
+    "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
+    "translation": "指定した名前を持つバケットはアカウントに既に存在します。 新しい名前でバケットを作成してください。"
+  },
+  {
+    "id": "A standard `MIME` type describing the format of the object data.",
+    "translation": "オブジェクト・データの形式を記述する標準 `MIME` タイプです。"
+  },
+  {
+    "id": "Aborting multipart upload...",
+    "translation": "マルチパート・アップロードを中止中..."
+  },
+  {
+    "id": "Aborts a multipart upload instance.",
+    "translation": "マルチパート・アップロード・インスタンスを中止します。"
+  },
+  {
+    "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
+    "translation": "IBM Cloud アカウントへのアクセスが拒否されました。 ibmcloud login --sso と入力することでログインをやり直してください。"
+  },
+  {
+    "id": "Are you sure you would like to continue?",
+    "translation": "続行してよろしいですか?"
+  },
+  {
+    "id": "Are you sure you would like to overwrite it?",
+    "translation": "上書きしてよろしいですか?"
+  },
+  {
+    "id": "Authentication Method",
+    "translation": "認証方法"
+  },
+  {
+    "id": "Authentication `METHOD`.",
+    "translation": "認証 `METHOD`。"
+  },
+  {
+    "id": "Bucket '{{.bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
+    "translation": "バケット '{{.bucket}}' (Region {{.region}} 内) が IBM Cloud Object Storage アカウント内で見つかりました。"
+  },
+  {
+    "id": "CRN",
+    "translation": "CRN"
+  },
+  {
+    "id": "Changes plugin configuration",
+    "translation": "プラグイン構成の変更"
+  },
+  {
+    "id": "Class: {{.class}}",
+    "translation": "クラス: {{.class}}"
+  },
+  {
+    "id": "Clear the option value.",
+    "translation": "オプション値をクリアします。"
+  },
+  {
+    "id": "Complete an existing multipart upload instance.",
+    "translation": "既存のマルチパート・アップロード・インスタンスを完了します。"
+  },
+  {
+    "id": "Completing multipart upload...",
+    "translation": "マルチパート・アップロードを完了中..."
+  },
+  {
+    "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
+    "translation": "指定した時刻 (`TIMESTAMP`) 以降に変更されている場合にオブジェクトをコピーします。"
+  },
+  {
+    "id": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`).",
+    "translation": "指定した時刻 (`TIMESTAMP`) 以降に変更されていない場合にオブジェクトをコピーします。"
+  },
+  {
+    "id": "Copies the object if its entity tag (ETag) is different than the specified tag (`ETAG`).",
+    "translation": "エンティティー・タグ (ETag) が指定したタグ (`ETAG`) と異なる場合にオブジェクトをコピーします。"
+  },
+  {
+    "id": "Copies the object if its entity tag (Etag) matches the specified tag (`ETAG`).",
+    "translation": "エンティティー・タグ (ETag) が指定したタグ (`ETAG`) と一致する場合にオブジェクトをコピーします。"
+  },
+  {
+    "id": "Copy an object from one bucket to another.",
+    "translation": "あるバケットから別のバケットにオブジェクトをコピーします。"
+  },
+  {
+    "id": "Copying object...",
+    "translation": "オブジェクトをコピー中..."
+  },
+  {
+    "id": "Create a new bucket.",
+    "translation": "新規バケットを作成します。"
+  },
+  {
+    "id": "Create a new multipart upload instance.",
+    "translation": "新規のマルチパート・アップロード・インスタンスを作成します。"
+  },
+  {
+    "id": "Creating bucket...",
+    "translation": "バケットを作成中..."
+  },
+  {
+    "id": "Creating new multipart upload instance...",
+    "translation": "新規のマルチパート・アップロード・インスタンスを作成中..."
+  },
+  {
+    "id": "Date Created",
+    "translation": "作成日"
+  },
+  {
+    "id": "Default Region",
+    "translation": "デフォルト Region"
+  },
+  {
+    "id": "Delete '{{.Key}}' from bucket '{{.Bucket}}' ran successfully.",
+    "translation": "'{{.Key}}' のバケット '{{.Bucket}}' からの削除が正常に実行されました。"
+  },
+  {
+    "id": "Delete an existing bucket.",
+    "translation": "既存のバケットを削除します。"
+  },
+  {
+    "id": "Delete an object from a bucket.",
+    "translation": "バケットからオブジェクトを削除します。"
+  },
+  {
+    "id": "Delete multiple objects from a bucket",
+    "translation": "バケットから複数オブジェクトを削除します"
+  },
+  {
+    "id": "Delete multiple objects from bucket '{{.Bucket}}' ran successfully.",
+    "translation": "複数オブジェクトのバケット '{{.Bucket}}' からの削除が正常に実行されました。"
+  },
+  {
+    "id": "Delete the CORS configuration from a bucket.",
+    "translation": "バケットから CORS 構成を削除します。"
+  },
+  {
+    "id": "Deleting CORS from the bucket...",
+    "translation": "バケットから CORS を削除中..."
+  },
+  {
+    "id": "Deleting bucket...",
+    "translation": "バケットを削除中..."
+  },
+  {
+    "id": "Deleting object...",
+    "translation": "オブジェクトを削除中..."
+  },
+  {
+    "id": "Deleting objects...",
+    "translation": "オブジェクトを削除中..."
+  },
+  {
+    "id": "Details about bucket {{.details}}:",
+    "translation": "バケット {{.details}} についての詳細:"
+  },
+  {
+    "id": "Details about your multipart upload instance:",
+    "translation": "マルチパート・アップロード・インスタンスについての詳細:"
+  },
+  {
+    "id": "Determine if a specified bucket exists in your account.",
+    "translation": "指定したバケットがアカウント内に存在するかを判断します。"
+  },
+  {
+    "id": "Determine if an object exists within a bucket.",
+    "translation": "オブジェクトがバケット内に存在するかを判断します。"
+  },
+  {
+    "id": "Display the list of uploaded parts of an object.",
+    "translation": "アップロードされたオブジェクトのパーツを表示します。"
+  },
+  {
+    "id": "Download Location",
+    "translation": "ダウンロード場所"
+  },
+  {
+    "id": "Download an object from a bucket.",
+    "translation": "バケットからオブジェクトをダウンロードします。"
+  },
+  {
+    "id": "Downloading object...",
+    "translation": "オブジェクトをダウンロード中..."
+  },
+  {
+    "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
+    "translation": "オブジェクトの指定した `RANGE` バイトをダウンロードします。 HTTP Range ヘッダーの詳細については、http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35 を参照してください。"
+  },
+  {
+    "id": "Empty source bucket.",
+    "translation": "ソース・バケットを空にします。"
+  },
+  {
+    "id": "Error opening '{{.dl}}' to write ",
+    "translation": "'{{.dl}}' を書き込み用にオープン中にエラーが発生しました "
+  },
+  {
+    "id": "Found ",
+    "translation": "見つかりました "
+  },
+  {
+    "id": "Get the CORS configuration from a bucket.",
+    "translation": "バケットから CORS 構成を取得します。"
+  },
+  {
+    "id": "Get the region and class of a bucket.",
+    "translation": "バケットの Region とクラスを取得します。"
+  },
+  {
+    "id": "Getting bucket CORS ...",
+    "translation": "バケット CORS を取得中 ..."
+  },
+  {
+    "id": "Incorrect Usage.",
+    "translation": "使用法が正しくありません。"
+  },
+  {
+    "id": "Initiated",
+    "translation": "開始されました"
+  },
+  {
+    "id": "Interact with IBM Cloud Object Storage services",
+    "translation": "IBM Cloud Object Storage サービスと対話します"
+  },
+  {
+    "id": "It was last updated on {{.lastupdated}}.",
+    "translation": "{{.lastupdated}} に最終更新されました。"
+  },
+  {
+    "id": "Key",
+    "translation": "キー"
+  },
+  {
+    "id": "Last Modified",
+    "translation": "最終変更日時"
+  },
+  {
+    "id": "Last Modified: {{.lastmodified}}",
+    "translation": "最終変更日時: {{.lastmodified}}"
+  },
+  {
+    "id": "Last Updated",
+    "translation": "最終更新"
+  },
+  {
+    "id": "Limits the response to keys that begin with the specified `PREFIX`.",
+    "translation": "指定した `PREFIX` で始まるキーに応答を制限します。"
+  },
+  {
+    "id": "List all objects in a specific bucket.",
+    "translation": "特定バケット内のすべてのオブジェクトをリストします。"
+  },
+  {
+    "id": "List all the buckets in your IBM Cloud Object Storage account.",
+    "translation": "IBM Cloud Object Storage アカウント内のすべてのバケットをリストします。"
+  },
+  {
+    "id": "List configuration",
+    "translation": "構成をリストします"
+  },
+  {
+    "id": "List configuration values.",
+    "translation": "構成値をリストします。"
+  },
+  {
+    "id": "Listing Multipart Uploads...",
+    "translation": "マルチパート・アップロードをリスト中..."
+  },
+  {
+    "id": "Listing objects...",
+    "translation": "オブジェクトをリスト中..."
+  },
+  {
+    "id": "Listing parts...",
+    "translation": "パーツをリスト中..."
+  },
+  {
+    "id": "Loading buckets...",
+    "translation": "バケットをロード中..."
+  },
+  {
+    "id": "Location: %s",
+    "translation": "場所: %s"
+  },
+  {
+    "id": "Name",
+    "translation": "名前"
+  },
+  {
+    "id": "No buckets found in your account.",
+    "translation": "アカウントにバケットが見つかりませんでした。"
+  },
+  {
+    "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
+    "translation": "オブジェクト '{{.Key}}' がバケット '{{.Bucket}}' で見つかりました。"
+  },
+  {
+    "id": "Object Size",
+    "translation": "オブジェクト・サイズ"
+  },
+  {
+    "id": "Object Size: {{.objectsize}}",
+    "translation": "オブジェクト・サイズ: {{.objectsize}}"
+  },
+  {
+    "id": "Object data location (`FILE_PATH`).",
+    "translation": "オブジェクト・データの場所 (`FILE_PATH`)."
+  },
+  {
+    "id": "Operation canceled.",
+    "translation": "操作がキャンセルされました。"
+  },
+  {
+    "id": "Part Number",
+    "translation": "パーツの番号"
+  },
+  {
+    "id": "Part `NUMBER` of part being uploaded. This is a positive integer between 1 and 10,000.",
+    "translation": "アップロード中のパーツのパーツ `NUMBER`。 これは 1 から 10,000 までの正整数です。"
+  },
+  {
+    "id": "Part number `VALUE` after which listing begins",
+    "translation": "リスト表示が開始する前のパーツの番号 `VALUE`"
+  },
+  {
+    "id": "Putting object...",
+    "translation": "オブジェクトを配置中..."
+  },
+  {
+    "id": "Region: {{.region}}",
+    "translation": "Region: {{.region}}"
+  },
+  {
+    "id": "Regions endpoint `URL`.",
+    "translation": "Region エンドポイント `URL`。"
+  },
+  {
+    "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
+    "translation": "応答内のオブジェクト・キーをエンコードするように要求し、使用するエンコード `METHOD` を指定します。"
+  },
+  {
+    "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified).",
+    "translation": "指定した `TIMESTAMP` までに変更された場合にのみオブジェクトを返します。それ以外の場合は 304 (変更なし) を返します。"
+  },
+  {
+    "id": "Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed).",
+    "translation": "指定した `TIMESTAMP` までに変更されなかった場合にのみオブジェクトを返します。それ以外の場合は 412 (前提条件に合いませんでした) を返します。"
+  },
+  {
+    "id": "Return the object only if its entity tag (ETag) is different from the `ETAG` specified, otherwise return a 304 (not modified).",
+    "translation": "エンティティー・タグ (ETag) が指定した `ETAG` と異なる場合にのみオブジェクトを返します。それ以外の場合は 304 (変更なし) を返します。"
+  },
+  {
+    "id": "Return the object only if its entity tag (ETag) is the same as the `ETAG` specified, otherwise return a 412 (precondition failed).",
+    "translation": "エンティティー・タグ (ETag) が指定した `ETAG` と同じ場合にのみオブジェクトを返します。それ以外の場合は 412 (前提条件に合いませんでした) を返します。"
+  },
+  {
+    "id": "Returns the class type of the specified bucket.",
+    "translation": "指定したバケットのクラス・タイプを返します。"
+  },
+  {
+    "id": "Saving default download location...",
+    "translation": "デフォルトのダウンロード場所を保存中..."
+  },
+  {
+    "id": "Saving new Service Instance ID...",
+    "translation": "新規サービス・インスタンス ID を保存中..."
+  },
+  {
+    "id": "Set a valid download location using 'cos config --ddl'",
+    "translation": "有効なダウンロード場所を 'cos config --ddl' を使用して設定します。"
+  },
+  {
+    "id": "Set regions endpoint URL.",
+    "translation": "Region エンドポイント URL を設定します。"
+  },
+  {
+    "id": "Set the CORS configuration on a bucket.",
+    "translation": "バケット上で CORS 構成を設定します。"
+  },
+  {
+    "id": "Set the default location for downloads.",
+    "translation": "ダウンロード用のデフォルトの場所を設定します。"
+  },
+  {
+    "id": "Sets the Cache-Control `HEADER` of the response.",
+    "translation": "応答の Cache-Control `HEADER` を設定します。"
+  },
+  {
+    "id": "Sets the Content-Disposition `HEADER` of the response.",
+    "translation": "応答の Content-Disposition `HEADER` を設定します。"
+  },
+  {
+    "id": "Sets the Content-Encoding `HEADER` of the response.",
+    "translation": "応答の Content-Encoding `HEADER` を設定します。"
+  },
+  {
+    "id": "Sets the Content-Language `HEADER` of the response.",
+    "translation": "応答の Content-Language `HEADER` を設定します。"
+  },
+  {
+    "id": "Sets the Content-Type `HEADER` of the response.",
+    "translation": "応答の Content-Type `HEADER` を設定します。"
+  },
+  {
+    "id": "Sets the Expires `HEADER` of the response.",
+    "translation": "応答の Expires `HEADER` を設定します。"
+  },
+  {
+    "id": "Sets the IBM Service Instance `ID` in the request.",
+    "translation": "IBM サービス・インスタンス `ID` を要求に設定します。"
+  },
+  {
+    "id": "Setting bucket CORS...",
+    "translation": "バケット CORS を設定中..."
+  },
+  {
+    "id": "Size",
+    "translation": "サイズ"
+  },
+  {
+    "id": "Specifies `CACHING_DIRECTIVES` for the request/reply chain.",
+    "translation": "要求/応答チェーンの `CACHING_DIRECTIVES` を指定します。"
+  },
+  {
+    "id": "Specifies presentational information (`DIRECTIVES`).",
+    "translation": "表現のための情報 (`DIRECTIVES`) を指定します。"
+  },
+  {
+    "id": "Specifies the `KEY` to start with when listing objects in a bucket.",
+    "translation": "バケット内のオブジェクトをリストするときの開始 `KEY` を指定します。"
+  },
+  {
+    "id": "Specifies what content encodings (`CONTENT_ENCODING`) have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.",
+    "translation": "オブジェクトに適用されているコンテンツ・エンコード (`CONTENT_ENCODING`) を指定します。また同様に、Content-Type ヘッダー・フィールドによって参照される media-type を取得するために適用が必要なデコード・メカニズムを指定します。"
+  },
+  {
+    "id": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. `DIRECTIVE` values: COPY, REPLACE.",
+    "translation": "メタデータをソース・オブジェクトからコピーするか、要求で指定されたメタデータで置き換えるかのどちらかを指定します。 `DIRECTIVE` 値: COPY、REPLACE。"
+  },
+  {
+    "id": "Store CRN in the config.",
+    "translation": "CRN を構成に保管します。"
+  },
+  {
+    "id": "Store Default Download Location in the config.",
+    "translation": "デフォルトのダウンロード場所を構成に保管します。"
+  },
+  {
+    "id": "Store Default Region in the config.",
+    "translation": "デフォルト Region を構成に保管します。"
+  },
+  {
+    "id": "Store HMAC credentials in the config.",
+    "translation": "HMAC 資格情報を構成に保管します。"
+  },
+  {
+    "id": "Store your service instance ID (`CRN`) in the config.",
+    "translation": "サービス・インスタンス ID (`CRN`) を構成に保管します。"
+  },
+  {
+    "id": "Successfully aborted a multipart upload instance with key '{{.Key}}' and bucket '{{.Bucket}}'.",
+    "translation": "キー '{{.Key}}' およびバケット '{{.Bucket}}' を持つマルチパート・アップロード・インスタンスが正常に中止されました。"
+  },
+  {
+    "id": "Successfully cleared regions endpoint URL.",
+    "translation": "Region エンドポイント URL が正常にクリアされました。"
+  },
+  {
+    "id": "Successfully copied '{{.object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
+    "translation": "'{{.object}}' がバケット '{{.bucket1}}' からバケット '{{.bucket2}}' に正常にコピーされました。"
+  },
+  {
+    "id": "Successfully created bucket '{{.bucket}}'.",
+    "translation": "バケット '{{.bucket}}' が正常に作成されました。"
+  },
+  {
+    "id": "Successfully deleted CORS configuration on bucket: {{.Bucket}}",
+    "translation": "次のバケット上に CORS 構成が正常に削除されました: {{.Bucket}}"
+  },
+  {
+    "id": "Successfully deleted bucket '{{.Bucket}}'. The bucket '{{.Bucket}}' will be available for reuse after 15 minutes.",
+    "translation": "バケット '{{.Bucket}}' が正常に削除されました。 バケット '{{.Bucket}}' は 15 分後に再使用が可能になります。"
+  },
+  {
+    "id": "Successfully downloaded '{{.Key}}' from bucket '{{.Bucket}}'",
+    "translation": "'{{.Key}}' がバケット '{{.Bucket}}' から正常にダウンロードされました。"
+  },
+  {
+    "id": "Successfully saved HMAC Credentials to file.",
+    "translation": "HMAC 資格情報がファイルに正常に保存されました。"
+  },
+  {
+    "id": "Successfully saved default region. The program will look for buckets in the region {{.region}}.",
+    "translation": "デフォルト Region が正常に保存されました。 プログラムはその Region {{.region}} でバケットを検索するようになります。"
+  },
+  {
+    "id": "Successfully saved download location. New files will be downloaded to '",
+    "translation": "ダウンロード場所が正常に保存されました。 新規ファイルは次の場所にダウンロードされます。"
+  },
+  {
+    "id": "Successfully set CORS configuration on bucket: {{.Bucket}}",
+    "translation": "次のバケット上に CORS 構成が正常に設定されました: {{.Bucket}}"
+  },
+  {
+    "id": "Successfully stored your service instance ID.",
+    "translation": "サービス・インスタンス ID が正常に保管されました。"
+  },
+  {
+    "id": "Successfully switched to {{.Auth}}-based authentication. The program will access your Cloud Object Storage account using your {{.Auth}} Credentials.",
+    "translation": "{{.Auth}} に基づく認証に正常に切り替わりました。 プログラムは {{.Auth}} 資格情報を使用して Cloud Object Storage アカウントにアクセスするようになります。"
+  },
+  {
+    "id": "Successfully updated regions endpoint URL to {{.URL}}.",
+    "translation": "Region エンドポイント URL が {{.URL}} に正常に更新されました。"
+  },
+  {
+    "id": "Successfully uploaded '{{.Key}}' to bucket '{{.Bucket}}'.",
+    "translation": "'{{.Key}}' がバケット '{{.Bucket}}' に正常にアップロードされました。"
+  },
+  {
+    "id": "Successfully uploaded object '{{.Key}}' to bucket '{{.Bucket}}'.",
+    "translation": "オブジェクト '{{.Key}}' がバケット '{{.Bucket}}' に正常にアップロードされました。"
+  },
+  {
+    "id": "Switch between HMAC and IAM authentication",
+    "translation": "HMAC と IAM の認証の間で切り替えます"
+  },
+  {
+    "id": "Switch between HMAC and IAM authentication.",
+    "translation": "HMAC と IAM の認証の間で切り替えます。"
+  },
+  {
+    "id": "The CORS configuration of ",
+    "translation": "次の CORS 構成: "
+  },
+  {
+    "id": "The `KEY` of the object.",
+    "translation": "オブジェクトの `KEY` です。"
+  },
+  {
+    "id": "The `LANGUAGE` the content is in.",
+    "translation": "コンテンツを表示する `LANGUAGE` です。"
+  },
+  {
+    "id": "The `REGION` where the bucket is present. If this flag is not provided, the program will use the default option specified in config.",
+    "translation": "バケットが存在する `REGION`。 このフラグを設定しない場合、プログラムは構成に指定されたデフォルト・オプションを使用するようになります。"
+  },
+  {
+    "id": "The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the service calls from timing out.",
+    "translation": "サービス呼び出しで取得する各ページの `SIZE`。 これは、コマンドの出力として返される項目の数には影響しません。 ページ・サイズをより小さく指定することで、各呼び出しで取得する項目が少なくなり、AWS サービスに送られる呼び出し数が増えることになります。 これにより、サービス呼び出しのタイムアウトを防ぐことができます。"
+  },
+  {
+    "id": "The `VALUE` of CorsConfiguration to set.",
+    "translation": "設定する CorsConfiguration の `VALUE` です。"
+  },
+  {
+    "id": "The `VALUE` of CreateBucketConfiguration to set.",
+    "translation": "設定する CreateBucketConfiguration の `VALUE` です。"
+  },
+  {
+    "id": "The `VALUE` of Delete to set. Syntax: Objects=[{Key=string},{Key=string}],Quiet=boolean",
+    "translation": "設定する Delete の `VALUE` です。 構文: Objects=[{Key=string},{Key=string}],Quiet=boolean"
+  },
+  {
+    "id": "The `VALUE` of MultipartUpload to set.",
+    "translation": "設定する MultipartUpload の `VALUE` です。"
+  },
+  {
+    "id": "The base64-encoded 128-bit `MD5` digest of the data.",
+    "translation": "データの Base64 エンコード 128 ビット `MD5` ダイジェストです。"
+  },
+  {
+    "id": "The download destination '{{.dl}}' is a directory.",
+    "translation": "ダウンロード先 '{{.dl}}' がディレクトリーです。"
+  },
+  {
+    "id": "The download directory '{{.dl}}' is invalid",
+    "translation": "ダウンロード・ディレクトリー '{{.dl}}' が無効です"
+  },
+  {
+    "id": "The download directory '{{.dl}}' is invalid.",
+    "translation": "ダウンロード・ディレクトリー '{{.dl}}' が無効です。"
+  },
+  {
+    "id": "The name (`BUCKET_NAME`) of the bucket.",
+    "translation": "バケットの名前 (`BUCKET_NAME`) です。"
+  },
+  {
+    "id": "The name (`CLASS_NAME`) of the Class.",
+    "translation": "クラスの名前 (`CLASS_NAME`) です。"
+  },
+  {
+    "id": "The operation will do not ask for confirmation.",
+    "translation": "この操作では確認は求められません。"
+  },
+  {
+    "id": "The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB.",
+    "translation": "ソース・オブジェクトからコピーするバイトの範囲。 範囲値は bytes=first-last の形式にする必要があります。ここで、first と last はコピー対象を示すゼロで開始するバイト・オフセットです。 例えば、bytes=0-9 は、ソースの最初の 10 バイトをコピーすることを意味します。 ソース・オブジェクトが 5 MB を超える場合のみ、範囲コピーを行うことができます。"
+  },
+  {
+    "id": "The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.",
+    "translation": "要求されたバケット名は使用できません。 バケット名前空間はシステムのすべてのユーザーにより共有されます。 別の名前を選択してやり直してください。"
+  },
+  {
+    "id": "The specified bucket is not empty. Delete all the files in the bucket, then try again.",
+    "translation": "指定したバケットが空ではありません。 バケット内のすべてのファイルを削除して、もう一度実行してください。"
+  },
+  {
+    "id": "The specified bucket name is invalid. Bucket names must start and end in alphanumeric characters (from 3 to 63) and are limited to lowercase, numbers, non-consecutive dots, and hyphens.",
+    "translation": "指定したバケット名が無効です。 バケット名は、英数字 (小文字、数字、連続していないドットとハイフンに限定) で開始および終了する必要があります (3 から 63 文字)。"
+  },
+  {
+    "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region for the bucket to delete. Provide the bucket's correct region and try again.",
+    "translation": "指定したバケットが IBM Cloud アカウントに見つかりませんでした。 これは、削除するバケットの Region を誤って指定したことが原因です。 バケットの正しい Region を指定して、もう一度実行してください。"
+  },
+  {
+    "id": "The specified bucket was not found in your account. Ensure that you have set the correct region with the region flag.",
+    "translation": "指定したバケットがアカウントに見つかりませんでした。 正しい Region を Region フラグとともに設定していることを確認してください。"
+  },
+  {
+    "id": "The specified download location does not exist on your system. Try again with a valid download path.",
+    "translation": "指定したダウンロード場所がシステム上に存在しません。 有効なダウンロード・パスを指定して、もう一度実行してください。"
+  },
+  {
+    "id": "The specified download location is not valid. Try again with a valid download path.",
+    "translation": "無効なダウンロード場所が指定されました。 有効なダウンロード・パスを指定して、もう一度実行してください。"
+  },
+  {
+    "id": "The total `NUMBER` of items to return in the command's output.",
+    "translation": "コマンドの出力として返す項目の合計 `NUMBER`。"
+  },
+  {
+    "id": "This operation lists in-progress multipart uploads.",
+    "translation": "この操作では進行中のマルチパート・アップロードがリストされます。"
+  },
+  {
+    "id": "To retrieve the next set of multipart uploads, use the following markers in the next command:",
+    "translation": "マルチパート・アップロードの次のセットを取得するには、次のコマンドで以下のマーカーを使用します:"
+  },
+  {
+    "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
+    "translation": "オブジェクトの次のセットを取得するには、このキーを次のコマンドの --marker として使用します: "
+  },
+  {
+    "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",
+    "translation": "パーツの次のセットを取得するには、このマーカーを次のコマンドの part-number-marker として使用します: "
+  },
+  {
+    "id": "Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.",
+    "translation": "key-marker と共に、リスト表示が開始する前のマルチパート・アップロードを指定します。 key-marker を指定しないと、upload-id-marker パラメーターは無視されます。"
+  },
+  {
+    "id": "Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.",
+    "translation": "upload-id-marker と共に、このパラメーターはリスト表示が開始する前のマルチパート・アップロードを指定します。"
+  },
+  {
+    "id": "Try logging in using 'ibmcloud login'.",
+    "translation": "'ibmcloud login' を使用してログインしてみてください。"
+  },
+  {
+    "id": "Unable to clear regions endpoint URL.",
+    "translation": "新規 Region エンドポイント URL をクリアできません。"
+  },
+  {
+    "id": "Unable to get Default Download Location.",
+    "translation": "デフォルトのダウンロード場所を取得できません。"
+  },
+  {
+    "id": "Unable to get Region.",
+    "translation": "Region を取得できません。"
+  },
+  {
+    "id": "Unable to get new CRN.",
+    "translation": "新規 CRN を取得できません。"
+  },
+  {
+    "id": "Unable to load config method.",
+    "translation": "構成方法をロードできません。"
+  },
+  {
+    "id": "Unable to load default Region.",
+    "translation": "デフォルト Region をロードできません。"
+  },
+  {
+    "id": "Unable to load default download location.",
+    "translation": "デフォルトのダウンロード場所をロードできません。"
+  },
+  {
+    "id": "Unable to load region.",
+    "translation": "Region をロードできません。"
+  },
+  {
+    "id": "Unable to open object '{{.Key}}' for upload.",
+    "translation": "オブジェクト '{{.Key}}' をアップロード用に開くことができません。"
+  },
+  {
+    "id": "Unable to open object '{{.object}}' for upload.",
+    "translation": "ファイル '{{.object}}' をアップロード用に開くことができません。"
+  },
+  {
+    "id": "Unable to parse authentication method.",
+    "translation": "認証方法を構文解析できません。"
+  },
+  {
+    "id": "Unable to read new Authentication Method.",
+    "translation": "新規の認証方法を読み取れません。"
+  },
+  {
+    "id": "Unable to read new default download location.",
+    "translation": "新規のデフォルトのダウンロード場所を読み取れません。"
+  },
+  {
+    "id": "Unable to read new region.",
+    "translation": "新規 Region を読み取れません。"
+  },
+  {
+    "id": "Unable to save new region.",
+    "translation": "新規 Region を保存できません。"
+  },
+  {
+    "id": "Unable to save new regions endpoint URL.",
+    "translation": "新規 Region エンドポイント URL を保存できません。"
+  },
+  {
+    "id": "Unable to store Access key.",
+    "translation": "アクセス・キーを保管できません。"
+  },
+  {
+    "id": "Unable to store Secret key.",
+    "translation": "秘密鍵を保管できません。"
+  },
+  {
+    "id": "Unable to store new download location.",
+    "translation": "新規のダウンロード場所を保管できません。"
+  },
+  {
+    "id": "Unable to switch authentication method.",
+    "translation": "認証方法を切り替えられません。"
+  },
+  {
+    "id": "Upload `ID` identifying the multipart upload.",
+    "translation": "マルチパート・アップロードを識別する `ID` をアップロードします。"
+  },
+  {
+    "id": "Upload a part by copying data from an existing object.",
+    "translation": "既存のオブジェクトからデータをコピーすることによりパーツをアップロードします。"
+  },
+  {
+    "id": "Upload a part of an object.",
+    "translation": "オブジェクトのパーツをアップロードします。"
+  },
+  {
+    "id": "Upload an object to a bucket.",
+    "translation": "オブジェクトをバケットにアップロードします。"
+  },
+  {
+    "id": "UploadId",
+    "translation": "UploadId"
+  },
+  {
+    "id": "Uploaded part '{{.part}}' of object '{{.object}}'.",
+    "translation": "パーツ '{{.part}}' (オブジェクト '{{.object}}' 内) をアップロードしました。"
+  },
+  {
+    "id": "Uploaded part copy '{{.part}}' of object '{{.object}}'.",
+    "translation": "パーツのコピー '{{.part}}' (オブジェクト '{{.object}}' 内) をアップロードしました。"
+  },
+  {
+    "id": "Uploading file part...",
+    "translation": "ファイルのパーツをアップロード中..."
+  },
+  {
+    "id": "Uploading part copy...",
+    "translation": "パーツのコピーをアップロード中..."
+  },
+  {
+    "id": "Value",
+    "translation": "値"
+  },
+  {
+    "id": "WARNING: An object with the name '{{.file}}' already exists at '{{.dl}}'.",
+    "translation": "警告: '{{.file}}' という名前のオブジェクトは '{{.dl}}' に既に存在します。"
+  },
+  {
+    "id": "WARNING: This will permanently delete the bucket '{{.Bucket}}' from your account.",
+    "translation": "警告: これによりバケット '{{.Bucket}}' がアカウントから完全に削除されます。"
+  },
+  {
+    "id": "WARNING: This will permanently delete the object '{{.Key}}' from the bucket '{{.Bucket}}'.",
+    "translation": "警告: これによりオブジェクト '{{.Key}}' がバケット '{{.Bucket}}' から完全に削除されます。"
+  },
+  {
+    "id": "WARNING: You have already stored a service instance ID before.",
+    "translation": "警告: 以前にサービス・インスタンス ID を既に保管済みです。"
+  },
+  {
+    "id": "Wait until 200 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.",
+    "translation": "head-bucket でのポーリング中に 200 件の応答を受信するまで待機します。  これは、成功状態に到達するまで 5 秒ごとにポーリングします。 20 回チェックに失敗すると、戻りコード 255 で終了します。"
+  },
+  {
+    "id": "Wait until 200 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
+    "translation": "head-object でのポーリング中に 200 件の応答を受信するまで待機します。  これは、成功状態に到達するまで 5 秒ごとにポーリングします。  20 回チェックに失敗すると、戻りコード 255 で終了します。"
+  },
+  {
+    "id": "Wait until 404 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
+    "translation": "head-bucket でのポーリング中に 404 件の応答を受信するまで待機します。  これは、成功状態に到達するまで 5 秒ごとにポーリングします。  20 回チェックに失敗すると、戻りコード 255 で終了します。"
+  },
+  {
+    "id": "Wait until 404 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
+    "translation": "head-object でのポーリング中に 404 件の応答を受信するまで待機します。  これは、成功状態に到達するまで 5 秒ごとにポーリングします。  20 回チェックに失敗すると、戻りコード 255 で終了します。"
+  },
+  {
+    "id": "Wait until a particular condition is satisfied.  Each subcommand polls an API until the listed requirement is met.",
+    "translation": "特定の条件が満たされるまで待機します。  各サブコマンドは、リストされた要件が満たされるまで API をポーリングします。"
+  },
+  {
+    "id": "Your proposed upload is smaller than the minimum allowed size. File parts must be greater than 5 MB in size, except for the last part.",
+    "translation": "指定したアップロードが許可される最小サイズよりも小さくなっています。 ファイルのパーツのサイズは、最後のパーツを除き 5 MB より大きい必要があります。"
+  },
+  {
+    "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",
+    "translation": "本文の `SIZE` (バイト単位)。 このパラメーターは、本文のサイズが自動的に判定されない場合に便利です。"
+  },
+  {
+    "id": "no multipart uploads in bucket '",
+    "translation": "バケット内にマルチパート・アップロードがありません '"
+  },
+  {
+    "id": "no objects in bucket '",
+    "translation": "バケット内にオブジェクトがありません '"
+  },
+  {
+    "id": "no parts in the multipart upload for '",
+    "translation": "次のマルチパート・アップロードにはパーツがありません: '"
+  }
+]

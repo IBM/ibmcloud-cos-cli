@@ -1,0 +1,890 @@
+[
+  {
+    "id": " buckets found in your account:\n",
+    "translation": " compartiments trouvés dans votre compte :\n"
+  },
+  {
+    "id": " downloaded.",
+    "translation": " téléchargé."
+  },
+  {
+    "id": " multipart uploads in bucket '",
+    "translation": " remontées multiparties dans le compartiment '"
+  },
+  {
+    "id": " objects in bucket '",
+    "translation": " objets dans le compartiment '"
+  },
+  {
+    "id": " parts in the multipart upload for '",
+    "translation": " parties dans la remontée multipartie pour '"
+  },
+  {
+    "id": "(`SOURCE`) The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.",
+    "translation": "(SOURCE) Nom du compartiment source et nom de clé de l'objet source séparés par une barre oblique (/). Doivent être en codage URL."
+  },
+  {
+    "id": "1 bucket found in your account:\n",
+    "translation": "1 compartiment trouvé dans votre compte :\n"
+  },
+  {
+    "id": "1 multipart upload in bucket '",
+    "translation": "1 remontée multipartie dans le compartiment '"
+  },
+  {
+    "id": "1 object in bucket '",
+    "translation": "1 objet dans le compartiment '"
+  },
+  {
+    "id": "1 part in the multipart upload for '",
+    "translation": "1 partie dans la remontée multipartie pour '"
+  },
+  {
+    "id": "A `DELIMITER` is a character you use to group keys.",
+    "translation": "Un délimiteur (DELIMITER) est un caractère que vous utilisez pour regrouper des clés."
+  },
+  {
+    "id": "A `MAP` of metadata to store. Syntax: KeyName1=string,KeyName2=string",
+    "translation": "Mappe (MAP) de métadonnées à stocker. Syntaxe : NomClé1=chaîne,NomClé2=chaîne"
+  },
+  {
+    "id": "A `TOKEN` to specify where to start paginating. This is the NextToken from a previously truncated response.",
+    "translation": "Jeton (TOKEN) pour spécifier où commencer la pagination. Il s'agit du jeton suivant (NextToken) d'une réponse précédemment tronquée."
+  },
+  {
+    "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
+    "translation": "Il y a déjà un compartiment du nom indiqué dans votre compte. Créez-en un avec un nouveau nom."
+  },
+  {
+    "id": "A standard `MIME` type describing the format of the object data.",
+    "translation": "Type MIME standard décrivant le format des données d'objet."
+  },
+  {
+    "id": "Aborting multipart upload...",
+    "translation": "Abandon de la remontée multipartie..."
+  },
+  {
+    "id": "Aborts a multipart upload instance.",
+    "translation": "Abandonne une instance de remontée multipartie."
+  },
+  {
+    "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
+    "translation": "L'accès à votre compte IBM Cloud a été refusé. Reconnectez-vous en entrant ibmcloud login --sso."
+  },
+  {
+    "id": "Are you sure you would like to continue?",
+    "translation": "Souhaitez-vous vraiment continuer ?"
+  },
+  {
+    "id": "Are you sure you would like to overwrite it?",
+    "translation": "Souhaitez-vous vraiment le remplacer ?"
+  },
+  {
+    "id": "Authentication Method",
+    "translation": "Méthode d'authentification"
+  },
+  {
+    "id": "Authentication `METHOD`.",
+    "translation": "Méthode (METHOD) d'authentification."
+  },
+  {
+    "id": "Bucket '{{.bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
+    "translation": "Compartiment '{{.bucket}}' dans la région {{.region}} trouvé dans votre compte IBM Cloud Object Storage."
+  },
+  {
+    "id": "CRN",
+    "translation": "CRN"
+  },
+  {
+    "id": "Changes plugin configuration",
+    "translation": "Change la configuration du plug-in"
+  },
+  {
+    "id": "Class: {{.class}}",
+    "translation": "Classe : {{.class}}"
+  },
+  {
+    "id": "Clear the option value.",
+    "translation": "Effacer la valeur d'option."
+  },
+  {
+    "id": "Complete an existing multipart upload instance.",
+    "translation": "Terminer une instance de remontée multipartie existante."
+  },
+  {
+    "id": "Completing multipart upload...",
+    "translation": "Terminaison de la remontée multipartie..."
+  },
+  {
+    "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
+    "translation": "Copie l'objet s'il a été modifié depuis le moment spécifié (TIMESTAMP)."
+  },
+  {
+    "id": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`).",
+    "translation": "Copie l'objet s'il n'a pas été modifié depuis le moment spécifié (TIMESTAMP)."
+  },
+  {
+    "id": "Copies the object if its entity tag (ETag) is different than the specified tag (`ETAG`).",
+    "translation": "Copie l'objet si son étiquette d'entité (ETag) est différente de l'étiquette spécifiée (ETAG)."
+  },
+  {
+    "id": "Copies the object if its entity tag (Etag) matches the specified tag (`ETAG`).",
+    "translation": "Copie l'objet si son étiquette d'entité (ETag) correspond à l'étiquette spécifiée (ETAG)."
+  },
+  {
+    "id": "Copy an object from one bucket to another.",
+    "translation": "Copier un objet d'un compartiment à un autre."
+  },
+  {
+    "id": "Copying object...",
+    "translation": "Copie de l'objet..."
+  },
+  {
+    "id": "Create a new bucket.",
+    "translation": "Créer un nouveau compartiment."
+  },
+  {
+    "id": "Create a new multipart upload instance.",
+    "translation": "Créer une nouvelle instance de remontée multipartie."
+  },
+  {
+    "id": "Creating bucket...",
+    "translation": "Création du compartiment..."
+  },
+  {
+    "id": "Creating new multipart upload instance...",
+    "translation": "Création d'une nouvelle instance de remontée multipartie..."
+  },
+  {
+    "id": "Date Created",
+    "translation": "Date de création"
+  },
+  {
+    "id": "Default Region",
+    "translation": "Région par défaut"
+  },
+  {
+    "id": "Delete '{{.Key}}' from bucket '{{.Bucket}}' ran successfully.",
+    "translation": "La suppression de '{{.Key}}' du compartiment '{{.Bucket}}' s'est exécutée avec succès."
+  },
+  {
+    "id": "Delete an existing bucket.",
+    "translation": "Supprimer un compartiment existant."
+  },
+  {
+    "id": "Delete an object from a bucket.",
+    "translation": "Supprimer un objet d'un compartiment."
+  },
+  {
+    "id": "Delete multiple objects from a bucket",
+    "translation": "Suppression de plusieurs objets d'un compartiment"
+  },
+  {
+    "id": "Delete multiple objects from bucket '{{.Bucket}}' ran successfully.",
+    "translation": "La suppression de plusieurs objets du compartiment '{{.Bucket}}' s'est exécutée avec succès."
+  },
+  {
+    "id": "Delete the CORS configuration from a bucket.",
+    "translation": "Supprimer la configuration CORS d'un compartiment."
+  },
+  {
+    "id": "Deleting CORS from the bucket...",
+    "translation": "Suppression du CORS du compartiment..."
+  },
+  {
+    "id": "Deleting bucket...",
+    "translation": "Suppression du compartiment..."
+  },
+  {
+    "id": "Deleting object...",
+    "translation": "Suppression de l'objet..."
+  },
+  {
+    "id": "Deleting objects...",
+    "translation": "Suppression des objets..."
+  },
+  {
+    "id": "Details about bucket {{.details}}:",
+    "translation": "Détails sur le compartiment {{.details}} :"
+  },
+  {
+    "id": "Details about your multipart upload instance:",
+    "translation": "Détails sur votre instance de remontée multipartie :"
+  },
+  {
+    "id": "Determine if a specified bucket exists in your account.",
+    "translation": "Déterminer l'existence d'un compartiment donné dans votre compte."
+  },
+  {
+    "id": "Determine if an object exists within a bucket.",
+    "translation": "Déterminer l'existence d'un objet dans un compartiment."
+  },
+  {
+    "id": "Display the list of uploaded parts of an object.",
+    "translation": "Afficher la liste des parties remontées d'un objet."
+  },
+  {
+    "id": "Download Location",
+    "translation": "Emplacement de téléchargement"
+  },
+  {
+    "id": "Download an object from a bucket.",
+    "translation": "Télécharger un objet d'un compartiment."
+  },
+  {
+    "id": "Downloading object...",
+    "translation": "Téléchargement de l'objet..."
+  },
+  {
+    "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
+    "translation": "Télécharge la plage (RANGE) d'octets spécifiée d'un objet. Pour plus d'information sur l'en-tête HTTP Range, voir http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35."
+  },
+  {
+    "id": "Empty source bucket.",
+    "translation": "Compartiment source vide."
+  },
+  {
+    "id": "Error opening '{{.dl}}' to write ",
+    "translation": "Erreur en ouvrant '{{.dl}}' pour écriture "
+  },
+  {
+    "id": "Found ",
+    "translation": "Trouvé "
+  },
+  {
+    "id": "Get the CORS configuration from a bucket.",
+    "translation": "Obtenir la configuration CORS d'un compartiment."
+  },
+  {
+    "id": "Get the region and class of a bucket.",
+    "translation": "Obtenir la région et la classe d'un compartiment."
+  },
+  {
+    "id": "Getting bucket CORS ...",
+    "translation": "Obtention du CORS du compartiment..."
+  },
+  {
+    "id": "Incorrect Usage.",
+    "translation": "Utilisation incorrecte."
+  },
+  {
+    "id": "Initiated",
+    "translation": "Lancé"
+  },
+  {
+    "id": "Interact with IBM Cloud Object Storage services",
+    "translation": "Interagir avec les services IBM Cloud Object Storage"
+  },
+  {
+    "id": "It was last updated on {{.lastupdated}}.",
+    "translation": "Dernière mise à jour le {{.lastupdated}}."
+  },
+  {
+    "id": "Key",
+    "translation": "Clé"
+  },
+  {
+    "id": "Last Modified",
+    "translation": "Dernière modification"
+  },
+  {
+    "id": "Last Modified: {{.lastmodified}}",
+    "translation": "Dernière modification : {{.lastmodified}}"
+  },
+  {
+    "id": "Last Updated",
+    "translation": "Dernière mise à jour"
+  },
+  {
+    "id": "Limits the response to keys that begin with the specified `PREFIX`.",
+    "translation": "Limite la réponse aux clés qui commencent par le préfixe (PREFIX) spécifié."
+  },
+  {
+    "id": "List all objects in a specific bucket.",
+    "translation": "Répertorier tous les objets d'un compartiment donné."
+  },
+  {
+    "id": "List all the buckets in your IBM Cloud Object Storage account.",
+    "translation": "Répertorier tous les compartiments de votre compte IBM Cloud Object Storage."
+  },
+  {
+    "id": "List configuration",
+    "translation": "Répertorier la configuration"
+  },
+  {
+    "id": "List configuration values.",
+    "translation": "Répertorier les valeurs de configuration."
+  },
+  {
+    "id": "Listing Multipart Uploads...",
+    "translation": "Répertoriage des remontées multiparties..."
+  },
+  {
+    "id": "Listing objects...",
+    "translation": "Répertoriage des objets..."
+  },
+  {
+    "id": "Listing parts...",
+    "translation": "Répertoriage des partis..."
+  },
+  {
+    "id": "Loading buckets...",
+    "translation": "Chargement des compartiments..."
+  },
+  {
+    "id": "Location: %s",
+    "translation": "Emplacement : %s"
+  },
+  {
+    "id": "Name",
+    "translation": "Nom"
+  },
+  {
+    "id": "No buckets found in your account.",
+    "translation": "Aucun compartiment trouvé dans votre compte."
+  },
+  {
+    "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
+    "translation": "Objet '{{.Key}}' trouvé dans le compartiment '{{.Bucket}}'."
+  },
+  {
+    "id": "Object Size",
+    "translation": "Taille de l'objet"
+  },
+  {
+    "id": "Object Size: {{.objectsize}}",
+    "translation": "Taille de l'objet : {{.objectsize}}"
+  },
+  {
+    "id": "Object data location (`FILE_PATH`).",
+    "translation": "Emplacement des données d'objet (FILE_PATH)."
+  },
+  {
+    "id": "Operation canceled.",
+    "translation": "Opération annulée."
+  },
+  {
+    "id": "Part Number",
+    "translation": "Numéro de partie"
+  },
+  {
+    "id": "Part `NUMBER` of part being uploaded. This is a positive integer between 1 and 10,000.",
+    "translation": "Numéro (NUMBER) de la partie remontée. Il s'agit d'un entier positif entre 1 et 10 000."
+  },
+  {
+    "id": "Part number `VALUE` after which listing begins",
+    "translation": "Numéro de partie (VALUE) après lequel commence le répertoriage"
+  },
+  {
+    "id": "Putting object...",
+    "translation": "Insertion de l'objet..."
+  },
+  {
+    "id": "Region: {{.region}}",
+    "translation": "Région : {{.region}}"
+  },
+  {
+    "id": "Regions endpoint `URL`.",
+    "translation": "URL du noeud final des régions."
+  },
+  {
+    "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
+    "translation": "Demande le codage des clés d'objet dans la réponse et spécifie la méthode (METHOD) de codage à utiliser."
+  },
+  {
+    "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified).",
+    "translation": "Ne renvoyer l'objet que s'il a été modifié depuis l'horodate (TIMESTAMP) spécifiée, sinon renvoyer un code 304 (non modifié)."
+  },
+  {
+    "id": "Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed).",
+    "translation": "Ne renvoyer l'objet que s'il n'a pas été modifié depuis l'horodate (TIMESTAMP) spécifiée, sinon renvoyer un code 412 (échec de précondition)."
+  },
+  {
+    "id": "Return the object only if its entity tag (ETag) is different from the `ETAG` specified, otherwise return a 304 (not modified).",
+    "translation": "Ne renvoyer l'objet que si son étiquette d'entité (ETag) est différente de l'étiquette (ETAG) spécifiée, sinon renvoyer un code 304 (non modifié)."
+  },
+  {
+    "id": "Return the object only if its entity tag (ETag) is the same as the `ETAG` specified, otherwise return a 412 (precondition failed).",
+    "translation": "Ne renvoyer l'objet que si son étiquette d'entité (ETag) est identique à l'étiquette (ETAG) spécifiée, sinon renvoyer un code 412 (échec de précondition)."
+  },
+  {
+    "id": "Returns the class type of the specified bucket.",
+    "translation": "Renvoyer le type de classe du compartiment spécifié."
+  },
+  {
+    "id": "Saving default download location...",
+    "translation": "Sauvegarde de l'emplacement de téléchargement par défaut..."
+  },
+  {
+    "id": "Saving new Service Instance ID...",
+    "translation": "Sauvegarde de l'ID de la nouvelle instance de service..."
+  },
+  {
+    "id": "Set a valid download location using 'cos config --ddl'",
+    "translation": "Définir un emplacement de téléchargement valide avec 'cos config --ddl'"
+  },
+  {
+    "id": "Set regions endpoint URL.",
+    "translation": "Définir l'URL de noeud final des régions."
+  },
+  {
+    "id": "Set the CORS configuration on a bucket.",
+    "translation": "Définir la configuration CORS sur un compartiment."
+  },
+  {
+    "id": "Set the default location for downloads.",
+    "translation": "Définir l'emplacement par défaut pour les téléchargements."
+  },
+  {
+    "id": "Sets the Cache-Control `HEADER` of the response.",
+    "translation": "Définit l'en-tête (HEADER) de contrôle de cache de la réponse."
+  },
+  {
+    "id": "Sets the Content-Disposition `HEADER` of the response.",
+    "translation": "Définit l'en-tête (HEADER) de disposition de contenu de la réponse."
+  },
+  {
+    "id": "Sets the Content-Encoding `HEADER` of the response.",
+    "translation": "Définit l'en-tête (HEADER) de codage de contenu de la réponse."
+  },
+  {
+    "id": "Sets the Content-Language `HEADER` of the response.",
+    "translation": "Définit l'en-tête (HEADER) de langue de contenu de la réponse."
+  },
+  {
+    "id": "Sets the Content-Type `HEADER` of the response.",
+    "translation": "Définit l'en-tête (HEADER) de type de contenu de la réponse."
+  },
+  {
+    "id": "Sets the Expires `HEADER` of the response.",
+    "translation": "Définit l'en-tête (HEADER) d'expiration de la réponse."
+  },
+  {
+    "id": "Sets the IBM Service Instance `ID` in the request.",
+    "translation": "Définit l'ID de l'instance de service IBM dans la demande."
+  },
+  {
+    "id": "Setting bucket CORS...",
+    "translation": "Définition du CORS du compartiment..."
+  },
+  {
+    "id": "Size",
+    "translation": "Taille"
+  },
+  {
+    "id": "Specifies `CACHING_DIRECTIVES` for the request/reply chain.",
+    "translation": "Spécifie les directives de mise en cache (CACHING_DIRECTIVES) pour la chaîne de demande/réponse."
+  },
+  {
+    "id": "Specifies presentational information (`DIRECTIVES`).",
+    "translation": "Spécifie les informations de présentation (DIRECTIVES)."
+  },
+  {
+    "id": "Specifies the `KEY` to start with when listing objects in a bucket.",
+    "translation": "Spécifie la clé (KEY) de départ pour le répertoriage des objets d'un compartiment."
+  },
+  {
+    "id": "Specifies what content encodings (`CONTENT_ENCODING`) have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.",
+    "translation": "Spécifie les codages de contenu (CONTENT_ENCODING) qui ont été appliqués à l'objet et donc les mécanismes de décodage qui doivent être appliqués pour obtenir le type de média indiqué par le champ d'en-tête Content-Type."
+  },
+  {
+    "id": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. `DIRECTIVE` values: COPY, REPLACE.",
+    "translation": "Spécifie si les métadonnées sont copiées depuis l'objet source ou remplacées par celles fournies dans la demande. Valeurs pour DIRECTIVE : COPY, REPLACE."
+  },
+  {
+    "id": "Store CRN in the config.",
+    "translation": "Enregistrer le CRN dans la configuration."
+  },
+  {
+    "id": "Store Default Download Location in the config.",
+    "translation": "Enregistrer l'emplacement de téléchargement par défaut dans la configuration."
+  },
+  {
+    "id": "Store Default Region in the config.",
+    "translation": "Enregistrer la région par défaut dans la configuration."
+  },
+  {
+    "id": "Store HMAC credentials in the config.",
+    "translation": "Enregistrer les identifiants HMAC dans la configuration."
+  },
+  {
+    "id": "Store your service instance ID (`CRN`) in the config.",
+    "translation": "Enregistrer l'ID de votre instance de service (CRN) dans la configuration."
+  },
+  {
+    "id": "Successfully aborted a multipart upload instance with key '{{.Key}}' and bucket '{{.Bucket}}'.",
+    "translation": "Abandon réussi d'une instance de remontée multipartie avec la clé '{{.Key}}' et le compartiment '{{.Bucket}}'."
+  },
+  {
+    "id": "Successfully cleared regions endpoint URL.",
+    "translation": "L'URL de noeud final des régions a été effacée avec succès."
+  },
+  {
+    "id": "Successfully copied '{{.object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
+    "translation": "Copie réussie de '{{.object}}' du compartiment '{{.bucket1}}' au compartiment '{{.bucket2}}'."
+  },
+  {
+    "id": "Successfully created bucket '{{.bucket}}'.",
+    "translation": "Création réussie du compartiment '{{.bucket}}'."
+  },
+  {
+    "id": "Successfully deleted CORS configuration on bucket: {{.Bucket}}",
+    "translation": "Suppression réussie de la configuration CORS du compartiment : {{.Bucket}}"
+  },
+  {
+    "id": "Successfully deleted bucket '{{.Bucket}}'. The bucket '{{.Bucket}}' will be available for reuse after 15 minutes.",
+    "translation": "Suppression réussie du compartiment '{{.Bucket}}'. Le compartiment '{{.Bucket}}' pourra être réutilisé au bout de 15 minutes."
+  },
+  {
+    "id": "Successfully downloaded '{{.Key}}' from bucket '{{.Bucket}}'",
+    "translation": "Téléchargement réussi de '{{.Key}}' du compartiment '{{.Bucket}}'"
+  },
+  {
+    "id": "Successfully saved HMAC Credentials to file.",
+    "translation": "Sauvegarde réussie des identifiants HMAC dans le fichier."
+  },
+  {
+    "id": "Successfully saved default region. The program will look for buckets in the region {{.region}}.",
+    "translation": "Sauvegarde réussie de la région par défaut. Le programme recherchera les compartiments dans la région {{.region}}."
+  },
+  {
+    "id": "Successfully saved download location. New files will be downloaded to '",
+    "translation": "Sauvegarde réussie de l'emplacement de téléchargement. Les nouveaux fichiers seront téléchargés dans '"
+  },
+  {
+    "id": "Successfully set CORS configuration on bucket: {{.Bucket}}",
+    "translation": "Définition réussie de la configuration CORS du compartiment : {{.Bucket}}"
+  },
+  {
+    "id": "Successfully stored your service instance ID.",
+    "translation": "Enregistrement réussi de l'ID de votre instance de service."
+  },
+  {
+    "id": "Successfully switched to {{.Auth}}-based authentication. The program will access your Cloud Object Storage account using your {{.Auth}} Credentials.",
+    "translation": "Passage réussi à l'authentification {{.Auth}}. Le programme accédera à votre compte Cloud Object Storage avec vos identifiants {{.Auth}}."
+  },
+  {
+    "id": "Successfully updated regions endpoint URL to {{.URL}}.",
+    "translation": "Mise à jour réussie de l'URL de noeud final des régions à {{.URL}}."
+  },
+  {
+    "id": "Successfully uploaded '{{.Key}}' to bucket '{{.Bucket}}'.",
+    "translation": "Remontée réussie de '{{.Key}}' dans le compartiment '{{.Bucket}}'."
+  },
+  {
+    "id": "Successfully uploaded object '{{.Key}}' to bucket '{{.Bucket}}'.",
+    "translation": "Remontée réussie de l'objet '{{.Key}}' dans le compartiment '{{.Bucket}}'."
+  },
+  {
+    "id": "Switch between HMAC and IAM authentication",
+    "translation": "Commuter entre l'authentification HMAC et IAM"
+  },
+  {
+    "id": "Switch between HMAC and IAM authentication.",
+    "translation": "Commuter entre l'authentification HMAC et IAM."
+  },
+  {
+    "id": "The CORS configuration of ",
+    "translation": "La configuration CORS de "
+  },
+  {
+    "id": "The `KEY` of the object.",
+    "translation": "La clé (KEY) de l'objet."
+  },
+  {
+    "id": "The `LANGUAGE` the content is in.",
+    "translation": "La langue (LANGUAGE) du contenu."
+  },
+  {
+    "id": "The `REGION` where the bucket is present. If this flag is not provided, the program will use the default option specified in config.",
+    "translation": "Région (REGION) où se trouve le compartiment. Si cet indicateur n'est pas fourni, le programme utilisera l'option par défaut spécifiée dans la configuration."
+  },
+  {
+    "id": "The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the service calls from timing out.",
+    "translation": "Taille (SIZE) de chaque page à obtenir dans l'appel de service. Cette valeur n'affecte pas le nombre d'éléments renvoyés dans la sortie de la commande. Une taille de page plus petite se traduit par davantage d'appels du service AWS avec moins d'éléments extraits à chaque appel. Cela peut aider à éviter que les appels de service ne dépassent le délai d'expiration."
+  },
+  {
+    "id": "The `VALUE` of CorsConfiguration to set.",
+    "translation": "La valeur (VALUE) de CorsConfiguration à définir."
+  },
+  {
+    "id": "The `VALUE` of CreateBucketConfiguration to set.",
+    "translation": "La valeur (VALUE) de CreateBucketConfiguration à définir."
+  },
+  {
+    "id": "The `VALUE` of Delete to set. Syntax: Objects=[{Key=string},{Key=string}],Quiet=boolean",
+    "translation": "La valeur (VALUE) de Delete à définir. Syntaxe : Objects=[{Key=chaîne},{Key=chaîne}],Quiet=booléen"
+  },
+  {
+    "id": "The `VALUE` of MultipartUpload to set.",
+    "translation": "La valeur (VALUE) de MultipartUpload à définir."
+  },
+  {
+    "id": "The base64-encoded 128-bit `MD5` digest of the data.",
+    "translation": "Résumé MD5 128 bits codé en base64 des données."
+  },
+  {
+    "id": "The download destination '{{.dl}}' is a directory.",
+    "translation": "La destination de téléchargement '{{.dl}}' est un répertoire."
+  },
+  {
+    "id": "The download directory '{{.dl}}' is invalid",
+    "translation": "Le répertoire de téléchargement '{{.dl}}' n'est pas valide"
+  },
+  {
+    "id": "The download directory '{{.dl}}' is invalid.",
+    "translation": "Le répertoire de téléchargement '{{.dl}}' n'est pas valide."
+  },
+  {
+    "id": "The name (`BUCKET_NAME`) of the bucket.",
+    "translation": "Nom (BUCKET_NAME) du compartiment."
+  },
+  {
+    "id": "The name (`CLASS_NAME`) of the Class.",
+    "translation": "Nom (CLASS_NAME) de la classe."
+  },
+  {
+    "id": "The operation will do not ask for confirmation.",
+    "translation": "L'opération ne demandera pas de confirmation."
+  },
+  {
+    "id": "The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB.",
+    "translation": "Plage d'octets à copier depuis l'objet source. La valeur doit être de la forme bytes=premier-dernier, premier et dernier étant les décalages comptés à partir de zéro. Par exemple, bytes=0-9 indique que vous voulez copier les dix premiers octets de la source. Vous ne pouvez copier une plage que si l'objet source fait plus de 5 Mo."
+  },
+  {
+    "id": "The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.",
+    "translation": "Le nom de compartiment demandé n'est pas disponible. L'espace de noms des compartiments est partagé par tous les utilisateurs du système. Sélectionnez un autre nom et réessayez."
+  },
+  {
+    "id": "The specified bucket is not empty. Delete all the files in the bucket, then try again.",
+    "translation": "Le compartiment spécifié n'est pas vide. Supprimez-en tous les fichiers puis réessayez."
+  },
+  {
+    "id": "The specified bucket name is invalid. Bucket names must start and end in alphanumeric characters (from 3 to 63) and are limited to lowercase, numbers, non-consecutive dots, and hyphens.",
+    "translation": "Le nom de compartiment spécifié n'est pas valide. Les noms de compartiment doivent commencer et se terminer par des caractères alphanumériques (de 3 à 63) et sont limités aux minuscules, aux chiffres, aux points non consécutifs et au trait d'union."
+  },
+  {
+    "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region for the bucket to delete. Provide the bucket's correct region and try again.",
+    "translation": "Le compartiment indiqué n'a pas été trouvé dans votre compte IBM Cloud. Vous avez peut-être indiqué une région erronée pour le compartiment à supprimer. Indiquez la bonne région et réessayez."
+  },
+  {
+    "id": "The specified bucket was not found in your account. Ensure that you have set the correct region with the region flag.",
+    "translation": "Le compartiment indiqué n'a pas été trouvé dans votre compte. Indiquez bien la bonne région avec l'indicateur de région."
+  },
+  {
+    "id": "The specified download location does not exist on your system. Try again with a valid download path.",
+    "translation": "L'emplacement de téléchargement spécifié n'existe pas sur votre système. Réessayez avec un chemin de téléchargement valide."
+  },
+  {
+    "id": "The specified download location is not valid. Try again with a valid download path.",
+    "translation": "L'emplacement de téléchargement spécifié n'est pas valide. Réessayez avec un chemin de téléchargement valide."
+  },
+  {
+    "id": "The total `NUMBER` of items to return in the command's output.",
+    "translation": "Nombre (NUMBER) total d'éléments à renvoyer dans la sortie de la commande."
+  },
+  {
+    "id": "This operation lists in-progress multipart uploads.",
+    "translation": "Cette opération répertorie les remontées multiparties en cours."
+  },
+  {
+    "id": "To retrieve the next set of multipart uploads, use the following markers in the next command:",
+    "translation": "Pour extraire l'ensemble suivant de remontées multiparties, utilisez les marqueurs suivants dans la commande suivante :"
+  },
+  {
+    "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
+    "translation": "Pour extraire l'ensemble suivant d'objets, utilisez cette clé comme --marker pour la commande suivante : "
+  },
+  {
+    "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",
+    "translation": "Pour extraire l'ensemble suivant de parties, utilisez ce marqueur comme part-number-marker pour la commande suivante : "
+  },
+  {
+    "id": "Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.",
+    "translation": "Avec key-marker, spécifie la remontée multipartie après laquelle le répertoriage doit commencer. Si key-marker n'est pas spécifié, le paramètre upload-id-marker est ignoré."
+  },
+  {
+    "id": "Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.",
+    "translation": "Avec upload-id-marker, ce paramètre spécifie la remontée multipartie après laquelle le répertoriage doit commencer."
+  },
+  {
+    "id": "Try logging in using 'ibmcloud login'.",
+    "translation": "Essayez de vous connecter avec 'ibmcloud login'."
+  },
+  {
+    "id": "Unable to clear regions endpoint URL.",
+    "translation": "Impossible d'effacer l'URL de noeud final des régions."
+  },
+  {
+    "id": "Unable to get Default Download Location.",
+    "translation": "Impossible d'obtenir l'emplacement de téléchargement par défaut."
+  },
+  {
+    "id": "Unable to get Region.",
+    "translation": "Impossible d'obtenir la région."
+  },
+  {
+    "id": "Unable to get new CRN.",
+    "translation": "Impossible d'obtenir le nouveau CRN."
+  },
+  {
+    "id": "Unable to load config method.",
+    "translation": "Impossible de charger la méthode de configuration."
+  },
+  {
+    "id": "Unable to load default Region.",
+    "translation": "Impossible de charger la région par défaut."
+  },
+  {
+    "id": "Unable to load default download location.",
+    "translation": "Impossible de charger l'emplacement de téléchargement par défaut."
+  },
+  {
+    "id": "Unable to load region.",
+    "translation": "Impossible de charger la région."
+  },
+  {
+    "id": "Unable to open object '{{.Key}}' for upload.",
+    "translation": "Impossible d'ouvrir l'objet '{{.Key}}' pour remontée."
+  },
+  {
+    "id": "Unable to open object '{{.object}}' for upload.",
+    "translation": "Impossible d'ouvrir le fichier '{{.object}}' pour remontée."
+  },
+  {
+    "id": "Unable to parse authentication method.",
+    "translation": "Impossible d'analyser syntaxiquement la méthode d'authentification."
+  },
+  {
+    "id": "Unable to read new Authentication Method.",
+    "translation": "Impossible de lire la nouvelle méthode d'authentification."
+  },
+  {
+    "id": "Unable to read new default download location.",
+    "translation": "Impossible de lire le nouvel emplacement de téléchargement par défaut."
+  },
+  {
+    "id": "Unable to read new region.",
+    "translation": "Impossible de lire la nouvelle région."
+  },
+  {
+    "id": "Unable to save new region.",
+    "translation": "Impossible de sauvegarder la nouvelle région."
+  },
+  {
+    "id": "Unable to save new regions endpoint URL.",
+    "translation": "Impossible de sauvegarder la nouvelle URL de noeud final des régions."
+  },
+  {
+    "id": "Unable to store Access key.",
+    "translation": "Impossible d'enregistrer la clé d'accès."
+  },
+  {
+    "id": "Unable to store Secret key.",
+    "translation": "Impossible d'enregistrer la clé secrète."
+  },
+  {
+    "id": "Unable to store new download location.",
+    "translation": "Impossible d'enregistrer le nouvel emplacement de téléchargement."
+  },
+  {
+    "id": "Unable to switch authentication method.",
+    "translation": "Impossible de commuter la méthode d'authentification."
+  },
+  {
+    "id": "Upload `ID` identifying the multipart upload.",
+    "translation": "ID de remontée identifiant la remontée multipartie."
+  },
+  {
+    "id": "Upload a part by copying data from an existing object.",
+    "translation": "Remonter une partie en copiant les données d'un objet existant."
+  },
+  {
+    "id": "Upload a part of an object.",
+    "translation": "Remonter une partie d'un objet."
+  },
+  {
+    "id": "Upload an object to a bucket.",
+    "translation": "Remonter un objet dans un compartiment."
+  },
+  {
+    "id": "UploadId",
+    "translation": "ID de remontée"
+  },
+  {
+    "id": "Uploaded part '{{.part}}' of object '{{.object}}'.",
+    "translation": "Partie '{{.part}}' de l'objet '{{.object}}' remontée."
+  },
+  {
+    "id": "Uploaded part copy '{{.part}}' of object '{{.object}}'.",
+    "translation": "Copie de la partie '{{.part}}' de l'objet '{{.object}}' remontée."
+  },
+  {
+    "id": "Uploading file part...",
+    "translation": "Remontée de la partie de fichier..."
+  },
+  {
+    "id": "Uploading part copy...",
+    "translation": "Remontée de la copie de la partie..."
+  },
+  {
+    "id": "Value",
+    "translation": "Valeur"
+  },
+  {
+    "id": "WARNING: An object with the name '{{.file}}' already exists at '{{.dl}}'.",
+    "translation": "AVERTISSEMENT : Il existe déjà un objet de nom '{{.file}}' à '{{.dl}}'."
+  },
+  {
+    "id": "WARNING: This will permanently delete the bucket '{{.Bucket}}' from your account.",
+    "translation": "AVERTISSEMENT : Cela supprimera définitivement le compartiment '{{.Bucket}}' de votre compte."
+  },
+  {
+    "id": "WARNING: This will permanently delete the object '{{.Key}}' from the bucket '{{.Bucket}}'.",
+    "translation": "AVERTISSEMENT : Cela supprimera définitivement l'objet '{{.Key}}' du compartiment '{{.Bucket}}'."
+  },
+  {
+    "id": "WARNING: You have already stored a service instance ID before.",
+    "translation": "AVERTISSEMENT : Vous avez déjà enregistré un ID d'instance de service auparavant."
+  },
+  {
+    "id": "Wait until 200 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.",
+    "translation": "Attendez une réponse 200 lors d'un sondage avec head-bucket.  Le sondage se fera toutes les 5 secondes jusqu'à ce qu'un état de réussite soit atteint. La commande se terminera avec un code retour de 255 après 20 échecs de vérification."
+  },
+  {
+    "id": "Wait until 200 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
+    "translation": "Attendez une réponse 200 lors d'un sondage avec head-object.  Le sondage se fera toutes les 5 secondes jusqu'à ce qu'un état de réussite soit atteint.  La commande se terminera avec un code retour de 255 après 20 échecs de vérification."
+  },
+  {
+    "id": "Wait until 404 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
+    "translation": "Attendez une réponse 404 lors d'un sondage avec head-bucket.  Le sondage se fera toutes les 5 secondes jusqu'à ce qu'un état de réussite soit atteint.  La commande se terminera avec un code retour de 255 après 20 échecs de vérification."
+  },
+  {
+    "id": "Wait until 404 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
+    "translation": "Attendez une réponse 404 lors d'un sondage avec head-object.  Le sondage se fera toutes les 5 secondes jusqu'à ce qu'un état de réussite soit atteint.  La commande se terminera avec un code retour de 255 après 20 échecs de vérification."
+  },
+  {
+    "id": "Wait until a particular condition is satisfied.  Each subcommand polls an API until the listed requirement is met.",
+    "translation": "Attendez qu'une condition particulière soit satisfaite.  Chaque sous-commande sonde une API jusqu'à ce que l'exigence indiquée soit remplie."
+  },
+  {
+    "id": "Your proposed upload is smaller than the minimum allowed size. File parts must be greater than 5 MB in size, except for the last part.",
+    "translation": "La remontée proposée est plus petite que la taille minimum autorisée. Les parties du fichier doivent faire plus de 5 Mo, sauf la dernière."
+  },
+  {
+    "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",
+    "translation": "Taille (SIZE) du corps en octets. Ce paramètre est utile quand la taille du corps ne peut pas être déterminée automatiquement."
+  },
+  {
+    "id": "no multipart uploads in bucket '",
+    "translation": "aucune remontée multipartie dans le compartiment '"
+  },
+  {
+    "id": "no objects in bucket '",
+    "translation": "aucun objet dans le compartiment '"
+  },
+  {
+    "id": "no parts in the multipart upload for '",
+    "translation": "aucune partie dans la remontée multipartie pour '"
+  }
+]
