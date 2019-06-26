@@ -1,16 +1,16 @@
 package functions
 
 import (
-	"strings"
+	"io"
 
-	"github.com/IBM/ibmcloud-cos-cli/config"
-	"github.com/IBM/ibmcloud-cos-cli/config/fields"
-	"github.com/IBM/ibmcloud-cos-cli/config/flags"
-	. "github.com/IBM/ibmcloud-cos-cli/i18n"
-	"github.com/IBM/ibmcloud-cos-cli/utils"
+	"github.com/IBM/ibmcloud-cos-cli/errors"
 
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
+	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3iface"
 
+	"github.com/IBM/ibmcloud-cos-cli/config/fields"
+	"github.com/IBM/ibmcloud-cos-cli/config/flags"
+	"github.com/IBM/ibmcloud-cos-cli/utils"
 	"github.com/urfave/cli"
 )
 
@@ -19,14 +19,23 @@ import (
 //   	CLI Context Application
 // Returns:
 //  	Error = zero or non-zero
-func ObjectPut(c *cli.Context) error {
+func ObjectPut(c *cli.Context) (err error) {
+	// check the number of arguments
+	if c.NArg() > 0 {
+		// Build Command Error struct
+		err = &errors.CommandError{
+			CLIContext: c,
+			Cause:      errors.InvalidNArg,
+		}
+		// Return error
+		return
+	}
 
 	// Load COS Context
-	cosContext := c.App.Metadata[config.CosContextKey].(*utils.CosContext)
-
-	// Load COS Context UI and Config
-	ui := cosContext.UI
-	conf := cosContext.Config
+	var cosContext *utils.CosContext
+	if cosContext, err = GetCosContext(c); err != nil {
+		return
+	}
 
 	// Build PutObjectInput
 	input := new(s3.PutObjectInput)
@@ -48,62 +57,34 @@ func ObjectPut(c *cli.Context) error {
 		fields.ContentMD5:         flags.ContentMD5,
 		fields.ContentType:        flags.ContentType,
 		fields.Metadata:           flags.Metadata,
+		fields.Body:               flags.Body,
 	}
 
-	// Validate User Inputs and Retrieve Region
-	region, err := ValidateUserInputsAndSetRegion(c, input, mandatory, options, conf)
-	if err != nil {
-		ui.Failed(err.Error())
-		cli.ShowCommandHelp(c, c.Command.Name)
-		return cli.NewExitError(err.Error(), 1)
+	// Validate User Inputs
+	if err = MapToSDKInput(c, input, mandatory, options); err != nil {
+		return
 	}
 
-	// Retrieve the user body path
-	bodyFile := c.String("body")
-
-	// If body is used in the command
-	if bodyFile != "" {
-		// Open the file in order to read the binary to store into cos
-		// Otherwise, return an error letting users know object cannot be open
-		file, err := cosContext.ReadSeekerCloserOpen(bodyFile)
-		if err != nil {
-			ui.Failed(T("Unable to open object '{{.Key}}' for upload.",
-				map[string]interface{}{fields.Key: bodyFile}))
-			return cli.NewExitError("", 2)
-		}
-		// Close the file afer the file operation is used
-		defer file.Close()
-
-		// Set body into the PutObjectInput
-		input.SetBody(file)
+	// Deferring close of Body
+	if closeAble, ok := input.Body.(io.Closer); ok {
+		defer closeAble.Close()
 	}
 
 	// Setting client to do the call
-	client := cosContext.GetClient(region)
-
-	// Alert User that we are performing the call
-	ui.Say(T("Putting object..."))
-
-	// Upload the object by calling PutObject
-	_, err = client.PutObject(input)
-	// Error handling
-	if err != nil {
-		if strings.Contains(err.Error(), "EmptyStaticCreds") {
-			ui.Failed(err.Error() + "\n" + T("Try logging in using 'ibmcloud login'."))
-		} else {
-			ui.Failed(err.Error())
-		}
-		return cli.NewExitError("", 1)
+	var client s3iface.S3API
+	if client, err = cosContext.GetClient(c.String(flags.Region)); err != nil {
+		return
 	}
-	// Success
-	ui.Ok()
 
-	//
-	// Output the successful message
-	ui.Say(T("Successfully uploaded object '{{.Key}}' to bucket '{{.Bucket}}'.",
-		map[string]interface{}{fields.Key: utils.EntityNameColor(*input.Key),
-			fields.Bucket: utils.EntityNameColor(*input.Bucket)}))
+	// PutObject Op
+	var output *s3.PutObjectOutput
+	if output, err = client.PutObject(input); err != nil {
+		return
+	}
+
+	// Display either in JSON or text
+	err = cosContext.GetDisplay(c.Bool(flags.JSON)).Display(input, output, nil)
 
 	// Return
-	return nil
+	return
 }

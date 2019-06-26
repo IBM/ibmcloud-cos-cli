@@ -32,7 +32,7 @@ USAGE:
    ibmcloud cos command [arguments...] [command options]
 
 COMMANDS:
-   abort-multipart-upload      Aborts a multipart upload instance.
+   abort-multipart-upload      Abort a multipart upload instance.
    complete-multipart-upload   Complete an existing multipart upload instance.
    config                      Changes plugin configuration
    copy-object                 Copy an object from one bucket to another.
@@ -42,6 +42,7 @@ COMMANDS:
    delete-bucket-cors          Delete the CORS configuration from a bucket.
    delete-object               Delete an object from a bucket.
    delete-objects              Delete multiple objects from a bucket
+   download                    Download objects from S3 concurrently.
    get-bucket-class            Returns the class type of the specified bucket.
    get-bucket-cors             Get the CORS configuration from a bucket.
    get-bucket-location         Get the region and class of a bucket.
@@ -49,11 +50,13 @@ COMMANDS:
    head-bucket                 Determine if a specified bucket exists in your account.
    head-object                 Determine if an object exists within a bucket.
    list-buckets                List all the buckets in your IBM Cloud Object Storage account.
+   list-buckets-extended       List all the extended buckets with pagination support.
    list-multipart-uploads      This operation lists in-progress multipart uploads.
    list-objects                List all objects in a specific bucket.
    list-parts                  Display the list of uploaded parts of an object.
    put-bucket-cors             Set the CORS configuration on a bucket.
    put-object                  Upload an object to a bucket.
+   upload                      Upload objects from S3 concurrently.
    upload-part                 Upload a part of an object.
    upload-part-copy            Upload a part by copying data from an existing object.
    wait                        Wait until a particular condition is satisfied.  Each subcommand polls an API until the listed requirement is met.
@@ -109,13 +112,13 @@ make install
 ## Getting Help
 Feel free to use GitHub issues for tracking bugs and feature requests, but for help use one of the following resources:
 
-* Read a quick start guide in [IBM Docs](https://cloud.ibm.com/docs/cloud-object-storage-cli-plugin?topic=cloud-object-storage-cli-ic-use-the-ibm-cli).
+* Read a quick start guide in [IBM Docs](https://cloud.ibm.com/docs/cloud-object-storage-cli-plugin).
 * Ask a question on [Stack Overflow](https://stackoverflow.com/) and tag it with `ibm` and `object-storage`.
 * Open a support ticket with [IBM Cloud Support](https://cloud.ibm.com/unifiedsupport/supportcenter).
 * If it turns out that you find a bug, open an [issue](https://github.com/IBM/ibmcloud-cos-cli/issues/new).
 
 [ibm-cos]: https://cloud.ibm.com/catalog/services/cloud-object-storage
-[ibmcloud-cli-install]: https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli
+[ibmcloud-cli-install]: https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud_cli
 [go-install]: https://golang.org/doc/install
 [golang]: https://golang.org/
 [cos-docs]: https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-getting-started

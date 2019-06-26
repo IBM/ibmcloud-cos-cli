@@ -8,9 +8,10 @@ const (
 	// library, github.com/IBM/ibm-cos-sdk-go, in the s3 service folder
 	// where its api.go details the APIs, their structs and parameters
 	// they use prior to making requests to the server side.
+	Body                        = "Body"
 	Bucket                      = "Bucket"
 	CacheControl                = "CacheControl"
-	AccessControlPolicy         = "AccessControlPolicy"
+	Concurrency                 = "Concurrency"
 	ContentDisposition          = "ContentDisposition"
 	ContentEncoding             = "ContentEncoding"
 	ContentLanguage             = "ContentLanguage"
@@ -34,13 +35,16 @@ const (
 	IfUnmodifiedSince           = "IfUnmodifiedSince"
 	Key                         = "Key"
 	KeyMarker                   = "KeyMarker"
+	LeavePartsOnErrors          = "LeavePartsOnError"
 	Marker                      = "Marker"
 	MaxKeys                     = "MaxKeys"
+	MaxUploadParts              = "MaxUploadParts"
 	Metadata                    = "Metadata"
 	MetadataDirective           = "MetadataDirective"
 	MultipartUpload             = "MultipartUpload"
 	PartNumber                  = "PartNumber"
 	PartNumberMarker            = "PartNumberMarker"
+	PartSize                    = "PartSize"
 	Prefix                      = "Prefix"
 	Range                       = "Range"
 	ResponseCacheControl        = "ResponseCacheControl"

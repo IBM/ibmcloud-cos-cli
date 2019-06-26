@@ -16,12 +16,73 @@ import (
 	"github.com/urfave/cli"
 )
 
+const (
+	invalidType = "-INVALID-"
+)
+
+// ConfigOption holds a representation of the config values location and how to display them
+type ConfigOption struct {
+	// Key config key
+	Key string
+	// Display label to use for the key
+	Display string
+	// Default when config does not contains the value what to show
+	Default string
+	// some function to process the raw value from the config
+	PostLoad func(interface{}) string
+}
+
 var (
-	defaultRegion = T("Default Region")
+	configOptionLastUpdated = ConfigOption{
+		Key:     config.LastUpdated,
+		Display: T("Last Updated"),
+	}
+
+	configOptionDefaultRegion = ConfigOption{
+		Key: config.DefaultRegion,
+		// it cannot be set here package load time, in app init current user region will override fallback
+		//Default: config.FallbackRegion,
+		Display: T("Default Region"),
+	}
+
+	configOptionDefaultDownloadLocation = ConfigOption{
+		Key:     config.DownloadLocation,
+		Default: config.FallbackDownloadLocation,
+		Display: T("Download Location"),
+	}
+
+	configOptionDefaultCRN = ConfigOption{
+		Key:     config.CRN,
+		Display: T("CRN"),
+	}
+
+	configOptionHMACKey = ConfigOption{
+		Key: config.AccessKeyID,
+	}
+
+	configOptionHMACSecret = ConfigOption{
+		Key:      config.SecretAccessKey,
+		PostLoad: mask,
+	}
+
+	configOptionAuthenticationMethod = ConfigOption{
+		Key:      config.HMACProvided,
+		Display:  T("Authentication Method"),
+		PostLoad: mapAuthMethod,
+		Default:  mapAuthMethod(config.HMACProvidedDefault),
+	}
+
+	configOptionURLStyle = ConfigOption{
+		Key:      config.ForcePathStyle,
+		Display:  T("URL Style"),
+		PostLoad: mapURLStyle,
+		Default:  mapURLStyle(config.ForcePathStyleDefault),
+	}
 )
 
 // ConfigList Lists current config values
 func ConfigList(c *cli.Context) error {
+	configOptionDefaultRegion.Default = config.FallbackRegion
 
 	// list as no args , check if the number of args is ZERO
 	if c.NArg() != 0 {
@@ -37,46 +98,21 @@ func ConfigList(c *cli.Context) error {
 	// list of all configurations values to display in the list
 	options := []ConfigOption{
 		// last updated row
-		{
-			Key:     config.LastUpdated,
-			Display: T("Last Updated"), // repeat the string because ...
-		},
+		configOptionLastUpdated,
 		// default region row
-		{
-			Key:     config.DefaultRegion,
-			Default: config.FallbackRegion,
-			Display: defaultRegion,
-		},
+		configOptionDefaultRegion,
 		// default download location row
-		{
-			Key:     config.DownloadLocation,
-			Default: config.FallbackDownloadLocation,
-			Display: T("Download Location"),
-		},
+		configOptionDefaultDownloadLocation,
 		// default crn row
-		{
-			Key:     config.CRN,
-			Display: T("CRN"),
-		},
+		configOptionDefaultCRN,
 		// hmac key row
-		{
-			Key: config.AccessKeyID,
-		},
+		configOptionHMACKey,
 		// hmac secret row
-		{
-			Key:      config.SecretAccessKey,
-			PostLoad: mask,
-		},
+		configOptionHMACSecret,
 		// authentication method row
-		{
-			Key:      config.HMACProvided,
-			Display:  T("Authentication Method"),
-			PostLoad: mapAuthMethod,
-			Default:  config.IAM,
-		},
-		//{
-		//	Key: config.RegionsEndpointURL,
-		//},
+		configOptionAuthenticationMethod,
+		// url style
+		configOptionURLStyle,
 	}
 
 	// builds a table with the config values to display
@@ -87,19 +123,7 @@ func ConfigList(c *cli.Context) error {
 	return nil
 }
 
-// ConfigOption holds a representaion of the config values location and how to display them
-type ConfigOption struct {
-	// Key config key
-	Key string
-	// Display label to use for the key
-	Display string
-	// Default when config does not contains the value what to show
-	Default string
-	// some function to process the raw value from the config
-	PostLoad func(interface{}) string
-}
-
-// this functios masks secrets, so confidential details are not openly displayed in screen
+// this function masks secrets, so confidential details are not openly displayed in screen
 func mask(input interface{}) string {
 	// type switch over input type
 	switch v := input.(type) {
@@ -108,45 +132,83 @@ func mask(input interface{}) string {
 		return strings.Repeat("*", len(v))
 	default:
 		// if not string not expected situation
-		return "-INVALID-"
+		return invalidType
 	}
 }
 
-// maps the authentaction value between the the way it is stored and the way it is displayed
+// maps the authentication value between the the way it is stored and the way it is displayed
 func mapAuthMethod(input interface{}) string {
 	// type switch over input type
 	switch v := input.(type) {
 	case bool:
-		// if bool map it to authmetod label
+		// if bool map it to authentication method label
 		return boolToAuth(v)
 	default:
 		// if not bool not expected situation
-		return "-INVALID-"
+		return invalidType
 	}
 }
 
 // convert the boolean HMACProvided to an authentication method name
 func boolToAuth(b bool) string {
-	// if true is hamc else is iam
+	// if true is hmac else is iam
 	if b {
 		return config.HMAC
 	}
 	return config.IAM
 }
 
-// convert an authentication method name to a booleas ( is HMAC )
+// convert an authentication method name to a boolean ( is HMAC )
 func authToBool(auth string) (bool, error) {
 	// switch over auth method string
 	switch strings.ToUpper(auth) {
 	case config.HMAC:
-		// if hamc map it to true
+		// if hmac, map it to true
 		return true, nil
 	case config.IAM:
-		// if iam  map it false
+		// if iam, map it false
 		return false, nil
 	default:
 		// if not previous cases rise an error
 		return false, errors.New("invalid.method")
+	}
+}
+
+// mapURLStyle maps the authentication value from stored ForcePathStyle to VHost or Path
+func mapURLStyle(input interface{}) string {
+	// type switch over input type
+	switch v := input.(type) {
+	case bool:
+		// if bool map it to authentication method label
+		return boolToURLStyle(v)
+	default:
+		// if not bool not expected situation
+		return invalidType
+	}
+}
+
+// boolToURLStyle maps the authentication value from boolean ForcePathStyle to VHost or Path
+func boolToURLStyle(b bool) string {
+	// if true is hamc else is iam
+	if b {
+		return config.Path
+	}
+	return config.VHost
+}
+
+// urlStyleToBool maps VHost or Path to ForcePathStyle
+func urlStyleToBool(urlStyle string) (bool, error) {
+	// switch over auth method string
+	switch strings.ToUpper(urlStyle) {
+	case strings.ToUpper(config.VHost):
+		// if hamc map it to true
+		return false, nil
+	case strings.ToUpper(config.Path):
+		// if iam  map it false
+		return true, nil
+	default:
+		// if not previous cases rise an error
+		return false, errors.New("invalid.urlstyle")
 	}
 }
 
@@ -177,6 +239,9 @@ func buildTable(ui terminal.UI, pc plugin.PluginConfig, fields []ConfigOption) t
 
 // ConfigChangeDefaultRegion allows the user to change the default region for the program to look for a bucket.
 func ConfigChangeDefaultRegion(c *cli.Context) error {
+
+	configOptionDefaultRegion.Default = config.FallbackRegion
+
 	// takes the CosContext from application metadata
 	cosContext := c.App.Metadata[config.CosContextKey].(*utils.CosContext)
 
@@ -189,16 +254,9 @@ func ConfigChangeDefaultRegion(c *cli.Context) error {
 		cli.ShowCommandHelpAndExit(c, c.Command.Name, 1)
 	}
 
-	// if list falg is set, display the value of the region and exit
+	// if list flag is set, display the value of the region and exit
 	if c.IsSet(flags.List) {
-		options := []ConfigOption{
-			// add default region row to display
-			{
-				Key:     config.DefaultRegion,
-				Default: config.FallbackRegion,
-				Display: defaultRegion,
-			},
-		}
+		options := []ConfigOption{configOptionDefaultRegion}
 		// build the table using rows/options
 		table := buildTable(ui, conf, options)
 		// display table
@@ -220,7 +278,7 @@ func ConfigChangeDefaultRegion(c *cli.Context) error {
 			ui.Failed(T("Unable to load region."))
 			return cli.NewExitError("", 1)
 		}
-		err = ui.Prompt(defaultRegion, &terminal.PromptOptions{}).Resolve(&region)
+		err = ui.Prompt(configOptionDefaultRegion.Display, &terminal.PromptOptions{}).Resolve(&region)
 		if err != nil {
 			ui.Failed(T("Unable to read new region."))
 			return cli.NewExitError("", 1)
@@ -242,7 +300,7 @@ func ConfigChangeDefaultRegion(c *cli.Context) error {
 
 	// Output the message
 	ui.Say(T("Successfully saved default region. The program will look for buckets in the region {{.region}}.",
-		map[string]interface{}{"region": utils.EntityNameColor(region)}))
+		map[string]interface{}{"region": terminal.EntityNameColor(region)}))
 
 	// Return
 	return nil
@@ -266,11 +324,7 @@ func ConfigSetDLLocation(c *cli.Context) error {
 
 		options := []ConfigOption{
 			// add default download location to table
-			{
-				Key:     config.DownloadLocation,
-				Default: config.FallbackDownloadLocation,
-				Display: T("Download Location"),
-			},
+			configOptionDefaultDownloadLocation,
 		}
 		// build table
 		table := buildTable(ui, conf, options)
@@ -305,7 +359,7 @@ func ConfigSetDLLocation(c *cli.Context) error {
 		validated = true
 	}
 
-	// prompt oeration validates the new value of location before accept it
+	// prompt operation validates the new value of location before accept it
 	// but if the value comes from the ddl flag needs to be validated before accepted
 	if !validated {
 		err = validateFunc(downloadLocation)
@@ -333,7 +387,7 @@ func ConfigSetDLLocation(c *cli.Context) error {
 
 	// Output the successful message
 	ui.Say(T("Successfully saved download location. New files will be downloaded to '") +
-		utils.EntityNameColor(downloadLocation) + "'.")
+		terminal.EntityNameColor(downloadLocation) + "'.")
 
 	// Return
 	return nil
@@ -381,10 +435,7 @@ func ConfigCRN(c *cli.Context) error {
 	if c.IsSet(flags.List) {
 		options := []ConfigOption{
 			// add crn row to config table
-			{
-				Key:     config.CRN,
-				Display: T("CRN"),
-			},
+			configOptionDefaultCRN,
 		}
 		// build table
 		table := buildTable(ui, conf, options)
@@ -462,25 +513,20 @@ func ConfigAmazonHMAC(c *cli.Context) error {
 	ui := cosContext.UI
 	conf := cosContext.Config
 
-	// valioate the number of flags and arguments passed to the command
+	// validate the number of flags and arguments passed to the command
 	if c.NumFlags() > 1 || c.NArg() > 0 {
 		cli.ShowCommandHelpAndExit(c, c.Command.Name, 1)
 	}
 
-	// if list flkag set
+	// if list flag set
 	// display current values and exit
 	if c.IsSet(flags.List) {
 
 		options := []ConfigOption{
 			// add hmac key row
-			{
-				Key: config.AccessKeyID,
-			},
+			configOptionHMACKey,
 			// add hmac secret row
-			{
-				Key:      config.SecretAccessKey,
-				PostLoad: mask,
-			},
+			configOptionHMACSecret,
 		}
 		// build table
 		table := buildTable(ui, conf, options)
@@ -503,7 +549,7 @@ func ConfigAmazonHMAC(c *cli.Context) error {
 		return cli.NewExitError("", 1)
 	}
 
-	// Prompt useres for the secret key
+	// Prompt users for the secret key
 	ui.Prompt("Secret key", nil).Resolve(&secretAccessKey)
 
 	// Saves the HMAC secret access key in the config file
@@ -544,12 +590,7 @@ func ConfigSetAuthMethod(c *cli.Context) error {
 	if c.IsSet(flags.List) {
 		options := []ConfigOption{
 			// add auth method row to config table
-			{
-				Key:      config.HMACProvided,
-				Display:  T("Authentication Method"),
-				PostLoad: mapAuthMethod,
-				Default:  config.IAM,
-			},
+			configOptionAuthenticationMethod,
 		}
 		// build table
 		table := buildTable(ui, conf, options)
@@ -567,7 +608,7 @@ func ConfigSetAuthMethod(c *cli.Context) error {
 		authMethod = c.String(flags.Method)
 	} else {
 		// else prompt for new value, using previous as default
-		if authBool, err = conf.GetBoolWithDefault(config.HMACProvided, false); err != nil {
+		if authBool, err = conf.GetBoolWithDefault(config.HMACProvided, config.HMACProvidedDefault); err != nil {
 			ui.Failed(T("Unable to load config method."))
 			return cli.NewExitError("", 1)
 		}
@@ -604,7 +645,7 @@ func ConfigSetAuthMethod(c *cli.Context) error {
 
 	// Output the message
 	ui.Say(T("Successfully switched to {{.Auth}}-based authentication. The program will access your Cloud Object Storage account using your {{.Auth}} Credentials.",
-		map[string]interface{}{"Auth": utils.EntityNameColor(boolToAuth(authBool))}))
+		map[string]interface{}{"Auth": terminal.EntityNameColor(boolToAuth(authBool))}))
 
 	// Return
 	return nil
@@ -652,10 +693,10 @@ func ConfigSetRegionsEndpointURL(c *cli.Context) error {
 		conf.Set(config.LastUpdated, time.Now().Local().Format(config.StandardTimeFormat))
 		ui.Ok()
 		ui.Say(T("Successfully updated regions endpoint URL to {{.URL}}.",
-			map[string]interface{}{"URL": utils.EntityNameColor(regionsURL)}))
+			map[string]interface{}{"URL": terminal.EntityNameColor(regionsURL)}))
 	}
 
-	// if clear falg set, clear the overridfe value, falling back to original default value
+	// if clear falg set, clear the override value, falling back to original default value
 	if c.IsSet(flags.Clear) {
 
 		err = conf.Erase(config.RegionsEndpointURL)
@@ -673,6 +714,84 @@ func ConfigSetRegionsEndpointURL(c *cli.Context) error {
 		// Output the successfully message
 		ui.Say(T("Successfully cleared regions endpoint URL."))
 	}
+
+	// Return
+	return nil
+}
+
+// ConfigSetURLStyle allows the user to switch between VHost and Path URL Styles
+func ConfigSetURLStyle(c *cli.Context) error {
+	// takes the CosContext from application metadata
+	cosContext := c.App.Metadata[config.CosContextKey].(*utils.CosContext)
+
+	ui := cosContext.UI
+	conf := cosContext.Config
+
+	// validates the number of arguments and flags passed to to command
+	if c.NumFlags() > 1 || c.NArg() > 0 {
+		cli.ShowCommandHelpAndExit(c, c.Command.Name, 1)
+	}
+
+	// if list flag is set, display current value and exit
+	if c.IsSet(flags.List) {
+		options := []ConfigOption{
+			// add auth method row to config table
+			configOptionURLStyle,
+		}
+		// build table
+		table := buildTable(ui, conf, options)
+		// print table
+		table.Print()
+		return nil
+	}
+
+	var urlStyle string
+	var forcePathStyle bool
+	var err error
+
+	// if method flag is set use it
+	if c.IsSet(flags.Style) {
+		urlStyle = c.String(flags.Style)
+	} else {
+		// else prompt for new value, using previous as default
+		if forcePathStyle, err = conf.GetBoolWithDefault(config.ForcePathStyle, config.ForcePathStyleDefault); err != nil {
+			ui.Failed(T("Unable to load current url style."))
+			return cli.NewExitError("", 1)
+		}
+		urlStyle = boolToURLStyle(forcePathStyle)
+
+		err = ui.ChoicesPrompt("Select the URL Style", []string{config.VHost, config.Path},
+			&terminal.PromptOptions{}).Resolve(&urlStyle)
+
+		if err != nil {
+			ui.Failed(T("Unable to read new URL Style value."))
+			return cli.NewExitError("", 1)
+		}
+	}
+
+	// maps user input to the value to be stored
+	forcePathStyle, err = urlStyleToBool(urlStyle)
+	if err != nil {
+		ui.Failed(T("Unable to parse URL style."))
+		return cli.NewExitError("", 1)
+	}
+
+	// Set ForcePathStyle in the config file
+	err = conf.Set(config.ForcePathStyle, forcePathStyle)
+	if err != nil {
+		ui.Failed(T("Unable to switch URL style."))
+		return cli.NewExitError("", 1)
+	}
+
+	// Set the last update timestamp in the config
+	conf.Set(config.LastUpdated, time.Now().Local().Format(config.StandardTimeFormat))
+
+	// Print OK
+	ui.Ok()
+
+	// Output the message
+	ui.Say(T("Successfully saved S3 {{.Style}} style hosting option. CLI calls will use {{.Style}} style requests.",
+		map[string]interface{}{"Style": terminal.EntityNameColor(boolToURLStyle(forcePathStyle))}))
 
 	// Return
 	return nil

@@ -3,7 +3,6 @@
 package providers
 
 import (
-	"io"
 	gohttp "net/http"
 	"os"
 	"time"
@@ -18,6 +17,7 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/aws/session"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3iface"
+	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3manager"
 	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/utils"
 )
@@ -32,6 +32,22 @@ func GetS3API(sess *session.Session) s3iface.S3API {
 
 func GetS3APIFn() func(*session.Session) s3iface.S3API {
 	return GetS3API
+}
+
+func GetDownloaderAPI(svc s3iface.S3API, options ...func(*s3manager.Downloader)) utils.Downloader {
+	return s3manager.NewDownloaderWithClient(svc, options...)
+}
+
+func GetDownloaderAPIFn() func(svc s3iface.S3API, options ...func(*s3manager.Downloader)) utils.Downloader {
+	return GetDownloaderAPI
+}
+
+func GetUploaderAPI(svc s3iface.S3API, options ...func(output *s3manager.Uploader)) utils.Uploader {
+	return s3manager.NewUploaderWithClient(svc, options...)
+}
+
+func GetUploaderAPIFn() func(svc s3iface.S3API, options ...func(output *s3manager.Uploader)) utils.Uploader {
+	return GetUploaderAPI
 }
 
 func GetPluginConfig(ctx plugin.PluginContext) plugin.PluginConfig {
@@ -54,13 +70,9 @@ func NewConfig(ctx plugin.PluginContext, resolver endpoints.Resolver, baseConfig
 		conf = (*aws.Config)(baseConfig).Copy()
 	}
 
-	conf.WithS3ForcePathStyle(true)
 	conf.DisableRestProtocolURICleaning = aws.Bool(true)
 
-	hmac, _ := ctx.PluginConfig().GetBoolWithDefault(config.HMACProvided, false)
-
-	if hmac {
-
+	if hmac, _ := ctx.PluginConfig().GetBoolWithDefault(config.HMACProvided, config.HMACProvidedDefault); hmac {
 		id, _ := ctx.PluginConfig().GetString(config.AccessKeyID)
 		//if err != nil || id == "" {
 		//	return nil, errors.New("error.getting.HMAC.ID")
@@ -74,6 +86,12 @@ func NewConfig(ctx plugin.PluginContext, resolver endpoints.Resolver, baseConfig
 	} else {
 		conf.Credentials = utils.NewBxBridgeCredentials(ctx)
 	}
+
+	forcePathStyle, err := ctx.PluginConfig().GetBoolWithDefault(config.ForcePathStyle, config.ForcePathStyleDefault)
+	if err != nil {
+		return nil, err
+	}
+	conf.WithS3ForcePathStyle(forcePathStyle)
 
 	conf.WithEndpointResolver(resolver)
 
@@ -93,7 +111,7 @@ func (_ *FileOperationsImpl) ReadSeekerCloserOpen(location string) (utils.ReadSe
 	return os.Open(location)
 }
 
-func (_ *FileOperationsImpl) WriteCloserOpen(location string) (io.WriteCloser, error) {
+func (_ *FileOperationsImpl) WriteCloserOpen(location string) (utils.WriteCloser, error) {
 	return os.Create(location)
 }
 
@@ -124,17 +142,18 @@ func GetBaseConfig(ctx plugin.PluginContext) *BaseConfig {
 		config.FallbackRegion = region.Name
 	}
 
-	trace.Logger = trace.NewLogger(ctx.Trace())
-
 	conf := new(aws.Config)
-	conf.LogLevel = aws.LogLevel(aws.LogDebug)
-	conf.Logger = new(loggerWrap)
-
 	client := &gohttp.Client{
-		Transport: http.NewTraceLoggingTransport(gohttp.DefaultTransport),
-		Timeout:   time.Duration(ctx.HTTPTimeout()) * time.Second,
+		Timeout: time.Duration(ctx.HTTPTimeout()) * time.Second,
 	}
 
+	if ctx.Trace() != "false" {
+		trace.Logger = trace.NewLogger(ctx.Trace())
+		conf.LogLevel = aws.LogLevel(aws.LogDebug)
+		conf.Logger = new(loggerWrap)
+
+		client.Transport = http.NewTraceLoggingTransport(gohttp.DefaultTransport)
+	}
 	conf.HTTPClient = client
 
 	return (*BaseConfig)(conf)

@@ -1,13 +1,11 @@
 package functions
 
 import (
-	"strings"
-
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
-	"github.com/IBM/ibmcloud-cos-cli/config"
+	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3iface"
 	"github.com/IBM/ibmcloud-cos-cli/config/fields"
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
-	. "github.com/IBM/ibmcloud-cos-cli/i18n"
+	"github.com/IBM/ibmcloud-cos-cli/errors"
 	"github.com/IBM/ibmcloud-cos-cli/utils"
 	"github.com/urfave/cli"
 )
@@ -23,13 +21,22 @@ const (
 //   	CLI Context Application
 // Returns:
 //  	Error = zero or non-zero
-func MultipartCreate(c *cli.Context) error {
-	// Load COS Context
-	cosContext := c.App.Metadata[config.CosContextKey].(*utils.CosContext)
+func MultipartCreate(c *cli.Context) (err error) {
+	// check the number of arguments
+	if c.NArg() > 0 {
+		err = &errors.CommandError{
+			CLIContext: c,
+			Cause:      errors.InvalidNArg,
+		}
+		// Return with error
+		return
+	}
 
-	// Load COS Context UI and Config
-	ui := cosContext.UI
-	conf := cosContext.Config
+	// Load COS Context
+	var cosContext *utils.CosContext
+	if cosContext, err = GetCosContext(c); err != nil {
+		return
+	}
 
 	// Initialize CreateMultipartUploadInput
 	input := new(s3.CreateMultipartUploadInput)
@@ -51,42 +58,26 @@ func MultipartCreate(c *cli.Context) error {
 		fields.Metadata:           flags.Metadata,
 	}
 
-	// Validate User Inputs and Retrieve Region
-	region, err := ValidateUserInputsAndSetRegion(c, input, mandatory, options, conf)
-	if err != nil {
-		ui.Failed(err.Error())
-		cli.ShowCommandHelp(c, c.Command.Name)
-		return cli.NewExitError(err.Error(), 1)
+	// Check through user inputs for validation
+	if err = MapToSDKInput(c, input, mandatory, options); err != nil {
+		return
 	}
 
 	// Setting client to do the call
-	client := cosContext.GetClient(region)
-
-	// Alert User that we are performing the call
-	ui.Say(T("Creating new multipart upload instance..."))
-
-	// Call the AWS Go SDK's multipart function, passing in the input object. This is where the multipart upload
-	// instance is created.
-	multiPartInstance, err := client.CreateMultipartUpload(input)
-	// Error handling
-	if err != nil {
-		if strings.Contains(err.Error(), "EmptyStaticCreds") {
-			ui.Failed(err.Error() + "\n" + T("Try logging in using 'ibmcloud login'."))
-		} else {
-			ui.Failed(err.Error())
-		}
-		return cli.NewExitError("", 1)
+	var client s3iface.S3API
+	if client, err = cosContext.GetClient(c.String(flags.Region)); err != nil {
+		return
 	}
-	// Success
-	ui.Ok()
 
-	// Output the successful message including
-	// Bucket, Key and Upload ID
-	ui.Say(T("Details about your multipart upload instance:"))
-	ui.Say("Bucket: %s", utils.EntityNameColor(*multiPartInstance.Bucket))
-	ui.Say("Key: %s", utils.EntityNameColor(*multiPartInstance.Key))
-	ui.Say("Upload ID: %s", utils.EntityNameColor(*multiPartInstance.UploadId))
+	// CreateMultipartUpload Op
+	var output *s3.CreateMultipartUploadOutput
+	if output, err = client.CreateMultipartUpload(input); err != nil {
+		return
+	}
+
+	// Display either in JSON or text
+	err = cosContext.GetDisplay(c.Bool(flags.JSON)).Display(input, output, nil)
 
 	// Return
-	return nil
+	return
 }

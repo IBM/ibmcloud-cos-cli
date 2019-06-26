@@ -37,6 +37,9 @@ const (
 	// DeleteObjects Command
 	DeleteObjects = "delete-objects"
 
+	// Download Command from S3Manager
+	Download = "download"
+
 	// GetBucketClass Command
 	GetBucketClass = "get-bucket-class"
 
@@ -58,6 +61,9 @@ const (
 	// ListBuckets Command
 	ListBuckets = "list-buckets"
 
+	// ListBucketsExtended Command
+	ListBucketsExtended = "list-buckets-extended"
+
 	// ListMultipartUploads Command
 	ListMultipartUploads = "list-multipart-uploads"
 
@@ -78,6 +84,9 @@ const (
 
 	// PutObject Command
 	PutObject = "put-object"
+
+	// Upload Command from S3Manager
+	Upload = "upload"
 
 	// UploadPart Command
 	UploadPart = "upload-part"
@@ -108,4 +117,7 @@ const (
 
 	// RegionsEndpointURL Subcommand for Config
 	RegionsEndpointURL = "regions-endpoint"
+
+	// URLStyle that identifies bucket and location
+	URLStyle = "url-style"
 )

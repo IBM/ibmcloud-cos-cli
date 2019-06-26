@@ -3,36 +3,39 @@ package functions
 import (
 	"context"
 	"fmt"
-	"strings"
 	"sync"
 
-	"github.com/IBM/ibmcloud-cos-cli/config/fields"
+	"github.com/IBM/ibmcloud-cos-cli/errors"
 
-	"github.com/IBM/ibmcloud-cos-cli/config/flags"
-
-	"github.com/IBM/ibmcloud-cos-cli/utils"
-
-	"github.com/IBM/ibmcloud-cos-cli/config"
-
-	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3iface"
-
-	. "github.com/IBM/ibmcloud-cos-cli/i18n"
+	"github.com/IBM/ibmcloud-cos-cli/config/fields"
+	"github.com/IBM/ibmcloud-cos-cli/config/flags"
+	"github.com/IBM/ibmcloud-cos-cli/render"
+	"github.com/IBM/ibmcloud-cos-cli/utils"
 	"github.com/urfave/cli"
 )
 
-// BucketClass allows the user to get the Class of a specific bucket
+// BucketClassLocation - retrieves class or location of a certain bucket
 // Parameter:
-//   	CLI Context Application
+//     	CLI Context Application
 // Returns:
-//  	Error = zero or non-zero
-func BucketClass(c *cli.Context) error {
-	// Load COS Context
-	cosContext := c.App.Metadata[config.CosContextKey].(*utils.CosContext)
+//  	Error if triggered
+func BucketClassLocation(c *cli.Context) (err error) {
+	// check the number of arguments
+	if c.NArg() > 0 {
+		err = &errors.CommandError{
+			CLIContext: c,
+			Cause:      errors.InvalidNArg,
+		}
+		return
+	}
 
-	// Load COS Context UI and Config
-	ui := cosContext.UI
+	// Load COS Context
+	var cosContext *utils.CosContext
+	if cosContext, err = GetCosContext(c); err != nil {
+		return
+	}
 
 	// Initialize GetBucketLocationInput
 	input := new(s3.GetBucketLocationInput)
@@ -42,102 +45,31 @@ func BucketClass(c *cli.Context) error {
 		fields.Bucket: flags.Bucket,
 	}
 
-	// Check through user inputs for validation
-	err := MapToSDKInput(c, input, mandatory, map[string]string{})
-	if err != nil {
-		ui.Failed(T("Incorrect Usage."))
-		cli.ShowCommandHelp(c, c.Command.Name)
-		ui.Say("")
-		return cli.NewExitError("", 1)
-	}
-
-	// Operate Bucket Location Coordinator
-	output, err := getBucketLocationCoordinator(cosContext, input)
-	// Error handling
-	if err != nil {
-		if strings.Contains(err.Error(), "EmptyStaticCreds") {
-			ui.Failed(err.Error() + "\n" + T("Try logging in using 'ibmcloud login'."))
-		} else {
-			ui.Failed(err.Error())
-		}
-		return cli.NewExitError("", 1)
-	}
-
-	// Decode the location from the Location Constraint
-	_, class := locationDecoder(aws.StringValue(output.LocationConstraint))
-
-	// Success
-	ui.Ok()
-
-	// Output the successful message
-	ui.Say(T("Details about bucket {{.details}}:",
-		map[string]interface{}{"details": utils.EntityNameColor(aws.StringValue(input.Bucket))}))
-	ui.Say(T("Class: {{.class}}", map[string]interface{}{"class": utils.EntityNameColor(Class(class).String())}))
-
-	// Return
-	return nil
-}
-
-// BucketLocation allows the user to get the location of a specific bucket given the bucket name and the region.
-// Parameter:
-//   	CLI Context Application
-// Returns:
-//  	Error = zero or non-zero
-func BucketLocation(c *cli.Context) error {
-
-	// Load COS Context
-	cosContext := c.App.Metadata[config.CosContextKey].(*utils.CosContext)
-
-	// Load COS Context UI and Config
-	ui := cosContext.UI
-
-	// Initialize GetBucketLocationInput
-	input := new(s3.GetBucketLocationInput)
-
-	// Required parameter for GetBucketLocation
-	mandatory := map[string]string{
-		fields.Bucket: flags.Bucket,
-	}
-
-	// Required parameter for GetBucketLocation
+	// Optional parameters
 	options := map[string]string{}
 
 	// Check through user inputs for validation
-	err := MapToSDKInput(c, input, mandatory, options)
-	if err != nil {
-		ui.Failed(T("Incorrect Usage."))
-		cli.ShowCommandHelp(c, c.Command.Name)
-		ui.Say("")
-		return cli.NewExitError("", 1)
+	if err = MapToSDKInput(c, input, mandatory, options); err != nil {
+		return
 	}
 
-	// Execute the GetBucketLocation COordinator to get class
-	output, err := getBucketLocationCoordinator(cosContext, input)
-	// Error Handling
+	// Operate Bucket Location Coordinator
+	var output *s3.GetBucketLocationOutput
+	output, err = getBucketLocationCoordinator(cosContext, input)
 	if err != nil {
-		if strings.Contains(err.Error(), "EmptyStaticCreds") {
-			ui.Failed(err.Error() + "\n" + T("Try logging in using 'ibmcloud login'."))
-		} else {
-			ui.Failed(err.Error())
-		}
-		return cli.NewExitError("", 1)
+		return
+	}
+	// Render processing for class or location of bucket
+	var result interface{} = output
+	if c.Command.Name == "get-bucket-class" {
+		result = (*render.GetBucketClassOutput)(output)
 	}
 
-	// Decode the Location Constraint to obtain class
-	region, class := locationDecoder(aws.StringValue(output.LocationConstraint))
-
-	// Success
-	ui.Ok()
-
-	// Output the successful message
-	ui.Say(T("Details about bucket {{.details}}:",
-		map[string]interface{}{"details": utils.EntityNameColor(aws.StringValue(input.Bucket))}))
-	ui.Say(T("Region: {{.region}}", map[string]interface{}{"region": utils.EntityNameColor(region)}))
-	ui.Say(T("Class: {{.class}}", map[string]interface{}{"class": utils.EntityNameColor(Class(class).String())}))
+	// Display output
+	err = cosContext.GetDisplay(c.Bool(flags.JSON)).Display(input, result, nil)
 
 	// Return
-	return nil
-
+	return
 }
 
 // GetLocationWrapper builds a struct for GetBucketLocationOuput and Error
@@ -192,14 +124,17 @@ func getBucketLocationCoordinator(cosContext *utils.CosContext,
 	return nil, err
 }
 
-// GetBucketLocatioWorker is assigned to grab the assigned region of the bucket
+// GetBucketLocationWorker is assigned to grab the assigned region of the bucket
 func getBucketLocationWorker(ctx context.Context, region string, input *s3.GetBucketLocationInput,
-	clientGen func(string) s3iface.S3API, resultChannel chan<- GetLocationWrapper, waitGroup *sync.WaitGroup) {
+	clientGen func(string) (s3iface.S3API, error), resultChannel chan<- GetLocationWrapper, waitGroup *sync.WaitGroup) {
 
+	// Wrapper of Get Bucket Location
 	var getLocationWrapper GetLocationWrapper
 
+	// Defer WG to be done
 	defer waitGroup.Done()
 
+	// Defer for recovery
 	defer func() {
 		recover := recover()
 		if nil != recover {
@@ -213,28 +148,13 @@ func getBucketLocationWorker(ctx context.Context, region string, input *s3.GetBu
 	}()
 
 	// Generate client in the region
-	client := clientGen(region)
-
-	// Make a GetBucketLocation request with context and input
-	output, err := client.GetBucketLocationWithContext(ctx, input)
-
-	// Assign output and erro to global getLocationWrapper variables
-	getLocationWrapper.Result = output
-	getLocationWrapper.Error = err
+	var client s3iface.S3API
+	client, getLocationWrapper.Error = clientGen(region)
+	if getLocationWrapper.Error == nil {
+		// Make a GetBucketLocation request with context and input
+		getLocationWrapper.Result, getLocationWrapper.Error = client.GetBucketLocationWithContext(ctx, input)
+	}
 
 	// Pass wrapper to the channel
 	resultChannel <- getLocationWrapper
-}
-
-// locationDecoder - decodes region/class from the location constraint string
-func locationDecoder(locationConstraint string) (string, string) {
-	// Regex to find a region match
-	regionDetails := utils.RegionDecoderRegex.FindStringSubmatch(locationConstraint)
-	if regionDetails != nil {
-		region, geo, class := regionDetails[1], regionDetails[2], regionDetails[3]
-		return region + geo, class
-	}
-
-	// Return empty if not found
-	return "", ""
 }

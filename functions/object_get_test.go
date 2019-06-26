@@ -261,62 +261,6 @@ func TestObjectGetSunnyPath2(t *testing.T) {
 
 }
 
-func TestObjectGetBadDir(t *testing.T) {
-	defer providers.MocksRESET()
-
-	// --- Arrange ---
-	// disable and capture OS EXIT
-	var exitCode *int
-	cli.OsExiter = func(ec int) {
-		exitCode = &ec
-	}
-
-	// flags
-	targetBucket := "GetObjBucket"
-	targetKey := "GetObjKey"
-
-	downloadPath := "/mock/downloads"
-	fileName := downloadPath + "/" + targetKey
-
-	providers.MockPluginConfig.
-		On(
-			"GetStringWithDefault",
-			mock.MatchedBy(func(key string) bool { return key == config.DownloadLocation }),
-			mock.AnythingOfType("string"),
-		).
-		Return(downloadPath, nil)
-
-	providers.MockFileOperations.
-		On("GetFileInfo", mock.MatchedBy(func(path string) bool { return path == downloadPath })).
-		Return(os.Stat(fileName)) // some random name that must not exist
-
-	// --- Act ----
-	// set os args
-	// all args for later verification
-	os.Args = []string{
-		"-",
-		commands.GetObject,
-		"--" + flags.Bucket, targetBucket,
-		"--" + flags.Key, targetKey,
-		"--" + flags.Region, "REG",
-	}
-	//call  plugin
-	plugin.Start(new(cos.Plugin))
-
-	// --- Assert ----
-
-	providers.MockFileOperations.AssertNotCalled(t, "Remove", mock.Anything)
-
-	//assert exit code is zero
-	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
-	// capture all wroteContent //
-	wroteContent := providers.FakeUI.Outputs()
-	//assert OK
-	assert.NotContains(t, wroteContent, "OK")
-	//assert Not Fail
-	assert.Contains(t, wroteContent, "FAIL")
-}
-
 func TestObjectGetFileAlreadyExists(t *testing.T) {
 	defer providers.MocksRESET()
 

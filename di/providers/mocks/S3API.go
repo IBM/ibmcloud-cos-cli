@@ -2,7 +2,7 @@
 
 package mocks
 
-import aws "github.com/IBM/ibm-cos-sdk-go/aws"
+import context "context"
 import mock "github.com/stretchr/testify/mock"
 import request "github.com/IBM/ibm-cos-sdk-go/aws/request"
 import s3 "github.com/IBM/ibm-cos-sdk-go/service/s3"
@@ -61,7 +61,7 @@ func (_m *S3API) AbortMultipartUploadRequest(_a0 *s3.AbortMultipartUploadInput) 
 }
 
 // AbortMultipartUploadWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) AbortMultipartUploadWithContext(_a0 aws.Context, _a1 *s3.AbortMultipartUploadInput, _a2 ...request.Option) (*s3.AbortMultipartUploadOutput, error) {
+func (_m *S3API) AbortMultipartUploadWithContext(_a0 context.Context, _a1 *s3.AbortMultipartUploadInput, _a2 ...request.Option) (*s3.AbortMultipartUploadOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -72,7 +72,7 @@ func (_m *S3API) AbortMultipartUploadWithContext(_a0 aws.Context, _a1 *s3.AbortM
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.AbortMultipartUploadOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.AbortMultipartUploadInput, ...request.Option) *s3.AbortMultipartUploadOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.AbortMultipartUploadInput, ...request.Option) *s3.AbortMultipartUploadOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -81,7 +81,7 @@ func (_m *S3API) AbortMultipartUploadWithContext(_a0 aws.Context, _a1 *s3.AbortM
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.AbortMultipartUploadInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.AbortMultipartUploadInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -139,7 +139,7 @@ func (_m *S3API) CompleteMultipartUploadRequest(_a0 *s3.CompleteMultipartUploadI
 }
 
 // CompleteMultipartUploadWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) CompleteMultipartUploadWithContext(_a0 aws.Context, _a1 *s3.CompleteMultipartUploadInput, _a2 ...request.Option) (*s3.CompleteMultipartUploadOutput, error) {
+func (_m *S3API) CompleteMultipartUploadWithContext(_a0 context.Context, _a1 *s3.CompleteMultipartUploadInput, _a2 ...request.Option) (*s3.CompleteMultipartUploadOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -150,7 +150,7 @@ func (_m *S3API) CompleteMultipartUploadWithContext(_a0 aws.Context, _a1 *s3.Com
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.CompleteMultipartUploadOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.CompleteMultipartUploadInput, ...request.Option) *s3.CompleteMultipartUploadOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.CompleteMultipartUploadInput, ...request.Option) *s3.CompleteMultipartUploadOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -159,7 +159,7 @@ func (_m *S3API) CompleteMultipartUploadWithContext(_a0 aws.Context, _a1 *s3.Com
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.CompleteMultipartUploadInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.CompleteMultipartUploadInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -217,7 +217,7 @@ func (_m *S3API) CopyObjectRequest(_a0 *s3.CopyObjectInput) (*request.Request, *
 }
 
 // CopyObjectWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) CopyObjectWithContext(_a0 aws.Context, _a1 *s3.CopyObjectInput, _a2 ...request.Option) (*s3.CopyObjectOutput, error) {
+func (_m *S3API) CopyObjectWithContext(_a0 context.Context, _a1 *s3.CopyObjectInput, _a2 ...request.Option) (*s3.CopyObjectOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -228,7 +228,7 @@ func (_m *S3API) CopyObjectWithContext(_a0 aws.Context, _a1 *s3.CopyObjectInput,
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.CopyObjectOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.CopyObjectInput, ...request.Option) *s3.CopyObjectOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.CopyObjectInput, ...request.Option) *s3.CopyObjectOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -237,7 +237,7 @@ func (_m *S3API) CopyObjectWithContext(_a0 aws.Context, _a1 *s3.CopyObjectInput,
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.CopyObjectInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.CopyObjectInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -295,7 +295,7 @@ func (_m *S3API) CreateBucketRequest(_a0 *s3.CreateBucketInput) (*request.Reques
 }
 
 // CreateBucketWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) CreateBucketWithContext(_a0 aws.Context, _a1 *s3.CreateBucketInput, _a2 ...request.Option) (*s3.CreateBucketOutput, error) {
+func (_m *S3API) CreateBucketWithContext(_a0 context.Context, _a1 *s3.CreateBucketInput, _a2 ...request.Option) (*s3.CreateBucketOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -306,7 +306,7 @@ func (_m *S3API) CreateBucketWithContext(_a0 aws.Context, _a1 *s3.CreateBucketIn
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.CreateBucketOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.CreateBucketInput, ...request.Option) *s3.CreateBucketOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.CreateBucketInput, ...request.Option) *s3.CreateBucketOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -315,7 +315,7 @@ func (_m *S3API) CreateBucketWithContext(_a0 aws.Context, _a1 *s3.CreateBucketIn
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.CreateBucketInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.CreateBucketInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -373,7 +373,7 @@ func (_m *S3API) CreateMultipartUploadRequest(_a0 *s3.CreateMultipartUploadInput
 }
 
 // CreateMultipartUploadWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) CreateMultipartUploadWithContext(_a0 aws.Context, _a1 *s3.CreateMultipartUploadInput, _a2 ...request.Option) (*s3.CreateMultipartUploadOutput, error) {
+func (_m *S3API) CreateMultipartUploadWithContext(_a0 context.Context, _a1 *s3.CreateMultipartUploadInput, _a2 ...request.Option) (*s3.CreateMultipartUploadOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -384,7 +384,7 @@ func (_m *S3API) CreateMultipartUploadWithContext(_a0 aws.Context, _a1 *s3.Creat
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.CreateMultipartUploadOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.CreateMultipartUploadInput, ...request.Option) *s3.CreateMultipartUploadOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.CreateMultipartUploadInput, ...request.Option) *s3.CreateMultipartUploadOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -393,7 +393,7 @@ func (_m *S3API) CreateMultipartUploadWithContext(_a0 aws.Context, _a1 *s3.Creat
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.CreateMultipartUploadInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.CreateMultipartUploadInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -474,7 +474,7 @@ func (_m *S3API) DeleteBucketCorsRequest(_a0 *s3.DeleteBucketCorsInput) (*reques
 }
 
 // DeleteBucketCorsWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) DeleteBucketCorsWithContext(_a0 aws.Context, _a1 *s3.DeleteBucketCorsInput, _a2 ...request.Option) (*s3.DeleteBucketCorsOutput, error) {
+func (_m *S3API) DeleteBucketCorsWithContext(_a0 context.Context, _a1 *s3.DeleteBucketCorsInput, _a2 ...request.Option) (*s3.DeleteBucketCorsOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -485,7 +485,7 @@ func (_m *S3API) DeleteBucketCorsWithContext(_a0 aws.Context, _a1 *s3.DeleteBuck
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.DeleteBucketCorsOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.DeleteBucketCorsInput, ...request.Option) *s3.DeleteBucketCorsOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.DeleteBucketCorsInput, ...request.Option) *s3.DeleteBucketCorsOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -494,7 +494,7 @@ func (_m *S3API) DeleteBucketCorsWithContext(_a0 aws.Context, _a1 *s3.DeleteBuck
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.DeleteBucketCorsInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.DeleteBucketCorsInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -529,7 +529,7 @@ func (_m *S3API) DeleteBucketRequest(_a0 *s3.DeleteBucketInput) (*request.Reques
 }
 
 // DeleteBucketWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) DeleteBucketWithContext(_a0 aws.Context, _a1 *s3.DeleteBucketInput, _a2 ...request.Option) (*s3.DeleteBucketOutput, error) {
+func (_m *S3API) DeleteBucketWithContext(_a0 context.Context, _a1 *s3.DeleteBucketInput, _a2 ...request.Option) (*s3.DeleteBucketOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -540,7 +540,7 @@ func (_m *S3API) DeleteBucketWithContext(_a0 aws.Context, _a1 *s3.DeleteBucketIn
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.DeleteBucketOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.DeleteBucketInput, ...request.Option) *s3.DeleteBucketOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.DeleteBucketInput, ...request.Option) *s3.DeleteBucketOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -549,7 +549,7 @@ func (_m *S3API) DeleteBucketWithContext(_a0 aws.Context, _a1 *s3.DeleteBucketIn
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.DeleteBucketInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.DeleteBucketInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -607,7 +607,7 @@ func (_m *S3API) DeleteObjectRequest(_a0 *s3.DeleteObjectInput) (*request.Reques
 }
 
 // DeleteObjectWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) DeleteObjectWithContext(_a0 aws.Context, _a1 *s3.DeleteObjectInput, _a2 ...request.Option) (*s3.DeleteObjectOutput, error) {
+func (_m *S3API) DeleteObjectWithContext(_a0 context.Context, _a1 *s3.DeleteObjectInput, _a2 ...request.Option) (*s3.DeleteObjectOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -618,7 +618,7 @@ func (_m *S3API) DeleteObjectWithContext(_a0 aws.Context, _a1 *s3.DeleteObjectIn
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.DeleteObjectOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.DeleteObjectInput, ...request.Option) *s3.DeleteObjectOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.DeleteObjectInput, ...request.Option) *s3.DeleteObjectOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -627,7 +627,7 @@ func (_m *S3API) DeleteObjectWithContext(_a0 aws.Context, _a1 *s3.DeleteObjectIn
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.DeleteObjectInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.DeleteObjectInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -685,7 +685,7 @@ func (_m *S3API) DeleteObjectsRequest(_a0 *s3.DeleteObjectsInput) (*request.Requ
 }
 
 // DeleteObjectsWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) DeleteObjectsWithContext(_a0 aws.Context, _a1 *s3.DeleteObjectsInput, _a2 ...request.Option) (*s3.DeleteObjectsOutput, error) {
+func (_m *S3API) DeleteObjectsWithContext(_a0 context.Context, _a1 *s3.DeleteObjectsInput, _a2 ...request.Option) (*s3.DeleteObjectsOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -696,7 +696,7 @@ func (_m *S3API) DeleteObjectsWithContext(_a0 aws.Context, _a1 *s3.DeleteObjects
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.DeleteObjectsOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.DeleteObjectsInput, ...request.Option) *s3.DeleteObjectsOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.DeleteObjectsInput, ...request.Option) *s3.DeleteObjectsOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -705,7 +705,7 @@ func (_m *S3API) DeleteObjectsWithContext(_a0 aws.Context, _a1 *s3.DeleteObjects
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.DeleteObjectsInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.DeleteObjectsInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -763,7 +763,7 @@ func (_m *S3API) GetBucketAclRequest(_a0 *s3.GetBucketAclInput) (*request.Reques
 }
 
 // GetBucketAclWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) GetBucketAclWithContext(_a0 aws.Context, _a1 *s3.GetBucketAclInput, _a2 ...request.Option) (*s3.GetBucketAclOutput, error) {
+func (_m *S3API) GetBucketAclWithContext(_a0 context.Context, _a1 *s3.GetBucketAclInput, _a2 ...request.Option) (*s3.GetBucketAclOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -774,7 +774,7 @@ func (_m *S3API) GetBucketAclWithContext(_a0 aws.Context, _a1 *s3.GetBucketAclIn
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.GetBucketAclOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.GetBucketAclInput, ...request.Option) *s3.GetBucketAclOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.GetBucketAclInput, ...request.Option) *s3.GetBucketAclOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -783,7 +783,7 @@ func (_m *S3API) GetBucketAclWithContext(_a0 aws.Context, _a1 *s3.GetBucketAclIn
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.GetBucketAclInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.GetBucketAclInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -841,7 +841,7 @@ func (_m *S3API) GetBucketCorsRequest(_a0 *s3.GetBucketCorsInput) (*request.Requ
 }
 
 // GetBucketCorsWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) GetBucketCorsWithContext(_a0 aws.Context, _a1 *s3.GetBucketCorsInput, _a2 ...request.Option) (*s3.GetBucketCorsOutput, error) {
+func (_m *S3API) GetBucketCorsWithContext(_a0 context.Context, _a1 *s3.GetBucketCorsInput, _a2 ...request.Option) (*s3.GetBucketCorsOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -852,7 +852,7 @@ func (_m *S3API) GetBucketCorsWithContext(_a0 aws.Context, _a1 *s3.GetBucketCors
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.GetBucketCorsOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.GetBucketCorsInput, ...request.Option) *s3.GetBucketCorsOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.GetBucketCorsInput, ...request.Option) *s3.GetBucketCorsOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -861,7 +861,7 @@ func (_m *S3API) GetBucketCorsWithContext(_a0 aws.Context, _a1 *s3.GetBucketCors
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.GetBucketCorsInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.GetBucketCorsInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -919,7 +919,7 @@ func (_m *S3API) GetBucketLocationRequest(_a0 *s3.GetBucketLocationInput) (*requ
 }
 
 // GetBucketLocationWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) GetBucketLocationWithContext(_a0 aws.Context, _a1 *s3.GetBucketLocationInput, _a2 ...request.Option) (*s3.GetBucketLocationOutput, error) {
+func (_m *S3API) GetBucketLocationWithContext(_a0 context.Context, _a1 *s3.GetBucketLocationInput, _a2 ...request.Option) (*s3.GetBucketLocationOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -930,7 +930,7 @@ func (_m *S3API) GetBucketLocationWithContext(_a0 aws.Context, _a1 *s3.GetBucket
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.GetBucketLocationOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.GetBucketLocationInput, ...request.Option) *s3.GetBucketLocationOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.GetBucketLocationInput, ...request.Option) *s3.GetBucketLocationOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -939,7 +939,7 @@ func (_m *S3API) GetBucketLocationWithContext(_a0 aws.Context, _a1 *s3.GetBucket
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.GetBucketLocationInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.GetBucketLocationInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -997,7 +997,7 @@ func (_m *S3API) GetBucketLoggingRequest(_a0 *s3.GetBucketLoggingInput) (*reques
 }
 
 // GetBucketLoggingWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) GetBucketLoggingWithContext(_a0 aws.Context, _a1 *s3.GetBucketLoggingInput, _a2 ...request.Option) (*s3.GetBucketLoggingOutput, error) {
+func (_m *S3API) GetBucketLoggingWithContext(_a0 context.Context, _a1 *s3.GetBucketLoggingInput, _a2 ...request.Option) (*s3.GetBucketLoggingOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -1008,7 +1008,7 @@ func (_m *S3API) GetBucketLoggingWithContext(_a0 aws.Context, _a1 *s3.GetBucketL
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.GetBucketLoggingOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.GetBucketLoggingInput, ...request.Option) *s3.GetBucketLoggingOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.GetBucketLoggingInput, ...request.Option) *s3.GetBucketLoggingOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -1017,7 +1017,7 @@ func (_m *S3API) GetBucketLoggingWithContext(_a0 aws.Context, _a1 *s3.GetBucketL
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.GetBucketLoggingInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.GetBucketLoggingInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -1098,7 +1098,7 @@ func (_m *S3API) GetObjectAclRequest(_a0 *s3.GetObjectAclInput) (*request.Reques
 }
 
 // GetObjectAclWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) GetObjectAclWithContext(_a0 aws.Context, _a1 *s3.GetObjectAclInput, _a2 ...request.Option) (*s3.GetObjectAclOutput, error) {
+func (_m *S3API) GetObjectAclWithContext(_a0 context.Context, _a1 *s3.GetObjectAclInput, _a2 ...request.Option) (*s3.GetObjectAclOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -1109,7 +1109,7 @@ func (_m *S3API) GetObjectAclWithContext(_a0 aws.Context, _a1 *s3.GetObjectAclIn
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.GetObjectAclOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.GetObjectAclInput, ...request.Option) *s3.GetObjectAclOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.GetObjectAclInput, ...request.Option) *s3.GetObjectAclOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -1118,7 +1118,7 @@ func (_m *S3API) GetObjectAclWithContext(_a0 aws.Context, _a1 *s3.GetObjectAclIn
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.GetObjectAclInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.GetObjectAclInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -1153,7 +1153,7 @@ func (_m *S3API) GetObjectRequest(_a0 *s3.GetObjectInput) (*request.Request, *s3
 }
 
 // GetObjectWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) GetObjectWithContext(_a0 aws.Context, _a1 *s3.GetObjectInput, _a2 ...request.Option) (*s3.GetObjectOutput, error) {
+func (_m *S3API) GetObjectWithContext(_a0 context.Context, _a1 *s3.GetObjectInput, _a2 ...request.Option) (*s3.GetObjectOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -1164,7 +1164,7 @@ func (_m *S3API) GetObjectWithContext(_a0 aws.Context, _a1 *s3.GetObjectInput, _
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.GetObjectOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.GetObjectInput, ...request.Option) *s3.GetObjectOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.GetObjectInput, ...request.Option) *s3.GetObjectOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -1173,7 +1173,7 @@ func (_m *S3API) GetObjectWithContext(_a0 aws.Context, _a1 *s3.GetObjectInput, _
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.GetObjectInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.GetObjectInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -1231,7 +1231,7 @@ func (_m *S3API) HeadBucketRequest(_a0 *s3.HeadBucketInput) (*request.Request, *
 }
 
 // HeadBucketWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) HeadBucketWithContext(_a0 aws.Context, _a1 *s3.HeadBucketInput, _a2 ...request.Option) (*s3.HeadBucketOutput, error) {
+func (_m *S3API) HeadBucketWithContext(_a0 context.Context, _a1 *s3.HeadBucketInput, _a2 ...request.Option) (*s3.HeadBucketOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -1242,7 +1242,7 @@ func (_m *S3API) HeadBucketWithContext(_a0 aws.Context, _a1 *s3.HeadBucketInput,
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.HeadBucketOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.HeadBucketInput, ...request.Option) *s3.HeadBucketOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.HeadBucketInput, ...request.Option) *s3.HeadBucketOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -1251,7 +1251,7 @@ func (_m *S3API) HeadBucketWithContext(_a0 aws.Context, _a1 *s3.HeadBucketInput,
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.HeadBucketInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.HeadBucketInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -1309,7 +1309,7 @@ func (_m *S3API) HeadObjectRequest(_a0 *s3.HeadObjectInput) (*request.Request, *
 }
 
 // HeadObjectWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) HeadObjectWithContext(_a0 aws.Context, _a1 *s3.HeadObjectInput, _a2 ...request.Option) (*s3.HeadObjectOutput, error) {
+func (_m *S3API) HeadObjectWithContext(_a0 context.Context, _a1 *s3.HeadObjectInput, _a2 ...request.Option) (*s3.HeadObjectOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -1320,7 +1320,7 @@ func (_m *S3API) HeadObjectWithContext(_a0 aws.Context, _a1 *s3.HeadObjectInput,
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.HeadObjectOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.HeadObjectInput, ...request.Option) *s3.HeadObjectOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.HeadObjectInput, ...request.Option) *s3.HeadObjectOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -1329,7 +1329,7 @@ func (_m *S3API) HeadObjectWithContext(_a0 aws.Context, _a1 *s3.HeadObjectInput,
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.HeadObjectInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.HeadObjectInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -1354,6 +1354,119 @@ func (_m *S3API) ListBuckets(_a0 *s3.ListBucketsInput) (*s3.ListBucketsOutput, e
 	var r1 error
 	if rf, ok := ret.Get(1).(func(*s3.ListBucketsInput) error); ok {
 		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// ListBucketsExtended provides a mock function with given fields: _a0
+func (_m *S3API) ListBucketsExtended(_a0 *s3.ListBucketsExtendedInput) (*s3.ListBucketsExtendedOutput, error) {
+	ret := _m.Called(_a0)
+
+	var r0 *s3.ListBucketsExtendedOutput
+	if rf, ok := ret.Get(0).(func(*s3.ListBucketsExtendedInput) *s3.ListBucketsExtendedOutput); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.ListBucketsExtendedOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(*s3.ListBucketsExtendedInput) error); ok {
+		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// ListBucketsExtendedPages provides a mock function with given fields: _a0, _a1
+func (_m *S3API) ListBucketsExtendedPages(_a0 *s3.ListBucketsExtendedInput, _a1 func(*s3.ListBucketsExtendedOutput, bool) bool) error {
+	ret := _m.Called(_a0, _a1)
+
+	var r0 error
+	if rf, ok := ret.Get(0).(func(*s3.ListBucketsExtendedInput, func(*s3.ListBucketsExtendedOutput, bool) bool) error); ok {
+		r0 = rf(_a0, _a1)
+	} else {
+		r0 = ret.Error(0)
+	}
+
+	return r0
+}
+
+// ListBucketsExtendedPagesWithContext provides a mock function with given fields: _a0, _a1, _a2, _a3
+func (_m *S3API) ListBucketsExtendedPagesWithContext(_a0 context.Context, _a1 *s3.ListBucketsExtendedInput, _a2 func(*s3.ListBucketsExtendedOutput, bool) bool, _a3 ...request.Option) error {
+	_va := make([]interface{}, len(_a3))
+	for _i := range _a3 {
+		_va[_i] = _a3[_i]
+	}
+	var _ca []interface{}
+	_ca = append(_ca, _a0, _a1, _a2)
+	_ca = append(_ca, _va...)
+	ret := _m.Called(_ca...)
+
+	var r0 error
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.ListBucketsExtendedInput, func(*s3.ListBucketsExtendedOutput, bool) bool, ...request.Option) error); ok {
+		r0 = rf(_a0, _a1, _a2, _a3...)
+	} else {
+		r0 = ret.Error(0)
+	}
+
+	return r0
+}
+
+// ListBucketsExtendedRequest provides a mock function with given fields: _a0
+func (_m *S3API) ListBucketsExtendedRequest(_a0 *s3.ListBucketsExtendedInput) (*request.Request, *s3.ListBucketsExtendedOutput) {
+	ret := _m.Called(_a0)
+
+	var r0 *request.Request
+	if rf, ok := ret.Get(0).(func(*s3.ListBucketsExtendedInput) *request.Request); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*request.Request)
+		}
+	}
+
+	var r1 *s3.ListBucketsExtendedOutput
+	if rf, ok := ret.Get(1).(func(*s3.ListBucketsExtendedInput) *s3.ListBucketsExtendedOutput); ok {
+		r1 = rf(_a0)
+	} else {
+		if ret.Get(1) != nil {
+			r1 = ret.Get(1).(*s3.ListBucketsExtendedOutput)
+		}
+	}
+
+	return r0, r1
+}
+
+// ListBucketsExtendedWithContext provides a mock function with given fields: _a0, _a1, _a2
+func (_m *S3API) ListBucketsExtendedWithContext(_a0 context.Context, _a1 *s3.ListBucketsExtendedInput, _a2 ...request.Option) (*s3.ListBucketsExtendedOutput, error) {
+	_va := make([]interface{}, len(_a2))
+	for _i := range _a2 {
+		_va[_i] = _a2[_i]
+	}
+	var _ca []interface{}
+	_ca = append(_ca, _a0, _a1)
+	_ca = append(_ca, _va...)
+	ret := _m.Called(_ca...)
+
+	var r0 *s3.ListBucketsExtendedOutput
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.ListBucketsExtendedInput, ...request.Option) *s3.ListBucketsExtendedOutput); ok {
+		r0 = rf(_a0, _a1, _a2...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.ListBucketsExtendedOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.ListBucketsExtendedInput, ...request.Option) error); ok {
+		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
 	}
@@ -1387,7 +1500,7 @@ func (_m *S3API) ListBucketsRequest(_a0 *s3.ListBucketsInput) (*request.Request,
 }
 
 // ListBucketsWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) ListBucketsWithContext(_a0 aws.Context, _a1 *s3.ListBucketsInput, _a2 ...request.Option) (*s3.ListBucketsOutput, error) {
+func (_m *S3API) ListBucketsWithContext(_a0 context.Context, _a1 *s3.ListBucketsInput, _a2 ...request.Option) (*s3.ListBucketsOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -1398,7 +1511,7 @@ func (_m *S3API) ListBucketsWithContext(_a0 aws.Context, _a1 *s3.ListBucketsInpu
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.ListBucketsOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.ListBucketsInput, ...request.Option) *s3.ListBucketsOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.ListBucketsInput, ...request.Option) *s3.ListBucketsOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -1407,7 +1520,7 @@ func (_m *S3API) ListBucketsWithContext(_a0 aws.Context, _a1 *s3.ListBucketsInpu
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.ListBucketsInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.ListBucketsInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -1454,7 +1567,7 @@ func (_m *S3API) ListMultipartUploadsPages(_a0 *s3.ListMultipartUploadsInput, _a
 }
 
 // ListMultipartUploadsPagesWithContext provides a mock function with given fields: _a0, _a1, _a2, _a3
-func (_m *S3API) ListMultipartUploadsPagesWithContext(_a0 aws.Context, _a1 *s3.ListMultipartUploadsInput, _a2 func(*s3.ListMultipartUploadsOutput, bool) bool, _a3 ...request.Option) error {
+func (_m *S3API) ListMultipartUploadsPagesWithContext(_a0 context.Context, _a1 *s3.ListMultipartUploadsInput, _a2 func(*s3.ListMultipartUploadsOutput, bool) bool, _a3 ...request.Option) error {
 	_va := make([]interface{}, len(_a3))
 	for _i := range _a3 {
 		_va[_i] = _a3[_i]
@@ -1465,7 +1578,7 @@ func (_m *S3API) ListMultipartUploadsPagesWithContext(_a0 aws.Context, _a1 *s3.L
 	ret := _m.Called(_ca...)
 
 	var r0 error
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.ListMultipartUploadsInput, func(*s3.ListMultipartUploadsOutput, bool) bool, ...request.Option) error); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.ListMultipartUploadsInput, func(*s3.ListMultipartUploadsOutput, bool) bool, ...request.Option) error); ok {
 		r0 = rf(_a0, _a1, _a2, _a3...)
 	} else {
 		r0 = ret.Error(0)
@@ -1500,7 +1613,7 @@ func (_m *S3API) ListMultipartUploadsRequest(_a0 *s3.ListMultipartUploadsInput) 
 }
 
 // ListMultipartUploadsWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) ListMultipartUploadsWithContext(_a0 aws.Context, _a1 *s3.ListMultipartUploadsInput, _a2 ...request.Option) (*s3.ListMultipartUploadsOutput, error) {
+func (_m *S3API) ListMultipartUploadsWithContext(_a0 context.Context, _a1 *s3.ListMultipartUploadsInput, _a2 ...request.Option) (*s3.ListMultipartUploadsOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -1511,7 +1624,7 @@ func (_m *S3API) ListMultipartUploadsWithContext(_a0 aws.Context, _a1 *s3.ListMu
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.ListMultipartUploadsOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.ListMultipartUploadsInput, ...request.Option) *s3.ListMultipartUploadsOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.ListMultipartUploadsInput, ...request.Option) *s3.ListMultipartUploadsOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -1520,7 +1633,7 @@ func (_m *S3API) ListMultipartUploadsWithContext(_a0 aws.Context, _a1 *s3.ListMu
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.ListMultipartUploadsInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.ListMultipartUploadsInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -1567,7 +1680,7 @@ func (_m *S3API) ListObjectsPages(_a0 *s3.ListObjectsInput, _a1 func(*s3.ListObj
 }
 
 // ListObjectsPagesWithContext provides a mock function with given fields: _a0, _a1, _a2, _a3
-func (_m *S3API) ListObjectsPagesWithContext(_a0 aws.Context, _a1 *s3.ListObjectsInput, _a2 func(*s3.ListObjectsOutput, bool) bool, _a3 ...request.Option) error {
+func (_m *S3API) ListObjectsPagesWithContext(_a0 context.Context, _a1 *s3.ListObjectsInput, _a2 func(*s3.ListObjectsOutput, bool) bool, _a3 ...request.Option) error {
 	_va := make([]interface{}, len(_a3))
 	for _i := range _a3 {
 		_va[_i] = _a3[_i]
@@ -1578,7 +1691,7 @@ func (_m *S3API) ListObjectsPagesWithContext(_a0 aws.Context, _a1 *s3.ListObject
 	ret := _m.Called(_ca...)
 
 	var r0 error
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.ListObjectsInput, func(*s3.ListObjectsOutput, bool) bool, ...request.Option) error); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.ListObjectsInput, func(*s3.ListObjectsOutput, bool) bool, ...request.Option) error); ok {
 		r0 = rf(_a0, _a1, _a2, _a3...)
 	} else {
 		r0 = ret.Error(0)
@@ -1613,7 +1726,7 @@ func (_m *S3API) ListObjectsRequest(_a0 *s3.ListObjectsInput) (*request.Request,
 }
 
 // ListObjectsWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) ListObjectsWithContext(_a0 aws.Context, _a1 *s3.ListObjectsInput, _a2 ...request.Option) (*s3.ListObjectsOutput, error) {
+func (_m *S3API) ListObjectsWithContext(_a0 context.Context, _a1 *s3.ListObjectsInput, _a2 ...request.Option) (*s3.ListObjectsOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -1624,7 +1737,7 @@ func (_m *S3API) ListObjectsWithContext(_a0 aws.Context, _a1 *s3.ListObjectsInpu
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.ListObjectsOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.ListObjectsInput, ...request.Option) *s3.ListObjectsOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.ListObjectsInput, ...request.Option) *s3.ListObjectsOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -1633,7 +1746,7 @@ func (_m *S3API) ListObjectsWithContext(_a0 aws.Context, _a1 *s3.ListObjectsInpu
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.ListObjectsInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.ListObjectsInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -1680,7 +1793,7 @@ func (_m *S3API) ListPartsPages(_a0 *s3.ListPartsInput, _a1 func(*s3.ListPartsOu
 }
 
 // ListPartsPagesWithContext provides a mock function with given fields: _a0, _a1, _a2, _a3
-func (_m *S3API) ListPartsPagesWithContext(_a0 aws.Context, _a1 *s3.ListPartsInput, _a2 func(*s3.ListPartsOutput, bool) bool, _a3 ...request.Option) error {
+func (_m *S3API) ListPartsPagesWithContext(_a0 context.Context, _a1 *s3.ListPartsInput, _a2 func(*s3.ListPartsOutput, bool) bool, _a3 ...request.Option) error {
 	_va := make([]interface{}, len(_a3))
 	for _i := range _a3 {
 		_va[_i] = _a3[_i]
@@ -1691,7 +1804,7 @@ func (_m *S3API) ListPartsPagesWithContext(_a0 aws.Context, _a1 *s3.ListPartsInp
 	ret := _m.Called(_ca...)
 
 	var r0 error
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.ListPartsInput, func(*s3.ListPartsOutput, bool) bool, ...request.Option) error); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.ListPartsInput, func(*s3.ListPartsOutput, bool) bool, ...request.Option) error); ok {
 		r0 = rf(_a0, _a1, _a2, _a3...)
 	} else {
 		r0 = ret.Error(0)
@@ -1726,7 +1839,7 @@ func (_m *S3API) ListPartsRequest(_a0 *s3.ListPartsInput) (*request.Request, *s3
 }
 
 // ListPartsWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) ListPartsWithContext(_a0 aws.Context, _a1 *s3.ListPartsInput, _a2 ...request.Option) (*s3.ListPartsOutput, error) {
+func (_m *S3API) ListPartsWithContext(_a0 context.Context, _a1 *s3.ListPartsInput, _a2 ...request.Option) (*s3.ListPartsOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -1737,7 +1850,7 @@ func (_m *S3API) ListPartsWithContext(_a0 aws.Context, _a1 *s3.ListPartsInput, _
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.ListPartsOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.ListPartsInput, ...request.Option) *s3.ListPartsOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.ListPartsInput, ...request.Option) *s3.ListPartsOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -1746,7 +1859,7 @@ func (_m *S3API) ListPartsWithContext(_a0 aws.Context, _a1 *s3.ListPartsInput, _
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.ListPartsInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.ListPartsInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -1804,7 +1917,7 @@ func (_m *S3API) PutBucketAclRequest(_a0 *s3.PutBucketAclInput) (*request.Reques
 }
 
 // PutBucketAclWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) PutBucketAclWithContext(_a0 aws.Context, _a1 *s3.PutBucketAclInput, _a2 ...request.Option) (*s3.PutBucketAclOutput, error) {
+func (_m *S3API) PutBucketAclWithContext(_a0 context.Context, _a1 *s3.PutBucketAclInput, _a2 ...request.Option) (*s3.PutBucketAclOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -1815,7 +1928,7 @@ func (_m *S3API) PutBucketAclWithContext(_a0 aws.Context, _a1 *s3.PutBucketAclIn
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.PutBucketAclOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.PutBucketAclInput, ...request.Option) *s3.PutBucketAclOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.PutBucketAclInput, ...request.Option) *s3.PutBucketAclOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -1824,7 +1937,7 @@ func (_m *S3API) PutBucketAclWithContext(_a0 aws.Context, _a1 *s3.PutBucketAclIn
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.PutBucketAclInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.PutBucketAclInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -1882,7 +1995,7 @@ func (_m *S3API) PutBucketCorsRequest(_a0 *s3.PutBucketCorsInput) (*request.Requ
 }
 
 // PutBucketCorsWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) PutBucketCorsWithContext(_a0 aws.Context, _a1 *s3.PutBucketCorsInput, _a2 ...request.Option) (*s3.PutBucketCorsOutput, error) {
+func (_m *S3API) PutBucketCorsWithContext(_a0 context.Context, _a1 *s3.PutBucketCorsInput, _a2 ...request.Option) (*s3.PutBucketCorsOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -1893,7 +2006,7 @@ func (_m *S3API) PutBucketCorsWithContext(_a0 aws.Context, _a1 *s3.PutBucketCors
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.PutBucketCorsOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.PutBucketCorsInput, ...request.Option) *s3.PutBucketCorsOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.PutBucketCorsInput, ...request.Option) *s3.PutBucketCorsOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -1902,7 +2015,7 @@ func (_m *S3API) PutBucketCorsWithContext(_a0 aws.Context, _a1 *s3.PutBucketCors
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.PutBucketCorsInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.PutBucketCorsInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -1960,7 +2073,7 @@ func (_m *S3API) PutBucketLoggingRequest(_a0 *s3.PutBucketLoggingInput) (*reques
 }
 
 // PutBucketLoggingWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) PutBucketLoggingWithContext(_a0 aws.Context, _a1 *s3.PutBucketLoggingInput, _a2 ...request.Option) (*s3.PutBucketLoggingOutput, error) {
+func (_m *S3API) PutBucketLoggingWithContext(_a0 context.Context, _a1 *s3.PutBucketLoggingInput, _a2 ...request.Option) (*s3.PutBucketLoggingOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -1971,7 +2084,7 @@ func (_m *S3API) PutBucketLoggingWithContext(_a0 aws.Context, _a1 *s3.PutBucketL
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.PutBucketLoggingOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.PutBucketLoggingInput, ...request.Option) *s3.PutBucketLoggingOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.PutBucketLoggingInput, ...request.Option) *s3.PutBucketLoggingOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -1980,7 +2093,7 @@ func (_m *S3API) PutBucketLoggingWithContext(_a0 aws.Context, _a1 *s3.PutBucketL
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.PutBucketLoggingInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.PutBucketLoggingInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -2061,7 +2174,7 @@ func (_m *S3API) PutObjectAclRequest(_a0 *s3.PutObjectAclInput) (*request.Reques
 }
 
 // PutObjectAclWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) PutObjectAclWithContext(_a0 aws.Context, _a1 *s3.PutObjectAclInput, _a2 ...request.Option) (*s3.PutObjectAclOutput, error) {
+func (_m *S3API) PutObjectAclWithContext(_a0 context.Context, _a1 *s3.PutObjectAclInput, _a2 ...request.Option) (*s3.PutObjectAclOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -2072,7 +2185,7 @@ func (_m *S3API) PutObjectAclWithContext(_a0 aws.Context, _a1 *s3.PutObjectAclIn
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.PutObjectAclOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.PutObjectAclInput, ...request.Option) *s3.PutObjectAclOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.PutObjectAclInput, ...request.Option) *s3.PutObjectAclOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -2081,7 +2194,7 @@ func (_m *S3API) PutObjectAclWithContext(_a0 aws.Context, _a1 *s3.PutObjectAclIn
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.PutObjectAclInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.PutObjectAclInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -2116,7 +2229,7 @@ func (_m *S3API) PutObjectRequest(_a0 *s3.PutObjectInput) (*request.Request, *s3
 }
 
 // PutObjectWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) PutObjectWithContext(_a0 aws.Context, _a1 *s3.PutObjectInput, _a2 ...request.Option) (*s3.PutObjectOutput, error) {
+func (_m *S3API) PutObjectWithContext(_a0 context.Context, _a1 *s3.PutObjectInput, _a2 ...request.Option) (*s3.PutObjectOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -2127,7 +2240,7 @@ func (_m *S3API) PutObjectWithContext(_a0 aws.Context, _a1 *s3.PutObjectInput, _
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.PutObjectOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.PutObjectInput, ...request.Option) *s3.PutObjectOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.PutObjectInput, ...request.Option) *s3.PutObjectOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -2136,7 +2249,7 @@ func (_m *S3API) PutObjectWithContext(_a0 aws.Context, _a1 *s3.PutObjectInput, _
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.PutObjectInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.PutObjectInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -2217,7 +2330,7 @@ func (_m *S3API) UploadPartCopyRequest(_a0 *s3.UploadPartCopyInput) (*request.Re
 }
 
 // UploadPartCopyWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) UploadPartCopyWithContext(_a0 aws.Context, _a1 *s3.UploadPartCopyInput, _a2 ...request.Option) (*s3.UploadPartCopyOutput, error) {
+func (_m *S3API) UploadPartCopyWithContext(_a0 context.Context, _a1 *s3.UploadPartCopyInput, _a2 ...request.Option) (*s3.UploadPartCopyOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -2228,7 +2341,7 @@ func (_m *S3API) UploadPartCopyWithContext(_a0 aws.Context, _a1 *s3.UploadPartCo
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.UploadPartCopyOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.UploadPartCopyInput, ...request.Option) *s3.UploadPartCopyOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.UploadPartCopyInput, ...request.Option) *s3.UploadPartCopyOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -2237,7 +2350,7 @@ func (_m *S3API) UploadPartCopyWithContext(_a0 aws.Context, _a1 *s3.UploadPartCo
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.UploadPartCopyInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.UploadPartCopyInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -2272,7 +2385,7 @@ func (_m *S3API) UploadPartRequest(_a0 *s3.UploadPartInput) (*request.Request, *
 }
 
 // UploadPartWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) UploadPartWithContext(_a0 aws.Context, _a1 *s3.UploadPartInput, _a2 ...request.Option) (*s3.UploadPartOutput, error) {
+func (_m *S3API) UploadPartWithContext(_a0 context.Context, _a1 *s3.UploadPartInput, _a2 ...request.Option) (*s3.UploadPartOutput, error) {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -2283,7 +2396,7 @@ func (_m *S3API) UploadPartWithContext(_a0 aws.Context, _a1 *s3.UploadPartInput,
 	ret := _m.Called(_ca...)
 
 	var r0 *s3.UploadPartOutput
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.UploadPartInput, ...request.Option) *s3.UploadPartOutput); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.UploadPartInput, ...request.Option) *s3.UploadPartOutput); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		if ret.Get(0) != nil {
@@ -2292,7 +2405,7 @@ func (_m *S3API) UploadPartWithContext(_a0 aws.Context, _a1 *s3.UploadPartInput,
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(aws.Context, *s3.UploadPartInput, ...request.Option) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.UploadPartInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -2316,7 +2429,7 @@ func (_m *S3API) WaitUntilBucketExists(_a0 *s3.HeadBucketInput) error {
 }
 
 // WaitUntilBucketExistsWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) WaitUntilBucketExistsWithContext(_a0 aws.Context, _a1 *s3.HeadBucketInput, _a2 ...request.WaiterOption) error {
+func (_m *S3API) WaitUntilBucketExistsWithContext(_a0 context.Context, _a1 *s3.HeadBucketInput, _a2 ...request.WaiterOption) error {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -2327,7 +2440,7 @@ func (_m *S3API) WaitUntilBucketExistsWithContext(_a0 aws.Context, _a1 *s3.HeadB
 	ret := _m.Called(_ca...)
 
 	var r0 error
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.HeadBucketInput, ...request.WaiterOption) error); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.HeadBucketInput, ...request.WaiterOption) error); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		r0 = ret.Error(0)
@@ -2351,7 +2464,7 @@ func (_m *S3API) WaitUntilBucketNotExists(_a0 *s3.HeadBucketInput) error {
 }
 
 // WaitUntilBucketNotExistsWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) WaitUntilBucketNotExistsWithContext(_a0 aws.Context, _a1 *s3.HeadBucketInput, _a2 ...request.WaiterOption) error {
+func (_m *S3API) WaitUntilBucketNotExistsWithContext(_a0 context.Context, _a1 *s3.HeadBucketInput, _a2 ...request.WaiterOption) error {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -2362,7 +2475,7 @@ func (_m *S3API) WaitUntilBucketNotExistsWithContext(_a0 aws.Context, _a1 *s3.He
 	ret := _m.Called(_ca...)
 
 	var r0 error
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.HeadBucketInput, ...request.WaiterOption) error); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.HeadBucketInput, ...request.WaiterOption) error); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		r0 = ret.Error(0)
@@ -2386,7 +2499,7 @@ func (_m *S3API) WaitUntilObjectExists(_a0 *s3.HeadObjectInput) error {
 }
 
 // WaitUntilObjectExistsWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) WaitUntilObjectExistsWithContext(_a0 aws.Context, _a1 *s3.HeadObjectInput, _a2 ...request.WaiterOption) error {
+func (_m *S3API) WaitUntilObjectExistsWithContext(_a0 context.Context, _a1 *s3.HeadObjectInput, _a2 ...request.WaiterOption) error {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -2397,7 +2510,7 @@ func (_m *S3API) WaitUntilObjectExistsWithContext(_a0 aws.Context, _a1 *s3.HeadO
 	ret := _m.Called(_ca...)
 
 	var r0 error
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.HeadObjectInput, ...request.WaiterOption) error); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.HeadObjectInput, ...request.WaiterOption) error); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		r0 = ret.Error(0)
@@ -2421,7 +2534,7 @@ func (_m *S3API) WaitUntilObjectNotExists(_a0 *s3.HeadObjectInput) error {
 }
 
 // WaitUntilObjectNotExistsWithContext provides a mock function with given fields: _a0, _a1, _a2
-func (_m *S3API) WaitUntilObjectNotExistsWithContext(_a0 aws.Context, _a1 *s3.HeadObjectInput, _a2 ...request.WaiterOption) error {
+func (_m *S3API) WaitUntilObjectNotExistsWithContext(_a0 context.Context, _a1 *s3.HeadObjectInput, _a2 ...request.WaiterOption) error {
 	_va := make([]interface{}, len(_a2))
 	for _i := range _a2 {
 		_va[_i] = _a2[_i]
@@ -2432,7 +2545,7 @@ func (_m *S3API) WaitUntilObjectNotExistsWithContext(_a0 aws.Context, _a1 *s3.He
 	ret := _m.Called(_ca...)
 
 	var r0 error
-	if rf, ok := ret.Get(0).(func(aws.Context, *s3.HeadObjectInput, ...request.WaiterOption) error); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.HeadObjectInput, ...request.WaiterOption) error); ok {
 		r0 = rf(_a0, _a1, _a2...)
 	} else {
 		r0 = ret.Error(0)

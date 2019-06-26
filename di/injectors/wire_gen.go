@@ -8,6 +8,7 @@ package injectors
 import (
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibmcloud-cos-cli/di/providers"
+	"github.com/IBM/ibmcloud-cos-cli/render"
 	"github.com/IBM/ibmcloud-cos-cli/utils"
 )
 
@@ -29,14 +30,24 @@ func InitializeCosContext(pluginContext plugin.PluginContext) (*utils.CosContext
 	if err != nil {
 		return nil, err
 	}
+	jsonRender := render.NewJSONRender(ui)
+	textRender := render.NewTextRender(ui)
+	errorRender := render.NewErrorRender(ui)
 	v := providers.GetS3APIFn()
+	v2 := providers.GetDownloaderAPIFn()
+	v3 := providers.GetUploaderAPIFn()
 	fileOperationsImpl := providers.GetFileOperations()
 	cosContext := &utils.CosContext{
 		UI:               ui,
 		Config:           pluginConfig,
 		Session:          session,
-		ClientGen:        v,
 		ListKnownRegions: cosEndPointsWSClient,
+		JSONRender:       jsonRender,
+		TextRender:       textRender,
+		ErrorRender:      errorRender,
+		ClientGen:        v,
+		DownloaderGen:    v2,
+		UploaderGen:      v3,
 		FileOperations:   fileOperationsImpl,
 	}
 	return cosContext, nil

@@ -4,6 +4,10 @@
     "translation": " アカウントにバケットが見つかりました:\n"
   },
   {
+    "id": " buckets:",
+    "translation": " バケット:"
+  },
+  {
     "id": " downloaded.",
     "translation": " ダウンロードされました。"
   },
@@ -28,6 +32,10 @@
     "translation": "アカウントに 1 個のバケットが見つかりました:\n"
   },
   {
+    "id": "1 bucket:",
+    "translation": "1 個のバケット:"
+  },
+  {
     "id": "1 multipart upload in bucket '",
     "translation": "バケットに 1 個のマルチパート・アップロードがあります '"
   },
@@ -48,8 +56,12 @@
     "translation": "保管するメタデータの `MAP` です。 構文: KeyName1=string,KeyName2=string"
   },
   {
-    "id": "A `TOKEN` to specify where to start paginating. This is the NextToken from a previously truncated response.",
-    "translation": "ページ編集を開始する場所を指定するための `TOKEN`。 これは以前に切り捨てられた応答からの theNextToken です。"
+    "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
+    "translation": "ファイル内で JSON 構文を使用する `STRUCTURE`。IBM Cloud の資料を参照してください。"
+  },
+  {
+    "id": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation.",
+    "translation": "省略表現または JSON 構文のいずれかを使用する `STRUCTURE`。IBM Cloud の資料を参照してください。"
   },
   {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
@@ -60,11 +72,7 @@
     "translation": "オブジェクト・データの形式を記述する標準 `MIME` タイプです。"
   },
   {
-    "id": "Aborting multipart upload...",
-    "translation": "マルチパート・アップロードを中止中..."
-  },
-  {
-    "id": "Aborts a multipart upload instance.",
+    "id": "Abort a multipart upload instance.",
     "translation": "マルチパート・アップロード・インスタンスを中止します。"
   },
   {
@@ -76,10 +84,6 @@
     "translation": "続行してよろしいですか?"
   },
   {
-    "id": "Are you sure you would like to overwrite it?",
-    "translation": "上書きしてよろしいですか?"
-  },
-  {
     "id": "Authentication Method",
     "translation": "認証方法"
   },
@@ -88,8 +92,12 @@
     "translation": "認証 `METHOD`。"
   },
   {
-    "id": "Bucket '{{.bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
-    "translation": "バケット '{{.bucket}}' (Region {{.region}} 内) が IBM Cloud Object Storage アカウント内で見つかりました。"
+    "id": "Bad Flag Syntax in '--%s'",
+    "translation": "'--%s' に不適切なフラグ構文があります。"
+  },
+  {
+    "id": "Bucket '{{.Bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
+    "translation": "バケット '{{.Bucket}}' (Region {{.region}} 内) が IBM Cloud Object Storage アカウント内に見つかりました。"
   },
   {
     "id": "CRN",
@@ -100,20 +108,24 @@
     "translation": "プラグイン構成の変更"
   },
   {
-    "id": "Class: {{.class}}",
-    "translation": "クラス: {{.class}}"
+    "id": "Class: ",
+    "translation": "クラス: "
   },
   {
     "id": "Clear the option value.",
     "translation": "オプション値をクリアします。"
   },
   {
-    "id": "Complete an existing multipart upload instance.",
-    "translation": "既存のマルチパート・アップロード・インスタンスを完了します。"
+    "id": "Command does not support Flag '--%s'",
+    "translation": "コマンドがフラグ '--%s' をサポートしません。"
   },
   {
-    "id": "Completing multipart upload...",
-    "translation": "マルチパート・アップロードを完了中..."
+    "id": "Common Prefixes:",
+    "translation": "共通の接頭部:"
+  },
+  {
+    "id": "Complete an existing multipart upload instance.",
+    "translation": "既存のマルチパート・アップロード・インスタンスを完了します。"
   },
   {
     "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
@@ -136,10 +148,6 @@
     "translation": "あるバケットから別のバケットにオブジェクトをコピーします。"
   },
   {
-    "id": "Copying object...",
-    "translation": "オブジェクトをコピー中..."
-  },
-  {
     "id": "Create a new bucket.",
     "translation": "新規バケットを作成します。"
   },
@@ -148,12 +156,8 @@
     "translation": "新規のマルチパート・アップロード・インスタンスを作成します。"
   },
   {
-    "id": "Creating bucket...",
-    "translation": "バケットを作成中..."
-  },
-  {
-    "id": "Creating new multipart upload instance...",
-    "translation": "新規のマルチパート・アップロード・インスタンスを作成中..."
+    "id": "Creation Date",
+    "translation": "作成日"
   },
   {
     "id": "Date Created",
@@ -188,24 +192,8 @@
     "translation": "バケットから CORS 構成を削除します。"
   },
   {
-    "id": "Deleting CORS from the bucket...",
-    "translation": "バケットから CORS を削除中..."
-  },
-  {
-    "id": "Deleting bucket...",
-    "translation": "バケットを削除中..."
-  },
-  {
-    "id": "Deleting object...",
-    "translation": "オブジェクトを削除中..."
-  },
-  {
-    "id": "Deleting objects...",
-    "translation": "オブジェクトを削除中..."
-  },
-  {
-    "id": "Details about bucket {{.details}}:",
-    "translation": "バケット {{.details}} についての詳細:"
+    "id": "Details about bucket ",
+    "translation": "バケットについての詳細:"
   },
   {
     "id": "Details about your multipart upload instance:",
@@ -232,20 +220,24 @@
     "translation": "バケットからオブジェクトをダウンロードします。"
   },
   {
-    "id": "Downloading object...",
-    "translation": "オブジェクトをダウンロード中..."
+    "id": "Download objects from S3 concurrently.",
+    "translation": "並行して S3 からオブジェクトをダウンロードします。"
   },
   {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
     "translation": "オブジェクトの指定した `RANGE` バイトをダウンロードします。 HTTP Range ヘッダーの詳細については、http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35 を参照してください。"
   },
   {
-    "id": "Empty source bucket.",
-    "translation": "ソース・バケットを空にします。"
+    "id": "ETag",
+    "translation": "ETag"
   },
   {
-    "id": "Error opening '{{.dl}}' to write ",
-    "translation": "'{{.dl}}' を書き込み用にオープン中にエラーが発生しました "
+    "id": "Error opening '{{.Location}}' to write.",
+    "translation": "'{{.Location}}' を書き込み用にオープン中にエラーが発生しました。"
+  },
+  {
+    "id": "Flag '--%s' requires a value",
+    "translation": "フラグ '--%s' に値が必要です。"
   },
   {
     "id": "Found ",
@@ -260,20 +252,20 @@
     "translation": "バケットの Region とクラスを取得します。"
   },
   {
-    "id": "Getting bucket CORS ...",
-    "translation": "バケット CORS を取得中 ..."
-  },
-  {
-    "id": "Incorrect Usage.",
-    "translation": "使用法が正しくありません。"
-  },
-  {
     "id": "Initiated",
     "translation": "開始されました"
   },
   {
     "id": "Interact with IBM Cloud Object Storage services",
     "translation": "IBM Cloud Object Storage サービスと対話します"
+  },
+  {
+    "id": "Invalid boolean balue in Flag '--%s'",
+    "translation": "フラグ '--%s' に無効なブール値があります。"
+  },
+  {
+    "id": "Invalid boolean flag '--%s'",
+    "translation": "無効なブールフラグ '--%s'"
   },
   {
     "id": "It was last updated on {{.lastupdated}}.",
@@ -308,6 +300,10 @@
     "translation": "IBM Cloud Object Storage アカウント内のすべてのバケットをリストします。"
   },
   {
+    "id": "List all the extended buckets with pagination support.",
+    "translation": "すべての拡張バケットをページ編集サポート付きでリストします。"
+  },
+  {
     "id": "List configuration",
     "translation": "構成をリストします"
   },
@@ -316,24 +312,16 @@
     "translation": "構成値をリストします。"
   },
   {
-    "id": "Listing Multipart Uploads...",
-    "translation": "マルチパート・アップロードをリスト中..."
+    "id": "Location Constraint",
+    "translation": "場所の制約"
   },
   {
-    "id": "Listing objects...",
-    "translation": "オブジェクトをリスト中..."
+    "id": "Mandatory Flag '--%s' is missing",
+    "translation": "必須フラグ '--%s' が欠落しています"
   },
   {
-    "id": "Listing parts...",
-    "translation": "パーツをリスト中..."
-  },
-  {
-    "id": "Loading buckets...",
-    "translation": "バケットをロード中..."
-  },
-  {
-    "id": "Location: %s",
-    "translation": "場所: %s"
+    "id": "Max number of `PARTS` which will be uploaded to S3 that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.",
+    "translation": "アップロード対象のオブジェクトのパーツ・サイズを計算する S3 にアップロードされる `PARTS` の最大数。制限は 10,000 パーツです。"
   },
   {
     "id": "Name",
@@ -364,6 +352,14 @@
     "translation": "操作がキャンセルされました。"
   },
   {
+    "id": "Output returned in raw JSON format.",
+    "translation": "未加工 JSON フォーマットで返される出力。"
+  },
+  {
+    "id": "Override the default location providing an OUTFILE parameter",
+    "translation": "OUTFILE パラメーターを提供することで、デフォルトの場所をオーバーライドします"
+  },
+  {
     "id": "Part Number",
     "translation": "パーツの番号"
   },
@@ -376,12 +372,8 @@
     "translation": "リスト表示が開始する前のパーツの番号 `VALUE`"
   },
   {
-    "id": "Putting object...",
-    "translation": "オブジェクトを配置中..."
-  },
-  {
-    "id": "Region: {{.region}}",
-    "translation": "Region: {{.region}}"
+    "id": "Region: ",
+    "translation": "Region: "
   },
   {
     "id": "Regions endpoint `URL`.",
@@ -418,10 +410,6 @@
   {
     "id": "Saving new Service Instance ID...",
     "translation": "新規サービス・インスタンス ID を保存中..."
-  },
-  {
-    "id": "Set a valid download location using 'cos config --ddl'",
-    "translation": "有効なダウンロード場所を 'cos config --ddl' を使用して設定します。"
   },
   {
     "id": "Set regions endpoint URL.",
@@ -464,8 +452,8 @@
     "translation": "IBM サービス・インスタンス `ID` を要求に設定します。"
   },
   {
-    "id": "Setting bucket CORS...",
-    "translation": "バケット CORS を設定中..."
+    "id": "Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.",
+    "translation": "この値を True に設定すると、失敗時に SDK が AbortMultipartUpload を呼び出さなくなり、正常にアップロードされたすべてのパーツは手動で復元するために S3 に置かれたままになります。"
   },
   {
     "id": "Size",
@@ -520,12 +508,8 @@
     "translation": "Region エンドポイント URL が正常にクリアされました。"
   },
   {
-    "id": "Successfully copied '{{.object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
-    "translation": "'{{.object}}' がバケット '{{.bucket1}}' からバケット '{{.bucket2}}' に正常にコピーされました。"
-  },
-  {
-    "id": "Successfully created bucket '{{.bucket}}'.",
-    "translation": "バケット '{{.bucket}}' が正常に作成されました。"
+    "id": "Successfully copied '{{.Object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
+    "translation": "'{{.Object}}' がバケット '{{.bucket1}}' からバケット '{{.bucket2}}' に正常にコピーされました。"
   },
   {
     "id": "Successfully deleted CORS configuration on bucket: {{.Bucket}}",
@@ -542,6 +526,10 @@
   {
     "id": "Successfully saved HMAC Credentials to file.",
     "translation": "HMAC 資格情報がファイルに正常に保存されました。"
+  },
+  {
+    "id": "Successfully saved S3 {{.Style}} style hosting option. CLI calls will use {{.Style}} style requests.",
+    "translation": "S3 {{.Style}} スタイルのホスティング・オプションが正常に保存されました。CLI 呼び出しでは {{.Style}} スタイル要求が使用されます。"
   },
   {
     "id": "Successfully saved default region. The program will look for buckets in the region {{.region}}.",
@@ -580,8 +568,8 @@
     "translation": "HMAC と IAM の認証の間で切り替えます"
   },
   {
-    "id": "Switch between HMAC and IAM authentication.",
-    "translation": "HMAC と IAM の認証の間で切り替えます。"
+    "id": "Switch between VHost and Path URL style.",
+    "translation": "VHost と Path URL スタイルの間で切り替えます。"
   },
   {
     "id": "The CORS configuration of ",
@@ -596,44 +584,28 @@
     "translation": "コンテンツを表示する `LANGUAGE` です。"
   },
   {
+    "id": "The `PATH` to the file to upload.",
+    "translation": "アップロードするファイルへの `PATH`。"
+  },
+  {
     "id": "The `REGION` where the bucket is present. If this flag is not provided, the program will use the default option specified in config.",
-    "translation": "バケットが存在する `REGION`。 このフラグを設定しない場合、プログラムは構成に指定されたデフォルト・オプションを使用するようになります。"
+    "translation": "バケットが存在する `REGION`。このフラグを設定しない場合、プログラムは構成に指定されたデフォルト・オプションを使用するようになります。"
   },
   {
-    "id": "The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the service calls from timing out.",
-    "translation": "サービス呼び出しで取得する各ページの `SIZE`。 これは、コマンドの出力として返される項目の数には影響しません。 ページ・サイズをより小さく指定することで、各呼び出しで取得する項目が少なくなり、AWS サービスに送られる呼び出し数が増えることになります。 これにより、サービス呼び出しのタイムアウトを防ぐことができます。"
-  },
-  {
-    "id": "The `VALUE` of CorsConfiguration to set.",
-    "translation": "設定する CorsConfiguration の `VALUE` です。"
-  },
-  {
-    "id": "The `VALUE` of CreateBucketConfiguration to set.",
-    "translation": "設定する CreateBucketConfiguration の `VALUE` です。"
-  },
-  {
-    "id": "The `VALUE` of Delete to set. Syntax: Objects=[{Key=string},{Key=string}],Quiet=boolean",
-    "translation": "設定する Delete の `VALUE` です。 構文: Objects=[{Key=string},{Key=string}],Quiet=boolean"
-  },
-  {
-    "id": "The `VALUE` of MultipartUpload to set.",
-    "translation": "設定する MultipartUpload の `VALUE` です。"
+    "id": "The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the COS service, retrieving fewer items in each call. This can help prevent the service calls from timing out.",
+    "translation": "サービス呼び出しで取得する各ページの `SIZE`。 これは、コマンドの出力として返される項目の数には影響しません。 ページ・サイズをより小さく指定することで、各呼び出しで取得する項目が少なくなり、COS サービスに送られる呼び出し数が増えることになります。 これにより、サービス呼び出しのタイムアウトを防ぐことができます。"
   },
   {
     "id": "The base64-encoded 128-bit `MD5` digest of the data.",
     "translation": "データの Base64 エンコード 128 ビット `MD5` ダイジェストです。"
   },
   {
-    "id": "The download destination '{{.dl}}' is a directory.",
-    "translation": "ダウンロード先 '{{.dl}}' がディレクトリーです。"
+    "id": "The buffer `SIZE` (in bytes) to use when buffering data into chunks and ending them as parts to S3. The minimum allowed part size is 5MB.",
+    "translation": "データをチャンクにバッファリングして S3 へのパーツとして帰着させるときに使用するバッファー `SIZE` (バイト単位)。許可される最小パーツ・サイズは 5MB です。"
   },
   {
-    "id": "The download directory '{{.dl}}' is invalid",
-    "translation": "ダウンロード・ディレクトリー '{{.dl}}' が無効です"
-  },
-  {
-    "id": "The download directory '{{.dl}}' is invalid.",
-    "translation": "ダウンロード・ディレクトリー '{{.dl}}' が無効です。"
+    "id": "The download destination '{{.Location}}' is a directory.",
+    "translation": "ダウンロード先 '{{.Location}}' がディレクトリーです。"
   },
   {
     "id": "The name (`BUCKET_NAME`) of the bucket.",
@@ -642,6 +614,10 @@
   {
     "id": "The name (`CLASS_NAME`) of the Class.",
     "translation": "クラスの名前 (`CLASS_NAME`) です。"
+  },
+  {
+    "id": "The number of goroutines to spin up in parallel per call to Upload when sending parts. Default value is 5.",
+    "translation": "パーツの送信時に、アップロードの呼び出しと並行してアップロード/ダウンロードするパーツの数。デフォルト値は 5 です。"
   },
   {
     "id": "The operation will do not ask for confirmation.",
@@ -664,12 +640,8 @@
     "translation": "指定したバケット名が無効です。 バケット名は、英数字 (小文字、数字、連続していないドットとハイフンに限定) で開始および終了する必要があります (3 から 63 文字)。"
   },
   {
-    "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region for the bucket to delete. Provide the bucket's correct region and try again.",
-    "translation": "指定したバケットが IBM Cloud アカウントに見つかりませんでした。 これは、削除するバケットの Region を誤って指定したことが原因です。 バケットの正しい Region を指定して、もう一度実行してください。"
-  },
-  {
-    "id": "The specified bucket was not found in your account. Ensure that you have set the correct region with the region flag.",
-    "translation": "指定したバケットがアカウントに見つかりませんでした。 正しい Region を Region フラグとともに設定していることを確認してください。"
+    "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again.",
+    "translation": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again."
   },
   {
     "id": "The specified download location does not exist on your system. Try again with a valid download path.",
@@ -680,12 +652,24 @@
     "translation": "無効なダウンロード場所が指定されました。 有効なダウンロード・パスを指定して、もう一度実行してください。"
   },
   {
+    "id": "The specified key does not exist.",
+    "translation": "指定されたキーが存在しません。"
+  },
+  {
     "id": "The total `NUMBER` of items to return in the command's output.",
     "translation": "コマンドの出力として返す項目の合計 `NUMBER`。"
   },
   {
+    "id": "The value in flag '--%s' is invalid",
+    "translation": "フラグ '--%s' 内の値が無効です。"
+  },
+  {
     "id": "This operation lists in-progress multipart uploads.",
     "translation": "この操作では進行中のマルチパート・アップロードがリストされます。"
+  },
+  {
+    "id": "To retrieve the next set of buckets, use this value marker for the next command: ",
+    "translation": "バケットの次のセットを取得するには、この値マーカーを次のコマンドで使用します: "
   },
   {
     "id": "To retrieve the next set of multipart uploads, use the following markers in the next command:",
@@ -712,16 +696,16 @@
     "translation": "'ibmcloud login' を使用してログインしてみてください。"
   },
   {
+    "id": "URL Style",
+    "translation": "URL スタイル"
+  },
+  {
+    "id": "URL `STYLE` can be VHost or Path.",
+    "translation": "URL `STYLE` は VHost または Path にできます。"
+  },
+  {
     "id": "Unable to clear regions endpoint URL.",
     "translation": "新規 Region エンドポイント URL をクリアできません。"
-  },
-  {
-    "id": "Unable to get Default Download Location.",
-    "translation": "デフォルトのダウンロード場所を取得できません。"
-  },
-  {
-    "id": "Unable to get Region.",
-    "translation": "Region を取得できません。"
   },
   {
     "id": "Unable to get new CRN.",
@@ -732,8 +716,8 @@
     "translation": "構成方法をロードできません。"
   },
   {
-    "id": "Unable to load default Region.",
-    "translation": "デフォルト Region をロードできません。"
+    "id": "Unable to load current url style.",
+    "translation": "現在の URL スタイルをロードできません。"
   },
   {
     "id": "Unable to load default download location.",
@@ -744,12 +728,8 @@
     "translation": "Region をロードできません。"
   },
   {
-    "id": "Unable to open object '{{.Key}}' for upload.",
-    "translation": "オブジェクト '{{.Key}}' をアップロード用に開くことができません。"
-  },
-  {
-    "id": "Unable to open object '{{.object}}' for upload.",
-    "translation": "ファイル '{{.object}}' をアップロード用に開くことができません。"
+    "id": "Unable to parse URL style.",
+    "translation": "URL スタイルを構文解析できません。"
   },
   {
     "id": "Unable to parse authentication method.",
@@ -758,6 +738,10 @@
   {
     "id": "Unable to read new Authentication Method.",
     "translation": "新規の認証方法を読み取れません。"
+  },
+  {
+    "id": "Unable to read new URL Style value.",
+    "translation": "新規 URL スタイルの値を読み取れません。"
   },
   {
     "id": "Unable to read new default download location.",
@@ -788,6 +772,10 @@
     "translation": "新規のダウンロード場所を保管できません。"
   },
   {
+    "id": "Unable to switch URL style.",
+    "translation": "URL スタイルを切り替えられません。"
+  },
+  {
     "id": "Unable to switch authentication method.",
     "translation": "認証方法を切り替えられません。"
   },
@@ -808,24 +796,20 @@
     "translation": "オブジェクトをバケットにアップロードします。"
   },
   {
+    "id": "Upload objects from S3 concurrently.",
+    "translation": "並行して S3 にオブジェクトをアップロードします。"
+  },
+  {
     "id": "UploadId",
     "translation": "UploadId"
   },
   {
-    "id": "Uploaded part '{{.part}}' of object '{{.object}}'.",
-    "translation": "パーツ '{{.part}}' (オブジェクト '{{.object}}' 内) をアップロードしました。"
+    "id": "Uploaded part '{{.part}}' of object '{{.Object}}'.",
+    "translation": "パーツ '{{.part}}' (オブジェクト '{{.Object}}' 内) をアップロードしました。"
   },
   {
-    "id": "Uploaded part copy '{{.part}}' of object '{{.object}}'.",
-    "translation": "パーツのコピー '{{.part}}' (オブジェクト '{{.object}}' 内) をアップロードしました。"
-  },
-  {
-    "id": "Uploading file part...",
-    "translation": "ファイルのパーツをアップロード中..."
-  },
-  {
-    "id": "Uploading part copy...",
-    "translation": "パーツのコピーをアップロード中..."
+    "id": "Uploaded part copy '{{.part}}' of object '{{.Object}}'.",
+    "translation": "パーツのコピー '{{.part}}' (オブジェクト '{{.Object}}' 内) をアップロードしました。"
   },
   {
     "id": "Value",
@@ -874,6 +858,10 @@
   {
     "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",
     "translation": "本文の `SIZE` (バイト単位)。 このパラメーターは、本文のサイズが自動的に判定されない場合に便利です。"
+  },
+  {
+    "id": "no buckets.",
+    "translation": "バケットがありません。"
   },
   {
     "id": "no multipart uploads in bucket '",

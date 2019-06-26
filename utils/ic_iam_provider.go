@@ -3,9 +3,10 @@ package utils
 import (
 	"encoding/base64"
 	"encoding/json"
-	"errors"
 	"strings"
 	"time"
+
+	"github.com/IBM/ibm-cos-sdk-go/aws/awserr"
 
 	"github.com/IBM/ibmcloud-cos-cli/config"
 
@@ -115,11 +116,15 @@ func (bx *bxIAM) Retrieve() (credentials.Value, error) {
 func (bx *bxIAM) init() error {
 
 	// Raw Token passed in from IBM Cloud CLI that
-	// IAMToken returns the IAM access token
-	rawToken := bx.pluginContext.IAMToken()
-	//fmt.Println(bx.pluginContext.IsLoggedIn(), bx.pluginContext.IsLoggedInWithServiceID())
+	// IAMToken returns the IAM access tokenValue
+	if !bx.pluginContext.IsLoggedIn() {
+		return awserr.New("auth.iam.logout", "Loggin Required", nil)
+	}
 
-	// Retains the times of the token
+	rawToken := bx.pluginContext.IAMToken()
+	//fmt.Println(, bx.pluginContext.IsLoggedInWithServiceID())
+
+	// Retains the times of the tokenValue
 	timing, err := getTokenTimes(rawToken)
 	if err != nil {
 		return err
@@ -127,8 +132,8 @@ func (bx *bxIAM) init() error {
 
 	// Build Token locally for the CLI App
 	// Token and its expiration time
-	token, err := buildToken(rawToken)
-	bx.token = token
+	tokenValue, err := buildToken(rawToken)
+	bx.token = tokenValue
 	bx.expiry = timing
 	return nil
 }
@@ -137,13 +142,13 @@ func (bx *bxIAM) init() error {
 func (bx *bxIAM) refresh() error {
 
 	// Raw Token passed in from IBMCloud CLI that RefreshIAMToken
-	// refreshes and returns the IAM access token
+	// refreshes and returns the IAM access tokenValue
 	rawToken, err := bx.pluginContext.RefreshIAMToken()
 	if err != nil {
 		return err
 	}
 
-	// Retains the times of the token
+	// Retains the times of the tokenValue
 	timing, err := getTokenTimes(rawToken)
 	if err != nil {
 		return err
@@ -151,8 +156,8 @@ func (bx *bxIAM) refresh() error {
 
 	// Build Token locally for the CLI App
 	// Token and its expiration time
-	token, err := buildToken(rawToken)
-	bx.token = token
+	tokenValue, err := buildToken(rawToken)
+	bx.token = tokenValue
 	bx.expiry = timing
 	return nil
 }
@@ -165,7 +170,7 @@ func getTokenTimes(token string) (*tokenTime, error) {
 	// Split JWT token into three pieces by periods
 	tokenSplit := strings.Split(token, ".")
 	if len(tokenSplit) != 3 {
-		return nil, errors.New("token parsing error")
+		return nil, awserr.New("auth.iam.token.decode", "Unable to decode IAM token", nil)
 	}
 
 	// Decode Token string
@@ -191,7 +196,7 @@ func buildToken(rawToken string) (*token.Token, error) {
 	// IAM Access Token
 	tokenSplit := strings.Split(rawToken, " ")
 	if len(tokenSplit) != 2 {
-		return nil, errors.New("token parsing error")
+		return nil, awserr.New("auth.iam.token.decode", "Unable to decode IAM token", nil)
 	}
 	tokenValue := new(token.Token)
 	tokenValue.TokenType = tokenSplit[0]

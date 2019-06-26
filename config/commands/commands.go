@@ -16,6 +16,7 @@ var (
 			flags.FlagIbmServiceInstanceID,
 			flags.FlagClass,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		Action: functions.BucketCreate,
 	}
@@ -27,6 +28,7 @@ var (
 			flags.FlagBucket,
 			flags.FlagRegion,
 			flags.FlagForce,
+			flags.FlagJSON,
 		},
 		Action: functions.BucketDelete,
 	}
@@ -36,8 +38,9 @@ var (
 		Description: T("Get the region and class of a bucket."),
 		Flags: []cli.Flag{
 			flags.FlagBucket,
+			flags.FlagJSON,
 		},
-		Action: functions.BucketLocation,
+		Action: functions.BucketClassLocation,
 	}
 
 	CommandBucketGetClass = cli.Command{
@@ -45,8 +48,9 @@ var (
 		Description: T("Returns the class type of the specified bucket."),
 		Flags: []cli.Flag{
 			flags.FlagBucket,
+			flags.FlagJSON,
 		},
-		Action: functions.BucketClass,
+		Action: functions.BucketClassLocation,
 	}
 
 	CommandBucketHead = cli.Command{
@@ -55,6 +59,7 @@ var (
 		Flags: []cli.Flag{
 			flags.FlagBucket,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		Action: functions.BucketHead,
 	}
@@ -64,8 +69,23 @@ var (
 		Description: T("List all the buckets in your IBM Cloud Object Storage account."),
 		Flags: []cli.Flag{
 			flags.FlagIbmServiceInstanceID,
+			flags.FlagJSON,
 		},
 		Action: functions.BucketsList,
+	}
+
+	CommandBucketsListExtended = cli.Command{
+		Name:        ListBucketsExtended,
+		Description: T("List all the extended buckets with pagination support."),
+		Flags: []cli.Flag{
+			flags.FlagIbmServiceInstanceID,
+			flags.FlagMarker,
+			flags.FlagPrefix,
+			flags.FlagPageSize,
+			flags.FlagMaxItems,
+			flags.FlagJSON,
+		},
+		Action: functions.BucketsListExtended,
 	}
 
 	CommandObjectGet = cli.Command{
@@ -86,6 +106,7 @@ var (
 			flags.FlagResponseContentType,
 			flags.FlagResponseExpires,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		ArgsUsage: "[OUTFILE]",
 		Action:    functions.ObjectGet,
@@ -103,6 +124,7 @@ var (
 			flags.FlagIfUnmodifiedSince,
 			flags.FlagRange,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		Action: functions.ObjectHead,
 	}
@@ -123,6 +145,7 @@ var (
 			flags.FlagContentType,
 			flags.FlagMetadata,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		Action: functions.ObjectPut,
 	}
@@ -135,6 +158,7 @@ var (
 			flags.FlagKey,
 			flags.FlagRegion,
 			flags.FlagForce,
+			flags.FlagJSON,
 		},
 		Action: functions.ObjectDelete,
 	}
@@ -146,6 +170,7 @@ var (
 			flags.FlagBucket,
 			flags.FlagDelete,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		Action: functions.ObjectDeletes,
 	}
@@ -169,6 +194,7 @@ var (
 			flags.FlagMetadata,
 			flags.FlagMetadataDirective,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		Action: functions.ObjectCopy,
 	}
@@ -185,6 +211,7 @@ var (
 			flags.FlagPageSize,
 			flags.FlagMaxItems,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		Action: functions.ObjectsList,
 	}
@@ -202,6 +229,7 @@ var (
 			flags.FlagContentType,
 			flags.FlagMetadata,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		Action: functions.MultipartCreate,
 	}
@@ -212,12 +240,13 @@ var (
 		Flags: []cli.Flag{
 			flags.FlagBucket,
 			flags.FlagKey,
-			flags.FlagContentMD5,
-			flags.FlagContentLength,
 			flags.FlagUploadID,
 			flags.FlagPartNumber,
+			flags.FlagContentMD5,
+			flags.FlagContentLength,
 			flags.FlagBody,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		Action: functions.PartUpload,
 	}
@@ -237,6 +266,7 @@ var (
 			flags.FlagCopySourceIfUnmodifiedSince,
 			flags.FlagCopySourceRange,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		Action: functions.PartUploadCopy,
 	}
@@ -252,18 +282,20 @@ var (
 			flags.FlagPageSize,
 			flags.FlagMaxItems,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		Action: functions.PartsList,
 	}
 
 	CommandMPUAbort = cli.Command{
 		Name:        AbortMultipartUpload,
-		Description: T("Aborts a multipart upload instance."),
+		Description: T("Abort a multipart upload instance."),
 		Flags: []cli.Flag{
 			flags.FlagBucket,
 			flags.FlagKey,
 			flags.FlagUploadID,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		Action: functions.MultipartAbort,
 	}
@@ -277,8 +309,35 @@ var (
 			flags.FlagUploadID,
 			flags.FlagMultipartUpload,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		Action: functions.MultipartComplete,
+	}
+
+	CommandDownload = cli.Command{
+		Name:        Download,
+		Description: T("Download objects from S3 concurrently."),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagKey,
+			flags.FlagConcurrency,
+			flags.FlagPartSize,
+			flags.FlagIfMatch,
+			flags.FlagIfModifiedSince,
+			flags.FlagIfNoneMatch,
+			flags.FlagIfUnmodifiedSince,
+			flags.FlagRange,
+			flags.FlagResponseCacheControl,
+			flags.FlagResponseContentDisposition,
+			flags.FlagResponseContentEncoding,
+			flags.FlagResponseContentLanguage,
+			flags.FlagResponseContentType,
+			flags.FlagResponseExpires,
+			flags.FlagRegion,
+			flags.FlagJSON,
+		},
+		ArgsUsage: "[OUTFILE]",
+		Action:    functions.Download,
 	}
 
 	CommandBucketCorsPut = cli.Command{
@@ -288,6 +347,7 @@ var (
 			flags.FlagBucket,
 			flags.FlagCorsConfiguration,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		Action: functions.BucketCorsPut,
 	}
@@ -298,6 +358,7 @@ var (
 		Flags: []cli.Flag{
 			flags.FlagBucket,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		Action: functions.BucketCorsGet,
 	}
@@ -308,8 +369,34 @@ var (
 		Flags: []cli.Flag{
 			flags.FlagBucket,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		Action: functions.BucketCorsDelete,
+	}
+
+	CommandUpload = cli.Command{
+		Name:        Upload,
+		Description: T("Upload objects from S3 concurrently."),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagKey,
+			flags.FlagFile,
+			flags.FlagConcurrency,
+			flags.FlagMaxUploadParts,
+			flags.FlagPartSize,
+			flags.FlagLeavePartsOnErrors,
+			flags.FlagCacheControl,
+			flags.FlagContentDisposition,
+			flags.FlagContentEncoding,
+			flags.FlagContentLanguage,
+			flags.FlagContentLength,
+			flags.FlagContentMD5,
+			flags.FlagContentType,
+			flags.FlagMetadata,
+			flags.FlagRegion,
+			flags.FlagJSON,
+		},
+		Action: functions.Upload,
 	}
 
 	CommandWait = cli.Command{
@@ -390,6 +477,7 @@ var (
 			flags.FlagPageSize,
 			flags.FlagMaxItems,
 			flags.FlagRegion,
+			flags.FlagJSON,
 		},
 		Action: functions.MultiPartList,
 	}
@@ -404,6 +492,7 @@ var (
 			CommandCRN,
 			CommandHMAC,
 			CommandAuth,
+			CommandURLStyle,
 			CommandRegionsEndpointURL,
 		},
 	}
@@ -474,5 +563,15 @@ var (
 		},
 		Action: functions.ConfigSetRegionsEndpointURL,
 		Hidden: true,
+	}
+
+	CommandURLStyle = cli.Command{
+		Name:        URLStyle,
+		Description: T("Switch between VHost and Path URL style."),
+		Flags: []cli.Flag{
+			flags.FlagList,
+			flags.FlagStyle,
+		},
+		Action: functions.ConfigSetURLStyle,
 	}
 )

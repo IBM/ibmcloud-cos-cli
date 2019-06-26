@@ -4,6 +4,10 @@
     "translation": " compartiments trouvés dans votre compte :\n"
   },
   {
+    "id": " buckets:",
+    "translation": " compartiments :"
+  },
+  {
     "id": " downloaded.",
     "translation": " téléchargé."
   },
@@ -28,6 +32,10 @@
     "translation": "1 compartiment trouvé dans votre compte :\n"
   },
   {
+    "id": "1 bucket:",
+    "translation": "1 compartiment :"
+  },
+  {
     "id": "1 multipart upload in bucket '",
     "translation": "1 remontée multipartie dans le compartiment '"
   },
@@ -48,8 +56,12 @@
     "translation": "Mappe (MAP) de métadonnées à stocker. Syntaxe : NomClé1=chaîne,NomClé2=chaîne"
   },
   {
-    "id": "A `TOKEN` to specify where to start paginating. This is the NextToken from a previously truncated response.",
-    "translation": "Jeton (TOKEN) pour spécifier où commencer la pagination. Il s'agit du jeton suivant (NextToken) d'une réponse précédemment tronquée."
+    "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
+    "translation": "'STRUCTURE' utilisant la syntaxe JSON dans un fichier. Voir la documentation IBM Cloud."
+  },
+  {
+    "id": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation.",
+    "translation": "'STRUCTURE' utilisant la syntaxe abrégée ou JSON. Voir la documentation IBM Cloud."
   },
   {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
@@ -60,12 +72,8 @@
     "translation": "Type MIME standard décrivant le format des données d'objet."
   },
   {
-    "id": "Aborting multipart upload...",
-    "translation": "Abandon de la remontée multipartie..."
-  },
-  {
-    "id": "Aborts a multipart upload instance.",
-    "translation": "Abandonne une instance de remontée multipartie."
+    "id": "Abort a multipart upload instance.",
+    "translation": "Abandonner une instance de remontée multipartie."
   },
   {
     "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
@@ -76,10 +84,6 @@
     "translation": "Souhaitez-vous vraiment continuer ?"
   },
   {
-    "id": "Are you sure you would like to overwrite it?",
-    "translation": "Souhaitez-vous vraiment le remplacer ?"
-  },
-  {
     "id": "Authentication Method",
     "translation": "Méthode d'authentification"
   },
@@ -88,8 +92,12 @@
     "translation": "Méthode (METHOD) d'authentification."
   },
   {
-    "id": "Bucket '{{.bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
-    "translation": "Compartiment '{{.bucket}}' dans la région {{.region}} trouvé dans votre compte IBM Cloud Object Storage."
+    "id": "Bad Flag Syntax in '--%s'",
+    "translation": "Mauvaise syntaxe d'indicateur dans '--%s'"
+  },
+  {
+    "id": "Bucket '{{.Bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
+    "translation": "Compartiment '{{.Bucket}}' trouvé dans la région {{.region}} dans votre compte IBM Cloud Object Storage."
   },
   {
     "id": "CRN",
@@ -100,20 +108,24 @@
     "translation": "Change la configuration du plug-in"
   },
   {
-    "id": "Class: {{.class}}",
-    "translation": "Classe : {{.class}}"
+    "id": "Class: ",
+    "translation": "Classe : "
   },
   {
     "id": "Clear the option value.",
     "translation": "Effacer la valeur d'option."
   },
   {
-    "id": "Complete an existing multipart upload instance.",
-    "translation": "Terminer une instance de remontée multipartie existante."
+    "id": "Command does not support Flag '--%s'",
+    "translation": "La commande n'accepte pas l'indicateur '--%s'"
   },
   {
-    "id": "Completing multipart upload...",
-    "translation": "Terminaison de la remontée multipartie..."
+    "id": "Common Prefixes:",
+    "translation": "Préfixes communs :"
+  },
+  {
+    "id": "Complete an existing multipart upload instance.",
+    "translation": "Terminer une instance de remontée multipartie existante."
   },
   {
     "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
@@ -136,10 +148,6 @@
     "translation": "Copier un objet d'un compartiment à un autre."
   },
   {
-    "id": "Copying object...",
-    "translation": "Copie de l'objet..."
-  },
-  {
     "id": "Create a new bucket.",
     "translation": "Créer un nouveau compartiment."
   },
@@ -148,12 +156,8 @@
     "translation": "Créer une nouvelle instance de remontée multipartie."
   },
   {
-    "id": "Creating bucket...",
-    "translation": "Création du compartiment..."
-  },
-  {
-    "id": "Creating new multipart upload instance...",
-    "translation": "Création d'une nouvelle instance de remontée multipartie..."
+    "id": "Creation Date",
+    "translation": "Date de création"
   },
   {
     "id": "Date Created",
@@ -188,24 +192,8 @@
     "translation": "Supprimer la configuration CORS d'un compartiment."
   },
   {
-    "id": "Deleting CORS from the bucket...",
-    "translation": "Suppression du CORS du compartiment..."
-  },
-  {
-    "id": "Deleting bucket...",
-    "translation": "Suppression du compartiment..."
-  },
-  {
-    "id": "Deleting object...",
-    "translation": "Suppression de l'objet..."
-  },
-  {
-    "id": "Deleting objects...",
-    "translation": "Suppression des objets..."
-  },
-  {
-    "id": "Details about bucket {{.details}}:",
-    "translation": "Détails sur le compartiment {{.details}} :"
+    "id": "Details about bucket ",
+    "translation": "Détails sur le compartiment "
   },
   {
     "id": "Details about your multipart upload instance:",
@@ -232,20 +220,24 @@
     "translation": "Télécharger un objet d'un compartiment."
   },
   {
-    "id": "Downloading object...",
-    "translation": "Téléchargement de l'objet..."
+    "id": "Download objects from S3 concurrently.",
+    "translation": "Télécharger les objets depuis S3 simultanément."
   },
   {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
     "translation": "Télécharge la plage (RANGE) d'octets spécifiée d'un objet. Pour plus d'information sur l'en-tête HTTP Range, voir http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35."
   },
   {
-    "id": "Empty source bucket.",
-    "translation": "Compartiment source vide."
+    "id": "ETag",
+    "translation": "ETag"
   },
   {
-    "id": "Error opening '{{.dl}}' to write ",
-    "translation": "Erreur en ouvrant '{{.dl}}' pour écriture "
+    "id": "Error opening '{{.Location}}' to write.",
+    "translation": "Erreur en ouvrant '{{.Location}}' pour écriture."
+  },
+  {
+    "id": "Flag '--%s' requires a value",
+    "translation": "L'indicateur '--%s' requiert une valeur"
   },
   {
     "id": "Found ",
@@ -260,20 +252,20 @@
     "translation": "Obtenir la région et la classe d'un compartiment."
   },
   {
-    "id": "Getting bucket CORS ...",
-    "translation": "Obtention du CORS du compartiment..."
-  },
-  {
-    "id": "Incorrect Usage.",
-    "translation": "Utilisation incorrecte."
-  },
-  {
     "id": "Initiated",
     "translation": "Lancé"
   },
   {
     "id": "Interact with IBM Cloud Object Storage services",
     "translation": "Interagir avec les services IBM Cloud Object Storage"
+  },
+  {
+    "id": "Invalid boolean balue in Flag '--%s'",
+    "translation": "Valeur booléenne non valide dans l'indicateur '--%s'"
+  },
+  {
+    "id": "Invalid boolean flag '--%s'",
+    "translation": "Indicateur booléen non valide '--%s'"
   },
   {
     "id": "It was last updated on {{.lastupdated}}.",
@@ -308,6 +300,10 @@
     "translation": "Répertorier tous les compartiments de votre compte IBM Cloud Object Storage."
   },
   {
+    "id": "List all the extended buckets with pagination support.",
+    "translation": "Répertorier tous les compartiments étendus avec support de la pagination."
+  },
+  {
     "id": "List configuration",
     "translation": "Répertorier la configuration"
   },
@@ -316,24 +312,16 @@
     "translation": "Répertorier les valeurs de configuration."
   },
   {
-    "id": "Listing Multipart Uploads...",
-    "translation": "Répertoriage des remontées multiparties..."
+    "id": "Location Constraint",
+    "translation": "Contrainte de localisation"
   },
   {
-    "id": "Listing objects...",
-    "translation": "Répertoriage des objets..."
+    "id": "Mandatory Flag '--%s' is missing",
+    "translation": "Il manque l'indicateur obligatoire '--%s'"
   },
   {
-    "id": "Listing parts...",
-    "translation": "Répertoriage des partis..."
-  },
-  {
-    "id": "Loading buckets...",
-    "translation": "Chargement des compartiments..."
-  },
-  {
-    "id": "Location: %s",
-    "translation": "Emplacement : %s"
+    "id": "Max number of `PARTS` which will be uploaded to S3 that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.",
+    "translation": "Nombre maximum de parties ('PARTS') qui seront remontées dans S3, qui détermine la taille des parties de l'objet à remonter. La limite est de 10 000 parties."
   },
   {
     "id": "Name",
@@ -345,7 +333,7 @@
   },
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
-    "translation": "Objet '{{.Key}}' trouvé dans le compartiment '{{.Bucket}}'."
+    "translation": "L'objet '{{.Key}}' a été trouvé dans le compartiment '{{.Bucket}}'."
   },
   {
     "id": "Object Size",
@@ -364,6 +352,14 @@
     "translation": "Opération annulée."
   },
   {
+    "id": "Output returned in raw JSON format.",
+    "translation": "Sortie renvoyée au format JSON brut."
+  },
+  {
+    "id": "Override the default location providing an OUTFILE parameter",
+    "translation": "Remplace l'emplacement par défaut fournissant un paramètre OUTFILE"
+  },
+  {
     "id": "Part Number",
     "translation": "Numéro de partie"
   },
@@ -376,12 +372,8 @@
     "translation": "Numéro de partie (VALUE) après lequel commence le répertoriage"
   },
   {
-    "id": "Putting object...",
-    "translation": "Insertion de l'objet..."
-  },
-  {
-    "id": "Region: {{.region}}",
-    "translation": "Région : {{.region}}"
+    "id": "Region: ",
+    "translation": "Région : "
   },
   {
     "id": "Regions endpoint `URL`.",
@@ -418,10 +410,6 @@
   {
     "id": "Saving new Service Instance ID...",
     "translation": "Sauvegarde de l'ID de la nouvelle instance de service..."
-  },
-  {
-    "id": "Set a valid download location using 'cos config --ddl'",
-    "translation": "Définir un emplacement de téléchargement valide avec 'cos config --ddl'"
   },
   {
     "id": "Set regions endpoint URL.",
@@ -464,8 +452,8 @@
     "translation": "Définit l'ID de l'instance de service IBM dans la demande."
   },
   {
-    "id": "Setting bucket CORS...",
-    "translation": "Définition du CORS du compartiment..."
+    "id": "Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.",
+    "translation": "Lorsque cette valeur est à true, le SDK n'appelle pas AbortMultipartUpload s'il y a un échec, laissant toutes les parties remontées avec succès sur S3 pour une récupération manuelle."
   },
   {
     "id": "Size",
@@ -520,12 +508,8 @@
     "translation": "L'URL de noeud final des régions a été effacée avec succès."
   },
   {
-    "id": "Successfully copied '{{.object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
-    "translation": "Copie réussie de '{{.object}}' du compartiment '{{.bucket1}}' au compartiment '{{.bucket2}}'."
-  },
-  {
-    "id": "Successfully created bucket '{{.bucket}}'.",
-    "translation": "Création réussie du compartiment '{{.bucket}}'."
+    "id": "Successfully copied '{{.Object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
+    "translation": "Copie réussie de '{{.Object}}' du compartiment '{{.bucket1}}' au compartiment '{{.bucket2}}'."
   },
   {
     "id": "Successfully deleted CORS configuration on bucket: {{.Bucket}}",
@@ -537,11 +521,15 @@
   },
   {
     "id": "Successfully downloaded '{{.Key}}' from bucket '{{.Bucket}}'",
-    "translation": "Téléchargement réussi de '{{.Key}}' du compartiment '{{.Bucket}}'"
+    "translation": "Clé '{{.Key}}' téléchargée avec succès depuis le compartiment '{{.Bucket}}'"
   },
   {
     "id": "Successfully saved HMAC Credentials to file.",
     "translation": "Sauvegarde réussie des identifiants HMAC dans le fichier."
+  },
+  {
+    "id": "Successfully saved S3 {{.Style}} style hosting option. CLI calls will use {{.Style}} style requests.",
+    "translation": "Option d'hébergement de style {{.Style}} de S3 enregistrée avec succès. Les appels CLI utiliseront des demandes de style {{.Style}}."
   },
   {
     "id": "Successfully saved default region. The program will look for buckets in the region {{.region}}.",
@@ -580,8 +568,8 @@
     "translation": "Commuter entre l'authentification HMAC et IAM"
   },
   {
-    "id": "Switch between HMAC and IAM authentication.",
-    "translation": "Commuter entre l'authentification HMAC et IAM."
+    "id": "Switch between VHost and Path URL style.",
+    "translation": "Commuter entre les styles d'URL VHost et Chemin."
   },
   {
     "id": "The CORS configuration of ",
@@ -596,44 +584,28 @@
     "translation": "La langue (LANGUAGE) du contenu."
   },
   {
+    "id": "The `PATH` to the file to upload.",
+    "translation": "Chemin ('PATH') du fichier à remonter."
+  },
+  {
     "id": "The `REGION` where the bucket is present. If this flag is not provided, the program will use the default option specified in config.",
     "translation": "Région (REGION) où se trouve le compartiment. Si cet indicateur n'est pas fourni, le programme utilisera l'option par défaut spécifiée dans la configuration."
   },
   {
-    "id": "The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the service calls from timing out.",
-    "translation": "Taille (SIZE) de chaque page à obtenir dans l'appel de service. Cette valeur n'affecte pas le nombre d'éléments renvoyés dans la sortie de la commande. Une taille de page plus petite se traduit par davantage d'appels du service AWS avec moins d'éléments extraits à chaque appel. Cela peut aider à éviter que les appels de service ne dépassent le délai d'expiration."
-  },
-  {
-    "id": "The `VALUE` of CorsConfiguration to set.",
-    "translation": "La valeur (VALUE) de CorsConfiguration à définir."
-  },
-  {
-    "id": "The `VALUE` of CreateBucketConfiguration to set.",
-    "translation": "La valeur (VALUE) de CreateBucketConfiguration à définir."
-  },
-  {
-    "id": "The `VALUE` of Delete to set. Syntax: Objects=[{Key=string},{Key=string}],Quiet=boolean",
-    "translation": "La valeur (VALUE) de Delete à définir. Syntaxe : Objects=[{Key=chaîne},{Key=chaîne}],Quiet=booléen"
-  },
-  {
-    "id": "The `VALUE` of MultipartUpload to set.",
-    "translation": "La valeur (VALUE) de MultipartUpload à définir."
+    "id": "The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the COS service, retrieving fewer items in each call. This can help prevent the service calls from timing out.",
+    "translation": "Taille (SIZE) de chaque page à obtenir dans l'appel de service. Cette valeur n'affecte pas le nombre d'éléments renvoyés dans la sortie de la commande. Une taille de page plus petite se traduit par davantage d'appels du service COS avec moins d'éléments extraits à chaque appel. Cela peut aider à éviter que les appels de service ne dépassent le délai d'expiration."
   },
   {
     "id": "The base64-encoded 128-bit `MD5` digest of the data.",
     "translation": "Résumé MD5 128 bits codé en base64 des données."
   },
   {
-    "id": "The download destination '{{.dl}}' is a directory.",
-    "translation": "La destination de téléchargement '{{.dl}}' est un répertoire."
+    "id": "The buffer `SIZE` (in bytes) to use when buffering data into chunks and ending them as parts to S3. The minimum allowed part size is 5MB.",
+    "translation": "Taille ('SIZE') de tampon (en octets) à utiliser pour bufferiser les données en morceaux et les faire terminer en parties dans S3. La plus petite taille de partie autorisée est de 5 Mo."
   },
   {
-    "id": "The download directory '{{.dl}}' is invalid",
-    "translation": "Le répertoire de téléchargement '{{.dl}}' n'est pas valide"
-  },
-  {
-    "id": "The download directory '{{.dl}}' is invalid.",
-    "translation": "Le répertoire de téléchargement '{{.dl}}' n'est pas valide."
+    "id": "The download destination '{{.Location}}' is a directory.",
+    "translation": "La destination de téléchargement '{{.Location}}' est un répertoire."
   },
   {
     "id": "The name (`BUCKET_NAME`) of the bucket.",
@@ -642,6 +614,10 @@
   {
     "id": "The name (`CLASS_NAME`) of the Class.",
     "translation": "Nom (CLASS_NAME) de la classe."
+  },
+  {
+    "id": "The number of goroutines to spin up in parallel per call to Upload when sending parts. Default value is 5.",
+    "translation": "Nombre de goroutines à lancer en parallèle par appel de remontée lors de l'envoi de parties. La valeur par défaut est de 5."
   },
   {
     "id": "The operation will do not ask for confirmation.",
@@ -664,12 +640,8 @@
     "translation": "Le nom de compartiment spécifié n'est pas valide. Les noms de compartiment doivent commencer et se terminer par des caractères alphanumériques (de 3 à 63) et sont limités aux minuscules, aux chiffres, aux points non consécutifs et au trait d'union."
   },
   {
-    "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region for the bucket to delete. Provide the bucket's correct region and try again.",
-    "translation": "Le compartiment indiqué n'a pas été trouvé dans votre compte IBM Cloud. Vous avez peut-être indiqué une région erronée pour le compartiment à supprimer. Indiquez la bonne région et réessayez."
-  },
-  {
-    "id": "The specified bucket was not found in your account. Ensure that you have set the correct region with the region flag.",
-    "translation": "Le compartiment indiqué n'a pas été trouvé dans votre compte. Indiquez bien la bonne région avec l'indicateur de région."
+    "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again.",
+    "translation": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again."
   },
   {
     "id": "The specified download location does not exist on your system. Try again with a valid download path.",
@@ -680,12 +652,24 @@
     "translation": "L'emplacement de téléchargement spécifié n'est pas valide. Réessayez avec un chemin de téléchargement valide."
   },
   {
+    "id": "The specified key does not exist.",
+    "translation": "La clé spécifiée n'existe pas."
+  },
+  {
     "id": "The total `NUMBER` of items to return in the command's output.",
     "translation": "Nombre (NUMBER) total d'éléments à renvoyer dans la sortie de la commande."
   },
   {
+    "id": "The value in flag '--%s' is invalid",
+    "translation": "La valeur dans l'indicateur '--%s' n'est pas valide"
+  },
+  {
     "id": "This operation lists in-progress multipart uploads.",
     "translation": "Cette opération répertorie les remontées multiparties en cours."
+  },
+  {
+    "id": "To retrieve the next set of buckets, use this value marker for the next command: ",
+    "translation": "Pour extraire l'ensemble de compartiments suivant, utilisez ce marqueur de valeur pour la prochaine commande : "
   },
   {
     "id": "To retrieve the next set of multipart uploads, use the following markers in the next command:",
@@ -712,16 +696,16 @@
     "translation": "Essayez de vous connecter avec 'ibmcloud login'."
   },
   {
+    "id": "URL Style",
+    "translation": "Style d'URL"
+  },
+  {
+    "id": "URL `STYLE` can be VHost or Path.",
+    "translation": "Le 'STYLE' d'URL peut être VHost ou Chemin."
+  },
+  {
     "id": "Unable to clear regions endpoint URL.",
     "translation": "Impossible d'effacer l'URL de noeud final des régions."
-  },
-  {
-    "id": "Unable to get Default Download Location.",
-    "translation": "Impossible d'obtenir l'emplacement de téléchargement par défaut."
-  },
-  {
-    "id": "Unable to get Region.",
-    "translation": "Impossible d'obtenir la région."
   },
   {
     "id": "Unable to get new CRN.",
@@ -732,8 +716,8 @@
     "translation": "Impossible de charger la méthode de configuration."
   },
   {
-    "id": "Unable to load default Region.",
-    "translation": "Impossible de charger la région par défaut."
+    "id": "Unable to load current url style.",
+    "translation": "Impossible de charger le style d'URL actuel."
   },
   {
     "id": "Unable to load default download location.",
@@ -744,12 +728,8 @@
     "translation": "Impossible de charger la région."
   },
   {
-    "id": "Unable to open object '{{.Key}}' for upload.",
-    "translation": "Impossible d'ouvrir l'objet '{{.Key}}' pour remontée."
-  },
-  {
-    "id": "Unable to open object '{{.object}}' for upload.",
-    "translation": "Impossible d'ouvrir le fichier '{{.object}}' pour remontée."
+    "id": "Unable to parse URL style.",
+    "translation": "Impossible d'analyser syntaxiquement le style d'URL."
   },
   {
     "id": "Unable to parse authentication method.",
@@ -758,6 +738,10 @@
   {
     "id": "Unable to read new Authentication Method.",
     "translation": "Impossible de lire la nouvelle méthode d'authentification."
+  },
+  {
+    "id": "Unable to read new URL Style value.",
+    "translation": "Impossible de lire la nouvelle valeur de Style d'URL."
   },
   {
     "id": "Unable to read new default download location.",
@@ -788,6 +772,10 @@
     "translation": "Impossible d'enregistrer le nouvel emplacement de téléchargement."
   },
   {
+    "id": "Unable to switch URL style.",
+    "translation": "Impossible de commuter le style d'URL."
+  },
+  {
     "id": "Unable to switch authentication method.",
     "translation": "Impossible de commuter la méthode d'authentification."
   },
@@ -808,24 +796,20 @@
     "translation": "Remonter un objet dans un compartiment."
   },
   {
+    "id": "Upload objects from S3 concurrently.",
+    "translation": "Remonter les objets dans S3 simultanément."
+  },
+  {
     "id": "UploadId",
     "translation": "ID de remontée"
   },
   {
-    "id": "Uploaded part '{{.part}}' of object '{{.object}}'.",
-    "translation": "Partie '{{.part}}' de l'objet '{{.object}}' remontée."
+    "id": "Uploaded part '{{.part}}' of object '{{.Object}}'.",
+    "translation": "Partie '{{.part}}' de l'objet '{{.Object}}' remontée."
   },
   {
-    "id": "Uploaded part copy '{{.part}}' of object '{{.object}}'.",
-    "translation": "Copie de la partie '{{.part}}' de l'objet '{{.object}}' remontée."
-  },
-  {
-    "id": "Uploading file part...",
-    "translation": "Remontée de la partie de fichier..."
-  },
-  {
-    "id": "Uploading part copy...",
-    "translation": "Remontée de la copie de la partie..."
+    "id": "Uploaded part copy '{{.part}}' of object '{{.Object}}'.",
+    "translation": "Copie de la partie '{{.part}}' de l'objet '{{.Object}}' remontée."
   },
   {
     "id": "Value",
@@ -874,6 +858,10 @@
   {
     "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",
     "translation": "Taille (SIZE) du corps en octets. Ce paramètre est utile quand la taille du corps ne peut pas être déterminée automatiquement."
+  },
+  {
+    "id": "no buckets.",
+    "translation": "aucun compartiment."
   },
   {
     "id": "no multipart uploads in bucket '",

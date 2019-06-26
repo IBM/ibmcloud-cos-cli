@@ -2,7 +2,7 @@
 
 
 [[projects]]
-  digest = "1:6dd69149708d9b017ce3578dc97d7d0996e5e19e0b60ae141e38dca51786ea9b"
+  digest = "1:bf6c04edcd0347057e20f3a93918c879c769d8b4f1150a129854c7992510e690"
   name = "github.com/IBM-Cloud/ibm-cloud-cli-sdk"
   packages = [
     "bluemix",
@@ -25,11 +25,11 @@
     "testhelpers/terminal",
   ]
   pruneopts = "UT"
-  revision = "67e7aca80eb41888a684388658ffa0a7f3764682"
-  version = "v0.2.2"
+  revision = "8983a1c31eed993b51c9b6e404d105637dd4d134"
+  version = "v0.3.0"
 
 [[projects]]
-  digest = "1:6aee87e32cdb0fd26a356ee1571c7c0126c5da5dfb915886718f23041dd5d126"
+  digest = "1:7734f9ceb8491d29f9aaa6b8ef51503f278760bc08867078800adb0f6b8c79db"
   name = "github.com/IBM/ibm-cos-sdk-go"
   packages = [
     "aws",
@@ -64,10 +64,11 @@
     "private/protocol/xml/xmlutil",
     "service/s3",
     "service/s3/s3iface",
+    "service/s3/s3manager",
   ]
   pruneopts = "UT"
-  revision = "1b17a6dd2eba6ba07343b1e4656dc3283420ad8d"
-  version = "1.0.1"
+  revision = "60cdd30bdc952f7d0c4f12c41beafa1dfb5766cc"
+  version = "v1.1.0"
 
 [[projects]]
   branch = "master"
@@ -102,12 +103,12 @@
   version = "v1.1.0"
 
 [[projects]]
-  digest = "1:3c4df6e0ec96b9dec76f15e0bcad888fa268ee6404d1cdcaf90d7567e32a8f73"
+  digest = "1:542c15a5abb3b49d853eee9e097a07c84dedd4482e03a59862414e3d68397fc4"
   name = "github.com/google/wire"
   packages = ["."]
   pruneopts = "UT"
-  revision = "9a7ae3ba6b734d831e88c75966fd5e9c0abdeace"
-  version = "v0.2.1"
+  revision = "a7a9b0ede2c6019fbb86a3bcdafa1661d127d7e9"
+  version = "v0.2.2"
 
 [[projects]]
   digest = "1:bb81097a5b62634f3e9fec1014657855610c82d19b9a40c17612e32651e35dca"
@@ -125,12 +126,12 @@
   version = "v0.0.9"
 
 [[projects]]
-  digest = "1:e150b5fafbd7607e2d638e4e5cf43aa4100124e5593385147b0a74e2733d8b0d"
+  digest = "1:9b90c7639a41697f3d4ad12d7d67dfacc9a7a4a6e0bbfae4fc72d0da57c28871"
   name = "github.com/mattn/go-isatty"
   packages = ["."]
   pruneopts = "UT"
-  revision = "c2a7a6ca930a4cd0bc33a3f298eb71960732a3a7"
-  version = "v0.0.7"
+  revision = "1311e847b0cb909da63b5fecfb5370aa66236465"
+  version = "v0.0.8"
 
 [[projects]]
   digest = "1:0356f3312c9bd1cbeda81505b7fd437501d8e778ab66998ef69f00d7f9b3a0d7"
@@ -210,18 +211,18 @@
   name = "golang.org/x/crypto"
   packages = ["ssh/terminal"]
   pruneopts = "UT"
-  revision = "a29dc8fdc73485234dbef99ebedb95d2eced08de"
+  revision = "cc06ce4a13d484c0101a9e92913248488a75786d"
 
 [[projects]]
   branch = "master"
-  digest = "1:4cf0abce65ca9e0e906fdd0d76ad1dd1dcc94afe5901473cbc7f8d623cceabb4"
+  digest = "1:fe40fbf915905f8a2397b321b3f10190edbdf5d293f087d01d7eb3a6d1a4adca"
   name = "golang.org/x/sys"
   packages = [
     "unix",
     "windows",
   ]
   pruneopts = "UT"
-  revision = "a43fa875dd822b81eb6d2ad538bc1f4caba169bd"
+  revision = "c5567b49c5d04a5f83870795b8c0e2df43a8ce32"
 
 [[projects]]
   digest = "1:4d2e5a73dc1500038e504a8d78b986630e3626dc027bc030ba5c75da257cdb96"
@@ -241,7 +242,6 @@
     "github.com/IBM-Cloud/ibm-cloud-cli-sdk/bluemix/models",
     "github.com/IBM-Cloud/ibm-cloud-cli-sdk/bluemix/terminal",
     "github.com/IBM-Cloud/ibm-cloud-cli-sdk/bluemix/trace",
-    "github.com/IBM-Cloud/ibm-cloud-cli-sdk/i18n",
     "github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin",
     "github.com/IBM-Cloud/ibm-cloud-cli-sdk/testhelpers/terminal",
     "github.com/IBM/ibm-cos-sdk-go/aws",
@@ -253,6 +253,7 @@
     "github.com/IBM/ibm-cos-sdk-go/aws/session",
     "github.com/IBM/ibm-cos-sdk-go/service/s3",
     "github.com/IBM/ibm-cos-sdk-go/service/s3/s3iface",
+    "github.com/IBM/ibm-cos-sdk-go/service/s3/s3manager",
     "github.com/cloudfoundry/jibber_jabber",
     "github.com/google/wire",
     "github.com/nicksnyder/go-i18n/i18n",

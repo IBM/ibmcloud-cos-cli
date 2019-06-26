@@ -48,6 +48,10 @@ func TestMultiPartListHappyPathNoUploads(t *testing.T) {
 					return true
 				}),
 			mock.Anything).
+		Run(func(args mock.Arguments) {
+			funcCapture := args.Get(1).(func(page *s3.ListMultipartUploadsOutput, last bool) bool)
+			paggerSrvMock(inputCapture, funcCapture, 0, nil)
+		}).
 		Return(nil).
 		Once()
 
@@ -262,6 +266,12 @@ func TestMultiPartListPaginate(t *testing.T) {
 func paggerSrvMock(input *s3.ListMultipartUploadsInput, backFeed func(*s3.ListMultipartUploadsOutput, bool) bool,
 	hardLimit int, results *[]int) {
 	keepGoing := true
+	if hardLimit == 0 {
+		parts := new(s3.ListMultipartUploadsOutput)
+		parts.Bucket = input.Bucket
+		backFeed(parts, hardLimit <= 0)
+		return
+	}
 	for hardLimit > 0 && keepGoing {
 		i := int(aws.Int64Value(input.MaxUploads))
 		*results = append(*results, i)
@@ -270,6 +280,7 @@ func paggerSrvMock(input *s3.ListMultipartUploadsInput, backFeed func(*s3.ListMu
 		}
 		parts := buildListMultipartUploadsOutput(i)
 		hardLimit -= i
+		parts.Bucket = input.Bucket
 		keepGoing = backFeed(parts, hardLimit <= 0)
 	}
 }

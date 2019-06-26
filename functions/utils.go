@@ -2,8 +2,7 @@ package functions
 
 import (
 	"encoding/json"
-	"errors"
-	"fmt"
+	"io"
 	"io/ioutil"
 	"reflect"
 	"strconv"
@@ -11,91 +10,40 @@ import (
 	"time"
 
 	"github.com/IBM/ibm-cos-sdk-go/aws"
-
-	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
+	"github.com/IBM/ibm-cos-sdk-go/aws/awserr"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 	"github.com/IBM/ibmcloud-cos-cli/config"
-	"github.com/IBM/ibmcloud-cos-cli/config/flags"
-	"github.com/IBM/ibmcloud-cos-cli/di/providers"
-	. "github.com/IBM/ibmcloud-cos-cli/i18n"
+	"github.com/IBM/ibmcloud-cos-cli/errors"
 	"github.com/IBM/ibmcloud-cos-cli/utils"
 	"github.com/urfave/cli"
 )
 
-// FormatFileSize function lift from
-// https://programming.guide/go/formatting-byte-size-to-human-readable-format.html
-// outputs a human readable representation of the value using multiples of 1024
-func FormatFileSize(b int64) string {
-	const unit = 1024
-	if b < unit {
-		return fmt.Sprintf("%d B", b)
+// DeepCopyIntoUsingJSON makes a deep copy from source to destination
+// by marshaling the source in a temporary buffer and unmarshal back from the buffer to the destination
+func DeepCopyIntoUsingJSON(destination, source interface{}) (err error) {
+	var bts []byte
+	if bts, err = json.Marshal(source); err != nil {
+		return
 	}
-	div, exp := int64(unit), 0
-	for n := b / unit; n >= unit; n /= unit {
-		div *= unit
-		exp++
-	}
-	return fmt.Sprintf("%.2f %ciB", float64(b)/float64(div), "KMGTPE"[exp])
+	err = json.Unmarshal(bts, destination)
+	return
 }
 
-// FormatErrorMessage formats some common error messages that the Amazon AWS SDK returns, that users may find when
-// using the CLI. It is incomplete, but if an error is not accounted for here, the full non-formatted error will be
-// printed.
-func FormatErrorMessage(errorString string) string {
-	switch {
-	case strings.Contains(errorString, "InvalidBucketName"):
-		return T("The specified bucket name is invalid. Bucket names must start and end in alphanumeric characters (from 3 to 63) and are limited to lowercase, numbers, non-consecutive dots, and hyphens.")
-	case strings.Contains(errorString, "BucketAlreadyExists"):
-		return T("The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.")
-	case strings.Contains(errorString, "AccessDenied"):
-		return T("Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.")
-	case strings.Contains(errorString, "BucketAlreadyOwnedByYou"):
-		return T("A bucket with the specified name already exists in your account. Create a bucket with a new name.")
-	case strings.Contains(errorString, "NoSuchBucket"):
-		return T("The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region for the bucket to delete. Provide the bucket's correct region and try again.")
-	case strings.Contains(errorString, "BucketNotEmpty"):
-		return T("The specified bucket is not empty. Delete all the files in the bucket, then try again.")
-	case strings.Contains(errorString, "EntityTooSmall"):
-		return T("Your proposed upload is smaller than the minimum allowed size. File parts must be greater than 5 MB in size, except for the last part.")
-	case strings.Contains(errorString, "NoSuchKey"):
-		return T("The specified bucket was not found in your account. Ensure that you have set the correct region with the region flag.")
-	default:
-		return errorString
-	}
-}
-
-// GetRegion helper to reduce the boilerplate of getting the region
-func GetRegion(cliContext *cli.Context, pluginConfig plugin.PluginConfig) (string, error) {
-	// checks if current cli contest has region flag set
-	if cliContext.IsSet(flags.Region) {
-		// if flag is set returns its value
-		return cliContext.String(flags.Region), nil
-	}
-	// if falg is not set
-	// Gets config default region
-	// if config default region is not set returns cli login region
-	// if cli login region is not set fall back to us ( -geo )
-	return pluginConfig.GetStringWithDefault(config.DefaultRegion, config.FallbackRegion)
-
-}
-
-// GetCosContext boilerplate to retrieve the CosContext from metadat in a more correct way
+// GetCosContext boilerplate to retrieve the CosContext from metadata in a more correct way
 func GetCosContext(cliContext *cli.Context) (*utils.CosContext, error) {
-	// check the metdata map contais the cos context key
-	value, ok := cliContext.App.Metadata[config.CosContextKey]
-	// if key present
-	// tries type assertion to CosCostext and returns it
-	if ok {
-		result, ok := value.(*utils.CosContext)
-		if ok {
+	// check the metadata map contains the cos context key
+	if value, found := cliContext.App.Metadata[config.CosContextKey]; found {
+		// if key found
+		// tries type assertion to CosCostext and returns it
+		if result, typeMatch := value.(*utils.CosContext); typeMatch {
 			return result, nil
 		}
 		// if type assertion fails return error
-		return nil, errors.New("metadata.coscontext.invalidtype")
+		return nil, awserr.New("metadata.coscontext.invalidtype", "Metadata Value does not match expected Type", nil)
 
 	}
 	// if key not present return error
-	return nil, errors.New("metadata.coscontext.notfound")
+	return nil, awserr.New("metadata.coscontext.notfound", "Metadata Value does not constains CosContext Key", nil)
 }
 
 // MapToSDKInput - validates the user flags and their contents against
@@ -127,13 +75,17 @@ func MapToSDKInput(cliContext *cli.Context, destination interface{},
 	for fieldName, flagName := range mandatoryFields {
 		// check the cli context contains the mandatory flag
 		if !cliContext.IsSet(flagName) {
-			// if not presnet return an error
-			return errors.New("missing flag " + flagName)
+			// if not present return an error
+			ce := new(errors.CommandError)
+			ce.Flag = flagName
+			ce.CLIContext = cliContext
+			ce.Cause = errors.MissingRequiredFlag
+			return ce
 		}
 		// for each field maps the flag content to S3 input field
 		err := populateField(cliContext, flagName, destinationRflx, fieldName)
 		// check if the maping returned an error
-		// if error ocurred stop processing the remaining fields/flags
+		// if error occurred stop processing the remaining fields/flags
 		if err != nil {
 			return err
 		}
@@ -146,8 +98,8 @@ func MapToSDKInput(cliContext *cli.Context, destination interface{},
 			// if flag populated
 			// maps the flag content to the S3 input field
 			err := populateField(cliContext, flagName, destinationRflx, fieldName)
-			// check if the maping returned an error
-			// if error ocurred stop processing the remaining fields/flags
+			// check if the mapping returned an error
+			// if error occurred stop processing the remaining fields/flags
 			if err != nil {
 				return err
 			}
@@ -157,32 +109,59 @@ func MapToSDKInput(cliContext *cli.Context, destination interface{},
 	return nil
 }
 
-// ValidateUserInputsAndSetRegion helper to reduce the boilerplate of getting the region and mapping the fields
-func ValidateUserInputsAndSetRegion(c *cli.Context, input interface{}, mandatory map[string]string,
-	options map[string]string, p plugin.PluginConfig) (string, error) {
-
-	// apply the mandatory and optional mappings to the S3 input using the flags content as source
-	err := MapToSDKInput(c, input, mandatory, options)
-	// if mapping fails, return an incorrect usage
-	if err != nil {
-		return "", cli.NewExitError(incorrectUsage, 1)
-	}
-
-	// Set region from either user's input or default region in conf
-	region, err := GetRegion(c, p)
-	if err != nil || region == "" {
-		return "", cli.NewExitError(noRegion, 1)
-	}
-
-	return region, nil
-}
-
 // populate field , grabs the value from the cli context and maps it to the S3 input
 func populateField(cliContext *cli.Context,
 	flagName string,
 	destinationRflx reflect.Value,
 	fieldName string) (err error) {
+	// allocates a new error of type command error
+	commandError := new(errors.CommandError)
+	// set the command error context
+	commandError.CLIContext = cliContext
+	// sets the error flag name
+	commandError.Flag = flagName
+	// sets the cause to be invalid value
+	commandError.Cause = errors.InvalidValue
+
+	// retrieves the field by name using reflection
 	fieldRflx := destinationRflx.FieldByName(fieldName)
+
+	// checks the field exists
+	if !fieldRflx.IsValid() {
+		err = awserr.New("parameter.mapping.invalid", "Field '"+fieldName+"' does not exist", nil)
+		return
+	}
+
+	// checks if the field is of kind interface
+	if fieldRflx.Type().Kind() == reflect.Interface {
+		// create a value of type io.ReadSeeker and gets it reflection
+		readSeekerRflx := reflect.ValueOf(new(io.ReadSeeker)).Elem()
+		// checks if the io.ReadSeeker inplements the type of the field interface
+		if readSeekerRflx.Type().Implements(fieldRflx.Type()) {
+			// allocates a var to hold the cos context
+			var cosContext *utils.CosContext
+			// populate the cos context variable and checks if the fetch had an error
+			if cosContext, err = GetCosContext(cliContext); err != nil {
+				// if an error occurred , propagate it and stop any further processing
+				return
+			}
+			// allocate a io.ReadSeeker
+			var readSeeker io.ReadSeeker
+			// call the cos context wrapper of the os open operation
+			// and checks if error occurred
+			if readSeeker, err = cosContext.ReadSeekerCloserOpen(cliContext.String(flagName)); err != nil {
+				// if error occurred
+				// sets the command internal error to be the IO error
+				// return the command error and stop processing
+				commandError.IError = err
+				err = commandError
+				return
+			}
+			// if open succeeds, assign the open result to the struct field and exit function
+			fieldRflx.Set(reflect.ValueOf(readSeeker))
+			return
+		}
+	}
 
 	// checks the kind of the field of the s3 input is map
 	if fieldRflx.Kind() == reflect.Map {
@@ -192,22 +171,27 @@ func populateField(cliContext *cli.Context,
 		ptr.Elem().Set(reflect.MakeMap(fieldRflx.Type()))
 		// since used parseJSONinFile instead of parseJSON it alsos accept the format file://
 		// tries to parse the content of the flag as a map
-		err = parseJSONinFile(ptr.Interface(), cliContext.String(flagName))
+		err = parseJSONinFile(cliContext, ptr.Interface(), cliContext.String(flagName))
 		// if no error thrown set map build using reflection as the s3 input field value
 		if err == nil {
 			fieldRflx.Set(ptr.Elem())
+		} else {
+			commandError.IError = err
+			err = commandError
 		}
 		return
 	}
 
-	// checks the kind of the field of the s3 input is pointer to ...
-	if fieldRflx.Kind() != reflect.Ptr {
-		panic("assumed all sdk struct fields are pointers, something is not ok")
+	// gets the type of the reflected field
+	fieldTypeRflx := fieldRflx.Type()
+	// checks if the type is of kinf of pointer
+	if fieldRflx.Kind() == reflect.Ptr {
+		// if pinter uses the Elem() operation to get the pointed to Type
+		fieldTypeRflx = fieldTypeRflx.Elem()
 	}
-	// grabs the type that the pointer points to
-	fieldPointerToType := fieldRflx.Type().Elem()
+
 	// uses reflection to build a new value of the type
-	v := reflect.New(fieldPointerToType)
+	v := reflect.New(fieldTypeRflx)
 	// switch over the types,
 	// each type as its mapper
 	switch f := v.Interface().(type) {
@@ -218,37 +202,58 @@ func populateField(cliContext *cli.Context,
 		// if field is type pointer to bool , uses directly the value of the flag
 		*f = cliContext.Bool(flagName)
 	case *int64:
-		// if field is type pointer to int64 , uses directly the value of the flag
-		*f = cliContext.Int64(flagName)
+		// if field is type pointer to int64
+		*f, err = parseInt64(cliContext.String(flagName))
+	case *int:
+		// if field is type pointer to int
+		var tmp int64
+		tmp, err = parseInt64(cliContext.String(flagName))
+		*f = int(tmp)
 	case *time.Time:
 		// if field type is pointer to time , parse the time value using parseTime
 		*f, err = parseTime(cliContext.String(flagName))
 	case *s3.Delete:
 		// if type is pointer to Delete , use golang json decoder to map value
-		err = parseJSONinFile(f, cliContext.String(flagName))
+		err = parseJSONinFile(cliContext, f, cliContext.String(flagName))
 	// case *s3.CreateBucketConfiguration:
 	// 	err = parseJSONinFile(f, cliContext.String(flagName))
 	case *s3.CORSConfiguration:
 		// if type is pointer to CORSConfiguration , use golang json decoder to map value
-		err = parseJSONinFile(f, cliContext.String(flagName))
+		err = parseJSONinFile(cliContext, f, cliContext.String(flagName))
 	case *s3.CompletedMultipartUpload:
 		// if type is pointer to CompletedMultipartUpload , use golang json decoder to map value
-		err = parseJSONinFile(f, cliContext.String(flagName))
+		err = parseJSONinFile(cliContext, f, cliContext.String(flagName))
 	case *s3.AccessControlPolicy:
 		// if type is pointer to AccessControlPolicy, use golang json decoder to map value
-		err = parseJSONinFile(f, cliContext.String(flagName))
+		err = parseJSONinFile(cliContext, f, cliContext.String(flagName))
 	default:
 		panic("INVALID TYPE -- not mapped type yet")
 	}
 
-	if err == nil {
-		fieldRflx.Set(v)
+	// check if an error occurred
+	if err != nil {
+		// if and error occurred set it to be the command error internal error
+		commandError.IError = err
+		err = commandError
+		// exit function to avoid further processing
+		// and propagate the error to caller
+		return
 	}
+
+	// check if the kind of the field is a pointer To Type
+	if fieldRflx.Kind() != reflect.Ptr {
+		// if not pointer to,
+		// uses Elem to follow the value to the pointed value
+		v = v.Elem()
+	}
+
+	// assigns value populated previous to the struct field
+	fieldRflx.Set(v)
 
 	return
 }
 
-// Convert int64 value to string
+// parseInt64 convert int64 value to string
 func parseInt64(value string) (int64, error) {
 	return strconv.ParseInt(value, 10, 64)
 }
@@ -311,23 +316,22 @@ const filePrefix = `file://`
 
 // parseJSONinFile - parse JSON user provides inside a file - collateral
 // effect consumes files in the simplified version of json ...
-func parseJSONinFile(i interface{}, input string) (err error) {
+func parseJSONinFile(cliContext *cli.Context, i interface{}, input string) (err error) {
 	trimmed := strings.TrimSpace(input)
 	var content string
 	if strings.HasPrefix(trimmed, filePrefix) {
 		fileName := trimmed[len(filePrefix):]
-		// gets a new one, not shared with the app context in production
-		// in testing is shared with across app due to implementation details and being easier to assert on calling
-		fileOp := providers.GetFileOperations()
+		var cosContext *utils.CosContext
+		if cosContext, err = GetCosContext(cliContext); err != nil {
+			return
+		}
 		var rsc utils.ReadSeekerCloser
-		rsc, err = fileOp.ReadSeekerCloserOpen(fileName)
-		if err != nil {
+		if rsc, err = cosContext.ReadSeekerCloserOpen(fileName); err != nil {
 			return
 		}
 		defer rsc.Close()
 		var fileBytes []byte
-		fileBytes, err = ioutil.ReadAll(rsc)
-		if err != nil {
+		if fileBytes, err = ioutil.ReadAll(rsc); err != nil {
 			return
 		}
 		content = string(fileBytes)
@@ -343,26 +347,51 @@ func parseJSONinFile(i interface{}, input string) (err error) {
 
 // PaginationHelper struct to hep with paging handling
 type PaginationHelper struct {
-	max      *int64
-	total    int64
-	pageSize *int64
-	nextPage *int64
+	max      *int64 // the upper bound of the sum of the cardinality of all pages
+	total    int64  // sum of cardinality of pages retrieved so far
+	pageSize *int64 // the page size
+	nextPage *int64 // the number of elements to request in next page
 }
 
 // NewPaginationHelper creates a new PaginationHelper from context using the specified flags
 // return the PaginationHelper itself and a pointer to Page Size
-func NewPaginationHelper(ctx *cli.Context, maxFlagName, pageSizeFlagName string) (*PaginationHelper, *int64) {
+func NewPaginationHelper(ctx *cli.Context, maxFlagName, pageSizeFlagName string) (*PaginationHelper, *int64, error) {
+	// allocate a new command error
+	commandError := new(errors.CommandError)
+	// set command context to be current context
+	commandError.CLIContext = ctx
+	// set command cause to be invalid value
+	commandError.Cause = errors.InvalidValue
+	// allocate a new PaginationHelper
 	pgHelper := &PaginationHelper{
 		total: 0,
 	}
+	// check if the invocation sets the upper limit of all pages
 	if ctx.IsSet(maxFlagName) {
-		pgHelper.max = aws.Int64(ctx.Int64(maxFlagName))
+		// if it is set parse it from flag and check for error on converting
+		if value, err := parseInt64(ctx.String(maxFlagName)); err != nil {
+			commandError.Flag = maxFlagName
+			commandError.IError = err
+			return nil, nil, commandError
+		} else {
+			// if set and valid set max of pagination helper
+			pgHelper.max = &value
+		}
 	}
+	// check if page size flag was set in the command invocation
 	if ctx.IsSet(pageSizeFlagName) {
-		pgHelper.pageSize = aws.Int64(ctx.Int64(pageSizeFlagName))
+		// if it is set parse it from flag and check for error on converting
+		if value, err := parseInt64(ctx.String(pageSizeFlagName)); err != nil {
+			commandError.Flag = pageSizeFlagName
+			commandError.IError = err
+			return nil, nil, commandError
+		} else {
+			// if set and valid set pagesize of pagination helper
+			pgHelper.pageSize = &value
+		}
 	}
 	pgHelper.initNextPageSize()
-	return pgHelper, pgHelper.nextPage
+	return pgHelper, pgHelper.nextPage, nil
 }
 
 // UpdateTotal updates total return if max reached

@@ -1,17 +1,17 @@
 package functions
 
 import (
-	"strconv"
 	"strings"
 
-	"github.com/IBM/ibmcloud-cos-cli/config"
-	"github.com/IBM/ibmcloud-cos-cli/config/fields"
-	"github.com/IBM/ibmcloud-cos-cli/config/flags"
-	. "github.com/IBM/ibmcloud-cos-cli/i18n"
-	"github.com/IBM/ibmcloud-cos-cli/utils"
+	"github.com/IBM/ibmcloud-cos-cli/errors"
+
+	"github.com/IBM/ibm-cos-sdk-go/aws/awserr"
 
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
-
+	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3iface"
+	"github.com/IBM/ibmcloud-cos-cli/config/fields"
+	"github.com/IBM/ibmcloud-cos-cli/config/flags"
+	"github.com/IBM/ibmcloud-cos-cli/utils"
 	"github.com/urfave/cli"
 )
 
@@ -20,13 +20,23 @@ import (
 //   	CLI Context Application
 // Returns:
 //  	Error = zero or non-zero
-func PartUploadCopy(c *cli.Context) error {
-	// Load COS Context
-	cosContext := c.App.Metadata[config.CosContextKey].(*utils.CosContext)
+func PartUploadCopy(c *cli.Context) (err error) {
+	// check the number of arguments
+	if c.NArg() > 0 {
+		// Build Command Error struct
+		err = &errors.CommandError{
+			CLIContext: c,
+			Cause:      errors.InvalidNArg,
+		}
+		// Return error
+		return
+	}
 
-	// Load COS Context UI and Config
-	ui := cosContext.UI
-	conf := cosContext.Config
+	// Load COS Context
+	var cosContext *utils.CosContext
+	if cosContext, err = GetCosContext(c); err != nil {
+		return
+	}
 
 	// Initialize UploadPartCopyInput
 	input := new(s3.UploadPartCopyInput)
@@ -50,41 +60,34 @@ func PartUploadCopy(c *cli.Context) error {
 		fields.CopySourceRange:             flags.CopySourceRange,
 	}
 
-	// Validate User Inputs and Retrieve Region
-	region, err := ValidateUserInputsAndSetRegion(c, input, mandatory, options, conf)
-	if err != nil {
-		ui.Failed(err.Error())
-		cli.ShowCommandHelp(c, c.Command.Name)
-		return cli.NewExitError(err.Error(), 1)
+	// Check through user inputs for validation
+	if err = MapToSDKInput(c, input, mandatory, options); err != nil {
+		return
 	}
+
+	// validate source
+	if path := strings.Split(*input.CopySource, "/"); len(path[0]) == 0 {
+		return awserr.New("copy.source.bucket.missing", "no source bucket", nil)
+	}
+
+	// Concatenate forward slash in the beginning of the copy source
+	*input.CopySource = "/" + *input.CopySource
 
 	// Setting client to do the call
-	client := cosContext.GetClient(region)
-
-	// Alert User that we are performing the call
-	ui.Say(T("Uploading part copy..."))
-
-	// UploadPart API
-	_, err = client.UploadPartCopy(input)
-	// Error handling
-	if err != nil {
-		if strings.Contains(err.Error(), "EmptyStaticCreds") {
-			ui.Failed(err.Error() + "\n" + T("Try logging in using 'ibmcloud login'."))
-		} else {
-			ui.Failed(err.Error())
-		}
-		return cli.NewExitError("", 1)
+	var client s3iface.S3API
+	if client, err = cosContext.GetClient(c.String(flags.Region)); err != nil {
+		return
 	}
-	// Success
-	ui.Ok()
 
-	// Output the successful upload party copy operation with partnumber of
-	// the multipart upload
-	partNum := strconv.FormatInt(*input.PartNumber, 10)
-	ui.Say(T("Uploaded part copy '{{.part}}' of object '{{.object}}'.",
-		map[string]interface{}{"part": utils.EntityNameColor(partNum),
-			"object": utils.EntityNameColor(*input.Key)}))
+	// UploadPartCopy Op
+	var output *s3.UploadPartCopyOutput
+	if output, err = client.UploadPartCopy(input); err != nil {
+		return
+	}
+
+	// Display either in JSON or text
+	err = cosContext.GetDisplay(c.Bool(flags.JSON)).Display(input, output, nil)
 
 	// Return
-	return nil
+	return
 }

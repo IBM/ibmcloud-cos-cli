@@ -4,6 +4,10 @@
     "translation": " 個儲存區位於您的帳戶中：\n"
   },
   {
+    "id": " buckets:",
+    "translation": " 儲存區："
+  },
+  {
     "id": " downloaded.",
     "translation": " 已下載。"
   },
@@ -28,6 +32,10 @@
     "translation": "1 個儲存區位於您的帳戶中：\n"
   },
   {
+    "id": "1 bucket:",
+    "translation": "1 個儲存區："
+  },
+  {
     "id": "1 multipart upload in bucket '",
     "translation": "1 項多組件上傳位於儲存區 '"
   },
@@ -48,8 +56,12 @@
     "translation": "要儲存的 meta 資料的 `MAP`。語法：KeyName1=string,KeyName2=string"
   },
   {
-    "id": "A `TOKEN` to specify where to start paginating. This is the NextToken from a previously truncated response.",
-    "translation": "此 `TOKEN` 用於指定要開始分頁的位置。這是先前截斷回應中的 NextToken。"
+    "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
+    "translation": "此 `STRUCTURE` 會在檔案中使用 JSON 語法。請參閱 IBM Cloud 文件。"
+  },
+  {
+    "id": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation.",
+    "translation": "此 `STRUCTURE` 使用速記或 JSON 語法。請參閱 IBM Cloud 文件。"
   },
   {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
@@ -60,11 +72,7 @@
     "translation": "對物件資料格式進行說明的標準 `MIME` 類型。"
   },
   {
-    "id": "Aborting multipart upload...",
-    "translation": "正在中止多組件上傳..."
-  },
-  {
-    "id": "Aborts a multipart upload instance.",
+    "id": "Abort a multipart upload instance.",
     "translation": "中止多組件上傳實例。"
   },
   {
@@ -76,10 +84,6 @@
     "translation": "您確定要繼續作業嗎？"
   },
   {
-    "id": "Are you sure you would like to overwrite it?",
-    "translation": "您確定要改寫嗎？"
-  },
-  {
     "id": "Authentication Method",
     "translation": "鑑別方法"
   },
@@ -88,8 +92,12 @@
     "translation": "鑑別 `METHOD`。"
   },
   {
-    "id": "Bucket '{{.bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
-    "translation": "在您的 IBM Cloud Object Storage 帳戶中發現區域 {{.region}} 中的儲存區 '{{.bucket}}'。"
+    "id": "Bad Flag Syntax in '--%s'",
+    "translation": "'--%s' 中的旗標語法不正確"
+  },
+  {
+    "id": "Bucket '{{.Bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
+    "translation": "在您的 IBM Cloud Object Storage 帳戶中發現區域 {{.region}} 中的儲存區 '{{.Bucket}}'。"
   },
   {
     "id": "CRN",
@@ -100,20 +108,24 @@
     "translation": "變更外掛程式配置"
   },
   {
-    "id": "Class: {{.class}}",
-    "translation": "類別：{{.class}}"
+    "id": "Class: ",
+    "translation": "類別："
   },
   {
     "id": "Clear the option value.",
     "translation": "清除選項值。"
   },
   {
-    "id": "Complete an existing multipart upload instance.",
-    "translation": "完成現有多組件上傳實例。"
+    "id": "Command does not support Flag '--%s'",
+    "translation": "指令不支援旗標 '--%s'"
   },
   {
-    "id": "Completing multipart upload...",
-    "translation": "正在完成多組件上傳..."
+    "id": "Common Prefixes:",
+    "translation": "一般字首："
+  },
+  {
+    "id": "Complete an existing multipart upload instance.",
+    "translation": "完成現有多組件上傳實例。"
   },
   {
     "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
@@ -136,10 +148,6 @@
     "translation": "將物件從一個儲存區複製到另一個儲存區。"
   },
   {
-    "id": "Copying object...",
-    "translation": "正在複製物件..."
-  },
-  {
     "id": "Create a new bucket.",
     "translation": "建立新的儲存區。"
   },
@@ -148,12 +156,8 @@
     "translation": "建立新的多組件上傳實例。"
   },
   {
-    "id": "Creating bucket...",
-    "translation": "正在建立儲存區..."
-  },
-  {
-    "id": "Creating new multipart upload instance...",
-    "translation": "正在建立新的多組件上傳實例..."
+    "id": "Creation Date",
+    "translation": "建立日期"
   },
   {
     "id": "Date Created",
@@ -188,24 +192,8 @@
     "translation": "從儲存區刪除 CORS 配置。"
   },
   {
-    "id": "Deleting CORS from the bucket...",
-    "translation": "正在從儲存區刪除 CORS..."
-  },
-  {
-    "id": "Deleting bucket...",
-    "translation": "正在刪除儲存區..."
-  },
-  {
-    "id": "Deleting object...",
-    "translation": "正在刪除物件..."
-  },
-  {
-    "id": "Deleting objects...",
-    "translation": "正在刪除物件..."
-  },
-  {
-    "id": "Details about bucket {{.details}}:",
-    "translation": "關於儲存區 {{.details}} 的詳細資料："
+    "id": "Details about bucket ",
+    "translation": "關於儲存區的詳細資料"
   },
   {
     "id": "Details about your multipart upload instance:",
@@ -232,20 +220,24 @@
     "translation": "從儲存區中下載物件。"
   },
   {
-    "id": "Downloading object...",
-    "translation": "正在下載物件..."
+    "id": "Download objects from S3 concurrently.",
+    "translation": "從 S3 並行下載物件。"
   },
   {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
     "translation": "下載位元組為指定 `RANGE` 的物件。如需 HTTP 範圍標頭的相關資訊，請移至 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35。"
   },
   {
-    "id": "Empty source bucket.",
-    "translation": "空白來源儲存區。"
+    "id": "ETag",
+    "translation": "ETag"
   },
   {
-    "id": "Error opening '{{.dl}}' to write ",
-    "translation": "開啟 '{{.dl}}' 進行寫入時發生錯誤"
+    "id": "Error opening '{{.Location}}' to write.",
+    "translation": "開啟 '{{.Location}}' 進行寫入時發生錯誤。"
+  },
+  {
+    "id": "Flag '--%s' requires a value",
+    "translation": "旗標 '--%s' 需要值"
   },
   {
     "id": "Found ",
@@ -260,20 +252,20 @@
     "translation": "取得儲存區的區域和類別。"
   },
   {
-    "id": "Getting bucket CORS ...",
-    "translation": "正在取得儲存區 CORS..."
-  },
-  {
-    "id": "Incorrect Usage.",
-    "translation": "用法不正確。"
-  },
-  {
     "id": "Initiated",
     "translation": "已起始"
   },
   {
     "id": "Interact with IBM Cloud Object Storage services",
     "translation": "與 IBM Cloud Object Storage 服務互動"
+  },
+  {
+    "id": "Invalid boolean balue in Flag '--%s'",
+    "translation": "旗標 '--%s' 中的布林值無效"
+  },
+  {
+    "id": "Invalid boolean flag '--%s'",
+    "translation": "布林旗標 '--%s' 無效"
   },
   {
     "id": "It was last updated on {{.lastupdated}}.",
@@ -308,6 +300,10 @@
     "translation": "列出 IBM Cloud Object Storage 帳戶中的所有儲存區。"
   },
   {
+    "id": "List all the extended buckets with pagination support.",
+    "translation": "以支援分頁的形式列出所有延伸儲存區。"
+  },
+  {
     "id": "List configuration",
     "translation": "列出配置"
   },
@@ -316,24 +312,16 @@
     "translation": "列出配置值。"
   },
   {
-    "id": "Listing Multipart Uploads...",
-    "translation": "正在列出多組件上傳..."
+    "id": "Location Constraint",
+    "translation": "位置限制項"
   },
   {
-    "id": "Listing objects...",
-    "translation": "正在列出物件..."
+    "id": "Mandatory Flag '--%s' is missing",
+    "translation": "遺漏了必要的旗標 '--%s'"
   },
   {
-    "id": "Listing parts...",
-    "translation": "正在列出組件..."
-  },
-  {
-    "id": "Loading buckets...",
-    "translation": "正在載入儲存區..."
-  },
-  {
-    "id": "Location: %s",
-    "translation": "位置：%s"
+    "id": "Max number of `PARTS` which will be uploaded to S3 that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.",
+    "translation": "將上傳至 S3 以計算所要上傳物件組件大小的 `PARTS` 數目上限。上限值為 10,000 個組件。"
   },
   {
     "id": "Name",
@@ -364,6 +352,14 @@
     "translation": "作業已取消。"
   },
   {
+    "id": "Output returned in raw JSON format.",
+    "translation": "以原始 JSON 格式傳回輸出。"
+  },
+  {
+    "id": "Override the default location providing an OUTFILE parameter",
+    "translation": "置換提供 OUTFILE 參數的預設位置"
+  },
+  {
     "id": "Part Number",
     "translation": "產品編號"
   },
@@ -376,12 +372,8 @@
     "translation": "作為清單起始產品編號的 `VALUE`"
   },
   {
-    "id": "Putting object...",
-    "translation": "正在放置物件..."
-  },
-  {
-    "id": "Region: {{.region}}",
-    "translation": "區域：{{.region}}"
+    "id": "Region: ",
+    "translation": "區域："
   },
   {
     "id": "Regions endpoint `URL`.",
@@ -418,10 +410,6 @@
   {
     "id": "Saving new Service Instance ID...",
     "translation": "正在儲存新的服務實例 ID..."
-  },
-  {
-    "id": "Set a valid download location using 'cos config --ddl'",
-    "translation": "使用 'cos config --ddl' 設定有效的下載位置"
   },
   {
     "id": "Set regions endpoint URL.",
@@ -464,8 +452,8 @@
     "translation": "在要求中設定 IBM 服務實例 `ID`。"
   },
   {
-    "id": "Setting bucket CORS...",
-    "translation": "正在設定儲存區 CORS..."
+    "id": "Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.",
+    "translation": "將此值設為 true 會導致 SDK 在遇到故障時呼叫 AbortMultipartUpload，從而將所有順利上傳的組件保留在 S3 上以便於手動回復。"
   },
   {
     "id": "Size",
@@ -520,12 +508,8 @@
     "translation": "已順利清除區域端點 URL。"
   },
   {
-    "id": "Successfully copied '{{.object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
-    "translation": "已順利將 '{{.object}}' 從儲存區 '{{.bucket1}}' 複製到儲存區 '{{.bucket2}}'。"
-  },
-  {
-    "id": "Successfully created bucket '{{.bucket}}'.",
-    "translation": "已順利地建立儲存區 '{{.bucket}}'。"
+    "id": "Successfully copied '{{.Object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
+    "translation": "已順利將 '{{.Object}}' 從儲存區 '{{.bucket1}}' 複製到儲存區 '{{.bucket2}}'。"
   },
   {
     "id": "Successfully deleted CORS configuration on bucket: {{.Bucket}}",
@@ -542,6 +526,10 @@
   {
     "id": "Successfully saved HMAC Credentials to file.",
     "translation": "已順利將 HMAC 認證儲存到檔案。"
+  },
+  {
+    "id": "Successfully saved S3 {{.Style}} style hosting option. CLI calls will use {{.Style}} style requests.",
+    "translation": "已順利儲存 S3 {{.Style}} 樣式主機作業選項。CLI 呼叫將使用 {{.Style}} 樣式要求。"
   },
   {
     "id": "Successfully saved default region. The program will look for buckets in the region {{.region}}.",
@@ -580,8 +568,8 @@
     "translation": "在 HMAC 和 IAM 鑑別之間切換"
   },
   {
-    "id": "Switch between HMAC and IAM authentication.",
-    "translation": "在 HMAC 和 IAM 鑑別之間切換。"
+    "id": "Switch between VHost and Path URL style.",
+    "translation": "在 VHost 和 Path URL 樣式之間切換。"
   },
   {
     "id": "The CORS configuration of ",
@@ -596,44 +584,28 @@
     "translation": "內容的 `LANGUAGE`。"
   },
   {
+    "id": "The `PATH` to the file to upload.",
+    "translation": "要上傳的檔案的 `PATH`。"
+  },
+  {
     "id": "The `REGION` where the bucket is present. If this flag is not provided, the program will use the default option specified in config.",
     "translation": "儲存區所在的 `REGION`。如果沒有提供此旗標，則程式將使用配置中指定的預設選項。"
   },
   {
-    "id": "The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the service calls from timing out.",
-    "translation": "進入服務呼叫的每個頁面的 `SIZE`。這不會影響指令輸出中傳回的項目數。設定較小的頁面大小會導致對 AWS 服務進行更多呼叫，造成每個呼叫擷取的項目減少。這有助於防止服務呼叫逾時。"
-  },
-  {
-    "id": "The `VALUE` of CorsConfiguration to set.",
-    "translation": "要設定的 CorsConfiguration 的 `VALUE`。"
-  },
-  {
-    "id": "The `VALUE` of CreateBucketConfiguration to set.",
-    "translation": "要設定的 CreateBucketConfiguration 的 `VALUE`。"
-  },
-  {
-    "id": "The `VALUE` of Delete to set. Syntax: Objects=[{Key=string},{Key=string}],Quiet=boolean",
-    "translation": "要設定的 Delete 的 `VALUE`。語法：Objects=[{Key=string},{Key=string}],Quiet=boolean"
-  },
-  {
-    "id": "The `VALUE` of MultipartUpload to set.",
-    "translation": "要設定的 MultipartUpload 的 `VALUE`。"
+    "id": "The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the COS service, retrieving fewer items in each call. This can help prevent the service calls from timing out.",
+    "translation": "進入服務呼叫的每個頁面的 `SIZE`。這不會影響指令輸出中傳回的項目數。設定較小的頁面大小會導致對 COS 服務進行更多呼叫，造成每個呼叫擷取的項目減少。這有助於防止服務呼叫逾時。"
   },
   {
     "id": "The base64-encoded 128-bit `MD5` digest of the data.",
     "translation": "資料的 base64 編碼 128 位元 `MD5` 摘要。"
   },
   {
-    "id": "The download destination '{{.dl}}' is a directory.",
-    "translation": "下載目的地 '{{.dl}}' 是目錄。"
+    "id": "The buffer `SIZE` (in bytes) to use when buffering data into chunks and ending them as parts to S3. The minimum allowed part size is 5MB.",
+    "translation": "將資料緩衝至區塊並以組件形式結束這些區塊然後傳送至 S3 的緩衝區 `SIZE`（以位元組為單位）。容許的組件大小下限為 5MB。"
   },
   {
-    "id": "The download directory '{{.dl}}' is invalid",
-    "translation": "下載目錄 '{{.dl}}' 無效"
-  },
-  {
-    "id": "The download directory '{{.dl}}' is invalid.",
-    "translation": "下載目錄 '{{.dl}}' 無效。"
+    "id": "The download destination '{{.Location}}' is a directory.",
+    "translation": "下載目的地 '{{.Location}}' 是目錄。"
   },
   {
     "id": "The name (`BUCKET_NAME`) of the bucket.",
@@ -642,6 +614,10 @@
   {
     "id": "The name (`CLASS_NAME`) of the Class.",
     "translation": "類別的名稱 (`CLASS_NAME`)。"
+  },
+  {
+    "id": "The number of goroutines to spin up in parallel per call to Upload when sending parts. Default value is 5.",
+    "translation": "傳送組件時每個呼叫並行旋轉上傳的 goroutines 數目。預設值為 5。"
   },
   {
     "id": "The operation will do not ask for confirmation.",
@@ -664,12 +640,8 @@
     "translation": "指定的儲存區名稱無效。儲存區名稱必須以英數字元開頭及結尾（從 3 到 63），僅限於：小寫字母、數字、非連續的點以及連字號。"
   },
   {
-    "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region for the bucket to delete. Provide the bucket's correct region and try again.",
-    "translation": "在 IBM Cloud 帳戶中找不到所指定的儲存區。這可能是因為您提供給儲存區進行刪除的區域不正確。請提供儲存區的正確區域，然後再試一次。"
-  },
-  {
-    "id": "The specified bucket was not found in your account. Ensure that you have set the correct region with the region flag.",
-    "translation": "在您的帳戶中找不到所指定的儲存區。請確保已使用區域旗標設定正確的區域。"
+    "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again.",
+    "translation": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again."
   },
   {
     "id": "The specified download location does not exist on your system. Try again with a valid download path.",
@@ -680,12 +652,24 @@
     "translation": "指定的下載位置無效。請使用有效的下載路徑重試。"
   },
   {
+    "id": "The specified key does not exist.",
+    "translation": "指定的金鑰不存在。"
+  },
+  {
     "id": "The total `NUMBER` of items to return in the command's output.",
     "translation": "要在指令輸出中傳回的項目總數 `NUMBER`。"
   },
   {
+    "id": "The value in flag '--%s' is invalid",
+    "translation": "旗標 '--%s' 中的值無效"
+  },
+  {
     "id": "This operation lists in-progress multipart uploads.",
     "translation": "此作業會列出進行中的多組件上傳。"
+  },
+  {
+    "id": "To retrieve the next set of buckets, use this value marker for the next command: ",
+    "translation": "如果要擷取下一組儲存區，請將此值標記用於下一個指令："
   },
   {
     "id": "To retrieve the next set of multipart uploads, use the following markers in the next command:",
@@ -712,16 +696,16 @@
     "translation": "請嘗試使用 'ibmcloud login' 來登入。"
   },
   {
+    "id": "URL Style",
+    "translation": "URL 樣式"
+  },
+  {
+    "id": "URL `STYLE` can be VHost or Path.",
+    "translation": "URL `STYLE` 可以是 VHost 或 Path。"
+  },
+  {
     "id": "Unable to clear regions endpoint URL.",
     "translation": "無法清除區域端點 URL。"
-  },
-  {
-    "id": "Unable to get Default Download Location.",
-    "translation": "無法取得預設下載位置。"
-  },
-  {
-    "id": "Unable to get Region.",
-    "translation": "無法取得區域。"
   },
   {
     "id": "Unable to get new CRN.",
@@ -732,8 +716,8 @@
     "translation": "無法載入配置方法。"
   },
   {
-    "id": "Unable to load default Region.",
-    "translation": "無法載入預設區域。"
+    "id": "Unable to load current url style.",
+    "translation": "無法載入現行 URL 樣式。"
   },
   {
     "id": "Unable to load default download location.",
@@ -744,12 +728,8 @@
     "translation": "無法載入區域。"
   },
   {
-    "id": "Unable to open object '{{.Key}}' for upload.",
-    "translation": "無法開啟物件 '{{.Key}}' 進行上傳。"
-  },
-  {
-    "id": "Unable to open object '{{.object}}' for upload.",
-    "translation": "無法開啟檔案 '{{.object}}' 進行上傳。"
+    "id": "Unable to parse URL style.",
+    "translation": "無法剖析 URL 樣式。"
   },
   {
     "id": "Unable to parse authentication method.",
@@ -758,6 +738,10 @@
   {
     "id": "Unable to read new Authentication Method.",
     "translation": "無法讀取新的鑑別方法。"
+  },
+  {
+    "id": "Unable to read new URL Style value.",
+    "translation": "無法讀取新的 URL 樣式值。"
   },
   {
     "id": "Unable to read new default download location.",
@@ -788,6 +772,10 @@
     "translation": "無法儲存新的下載位置。"
   },
   {
+    "id": "Unable to switch URL style.",
+    "translation": "無法切換 URL 樣式。"
+  },
+  {
     "id": "Unable to switch authentication method.",
     "translation": "無法切換鑑別方法。"
   },
@@ -808,24 +796,20 @@
     "translation": "將物件上傳至儲存區。"
   },
   {
+    "id": "Upload objects from S3 concurrently.",
+    "translation": "從 S3 並行上傳物件。"
+  },
+  {
     "id": "UploadId",
     "translation": "上傳 ID"
   },
   {
-    "id": "Uploaded part '{{.part}}' of object '{{.object}}'.",
-    "translation": "已上傳物件 '{{.object}}' 的組件 '{{.part}}'。"
+    "id": "Uploaded part '{{.part}}' of object '{{.Object}}'.",
+    "translation": "已上傳物件 '{{.Object}}' 的組件 '{{.part}}'。"
   },
   {
-    "id": "Uploaded part copy '{{.part}}' of object '{{.object}}'.",
-    "translation": "已上傳物件 '{{.object}}' 的組件副本 '{{.part}}'。"
-  },
-  {
-    "id": "Uploading file part...",
-    "translation": "正在上傳檔案組件..."
-  },
-  {
-    "id": "Uploading part copy...",
-    "translation": "正在上傳組件副本..."
+    "id": "Uploaded part copy '{{.part}}' of object '{{.Object}}'.",
+    "translation": "已上傳物件 '{{.Object}}' 的組件副本 '{{.part}}'。"
   },
   {
     "id": "Value",
@@ -874,6 +858,10 @@
   {
     "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",
     "translation": "內文的 `SIZE`（以位元組為單位）。無法自動判定內文大小時可使用此參數。"
+  },
+  {
+    "id": "no buckets.",
+    "translation": "無儲存區。"
   },
   {
     "id": "no multipart uploads in bucket '",

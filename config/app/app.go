@@ -1,6 +1,7 @@
 package app
 
 import (
+	"io/ioutil"
 	"reflect"
 	"strings"
 
@@ -21,10 +22,14 @@ func NewApp(name string) *cli.App {
 	// Name - COS
 	// HelpName - COS
 	// Version of App - found in /version/version.go
+	// Usage Error calls
+	// Discard Writer
 	app := cli.NewApp()
 	app.Name = name
 	app.HelpName = name
 	app.Version = version.CLIVersion.String()
+	app.OnUsageError = OnUsageError
+	app.Writer = ioutil.Discard
 
 	// Template to factorize the help section of the commands
 	cli.CommandHelpTemplate = CommandHelpTemplate
@@ -37,6 +42,7 @@ func NewApp(name string) *cli.App {
 		commands.CommandBucketGetClass,
 		commands.CommandBucketHead,
 		commands.CommandBucketsList,
+		commands.CommandBucketsListExtended,
 		commands.CommandObjectGet,
 		commands.CommandObjectHead,
 		commands.CommandObjectPut,
@@ -55,6 +61,8 @@ func NewApp(name string) *cli.App {
 		commands.CommandBucketCorsPut,
 		commands.CommandBucketCorsGet,
 		commands.CommandBucketCorsDelete,
+		commands.CommandDownload,
+		commands.CommandUpload,
 		commands.CommandWait,
 	}
 
@@ -70,6 +78,7 @@ func setUsageText(commands cli.Commands) {
 	// Iterate through commands and establish usage for each
 	for idx := range commands {
 		commands[idx].UsageText = fromFlagsToUsage(commands[idx].Flags)
+		commands[idx].OnUsageError = OnUsageError
 		setUsageText(commands[idx].Subcommands)
 	}
 }

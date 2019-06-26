@@ -2,24 +2,18 @@ package functions
 
 import (
 	"io"
-	"os"
 	"path/filepath"
-	"strings"
-
-	"github.com/IBM/ibmcloud-cos-cli/config"
-	"github.com/IBM/ibmcloud-cos-cli/config/fields"
-	"github.com/IBM/ibmcloud-cos-cli/config/flags"
-	. "github.com/IBM/ibmcloud-cos-cli/i18n"
-	"github.com/IBM/ibmcloud-cos-cli/utils"
 
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/bluemix/terminal"
+	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
+	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3iface"
+	"github.com/IBM/ibmcloud-cos-cli/config/fields"
+	"github.com/IBM/ibmcloud-cos-cli/config/flags"
+	"github.com/IBM/ibmcloud-cos-cli/errors"
+	"github.com/IBM/ibmcloud-cos-cli/render"
+	"github.com/IBM/ibmcloud-cos-cli/utils"
 	"github.com/urfave/cli"
-)
-
-// Constant message
-const (
-	overRideDefaultLocMessage = "Override the default location providing an OUTFILE parameter"
 )
 
 // ObjectGet downloads a file from a bucket.
@@ -27,36 +21,55 @@ const (
 //   	CLI Context Application
 // Returns:
 //  	Error = zero or non-zero
-func ObjectGet(c *cli.Context) error {
+func ObjectGet(c *cli.Context) (err error) {
+	// check the number of arguments
+	if c.NArg() > 1 {
+		// if the number of arguments is bigger than 1 throw an error
+		err = &errors.CommandError{
+			CLIContext: c,
+			Cause:      errors.InvalidNArg,
+		}
+		// returns stopping any further processing
+		return
+	}
 
-	// Load COS Context
-	cosContext := c.App.Metadata[config.CosContextKey].(*utils.CosContext)
+	// allocate a variable fot the COS Context
+	var cosContext *utils.CosContext
+	// do a get and check of the COS Context
+	if cosContext, err = GetCosContext(c); err != nil {
+		// if the get cos context returned error,
+		// return the error and stop any further processing
+		return
+	}
 
 	// Monitor the file
-	keepFile := true
+	keepFile := false
 
+	// Download location
 	var dstPath string
-	// Remove files when open later in the process
+
+	// register a deferred function to remove the file if the get did not complete
 	defer func() {
+		// check that the file download did not complete
+		// and that the file name is not empty
 		if !keepFile && dstPath != "" {
+			// call the context wrapper to the SO remove function
 			cosContext.Remove(dstPath)
 		}
 	}()
 
-	// Load COS Context UI and Config
-	ui := cosContext.UI
-	conf := cosContext.Config
-
-	// Set GetObjectInput
+	// initialize the input with a pointer to a empty GetObjectInput
 	input := new(s3.GetObjectInput)
 
-	// Required parameter for GetObject
+	// Define the mandatory fields of GetObjectInput,
+	// and the flags to be used as source for the input values
 	mandatory := map[string]string{
 		fields.Bucket: flags.Bucket,
 		fields.Key:    flags.Key,
 	}
 
-	// No optional parameter for GetObject
+	// Define the optional fields of GetObjectInput,
+	// and the flags to be used as source for the input values
 	options := map[string]string{
 		fields.IfMatch:                    flags.IfMatch,
 		fields.IfModifiedSince:            flags.IfModifiedSince,
@@ -71,190 +84,151 @@ func ObjectGet(c *cli.Context) error {
 		fields.ResponseExpires:            flags.ResponseExpires,
 	}
 
-	// Validate User Inputs and Retrieve Region
-	region, err := ValidateUserInputsAndSetRegion(c, input, mandatory, options, conf)
-	if err != nil {
-		ui.Failed(err.Error())
-		cli.ShowCommandHelp(c, c.Command.Name)
-		//return cli.NewExitError(err.Error(), 1)
+	// populate the input values using the mandatory and optional maps define before
+	// and checks that there was no error during the map operation
+	if err = MapToSDKInput(c, input, mandatory, options); err != nil {
+		// if a error occurred during the mapping,
+		// propagate the error and stop any further processing
+		return
 	}
 
-	var outFile bool
-	outFile, dstPath, err = getDwnLdPath(c, input)
-	if err != nil || dstPath == "" {
-		return err
+	// allocate a variable of type io.WriteCloser,
+	// that will be used as destination of the download/get operation
+	var file io.WriteCloser
+	// calls the auxiliary getAndValidateDownloadPath passing
+	// the Cos Context, the first argument of command invocation and the key
+	// checks if an error occurred or
+	// the file value is empty ( when destination exists and user do not confirm overwrite )
+	if dstPath, file, err = getAndValidateDownloadPath(cosContext, c.Args().First(),
+		aws.StringValue(input.Key)); err != nil || file == nil {
+		// propagate current error value ( can be nil )
+		// and stops any further processing
+		return
 	}
-
-	// Creates an empty file placeholder
-	file, err := cosContext.WriteCloserOpen(dstPath)
-	if err != nil {
-		ui.Failed(badFilePathOpen(dstPath, outFile))
-		return cli.NewExitError("", 1)
-	}
-
-	// Delays closing the file until download is complete
+	// register a deferred function to close the writer on the exit of current scope
 	defer file.Close()
-	keepFile = false
 
-	// Setting client to do the call
-	client := cosContext.GetClient(region)
-
-	// Alert User that we are performing the call
-	ui.Say(T("Downloading object..."))
-
-	// Download the object by calling GetObject
-	resp, err := client.GetObject(input)
-	// Error handling
-	if err != nil {
-		if strings.Contains(err.Error(), "EmptyStaticCreds") {
-			ui.Failed(err.Error() + "\n" + T("Try logging in using 'ibmcloud login'."))
-		} else {
-			ui.Failed(err.Error())
-		}
-		os.Remove(dstPath)
-		return cli.NewExitError("", 1)
+	// allocate a variable to hold the S3API
+	var client s3iface.S3API
+	// fetch a client from COS Context overriding the default region if needed
+	// also checks for error in the fetch operation
+	if client, err = cosContext.GetClient(c.String(flags.Region)); err != nil {
+		// if an error occurred,
+		// propagate the error and stop any further processing
+		return
 	}
-	// Retrieve the body content
-	defer resp.Body.Close()
-	io.Copy(file, resp.Body)
+
+	// allocate a variable to hold the GetObject result
+	var output *s3.GetObjectOutput
+	// invokes the GetObject operation using the client and checks the result
+	if output, err = client.GetObject(input); err != nil {
+		// if an error occurs in the GetObject request call
+		// propagate the error and stop any further processing
+		return
+	}
+
+	// register a function to close the Body once function gets out of scope
+	defer output.Body.Close()
+	// copy from the response body to the file defined in the command invocation / default destination
+	// and checks no error occurred
+	if _, err = io.Copy(file, output.Body); err != nil {
+		// if error occurred propagate the error
+		return
+	}
+	// flags the file should not be deleted
 	keepFile = true
 
-	// Success
-	ui.Ok()
-	ui.Say(T("Successfully downloaded '{{.Key}}' from bucket '{{.Bucket}}'",
-		map[string]interface{}{"Key": utils.EntityNameColor(*input.Key),
-			"Bucket": utils.EntityNameColor(*input.Bucket)}))
-
-	ui.Say(FormatFileSize(*resp.ContentLength) + T(" downloaded."))
+	// render the result in JSON or Textual format
+	// depending if the flag JSON was passed in the command invocation
+	err = cosContext.GetDisplay(c.Bool(flags.JSON)).Display(input, output, nil)
 
 	// Return
-	return nil
+	return
+
 }
 
-func getDwnLdPath(c *cli.Context, input *s3.GetObjectInput) (bool, string, error) {
-
-	// Load COS Context
-	cosContext := c.App.Metadata[config.CosContextKey].(*utils.CosContext)
-
-	// Load COS Context UI and Config
-	ui := cosContext.UI
-	conf := cosContext.Config
-
-	outFile := false
-	var dstPath string
-	endsInSeparator := false
-	var dirPath string
-
-	// Checks if outfile is present
-	if c.NArg() == 1 {
-		// Break down the outfile input
-		outFile = true
-		dstPath = c.Args()[0]
-		endsInSeparator = dstPath[len(dstPath)-1] == filepath.Separator
-		dstPath = filepath.Clean(dstPath)
-		dirPath = filepath.Dir(dstPath)
-
-	} else {
-		// Outfile is not present, check Default Download Location in config file
-		outFile = false
-
-		// Assign Default Download location to a string
-		downloadsPath, err := conf.GetStringWithDefault(config.DownloadLocation, config.FallbackDownloadLocation)
-		if err != nil || downloadsPath == "" {
-			ui.Failed(T("Unable to get Default Download Location."))
-			return false, "", cli.NewExitError("", 1)
+// getAndValidateDownloadPath is an auxiliary function that
+// takes the COS Context, the value of the first argument as destination location and the value of the key
+// checks if the destination location is not empty
+// if not set and/or is empty
+// uses the concatenation of the default download location and the key as the destination location
+// checks if the destination location is writable and not already exists,
+// if exists ask confirmation before overwrite it
+func getAndValidateDownloadPath(
+	cosContext *utils.CosContext,
+	outfile string,
+	key string,
+) (
+	path string,
+	wc utils.WriteCloser,
+	err error,
+) {
+	// identifies if the rule used to get the destination location is the default rule or is an invocation parameter
+	usingDefaultRule := false
+	if outfile == "" {
+		var downloadLocation string
+		if downloadLocation, err = cosContext.GetDownloadLocation(); err != nil {
+			return
 		}
-
-		// Get the path to the Default Download Location
-		if pathInfo, err := cosContext.GetFileInfo(downloadsPath); err != nil || !pathInfo.IsDir() {
-			str := T("The download directory '{{.dl}}' is invalid",
-				map[string]interface{}{"dl": downloadsPath})
-			str += "\n" + T("Set a valid download location using 'cos config --ddl'")
-			ui.Failed(str)
-			return false, "", cli.NewExitError("", 1)
+		// path join remove trailing /
+		// to prevent losing it, it will be saved before join
+		trailing := key[len(key)-1:]
+		key = key[:len(key)-1]
+		if len(key) > 0 {
+			outfile = filepath.Join(downloadLocation, key)
+		} else {
+			outfile = downloadLocation + string(filepath.Separator)
 		}
-
-		// Check if the filepath has a separator
-		endsInSeparator = (*((*input).Key))[len(*((*input).Key))-1] == filepath.Separator
-
-		// Store the destination path and directory path for download
-		dstPath = filepath.Join(downloadsPath, *input.Key)
-		dirPath = filepath.Dir(dstPath)
-
+		outfile += trailing
+		usingDefaultRule = true
 	}
-	// The file path has a separator, exit
-	if endsInSeparator {
-		ui.Failed(badFilePathIsDir(dstPath+string([]rune{filepath.Separator}), outFile))
-		return false, "", cli.NewExitError("", 1)
-	}
-	// Set the path info
-	if pathInfo, err := cosContext.GetFileInfo(dirPath); err != nil || !pathInfo.IsDir() {
-		ui.Failed(badDirPath(dirPath, outFile))
-		return false, "", cli.NewExitError("", 1)
-	}
-	// Checks to see if a file with the same name as the file to be downloaded exists already or not. Warns the user
-	// to prevent accidental overwriting.
-	if pathInfo, err := cosContext.GetFileInfo(dstPath); err == nil {
-		// check if the path is itself a directory
-		if pathInfo.IsDir() {
-			ui.Failed(badFilePathIsDir(dstPath, outFile))
-			return false, "", cli.NewExitError("", 1)
+	// verify if the destination location is a folder by checking the last character
+	if filepath.Separator == outfile[len(outfile)-1] {
+		err = &errors.ObjectGetError{
+			Location:         outfile,
+			UsingDefaultRule: usingDefaultRule,
+			Cause:            errors.IsDir,
 		}
-		// Alert user whether they want to overwrite existing file
-		resolve := false
-		ui.Warn(T("WARNING: An object with the name '{{.file}}' already exists at '{{.dl}}'.",
-			map[string]interface{}{"file": filepath.Base(dstPath), "dl": dirPath}))
-		ui.Prompt(T("Are you sure you would like to overwrite it?"),
-			new(terminal.PromptOptions)).Resolve(&resolve)
+		return
+	}
 
-		// Cancel the operation if user denies overwriting or exits the prompt
-		if !resolve {
-			ui.Say(T("Operation canceled."))
-			return false, "", nil //cli.NewExitError("", 0)
+	// checks that the destination location does not already exists
+	if fileInfo, innerError := cosContext.GetFileInfo(outfile); innerError == nil {
+		// if it exists checks it is not a folder
+		if fileInfo.IsDir() {
+			err = &errors.ObjectGetError{
+				Location:         outfile,
+				UsingDefaultRule: usingDefaultRule,
+				Cause:            errors.IsDir,
+			}
+			return
+		}
+		confirmed := false
+		dir := filepath.Dir(outfile)
+		if absDir, err := filepath.Abs(dir); err == nil {
+			dir = absDir
+		}
+		// warn that the destination location already exists and ask for confirmation before overwrite
+		cosContext.UI.Warn(render.WarningGetObject(filepath.Base(outfile), dir))
+		cosContext.UI.Prompt(render.MessageConfirmationContinue(), &terminal.PromptOptions{}).Resolve(&confirmed)
+		// if the user does not confirm the overwrite, display a message and exit this function
+		if !confirmed {
+			cosContext.UI.Say(render.MessageOperationCanceled())
+			return
 		}
 	}
-	return outFile, dstPath, nil
-}
 
-// badDirPath tells user that the download directory does not exist
-// Parameter:
-// 		destination directory path (string)
-//		outfile set as parameter (boolean)
-// Return:
-//		invalid download directory (string)
-func badDirPath(dstDirPath string, outFileSet bool) string {
-	str := T("The download directory '{{.dl}}' is invalid.", map[string]interface{}{"dl": dstDirPath})
-	if !outFileSet {
-		str += "\n" + T(overRideDefaultLocMessage)
+	// open the destination location for write and checks for errors
+	if wc, err = cosContext.WriteCloserOpen(outfile); err != nil {
+		innerError := err
+		err = &errors.ObjectGetError{
+			ParentError:      innerError,
+			Location:         outfile,
+			UsingDefaultRule: usingDefaultRule,
+			Cause:            errors.Opening,
+		}
+		return
 	}
-	return str
-}
-
-// badFilePathIsDir tells users that the download destination itself is a directory
-// Parameter:
-// 		destination file path (string)
-//		outfile set as parameter (boolean)
-// Return:
-//		download directory (string)
-func badFilePathIsDir(dstFilePath string, outFileSet bool) string {
-	str := T("The download destination '{{.dl}}' is a directory.",
-		map[string]interface{}{"dl": dstFilePath})
-	if !outFileSet {
-		str += "\n" + T(overRideDefaultLocMessage)
-	}
-	return str
-}
-
-// badFilePathOpen prompts user with an error opening the destination file
-// Parameter:
-// 		destination file path (string)
-//		outfile set as parameter (boolean)
-// Return:
-//		fail opening the file to write (string)
-func badFilePathOpen(dstFilePath string, outFileSet bool) string {
-	str := T("Error opening '{{.dl}}' to write ", map[string]interface{}{"dl": dstFilePath})
-	if !outFileSet {
-		str += "\n" + T(overRideDefaultLocMessage)
-	}
-	return str
+	path = outfile
+	return
 }

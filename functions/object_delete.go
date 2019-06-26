@@ -1,17 +1,14 @@
 package functions
 
 import (
-	"strings"
-
-	"github.com/IBM/ibmcloud-cos-cli/config"
-	"github.com/IBM/ibmcloud-cos-cli/config/fields"
-	"github.com/IBM/ibmcloud-cos-cli/config/flags"
-	"github.com/IBM/ibmcloud-cos-cli/utils"
-
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/bluemix/terminal"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
-
-	. "github.com/IBM/ibmcloud-cos-cli/i18n"
+	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3iface"
+	"github.com/IBM/ibmcloud-cos-cli/config/fields"
+	"github.com/IBM/ibmcloud-cos-cli/config/flags"
+	"github.com/IBM/ibmcloud-cos-cli/errors"
+	"github.com/IBM/ibmcloud-cos-cli/render"
+	"github.com/IBM/ibmcloud-cos-cli/utils"
 	"github.com/urfave/cli"
 )
 
@@ -20,13 +17,23 @@ import (
 //   	CLI Context Application
 // Returns:
 //  	Error = zero or non-zero
-func ObjectDelete(c *cli.Context) error {
-	// Load COS Context
-	cosContext := c.App.Metadata[config.CosContextKey].(*utils.CosContext)
+func ObjectDelete(c *cli.Context) (err error) {
 
-	// Load COS Context UI and Config
-	ui := cosContext.UI
-	conf := cosContext.Config
+	// check the number of arguments
+	if c.NArg() > 0 {
+		err = &errors.CommandError{
+			CLIContext: c,
+			Cause:      errors.InvalidNArg,
+		}
+		// Return error
+		return
+	}
+
+	// Load COS Context
+	var cosContext *utils.CosContext
+	if cosContext, err = GetCosContext(c); err != nil {
+		return
+	}
 
 	// Set DeleteObjectInput
 	input := new(s3.DeleteObjectInput)
@@ -37,57 +44,43 @@ func ObjectDelete(c *cli.Context) error {
 		fields.Key:    flags.Key,
 	}
 
-	// Validate User Inputs and Retrieve Region
-	region, err := ValidateUserInputsAndSetRegion(c, input, mandatory, map[string]string{}, conf)
-	if err != nil {
-		ui.Failed(err.Error())
-		cli.ShowCommandHelp(c, c.Command.Name)
-		return cli.NewExitError(err.Error(), 1)
-	}
+	options := map[string]string{}
 
-	// Check if user provides force parameter
-	force := false
-	if c.IsSet("force") {
-		force = c.Bool("force")
+	// Validate User Inputs
+	if err = MapToSDKInput(c, input, mandatory, options); err != nil {
+		return
 	}
 
 	// No force on deleting object, alert users
-	if !force {
-		resolve := false
+	if !c.Bool(flags.Force) {
+		confirmed := false
 
 		// Warn the user that they're about to delete the file (prevent accidental deletions)
-		ui.Warn(T("WARNING: This will permanently delete the object '{{.Key}}' from the bucket '{{.Bucket}}'.",
-			input))
-		ui.Prompt(T("Are you sure you would like to continue?"), &terminal.PromptOptions{}).Resolve(&resolve)
+		cosContext.UI.Warn(render.WarningDeleteObject(input))
+		cosContext.UI.Prompt(render.MessageConfirmationContinue(), &terminal.PromptOptions{}).Resolve(&confirmed)
 
 		// If users cancel prior, cancel operation
-		if !resolve {
-			ui.Say(T("Operation canceled."))
-			return cli.NewExitError("", 0)
+		if !confirmed {
+			cosContext.UI.Say(render.MessageOperationCanceled())
+			return
 		}
 	}
 
 	// Setting client to do the call
-	client := cosContext.GetClient(region)
-
-	// Alert User that we are performing the call
-	ui.Say(T("Deleting object..."))
-
-	// DeleteObject API
-	_, err = client.DeleteObject(input)
-	// Error handling
-	if err != nil {
-		if strings.Contains(err.Error(), "EmptyStaticCreds") {
-			ui.Failed(err.Error() + "\n" + T("Try logging in using 'ibmcloud login'."))
-		} else {
-			ui.Failed(err.Error())
-		}
-		return cli.NewExitError("", 1)
+	var client s3iface.S3API
+	if client, err = cosContext.GetClient(c.String(flags.Region)); err != nil {
+		return
 	}
-	// Success
-	ui.Ok()
-	ui.Say(T("Delete '{{.Key}}' from bucket '{{.Bucket}}' ran successfully.", input))
+
+	// DeleteObject Op
+	var output *s3.DeleteObjectOutput
+	if output, err = client.DeleteObject(input); err != nil {
+		return
+	}
+
+	// Display either in JSON or text
+	err = cosContext.GetDisplay(c.Bool(flags.JSON)).Display(input, output, nil)
 
 	// Return
-	return nil
+	return
 }

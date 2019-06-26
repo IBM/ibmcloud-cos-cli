@@ -27,6 +27,11 @@ var (
 		Usage: T("The name (`CLASS_NAME`) of the Class."),
 	}
 
+	FlagConcurrency = cli.StringFlag{
+		Name:  Concurrency,
+		Usage: T("The number of goroutines to spin up in parallel per call to Upload when sending parts. Default value is 5."),
+	}
+
 	FlagContentDisposition = cli.StringFlag{
 		Name:  ContentDisposition,
 		Usage: T("Specifies presentational information (`DIRECTIVES`)."),
@@ -42,7 +47,7 @@ var (
 		Usage: T("The `LANGUAGE` the content is in."),
 	}
 
-	FlagContentLength = cli.Int64Flag{
+	FlagContentLength = cli.StringFlag{
 		Name:  ContentLength,
 		Usage: T("`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically."),
 	}
@@ -90,17 +95,12 @@ var (
 
 	FlagCorsConfiguration = cli.StringFlag{
 		Name:  CorsConfiguration,
-		Usage: T("The `VALUE` of CorsConfiguration to set."),
-	}
-
-	FlagCreateBucketConfiguration = cli.StringFlag{
-		Name:  CreateBucketConfiguration,
-		Usage: T("The `VALUE` of CreateBucketConfiguration to set."),
+		Usage: T("A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation."),
 	}
 
 	FlagDelete = cli.StringFlag{
 		Name:   Delete,
-		Usage:  T("The `VALUE` of Delete to set. Syntax: Objects=[{Key=string},{Key=string}],Quiet=boolean"),
+		Usage:  T("A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation."),
 		Hidden: true,
 	}
 
@@ -114,9 +114,16 @@ var (
 		Usage: T("Requests to encode the object keys in the response and specifies the encoding `METHOD` to use."),
 	}
 
+	FlagFile = cli.StringFlag{
+		Name:   File,
+		Usage:  T("The `PATH` to the file to upload."),
+		Hidden: true,
+	}
+
 	FlagMultipartUpload = cli.StringFlag{
-		Name:  MultipartUpload,
-		Usage: T("The `VALUE` of MultipartUpload to set."),
+		Name:   MultipartUpload,
+		Usage:  T("A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation."),
+		Hidden: true,
 	}
 
 	FlagForce = cli.BoolFlag{
@@ -150,15 +157,24 @@ var (
 		Hidden: true,
 	}
 
-	FlagMarker = cli.StringFlag{
-		Name:   Marker,
-		Usage:  T("Specifies the `KEY` to start with when listing objects in a bucket."),
-		Hidden: true,
+	FlagLeavePartsOnErrors = cli.BoolFlag{
+		Name:  LeavePartsOnErrors,
+		Usage: T("Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery."),
 	}
 
-	FlagMaxItems = cli.Int64Flag{
+	FlagMarker = cli.StringFlag{
+		Name:  Marker,
+		Usage: T("Specifies the `KEY` to start with when listing objects in a bucket."),
+	}
+
+	FlagMaxItems = cli.StringFlag{
 		Name:  MaxItems,
 		Usage: T("The total `NUMBER` of items to return in the command's output."),
+	}
+
+	FlagMaxUploadParts = cli.StringFlag{
+		Name:  MaxUploadParts,
+		Usage: T("Max number of `PARTS` which will be uploaded to S3 that calculates the part size of the object to be uploaded.  Limit is 10,000 parts."),
 	}
 
 	FlagMetadataDirective = cli.StringFlag{
@@ -171,34 +187,25 @@ var (
 		Usage: T("A `MAP` of metadata to store. Syntax: KeyName1=string,KeyName2=string"),
 	}
 
-	FlagStartingTokenStr = cli.StringFlag{
-		Name:  StartingToken,
-		Usage: T("A `TOKEN` to specify where to start paginating. This is the NextToken from a previously truncated response."),
-	}
-
-	FlagStartingTokenInt64 = cli.Int64Flag{
-		Name:  StartingToken,
-		Usage: T("A `TOKEN` to specify where to start paginating. This is the NextToken from a previously truncated response."),
-	}
-
-	FlagPageSize = cli.Int64Flag{
+	FlagPageSize = cli.StringFlag{
 		Name:  PageSize,
-		Usage: T("The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the service calls from timing out."),
-		Value: 1000,
+		Usage: T("The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the COS service, retrieving fewer items in each call. This can help prevent the service calls from timing out."),
 	}
 
-	FlagPartNumber = cli.Int64Flag{
+	FlagPartNumber = cli.StringFlag{
 		Name:   PartNumber,
 		Usage:  T("Part `NUMBER` of part being uploaded. This is a positive integer between 1 and 10,000."),
-		Value:  1,
 		Hidden: true,
 	}
 
-	FlagPartNumberMarker = cli.Int64Flag{
-		Name:   PartNumberMarker,
-		Usage:  T("Part number `VALUE` after which listing begins"),
-		Value:  1,
-		Hidden: true,
+	FlagPartNumberMarker = cli.StringFlag{
+		Name:  PartNumberMarker,
+		Usage: T("Part number `VALUE` after which listing begins"),
+	}
+
+	FlagPartSize = cli.StringFlag{
+		Name:  PartSize,
+		Usage: T("The buffer `SIZE` (in bytes) to use when buffering data into chunks and ending them as parts to S3. The minimum allowed part size is 5MB."),
 	}
 
 	FlagPrefix = cli.StringFlag{
@@ -252,11 +259,6 @@ var (
 		Hidden: true,
 	}
 
-	FlagHMAC = cli.StringFlag{
-		Name:  HMAC,
-		Usage: T("Store HMAC credentials in the config."),
-	}
-
 	FlagCRN = cli.StringFlag{
 		Name:  CRN,
 		Usage: T("Store your service instance ID (`CRN`) in the config."),
@@ -265,11 +267,6 @@ var (
 	FlagDDL = cli.StringFlag{
 		Name:  DDL,
 		Usage: T("Set the default location for downloads."),
-	}
-
-	FlagSwitch = cli.StringFlag{
-		Name:  Switch,
-		Usage: T("Switch between HMAC and IAM authentication."),
 	}
 
 	FlagIbmServiceInstanceID = cli.StringFlag{
@@ -305,5 +302,15 @@ var (
 	FlagClear = cli.BoolFlag{
 		Name:  Clear,
 		Usage: T("Clear the option value."),
+	}
+
+	FlagStyle = cli.StringFlag{
+		Name:  Style,
+		Usage: T("URL `STYLE` can be VHost or Path."),
+	}
+
+	FlagJSON = cli.BoolFlag{
+		Name:  JSON,
+		Usage: T("Output returned in raw JSON format."),
 	}
 )

@@ -1,18 +1,12 @@
 package functions
 
 import (
-	"strings"
-
-	"github.com/IBM/ibmcloud-cos-cli/config/fields"
-	. "github.com/IBM/ibmcloud-cos-cli/i18n"
-
-	"github.com/IBM/ibmcloud-cos-cli/config/flags"
-
-	"github.com/IBM/ibmcloud-cos-cli/config"
-	"github.com/IBM/ibmcloud-cos-cli/utils"
-
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
-
+	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3iface"
+	"github.com/IBM/ibmcloud-cos-cli/config/fields"
+	"github.com/IBM/ibmcloud-cos-cli/config/flags"
+	"github.com/IBM/ibmcloud-cos-cli/errors"
+	"github.com/IBM/ibmcloud-cos-cli/utils"
 	"github.com/urfave/cli"
 )
 
@@ -21,13 +15,21 @@ import (
 //     	CLI Context Application
 // Returns:
 //  	Error if triggered
-func BucketCorsDelete(c *cli.Context) error {
-	// Load COS Context
-	cosContext := c.App.Metadata[config.CosContextKey].(*utils.CosContext)
+func BucketCorsDelete(c *cli.Context) (err error) {
+	// check the number of arguments
+	if c.NArg() > 0 {
+		err = &errors.CommandError{
+			CLIContext: c,
+			Cause:      errors.InvalidNArg,
+		}
+		return
+	}
 
-	// Load COS Context UI and Config
-	ui := cosContext.UI
-	conf := cosContext.Config
+	// Load COS Context
+	var cosContext *utils.CosContext
+	if cosContext, err = GetCosContext(c); err != nil {
+		return
+	}
 
 	// Set DeleteBucketCorsInput
 	input := new(s3.DeleteBucketCorsInput)
@@ -37,37 +39,28 @@ func BucketCorsDelete(c *cli.Context) error {
 		fields.Bucket: flags.Bucket,
 	}
 
-	// Validate User Inputs and Retrieve Region
-	region, err := ValidateUserInputsAndSetRegion(c, input, mandatory, map[string]string{}, conf)
-	if err != nil {
-		ui.Failed(err.Error())
-		cli.ShowCommandHelp(c, c.Command.Name)
-		return cli.NewExitError(err.Error(), 1)
+	// Optional parameters
+	options := map[string]string{}
+
+	// Check through user inputs for validation
+	if err = MapToSDKInput(c, input, mandatory, options); err != nil {
+		return
 	}
 
 	// Setting client to do the call
-	client := cosContext.GetClient(region)
-
-	// Alert User that we are performing the call
-	ui.Say(T("Deleting CORS from the bucket..."))
-
-	// DeleteBucketCors API
-	_, err = client.DeleteBucketCors(input)
-	// Error handling
-	if err != nil {
-		if strings.Contains(err.Error(), "EmptyStaticCreds") {
-			ui.Failed(err.Error() + "\n" + T("Try logging in using 'ibmcloud login'."))
-		} else {
-			ui.Failed(err.Error())
-		}
-		return cli.NewExitError("", 1)
+	var client s3iface.S3API
+	if client, err = cosContext.GetClient(c.String(flags.Region)); err != nil {
+		return
+	}
+	// DELETE CORS
+	var output *s3.DeleteBucketCorsOutput
+	if output, err = client.DeleteBucketCors(input); err != nil {
+		return
 	}
 
-	// Success
-	ui.Ok()
-	ui.Say(T("Successfully deleted CORS configuration on bucket: {{.Bucket}}",
-		map[string]interface{}{"Bucket": utils.EntityNameColor(*input.Bucket)}))
+	// Display either in JSON or text
+	err = cosContext.GetDisplay(c.Bool(flags.JSON)).Display(input, output, nil)
 
 	// Return
-	return nil
+	return
 }

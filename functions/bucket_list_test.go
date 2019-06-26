@@ -27,8 +27,9 @@ func TestBucketListSunnyPath(t *testing.T) {
 		exitCode = &ec
 	}
 
-	// set RegionResolverMock to return fake regions
-	providers.MockRegionResolver.ListKnownRegions.On("GetAllRegions").Return([]string{"REG"}, nil)
+	providers.MockPluginConfig.
+		On("GetStringWithDefault", "Default Region", mock.AnythingOfType("string")).
+		Return("us", nil)
 
 	providers.MockS3API.
 		On("ListBuckets", mock.MatchedBy(
@@ -66,9 +67,9 @@ func TestBucketListRainyPath(t *testing.T) {
 		exitCode = &ec
 	}
 
-	// set RegionResolverMock to return fake regions
-	providers.MockRegionResolver.ListKnownRegions.On("GetAllRegions").Return([]string{"REG"}, nil)
-
+	providers.MockPluginConfig.
+		On("GetStringWithDefault", "Default Region", mock.AnythingOfType("string")).
+		Return("us", nil)
 	providers.MockS3API.
 		On("ListBuckets", mock.MatchedBy(
 			func(input *s3.ListBucketsInput) bool { return true })).

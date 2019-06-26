@@ -46,6 +46,10 @@ func TestListPartsHappyPath(t *testing.T) {
 					return true
 				}),
 			mock.Anything).
+		Run(func(args mock.Arguments) {
+			funcCapture := args.Get(1).(func(page *s3.ListPartsOutput, last bool) bool)
+			pagggerSrvMock(inputCapture, funcCapture, 0, nil)
+		}).
 		Return(nil).
 		Once()
 
@@ -268,6 +272,13 @@ func TestPartsListPaginate(t *testing.T) {
 func pagggerSrvMock(input *s3.ListPartsInput, backFeed func(*s3.ListPartsOutput, bool) bool,
 	hardLimit int, results *[]int) {
 	keepGoing := true
+	if hardLimit == 0 {
+		parts := new(s3.ListPartsOutput)
+		parts.Bucket = input.Bucket
+		parts.Key = input.Key
+		backFeed(parts, hardLimit <= 0)
+		return
+	}
 	for hardLimit > 0 && keepGoing {
 		i := int(aws.Int64Value(input.MaxParts))
 		*results = append(*results, i)
@@ -275,6 +286,8 @@ func pagggerSrvMock(input *s3.ListPartsInput, backFeed func(*s3.ListPartsOutput,
 			i = hardLimit
 		}
 		parts := buildListPartsOutput(i)
+		parts.Bucket = input.Bucket
+		parts.Key = input.Key
 		hardLimit -= i
 		keepGoing = backFeed(parts, hardLimit <= 0)
 	}

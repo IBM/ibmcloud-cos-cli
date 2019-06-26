@@ -183,7 +183,7 @@ func TestObjectDeletesWithoutDelete(t *testing.T) {
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	//assert Not OK
-	assert.Contains(t, output, "Incorrect Usage.")
+	assert.Contains(t, output, "'--delete' is missing")
 	//assert Fail
 	assert.Contains(t, output, "FAIL")
 

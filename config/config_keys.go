@@ -28,6 +28,10 @@ const (
 
 	// Regions Endpoint URL constant
 	RegionsEndpointURL = "RegionsEndpointURL"
+
+	// ForcePathStyle
+	ForcePathStyle = "ForcePathStyle"
+	LabelURLStyle  = "URL Style"
 )
 
 // CLI App Context Metadata Keys
@@ -45,7 +49,15 @@ var (
 )
 
 const (
+	HMACProvidedDefault = false
 	// Current Authentication Methods the CLI supports
 	IAM  = "IAM"
 	HMAC = "HMAC"
+)
+
+const (
+	ForcePathStyleDefault = false
+	// Current Bucket URL Styles that the CLI supports
+	VHost = "VHost"
+	Path  = "Path"
 )

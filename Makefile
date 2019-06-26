@@ -18,17 +18,17 @@ SHELL:=/bin/bash
 
 SupportedOperatingSystems = darwin linux windows
 
-.PHONY: all depEnsure test clean cleanAll build install buildSupported $(SupportedOperatingSystems)
+.PHONY: all test clean cleanAll build install buildSupported $(SupportedOperatingSystems) set_env_vars buildWithMod vendorWithMod
 
 .DEFAULT_GOAL := build
 
-build: depEnsure
+build: vendor
 	CGO_ENABLED=0 go build -o build/${APP}-${GOHOSTOS}-${GOHOSTARCH} -ldflags "-s -w" -a -installsuffix cgo .
 
 ${GOPATH}/bin/dep:
 	go get -v github.com/golang/dep/cmd/dep
 
-depEnsure: ${GOPATH}/bin/dep
+vendor: ${GOPATH}/bin/dep
 	${GOPATH}/bin/dep ensure -v -vendor-only
 
 clean:
@@ -49,23 +49,24 @@ windows : EXT := .exe
 
 buildSupported: $(SupportedOperatingSystems)
 
-${SupportedOperatingSystems}: depEnsure
+${SupportedOperatingSystems}: vendor
 	CGO_ENABLED=0 GOOS=$@ GOARCH=amd64 go build -o build/${APP}-$@-amd64${EXT} -ldflags "-s -w" -a -installsuffix cgo .
 
 all: $(SupportedOperatingSystems)
 
-logs/unittests.log:
-	-mkdir -p logs
-	-go test -v ./functions -tags unit 2>&1 | tee logs/unittests.log
+test :
+	go test -v -tags unit ./functions
 
-logs/functionaltests.log:
-	-mkdir -p logs
-	-go test -test.timeout=0 -v ./functionaltests 2>&1 | tee logs/functionaltests.log
 
-${GOPATH}/bin/go-junit-report:
-	go get github.com/jstemmer/go-junit-report
+#### experimental cli go mod support ###
+## populate vendor folder
+vendorWithMod :
+	GO111MODULE=on \
+	go mod vendor
 
-logs/junit-report.xml: ${GOPATH}/bin/go-junit-report logs/unittests.log logs/functionaltests.log
-	cat logs/unittests.log logs/functionaltests.log | ${GOPATH}/bin/go-junit-report | tee logs/junit-report.xml
-
-test : logs/junit-report.xml
+## Build using go mod
+buildWithMod: vendorWithMod
+	GO111MODULE=on \
+	GOFLAGS="-mod=vendor $$GOFLAGS" \
+	CGO_ENABLED=0 \
+	go build -o build/${APP}-${GOHOSTOS}-${GOHOSTARCH} -ldflags "-s -w" -a -installsuffix cgo .

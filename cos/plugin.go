@@ -15,7 +15,7 @@ import (
 
 // Cloud Object Storage Namespace as IBMCloud CLI subcommand
 const (
-	COSNameSpace = "cos"
+	NameSpace = "cos"
 )
 
 // Plugin Struct
@@ -38,36 +38,42 @@ func (_ *Plugin) Run(context plugin.PluginContext, args []string) {
 
 	// Error handling
 	if err != nil {
-		panic(err)
+		panic(err.Error())
 	}
 
+	// App Metadata Interface
 	cliApp.Metadata = make(map[string]interface{})
 	cliApp.Metadata[config.CosContextKey] = ctx
 
+	// Append Name Space to command
 	cmd := append(nameSpace, args...)
 
 	// CLI app is executed
-	err = cliApp.Run(cmd)
+	if err = cliApp.Run(cmd); err != nil {
+		err = ctx.ErrorRender.DisplayError(err)
+		cli.OsExiter(1)
+	}
 
-	//if err != nil {
-	//	panic(err)
-	//}
+	// Error checking
+	if err != nil {
+		panic(err.Error())
+	}
 }
 
 // GetMetadata of the plugin
 func (_ *Plugin) GetMetadata() plugin.PluginMetadata {
 	// COS CLI App
-	cliApp := app.NewApp(COSNameSpace)
+	cliApp := app.NewApp(NameSpace)
 
 	// Pass in the namespace and COS CLI App commands
-	ns, cmds := mapCommands(cliApp.Commands, COSNameSpace)
+	ns, cmds := mapCommands(cliApp.Commands, NameSpace)
 
 	// Build Plugin Metadata for COS
 	cosPlugin := plugin.PluginMetadata{
 		Name:    "cloud-object-storage",
 		Version: version.CLIVersion,
 		Namespaces: append(ns, plugin.Namespace{
-			Name:        COSNameSpace,
+			Name:        NameSpace,
 			Description: T("Interact with IBM Cloud Object Storage services"),
 		}),
 		Commands: cmds,
@@ -136,12 +142,15 @@ func mapFlags(flags []cli.Flag) []plugin.Flag {
 func mapFlag(flag cli.Flag) plugin.Flag {
 	flagRfx := reflect.ValueOf(flag)
 
+	// Initialize Usage and description
+	// for each flag
 	description := ""
 	usageRfx := flagRfx.FieldByName("Usage")
 	if usageRfx.IsValid() {
 		description = usageRfx.String()
 	}
 
+	// Initialize whether flag has value
 	valueRfx := flagRfx.FieldByName("Value")
 	hasValue := valueRfx.IsValid()
 

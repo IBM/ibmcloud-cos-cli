@@ -10,28 +10,35 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/aws/endpoints"
 	"github.com/IBM/ibm-cos-sdk-go/aws/session"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3iface"
+	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3manager"
 	"github.com/IBM/ibmcloud-cos-cli/di/providers/mocks"
 	"github.com/IBM/ibmcloud-cos-cli/utils"
 )
 
 // Test Environment Shared Mocks
 var (
-	FakeUI           = new(terminalHelpers.FakeUI)
-	MockS3API        = new(mocks.S3API)
-	MockPluginConfig = new(mocks.PluginConfig)
+	FakeUI            = new(terminalHelpers.FakeUI)
+	MockS3API         = new(mocks.S3API)
+	MockUploaderAPI   = new(mocks.Uploader)
+	MockDownloaderAPI = new(mocks.Downloader)
+	MockPluginConfig  = new(mocks.PluginConfig)
 
 	MockRegionResolver = &RegionResolverMock{
 		ListKnownRegions: mocks.ListKnownRegions{},
 		Resolver:         mocks.Resolver{},
 	}
 
-	MockFileOperations   = new(mocks.FileOperations)
-	MockReadSeekerCloser = new(mocks.ReadSeekerCloser)
+	MockFileOperations = new(mocks.FileOperations)
+
+	ReferenceUploader   = new(s3manager.Uploader)
+	ReferenceDownloader = new(s3manager.Downloader)
 )
 
 func MocksRESET() {
 	FakeUI = new(terminalHelpers.FakeUI)
 	MockS3API = new(mocks.S3API)
+	MockUploaderAPI = new(mocks.Uploader)
+	MockDownloaderAPI = new(mocks.Downloader)
 	MockPluginConfig = new(mocks.PluginConfig)
 
 	MockRegionResolver = &RegionResolverMock{
@@ -40,7 +47,9 @@ func MocksRESET() {
 	}
 
 	MockFileOperations = new(mocks.FileOperations)
-	MockReadSeekerCloser = new(mocks.ReadSeekerCloser)
+
+	ReferenceUploader = new(s3manager.Uploader)
+	ReferenceDownloader = new(s3manager.Downloader)
 }
 
 type RegionResolverMock struct {
@@ -55,6 +64,24 @@ func NewUI() terminal.UI {
 func GetS3APIFn() func(*session.Session) s3iface.S3API {
 	return func(*session.Session) s3iface.S3API {
 		return MockS3API
+	}
+}
+
+func GetDownloaderAPIFn() func(svc s3iface.S3API, options ...func(*s3manager.Downloader)) utils.Downloader {
+	return func(svc s3iface.S3API, options ...func(*s3manager.Downloader)) utils.Downloader {
+		for _, fun := range options {
+			fun(ReferenceDownloader)
+		}
+		return MockDownloaderAPI
+	}
+}
+
+func GetUploaderAPIFn() func(svc s3iface.S3API, options ...func(output *s3manager.Uploader)) utils.Uploader {
+	return func(svc s3iface.S3API, options ...func(output *s3manager.Uploader)) utils.Uploader {
+		for _, fun := range options {
+			fun(ReferenceUploader)
+		}
+		return MockUploaderAPI
 	}
 }
 
@@ -78,10 +105,6 @@ func NewCOSEndPointsWSClient(_ plugin.PluginContext, _ *BaseConfig) (*RegionReso
 
 func GetFileOperations() utils.FileOperations {
 	return MockFileOperations
-}
-
-func GetReadSeekerCloserOperations() utils.ReadSeekerCloser {
-	return new(mocks.ReadSeekerCloser)
 }
 
 type BaseConfig aws.Config

@@ -3,9 +3,9 @@ package functions
 import (
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3iface"
-	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/fields"
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
+	"github.com/IBM/ibmcloud-cos-cli/errors"
 	"github.com/IBM/ibmcloud-cos-cli/utils"
 	"github.com/urfave/cli"
 )
@@ -14,6 +14,7 @@ import (
 // monitor whether the object exists or not
 type bucketWaiter func(*s3.HeadBucketInput) error
 
+// bucketWaiterBuild type
 type bucketWaiterBuild func(s3iface.S3API) bucketWaiter
 
 // WaitBucketExists function
@@ -33,13 +34,22 @@ func WaitBucketNotExists(c *cli.Context) error {
 //   	CLI Context Application
 // Returns:
 //  	Error = zero or non-zero
-func doBucketWait(c *cli.Context, bwb bucketWaiterBuild) error {
-	// Load COS Context
-	cosContext := c.App.Metadata[config.CosContextKey].(*utils.CosContext)
+func doBucketWait(c *cli.Context, bwb bucketWaiterBuild) (err error) {
 
-	// Load COS Context UI and Config
-	ui := cosContext.UI
-	conf := cosContext.Config
+	// check the number of arguments
+	if c.NArg() > 0 {
+		err = &errors.CommandError{
+			CLIContext: c,
+			Cause:      errors.InvalidNArg,
+		}
+		return
+	}
+
+	// Load COS Context
+	var cosContext *utils.CosContext
+	if cosContext, err = GetCosContext(c); err != nil {
+		return
+	}
 
 	// Build PutObjectInput
 	input := new(s3.HeadBucketInput)
@@ -49,23 +59,25 @@ func doBucketWait(c *cli.Context, bwb bucketWaiterBuild) error {
 		fields.Bucket: flags.Bucket,
 	}
 
-	// Validate User Inputs and Retrieve Region
-	region, err := ValidateUserInputsAndSetRegion(c, input, mandatory, map[string]string{}, conf)
-	if err != nil {
-		ui.Failed(err.Error())
-		cli.ShowCommandHelp(c, c.Command.Name)
-		return cli.NewExitError(err.Error(), 1)
+	options := map[string]string{}
+
+	// Check through user inputs for validation
+	if err = MapToSDKInput(c, input, mandatory, options); err != nil {
+		return
 	}
 
 	// Setting client to do the call
-	client := cosContext.GetClient(region)
+	var client s3iface.S3API
+	if client, err = cosContext.GetClient(c.String(flags.Region)); err != nil {
+		return
+	}
 
 	// Wait until bucket condition
-	err = bwb(client)(input)
-	// Error handling when checking bucket exists fails
-	if err != nil {
-		ui.Failed(err.Error())
-		return cli.NewExitError("", 255)
+	if err = bwb(client)(input); err != nil {
+		cosContext.UI.Failed(err.Error())
+		return cli.NewExitError(err, 255)
 	}
-	return err
+
+	// Return
+	return
 }

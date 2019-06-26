@@ -4,6 +4,10 @@
     "translation": " 계정에서 발견한 버킷:\n"
   },
   {
+    "id": " buckets:",
+    "translation": " 버킷:"
+  },
+  {
     "id": " downloaded.",
     "translation": " 다운로드되었습니다."
   },
@@ -28,6 +32,10 @@
     "translation": "계정에서 한 개의 버킷 발견:\n"
   },
   {
+    "id": "1 bucket:",
+    "translation": "1개의 버킷:"
+  },
+  {
     "id": "1 multipart upload in bucket '",
     "translation": "버킷의 한 다중 파트 업로드 '"
   },
@@ -48,8 +56,12 @@
     "translation": "저장할 메타데이터의 `MAP`입니다. 구문: KeyName1=string,KeyName2=string"
   },
   {
-    "id": "A `TOKEN` to specify where to start paginating. This is the NextToken from a previously truncated response.",
-    "translation": "페이지네이션을 시작할 위치를 지정하는 `TOKEN`입니다. 이는 이전에 잘린 응답의 NextToken입니다."
+    "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
+    "translation": "파일에서 JSON 구문을 사용하는 `STRUCTURE`입니다. IBM Cloud 문서를 참조하십시오."
+  },
+  {
+    "id": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation.",
+    "translation": "약칭 또는 JSON 구문을 사용하는 `STRUCTURE`입니다. IBM Cloud 문서를 참조하십시오."
   },
   {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
@@ -60,11 +72,7 @@
     "translation": "오브젝트 데이터의 형식을 설명하는 표준 `MIME` 유형입니다."
   },
   {
-    "id": "Aborting multipart upload...",
-    "translation": "다중 파트 업로드 중단 중..."
-  },
-  {
-    "id": "Aborts a multipart upload instance.",
+    "id": "Abort a multipart upload instance.",
     "translation": "다중 파트 업로드 인스턴스를 중단합니다."
   },
   {
@@ -76,10 +84,6 @@
     "translation": "계속하시겠습니까?"
   },
   {
-    "id": "Are you sure you would like to overwrite it?",
-    "translation": "겹쳐쓰시겠습니까?"
-  },
-  {
     "id": "Authentication Method",
     "translation": "인증 방법"
   },
@@ -88,8 +92,12 @@
     "translation": "인증 `METHOD`입니다."
   },
   {
-    "id": "Bucket '{{.bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
-    "translation": "IBM Cloud Object Storage 계정의 {{.region}} 지역에서 '{{.bucket}}' 버킷을 찾았습니다."
+    "id": "Bad Flag Syntax in '--%s'",
+    "translation": "'--%s'의 잘못된 플래그 구문"
+  },
+  {
+    "id": "Bucket '{{.Bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
+    "translation": "IBM Cloud Object Storage 계정의 {{.region}} 지역에서 '{{.Bucket}}' 버킷을 찾았습니다."
   },
   {
     "id": "CRN",
@@ -100,20 +108,24 @@
     "translation": "플러그인 구성 변경"
   },
   {
-    "id": "Class: {{.class}}",
-    "translation": "클래스: {{.class}}"
+    "id": "Class: ",
+    "translation": "클래스: "
   },
   {
     "id": "Clear the option value.",
     "translation": "옵션 값을 지우십시오."
   },
   {
-    "id": "Complete an existing multipart upload instance.",
-    "translation": "기존 다중 파트 업로드 인스턴스를 완료하십시오."
+    "id": "Command does not support Flag '--%s'",
+    "translation": "명령에서 '--%s' 플래그를 지원하지 않습니다."
   },
   {
-    "id": "Completing multipart upload...",
-    "translation": "다중 파트 업로드 완료 중..."
+    "id": "Common Prefixes:",
+    "translation": "공통 접두부:"
+  },
+  {
+    "id": "Complete an existing multipart upload instance.",
+    "translation": "기존 다중 파트 업로드 인스턴스를 완료하십시오."
   },
   {
     "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
@@ -136,10 +148,6 @@
     "translation": "한 버킷에서 다른 버킷으로 오브젝트를 복사하십시오."
   },
   {
-    "id": "Copying object...",
-    "translation": "오브젝트 복사 중..."
-  },
-  {
     "id": "Create a new bucket.",
     "translation": "새 버킷을 작성하십시오."
   },
@@ -148,12 +156,8 @@
     "translation": "새로운 다중 파트 업로드 인스턴스를 작성하십시오."
   },
   {
-    "id": "Creating bucket...",
-    "translation": "버킷 작성 중..."
-  },
-  {
-    "id": "Creating new multipart upload instance...",
-    "translation": "새 다중 파트 업로드 인스턴스 작성 중..."
+    "id": "Creation Date",
+    "translation": "작성 날짜"
   },
   {
     "id": "Date Created",
@@ -188,24 +192,8 @@
     "translation": "버킷에서 CORS 구성을 삭제하십시오."
   },
   {
-    "id": "Deleting CORS from the bucket...",
-    "translation": "버킷에서 CORS 삭제 중..."
-  },
-  {
-    "id": "Deleting bucket...",
-    "translation": "버킷 삭제 중..."
-  },
-  {
-    "id": "Deleting object...",
-    "translation": "오브젝트 삭제 중..."
-  },
-  {
-    "id": "Deleting objects...",
-    "translation": "오브젝트 삭제 중..."
-  },
-  {
-    "id": "Details about bucket {{.details}}:",
-    "translation": "버킷에 관한 세부사항 {{.details}}:"
+    "id": "Details about bucket ",
+    "translation": "버킷에 관한 세부사항 "
   },
   {
     "id": "Details about your multipart upload instance:",
@@ -232,20 +220,24 @@
     "translation": "버킷에서 오브젝트를 다운로드하십시오."
   },
   {
-    "id": "Downloading object...",
-    "translation": "오브젝트 다운로드 중..."
+    "id": "Download objects from S3 concurrently.",
+    "translation": "S3에서 동시에 오브젝트를 다운로드하십시오."
   },
   {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
-    "translation": "특정 오브젝트의 지정된 `RANGE` 바이트를 다운로드합니다. HTTP Range 헤더에 대한 자세한 정보를 얻으려면 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35로 이동하십시오."
+    "translation": "특정 오브젝트의 지정된 `RANGE` 바이트를 다운로드하십시오. HTTP Range 헤더에 대한 자세한 정보를 얻으려면 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35로 이동하십시오."
   },
   {
-    "id": "Empty source bucket.",
-    "translation": "비어 있는 소스 버킷입니다."
+    "id": "ETag",
+    "translation": "ETag"
   },
   {
-    "id": "Error opening '{{.dl}}' to write ",
-    "translation": "쓰기 위해 '{{.dl}}'을(를) 여는 중에 오류 발생 "
+    "id": "Error opening '{{.Location}}' to write.",
+    "translation": "쓰기 위해 '{{.Location}}'을(를) 여는 중에 오류가 발생했습니다."
+  },
+  {
+    "id": "Flag '--%s' requires a value",
+    "translation": "'--%s' 플래그에 값이 필요합니다."
   },
   {
     "id": "Found ",
@@ -260,20 +252,20 @@
     "translation": "버킷의 클래스와 지역을 가져옵니다."
   },
   {
-    "id": "Getting bucket CORS ...",
-    "translation": "버킷 CORS 가져오는 중..."
-  },
-  {
-    "id": "Incorrect Usage.",
-    "translation": "잘못된 사용법입니다."
-  },
-  {
     "id": "Initiated",
     "translation": "시작됨"
   },
   {
     "id": "Interact with IBM Cloud Object Storage services",
     "translation": "IBM Cloud Object Storage 서비스와 상호 작용"
+  },
+  {
+    "id": "Invalid boolean balue in Flag '--%s'",
+    "translation": "'--%s' 플래그에 올바르지 않은 부울 값이 있습니다."
+  },
+  {
+    "id": "Invalid boolean flag '--%s'",
+    "translation": "올바르지 않은 부울 플래그 '--%s'입니다."
   },
   {
     "id": "It was last updated on {{.lastupdated}}.",
@@ -308,6 +300,10 @@
     "translation": "IBM Cloud Object Storage 계정의 모든 버킷을 나열하십시오."
   },
   {
+    "id": "List all the extended buckets with pagination support.",
+    "translation": "페이지 매김을 사용하여 확장된 모든 버킷을 나열하십시오."
+  },
+  {
     "id": "List configuration",
     "translation": "목록 구성"
   },
@@ -316,24 +312,16 @@
     "translation": "구성 값을 나열하십시오."
   },
   {
-    "id": "Listing Multipart Uploads...",
-    "translation": "다중 파트 업로드 나열 중..."
+    "id": "Location Constraint",
+    "translation": "위치 제한조건"
   },
   {
-    "id": "Listing objects...",
-    "translation": "오브젝트 나열 중..."
+    "id": "Mandatory Flag '--%s' is missing",
+    "translation": "필수 플래그 '--%s'가 누락되었습니다."
   },
   {
-    "id": "Listing parts...",
-    "translation": "파트 나열 중..."
-  },
-  {
-    "id": "Loading buckets...",
-    "translation": "버킷 로드 중..."
-  },
-  {
-    "id": "Location: %s",
-    "translation": "위치: %s"
+    "id": "Max number of `PARTS` which will be uploaded to S3 that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.",
+    "translation": "업로드할 오브젝트의 파트 크기를 계산하는 S3에 업로드할 `PARTS`의 최대수입니다. 한계는 10,000개의 파트입니다."
   },
   {
     "id": "Name",
@@ -364,6 +352,14 @@
     "translation": "조작이 취소되었습니다."
   },
   {
+    "id": "Output returned in raw JSON format.",
+    "translation": "원시 JSON 형식으로 리턴되는 출력입니다."
+  },
+  {
+    "id": "Override the default location providing an OUTFILE parameter",
+    "translation": "OUTFILE 매개변수를 제공하는 기본 위치를 대체합니다."
+  },
+  {
     "id": "Part Number",
     "translation": "부품 번호"
   },
@@ -376,12 +372,8 @@
     "translation": "이후 나열이 시작되는 부품 번호 `VALUE`"
   },
   {
-    "id": "Putting object...",
-    "translation": "오브젝트 삽입 중..."
-  },
-  {
-    "id": "Region: {{.region}}",
-    "translation": "지역: {{.region}}"
+    "id": "Region: ",
+    "translation": "지역: "
   },
   {
     "id": "Regions endpoint `URL`.",
@@ -418,10 +410,6 @@
   {
     "id": "Saving new Service Instance ID...",
     "translation": "새 서비스 인스턴스 ID 저장 중..."
-  },
-  {
-    "id": "Set a valid download location using 'cos config --ddl'",
-    "translation": "'cos config --ddl'을 사용하여 올바른 다운로드 위치를 설정하십시오."
   },
   {
     "id": "Set regions endpoint URL.",
@@ -464,8 +452,8 @@
     "translation": "요청에 IBM Service Instance `ID`를 설정합니다."
   },
   {
-    "id": "Setting bucket CORS...",
-    "translation": "버킷 CORS 설정 중..."
+    "id": "Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.",
+    "translation": "이 값을 true로 설정하면 SDK에서 실패 시 AbortMultipartUpload를 호출하지 않으므로 S3에 성공적으로 업로드한 모든 파트를 수동으로 복구해야 합니다."
   },
   {
     "id": "Size",
@@ -520,12 +508,8 @@
     "translation": "지역 엔드포인트 URL을 지웠습니다."
   },
   {
-    "id": "Successfully copied '{{.object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
-    "translation": "'{{.object}}' 오브젝트를 '{{.bucket1}}' 버킷에서 '{{.bucket2}}' 버킷으로 복사했습니다."
-  },
-  {
-    "id": "Successfully created bucket '{{.bucket}}'.",
-    "translation": "'{{.bucket}}' 버킷을 작성했습니다."
+    "id": "Successfully copied '{{.Object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
+    "translation": "'{{.Object}}' 오브젝트를 '{{.bucket1}}' 버킷에서 '{{.bucket2}}' 버킷으로 복사했습니다."
   },
   {
     "id": "Successfully deleted CORS configuration on bucket: {{.Bucket}}",
@@ -537,11 +521,15 @@
   },
   {
     "id": "Successfully downloaded '{{.Key}}' from bucket '{{.Bucket}}'",
-    "translation": "'{{.Bucket}}' 버킷에서 '{{.Key}}'을(를) 다운로드했습니다."
+    "translation": "'{{.Bucket}}' 버킷에서 '{{.Key}}'을(를) 성공적으로 다운로드했습니다."
   },
   {
     "id": "Successfully saved HMAC Credentials to file.",
     "translation": "HMAC 인증 정보를 파일에 저장했습니다."
+  },
+  {
+    "id": "Successfully saved S3 {{.Style}} style hosting option. CLI calls will use {{.Style}} style requests.",
+    "translation": "S3 {{.Style}} 스타일 호스팅 옵션을 저장했습니다. CLI 호출에서 {{.Style}} 스타일 요청을 사용합니다."
   },
   {
     "id": "Successfully saved default region. The program will look for buckets in the region {{.region}}.",
@@ -580,8 +568,8 @@
     "translation": "HMAC와 IAM 인증 간 전환"
   },
   {
-    "id": "Switch between HMAC and IAM authentication.",
-    "translation": "HMAC와 IAM 인증 사이에 전환합니다."
+    "id": "Switch between VHost and Path URL style.",
+    "translation": "VHost와 경로 URL 스타일 간에 전환합니다."
   },
   {
     "id": "The CORS configuration of ",
@@ -596,44 +584,28 @@
     "translation": "컨텐츠가 작성된 `LANGUAGE`입니다."
   },
   {
+    "id": "The `PATH` to the file to upload.",
+    "translation": "업로드할 파일의 `PATH`입니다."
+  },
+  {
     "id": "The `REGION` where the bucket is present. If this flag is not provided, the program will use the default option specified in config.",
     "translation": "버킷이 있는 `REGION`입니다. 이 플래그를 제공하지 않으면 프로그램에서 구성에 지정된 기본 옵션을 사용합니다."
   },
   {
-    "id": "The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the service calls from timing out.",
-    "translation": "서비스 호출에서 가져올 각 페이지의 `SIZE`입니다. 이는 명령의 출력에서 리턴되는 항목의 수에 영향을 주지 않습니다. 더 작은 페이지 크기를 설정하면 AWS 서비스에 대한 호출의 수가 더 많아지며, 각 호출에서는 더 적은 항목을 검색합니다. 이는 서비스 호출이 제한시간을 초과하지 않도록 하는 데 도움을 줍니다."
-  },
-  {
-    "id": "The `VALUE` of CorsConfiguration to set.",
-    "translation": "설정할 CorsConfiguration의 `VALUE`입니다."
-  },
-  {
-    "id": "The `VALUE` of CreateBucketConfiguration to set.",
-    "translation": "설정할 CreateBucketConfiguration의 `VALUE`입니다."
-  },
-  {
-    "id": "The `VALUE` of Delete to set. Syntax: Objects=[{Key=string},{Key=string}],Quiet=boolean",
-    "translation": "설정할 Delete의 `VALUE`입니다. 구문: Objects=[{Key=string},{Key=string}],Quiet=boolean"
-  },
-  {
-    "id": "The `VALUE` of MultipartUpload to set.",
-    "translation": "설정할 MultipartUpload의 `VALUE`입니다."
+    "id": "The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the COS service, retrieving fewer items in each call. This can help prevent the service calls from timing out.",
+    "translation": "서비스 호출에서 가져올 각 페이지의 `SIZE`입니다. 이는 명령의 출력에서 리턴되는 항목의 수에 영향을 주지 않습니다. 더 작은 페이지 크기를 설정하면 COS 서비스에 대한 호출의 수가 더 많아지며, 각 호출에서는 더 적은 항목을 검색합니다. 이는 서비스 호출이 제한시간을 초과하지 않도록 하는 데 도움을 줍니다."
   },
   {
     "id": "The base64-encoded 128-bit `MD5` digest of the data.",
     "translation": "데이터의 base64-인코딩 128비트 `MD5` 다이제스트입니다."
   },
   {
-    "id": "The download destination '{{.dl}}' is a directory.",
-    "translation": "다운로드 대상 '{{.dl}}'은(는) 디렉토리입니다."
+    "id": "The buffer `SIZE` (in bytes) to use when buffering data into chunks and ending them as parts to S3. The minimum allowed part size is 5MB.",
+    "translation": "데이터를 청크로 버퍼링하고 S3의 파트로 끝낼 때 사용하는 버퍼 `SIZE`(바이트)입니다. 허용되는 최소 파트 크기는 5MB입니다."
   },
   {
-    "id": "The download directory '{{.dl}}' is invalid",
-    "translation": "다운로드 디렉토리 '{{.dl}}'이(가) 올바르지 않습니다."
-  },
-  {
-    "id": "The download directory '{{.dl}}' is invalid.",
-    "translation": "다운로드 디렉토리 '{{.dl}}'이(가) 올바르지 않습니다."
+    "id": "The download destination '{{.Location}}' is a directory.",
+    "translation": "다운로드 대상 '{{.Location}}'은(는) 디렉토리입니다."
   },
   {
     "id": "The name (`BUCKET_NAME`) of the bucket.",
@@ -642,6 +614,10 @@
   {
     "id": "The name (`CLASS_NAME`) of the Class.",
     "translation": "클래스의 이름(`CLASS_NAME`)입니다."
+  },
+  {
+    "id": "The number of goroutines to spin up in parallel per call to Upload when sending parts. Default value is 5.",
+    "translation": "파트를 전송할 때 업로드하기 위해 호출당 병렬로 회전할 goroutine의 수입니다. 기본값은 5입니다."
   },
   {
     "id": "The operation will do not ask for confirmation.",
@@ -664,12 +640,8 @@
     "translation": "지정된 버킷 이름이 올바르지 않습니다. 버킷 이름은 영숫자 문자(3 - 63자)로 시작하고 끝나야 하며 소문자, 비연속적인 점 및 하이픈으로 제한됩니다."
   },
   {
-    "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region for the bucket to delete. Provide the bucket's correct region and try again.",
-    "translation": "지정된 버킷을 IBM Cloud 계정에서 찾지 못했습니다. 삭제할 버킷의 잘못된 지역을 제공했기 때문일 수 있습니다. 버킷의 올바른 지역을 제공하고 다시 시도하십시오."
-  },
-  {
-    "id": "The specified bucket was not found in your account. Ensure that you have set the correct region with the region flag.",
-    "translation": "지정된 버킷을 계정에서 찾지 못했습니다. 지역 플래그를 사용하여 올바른 지역을 설정했는지 확인하십시오."
+    "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again.",
+    "translation": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again."
   },
   {
     "id": "The specified download location does not exist on your system. Try again with a valid download path.",
@@ -680,12 +652,24 @@
     "translation": "지정된 다운로드 위치가 유효하지 않습니다. 올바른 다운로드 경로로 다시 시작하십시오."
   },
   {
+    "id": "The specified key does not exist.",
+    "translation": "지정된 키가 없습니다."
+  },
+  {
     "id": "The total `NUMBER` of items to return in the command's output.",
     "translation": "명령의 출력에서 리턴할 총 항목 `NUMBER`입니다."
   },
   {
+    "id": "The value in flag '--%s' is invalid",
+    "translation": "'--%s' 플래그의 값이 올바르지 않습니다."
+  },
+  {
     "id": "This operation lists in-progress multipart uploads.",
     "translation": "이 오퍼레이션에서는 진행 중인 다중 파트 업로드를 나열합니다."
+  },
+  {
+    "id": "To retrieve the next set of buckets, use this value marker for the next command: ",
+    "translation": "다음 버킷 세트를 검색하려면 다음 명령에 이 값 마커를 사용하십시오. "
   },
   {
     "id": "To retrieve the next set of multipart uploads, use the following markers in the next command:",
@@ -693,7 +677,7 @@
   },
   {
     "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
-    "translation": "다음 오브젝트 세트를 검색하려면 이 키를 다음 명령의 --marker로 사용하십시오."
+    "translation": "다음 오브젝트 세트를 검색하려면 이 키를 다음 명령의 --marker로 사용하십시오. "
   },
   {
     "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",
@@ -712,16 +696,16 @@
     "translation": "'ibmcloud login'을 사용하여 로그인하십시오."
   },
   {
+    "id": "URL Style",
+    "translation": "URL 스타일"
+  },
+  {
+    "id": "URL `STYLE` can be VHost or Path.",
+    "translation": "URL `STYLE`은 VHost 또는 Path일 수 있습니다."
+  },
+  {
     "id": "Unable to clear regions endpoint URL.",
     "translation": "지역 엔드포인트 URL을 지울 수 없습니다."
-  },
-  {
-    "id": "Unable to get Default Download Location.",
-    "translation": "기본 다운로드 위치를 가져올 수 없습니다."
-  },
-  {
-    "id": "Unable to get Region.",
-    "translation": "지역을 가져올 수 없습니다."
   },
   {
     "id": "Unable to get new CRN.",
@@ -732,8 +716,8 @@
     "translation": "구성 방법을 로드할 수 없습니다."
   },
   {
-    "id": "Unable to load default Region.",
-    "translation": "기본 지역을 로드할 수 없습니다."
+    "id": "Unable to load current url style.",
+    "translation": "현재 url 스타일을 로드할 수 없습니다."
   },
   {
     "id": "Unable to load default download location.",
@@ -744,12 +728,8 @@
     "translation": "지역을 로드할 수 없습니다."
   },
   {
-    "id": "Unable to open object '{{.Key}}' for upload.",
-    "translation": "업로드할 '{{.Key}}' 오브젝트를 열 수 없습니다."
-  },
-  {
-    "id": "Unable to open object '{{.object}}' for upload.",
-    "translation": "업로드할 '{{.object}}' 파일을 열 수 없습니다."
+    "id": "Unable to parse URL style.",
+    "translation": "URL 스타일을 구문 분석할 수 없습니다."
   },
   {
     "id": "Unable to parse authentication method.",
@@ -758,6 +738,10 @@
   {
     "id": "Unable to read new Authentication Method.",
     "translation": "새 인증 방법을 읽을 수 없습니다."
+  },
+  {
+    "id": "Unable to read new URL Style value.",
+    "translation": "새 URL 스타일 값을 읽을 수 없습니다."
   },
   {
     "id": "Unable to read new default download location.",
@@ -788,6 +772,10 @@
     "translation": "새 다운로드 위치를 저장할 수 없습니다."
   },
   {
+    "id": "Unable to switch URL style.",
+    "translation": "URL 스타일을 전환할 수 없습니다."
+  },
+  {
     "id": "Unable to switch authentication method.",
     "translation": "인증 메소드를 전환할 수 없습니다."
   },
@@ -808,24 +796,20 @@
     "translation": "버킷에 오브젝트를 업로드하십시오."
   },
   {
+    "id": "Upload objects from S3 concurrently.",
+    "translation": "S3에서 동시에 오브젝트를 업로드하십시오."
+  },
+  {
     "id": "UploadId",
     "translation": "UploadId"
   },
   {
-    "id": "Uploaded part '{{.part}}' of object '{{.object}}'.",
-    "translation": "'{{.object}}' 오브젝트의 '{{.part}}' 파트를 업로드했습니다."
+    "id": "Uploaded part '{{.part}}' of object '{{.Object}}'.",
+    "translation": "'{{.Object}}' 오브젝트의 '{{.part}}' 파트를 업로드했습니다."
   },
   {
-    "id": "Uploaded part copy '{{.part}}' of object '{{.object}}'.",
-    "translation": "'{{.object}}' 오브젝트의 '{{.part}}' 파트 사본을 업로드했습니다."
-  },
-  {
-    "id": "Uploading file part...",
-    "translation": "파일 파트 업로드 중..."
-  },
-  {
-    "id": "Uploading part copy...",
-    "translation": "파트 사본 업로드 중..."
+    "id": "Uploaded part copy '{{.part}}' of object '{{.Object}}'.",
+    "translation": "'{{.Object}}' 오브젝트의 '{{.part}}' 파트 사본을 업로드했습니다."
   },
   {
     "id": "Value",
@@ -874,6 +858,10 @@
   {
     "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",
     "translation": "본문의 `SIZE`(바이트)입니다. 이 매개변수는 본문의 크기를 자동으로 판별할 수 없는 경우 유용합니다."
+  },
+  {
+    "id": "no buckets.",
+    "translation": "버킷이 없습니다."
   },
   {
     "id": "no multipart uploads in bucket '",

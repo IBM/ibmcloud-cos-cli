@@ -144,7 +144,7 @@ func TestObjectHeadWithoutKey(t *testing.T) {
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	//assert Not OK
-	assert.Contains(t, output, "Incorrect Usage.")
+	assert.Contains(t, output, "--key' is missing")
 	//assert Fail
 	assert.Contains(t, output, "FAIL")
 
