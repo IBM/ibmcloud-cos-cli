@@ -24,6 +24,7 @@
 #   go-tests = true
 #   unused-packages = true
 
+required = ["github.com/russross/blackfriday"]
 
 [[constraint]]
   name = "github.com/IBM-Cloud/ibm-cloud-cli-sdk"
@@ -51,7 +52,11 @@
 
 [[constraint]]
   name = "github.com/urfave/cli"
-  version = "v1.20.0"
+  version = "v1.22.0"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/russross/blackfriday"
 
 [prune]
   go-tests = true

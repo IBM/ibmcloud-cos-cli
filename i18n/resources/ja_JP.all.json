@@ -25,7 +25,7 @@
   },
   {
     "id": "(`SOURCE`) The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.",
-    "translation": "(`SOURCE`) スラッシュ (/) で区切られた、ソース・バケットの名前とソース・オブジェクトのキー名。 URL エンコードされていなければなりません。"
+    "translation": "(`SOURCE`) スラッシュ (/) で区切られた、ソース・バケットの名前とソース・オブジェクトのキー名。URL エンコードされていなければなりません。"
   },
   {
     "id": "1 bucket found in your account:\n",
@@ -57,11 +57,11 @@
   },
   {
     "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
-    "translation": "ファイル内で JSON 構文を使用する `STRUCTURE`。IBM Cloud の資料を参照してください。"
+    "translation": "ファイル内で JSON 構文を使用する `STRUCTURE`。 IBM Cloud の資料を参照してください。"
   },
   {
     "id": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation.",
-    "translation": "省略表現または JSON 構文のいずれかを使用する `STRUCTURE`。IBM Cloud の資料を参照してください。"
+    "translation": "省略表現または JSON 構文のいずれかを使用する `STRUCTURE`。 IBM Cloud の資料を参照してください。"
   },
   {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
@@ -97,7 +97,7 @@
   },
   {
     "id": "Bucket '{{.Bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
-    "translation": "バケット '{{.Bucket}}' (Region {{.region}} 内) が IBM Cloud Object Storage アカウント内に見つかりました。"
+    "translation": "バケット '{{.Bucket}}' (Region {{.region}} 内) が IBM Cloud Object Storage アカウント内で見つかりました。"
   },
   {
     "id": "CRN",
@@ -193,7 +193,7 @@
   },
   {
     "id": "Details about bucket ",
-    "translation": "バケットについての詳細:"
+    "translation": "バケットについての詳細: "
   },
   {
     "id": "Details about your multipart upload instance:",
@@ -260,6 +260,10 @@
     "translation": "IBM Cloud Object Storage サービスと対話します"
   },
   {
+    "id": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.",
+    "translation": "引数が無効です。バケットを作成またはリストするには、有効なサービス・インスタンス CRN を構成する必要があります。「ibmcloud cos config list」を使用して CRN を確認してください。"
+  },
+  {
     "id": "Invalid boolean balue in Flag '--%s'",
     "translation": "フラグ '--%s' に無効なブール値があります。"
   },
@@ -321,7 +325,7 @@
   },
   {
     "id": "Max number of `PARTS` which will be uploaded to S3 that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.",
-    "translation": "アップロード対象のオブジェクトのパーツ・サイズを計算する S3 にアップロードされる `PARTS` の最大数。制限は 10,000 パーツです。"
+    "translation": "アップロード対象のオブジェクトのパーツ・サイズを計算する S3 にアップロードされる `PARTS` の最大数。  制限は 10,000 パーツです。"
   },
   {
     "id": "Name",
@@ -529,7 +533,7 @@
   },
   {
     "id": "Successfully saved S3 {{.Style}} style hosting option. CLI calls will use {{.Style}} style requests.",
-    "translation": "S3 {{.Style}} スタイルのホスティング・オプションが正常に保存されました。CLI 呼び出しでは {{.Style}} スタイル要求が使用されます。"
+    "translation": "S3 {{.Style}} スタイルのホスティング・オプションが正常に保存されました。 CLI 呼び出しでは {{.Style}} スタイル要求が使用されます。"
   },
   {
     "id": "Successfully saved default region. The program will look for buckets in the region {{.region}}.",
@@ -589,11 +593,11 @@
   },
   {
     "id": "The `REGION` where the bucket is present. If this flag is not provided, the program will use the default option specified in config.",
-    "translation": "バケットが存在する `REGION`。このフラグを設定しない場合、プログラムは構成に指定されたデフォルト・オプションを使用するようになります。"
+    "translation": "バケットが存在する `REGION`。 このフラグを設定しない場合、プログラムは構成に指定されたデフォルト・オプションを使用するようになります。"
   },
   {
     "id": "The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the COS service, retrieving fewer items in each call. This can help prevent the service calls from timing out.",
-    "translation": "サービス呼び出しで取得する各ページの `SIZE`。 これは、コマンドの出力として返される項目の数には影響しません。 ページ・サイズをより小さく指定することで、各呼び出しで取得する項目が少なくなり、COS サービスに送られる呼び出し数が増えることになります。 これにより、サービス呼び出しのタイムアウトを防ぐことができます。"
+    "translation": "サービス呼び出しで取得する各ページの `SIZE`。 これは、コマンドの出力として返される項目の数には影響しません。 ページ・サイズをより小さく指定することで、各呼び出しで取得する項目が少なくなり、COS サービスに送られる呼び出し数が増えることになります。これにより、サービス呼び出しのタイムアウトを防ぐことができます。"
   },
   {
     "id": "The base64-encoded 128-bit `MD5` digest of the data.",
@@ -601,7 +605,7 @@
   },
   {
     "id": "The buffer `SIZE` (in bytes) to use when buffering data into chunks and ending them as parts to S3. The minimum allowed part size is 5MB.",
-    "translation": "データをチャンクにバッファリングして S3 へのパーツとして帰着させるときに使用するバッファー `SIZE` (バイト単位)。許可される最小パーツ・サイズは 5MB です。"
+    "translation": "データをチャンクにバッファリングして S3 へのパーツとして帰着させるときに使用するバッファー `SIZE` (バイト単位)。 許可される最小パーツ・サイズは 5MB です。"
   },
   {
     "id": "The download destination '{{.Location}}' is a directory.",
@@ -617,7 +621,7 @@
   },
   {
     "id": "The number of goroutines to spin up in parallel per call to Upload when sending parts. Default value is 5.",
-    "translation": "パーツの送信時に、アップロードの呼び出しと並行してアップロード/ダウンロードするパーツの数。デフォルト値は 5 です。"
+    "translation": "パーツの送信時に、アップロードの呼び出しと並行してアップロード/ダウンロードするパーツの数。 デフォルト値は 5 です。"
   },
   {
     "id": "The operation will do not ask for confirmation.",
@@ -629,7 +633,7 @@
   },
   {
     "id": "The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.",
-    "translation": "要求されたバケット名は使用できません。 バケット名前空間はシステムのすべてのユーザーにより共有されます。 別の名前を選択してやり直してください。"
+    "translation": "要求されたバケット名は使用できません。バケット名前空間はシステムのすべてのユーザーにより共有されます。 別の名前を選択してやり直してください。"
   },
   {
     "id": "The specified bucket is not empty. Delete all the files in the bucket, then try again.",
@@ -641,7 +645,7 @@
   },
   {
     "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again.",
-    "translation": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again."
+    "translation": "指定したバケットが IBM Cloud アカウントに見つかりませんでした。 これは、Region を誤って指定したことが原因です。バケットの正しい Region を指定して、もう一度実行してください。"
   },
   {
     "id": "The specified download location does not exist on your system. Try again with a valid download path.",

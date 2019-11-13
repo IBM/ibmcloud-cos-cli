@@ -97,7 +97,7 @@
   },
   {
     "id": "Bucket '{{.Bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
-    "translation": "O depósito '{{.Bucket}}' na região {{.region}} foi encontrado em sua conta de armazenamento de objeto do IBM Cloud."
+    "translation": "Depósito '{{.Bucket}}' na região {{.region}} localizado em sua conta do IBM Cloud Object Storage."
   },
   {
     "id": "CRN",
@@ -260,6 +260,10 @@
     "translation": "Interagir com serviços do IBM Cloud Object Storage"
   },
   {
+    "id": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.",
+    "translation": "Argumento inválido.  Um CRN de instância de serviço válido deve ser configurado para criar ou listar depósitos.  Verifique o CRN usando ‘ibmcloud cos config list’."
+  },
+  {
     "id": "Invalid boolean balue in Flag '--%s'",
     "translation": "Valor booleano inválido na Sinalização '--%s'"
   },
@@ -321,7 +325,7 @@
   },
   {
     "id": "Max number of `PARTS` which will be uploaded to S3 that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.",
-    "translation": "Número máximo de `PARTES` que serão transferidas por upload para o S3 que calcula o tamanho da parte do objeto a ser transferido por upload.  O limite é de 10.000 partes."
+    "translation": "Número máximo de "PARTES" que serão transferidas por upload para o S3 que calcula o tamanho da parte do objeto a ser transferido por upload.  O limite é de 10.000 partes."
   },
   {
     "id": "Name",
@@ -333,15 +337,15 @@
   },
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
-    "translation": "O objeto '{{.Key}}' foi localizado no depósito  '{{.Bucket}}'."
+    "translation": "O objeto '{{.Key}}' foi localizado no depósito '{{.Bucket}}'."
   },
   {
     "id": "Object Size",
-    "translation": "Tamanho do Objeto"
+    "translation": "Tamanho do objeto"
   },
   {
     "id": "Object Size: {{.objectsize}}",
-    "translation": "Tamanho do Objeto: {{.objectsize}}"
+    "translation": "Tamanho do objeto: {{.objectsize}}"
   },
   {
     "id": "Object data location (`FILE_PATH`).",
@@ -457,7 +461,7 @@
   },
   {
     "id": "Size",
-    "translation": "Size"
+    "translation": "Tamanho"
   },
   {
     "id": "Specifies `CACHING_DIRECTIVES` for the request/reply chain.",
@@ -593,7 +597,7 @@
   },
   {
     "id": "The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the COS service, retrieving fewer items in each call. This can help prevent the service calls from timing out.",
-    "translation": "`SIZE` de cada página para entrar na chamada de serviço. Isso não afeta o número de itens retornados na saída do comando. A configuração de um tamanho de página menor resulta em mais chamadas para o serviço COS, recuperando menos itens em cada chamada. Isso pode ajudar a evitar que as chamadas de serviço expirem."
+    "translation": "`SIZE` de cada página para entrar na chamada de serviço. Isso não afeta o número de itens retornados na saída do comando. Configurar um tamanho de página menor resulta em mais chamadas para o serviço COS, recuperando menos itens em cada chamada. Isso pode ajudar a evitar que as chamadas de serviço expirem."
   },
   {
     "id": "The base64-encoded 128-bit `MD5` digest of the data.",
@@ -641,7 +645,7 @@
   },
   {
     "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again.",
-    "translation": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again."
+    "translation": "O depósito especificado não foi localizado em sua conta do IBM Cloud. Isso pode ser porque você forneceu a região errada. Forneça a região correta do depósito e tente novamente."
   },
   {
     "id": "The specified download location does not exist on your system. Try again with a valid download path.",

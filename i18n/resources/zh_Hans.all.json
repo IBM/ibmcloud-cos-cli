@@ -97,7 +97,7 @@
   },
   {
     "id": "Bucket '{{.Bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
-    "translation": "在您的 IBM Cloud 对象存储器帐户中发现区域 {{.region}} 内存在存储区“{{.Bucket}}”。"
+    "translation": "在您的 IBM Cloud Object Storage 帐户中发现区域 {{.region}} 中的存储区“{{.Bucket}}”。"
   },
   {
     "id": "CRN",
@@ -258,6 +258,10 @@
   {
     "id": "Interact with IBM Cloud Object Storage services",
     "translation": "与 IBM Cloud Object Storage 服务交互"
+  },
+  {
+    "id": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.",
+    "translation": "自变量无效。必须配置有效的服务实例 CRN 才能创建或列出存储区。使用“ibmcloud cos config list”验证 CRN。"
   },
   {
     "id": "Invalid boolean balue in Flag '--%s'",
@@ -641,7 +645,7 @@
   },
   {
     "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again.",
-    "translation": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again."
+    "translation": "在您的 IBM Cloud 帐户中找不到指定的存储区。这可能是因为您提供的区域不正确。请提供存储区的正确区域并重试。"
   },
   {
     "id": "The specified download location does not exist on your system. Try again with a valid download path.",

@@ -97,7 +97,7 @@
   },
   {
     "id": "Bucket '{{.Bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
-    "translation": "Se ha encontrado el depósito '{{.Bucket}}' en la región {{.region}} en su cuenta de IBM Cloud Object Storage."
+    "translation": "En su cuenta de IBM Cloud Object Storage se ha encontrado el depósito '{{.Bucket}}' en la región {{.region}}."
   },
   {
     "id": "CRN",
@@ -193,7 +193,7 @@
   },
   {
     "id": "Details about bucket ",
-    "translation": "Detalles sobre el depósito"
+    "translation": "Detalles sobre el depósito "
   },
   {
     "id": "Details about your multipart upload instance:",
@@ -260,6 +260,10 @@
     "translation": "Interactúe con los servicios de IBM Cloud Object Storage"
   },
   {
+    "id": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.",
+    "translation": "Argumento no válido. Debe configurarse un CRN de instancia de servicio válido para crear o enumerar depósitos. Verifique el CRN utilizando ‘ibmcloud cos config list’."
+  },
+  {
     "id": "Invalid boolean balue in Flag '--%s'",
     "translation": "Valor booleano no válido en el distintivo '--%s'"
   },
@@ -321,7 +325,7 @@
   },
   {
     "id": "Max number of `PARTS` which will be uploaded to S3 that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.",
-    "translation": "Número máximo de partes `PARTS` que se cargarán en S3 que calcula el tamaño de parte del objeto que se va a cargar. El límite es 10.000 partes."
+    "translation": "Número máximo de partes `PARTS` que se cargarán en S3 que calcula el tamaño de parte del objeto que se va a cargar.  El límite es 10.000 partes."
   },
   {
     "id": "Name",
@@ -337,11 +341,11 @@
   },
   {
     "id": "Object Size",
-    "translation": "Tamaño de Objeto"
+    "translation": "Tamaño de objeto"
   },
   {
     "id": "Object Size: {{.objectsize}}",
-    "translation": "Tamaño de Objeto: {{.objectsize}}"
+    "translation": "Tamaño de objeto: {{.objectsize}}"
   },
   {
     "id": "Object data location (`FILE_PATH`).",
@@ -373,7 +377,7 @@
   },
   {
     "id": "Region: ",
-    "translation": "Región:"
+    "translation": "Región: "
   },
   {
     "id": "Regions endpoint `URL`.",
@@ -641,7 +645,7 @@
   },
   {
     "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again.",
-    "translation": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again."
+    "translation": "El depósito especificado se ha encontrado en la cuenta de IBM Cloud. Esto puede deberse a que se proporcionó la región equivocada. Proporcione la región correcta del depósito y vuelva a intentarlo."
   },
   {
     "id": "The specified download location does not exist on your system. Try again with a valid download path.",

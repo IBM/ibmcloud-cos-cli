@@ -21,7 +21,7 @@ var SUPPORTED_LOCALES = []string{
 	"es_ES",
 	"fr_FR",
 	"it_IT",
-	"ja_JA",
+	"ja_JP",
 	"ko_KR",
 	"pt_BR",
 	"zh_Hans",

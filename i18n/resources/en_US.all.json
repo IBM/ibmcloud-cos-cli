@@ -260,6 +260,10 @@
     "translation": "Interact with IBM Cloud Object Storage services"
   },
   {
+    "id": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.",
+    "translation": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’."
+  },
+  {
     "id": "Invalid boolean balue in Flag '--%s'",
     "translation": "Invalid boolean balue in Flag '--%s'"
   },

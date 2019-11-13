@@ -260,6 +260,10 @@
     "translation": "IBM Cloud Object Storage 서비스와 상호 작용"
   },
   {
+    "id": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.",
+    "translation": "올바르지 않은 인수입니다. 버킷을 작성하거나 나열하려면 올바른 서비스 인스턴스 CRN을 구성해야 합니다. ‘ibmcloud cos config list’를 사용하여 CRN을 확인하십시오."
+  },
+  {
     "id": "Invalid boolean balue in Flag '--%s'",
     "translation": "'--%s' 플래그에 올바르지 않은 부울 값이 있습니다."
   },
@@ -641,7 +645,7 @@
   },
   {
     "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again.",
-    "translation": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again."
+    "translation": "지정된 버킷을 IBM Cloud 계정에서 찾지 못했습니다. 잘못된 지역을 제공했기 때문일 수 있습니다. 버킷의 올바른 지역을 제공하고 다시 시도하십시오."
   },
   {
     "id": "The specified download location does not exist on your system. Try again with a valid download path.",

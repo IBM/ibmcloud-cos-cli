@@ -102,6 +102,15 @@ func getMessageByCodeError(errorIn errors.CodeError) string {
 	switch errorIn.Code() {
 	case "EmptyStaticCreds":
 		return T("Try logging in using 'ibmcloud login'.")
+	case "InvalidArgument":
+		// If CRN is not registered in config or invalid, we send an actual invalid
+		// argument message to request users to configure or re-configure CRN.
+		// Otherwise, other errors are related to bad headers or any other invalid
+		// arguments on the APIs.
+		if !strings.Contains(errorIn.Error(), "Invalid Argument") {
+			return errorIn.Error()
+		}
+		return T("Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.")
 	case "InvalidBucketName":
 		return T("The specified bucket name is invalid. Bucket names must start and end in alphanumeric characters (from 3 to 63) and are limited to lowercase, numbers, non-consecutive dots, and hyphens.")
 	case "BucketAlreadyExists":

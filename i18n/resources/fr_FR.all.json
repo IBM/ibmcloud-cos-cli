@@ -25,7 +25,7 @@
   },
   {
     "id": "(`SOURCE`) The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.",
-    "translation": "(SOURCE) Nom du compartiment source et nom de clé de l'objet source séparés par une barre oblique (/). Doivent être en codage URL."
+    "translation": "(`SOURCE`) Nom du compartiment source et nom clé de l'objet source séparés par une barre oblique (/). Doivent être en codage URL."
   },
   {
     "id": "1 bucket found in your account:\n",
@@ -260,6 +260,10 @@
     "translation": "Interagir avec les services IBM Cloud Object Storage"
   },
   {
+    "id": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.",
+    "translation": "Argument non valide. Un CRN d'instance de service valide doit être configuré pour créer ou répertorier des compartiments.  Vérifier le CRN à l'aide de la commande ‘ibmcloud cos config list’."
+  },
+  {
     "id": "Invalid boolean balue in Flag '--%s'",
     "translation": "Valeur booléenne non valide dans l'indicateur '--%s'"
   },
@@ -321,7 +325,7 @@
   },
   {
     "id": "Max number of `PARTS` which will be uploaded to S3 that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.",
-    "translation": "Nombre maximum de parties ('PARTS') qui seront remontées dans S3, qui détermine la taille des parties de l'objet à remonter. La limite est de 10 000 parties."
+    "translation": "Nombre maximum de parties ('PARTS') qui seront remontées dans S3, qui détermine la taille des parties de l'objet à remonter.  La limite est de 10 000 parties."
   },
   {
     "id": "Name",
@@ -641,7 +645,7 @@
   },
   {
     "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again.",
-    "translation": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again."
+    "translation": "Le compartiment indiqué n'a pas été trouvé dans votre compte IBM Cloud. Vous avez peut-être indiqué une région erronée. Indiquez la bonne région et réessayez."
   },
   {
     "id": "The specified download location does not exist on your system. Try again with a valid download path.",

@@ -57,11 +57,11 @@
   },
   {
     "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
-    "translation": "Una `STRUTTURA` che utilizza la sintassi JSON in un file. Consultare la documentazione IBM. "
+    "translation": "Una `STRUTTURA` che utilizza la sintassi JSON in un file. Consultare la documentazione IBM."
   },
   {
     "id": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation.",
-    "translation": "Una `STRUTTURA` che utilizza la sintassi JSON o semplificata. Consultare la documentazione IBM. "
+    "translation": "Una `STRUTTURA` che utilizza la sintassi JSON o semplificata. Consultare la documentazione IBM."
   },
   {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
@@ -233,7 +233,7 @@
   },
   {
     "id": "Error opening '{{.Location}}' to write.",
-    "translation": "Errore durante l'apertura di '{{.Location}}' per la scrittura. "
+    "translation": "Errore durante l'apertura di '{{.Location}}' per la scrittura."
   },
   {
     "id": "Flag '--%s' requires a value",
@@ -258,6 +258,10 @@
   {
     "id": "Interact with IBM Cloud Object Storage services",
     "translation": "Interagisci con i servizi di IBM Cloud Object Storage"
+  },
+  {
+    "id": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.",
+    "translation": "Argomento non valido.  È necessario configurare un CRN di istanza di servizio valido per creare o elencare i bucket.  Verificare il CRN utilizzando ‘ibmcloud cos config list’."
   },
   {
     "id": "Invalid boolean balue in Flag '--%s'",
@@ -301,7 +305,7 @@
   },
   {
     "id": "List all the extended buckets with pagination support.",
-    "translation": "Elencare tutti i bucket previsti con supporto di paginazione. "
+    "translation": "Elencare tutti i bucket previsti con supporto di paginazione."
   },
   {
     "id": "List configuration",
@@ -321,7 +325,7 @@
   },
   {
     "id": "Max number of `PARTS` which will be uploaded to S3 that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.",
-    "translation": "Numero massimo di `PARTI` che verranno caricate in S3 che calcola la dimensione parte dell'oggetto da caricare. Il limite è 10.000 parti."
+    "translation": "Numero massimo di `PARTI` che verranno caricate in S3 che calcola la dimensione parte dell'oggetto da caricare.  Il limite è 10.000 parti."
   },
   {
     "id": "Name",
@@ -333,15 +337,15 @@
   },
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
-    "translation": "Oggetto '{{.Key}}' trovato nel bucket '{{.Bucket}}'."
+    "translation": "Oggetto '{{.Key}}' non trovato nel bucket '{{.Bucket}}'."
   },
   {
     "id": "Object Size",
-    "translation": "dimensione Oggetto"
+    "translation": "Dimensione oggetto"
   },
   {
     "id": "Object Size: {{.objectsize}}",
-    "translation": "Dimensione Oggetto: {{.objectsize}}"
+    "translation": "Dimensione oggetto: {{.objectsize}}"
   },
   {
     "id": "Object data location (`FILE_PATH`).",
@@ -357,7 +361,7 @@
   },
   {
     "id": "Override the default location providing an OUTFILE parameter",
-    "translation": "Sovrascrivere l'ubicazione predefinita fornendo un parametro OUTFILE "
+    "translation": "Sovrascrivere l'ubicazione predefinita fornendo un parametro OUTFILE"
   },
   {
     "id": "Part Number",
@@ -453,7 +457,7 @@
   },
   {
     "id": "Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.",
-    "translation": "L'impostazione di questo valore su true farà in modo che l'SDK non richiamerà AbortMultipartUpload all'errore, lasciando tutte le parti correttamente caricate su S3 per il ripristino manuale. "
+    "translation": "L'impostazione di questo valore su true farà in modo che l'SDK non richiamerà AbortMultipartUpload all'errore, lasciando tutte le parti correttamente caricate su S3 per il ripristino manuale."
   },
   {
     "id": "Size",
@@ -641,7 +645,7 @@
   },
   {
     "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again.",
-    "translation": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again."
+    "translation": "Il bucket specificato non è stato trovato nell'account IBM Cloud. Questo può accadere perché è stata fornita la regione sbagliata. Fornire la regione del bucket corretta e riprovare."
   },
   {
     "id": "The specified download location does not exist on your system. Try again with a valid download path.",
@@ -653,7 +657,7 @@
   },
   {
     "id": "The specified key does not exist.",
-    "translation": "La chiave specificata non esiste. "
+    "translation": "La chiave specificata non esiste."
   },
   {
     "id": "The total `NUMBER` of items to return in the command's output.",
@@ -741,7 +745,7 @@
   },
   {
     "id": "Unable to read new URL Style value.",
-    "translation": "Impossibile leggere il nuovo valore stile URL. "
+    "translation": "Impossibile leggere il nuovo valore stile URL."
   },
   {
     "id": "Unable to read new default download location.",
