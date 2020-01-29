@@ -52,8 +52,8 @@
     "translation": "Un `DELIMITATORE` è un carattere che si usa per raggruppare le chiavi."
   },
   {
-    "id": "A `MAP` of metadata to store. Syntax: KeyName1=string,KeyName2=string",
-    "translation": "Una `MAPPA` di metadati da archiviare. Sintassi: KeyName1=string,KeyName2=string"
+    "id": "A `MAP` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "A `MAP` using JSON syntax. See IBM Cloud Documentation."
   },
   {
     "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",

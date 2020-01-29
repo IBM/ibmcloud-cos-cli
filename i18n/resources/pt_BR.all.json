@@ -52,8 +52,8 @@
     "translation": "Um `DELIMITER` é um caractere utilizado para agrupar chaves."
   },
   {
-    "id": "A `MAP` of metadata to store. Syntax: KeyName1=string,KeyName2=string",
-    "translation": "Um `MAP` de metadados para ser armazenado. Sintaxe: KeyName1=string,KeyName2=string"
+    "id": "A `MAP` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "A `MAP` using JSON syntax. See IBM Cloud Documentation."
   },
   {
     "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
@@ -325,7 +325,7 @@
   },
   {
     "id": "Max number of `PARTS` which will be uploaded to S3 that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.",
-    "translation": "Número máximo de "PARTES" que serão transferidas por upload para o S3 que calcula o tamanho da parte do objeto a ser transferido por upload.  O limite é de 10.000 partes."
+    "translation": "Número máximo de `PARTES` que serão transferidas por upload para o S3 que calcula o tamanho da parte do objeto a ser transferido por upload.  O limite é de 10.000 partes."
   },
   {
     "id": "Name",

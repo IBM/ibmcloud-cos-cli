@@ -52,8 +52,8 @@
     "translation": "Un délimiteur (DELIMITER) est un caractère que vous utilisez pour regrouper des clés."
   },
   {
-    "id": "A `MAP` of metadata to store. Syntax: KeyName1=string,KeyName2=string",
-    "translation": "Mappe (MAP) de métadonnées à stocker. Syntaxe : NomClé1=chaîne,NomClé2=chaîne"
+    "id": "A `MAP` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "A `MAP` using JSON syntax. See IBM Cloud Documentation."
   },
   {
     "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",

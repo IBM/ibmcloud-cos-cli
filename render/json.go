@@ -28,6 +28,8 @@ func NewJSONRender(terminal terminal.UI) *JSONRender {
 }
 
 func (jsr *JSONRender) Display(_ interface{}, output interface{}, _ map[string]interface{}) error {
+	// Turn off escape HTML characters
+	jsr.encoder.SetEscapeHTML(false)
 	switch castedOutput := output.(type) {
 	case *s3.AbortMultipartUploadOutput:
 		return nil
@@ -92,7 +94,6 @@ func (jsr *JSONRender) Display(_ interface{}, output interface{}, _ map[string]i
 		return jsr.encoder.Encode(output)
 	}
 	return jsr.encoder.Encode(output)
-
 }
 
 type CopyObjectOutput struct {

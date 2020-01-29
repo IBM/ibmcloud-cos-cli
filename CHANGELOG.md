@@ -1,5 +1,10 @@
 # CHANGELOG
 
+# 1.1.2
+## Content
+### Defect Fixes
+* CSAFE-62346: https://github.ibm.com/objectstore/cases/issues/410
+
 # 1.1.1
 ## Content
 ### Features

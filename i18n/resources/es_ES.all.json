@@ -52,8 +52,8 @@
     "translation": "`DELIMITER` es un carácter que se utiliza para agrupar claves."
   },
   {
-    "id": "A `MAP` of metadata to store. Syntax: KeyName1=string,KeyName2=string",
-    "translation": "`MAP` de metadatos que se van a almacenar. Sintaxis: KeyName1=string,KeyName2=string"
+    "id": "A `MAP` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "A `MAP` using JSON syntax. See IBM Cloud Documentation."
   },
   {
     "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",

@@ -301,7 +301,7 @@ func parseJSON(i interface{}, input string) (err error) {
 			err = json.Unmarshal([]byte(input), i)
 		} else {
 			var jsonBlob []byte
-			jsonBlob, err = utils.GetAsJson(input)
+			jsonBlob, err = utils.GetAsJSON(input)
 			if err != nil {
 				return err
 			}

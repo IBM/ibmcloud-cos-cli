@@ -52,8 +52,8 @@
     "translation": "`DELIMITER` はキーをグループ化するために使用する文字です。"
   },
   {
-    "id": "A `MAP` of metadata to store. Syntax: KeyName1=string,KeyName2=string",
-    "translation": "保管するメタデータの `MAP` です。 構文: KeyName1=string,KeyName2=string"
+    "id": "A `MAP` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "A `MAP` using JSON syntax. See IBM Cloud Documentation."
   },
   {
     "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",

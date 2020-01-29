@@ -52,8 +52,8 @@
     "translation": "A `DELIMITER` is a character you use to group keys."
   },
   {
-    "id": "A `MAP` of metadata to store. Syntax: KeyName1=string,KeyName2=string",
-    "translation": "A `MAP` of metadata to store. Syntax: KeyName1=string,KeyName2=string"
+    "id": "A `MAP` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "A `MAP` using JSON syntax. See IBM Cloud Documentation."
   },
   {
     "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",

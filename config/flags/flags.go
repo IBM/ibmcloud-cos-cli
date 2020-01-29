@@ -184,7 +184,7 @@ var (
 
 	FlagMetadata = cli.StringFlag{
 		Name:  Metadata,
-		Usage: T("A `MAP` of metadata to store. Syntax: KeyName1=string,KeyName2=string"),
+		Usage: T("A `MAP` using JSON syntax. See IBM Cloud Documentation."),
 	}
 
 	FlagPageSize = cli.StringFlag{

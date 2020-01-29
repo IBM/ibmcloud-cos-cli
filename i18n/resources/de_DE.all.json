@@ -52,8 +52,8 @@
     "translation": "Ein Begrenzer (DELIMITER) ist ein Zeichen, das zum Gruppieren von Schlüsseln verwendet wird."
   },
   {
-    "id": "A `MAP` of metadata to store. Syntax: KeyName1=string,KeyName2=string",
-    "translation": "Eine Zuordnung (MAP) der zu speichernden Metadaten. Syntax: Schlüsselname1=Zeichenfolge,Schlüsselname2=Zeichenfolge"
+    "id": "A `MAP` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "A `MAP` using JSON syntax. See IBM Cloud Documentation."
   },
   {
     "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",

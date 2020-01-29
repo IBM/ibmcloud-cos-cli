@@ -34,14 +34,16 @@ var (
 	objectEnd      = parsec.Atom("}", "OBJECTEND")
 	trueToken      = parsec.Atom("true", "BOOL")
 	falseToken     = parsec.Atom("false", "BOOL")
-	simpleString   = parsec.Token(`[-.a-zA-Z0-9]+`, "SIMPLESTRING")
+	simpleString   = parsec.Token(`[-._a-zA-Z0-9]+`, "SIMPLESTRING")
 	key            = parsec.OrdChoice(valueNodify, parsec.String(), simpleString)
 	value          parsec.Parser // recursive
-	listCore       = parsec.Kleene(coreNodify, &value, commaSeparator)
-	list           = parsec.And(listNodify, listStart, listCore, listEnd)
-	keyValuePair   = parsec.And(keyValuePairNodify, key, eqSeparator, &value)
-	objectCore     = parsec.Kleene(coreNodify, keyValuePair, commaSeparator)
-	object         = parsec.And(objectNodify, objectStart, objectCore, objectEnd)
+
+	listCore = parsec.Kleene(coreNodify, &value, commaSeparator)
+	list     = parsec.And(listNodify, listStart, listCore, listEnd)
+
+	keyValuePair = parsec.And(keyValuePairNodify, key, eqSeparator, &value)
+	objectCore   = parsec.Kleene(coreNodify, keyValuePair, commaSeparator)
+	object       = parsec.And(objectNodify, objectStart, objectCore, objectEnd)
 
 	root = parsec.Maybe(rootNodify, objectCore)
 )
@@ -62,8 +64,8 @@ func init() {
 	)
 }
 
-// GetAsJson parses the string as valid Json or not
-func GetAsJson(input string) ([]byte, error) {
+// GetAsJSON parses the string as valid Json or not
+func GetAsJSON(input string) ([]byte, error) {
 	scanner := parsec.NewScanner([]byte(input))
 	node, scanner := root(scanner)
 	scanner.SkipWS() // consume any white space in the end
@@ -126,7 +128,6 @@ func nodeHandle(node interface{}) string {
 	if t, ok := node.(*parsec.Terminal); ok {
 		return terminalHandle(t)
 	}
-
 	if s, ok := node.(string); ok {
 		return s
 	}
