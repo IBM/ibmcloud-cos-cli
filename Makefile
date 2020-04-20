@@ -16,7 +16,7 @@ BUILD_ID?=unknown
 BUILD_NUMBER?=unknown
 SHELL:=/bin/bash
 
-SupportedOperatingSystems = darwin linux windows
+SupportedOperatingSystems = darwin linux windows ppc64le
 
 .PHONY: all test clean cleanAll build install buildSupported $(SupportedOperatingSystems) set_env_vars buildWithMod vendorWithMod
 
@@ -50,7 +50,11 @@ windows : EXT := .exe
 buildSupported: $(SupportedOperatingSystems)
 
 ${SupportedOperatingSystems}: vendor
-	CGO_ENABLED=0 GOOS=$@ GOARCH=amd64 go build -o build/${APP}-$@-amd64${EXT} -ldflags "-s -w" -a -installsuffix cgo .
+	if [ "$@" != "ppc64le" ]; then\
+	    CGO_ENABLED=0 GOOS=$@ GOARCH=amd64 go build -o build/${APP}-$@-amd64${EXT} -ldflags "-s -w" -a -installsuffix cgo . ;\
+	else\
+	    CGO_ENABLED=0 GOOS=linux GOARCH=$@ go build -o build/${APP}-linux-$@ -ldflags "-s -w" -a -installsuffix cgo . ;\
+	fi
 
 all: $(SupportedOperatingSystems)
 

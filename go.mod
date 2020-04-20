@@ -2,7 +2,7 @@ module github.com/IBM/ibmcloud-cos-cli
 
 require (
 	github.com/IBM-Cloud/ibm-cloud-cli-sdk v0.4.0
-	github.com/IBM/ibm-cos-sdk-go v1.3.1
+	github.com/IBM/ibm-cos-sdk-go v1.3.2
 	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Masterminds/vcs v1.13.1 // indirect
 	github.com/armon/go-radix v1.0.0 // indirect

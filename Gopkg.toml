@@ -32,7 +32,7 @@ required = ["github.com/russross/blackfriday"]
 
 [[constraint]]
   name = "github.com/IBM/ibm-cos-sdk-go"
-  version = "v1.3.1"
+  version = "v1.3.2"
 
 [[constraint]]
   branch = "master"

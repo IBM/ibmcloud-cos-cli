@@ -29,10 +29,11 @@
   version = "v0.4.0"
 
 [[projects]]
-  digest = "1:4a74adc4307805e153665b33a20ece1185f561d84cb558ee33d79b1ae6c19c17"
+  digest = "1:9675d5b73470f0dfc3974cc82a618d067360498222a427da4116006500c52854"
   name = "github.com/IBM/ibm-cos-sdk-go"
   packages = [
     "aws",
+    "aws/arn",
     "aws/awserr",
     "aws/awsutil",
     "aws/client",
@@ -57,6 +58,8 @@
     "internal/sdkmath",
     "internal/sdkrand",
     "internal/shareddefaults",
+    "internal/strings",
+    "internal/sync/singleflight",
     "private/protocol",
     "private/protocol/json/jsonutil",
     "private/protocol/query",
@@ -65,12 +68,13 @@
     "private/protocol/restxml",
     "private/protocol/xml/xmlutil",
     "service/s3",
+    "service/s3/internal/arn",
     "service/s3/s3iface",
     "service/s3/s3manager",
   ]
   pruneopts = "UT"
-  revision = "20c5df25b9c3462bf3034d2f00b6dc7737f1569b"
-  version = "v1.3.0"
+  revision = "e7a2a5ef724c425fa3e12db0029184a47c87f474"
+  version = "v1.3.2"
 
 [[projects]]
   branch = "master"
