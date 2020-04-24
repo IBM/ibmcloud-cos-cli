@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 1.1.3
+
+### Content
+
+* COS CLI support for ppc64le platform
+* Update to use Go SDK 1.3.2
+
+#### Defect Fixes
+
+* CSAFE-68546: <https://github.com/IBM/ibmcloud-cos-cli/issues/1>
+
 ## 1.1.2
 
 ### Content
