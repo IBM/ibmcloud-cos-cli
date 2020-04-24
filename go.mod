@@ -24,10 +24,9 @@ require (
 	github.com/prataprc/goparsec v0.0.0-20180806094145-2600a2a4a410
 	github.com/sdboyer/constext v0.0.0-20170321163424-836a14457353 // indirect
 	github.com/stretchr/objx v0.2.0 // indirect
-	github.com/stretchr/testify v1.3.0
+	github.com/stretchr/testify v1.5.1
 	github.com/urfave/cli v1.22.0
 	golang.org/x/crypto v0.0.0-20190621222207-cc06ce4a13d4 // indirect
-	golang.org/x/net v0.0.0-20190620200207-3b0461eec859 // indirect
 	golang.org/x/text v0.3.2 // indirect
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 )
