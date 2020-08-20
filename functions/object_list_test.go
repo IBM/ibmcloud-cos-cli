@@ -9,16 +9,18 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+	"github.com/urfave/cli"
+
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
+	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/commands"
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
 	"github.com/IBM/ibmcloud-cos-cli/cos"
 	"github.com/IBM/ibmcloud-cos-cli/di/providers"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
-	"github.com/urfave/cli"
 )
 
 func TestListObjectsHappyPath(t *testing.T) {
@@ -38,6 +40,8 @@ func TestListObjectsHappyPath(t *testing.T) {
 	targetMarker := "OLMarker"
 
 	var inputCapture *s3.ListObjectsInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("ListObjectsPages",
@@ -101,6 +105,8 @@ func TestObjectsListWhenPageBiggerThanMaxRequestMax(t *testing.T) {
 
 	var inputCapture *s3.ListObjectsInput
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	providers.MockS3API.
 		On("ListObjectsPages",
 			mock.MatchedBy(
@@ -154,6 +160,8 @@ func TestWhenPageSmallerThanMaxRequestPage(t *testing.T) {
 	targetMaxKeys := int64(100)
 
 	var inputCapture *s3.ListObjectsInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("ListObjectsPages",
@@ -211,6 +219,8 @@ func TestObjectsListPaginate(t *testing.T) {
 	var inputCapture *s3.ListObjectsInput
 
 	pagesSzCapture := make([]int, 0, 0)
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("ListObjectsPages",

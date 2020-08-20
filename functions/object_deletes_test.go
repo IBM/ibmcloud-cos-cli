@@ -7,15 +7,17 @@ import (
 	"os"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+	"github.com/urfave/cli"
+
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
+	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/commands"
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
 	"github.com/IBM/ibmcloud-cos-cli/cos"
 	"github.com/IBM/ibmcloud-cos-cli/di/providers"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
-	"github.com/urfave/cli"
 )
 
 func TestObjectDeletesSunnyPath(t *testing.T) {
@@ -30,6 +32,8 @@ func TestObjectDeletesSunnyPath(t *testing.T) {
 
 	targetBucket := "TargetBucket"
 	targetDelete := "Objects=[{Key=a},{Key=b}],Quiet=false"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("DeleteObjects", mock.MatchedBy(
@@ -74,6 +78,8 @@ func TestObjectDeletesRainyPath(t *testing.T) {
 	targetBucket := "TargetBucket"
 	BadDelete := "Objects=[{Key=string},{Key=string}],Quiet=fale"
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	providers.MockS3API.
 		On("DeleteObjects", mock.MatchedBy(
 			func(input *s3.DeleteObjectsInput) bool {
@@ -117,6 +123,8 @@ func TestObjectDeletesBadJson(t *testing.T) {
 	targetBucket := "TargetBucket"
 	BadDelete := "{\"Objects\":[{\"Key\":\"a\"}],\"Quiet\": fale}"
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	providers.MockS3API.
 		On("DeleteObjects", mock.MatchedBy(
 			func(input *s3.DeleteObjectsInput) bool {
@@ -158,6 +166,8 @@ func TestObjectDeletesWithoutDelete(t *testing.T) {
 	}
 
 	targetBucket := "TargetBucket"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("DeleteObjects", mock.MatchedBy(

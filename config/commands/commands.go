@@ -1,10 +1,11 @@
 package commands
 
 import (
+	"github.com/urfave/cli"
+
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
 	"github.com/IBM/ibmcloud-cos-cli/functions"
 	. "github.com/IBM/ibmcloud-cos-cli/i18n"
-	"github.com/urfave/cli"
 )
 
 var (
@@ -1084,6 +1085,7 @@ var (
 			CommandAuth,
 			CommandURLStyle,
 			CommandRegionsEndpointURL,
+			CommandSetEndpoint,
 		},
 	}
 
@@ -1171,5 +1173,16 @@ var (
 			flags.FlagStyle,
 		},
 		Action: functions.ConfigSetURLStyle,
+	}
+
+	CommandSetEndpoint = cli.Command{
+		Name:        SetEndpoint,
+		Description: T("Set custom Service Endpoint for all operations."),
+		Flags: []cli.Flag{
+			flags.FlagList,
+			flags.FlagClear,
+			flags.FlagURL,
+		},
+		Action: functions.ConfigSetEndpointURL,
 	}
 )

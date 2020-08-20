@@ -192,4 +192,7 @@ const (
 
 	// URLStyle that identifies bucket and location
 	URLStyle = "url-style"
+
+	// SetEndpoint Set Service Endpoint URL
+	SetEndpoint = "endpoint-url"
 )

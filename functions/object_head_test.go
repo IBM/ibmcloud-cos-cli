@@ -10,6 +10,7 @@ import (
 
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
+	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/commands"
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
 	"github.com/IBM/ibmcloud-cos-cli/cos"
@@ -31,6 +32,8 @@ func TestObjectHeadSunnyPath(t *testing.T) {
 
 	targetBucket := "TargetBucket"
 	targetKey := "TargetKey"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("HeadObject", mock.MatchedBy(
@@ -77,6 +80,8 @@ func TestObjectHeadRainyPath(t *testing.T) {
 	targetBucket := "TargetBucket"
 	badKey := "NoSuchKey"
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	providers.MockS3API.
 		On("HeadObject", mock.MatchedBy(
 			func(input *s3.HeadObjectInput) bool {
@@ -119,6 +124,8 @@ func TestObjectHeadWithoutKey(t *testing.T) {
 	}
 
 	targetBucket := "TargetBucket"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("HeadObject", mock.MatchedBy(

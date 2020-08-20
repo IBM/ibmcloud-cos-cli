@@ -7,14 +7,16 @@ import (
 	"os"
 	"testing"
 
-	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
-	"github.com/IBM/ibm-cos-sdk-go/service/s3"
-	"github.com/IBM/ibmcloud-cos-cli/config/commands"
-	"github.com/IBM/ibmcloud-cos-cli/cos"
-	"github.com/IBM/ibmcloud-cos-cli/di/providers"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/urfave/cli"
+
+	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
+	"github.com/IBM/ibm-cos-sdk-go/service/s3"
+	"github.com/IBM/ibmcloud-cos-cli/config"
+	"github.com/IBM/ibmcloud-cos-cli/config/commands"
+	"github.com/IBM/ibmcloud-cos-cli/cos"
+	"github.com/IBM/ibmcloud-cos-cli/di/providers"
 )
 
 func TestBucketCreateSunnyPath(t *testing.T) {
@@ -33,6 +35,8 @@ func TestBucketCreateSunnyPath(t *testing.T) {
 	targetIbmServiceInstanceID := "IbmServiceInstanceID"
 
 	var capturedInput *s3.CreateBucketInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.On("WaitUntilBucketExists", mock.Anything).Return(nil).Once()
 
@@ -89,6 +93,8 @@ func TestBucketCreateRainyPath(t *testing.T) {
 	targetBucket := "TARGETBUCKET"
 	targetRegion := "us"
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	providers.MockS3API.On("WaitUntilBucketExists", mock.Anything).Return(nil).Once()
 
 	providers.MockS3API.
@@ -133,6 +139,8 @@ func TestBucketCreateWithoutBucket(t *testing.T) {
 	}
 
 	targetRegion := "us"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.On("WaitUntilBucketExists", mock.Anything).Return(nil).Once()
 

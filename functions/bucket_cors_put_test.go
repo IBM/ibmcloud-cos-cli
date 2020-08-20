@@ -7,16 +7,18 @@ import (
 	"os"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+	"github.com/urfave/cli"
+
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
+	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/commands"
 	"github.com/IBM/ibmcloud-cos-cli/cos"
 	"github.com/IBM/ibmcloud-cos-cli/di/providers"
 	"github.com/IBM/ibmcloud-cos-cli/utils"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
-	"github.com/urfave/cli"
 )
 
 var (
@@ -77,6 +79,8 @@ func TestBucketCorsPutSunnyPathJSONString(t *testing.T) {
 
 	targetBucket := "TARGETBUCKET"
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	var capturedCorConfig *s3.CORSConfiguration
 
 	providers.MockS3API.
@@ -124,6 +128,8 @@ func TestBucketCorsPutSunnyPathJSONFile(t *testing.T) {
 	}
 
 	targetBucket := "TARGETBUCKET"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	targetFileName := "fileMock"
 
@@ -187,6 +193,8 @@ func TestBucketCorsPutSunnyPathSimplifiedJSONString(t *testing.T) {
 
 	targetBucket := "TARGETBUCKET"
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	var capturedCorConfig *s3.CORSConfiguration
 
 	providers.MockS3API.
@@ -235,6 +243,8 @@ func TestBucketCorsPutEmptyStaticCreds(t *testing.T) {
 
 	targetBucket := "TARGETBUCKET"
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	providers.MockS3API.
 		On("PutBucketCors", mock.MatchedBy(
 			func(input *s3.PutBucketCorsInput) bool {
@@ -273,6 +283,8 @@ func TestBucketCorsPutWithoutCORSConfig(t *testing.T) {
 	}
 
 	targetBucket := "TARGETBUCKET"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("PutBucketCors", mock.MatchedBy(

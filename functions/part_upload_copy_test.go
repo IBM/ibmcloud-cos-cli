@@ -9,6 +9,7 @@ import (
 
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
+	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/commands"
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
 	"github.com/IBM/ibmcloud-cos-cli/cos"
@@ -33,6 +34,8 @@ func TestPartUploadCopySunnyPath(t *testing.T) {
 	targetCopySource := "SourceBucket/SourceKey"
 	targetPartNumber := "1"
 	targetUploadID := "80fds-afdasfa-s32141"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("UploadPartCopy", mock.MatchedBy(
@@ -83,6 +86,8 @@ func TestPartUploadCopyRainyPath(t *testing.T) {
 	targetPartNumber := "1"
 	targetUploadID := "80fds-afdasfa-s32141"
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	providers.MockS3API.
 		On("UploadPartCopy", mock.MatchedBy(
 			func(input *s3.UploadPartCopyInput) bool {
@@ -131,6 +136,8 @@ func TestPartUploadCopyWithoutCopySource(t *testing.T) {
 	targetKey := "TargetKey"
 	targetPartNumber := "1"
 	targetUploadID := "80fds-afdasfa-s32141"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("UploadPartCopy", mock.MatchedBy(

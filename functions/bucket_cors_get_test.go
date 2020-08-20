@@ -9,6 +9,7 @@ import (
 
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
+	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/commands"
 	"github.com/IBM/ibmcloud-cos-cli/cos"
 	"github.com/IBM/ibmcloud-cos-cli/di/providers"
@@ -28,6 +29,8 @@ func TestBucketCorsGetSunnyPath(t *testing.T) {
 	}
 
 	targetBucket := "TARGETBUCKET"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("GetBucketCors", mock.MatchedBy(
@@ -71,6 +74,8 @@ func TestBucketCorsGetEmptyStaticCreds(t *testing.T) {
 
 	targetBucket := "TARGETBUCKET"
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	providers.MockS3API.
 		On("GetBucketCors", mock.MatchedBy(
 			func(input *s3.GetBucketCorsInput) bool {
@@ -110,6 +115,8 @@ func TestBucketCorsGetWithoutBucket(t *testing.T) {
 	}
 
 	targetBucket := "TARGETBUCKET"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("GetBucketCors", mock.MatchedBy(

@@ -7,14 +7,16 @@ import (
 	"os"
 	"testing"
 
-	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
-	"github.com/IBM/ibm-cos-sdk-go/aws"
-	"github.com/IBM/ibm-cos-sdk-go/service/s3"
-	"github.com/IBM/ibmcloud-cos-cli/cos"
-	"github.com/IBM/ibmcloud-cos-cli/di/providers"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/urfave/cli"
+
+	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
+	"github.com/IBM/ibm-cos-sdk-go/aws"
+	"github.com/IBM/ibm-cos-sdk-go/service/s3"
+	"github.com/IBM/ibmcloud-cos-cli/config"
+	"github.com/IBM/ibmcloud-cos-cli/cos"
+	"github.com/IBM/ibmcloud-cos-cli/di/providers"
 )
 
 func TestGetBucketClassSunnyPath(t *testing.T) {
@@ -30,6 +32,7 @@ func TestGetBucketClassSunnyPath(t *testing.T) {
 	fakeRegions := []string{"r1", "r2", "r3"}
 	// set RegionResolverMock to return fake regions
 	providers.MockRegionResolver.ListKnownRegions.On("GetAllRegions").Return(fakeRegions, nil)
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 	// for the first N-1 calls to get location return error
 	providers.MockS3API.
 		On("GetBucketLocationWithContext", mock.Anything, mock.Anything).
@@ -76,6 +79,7 @@ func TestGetBucketClassRainyPath(t *testing.T) {
 	fakeRegions := []string{"r1", "r2", "r3"}
 	// set RegionResolverMock to return fake regions
 	providers.MockRegionResolver.ListKnownRegions.On("GetAllRegions").Return(fakeRegions, nil)
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 	// for the first N-1 calls to get location return error
 	providers.MockS3API.
 		On("GetBucketLocationWithContext", mock.Anything, mock.Anything).
@@ -122,6 +126,7 @@ func TestGetBucketLocationSunnyPath(t *testing.T) {
 	fakeRegions := []string{"r1", "r2", "r3"}
 	// set RegionResolverMock to return fake regions
 	providers.MockRegionResolver.ListKnownRegions.On("GetAllRegions").Return(fakeRegions, nil)
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 	// for the first N-1 calls to get location return error
 	providers.MockS3API.
 		On("GetBucketLocationWithContext", mock.Anything, mock.Anything).
@@ -170,6 +175,7 @@ func TestGetBucketLocationRainyPath(t *testing.T) {
 	fakeRegions := []string{"r1", "r2", "r3"}
 	// set RegionResolverMock to return fake regions
 	providers.MockRegionResolver.ListKnownRegions.On("GetAllRegions").Return(fakeRegions, nil)
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 	// for the first N-1 calls to get location return error
 	providers.MockS3API.
 		On("GetBucketLocationWithContext", mock.Anything, mock.Anything).
@@ -218,6 +224,7 @@ func TestGetBucketLocationWithoutBucket(t *testing.T) {
 	fakeRegions := []string{"r1", "r2", "r3"}
 	// set RegionResolverMock to return fake regions
 	providers.MockRegionResolver.ListKnownRegions.On("GetAllRegions").Return(fakeRegions, nil)
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 	// for the first N-1 calls to get location return error
 	providers.MockS3API.
 		On("GetBucketLocationWithContext", mock.Anything, mock.Anything).

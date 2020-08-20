@@ -8,15 +8,17 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+	"github.com/urfave/cli"
+
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
+	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/commands"
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
 	"github.com/IBM/ibmcloud-cos-cli/cos"
 	"github.com/IBM/ibmcloud-cos-cli/di/providers"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
-	"github.com/urfave/cli"
 )
 
 func TestWaitObjectNotExistsHappy(t *testing.T) {
@@ -41,6 +43,8 @@ func TestWaitObjectNotExistsHappy(t *testing.T) {
 	targetPartNumber := int64(42)
 
 	var inputCapture *s3.HeadObjectInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On(
@@ -102,6 +106,8 @@ func TestWaitObjectExistsHappy(t *testing.T) {
 	targetKey := "WaitObjKey"
 
 	var inputCapture *s3.HeadObjectInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On(

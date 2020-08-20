@@ -9,16 +9,18 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+	"github.com/urfave/cli"
+
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
+	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/commands"
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
 	"github.com/IBM/ibmcloud-cos-cli/cos"
 	"github.com/IBM/ibmcloud-cos-cli/di/providers"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
-	"github.com/urfave/cli"
 )
 
 func TestMultiPartListHappyPathNoUploads(t *testing.T) {
@@ -39,6 +41,8 @@ func TestMultiPartListHappyPathNoUploads(t *testing.T) {
 	targetUploadIdMarker := "MPULUploadIdMarker"
 
 	var inputCapture *s3.ListMultipartUploadsInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("ListMultipartUploadsPages",
@@ -105,6 +109,8 @@ func TestMultiPartListWhenPageBiggerThanMaxRequestMax(t *testing.T) {
 
 	var inputCapture *s3.ListMultipartUploadsInput
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	providers.MockS3API.
 		On("ListMultipartUploadsPages",
 			mock.MatchedBy(
@@ -158,6 +164,8 @@ func TestMultiPartListWhenPageSmallerThanMaxRequestPage(t *testing.T) {
 	targetMaxUploads := int64(100)
 
 	var inputCapture *s3.ListMultipartUploadsInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("ListMultipartUploadsPages",
@@ -215,6 +223,8 @@ func TestMultiPartListPaginate(t *testing.T) {
 	var inputCapture *s3.ListMultipartUploadsInput
 
 	pagesSzCapture := make([]int, 0, 0)
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("ListMultipartUploadsPages",

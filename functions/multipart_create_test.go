@@ -10,6 +10,7 @@ import (
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
+	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/commands"
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
 	"github.com/IBM/ibmcloud-cos-cli/cos"
@@ -47,6 +48,8 @@ func TestMPUCreateSunnyPath(t *testing.T) {
 	targetUploadID := "TargetUploadID"
 
 	var capturedInput *s3.CreateMultipartUploadInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("CreateMultipartUpload", mock.MatchedBy(
@@ -133,6 +136,8 @@ func TestMPUCreateRainyPath(t *testing.T) {
 
 	var capturedInput *s3.CreateMultipartUploadInput
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	providers.MockS3API.
 		On("CreateMultipartUpload", mock.MatchedBy(
 			func(input *s3.CreateMultipartUploadInput) bool {
@@ -195,6 +200,8 @@ func TestMPUCreateWithoutKey(t *testing.T) {
 	}
 
 	targetBucket := "TargetBucket"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("CreateMultipartUpload", mock.MatchedBy(

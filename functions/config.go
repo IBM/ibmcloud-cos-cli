@@ -7,13 +7,14 @@ import (
 	"strings"
 	"time"
 
+	"github.com/urfave/cli"
+
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/bluemix/terminal"
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
 	. "github.com/IBM/ibmcloud-cos-cli/i18n"
 	"github.com/IBM/ibmcloud-cos-cli/utils"
-	"github.com/urfave/cli"
 )
 
 const (
@@ -78,6 +79,11 @@ var (
 		PostLoad: mapURLStyle,
 		Default:  mapURLStyle(config.ForcePathStyleDefault),
 	}
+
+	configOptionServiceEndpoint = ConfigOption{
+		Key:     config.ServiceEndpointURL,
+		Display: T("Service Endpoint"),
+	}
 )
 
 // ConfigList Lists current config values
@@ -113,6 +119,8 @@ func ConfigList(c *cli.Context) error {
 		configOptionAuthenticationMethod,
 		// url style
 		configOptionURLStyle,
+		// service endpoint
+		configOptionServiceEndpoint,
 	}
 
 	// builds a table with the config values to display
@@ -794,5 +802,64 @@ func ConfigSetURLStyle(c *cli.Context) error {
 		map[string]interface{}{"Style": terminal.EntityNameColor(boolToURLStyle(forcePathStyle))}))
 
 	// Return
+	return nil
+}
+
+// ConfigSetEndpointURL Sets the Service Endpoint and related actions
+func ConfigSetEndpointURL(c *cli.Context) error {
+	cosContext := c.App.Metadata[config.CosContextKey].(*utils.CosContext)
+
+	ui := cosContext.UI
+	conf := cosContext.Config
+
+	if c.NumFlags() > 1 || c.NArg() > 0 {
+		cli.ShowCommandHelpAndExit(c, c.Command.Name, 1)
+	}
+
+	if c.IsSet(flags.List) {
+		options := []ConfigOption{
+			{
+				Key: config.ServiceEndpointURL,
+			},
+		}
+		table := buildTable(ui, conf, options)
+		table.Print()
+		return nil
+	}
+
+	var serviceEndpoint string
+	var err error
+
+	if c.IsSet(flags.URL) {
+		serviceEndpoint = c.String(flags.URL)
+
+		err = conf.Set(config.ServiceEndpointURL, serviceEndpoint)
+		if err != nil {
+			ui.Failed(T("Unable to save new Service Endpoint URL."))
+			return cli.NewExitError("", 1)
+		}
+
+		conf.Set(config.LastUpdated, time.Now().Local().Format(config.StandardTimeFormat))
+
+		ui.Ok()
+		ui.Say(T("Successfully updated service endpoint URL.",
+			map[string]interface{}{"URL": terminal.EntityNameColor(serviceEndpoint)}))
+	}
+
+	if c.IsSet(flags.Clear) {
+
+		err = conf.Erase(config.ServiceEndpointURL)
+		if err != nil {
+			ui.Failed(T("Unable to clear service endpoint URL."))
+			return cli.NewExitError("", 1)
+		}
+
+		conf.Set(config.LastUpdated, time.Now().Local().Format(config.StandardTimeFormat))
+
+		ui.Ok()
+
+		ui.Say(T("Successfully cleared service endpoint URL"))
+	}
+
 	return nil
 }

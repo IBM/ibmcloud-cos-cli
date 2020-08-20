@@ -9,6 +9,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+	"github.com/urfave/cli"
+
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 	"github.com/IBM/ibmcloud-cos-cli/config"
@@ -17,9 +21,6 @@ import (
 	"github.com/IBM/ibmcloud-cos-cli/cos"
 	"github.com/IBM/ibmcloud-cos-cli/di/providers"
 	"github.com/IBM/ibmcloud-cos-cli/utils"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
-	"github.com/urfave/cli"
 )
 
 func TestObjectGetSunnyPath(t *testing.T) {
@@ -62,6 +63,8 @@ func TestObjectGetSunnyPath(t *testing.T) {
 	isRemoved := false
 
 	var inputCapture *s3.GetObjectInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockFileOperations.
 		On("GetFileInfo", mock.MatchedBy(func(path string) bool { return path == targetPath })).
@@ -182,6 +185,8 @@ func TestObjectGetSunnyPath2(t *testing.T) {
 	downloadPath := "/mock/downloads"
 	fileName := downloadPath + "/" + targetKey
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	providers.MockPluginConfig.
 		On(
 			"GetStringWithDefault",
@@ -280,6 +285,8 @@ func TestObjectGetFileAlreadyExists(t *testing.T) {
 
 	execName, _ := os.Executable()
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	providers.FakeUI.Inputs("n")
 
 	providers.MockPluginConfig.
@@ -342,6 +349,8 @@ func TestObjectGetDestinationIsDir(t *testing.T) {
 
 	downloadPath := "/mock/downloads"
 	fileName := downloadPath + "/" + targetKey
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockPluginConfig.
 		On(

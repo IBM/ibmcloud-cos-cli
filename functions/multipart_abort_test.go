@@ -7,15 +7,17 @@ import (
 	"os"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+	"github.com/urfave/cli"
+
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
+	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/commands"
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
 	"github.com/IBM/ibmcloud-cos-cli/cos"
 	"github.com/IBM/ibmcloud-cos-cli/di/providers"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
-	"github.com/urfave/cli"
 )
 
 func TestMPUAbortSunnyPath(t *testing.T) {
@@ -33,6 +35,8 @@ func TestMPUAbortSunnyPath(t *testing.T) {
 	targetUploadID := "TargetUploadID"
 
 	var capturedInput *s3.AbortMultipartUploadInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("AbortMultipartUpload", mock.MatchedBy(
@@ -91,6 +95,8 @@ func TestMPUAbortRainyPath(t *testing.T) {
 
 	var capturedInput *s3.AbortMultipartUploadInput
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	providers.MockS3API.
 		On("AbortMultipartUpload", mock.MatchedBy(
 			func(input *s3.AbortMultipartUploadInput) bool {
@@ -112,6 +118,8 @@ func TestMPUAbortRainyPath(t *testing.T) {
 	}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	// --- Assert ----
 	// assert s3 api called once per region ( since success is last )
@@ -145,6 +153,8 @@ func TestMPUAbortWithoutUploadID(t *testing.T) {
 
 	targetBucket := "TargetBucket"
 	targetKey := "TargetKey"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("AbortMultipartUpload", mock.MatchedBy(

@@ -32,6 +32,8 @@ const (
 	// ForcePathStyle
 	ForcePathStyle = "ForcePathStyle"
 	LabelURLStyle  = "URL Style"
+
+	ServiceEndpointURL = "ServiceEndpointURL"
 )
 
 // CLI App Context Metadata Keys

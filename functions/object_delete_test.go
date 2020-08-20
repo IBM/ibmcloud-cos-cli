@@ -9,6 +9,7 @@ import (
 
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
+	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/commands"
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
 	"github.com/IBM/ibmcloud-cos-cli/cos"
@@ -30,6 +31,8 @@ func TestObjectDeleteSunnyPath(t *testing.T) {
 
 	targetBucket := "TargetBucket"
 	targetKey := "TargetKey"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.On("WaitUntilObjectNotExists", mock.Anything).Return(nil).Once()
 
@@ -77,6 +80,8 @@ func TestObjectDeleteSunnyPathForce(t *testing.T) {
 	targetBucket := "TargetBucket"
 	targetKey := "TargetKey"
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	providers.MockS3API.On("WaitUntilObjectNotExists", mock.Anything).Return(nil).Once()
 
 	providers.MockS3API.
@@ -123,6 +128,8 @@ func TestObjectDeleteRainyPath(t *testing.T) {
 	targetBucket := "TargetBucket"
 	badKey := "NoSuchKey"
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	providers.MockS3API.
 		On("DeleteObject", mock.MatchedBy(
 			func(input *s3.DeleteObjectInput) bool {
@@ -167,6 +174,8 @@ func TestObjectDeleteWithoutKey(t *testing.T) {
 	}
 
 	targetBucket := "TargetBucket"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("DeleteObject", mock.MatchedBy(

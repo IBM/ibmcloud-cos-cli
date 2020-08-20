@@ -6,17 +6,15 @@ import (
 	"os"
 	"strings"
 
-	"github.com/IBM/ibm-cos-sdk-go/service/s3"
-	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3manager"
-
-	"github.com/IBM/ibmcloud-cos-cli/config"
-	"github.com/IBM/ibmcloud-cos-cli/render"
-
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/bluemix/terminal"
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/aws/session"
+	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3iface"
+	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3manager"
+	"github.com/IBM/ibmcloud-cos-cli/config"
+	"github.com/IBM/ibmcloud-cos-cli/render"
 )
 
 // CosContext Struct
@@ -66,7 +64,22 @@ func (c *CosContext) GetClient(overrideRegion string) (client s3iface.S3API, err
 	if region, err = c.GetCurrentRegion(overrideRegion); err != nil {
 		return
 	}
-	cfg := new(aws.Config).WithRegion(region)
+	serviceEndpoint, err := c.GetServiceEndpoint()
+	if err != nil {
+		return
+	}
+	splitURL := strings.Split(serviceEndpoint, ".")
+	var cloudIndex int
+	for i, n := range splitURL {
+		if n == "cloud" {
+			cloudIndex = i
+			break
+		}
+	}
+	if cloudIndex != 0 {
+		region = splitURL[cloudIndex-1]
+	}
+	cfg := new(aws.Config).WithRegion(region).WithEndpoint(serviceEndpoint)
 	sess := c.Session.Copy(cfg)
 	client = c.ClientGen(sess)
 	return
@@ -116,6 +129,11 @@ func (c *CosContext) GetDisplay(output string, isJSON bool) render.Display {
 		return c.JSONRender
 	}
 	return c.TextRender
+}
+
+// GetServiceEndpoint returns the config file value of the Service End Point URL
+func (c *CosContext) GetServiceEndpoint() (string, error) {
+	return c.Config.GetString(config.ServiceEndpointURL)
 }
 
 // FileOperations interface to support

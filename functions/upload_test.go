@@ -13,6 +13,7 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3manager"
 
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
+	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/commands"
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
 	"github.com/IBM/ibmcloud-cos-cli/cos"
@@ -53,6 +54,8 @@ func TestUploadSunnyPath(t *testing.T) {
 	isClosed := false
 
 	referenceUploader := new(s3manager.Uploader)
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockFileOperations.
 		On("ReadSeekerCloserOpen", mock.MatchedBy(func(fileName string) bool {

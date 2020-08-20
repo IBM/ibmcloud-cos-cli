@@ -7,15 +7,17 @@ import (
 	"os"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+	"github.com/urfave/cli"
+
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
+	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/commands"
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
 	"github.com/IBM/ibmcloud-cos-cli/cos"
 	"github.com/IBM/ibmcloud-cos-cli/di/providers"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
-	"github.com/urfave/cli"
 )
 
 func TestObjectCopySunnyPath(t *testing.T) {
@@ -31,6 +33,8 @@ func TestObjectCopySunnyPath(t *testing.T) {
 	targetBucket := "TargetBucket"
 	targetKey := "TargetKey"
 	targetCopySource := "SourceBucket/SourceKey"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("CopyObject", mock.MatchedBy(
@@ -77,6 +81,8 @@ func TestObjectCopyRainyPath(t *testing.T) {
 	targetCopySource := "SourceBucket/SourceKey"
 	badKey := "NoSuchKey"
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	providers.MockS3API.
 		On("CopyObject", mock.MatchedBy(
 			func(input *s3.CopyObjectInput) bool {
@@ -121,6 +127,8 @@ func TestObjectCopyWithoutCopySource(t *testing.T) {
 
 	targetBucket := "TargetBucket"
 	badKey := "NoSuchKey"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("CopyObject", mock.MatchedBy(

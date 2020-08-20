@@ -7,15 +7,17 @@ import (
 	"os"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+	"github.com/urfave/cli"
+
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
+	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/commands"
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
 	"github.com/IBM/ibmcloud-cos-cli/cos"
 	"github.com/IBM/ibmcloud-cos-cli/di/providers"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
-	"github.com/urfave/cli"
 )
 
 func TestMPUCompleteSunnyPath(t *testing.T) {
@@ -40,6 +42,8 @@ func TestMPUCompleteSunnyPath(t *testing.T) {
 	)
 
 	var capturedInput *s3.CompleteMultipartUploadInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("CompleteMultipartUpload", mock.MatchedBy(
@@ -98,6 +102,8 @@ func TestMPUCompleteRainyPath(t *testing.T) {
 	targetUploadID := "TargetUploadID"
 	targetMultipartUpload := "Parts=[{ETag=etag1,PartNumber=1},{ETag=etag2,PartNumber=2}]"
 
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
 	providers.MockS3API.
 		On("CompleteMultipartUpload", mock.MatchedBy(
 			func(input *s3.CompleteMultipartUploadInput) bool {
@@ -147,6 +153,8 @@ func TestMPUCompleteWithoutUploadID(t *testing.T) {
 	targetBucket := "TargetBucket"
 	targetKey := "TargetKey"
 	targetMultipartUpload := "Parts=[{ETag=etag1,PartNumber=1},{ETag=etag2,PartNumber=2}]"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
 		On("CompleteMultipartUpload", mock.MatchedBy(
