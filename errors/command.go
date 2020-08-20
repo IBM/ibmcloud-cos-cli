@@ -23,6 +23,7 @@ const (
 	InvalidValue
 	MissingRequiredFlag
 	InvalidNArg
+	InvalidDisplayValue
 )
 
 type CommandError struct {

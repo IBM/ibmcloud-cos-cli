@@ -40,6 +40,7 @@ const (
 	Metadata                    = "metadata"
 	MetadataDirective           = "metadata-directive"
 	MultipartUpload             = "multipart-upload"
+	Output                      = "output"
 	PageSize                    = "page-size"
 	PartNumber                  = "part-number"
 	PartNumberMarker            = "part-number-marker"

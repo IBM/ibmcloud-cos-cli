@@ -44,7 +44,7 @@ func TestPartUploadCopySunnyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.UploadPartCopy, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.PartUploadCopy, "--bucket", targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.CopySource, targetCopySource,
 		"--" + flags.PartNumber, targetPartNumber,
@@ -94,7 +94,7 @@ func TestPartUploadCopyRainyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.UploadPartCopy, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.PartUploadCopy, "--bucket", targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.CopySource, targetCopySource,
 		"--" + flags.PartNumber, targetPartNumber,
@@ -143,7 +143,7 @@ func TestPartUploadCopyWithoutCopySource(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.UploadPartCopy, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.PartUploadCopy, "--bucket", targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.PartNumber, targetPartNumber,
 		"--" + flags.UploadID, targetUploadID,

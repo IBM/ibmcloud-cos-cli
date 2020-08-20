@@ -42,7 +42,7 @@ func TestBucketDeleteSunnyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.DeleteBucket, "--bucket", targetBucket, "--region", "REG"}
+	os.Args = []string{"-", commands.BucketDelete, "--bucket", targetBucket, "--region", "REG"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
@@ -84,7 +84,7 @@ func TestBucketDeleteSunnyPathForce(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.DeleteBucket, "--bucket", targetBucket, "--region", "REG", "--force"}
+	os.Args = []string{"-", commands.BucketDelete, "--bucket", targetBucket, "--region", "REG", "--force"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
@@ -126,7 +126,7 @@ func TestBucketDeleteWithoutBucket(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.DeleteBucket,
+	os.Args = []string{"-", commands.BucketDelete,
 		"--region", "REG",
 		"--force"}
 	//call plugin

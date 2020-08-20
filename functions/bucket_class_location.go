@@ -66,7 +66,7 @@ func BucketClassLocation(c *cli.Context) (err error) {
 	}
 
 	// Display output
-	err = cosContext.GetDisplay(c.Bool(flags.JSON)).Display(input, result, nil)
+	err = cosContext.GetDisplay(c.String(flags.Output), c.Bool(flags.JSON)).Display(input, result, nil)
 
 	// Return
 	return

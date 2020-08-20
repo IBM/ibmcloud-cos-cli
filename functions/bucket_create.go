@@ -69,7 +69,7 @@ func BucketCreate(c *cli.Context) (err error) {
 		return
 	}
 
-	err = cosContext.GetDisplay(c.Bool(flags.JSON)).Display(input, output, nil)
+	err = cosContext.GetDisplay(c.String(flags.Output), c.Bool(flags.JSON)).Display(input, output, nil)
 
 	return
 }

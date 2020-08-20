@@ -52,12 +52,12 @@
     "translation": "Un délimiteur (DELIMITER) est un caractère que vous utilisez pour regrouper des clés."
   },
   {
-    "id": "A `MAP` using JSON syntax. See IBM Cloud Documentation.",
-    "translation": "A `MAP` using JSON syntax. See IBM Cloud Documentation."
-  },
-  {
     "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
     "translation": "'STRUCTURE' utilisant la syntaxe JSON dans un fichier. Voir la documentation IBM Cloud."
+  },
+  {
+    "id": "A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "'STRUCTURE' utilisant la syntaxe JSON. Voir la documentation IBM Cloud."
   },
   {
     "id": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation.",
@@ -261,7 +261,7 @@
   },
   {
     "id": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.",
-    "translation": "Argument non valide. Un CRN d'instance de service valide doit être configuré pour créer ou répertorier des compartiments.  Vérifier le CRN à l'aide de la commande ‘ibmcloud cos config list’."
+    "translation": "Argument non valide.  Un CRN d'instance de service valide doit être configuré pour créer ou répertorier des compartiments.  Vérifier le CRN à l'aide de la commande ‘ibmcloud cos config list’."
   },
   {
     "id": "Invalid boolean balue in Flag '--%s'",
@@ -354,6 +354,10 @@
   {
     "id": "Operation canceled.",
     "translation": "Opération annulée."
+  },
+  {
+    "id": "Output `FORMAT` can be only json or text.",
+    "translation": "Le 'FORMAT' de sortie ne peut être que json ou text."
   },
   {
     "id": "Output returned in raw JSON format.",

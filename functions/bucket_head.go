@@ -67,7 +67,7 @@ func BucketHead(c *cli.Context) (err error) {
 	additionalParameters := map[string]interface{}{"region": region}
 
 	// Display either in JSON or text
-	err = cosContext.GetDisplay(c.Bool(flags.JSON)).Display(input, output, additionalParameters)
+	err = cosContext.GetDisplay(c.String(flags.Output), c.Bool(flags.JSON)).Display(input, output, additionalParameters)
 
 	// Return
 	return

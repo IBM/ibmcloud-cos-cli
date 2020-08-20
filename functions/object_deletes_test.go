@@ -41,7 +41,7 @@ func TestObjectDeletesSunnyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.DeleteObjects, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.ObjectsDelete, "--bucket", targetBucket,
 		"--" + flags.Delete, targetDelete,
 		"--" + flags.Region, "REG"}
 	//call  plugin
@@ -84,7 +84,7 @@ func TestObjectDeletesRainyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.DeleteObjects, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.ObjectsDelete, "--bucket", targetBucket,
 		"--" + flags.Delete, BadDelete,
 		"--" + flags.Region, "REG"}
 	//call plugin
@@ -127,7 +127,7 @@ func TestObjectDeletesBadJson(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.DeleteObjects, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.ObjectsDelete, "--bucket", targetBucket,
 		"--" + flags.Delete, BadDelete,
 		"--" + flags.Region, "REG"}
 	//call plugin
@@ -170,7 +170,7 @@ func TestObjectDeletesWithoutDelete(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.DeleteObjects, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.ObjectsDelete, "--bucket", targetBucket,
 		"--region", "REG"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))

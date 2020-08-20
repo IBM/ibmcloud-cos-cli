@@ -47,7 +47,7 @@ func TestBucketCreateSunnyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.CreateBucket,
+	os.Args = []string{"-", commands.BucketCreate,
 		"--bucket", targetBucket,
 		"--region", targetRegion,
 		"--class", targetClass,
@@ -101,7 +101,7 @@ func TestBucketCreateRainyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.CreateBucket,
+	os.Args = []string{"-", commands.BucketCreate,
 		"--bucket", targetBucket,
 		"--region", targetRegion,
 	}
@@ -146,7 +146,7 @@ func TestBucketCreateWithoutBucket(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.CreateBucket,
+	os.Args = []string{"-", commands.BucketCreate,
 		"--region", targetRegion,
 	}
 	//call plugin

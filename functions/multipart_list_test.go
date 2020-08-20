@@ -58,7 +58,7 @@ func TestMultiPartListHappyPathNoUploads(t *testing.T) {
 	// --- Act ----
 	// set os args
 	os.Args = []string{"-",
-		commands.ListMultipartUploads,
+		commands.MultipartUploads,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Delimiter, targetDelimiter,
 		"--" + flags.EncodingType, targetEncodingType,
@@ -119,7 +119,7 @@ func TestMultiPartListWhenPageBiggerThanMaxRequestMax(t *testing.T) {
 	// --- Act ----
 	// set os args
 	os.Args = []string{"-",
-		commands.ListMultipartUploads,
+		commands.MultipartUploads,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.MaxItems, strconv.FormatInt(targetMaxUploads, 10),
 		"--" + flags.PageSize, "100",
@@ -173,7 +173,7 @@ func TestMultiPartListWhenPageSmallerThanMaxRequestPage(t *testing.T) {
 	// --- Act ----
 	// set os args
 	os.Args = []string{"-",
-		commands.ListMultipartUploads,
+		commands.MultipartUploads,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.MaxItems, "1000",
 		"--" + flags.PageSize, strconv.FormatInt(targetMaxUploads, 10),
@@ -234,7 +234,7 @@ func TestMultiPartListPaginate(t *testing.T) {
 	// --- Act ----
 	// set os args
 	os.Args = []string{"-",
-		commands.ListMultipartUploads,
+		commands.MultipartUploads,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.MaxItems, strconv.Itoa(targetMaxItems),
 		"--" + flags.PageSize, strconv.Itoa(targetPageSz),

@@ -52,12 +52,12 @@
     "translation": "`DELIMITER` es un carácter que se utiliza para agrupar claves."
   },
   {
-    "id": "A `MAP` using JSON syntax. See IBM Cloud Documentation.",
-    "translation": "A `MAP` using JSON syntax. See IBM Cloud Documentation."
-  },
-  {
     "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
     "translation": "Estructura `STRUCTURE` que utiliza sintaxis JSON en un archivo. Consulte la documentación de IBM Cloud."
+  },
+  {
+    "id": "A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "Estructura `STRUCTURE` que utiliza sintaxis JSON. Consulte la documentación de IBM Cloud."
   },
   {
     "id": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation.",
@@ -354,6 +354,10 @@
   {
     "id": "Operation canceled.",
     "translation": "Operación cancelada."
+  },
+  {
+    "id": "Output `FORMAT` can be only json or text.",
+    "translation": "El formato `FORMAT` de salida solo puede ser json o texto."
   },
   {
     "id": "Output returned in raw JSON format.",

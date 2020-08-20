@@ -42,7 +42,7 @@ func TestObjectCopySunnyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.CopyObject, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.ObjectCopy, "--bucket", targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.CopySource, targetCopySource,
 		"--region", "REG"}
@@ -88,7 +88,7 @@ func TestObjectCopyRainyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.CopyObject, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.ObjectCopy, "--bucket", targetBucket,
 		"--" + flags.CopySource, targetCopySource,
 		"--" + flags.Key, badKey,
 		"--region", "REG"}
@@ -133,7 +133,7 @@ func TestObjectCopyWithoutCopySource(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.CopyObject, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.ObjectCopy, "--bucket", targetBucket,
 		"--" + flags.Key, badKey,
 		"--region", "REG"}
 	//call plugin

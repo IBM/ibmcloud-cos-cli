@@ -46,7 +46,7 @@ func TestMPUAbortSunnyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.AbortMultipartUpload,
+	os.Args = []string{"-", commands.MultipartUploadAbort,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.UploadID, targetUploadID,
@@ -103,7 +103,7 @@ func TestMPUAbortRainyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.AbortMultipartUpload,
+	os.Args = []string{"-", commands.MultipartUploadAbort,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.UploadID, targetUploadID,
@@ -157,7 +157,7 @@ func TestMPUAbortWithoutUploadID(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.AbortMultipartUpload,
+	os.Args = []string{"-", commands.MultipartUploadAbort,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.Region, "us",

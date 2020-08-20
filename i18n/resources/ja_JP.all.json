@@ -52,16 +52,16 @@
     "translation": "`DELIMITER` はキーをグループ化するために使用する文字です。"
   },
   {
-    "id": "A `MAP` using JSON syntax. See IBM Cloud Documentation.",
-    "translation": "A `MAP` using JSON syntax. See IBM Cloud Documentation."
+    "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
+    "translation": "ファイル内の JSON 構文を使用する `STRUCTURE` です。IBM Cloud 資料を参照してください。"
   },
   {
-    "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
-    "translation": "ファイル内で JSON 構文を使用する `STRUCTURE`。 IBM Cloud の資料を参照してください。"
+    "id": "A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "JSON 構文を使用する `STRUCTURE` です。IBM Cloud 資料を参照してください。"
   },
   {
     "id": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation.",
-    "translation": "省略表現または JSON 構文のいずれかを使用する `STRUCTURE`。 IBM Cloud の資料を参照してください。"
+    "translation": "省略表現または JSON 構文のいずれかを使用する `STRUCTURE` です。IBM Cloud 資料を参照してください。"
   },
   {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
@@ -93,7 +93,7 @@
   },
   {
     "id": "Bad Flag Syntax in '--%s'",
-    "translation": "'--%s' に不適切なフラグ構文があります。"
+    "translation": "'--%s' 内のフラグ構文が不適切です"
   },
   {
     "id": "Bucket '{{.Bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
@@ -117,11 +117,11 @@
   },
   {
     "id": "Command does not support Flag '--%s'",
-    "translation": "コマンドがフラグ '--%s' をサポートしません。"
+    "translation": "コマンドがフラグ '--%s' をサポートしません"
   },
   {
     "id": "Common Prefixes:",
-    "translation": "共通の接頭部:"
+    "translation": "共通接頭部:"
   },
   {
     "id": "Complete an existing multipart upload instance.",
@@ -193,7 +193,7 @@
   },
   {
     "id": "Details about bucket ",
-    "translation": "バケットについての詳細: "
+    "translation": "バケットについての詳細"
   },
   {
     "id": "Details about your multipart upload instance:",
@@ -221,7 +221,7 @@
   },
   {
     "id": "Download objects from S3 concurrently.",
-    "translation": "並行して S3 からオブジェクトをダウンロードします。"
+    "translation": "オブジェクトを S3 から同時にダウンロードします。"
   },
   {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
@@ -237,7 +237,7 @@
   },
   {
     "id": "Flag '--%s' requires a value",
-    "translation": "フラグ '--%s' に値が必要です。"
+    "translation": "フラグ '--%s' に値が必要です"
   },
   {
     "id": "Found ",
@@ -261,15 +261,15 @@
   },
   {
     "id": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.",
-    "translation": "引数が無効です。バケットを作成またはリストするには、有効なサービス・インスタンス CRN を構成する必要があります。「ibmcloud cos config list」を使用して CRN を確認してください。"
+    "translation": "無効な引数です。バケットを作成またはリストするために、有効なサービス・インスタンス CRN を構成する必要があります。‘ibmcloud cos config list’を使用して CRN を確認してください。"
   },
   {
     "id": "Invalid boolean balue in Flag '--%s'",
-    "translation": "フラグ '--%s' に無効なブール値があります。"
+    "translation": "フラグ '--%s' に無効なブール値があります"
   },
   {
     "id": "Invalid boolean flag '--%s'",
-    "translation": "無効なブールフラグ '--%s'"
+    "translation": "ブール・フラグ '--%s' が無効です"
   },
   {
     "id": "It was last updated on {{.lastupdated}}.",
@@ -305,7 +305,7 @@
   },
   {
     "id": "List all the extended buckets with pagination support.",
-    "translation": "すべての拡張バケットをページ編集サポート付きでリストします。"
+    "translation": "ページネーション・サポートを持つすべての拡張バケットを表示します。"
   },
   {
     "id": "List configuration",
@@ -317,7 +317,7 @@
   },
   {
     "id": "Location Constraint",
-    "translation": "場所の制約"
+    "translation": "ロケーション制約"
   },
   {
     "id": "Mandatory Flag '--%s' is missing",
@@ -325,7 +325,7 @@
   },
   {
     "id": "Max number of `PARTS` which will be uploaded to S3 that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.",
-    "translation": "アップロード対象のオブジェクトのパーツ・サイズを計算する S3 にアップロードされる `PARTS` の最大数。  制限は 10,000 パーツです。"
+    "translation": "アップロードされるオブジェクトのパーツ・サイズを計算する S3 にアップロードされる `PARTS` の最大数。上限は 10,000 パーツです。"
   },
   {
     "id": "Name",
@@ -356,12 +356,16 @@
     "translation": "操作がキャンセルされました。"
   },
   {
+    "id": "Output `FORMAT` can be only json or text.",
+    "translation": "出力 `FORMAT` は JSON かテキストのみです。"
+  },
+  {
     "id": "Output returned in raw JSON format.",
-    "translation": "未加工 JSON フォーマットで返される出力。"
+    "translation": "未加工 JSON フォーマットで返された出力。"
   },
   {
     "id": "Override the default location providing an OUTFILE parameter",
-    "translation": "OUTFILE パラメーターを提供することで、デフォルトの場所をオーバーライドします"
+    "translation": "OUTFILE パラメーターを指定することで、デフォルト・ロケーションをオーバーライドします"
   },
   {
     "id": "Part Number",
@@ -457,7 +461,7 @@
   },
   {
     "id": "Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.",
-    "translation": "この値を True に設定すると、失敗時に SDK が AbortMultipartUpload を呼び出さなくなり、正常にアップロードされたすべてのパーツは手動で復元するために S3 に置かれたままになります。"
+    "translation": "この値を true に設定すると、SDK が失敗時に  AbortMultipartUpload を呼び出さなくなり、正常にアップロードされたすべてのパーツが手動で復元できるように S3 上に残ります。"
   },
   {
     "id": "Size",
@@ -525,7 +529,7 @@
   },
   {
     "id": "Successfully downloaded '{{.Key}}' from bucket '{{.Bucket}}'",
-    "translation": "'{{.Key}}' がバケット '{{.Bucket}}' から正常にダウンロードされました。"
+    "translation": "'{{.Key}}' がバケット '{{.Bucket}}' から正常にダウンロードされました"
   },
   {
     "id": "Successfully saved HMAC Credentials to file.",
@@ -533,7 +537,7 @@
   },
   {
     "id": "Successfully saved S3 {{.Style}} style hosting option. CLI calls will use {{.Style}} style requests.",
-    "translation": "S3 {{.Style}} スタイルのホスティング・オプションが正常に保存されました。 CLI 呼び出しでは {{.Style}} スタイル要求が使用されます。"
+    "translation": "S3 {{.Style}} スタイル・ホスティング・オプションが正常に保存されました。CLI 呼び出しでは {{.Style}} スタイル要求が使用されます。"
   },
   {
     "id": "Successfully saved default region. The program will look for buckets in the region {{.region}}.",
@@ -589,7 +593,7 @@
   },
   {
     "id": "The `PATH` to the file to upload.",
-    "translation": "アップロードするファイルへの `PATH`。"
+    "translation": "アップロードするファイルの `PATH` です。"
   },
   {
     "id": "The `REGION` where the bucket is present. If this flag is not provided, the program will use the default option specified in config.",
@@ -605,7 +609,7 @@
   },
   {
     "id": "The buffer `SIZE` (in bytes) to use when buffering data into chunks and ending them as parts to S3. The minimum allowed part size is 5MB.",
-    "translation": "データをチャンクにバッファリングして S3 へのパーツとして帰着させるときに使用するバッファー `SIZE` (バイト単位)。 許可される最小パーツ・サイズは 5MB です。"
+    "translation": "データをチャンクにバッファリングし、S3 へのパーツとして完成させるときに使用するバッファー `SIZE` (バイト単位) です。許可される最小パーツ・サイズは 5MB です。"
   },
   {
     "id": "The download destination '{{.Location}}' is a directory.",
@@ -621,7 +625,7 @@
   },
   {
     "id": "The number of goroutines to spin up in parallel per call to Upload when sending parts. Default value is 5.",
-    "translation": "パーツの送信時に、アップロードの呼び出しと並行してアップロード/ダウンロードするパーツの数。 デフォルト値は 5 です。"
+    "translation": "パーツの送信時、アップロードの呼び出しがあるたびに同時に立ち上げる goroutines の数です。デフォルト値は 5 です。"
   },
   {
     "id": "The operation will do not ask for confirmation.",
@@ -645,7 +649,7 @@
   },
   {
     "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again.",
-    "translation": "指定したバケットが IBM Cloud アカウントに見つかりませんでした。 これは、Region を誤って指定したことが原因です。バケットの正しい Region を指定して、もう一度実行してください。"
+    "translation": "指定したバケットが IBM Cloud アカウントに見つかりませんでした。 これは、誤った Region を指定したことが原因です。バケットの正しい Region を指定して、もう一度実行してください。"
   },
   {
     "id": "The specified download location does not exist on your system. Try again with a valid download path.",
@@ -657,7 +661,7 @@
   },
   {
     "id": "The specified key does not exist.",
-    "translation": "指定されたキーが存在しません。"
+    "translation": "指定したキーが存在しません。"
   },
   {
     "id": "The total `NUMBER` of items to return in the command's output.",
@@ -665,7 +669,7 @@
   },
   {
     "id": "The value in flag '--%s' is invalid",
-    "translation": "フラグ '--%s' 内の値が無効です。"
+    "translation": "フラグ '--%s' の値は無効です"
   },
   {
     "id": "This operation lists in-progress multipart uploads.",
@@ -705,7 +709,7 @@
   },
   {
     "id": "URL `STYLE` can be VHost or Path.",
-    "translation": "URL `STYLE` は VHost または Path にできます。"
+    "translation": "URL `STYLE` は VHost または Path のいずれかです。"
   },
   {
     "id": "Unable to clear regions endpoint URL.",
@@ -733,7 +737,7 @@
   },
   {
     "id": "Unable to parse URL style.",
-    "translation": "URL スタイルを構文解析できません。"
+    "translation": "URL スタイルを解析できません。"
   },
   {
     "id": "Unable to parse authentication method.",
@@ -745,7 +749,7 @@
   },
   {
     "id": "Unable to read new URL Style value.",
-    "translation": "新規 URL スタイルの値を読み取れません。"
+    "translation": "新規 URL スタイル値を読み取れません。"
   },
   {
     "id": "Unable to read new default download location.",
@@ -801,7 +805,7 @@
   },
   {
     "id": "Upload objects from S3 concurrently.",
-    "translation": "並行して S3 にオブジェクトをアップロードします。"
+    "translation": "オブジェクトを S3 から同時にアップロードします。"
   },
   {
     "id": "UploadId",

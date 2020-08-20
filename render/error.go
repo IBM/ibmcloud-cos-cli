@@ -73,12 +73,15 @@ var commandErrorCausesStrings = map[errors.CommandErrorCause]string{
 	errors.InvalidValue:        T("The value in flag '--%s' is invalid"),
 	errors.MissingRequiredFlag: T("Mandatory Flag '--%s' is missing"),
 	errors.InvalidNArg:         "Unexpected number of arguments in command '%s'.",
+	errors.InvalidDisplayValue: "Unsupported output format for command '%s', only ‘JSON’ and ‘TEXT’ are supported.",
 }
 
 func getMessageFromCommandError(commandError *errors.CommandError) string {
 	message := commandErrorCausesStrings[commandError.Cause]
 	switch commandError.Cause {
 	case errors.InvalidNArg:
+		message = fmt.Sprintf(message, commandError.CLIContext.Command.Name)
+	case errors.InvalidDisplayValue:
 		message = fmt.Sprintf(message, commandError.CLIContext.Command.Name)
 	default:
 		message = fmt.Sprintf(message, commandError.Flag)

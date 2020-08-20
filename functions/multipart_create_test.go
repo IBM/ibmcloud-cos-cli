@@ -63,7 +63,7 @@ func TestMPUCreateSunnyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.CreateMultipartUpload,
+	os.Args = []string{"-", commands.MultipartUploadCreate,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.CacheControl, targetCacheControl,
@@ -145,7 +145,7 @@ func TestMPUCreateRainyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.CreateMultipartUpload,
+	os.Args = []string{"-", commands.MultipartUploadCreate,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.CacheControl, targetCacheControl,
@@ -207,7 +207,7 @@ func TestMPUCreateWithoutKey(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.CreateMultipartUpload,
+	os.Args = []string{"-", commands.MultipartUploadCreate,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Region, "us",
 	}

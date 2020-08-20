@@ -54,7 +54,7 @@ func TestListBucketsExtendedHappyPath(t *testing.T) {
 	// --- Act ----
 	// set os args
 	os.Args = []string{"-",
-		commands.ListBucketsExtended,
+		commands.BucketsExtended,
 		"--" + flags.Prefix, targetPrefix,
 		"--" + flags.Marker, targetMarker,
 	}
@@ -107,7 +107,7 @@ func TestBucketsListExtendedWhenPageBiggerThanMaxRequestMax(t *testing.T) {
 	// --- Act ----
 	// set os args
 	os.Args = []string{"-",
-		commands.ListBucketsExtended,
+		commands.BucketsExtended,
 		"--" + flags.MaxItems, strconv.FormatInt(targetMaxKeys, 10),
 		"--" + flags.PageSize, "100",
 	}
@@ -160,7 +160,7 @@ func TestLBEWhenPageSmallerThanMaxRequestPage(t *testing.T) {
 	// --- Act ----
 	// set os args
 	os.Args = []string{"-",
-		commands.ListBucketsExtended,
+		commands.BucketsExtended,
 		"--" + flags.MaxItems, "1000",
 		"--" + flags.PageSize, strconv.FormatInt(targetMaxKeys, 10),
 	}
@@ -220,7 +220,7 @@ func TestBucketsListExtendedPaginate(t *testing.T) {
 	// --- Act ----
 	// set os args
 	os.Args = []string{"-",
-		commands.ListBucketsExtended,
+		commands.BucketsExtended,
 		"--" + flags.MaxItems, strconv.Itoa(targetMaxItems),
 		"--" + flags.PageSize, strconv.Itoa(targetPageSz),
 	}

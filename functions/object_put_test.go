@@ -41,7 +41,7 @@ func TestObjectPutSunnyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.PutObject, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.ObjectPut, "--bucket", targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.Region, "REG"}
 	//call  plugin
@@ -85,7 +85,7 @@ func TestObjectPutRainyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.PutObject, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.ObjectPut, "--bucket", targetBucket,
 		"--" + flags.Key, badKey,
 		"--region", "REG"}
 	//call plugin
@@ -128,7 +128,7 @@ func TestObjectPutWithoutKey(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.PutObject, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.ObjectPut, "--bucket", targetBucket,
 		"--region", "REG"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))

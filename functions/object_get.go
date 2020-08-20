@@ -140,7 +140,7 @@ func ObjectGet(c *cli.Context) (err error) {
 
 	// render the result in JSON or Textual format
 	// depending if the flag JSON was passed in the command invocation
-	err = cosContext.GetDisplay(c.Bool(flags.JSON)).Display(input, output, nil)
+	err = cosContext.GetDisplay(c.String(flags.Output), c.Bool(flags.JSON)).Display(input, output, nil)
 
 	// Return
 	return

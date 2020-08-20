@@ -42,6 +42,7 @@ const (
 	Metadata                    = "Metadata"
 	MetadataDirective           = "MetadataDirective"
 	MultipartUpload             = "MultipartUpload"
+	Output                      = "Output"
 	PartNumber                  = "PartNumber"
 	PartNumberMarker            = "PartNumberMarker"
 	PartSize                    = "PartSize"

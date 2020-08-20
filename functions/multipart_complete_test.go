@@ -53,7 +53,7 @@ func TestMPUCompleteSunnyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.CompleteMultipartUpload,
+	os.Args = []string{"-", commands.MultipartUploadComplete,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.UploadID, targetUploadID,
@@ -109,7 +109,7 @@ func TestMPUCompleteRainyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.CompleteMultipartUpload,
+	os.Args = []string{"-", commands.MultipartUploadComplete,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.UploadID, targetUploadID,
@@ -159,7 +159,7 @@ func TestMPUCompleteWithoutUploadID(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.CompleteMultipartUpload,
+	os.Args = []string{"-", commands.MultipartUploadComplete,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.MultipartUpload, targetMultipartUpload,

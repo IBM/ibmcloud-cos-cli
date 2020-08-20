@@ -39,7 +39,7 @@ func TestBucketHeadSunnyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.HeadBucket, "--bucket", targetBucket, "--region", "REG"}
+	os.Args = []string{"-", commands.BucketHead, "--bucket", targetBucket, "--region", "REG"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
@@ -79,7 +79,7 @@ func TestBucketHeadRainyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.HeadBucket, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.BucketHead, "--bucket", targetBucket,
 		"--region", "REG"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
@@ -120,7 +120,7 @@ func TestBucketHeadWithoutBucket(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.HeadBucket,
+	os.Args = []string{"-", commands.BucketHead,
 		"--region", "REG"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))

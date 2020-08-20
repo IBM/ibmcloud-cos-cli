@@ -43,7 +43,7 @@ func TestGetBucketClassSunnyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", "get-bucket-class", "--bucket", "bucket"}
+	os.Args = []string{"-", "bucket-class-get", "--bucket", "bucket"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
@@ -89,7 +89,7 @@ func TestGetBucketClassRainyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", "get-bucket-class", "--bucket", "bucket"}
+	os.Args = []string{"-", "bucket-class-get", "--bucket", "bucket"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
@@ -135,7 +135,7 @@ func TestGetBucketLocationSunnyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", "get-bucket-location", "--bucket", "bucket"}
+	os.Args = []string{"-", "bucket-location-get", "--bucket", "bucket"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
@@ -183,7 +183,7 @@ func TestGetBucketLocationRainyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", "get-bucket-location", "--bucket", "bucket"}
+	os.Args = []string{"-", "bucket-location-get", "--bucket", "bucket"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
@@ -231,7 +231,7 @@ func TestGetBucketLocationWithoutBucket(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", "get-bucket-location"}
+	os.Args = []string{"-", "bucket-location-get"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 

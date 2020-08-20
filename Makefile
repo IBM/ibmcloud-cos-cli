@@ -22,14 +22,8 @@ SupportedOperatingSystems = darwin linux windows ppc64le
 
 .DEFAULT_GOAL := build
 
-build: vendor
+build:
 	CGO_ENABLED=0 go build -o build/${APP}-${GOHOSTOS}-${GOHOSTARCH} -ldflags "-s -w" -a -installsuffix cgo .
-
-${GOPATH}/bin/dep:
-	go get -v github.com/golang/dep/cmd/dep
-
-vendor: ${GOPATH}/bin/dep
-	${GOPATH}/bin/dep ensure -v -vendor-only
 
 clean:
 	-go clean
@@ -49,7 +43,7 @@ windows : EXT := .exe
 
 buildSupported: $(SupportedOperatingSystems)
 
-${SupportedOperatingSystems}: vendor
+${SupportedOperatingSystems}:
 	if [ "$@" != "ppc64le" ]; then\
 	    CGO_ENABLED=0 GOOS=$@ GOARCH=amd64 go build -o build/${APP}-$@-amd64${EXT} -ldflags "-s -w" -a -installsuffix cgo . ;\
 	else\
@@ -61,16 +55,13 @@ all: $(SupportedOperatingSystems)
 test :
 	go test -v -tags unit ./functions
 
-
 #### experimental cli go mod support ###
 ## populate vendor folder
 vendorWithMod :
-	GO111MODULE=on \
 	go mod vendor
 
 ## Build using go mod
 buildWithMod: vendorWithMod
-	GO111MODULE=on \
 	GOFLAGS="-mod=vendor $$GOFLAGS" \
 	CGO_ENABLED=0 \
 	go build -o build/${APP}-${GOHOSTOS}-${GOHOSTARCH} -ldflags "-s -w" -a -installsuffix cgo .

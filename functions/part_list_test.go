@@ -56,7 +56,7 @@ func TestListPartsHappyPath(t *testing.T) {
 	// --- Act ----
 	// set os args
 	os.Args = []string{"-",
-		commands.ListParts,
+		commands.Parts,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.UploadID, targetUploadId,
@@ -115,7 +115,7 @@ func TestPartsListWhenPageBiggerThanMaxRequestMax(t *testing.T) {
 	// --- Act ----
 	// set os args
 	os.Args = []string{"-",
-		commands.ListParts,
+		commands.Parts,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.UploadID, targetUploadId,
@@ -173,7 +173,7 @@ func TestListPartsWhenPageSmallerThanMaxRequestPage(t *testing.T) {
 	// --- Act ----
 	// set os args
 	os.Args = []string{"-",
-		commands.ListParts,
+		commands.Parts,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.UploadID, targetUploadId,
@@ -238,7 +238,7 @@ func TestPartsListPaginate(t *testing.T) {
 	// --- Act ----
 	// set os args
 	os.Args = []string{"-",
-		commands.ListParts,
+		commands.Parts,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.UploadID, targetUploadId,

@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"fmt"
 	"io"
 	"os"
 	"strings"
@@ -95,9 +96,23 @@ func (c *CosContext) GetUploader(overrideRegion string,
 	return
 }
 
-// GetClient generates an S3 client to make requests through Go SDK
-func (c *CosContext) GetDisplay(isJSON bool) render.Display {
-	if isJSON {
+// GetDisplay generates output either in text or json format
+func (c *CosContext) GetDisplay(output string, isJSON bool) render.Display {
+
+	// parse output string
+	if output != "" {
+		if strings.EqualFold(output, "json") {
+			return c.JSONRender
+		} else if strings.EqualFold(output, "text") {
+			return c.TextRender
+		} else {
+			fmt.Println("error")
+			// force error here
+		}
+	}
+
+	// If output is not used, check for the boolean value
+	if isJSON || output == "json" {
 		return c.JSONRender
 	}
 	return c.TextRender

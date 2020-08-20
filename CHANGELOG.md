@@ -1,5 +1,37 @@
 # CHANGELOG
 
+## 1.1.4
+
+### Content
+
+* COS CLI support for "One Cloud Compliance"
+  * The following commands have changed names.  Legacy names remain for backwards compatibility but are deemed deprecated.
+    * `abort-multipart-upload` -> `multipart-upload-abort`
+    * `complete-multipart-upload` -> `multipart-upload-complete`
+    * `copy-object` -> `object-copy`
+    * `create-bucket` -> `bucket-create`
+    * `create-multipart-upload` -> `multipart-upload-create`
+    * `delete-bucket` -> `bucket-delete`
+    * `delete-bucket-cors` -> `bucket-cors-delete`
+    * `delete-object` -> `object-delete`
+    * `delete-objects` -> `objects-delete`
+    * `get-bucket-cors` -> `bucket-cors-get`
+    * `get-bucket-location` -> `bucket-location-get`
+    * `get-object` -> `object-get`
+    * `head-bucket` -> `bucket-head`
+    * `head-object` -> `object-head`
+    * `list-buckets` -> `buckets`
+    * `list-multipart-uploads` -> `multipart-uploads`
+    * `list-objects` -> `objects`
+    * `list-parts` -> `parts`
+    * `put-bucket-cors` -> `bucket-cors-put`
+    * `put-object` -> `object-put`
+    * `upload-part` -> `part-upload`
+    * `upload-part-copy` -> `part-copy-upload`
+  * The `--json` flag has changed to `--output json`.  `--json` remains for backwards compatibility but is deemed deprecated.
+
+#### Defect Fixes
+
 ## 1.1.3
 
 ### Content

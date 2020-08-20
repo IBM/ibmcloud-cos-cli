@@ -83,7 +83,7 @@ func ObjectPut(c *cli.Context) (err error) {
 	}
 
 	// Display either in JSON or text
-	err = cosContext.GetDisplay(c.Bool(flags.JSON)).Display(input, output, nil)
+	err = cosContext.GetDisplay(c.String(flags.Output), c.Bool(flags.JSON)).Display(input, output, nil)
 
 	// Return
 	return

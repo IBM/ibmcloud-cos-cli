@@ -52,12 +52,12 @@
     "translation": "A `DELIMITER` is a character you use to group keys."
   },
   {
-    "id": "A `MAP` using JSON syntax. See IBM Cloud Documentation.",
-    "translation": "A `MAP` using JSON syntax. See IBM Cloud Documentation."
-  },
-  {
     "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
     "translation": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation."
+  },
+  {
+    "id": "A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation."
   },
   {
     "id": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation.",
@@ -354,6 +354,10 @@
   {
     "id": "Operation canceled.",
     "translation": "Operation canceled."
+  },
+  {
+    "id": "Output `FORMAT` can be only json or text.",
+    "translation": "Output `FORMAT` can be only json or text."
   },
   {
     "id": "Output returned in raw JSON format.",

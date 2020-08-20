@@ -40,7 +40,7 @@ func TestBucketCorsGetSunnyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.GetBucketCors, "--bucket", targetBucket, "--region", "REG"}
+	os.Args = []string{"-", commands.BucketCorsGet, "--bucket", targetBucket, "--region", "REG"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
@@ -81,7 +81,7 @@ func TestBucketCorsGetEmptyStaticCreds(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.GetBucketCors, "--bucket", targetBucket, "--region", "REG"}
+	os.Args = []string{"-", commands.BucketCorsGet, "--bucket", targetBucket, "--region", "REG"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
@@ -121,7 +121,7 @@ func TestBucketCorsGetWithoutBucket(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.GetBucketCors,
+	os.Args = []string{"-", commands.BucketCorsGet,
 		"--region", "REG"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))

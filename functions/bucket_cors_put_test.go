@@ -90,7 +90,7 @@ func TestBucketCorsPutSunnyPathJSONString(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.PutBucketCors, "--bucket", targetBucket, "--region", "REG", "--cors-configuration",
+	os.Args = []string{"-", commands.BucketCorsPut, "--bucket", targetBucket, "--region", "REG", "--cors-configuration",
 		corsRulesJSONStr}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
@@ -149,7 +149,7 @@ func TestBucketCorsPutSunnyPathJSONFile(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.PutBucketCors, "--bucket", targetBucket, "--region", "REG", "--cors-configuration",
+	os.Args = []string{"-", commands.BucketCorsPut, "--bucket", targetBucket, "--region", "REG", "--cors-configuration",
 		"file://" + targetFileName}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
@@ -200,7 +200,7 @@ func TestBucketCorsPutSunnyPathSimplifiedJSONString(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.PutBucketCors, "--bucket", targetBucket, "--region", "REG", "--cors-configuration",
+	os.Args = []string{"-", commands.BucketCorsPut, "--bucket", targetBucket, "--region", "REG", "--cors-configuration",
 		corsRulesSimpleJSONStr}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
@@ -245,7 +245,7 @@ func TestBucketCorsPutEmptyStaticCreds(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.PutBucketCors, "--bucket", targetBucket, "--region", "REG", "--cors-configuration", "{}"}
+	os.Args = []string{"-", commands.BucketCorsPut, "--bucket", targetBucket, "--region", "REG", "--cors-configuration", "{}"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
@@ -284,7 +284,7 @@ func TestBucketCorsPutWithoutCORSConfig(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.PutBucketCors, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.BucketCorsPut, "--bucket", targetBucket,
 		"--region", "REG"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))

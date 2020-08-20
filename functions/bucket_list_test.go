@@ -39,7 +39,7 @@ func TestBucketListSunnyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.ListBuckets}
+	os.Args = []string{"-", commands.Buckets}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
@@ -78,7 +78,7 @@ func TestBucketListRainyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.ListBuckets}
+	os.Args = []string{"-", commands.Buckets}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 

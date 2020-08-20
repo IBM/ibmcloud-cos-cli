@@ -13,6 +13,7 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/aws/awserr"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 	"github.com/IBM/ibmcloud-cos-cli/config"
+	"github.com/IBM/ibmcloud-cos-cli/config/flags"
 	"github.com/IBM/ibmcloud-cos-cli/errors"
 	"github.com/IBM/ibmcloud-cos-cli/utils"
 	"github.com/urfave/cli"
@@ -68,6 +69,15 @@ func MapToSDKInput(cliContext *cli.Context, destination interface{},
 	} else {
 		// panics if not a pointer to ...
 		panic("not a pointer ... ")
+	}
+
+	// Check if the desired output format is valid (JSON or TEXT)
+	if cliContext.IsSet(flags.Output) {
+		format := cliContext.String(flags.Output)
+		if !strings.EqualFold(format, "json") && !strings.EqualFold(format, "text") {
+			err := awserr.New("Incorrect Usage", "Invalid Display Value", nil)
+			return err
+		}
 	}
 
 	// Iterate all through mandatory fields

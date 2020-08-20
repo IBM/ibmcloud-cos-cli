@@ -4,11 +4,41 @@ const (
 	// AbortMultipartUpload Command
 	AbortMultipartUpload = "abort-multipart-upload"
 
+	// Buckets Command
+	Buckets = "buckets"
+
+	// BucketClassGet Command
+	BucketClassGet = "bucket-class-get"
+
+	// BucketCorsDelete Command
+	BucketCorsDelete = "bucket-cors-delete"
+
+	// BucketCorsGet Command
+	BucketCorsGet = "bucket-cors-get"
+
+	// BucketCorsPut Command
+	BucketCorsPut = "bucket-cors-put"
+
+	// BucketCreate Command
+	BucketCreate = "bucket-create"
+
+	// BucketDelete Command
+	BucketDelete = "bucket-delete"
+
 	// BucketExists Waiter Command
 	BucketExists = "bucket-exists"
 
+	// BucketsExtended Command
+	BucketsExtended = "buckets-extended"
+
+	// BucketHead Command
+	BucketHead = "bucket-head"
+
 	// BucketNotExists Waiter Command
 	BucketNotExists = "bucket-not-exists"
+
+	// BucketLocationGet Command
+	BucketLocationGet = "bucket-location-get"
 
 	// CompleteMultipartUpload Command
 	CompleteMultipartUpload = "complete-multipart-upload"
@@ -73,11 +103,53 @@ const (
 	// ListParts Command
 	ListParts = "list-parts"
 
+	// MultipartUploadAbort Command
+	MultipartUploadAbort = "multipart-upload-abort"
+
+	// MultipartUploadComplete Command
+	MultipartUploadComplete = "multipart-upload-complete"
+
+	// MultipartUploadCreate Command
+	MultipartUploadCreate = "multipart-upload-create"
+
+	// MultipartUploads Command
+	MultipartUploads = "multipart-uploads"
+
+	// ObjectCopy Command
+	ObjectCopy = "object-copy"
+
+	// ObjectDelete Command
+	ObjectDelete = "object-delete"
+
+	// ObjectsDelete Command
+	ObjectsDelete = "objects-delete"
+
+	// ObjectGet Command
+	ObjectGet = "object-get"
+
+	// ObjectHead Command
+	ObjectHead = "object-head"
+
+	// ObjectPut Command
+	ObjectPut = "object-put"
+
 	// ObjectExists Waiter Command
 	ObjectExists = "object-exists"
 
 	// ObjectNotExists Waiter Command
 	ObjectNotExists = "object-not-exists"
+
+	// Objects Command
+	Objects = "objects"
+
+	// PartUpload Command
+	PartUpload = "part-upload"
+
+	// PartUploadCopy Command
+	PartUploadCopy = "part-upload-copy"
+
+	// Parts Command
+	Parts = "parts"
 
 	// PutBucketCors Command
 	PutBucketCors = "put-bucket-cors"

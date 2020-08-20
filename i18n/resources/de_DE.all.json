@@ -52,12 +52,12 @@
     "translation": "Ein Begrenzer (DELIMITER) ist ein Zeichen, das zum Gruppieren von Schlüsseln verwendet wird."
   },
   {
-    "id": "A `MAP` using JSON syntax. See IBM Cloud Documentation.",
-    "translation": "A `MAP` using JSON syntax. See IBM Cloud Documentation."
-  },
-  {
     "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
     "translation": "Eine Struktur (STRUCTURE), die JSON-Syntax in einer Datei verwendet. Weitere Informationen finden Sie in der Dokumentation zu IBM Cloud. "
+  },
+  {
+    "id": "A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "Eine Struktur (STRUCTURE), die die JSON-Syntax verwendet. Weitere Informationen finden Sie in der Dokumentation zu IBM Cloud. "
   },
   {
     "id": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation.",
@@ -354,6 +354,10 @@
   {
     "id": "Operation canceled.",
     "translation": "Operation abgebrochen."
+  },
+  {
+    "id": "Output `FORMAT` can be only json or text.",
+    "translation": "Das Ausgabeformat (FORMAT) kann nur 'json' oder 'text' sein."
   },
   {
     "id": "Output returned in raw JSON format.",

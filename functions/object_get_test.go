@@ -97,7 +97,7 @@ func TestObjectGetSunnyPath(t *testing.T) {
 	// all args for later verification
 	os.Args = []string{
 		"-",
-		commands.GetObject,
+		commands.ObjectGet,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.IfMatch, targetIfMatch,
@@ -224,7 +224,7 @@ func TestObjectGetSunnyPath2(t *testing.T) {
 	// all args for later verification
 	os.Args = []string{
 		"-",
-		commands.GetObject,
+		commands.ObjectGet,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.Region, "REG",
@@ -303,7 +303,7 @@ func TestObjectGetFileAlreadyExists(t *testing.T) {
 	// all args for later verification
 	os.Args = []string{
 		"-",
-		commands.GetObject,
+		commands.ObjectGet,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.Region, "REG",
@@ -364,7 +364,7 @@ func TestObjectGetDestinationIsDir(t *testing.T) {
 	// all args for later verification
 	os.Args = []string{
 		"-",
-		commands.GetObject,
+		commands.ObjectGet,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.Region, "REG",

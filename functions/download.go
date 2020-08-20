@@ -122,7 +122,7 @@ func Download(c *cli.Context) (err error) {
 		TotalBytes: totalBytes,
 	}
 	// Output the successful message
-	err = cosContext.GetDisplay(c.Bool(flags.JSON)).Display(input, output, nil)
+	err = cosContext.GetDisplay(c.String(flags.Output), c.Bool(flags.JSON)).Display(input, output, nil)
 
 	// Return
 	return

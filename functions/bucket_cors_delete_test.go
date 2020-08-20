@@ -39,7 +39,7 @@ func TestBucketCorsDeleteSunnyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.DeleteBucketCors, "--bucket", targetBucket, "--region", "REG"}
+	os.Args = []string{"-", commands.BucketCorsDelete, "--bucket", targetBucket, "--region", "REG"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
@@ -80,7 +80,7 @@ func TestBucketCorsDeleteEmptyStaticCreds(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.DeleteBucketCors, "--bucket", targetBucket, "--region", "REG"}
+	os.Args = []string{"-", commands.BucketCorsDelete, "--bucket", targetBucket, "--region", "REG"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
@@ -120,7 +120,7 @@ func TestBucketCorsWithoutBucket(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.DeleteBucketCors,
+	os.Args = []string{"-", commands.BucketCorsDelete,
 		"--region", "REG"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))

@@ -32,33 +32,33 @@ USAGE:
    ibmcloud cos command [arguments...] [command options]
 
 COMMANDS:
-   abort-multipart-upload      Abort a multipart upload instance.
-   complete-multipart-upload   Complete an existing multipart upload instance.
+   multipart-upload-abort      Abort a multipart upload instance.
+   multipart-upload-complete   Complete an existing multipart upload instance.
    config                      Changes plugin configuration
-   copy-object                 Copy an object from one bucket to another.
-   create-bucket               Create a new bucket.
-   create-multipart-upload     Create a new multipart upload instance.
-   delete-bucket               Delete an existing bucket.
-   delete-bucket-cors          Delete the CORS configuration from a bucket.
-   delete-object               Delete an object from a bucket.
-   delete-objects              Delete multiple objects from a bucket
+   object-copy                 Copy an object from one bucket to another.
+   bucket-create               Create a new bucket.
+   multipart-upload-create     Create a new multipart upload instance.
+   bucket-delete               Delete an existing bucket.
+   bucket-cors-delete          Delete the CORS configuration from a bucket.
+   object-delete               Delete an object from a bucket.
+   objects-delete              Delete multiple objects from a bucket
    download                    Download objects from S3 concurrently.
    get-bucket-class            Returns the class type of the specified bucket.
-   get-bucket-cors             Get the CORS configuration from a bucket.
-   get-bucket-location         Get the region and class of a bucket.
-   get-object                  Download an object from a bucket.
-   head-bucket                 Determine if a specified bucket exists in your account.
-   head-object                 Determine if an object exists within a bucket.
-   list-buckets                List all the buckets in your IBM Cloud Object Storage account.
+   bucket-cors-get             Get the CORS configuration from a bucket.
+   bucket-location-get         Get the region and class of a bucket.
+   object-get                  Download an object from a bucket.
+   bucket-head                 Determine if a specified bucket exists in your account.
+   object-head                 Determine if an object exists within a bucket.
+   buckets                     List all the buckets in your IBM Cloud Object Storage account.
    list-buckets-extended       List all the extended buckets with pagination support.
-   list-multipart-uploads      This operation lists in-progress multipart uploads.
-   list-objects                List all objects in a specific bucket.
-   list-parts                  Display the list of uploaded parts of an object.
-   put-bucket-cors             Set the CORS configuration on a bucket.
-   put-object                  Upload an object to a bucket.
+   multipart-uploads           This operation lists in-progress multipart uploads.
+   objects                     List all objects in a specific bucket.
+   parts                       Display the list of uploaded parts of an object.
+   bucket-cors-put             Set the CORS configuration on a bucket.
+   object-put                  Upload an object to a bucket.
    upload                      Upload objects from S3 concurrently.
-   upload-part                 Upload a part of an object.
-   upload-part-copy            Upload a part by copying data from an existing object.
+   part-upload                 Upload a part of an object.
+   part-copy-upload            Upload a part by copying data from an existing object.
    wait                        Wait until a particular condition is satisfied.  Each subcommand polls an API until the listed requirement is met.
    help, h                     Show help
 
@@ -72,7 +72,7 @@ Enter 'ibmcloud cos help [command]' for more information about a command.
     - EXAMPLE: `ibmcloud cos create-bucket --bucket testcoscli --region us-south --class VAULT`
 
 - Put an object in an existing bucket.
-  - Usage: `put-object --bucket BUCKET_NAME --key KEY [--body FILE_PATH] [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-length SIZE] [--content-md5 MD5] [--content-type MIME] [--metadata MAP] [--region REGION]`
+  - Usage: `put-object --bucket BUCKET_NAME --key KEY [--body FILE_PATH] [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-length SIZE] [--content-md5 MD5] [--content-type MIME] [--metadata STRUCTURE] [--region REGION]`
     - EXAMPLE: `ibmcloud cos put-object --bucket testcoscli --key cosfile --region us-south`
 
 - Delete an object in an existing bucket.
@@ -87,19 +87,10 @@ Building the IBM Cloud CLI COS plug-in requires the following utilities:
 
 - [The Go programming language][golang]
 - `make`
-  
+
 First, you need to [install Go][go-install].
 
-Common practice is to set your `GOPATH=$HOME/go`.
-Update your `~/.bashrc`, `~/.zshrc`, or other run command file to set `$GOPATH`, `$GOROOT`, and `$PATH`.
-
-```bash
-export GOPATH=$HOME/go
-export GOROOT=/usr/local/go
-export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
-```
-
-To build and install the plug-in from source, run the four simple steps under your `$GOPATH`:
+To build and install the plug-in from source, run the four simple steps using Go modules:
 
 ```sh
 git clone git@github.com:IBM/ibmcloud-cos-cli.git

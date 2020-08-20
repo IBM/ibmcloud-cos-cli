@@ -52,12 +52,12 @@
     "translation": "`DELIMITER` 是用于对键进行分组的字符。"
   },
   {
-    "id": "A `MAP` using JSON syntax. See IBM Cloud Documentation.",
-    "translation": "A `MAP` using JSON syntax. See IBM Cloud Documentation."
-  },
-  {
     "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
     "translation": "`STRUCTURE` 在文件中使用 JSON 语法。请参阅 IBM Cloud 文档。"
+  },
+  {
+    "id": "A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "`STRUCTURE` 使用 JSON 语法。请参阅 IBM Cloud 文档。"
   },
   {
     "id": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation.",
@@ -354,6 +354,10 @@
   {
     "id": "Operation canceled.",
     "translation": "操作已取消。"
+  },
+  {
+    "id": "Output `FORMAT` can be only json or text.",
+    "translation": "输出 `FORMAT` 只能是 json 或 text。"
   },
   {
     "id": "Output returned in raw JSON format.",

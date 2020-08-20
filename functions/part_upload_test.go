@@ -44,7 +44,7 @@ func TestPartUploadSunnyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.UploadPart, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.PartUpload, "--bucket", targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.PartNumber, targetPartNumber,
 		"--" + flags.UploadID, targetUploadID,
@@ -92,7 +92,7 @@ func TestPartUploadRainyPath(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.UploadPart, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.PartUpload, "--bucket", targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.PartNumber, targetPartNumber,
 		"--" + flags.UploadID, targetUploadID,
@@ -139,7 +139,7 @@ func TestPartUploadWithoutUploadID(t *testing.T) {
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.UploadPart, "--bucket", targetBucket,
+	os.Args = []string{"-", commands.PartUpload, "--bucket", targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.PartNumber, targetPartNumber,
 		"--region", "REG"}

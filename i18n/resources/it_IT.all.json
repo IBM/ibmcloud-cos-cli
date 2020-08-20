@@ -52,12 +52,12 @@
     "translation": "Un `DELIMITATORE` è un carattere che si usa per raggruppare le chiavi."
   },
   {
-    "id": "A `MAP` using JSON syntax. See IBM Cloud Documentation.",
-    "translation": "A `MAP` using JSON syntax. See IBM Cloud Documentation."
-  },
-  {
     "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
     "translation": "Una `STRUTTURA` che utilizza la sintassi JSON in un file. Consultare la documentazione IBM."
+  },
+  {
+    "id": "A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "Una `STRUTTURA` che utilizza la sintassi JSON. Consultare la documentazione IBM."
   },
   {
     "id": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation.",
@@ -356,6 +356,10 @@
     "translation": "Operazione annullata."
   },
   {
+    "id": "Output `FORMAT` can be only json or text.",
+    "translation": "Il `FORMATO` di output può essere solo json o testo."
+  },
+  {
     "id": "Output returned in raw JSON format.",
     "translation": "Output restituito in formato JSON grezzo."
   },
@@ -489,7 +493,7 @@
   },
   {
     "id": "Store Default Download Location in the config.",
-    "translation": "Memorizzare l'ubicazione di download predefinita nella configurazione."
+    "translation": "Memorizzare l'ubicazione di scaricamento predefinita nella configurazione."
   },
   {
     "id": "Store Default Region in the config.",
@@ -609,7 +613,7 @@
   },
   {
     "id": "The download destination '{{.Location}}' is a directory.",
-    "translation": "La destinazione di download '{{.Location}}' è una directory."
+    "translation": "La destinazione di scaricamento '{{.Location}}' è una directory."
   },
   {
     "id": "The name (`BUCKET_NAME`) of the bucket.",
@@ -725,7 +729,7 @@
   },
   {
     "id": "Unable to load default download location.",
-    "translation": "Impossibile caricare l'ubicazione di download predefinita."
+    "translation": "Impossibile caricare l'ubicazione di scaricamento predefinita."
   },
   {
     "id": "Unable to load region.",
@@ -749,7 +753,7 @@
   },
   {
     "id": "Unable to read new default download location.",
-    "translation": "Impossibile leggere la nuova ubicazione di download predefinita."
+    "translation": "Impossibile leggere la nuova ubicazione di scaricamento predefinita."
   },
   {
     "id": "Unable to read new region.",
@@ -773,7 +777,7 @@
   },
   {
     "id": "Unable to store new download location.",
-    "translation": "Impossibile memorizzare la nuova ubicazione di download."
+    "translation": "Impossibile memorizzare la nuova ubicazione di scaricamento."
   },
   {
     "id": "Unable to switch URL style.",

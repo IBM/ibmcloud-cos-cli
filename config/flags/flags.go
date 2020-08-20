@@ -184,7 +184,7 @@ var (
 
 	FlagMetadata = cli.StringFlag{
 		Name:  Metadata,
-		Usage: T("A `MAP` using JSON syntax. See IBM Cloud Documentation."),
+		Usage: T("A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation."),
 	}
 
 	FlagPageSize = cli.StringFlag{
@@ -310,7 +310,13 @@ var (
 	}
 
 	FlagJSON = cli.BoolFlag{
-		Name:  JSON,
-		Usage: T("Output returned in raw JSON format."),
+		Name:   JSON,
+		Usage:  T("Output returned in raw JSON format."),
+		Hidden: true,
+	}
+
+	FlagOutput = cli.StringFlag{
+		Name:  Output,
+		Usage: T("Output `FORMAT` can be only json or text."),
 	}
 )

@@ -57,7 +57,7 @@ func TestListObjectsHappyPath(t *testing.T) {
 	// --- Act ----
 	// set os args
 	os.Args = []string{"-",
-		commands.ListObjects,
+		commands.Objects,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.Delimiter, targetDelimiter,
 		"--" + flags.EncodingType, targetEncodingType,
@@ -115,7 +115,7 @@ func TestObjectsListWhenPageBiggerThanMaxRequestMax(t *testing.T) {
 	// --- Act ----
 	// set os args
 	os.Args = []string{"-",
-		commands.ListObjects,
+		commands.Objects,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.MaxItems, strconv.FormatInt(targetMaxKeys, 10),
 		"--" + flags.PageSize, "100",
@@ -169,7 +169,7 @@ func TestWhenPageSmallerThanMaxRequestPage(t *testing.T) {
 	// --- Act ----
 	// set os args
 	os.Args = []string{"-",
-		commands.ListObjects,
+		commands.Objects,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.MaxItems, "1000",
 		"--" + flags.PageSize, strconv.FormatInt(targetMaxKeys, 10),
@@ -230,7 +230,7 @@ func TestObjectsListPaginate(t *testing.T) {
 	// --- Act ----
 	// set os args
 	os.Args = []string{"-",
-		commands.ListObjects,
+		commands.Objects,
 		"--" + flags.Bucket, targetBucket,
 		"--" + flags.MaxItems, strconv.Itoa(targetMaxItems),
 		"--" + flags.PageSize, strconv.Itoa(targetPageSz),
