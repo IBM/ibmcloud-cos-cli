@@ -1,10 +1,10 @@
 # CHANGELOG
 
-## 1.1.4
+## 1.2.0
 
 ### Content
 
-* COS CLI support for "One Cloud Compliance"
+* IBM OneCloud Compliance
   * The following commands have changed names.  Legacy names remain for backwards compatibility but are deemed deprecated.
     * `abort-multipart-upload` -> `multipart-upload-abort`
     * `complete-multipart-upload` -> `multipart-upload-complete`
@@ -29,6 +29,7 @@
     * `upload-part` -> `part-upload`
     * `upload-part-copy` -> `part-copy-upload`
   * The `--json` flag has changed to `--output json`.  `--json` remains for backwards compatibility but is deemed deprecated.
+* Configurable Cloud Object Storage Endpoints
 
 #### Defect Fixes
 
