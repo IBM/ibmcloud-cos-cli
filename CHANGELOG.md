@@ -31,8 +31,6 @@
   * The `--json` flag has changed to `--output json`.  `--json` remains for backwards compatibility but is deemed deprecated.
 * Configurable Cloud Object Storage Endpoints
 
-#### Defect Fixes
-
 ## 1.1.3
 
 ### Content
