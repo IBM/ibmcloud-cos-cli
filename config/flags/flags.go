@@ -311,8 +311,7 @@ var (
 
 	FlagJSON = cli.BoolFlag{
 		Name:   JSON,
-		Usage:  T("(Deprecated) Output returned in raw JSON format."),
-		Hidden: true,
+		Usage:  T("[Deprecated] Output returned in raw JSON format."),
 	}
 
 	FlagOutput = cli.StringFlag{
