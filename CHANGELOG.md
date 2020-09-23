@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.2.1
+
+### Content
+
+#### Defect Fixes
+
+* Added "Deprecated" to description of `--json` flag.
+
 ## 1.2.0
 
 ### Content
