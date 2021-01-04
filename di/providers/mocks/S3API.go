@@ -503,6 +503,84 @@ func (_m *S3API) DeleteBucket(_a0 *s3.DeleteBucketInput) (*s3.DeleteBucketOutput
 	return r0, r1
 }
 
+// DeleteBucketWebsite provides a mock function with given fields: _a0
+func (_m *S3API) DeleteBucketWebsite(_a0 *s3.DeleteBucketWebsiteInput) (*s3.DeleteBucketWebsiteOutput, error) {
+	ret := _m.Called(_a0)
+
+	var r0 *s3.DeleteBucketWebsiteOutput
+	if rf, ok := ret.Get(0).(func(*s3.DeleteBucketWebsiteInput) *s3.DeleteBucketWebsiteOutput); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.DeleteBucketWebsiteOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(*s3.DeleteBucketWebsiteInput) error); ok {
+		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// DeleteBucketWebsiteWithContext provides a mock function with given fields: _a0, _a1, _a2
+func (_m *S3API) DeleteBucketWebsiteWithContext(_a0 context.Context, _a1 *s3.DeleteBucketWebsiteInput, _a2 ...request.Option) (*s3.DeleteBucketWebsiteOutput, error) {
+	_va := make([]interface{}, len(_a2))
+	for _i := range _a2 {
+		_va[_i] = _a2[_i]
+	}
+	var _ca []interface{}
+	_ca = append(_ca, _a0, _a1)
+	_ca = append(_ca, _va...)
+	ret := _m.Called(_ca...)
+
+	var r0 *s3.DeleteBucketWebsiteOutput
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.DeleteBucketWebsiteInput, ...request.Option) *s3.DeleteBucketWebsiteOutput); ok {
+		r0 = rf(_a0, _a1, _a2...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.DeleteBucketWebsiteOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.DeleteBucketWebsiteInput, ...request.Option) error); ok {
+		r1 = rf(_a0, _a1, _a2...)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// DeleteBucketWebsiteRequest provides a mock function with given fields: _a0
+func (_m *S3API) DeleteBucketWebsiteRequest(_a0 *s3.DeleteBucketWebsiteInput) (*request.Request, *s3.DeleteBucketWebsiteOutput) {
+	ret := _m.Called(_a0)
+
+	var r0 *request.Request
+	if rf, ok := ret.Get(0).(func(*s3.DeleteBucketWebsiteInput) *request.Request); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*request.Request)
+		}
+	}
+
+	var r1 *s3.DeleteBucketWebsiteOutput
+	if rf, ok := ret.Get(1).(func(*s3.DeleteBucketWebsiteInput) *s3.DeleteBucketWebsiteOutput); ok {
+		r1 = rf(_a0)
+	} else {
+		if ret.Get(1) != nil {
+			r1 = ret.Get(1).(*s3.DeleteBucketWebsiteOutput)
+		}
+	}
+
+	return r0, r1
+}
+
 // DeleteBucketCors provides a mock function with given fields: _a0
 func (_m *S3API) DeleteBucketCors(_a0 *s3.DeleteBucketCorsInput) (*s3.DeleteBucketCorsOutput, error) {
 	ret := _m.Called(_a0)
@@ -808,6 +886,84 @@ func (_m *S3API) DeleteObject(_a0 *s3.DeleteObjectInput) (*s3.DeleteObjectOutput
 	var r1 error
 	if rf, ok := ret.Get(1).(func(*s3.DeleteObjectInput) error); ok {
 		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// DeleteObjectTagging provides a mock function with given fields: _a0
+func (_m *S3API) DeleteObjectTagging(_a0 *s3.DeleteObjectTaggingInput) (*s3.DeleteObjectTaggingOutput, error) {
+	ret := _m.Called(_a0)
+
+	var r0 *s3.DeleteObjectTaggingOutput
+	if rf, ok := ret.Get(0).(func(*s3.DeleteObjectTaggingInput) *s3.DeleteObjectTaggingOutput); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.DeleteObjectTaggingOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(*s3.DeleteObjectTaggingInput) error); ok {
+		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// DeleteObjectTaggingRequest provides a mock function with given fields: _a0
+func (_m *S3API) DeleteObjectTaggingRequest(_a0 *s3.DeleteObjectTaggingInput) (*request.Request, *s3.DeleteObjectTaggingOutput) {
+	ret := _m.Called(_a0)
+
+	var r0 *request.Request
+	if rf, ok := ret.Get(0).(func(*s3.DeleteObjectTaggingInput) *request.Request); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*request.Request)
+		}
+	}
+
+	var r1 *s3.DeleteObjectTaggingOutput
+	if rf, ok := ret.Get(1).(func(*s3.DeleteObjectTaggingInput) *s3.DeleteObjectTaggingOutput); ok {
+		r1 = rf(_a0)
+	} else {
+		if ret.Get(1) != nil {
+			r1 = ret.Get(1).(*s3.DeleteObjectTaggingOutput)
+		}
+	}
+
+	return r0, r1
+}
+
+// DeleteObjectTaggingWithContext provides a mock function with given fields: _a0, _a1, _a2
+func (_m *S3API) DeleteObjectTaggingWithContext(_a0 context.Context, _a1 *s3.DeleteObjectTaggingInput, _a2 ...request.Option) (*s3.DeleteObjectTaggingOutput, error) {
+	_va := make([]interface{}, len(_a2))
+	for _i := range _a2 {
+		_va[_i] = _a2[_i]
+	}
+	var _ca []interface{}
+	_ca = append(_ca, _a0, _a1)
+	_ca = append(_ca, _va...)
+	ret := _m.Called(_ca...)
+
+	var r0 *s3.DeleteObjectTaggingOutput
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.DeleteObjectTaggingInput, ...request.Option) *s3.DeleteObjectTaggingOutput); ok {
+		r0 = rf(_a0, _a1, _a2...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.DeleteObjectTaggingOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.DeleteObjectTaggingInput, ...request.Option) error); ok {
+		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
 	}
@@ -1174,6 +1330,84 @@ func (_m *S3API) GetBucketCorsWithContext(_a0 context.Context, _a1 *s3.GetBucket
 
 	var r1 error
 	if rf, ok := ret.Get(1).(func(context.Context, *s3.GetBucketCorsInput, ...request.Option) error); ok {
+		r1 = rf(_a0, _a1, _a2...)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// GetBucketWebsite provides a mock function with given fields: _a0
+func (_m *S3API) GetBucketWebsite(_a0 *s3.GetBucketWebsiteInput) (*s3.GetBucketWebsiteOutput, error) {
+	ret := _m.Called(_a0)
+
+	var r0 *s3.GetBucketWebsiteOutput
+	if rf, ok := ret.Get(0).(func(*s3.GetBucketWebsiteInput) *s3.GetBucketWebsiteOutput); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.GetBucketWebsiteOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(*s3.GetBucketWebsiteInput) error); ok {
+		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// GetBucketWebsiteRequest provides a mock function with given fields: _a0
+func (_m *S3API) GetBucketWebsiteRequest(_a0 *s3.GetBucketWebsiteInput) (*request.Request, *s3.GetBucketWebsiteOutput) {
+	ret := _m.Called(_a0)
+
+	var r0 *request.Request
+	if rf, ok := ret.Get(0).(func(*s3.GetBucketWebsiteInput) *request.Request); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*request.Request)
+		}
+	}
+
+	var r1 *s3.GetBucketWebsiteOutput
+	if rf, ok := ret.Get(1).(func(*s3.GetBucketWebsiteInput) *s3.GetBucketWebsiteOutput); ok {
+		r1 = rf(_a0)
+	} else {
+		if ret.Get(1) != nil {
+			r1 = ret.Get(1).(*s3.GetBucketWebsiteOutput)
+		}
+	}
+
+	return r0, r1
+}
+
+// GetBucketWebsiteWithContext provides a mock function with given fields: _a0, _a1, _a2
+func (_m *S3API) GetBucketWebsiteWithContext(_a0 context.Context, _a1 *s3.GetBucketWebsiteInput, _a2 ...request.Option) (*s3.GetBucketWebsiteOutput, error) {
+	_va := make([]interface{}, len(_a2))
+	for _i := range _a2 {
+		_va[_i] = _a2[_i]
+	}
+	var _ca []interface{}
+	_ca = append(_ca, _a0, _a1)
+	_ca = append(_ca, _va...)
+	ret := _m.Called(_ca...)
+
+	var r0 *s3.GetBucketWebsiteOutput
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.GetBucketWebsiteInput, ...request.Option) *s3.GetBucketWebsiteOutput); ok {
+		r0 = rf(_a0, _a1, _a2...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.GetBucketWebsiteOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.GetBucketWebsiteInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -1587,6 +1821,84 @@ func (_m *S3API) GetObjectAclWithContext(_a0 context.Context, _a1 *s3.GetObjectA
 
 	var r1 error
 	if rf, ok := ret.Get(1).(func(context.Context, *s3.GetObjectAclInput, ...request.Option) error); ok {
+		r1 = rf(_a0, _a1, _a2...)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// GetObjectTagging provides a mock function with given fields: _a0
+func (_m *S3API) GetObjectTagging(_a0 *s3.GetObjectTaggingInput) (*s3.GetObjectTaggingOutput, error) {
+	ret := _m.Called(_a0)
+
+	var r0 *s3.GetObjectTaggingOutput
+	if rf, ok := ret.Get(0).(func(*s3.GetObjectTaggingInput) *s3.GetObjectTaggingOutput); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.GetObjectTaggingOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(*s3.GetObjectTaggingInput) error); ok {
+		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// GetObjectTaggingRequest provides a mock function with given fields: _a0
+func (_m *S3API) GetObjectTaggingRequest(_a0 *s3.GetObjectTaggingInput) (*request.Request, *s3.GetObjectTaggingOutput) {
+	ret := _m.Called(_a0)
+
+	var r0 *request.Request
+	if rf, ok := ret.Get(0).(func(*s3.GetObjectTaggingInput) *request.Request); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*request.Request)
+		}
+	}
+
+	var r1 *s3.GetObjectTaggingOutput
+	if rf, ok := ret.Get(1).(func(*s3.GetObjectTaggingInput) *s3.GetObjectTaggingOutput); ok {
+		r1 = rf(_a0)
+	} else {
+		if ret.Get(1) != nil {
+			r1 = ret.Get(1).(*s3.GetObjectTaggingOutput)
+		}
+	}
+
+	return r0, r1
+}
+
+// GetObjectTaggingWithContext provides a mock function with given fields: _a0, _a1, _a2
+func (_m *S3API) GetObjectTaggingWithContext(_a0 context.Context, _a1 *s3.GetObjectTaggingInput, _a2 ...request.Option) (*s3.GetObjectTaggingOutput, error) {
+	_va := make([]interface{}, len(_a2))
+	for _i := range _a2 {
+		_va[_i] = _a2[_i]
+	}
+	var _ca []interface{}
+	_ca = append(_ca, _a0, _a1)
+	_ca = append(_ca, _va...)
+	ret := _m.Called(_ca...)
+
+	var r0 *s3.GetObjectTaggingOutput
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.GetObjectTaggingInput, ...request.Option) *s3.GetObjectTaggingOutput); ok {
+		r0 = rf(_a0, _a1, _a2...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.GetObjectTaggingOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.GetObjectTaggingInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -2605,6 +2917,84 @@ func (_m *S3API) PutBucketAclWithContext(_a0 context.Context, _a1 *s3.PutBucketA
 	return r0, r1
 }
 
+// PutBucketWebsite provides a mock function with given fields: _a0
+func (_m *S3API) PutBucketWebsite(_a0 *s3.PutBucketWebsiteInput) (*s3.PutBucketWebsiteOutput, error) {
+	ret := _m.Called(_a0)
+
+	var r0 *s3.PutBucketWebsiteOutput
+	if rf, ok := ret.Get(0).(func(*s3.PutBucketWebsiteInput) *s3.PutBucketWebsiteOutput); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.PutBucketWebsiteOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(*s3.PutBucketWebsiteInput) error); ok {
+		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// PutBucketWebsiteRequest provides a mock function with given fields: _a0
+func (_m *S3API) PutBucketWebsiteRequest(_a0 *s3.PutBucketWebsiteInput) (*request.Request, *s3.PutBucketWebsiteOutput) {
+	ret := _m.Called(_a0)
+
+	var r0 *request.Request
+	if rf, ok := ret.Get(0).(func(*s3.PutBucketWebsiteInput) *request.Request); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*request.Request)
+		}
+	}
+
+	var r1 *s3.PutBucketWebsiteOutput
+	if rf, ok := ret.Get(1).(func(*s3.PutBucketWebsiteInput) *s3.PutBucketWebsiteOutput); ok {
+		r1 = rf(_a0)
+	} else {
+		if ret.Get(1) != nil {
+			r1 = ret.Get(1).(*s3.PutBucketWebsiteOutput)
+		}
+	}
+
+	return r0, r1
+}
+
+// PutBucketWebsiteWithContext provides a mock function with given fields: _a0, _a1, _a2
+func (_m *S3API) PutBucketWebsiteWithContext(_a0 context.Context, _a1 *s3.PutBucketWebsiteInput, _a2 ...request.Option) (*s3.PutBucketWebsiteOutput, error) {
+	_va := make([]interface{}, len(_a2))
+	for _i := range _a2 {
+		_va[_i] = _a2[_i]
+	}
+	var _ca []interface{}
+	_ca = append(_ca, _a0, _a1)
+	_ca = append(_ca, _va...)
+	ret := _m.Called(_ca...)
+
+	var r0 *s3.PutBucketWebsiteOutput
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.PutBucketWebsiteInput, ...request.Option) *s3.PutBucketWebsiteOutput); ok {
+		r0 = rf(_a0, _a1, _a2...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.PutBucketWebsiteOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.PutBucketWebsiteInput, ...request.Option) error); ok {
+		r1 = rf(_a0, _a1, _a2...)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
 // PutBucketCors provides a mock function with given fields: _a0
 func (_m *S3API) PutBucketCors(_a0 *s3.PutBucketCorsInput) (*s3.PutBucketCorsOutput, error) {
 	ret := _m.Called(_a0)
@@ -3010,6 +3400,84 @@ func (_m *S3API) PutObjectAclWithContext(_a0 context.Context, _a1 *s3.PutObjectA
 
 	var r1 error
 	if rf, ok := ret.Get(1).(func(context.Context, *s3.PutObjectAclInput, ...request.Option) error); ok {
+		r1 = rf(_a0, _a1, _a2...)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// PutObjectTagging provides a mock function with given fields: _a0
+func (_m *S3API) PutObjectTagging(_a0 *s3.PutObjectTaggingInput) (*s3.PutObjectTaggingOutput, error) {
+	ret := _m.Called(_a0)
+
+	var r0 *s3.PutObjectTaggingOutput
+	if rf, ok := ret.Get(0).(func(*s3.PutObjectTaggingInput) *s3.PutObjectTaggingOutput); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.PutObjectTaggingOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(*s3.PutObjectTaggingInput) error); ok {
+		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// PutObjectTaggingRequest provides a mock function with given fields: _a0
+func (_m *S3API) PutObjectTaggingRequest(_a0 *s3.PutObjectTaggingInput) (*request.Request, *s3.PutObjectTaggingOutput) {
+	ret := _m.Called(_a0)
+
+	var r0 *request.Request
+	if rf, ok := ret.Get(0).(func(*s3.PutObjectTaggingInput) *request.Request); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*request.Request)
+		}
+	}
+
+	var r1 *s3.PutObjectTaggingOutput
+	if rf, ok := ret.Get(1).(func(*s3.PutObjectTaggingInput) *s3.PutObjectTaggingOutput); ok {
+		r1 = rf(_a0)
+	} else {
+		if ret.Get(1) != nil {
+			r1 = ret.Get(1).(*s3.PutObjectTaggingOutput)
+		}
+	}
+
+	return r0, r1
+}
+
+// PutObjectTaggingWithContext provides a mock function with given fields: _a0, _a1, _a2
+func (_m *S3API) PutObjectTaggingWithContext(_a0 context.Context, _a1 *s3.PutObjectTaggingInput, _a2 ...request.Option) (*s3.PutObjectTaggingOutput, error) {
+	_va := make([]interface{}, len(_a2))
+	for _i := range _a2 {
+		_va[_i] = _a2[_i]
+	}
+	var _ca []interface{}
+	_ca = append(_ca, _a0, _a1)
+	_ca = append(_ca, _va...)
+	ret := _m.Called(_ca...)
+
+	var r0 *s3.PutObjectTaggingOutput
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.PutObjectTaggingInput, ...request.Option) *s3.PutObjectTaggingOutput); ok {
+		r0 = rf(_a0, _a1, _a2...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.PutObjectTaggingOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.PutObjectTaggingInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
