@@ -147,7 +147,7 @@ func GetBaseConfig(ctx plugin.PluginContext) *BaseConfig {
 		Timeout: time.Duration(ctx.HTTPTimeout()) * time.Second,
 	}
 
-	if ctx.Trace() != "false" {
+	if ctx.Trace() == "true" {
 		trace.Logger = trace.NewLogger(ctx.Trace())
 		conf.LogLevel = aws.LogLevel(aws.LogDebug)
 		conf.Logger = new(loggerWrap)

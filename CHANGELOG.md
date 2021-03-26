@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 1.2.3
+
+### Content
+
+#### Defect Fixes
+
+* Enable trace logging only when environment variable is explicitly set
+* Update to use Go SDK 1.6.1
+
 ## 1.2.2
 
 ### Content
