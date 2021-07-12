@@ -16,7 +16,7 @@ BUILD_ID?=unknown
 BUILD_NUMBER?=unknown
 SHELL:=/bin/bash
 
-SupportedOperatingSystems = darwin linux windows ppc64le
+SupportedOperatingSystems = darwin linux windows ppc64le s390x
 
 .PHONY: all test clean cleanAll build install buildSupported $(SupportedOperatingSystems) set_env_vars buildWithMod vendorWithMod
 
@@ -44,7 +44,7 @@ windows : EXT := .exe
 buildSupported: $(SupportedOperatingSystems)
 
 ${SupportedOperatingSystems}:
-	if [ "$@" != "ppc64le" ]; then\
+	if [ "$@" != "ppc64le" ] && [ "$@" != "s390x" ]; then\
 	    CGO_ENABLED=0 GOOS=$@ GOARCH=amd64 go build -o build/${APP}-$@-amd64${EXT} -ldflags "-s -w" -a -installsuffix cgo . ;\
 	else\
 	    CGO_ENABLED=0 GOOS=linux GOARCH=$@ go build -o build/${APP}-linux-$@ -ldflags "-s -w" -a -installsuffix cgo . ;\
