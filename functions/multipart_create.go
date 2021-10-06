@@ -50,12 +50,13 @@ func MultipartCreate(c *cli.Context) (err error) {
 	//
 	// Optional parameters for CreateMultipartUpload
 	options := map[string]string{
-		fields.CacheControl:       flags.CacheControl,
-		fields.ContentDisposition: flags.ContentDisposition,
-		fields.ContentEncoding:    flags.ContentEncoding,
-		fields.ContentLanguage:    flags.ContentLanguage,
-		fields.ContentType:        flags.ContentType,
-		fields.Metadata:           flags.Metadata,
+		fields.CacheControl:            flags.CacheControl,
+		fields.ContentDisposition:      flags.ContentDisposition,
+		fields.ContentEncoding:         flags.ContentEncoding,
+		fields.ContentLanguage:         flags.ContentLanguage,
+		fields.ContentType:             flags.ContentType,
+		fields.Metadata:                flags.Metadata,
+		fields.WebsiteRedirectLocation: flags.WebsiteRedirectLocation,
 	}
 
 	// Check through user inputs for validation

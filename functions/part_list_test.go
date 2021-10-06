@@ -82,8 +82,9 @@ func TestListPartsHappyPath(t *testing.T) {
 	assert.Equal(t, int64(targetPartNumberMarker), *inputCapture.PartNumberMarker)
 
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	assert.Contains(t, output, "OK")
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 	assert.Contains(t, output, fmt.Sprintf("Found no parts in the multipart upload for '%s'.", targetKey))
 
 }
@@ -143,8 +144,9 @@ func TestPartsListWhenPageBiggerThanMaxRequestMax(t *testing.T) {
 	assert.Equal(t, targetMaxParts, *inputCapture.MaxParts)
 
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	assert.Contains(t, output, "OK")
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 
 }
 
@@ -203,8 +205,9 @@ func TestListPartsWhenPageSmallerThanMaxRequestPage(t *testing.T) {
 	assert.Equal(t, targetMaxParts, *inputCapture.MaxParts)
 
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	assert.Contains(t, output, "OK")
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 
 }
 
@@ -272,8 +275,9 @@ func TestPartsListPaginate(t *testing.T) {
 	assert.Equal(t, []int{20, 20, 20, 15}, pagesSzCapture)
 
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	assert.Contains(t, output, "OK")
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 	assert.Contains(t, output, fmt.Sprintf("Found %d parts in the multipart upload for '%s'", targetMaxItems,
 		targetKey))
 

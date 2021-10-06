@@ -61,9 +61,9 @@ func TestWaitBucketNotExistsHappy(t *testing.T) {
 	assert.Equal(t, targetBucket, *captureInput.Bucket)
 
 	// capture all output //
-	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert Not Fail
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 }
 
 func TestWaitBucketExistsHappy(t *testing.T) {
@@ -108,7 +108,7 @@ func TestWaitBucketExistsHappy(t *testing.T) {
 	assert.Equal(t, targetBucket, *captureInput.Bucket)
 
 	// capture all output //
-	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert Not Fail
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 }

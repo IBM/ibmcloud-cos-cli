@@ -56,4 +56,6 @@ const (
 	ResponseExpires             = "ResponseExpires"
 	UploadID                    = "UploadId"
 	UploadIDMarker              = "UploadIdMarker"
+	WebsiteConfiguration        = "WebsiteConfiguration"
+	WebsiteRedirectLocation     = "WebsiteRedirectLocation"
 )

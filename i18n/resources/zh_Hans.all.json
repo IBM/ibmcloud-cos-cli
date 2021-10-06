@@ -129,11 +129,11 @@
   },
   {
     "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
-    "translation": "如果对象在指定日期 (`TIMESTAMP`) 后进行了修改，请复制该对象。"
+    "translation": "如果对象在指定时间 (`TIMESTAMP`) 后进行了修改，请复制该对象。"
   },
   {
     "id": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`).",
-    "translation": "如果对象在指定日期 (`TIMESTAMP`) 后未进行修改，请复制该对象。"
+    "translation": "如果对象在指定时间 (`TIMESTAMP`) 后未进行修改，请复制该对象。"
   },
   {
     "id": "Copies the object if its entity tag (ETag) is different than the specified tag (`ETAG`).",
@@ -232,6 +232,10 @@
     "translation": "ETag"
   },
   {
+    "id": "Error Document: ",
+    "translation": "错误文档："
+  },
+  {
     "id": "Error opening '{{.Location}}' to write.",
     "translation": "打开“{{.Location}}”以执行写操作时出错。"
   },
@@ -250,6 +254,18 @@
   {
     "id": "Get the region and class of a bucket.",
     "translation": "获取存储区的区域和类。"
+  },
+  {
+    "id": "Get the static website configuration on a bucket.",
+    "translation": "在存储区上获取静态 Web 站点配置。"
+  },
+  {
+    "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
+    "translation": "如果将存储区配置为 Web 站点，那么将对对象密钥的请求重定向到同一存储区中的另一个对象或 URL (`LOCATION`)。"
+  },
+  {
+    "id": "Index Suffix: ",
+    "translation": "索引后缀："
   },
   {
     "id": "Initiated",
@@ -380,12 +396,24 @@
     "translation": "部件号 `VALUE`，在其后列表开始"
   },
   {
+    "id": "Redirect Hostname: ",
+    "translation": "重定向主机名："
+  },
+  {
+    "id": "Redirect Protocol: ",
+    "translation": "重定向协议："
+  },
+  {
     "id": "Region: ",
     "translation": "区域："
   },
   {
     "id": "Regions endpoint `URL`.",
     "translation": "区域端点 `URL`。"
+  },
+  {
+    "id": "Remove static website configuration from a bucket.",
+    "translation": "从存储区移除静态 Web 站点配置。"
   },
   {
     "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
@@ -420,8 +448,20 @@
     "translation": "正在保存新的服务实例标识..."
   },
   {
+    "id": "Service Endpoint",
+    "translation": "服务端点"
+  },
+  {
+    "id": "Set custom Service Endpoint for all operations.",
+    "translation": "为所有操作设置定制服务端点。"
+  },
+  {
     "id": "Set regions endpoint URL.",
     "translation": "设置区域端点 URL。"
+  },
+  {
+    "id": "Set static website configuration on a bucket.",
+    "translation": "在存储区上设置静态 Web 站点配置。"
   },
   {
     "id": "Set the CORS configuration on a bucket.",
@@ -516,6 +556,10 @@
     "translation": "已成功清除区域端点 URL。"
   },
   {
+    "id": "Successfully cleared service endpoint URL",
+    "translation": "已成功清除服务端点 URL"
+  },
+  {
     "id": "Successfully copied '{{.Object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
     "translation": "已成功将“{{.Object}}”从存储区“{{.bucket1}}”复制到存储区“{{.bucket2}}”。"
   },
@@ -562,6 +606,10 @@
   {
     "id": "Successfully updated regions endpoint URL to {{.URL}}.",
     "translation": "已成功将区域端点 URL 更新至 {{.URL}}。"
+  },
+  {
+    "id": "Successfully updated service endpoint URL.",
+    "translation": "已成功更新服务端点 URL。"
   },
   {
     "id": "Successfully uploaded '{{.Key}}' to bucket '{{.Bucket}}'.",
@@ -640,6 +688,10 @@
     "translation": "请求的存储区名称不可用。存储区名称空间由系统的所有用户共享。请选择不同的名称并重试。"
   },
   {
+    "id": "The specified bucket does not have website configuration.",
+    "translation": "指定的存储区没有 Web 站点配置。"
+  },
+  {
     "id": "The specified bucket is not empty. Delete all the files in the bucket, then try again.",
     "translation": "指定的存储区不为空。请删除该存储区中的所有文件，然后重试。"
   },
@@ -716,6 +768,10 @@
     "translation": "无法清除区域端点 URL。"
   },
   {
+    "id": "Unable to clear service endpoint URL.",
+    "translation": "无法清除服务端点 URL。"
+  },
+  {
     "id": "Unable to get new CRN.",
     "translation": "无法获取新 CRN。"
   },
@@ -758,6 +814,10 @@
   {
     "id": "Unable to read new region.",
     "translation": "无法读取新区域。"
+  },
+  {
+    "id": "Unable to save new Service Endpoint URL.",
+    "translation": "无法保存新的服务端点 URL。"
   },
   {
     "id": "Unable to save new region.",
@@ -828,6 +888,10 @@
     "translation": "警告：“{{.dl}}”中已存在名为“{{.file}}”的对象。"
   },
   {
+    "id": "WARNING: This will permanently delete any bucket website configuration from the bucket '{{.Bucket}}'.",
+    "translation": "警告：这将从存储区“{{.Bucket}}”中永久删除任何存储区 Web 站点配置。"
+  },
+  {
     "id": "WARNING: This will permanently delete the bucket '{{.Bucket}}' from your account.",
     "translation": "警告：这将从您的帐户中永久删除存储区“{{.Bucket}}”。"
   },
@@ -860,8 +924,16 @@
     "translation": "等待至满足特定条件为止。每条子命令都会轮询 API 直至满足列示的要求为止。"
   },
   {
+    "id": "Website Configuration",
+    "translation": "Web 站点配置"
+  },
+  {
     "id": "Your proposed upload is smaller than the minimum allowed size. File parts must be greater than 5 MB in size, except for the last part.",
     "translation": "您建议的上传量小于允许的最小值。文件部分的大小必须大于 5 MB（最后一部分除外）。"
+  },
+  {
+    "id": "[Deprecated] Output returned in raw JSON format.",
+    "translation": "[不推荐] 输出以原始 JSON 格式返回。"
   },
   {
     "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",

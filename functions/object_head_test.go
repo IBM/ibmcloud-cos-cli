@@ -60,11 +60,11 @@ func TestObjectHeadSunnyPath(t *testing.T) {
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert OK
 	assert.Contains(t, output, "OK")
 	//assert Not Fail
-	assert.NotContains(t, output, "FAIL")
-
+	assert.NotContains(t, errors, "FAIL")
 }
 
 func TestObjectHeadRainyPath(t *testing.T) {
@@ -106,11 +106,11 @@ func TestObjectHeadRainyPath(t *testing.T) {
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert Not OK
 	assert.NotContains(t, output, "OK")
 	//assert Fail
-	assert.Contains(t, output, "FAIL")
-
+	assert.Contains(t, errors, "FAIL")
 }
 
 func TestObjectHeadWithoutKey(t *testing.T) {
@@ -150,9 +150,61 @@ func TestObjectHeadWithoutKey(t *testing.T) {
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert Not OK
-	assert.Contains(t, output, "--key' is missing")
+	assert.NotContains(t, output, "OK")
+	assert.Contains(t, errors, "--key' is missing")
 	//assert Fail
-	assert.Contains(t, output, "FAIL")
+	assert.Contains(t, errors, "FAIL")
+}
 
+func TestObjectHeadWebsiteRedirectLocation(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	targetBucket := "TargetBucket"
+	targetKey := "TargetKey"
+	expectedWebsiteRedirectLocation := "https://cloud.ibm.com"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	providers.MockS3API.
+		On("HeadObject", mock.MatchedBy(
+			func(input *s3.HeadObjectInput) bool {
+				return *input.Bucket == targetBucket
+			})).
+		Return(new(s3.HeadObjectOutput).
+			SetContentLength(int64(1)).
+			SetLastModified(time.Now()).
+			SetWebsiteRedirectLocation(expectedWebsiteRedirectLocation), nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	os.Args = []string{"-", commands.ObjectHead, "--bucket", targetBucket,
+		"--" + flags.Key, targetKey,
+		"--" + flags.Region, "REG",
+		"--" + flags.Output, "json"}
+	//call  plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+	// assert s3 api called once per region ( since success is last )
+	providers.MockS3API.AssertNumberOfCalls(t, "HeadObject", 1)
+	//assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+	// capture all output //
+	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
+	//assert expectedWebsiteRedirectLocation in JSON output
+	assert.Contains(t, output, expectedWebsiteRedirectLocation)
+	assert.Contains(t, output, "WebsiteRedirectLocation")
+	//assert Not Fail
+	assert.NotContains(t, errors, "FAIL")
 }

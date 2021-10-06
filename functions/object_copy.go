@@ -63,6 +63,7 @@ func ObjectCopy(c *cli.Context) (err error) {
 		fields.CopySourceIfUnmodifiedSince: flags.CopySourceIfUnmodifiedSince,
 		fields.Metadata:                    flags.Metadata,
 		fields.MetadataDirective:           flags.MetadataDirective,
+		fields.WebsiteRedirectLocation:     flags.WebsiteRedirectLocation,
 	}
 
 	// Validate User Inputs
@@ -74,9 +75,6 @@ func ObjectCopy(c *cli.Context) (err error) {
 	if path := strings.Split(*input.CopySource, "/"); len(path[0]) == 0 {
 		return awserr.New("copy.source.bucket.missing", "no source bucket", nil)
 	}
-
-	// Concatenate forward slash in the beginning of the copy source
-	*input.CopySource = "/" + *input.CopySource
 
 	// Setting client to do the call
 	var client s3iface.S3API

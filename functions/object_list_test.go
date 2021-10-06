@@ -84,8 +84,9 @@ func TestListObjectsHappyPath(t *testing.T) {
 	assert.Equal(t, targetPrefix, *inputCapture.Prefix)
 
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	assert.Contains(t, output, "OK")
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 	assert.Contains(t, output, fmt.Sprintf("Found no objects in bucket '%s'.", targetBucket))
 
 }
@@ -141,8 +142,9 @@ func TestObjectsListWhenPageBiggerThanMaxRequestMax(t *testing.T) {
 	assert.Equal(t, targetMaxKeys, *inputCapture.MaxKeys)
 
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	assert.Contains(t, output, "OK")
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 
 }
 
@@ -197,8 +199,9 @@ func TestWhenPageSmallerThanMaxRequestPage(t *testing.T) {
 	assert.Equal(t, targetMaxKeys, *inputCapture.MaxKeys)
 
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	assert.Contains(t, output, "OK")
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 
 }
 
@@ -262,8 +265,9 @@ func TestObjectsListPaginate(t *testing.T) {
 	assert.Equal(t, []int{20, 20, 20, 15}, pagesSzCapture)
 
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	assert.Contains(t, output, "OK")
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 	assert.Contains(t, output, fmt.Sprintf("Found %d objects in bucket '%s'", targetMaxItems,
 		targetBucket))
 

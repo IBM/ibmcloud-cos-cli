@@ -327,6 +327,44 @@ var (
 		Action: functions.BucketsListExtended,
 	}
 
+	// CommandBucketWebsiteDelete - Delete static website configuration on a bucket with DeleteBucketWebsite
+	CommandBucketWebsiteDelete = cli.Command{
+		Name:        BucketWebsiteDelete,
+		Description: T("Remove static website configuration from a bucket."),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagForce,
+			flags.FlagRegion,
+			flags.FlagOutput,
+		},
+		Action: functions.BucketWebsiteDelete,
+	}
+
+	// CommandBucketWebsiteGet - Get static website configuration on a bucket with GetBucketWebsite
+	CommandBucketWebsiteGet = cli.Command{
+		Name:        BucketWebsiteGet,
+		Description: T("Get the static website configuration on a bucket."),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagRegion,
+			flags.FlagOutput,
+		},
+		Action: functions.BucketWebsiteGet,
+	}
+
+	// CommandBucketWebsitePut - Set static website configuration on a bucket with PutBucketWebsite
+	CommandBucketWebsitePut = cli.Command{
+		Name:        BucketWebsitePut,
+		Description: T("Set static website configuration on a bucket."),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagWebsiteConfiguration,
+			flags.FlagRegion,
+			flags.FlagOutput,
+		},
+		Action: functions.BucketWebsitePut,
+	}
+
 	// CommandGetObject - Get object from a bucket (Legacy version)
 	// command:
 	//	 ibmcloud cos get-object
@@ -471,6 +509,7 @@ var (
 			flags.FlagContentMD5,
 			flags.FlagContentType,
 			flags.FlagMetadata,
+			flags.FlagWebsiteRedirectLocation,
 			flags.FlagRegion,
 			flags.FlagOutput,
 			flags.FlagJSON,
@@ -595,6 +634,7 @@ var (
 			flags.FlagCopySourceIfUnmodifiedSince,
 			flags.FlagMetadata,
 			flags.FlagMetadataDirective,
+			flags.FlagWebsiteRedirectLocation,
 			flags.FlagRegion,
 			flags.FlagOutput,
 			flags.FlagJSON,
@@ -684,6 +724,7 @@ var (
 			flags.FlagContentType,
 			flags.FlagMetadata,
 			flags.FlagRegion,
+			flags.FlagWebsiteRedirectLocation,
 			flags.FlagOutput,
 			flags.FlagJSON,
 		},

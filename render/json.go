@@ -55,6 +55,12 @@ func (jsr *JSONRender) Display(_ interface{}, output interface{}, _ map[string]i
 	case *s3.GetObjectOutput:
 		output = new(GetObjectOutput)
 		structMap(output, castedOutput)
+	// "Pretty-print" JSON just leaves out fields and creates a tedious maintenance burden.
+	// If a user wants JSON, just give them everything, even with nulls, empty strings, or empty lists
+	// If this violates OneCloud Compliance, say so on the PR review.
+	//case *s3.GetBucketWebsiteOutput:
+	//output = new(GetBucketWebsiteOutput)
+	//structMap(output, castedOutput)
 	case *s3.HeadBucketOutput:
 		return nil
 	case *s3.HeadObjectOutput:
@@ -90,6 +96,7 @@ func (jsr *JSONRender) Display(_ interface{}, output interface{}, _ map[string]i
 	case *s3.UploadPartCopyOutput:
 		output = new(UploadPartCopyOutput)
 		structMap(output, castedOutput)
+	// TODO: Do we really need to define a class here if we default anyway?
 	default:
 		return jsr.encoder.Encode(output)
 	}
@@ -114,37 +121,39 @@ type CompleteMultipartUploadOutput struct {
 }
 
 type GetObjectOutput struct {
-	AcceptRanges       *string            `json:",omitempty"`
-	ContentLength      *int64             `json:",omitempty"`
-	ETag               *string            `json:",omitempty"`
-	ContentType        *string            `json:",omitempty"`
-	LastModified       *time.Time         `json:",omitempty"`
-	Metadata           map[string]*string `json:",omitempty"`
-	PartsCount         *int64             `json:",omitempty"`
-	CacheControl       *string            `json:",omitempty"`
-	ContentDisposition *string            `json:",omitempty"`
-	ContentEncoding    *string            `json:",omitempty"`
-	ContentLanguage    *string            `json:",omitempty"`
-	ContentRange       *string            `json:",omitempty"`
-	MissingMeta        *int64             `json:",omitempty"`
-	StorageClass       *string            `json:",omitempty"`
+	AcceptRanges            *string            `json:",omitempty"`
+	ContentLength           *int64             `json:",omitempty"`
+	ETag                    *string            `json:",omitempty"`
+	ContentType             *string            `json:",omitempty"`
+	LastModified            *time.Time         `json:",omitempty"`
+	Metadata                map[string]*string `json:",omitempty"`
+	PartsCount              *int64             `json:",omitempty"`
+	CacheControl            *string            `json:",omitempty"`
+	ContentDisposition      *string            `json:",omitempty"`
+	ContentEncoding         *string            `json:",omitempty"`
+	ContentLanguage         *string            `json:",omitempty"`
+	ContentRange            *string            `json:",omitempty"`
+	MissingMeta             *int64             `json:",omitempty"`
+	StorageClass            *string            `json:",omitempty"`
+	WebsiteRedirectLocation *string            `json:",omitempty"`
 }
 
 type HeadObjectOutput struct {
-	AcceptRanges       *string            `json:",omitempty"`
-	CacheControl       *string            `json:",omitempty"`
-	ContentDisposition *string            `json:",omitempty"`
-	ContentEncoding    *string            `json:",omitempty"`
-	ContentLanguage    *string            `json:",omitempty"`
-	ContentLength      *int64             `json:",omitempty"`
-	ContentRange       *string            `json:",omitempty"`
-	ContentType        *string            `json:",omitempty"`
-	ETag               *string            `json:",omitempty"`
-	LastModified       *time.Time         `json:",omitempty"`
-	Metadata           map[string]*string `json:",omitempty"`
-	MissingMeta        *int64             `json:",omitempty"`
-	PartsCount         *int64             `json:",omitempty"`
-	StorageClass       *string            `json:",omitempty"`
+	AcceptRanges            *string            `json:",omitempty"`
+	CacheControl            *string            `json:",omitempty"`
+	ContentDisposition      *string            `json:",omitempty"`
+	ContentEncoding         *string            `json:",omitempty"`
+	ContentLanguage         *string            `json:",omitempty"`
+	ContentLength           *int64             `json:",omitempty"`
+	ContentRange            *string            `json:",omitempty"`
+	ContentType             *string            `json:",omitempty"`
+	ETag                    *string            `json:",omitempty"`
+	LastModified            *time.Time         `json:",omitempty"`
+	Metadata                map[string]*string `json:",omitempty"`
+	MissingMeta             *int64             `json:",omitempty"`
+	PartsCount              *int64             `json:",omitempty"`
+	StorageClass            *string            `json:",omitempty"`
+	WebsiteRedirectLocation *string            `json:",omitempty"`
 }
 type ListBucketsExtendedOutput struct {
 	Buckets     []*s3.BucketExtended `json:",omitempty"`

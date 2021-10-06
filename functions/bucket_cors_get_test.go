@@ -54,12 +54,13 @@ func TestBucketCorsGetSunnyPath(t *testing.T) {
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert OK
 	assert.Contains(t, output, "OK")
 	// assert CORSRules present
 	assert.Contains(t, output, "CORSRules")
 	//assert Not Fail
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 
 }
 func TestBucketCorsGetEmptyStaticCreds(t *testing.T) {
@@ -97,10 +98,11 @@ func TestBucketCorsGetEmptyStaticCreds(t *testing.T) {
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
-	//assert OK
-	assert.Contains(t, output, "FAIL")
-	//assert Not Fail
+	errors := providers.FakeUI.Errors()
+	//assert Not OK
 	assert.NotContains(t, output, "OK")
+	//assert Fail
+	assert.Contains(t, errors, "FAIL")
 
 }
 
@@ -140,9 +142,10 @@ func TestBucketCorsGetWithoutBucket(t *testing.T) {
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
-	//assert OK
-	assert.Contains(t, output, "FAIL")
-	//assert Not Fail
+	errors := providers.FakeUI.Errors()
+	//assert Not OK
 	assert.NotContains(t, output, "OK")
+	//assert Fail
+	assert.Contains(t, errors, "FAIL")
 
 }

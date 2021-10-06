@@ -58,10 +58,11 @@ func TestObjectDeletesSunnyPath(t *testing.T) {
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert OK
 	assert.Contains(t, output, "OK")
 	//assert Not Fail
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 
 }
 
@@ -103,10 +104,11 @@ func TestObjectDeletesRainyPath(t *testing.T) {
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert Not OK
 	assert.NotContains(t, output, "OK")
 	//assert Fail
-	assert.Contains(t, output, "FAIL")
+	assert.Contains(t, errors, "FAIL")
 
 }
 
@@ -148,10 +150,11 @@ func TestObjectDeletesBadJson(t *testing.T) {
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert Not OK
 	assert.NotContains(t, output, "OK")
 	//assert Fail
-	assert.Contains(t, output, "FAIL")
+	assert.Contains(t, errors, "FAIL")
 
 }
 
@@ -192,9 +195,11 @@ func TestObjectDeletesWithoutDelete(t *testing.T) {
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert Not OK
-	assert.Contains(t, output, "'--delete' is missing")
+	assert.NotContains(t, output, "OK")
+	assert.Contains(t, errors, "'--delete' is missing")
 	//assert Fail
-	assert.Contains(t, output, "FAIL")
+	assert.Contains(t, errors, "FAIL")
 
 }

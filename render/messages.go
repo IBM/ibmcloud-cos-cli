@@ -6,9 +6,14 @@ import (
 )
 
 //
-// WarningDeleteBucket -bucket delete message
+// WarningDeleteBucket - bucket delete message
 func WarningDeleteBucket(input *s3.DeleteBucketInput) string {
 	return T("WARNING: This will permanently delete the bucket '{{.Bucket}}' from your account.", input)
+}
+
+// WarningDeleteBucketWebsite - bucket website delete message
+func WarningDeleteBucketWebsite(input *s3.DeleteBucketWebsiteInput) string {
+	return T("WARNING: This will permanently delete any bucket website configuration from the bucket '{{.Bucket}}'.", input)
 }
 
 // WarningDeleteObject - object delete message

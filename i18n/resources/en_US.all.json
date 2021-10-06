@@ -129,7 +129,7 @@
   },
   {
     "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
-    "translation": "Copies the object if it has beenmodified since the specified time (`TIMESTAMP`)."
+    "translation": "Copies the object if it has been modified since the specified time (`TIMESTAMP`)."
   },
   {
     "id": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`).",
@@ -141,7 +141,7 @@
   },
   {
     "id": "Copies the object if its entity tag (Etag) matches the specified tag (`ETAG`).",
-    "translation": "Copies the object if its entity tag(Etag) matches the specified tag (`ETAG`)."
+    "translation": "Copies the object if its entity tag (Etag) matches the specified tag (`ETAG`)."
   },
   {
     "id": "Copy an object from one bucket to another.",
@@ -232,6 +232,10 @@
     "translation": "ETag"
   },
   {
+    "id": "Error Document: ",
+    "translation": "Error Document: "
+  },
+  {
     "id": "Error opening '{{.Location}}' to write.",
     "translation": "Error opening '{{.Location}}' to write."
   },
@@ -250,6 +254,18 @@
   {
     "id": "Get the region and class of a bucket.",
     "translation": "Get the region and class of a bucket."
+  },
+  {
+    "id": "Get the static website configuration on a bucket.",
+    "translation": "Get the static website configuration on a bucket."
+  },
+  {
+    "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
+    "translation": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`)."
+  },
+  {
+    "id": "Index Suffix: ",
+    "translation": "Index Suffix: "
   },
   {
     "id": "Initiated",
@@ -380,12 +396,24 @@
     "translation": "Part number `VALUE` after which listing begins"
   },
   {
+    "id": "Redirect Hostname: ",
+    "translation": "Redirect Hostname: "
+  },
+  {
+    "id": "Redirect Protocol: ",
+    "translation": "Redirect Protocol: "
+  },
+  {
     "id": "Region: ",
     "translation": "Region: "
   },
   {
     "id": "Regions endpoint `URL`.",
     "translation": "Regions endpoint `URL`."
+  },
+  {
+    "id": "Remove static website configuration from a bucket.",
+    "translation": "Remove static website configuration from a bucket."
   },
   {
     "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
@@ -420,8 +448,20 @@
     "translation": "Saving new Service Instance ID..."
   },
   {
+    "id": "Service Endpoint",
+    "translation": "Service Endpoint"
+  },
+  {
+    "id": "Set custom Service Endpoint for all operations.",
+    "translation": "Set custom Service Endpoint for all operations."
+  },
+  {
     "id": "Set regions endpoint URL.",
     "translation": "Set regions endpoint URL."
+  },
+  {
+    "id": "Set static website configuration on a bucket.",
+    "translation": "Set static website configuration on a bucket."
   },
   {
     "id": "Set the CORS configuration on a bucket.",
@@ -516,6 +556,10 @@
     "translation": "Successfully cleared regions endpoint URL."
   },
   {
+    "id": "Successfully cleared service endpoint URL",
+    "translation": "Successfully cleared service endpoint URL"
+  },
+  {
     "id": "Successfully copied '{{.Object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
     "translation": "Successfully copied '{{.Object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'."
   },
@@ -562,6 +606,10 @@
   {
     "id": "Successfully updated regions endpoint URL to {{.URL}}.",
     "translation": "Successfully updated regions endpoint URL to {{.URL}}."
+  },
+  {
+    "id": "Successfully updated service endpoint URL.",
+    "translation": "Successfully updated service endpoint URL."
   },
   {
     "id": "Successfully uploaded '{{.Key}}' to bucket '{{.Bucket}}'.",
@@ -640,6 +688,10 @@
     "translation": "The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again."
   },
   {
+    "id": "The specified bucket does not have website configuration.",
+    "translation": "The specified bucket does not have website configuration."
+  },
+  {
     "id": "The specified bucket is not empty. Delete all the files in the bucket, then try again.",
     "translation": "The specified bucket is not empty. Delete all the files in the bucket, then try again."
   },
@@ -716,6 +768,10 @@
     "translation": "Unable to clear regions endpoint URL."
   },
   {
+    "id": "Unable to clear service endpoint URL.",
+    "translation": "Unable to clear service endpoint URL."
+  },
+  {
     "id": "Unable to get new CRN.",
     "translation": "Unable to get new CRN."
   },
@@ -758,6 +814,10 @@
   {
     "id": "Unable to read new region.",
     "translation": "Unable to read new region."
+  },
+  {
+    "id": "Unable to save new Service Endpoint URL.",
+    "translation": "Unable to save new Service Endpoint URL."
   },
   {
     "id": "Unable to save new region.",
@@ -828,6 +888,10 @@
     "translation": "WARNING: An object with the name '{{.file}}' already exists at '{{.dl}}'."
   },
   {
+    "id": "WARNING: This will permanently delete any bucket website configuration from the bucket '{{.Bucket}}'.",
+    "translation": "WARNING: This will permanently delete any bucket website configuration from the bucket '{{.Bucket}}'."
+  },
+  {
     "id": "WARNING: This will permanently delete the bucket '{{.Bucket}}' from your account.",
     "translation": "WARNING: This will permanently delete the bucket '{{.Bucket}}' from your account."
   },
@@ -860,8 +924,16 @@
     "translation": "Wait until a particular condition is satisfied.  Each subcommand polls an API until the listed requirement is met."
   },
   {
+    "id": "Website Configuration",
+    "translation": "Website Configuration"
+  },
+  {
     "id": "Your proposed upload is smaller than the minimum allowed size. File parts must be greater than 5 MB in size, except for the last part.",
     "translation": "Your proposed upload is smaller than the minimum allowed size. File parts must be greater than 5 MB in size, except for the last part."
+  },
+  {
+    "id": "[Deprecated] Output returned in raw JSON format.",
+    "translation": "[Deprecated] Output returned in raw JSON format."
   },
   {
     "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",

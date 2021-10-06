@@ -129,7 +129,7 @@
   },
   {
     "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
-    "translation": "Copia el objeto si se ha modificado desde el tiempo especificado (`TIMESTAMP`)."
+    "translation": "Copia el objeto si se ha modificado desde la hora especificada (` TIMESTAMP `)."
   },
   {
     "id": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`).",
@@ -232,6 +232,10 @@
     "translation": "ETag"
   },
   {
+    "id": "Error Document: ",
+    "translation": "Documento de error: "
+  },
+  {
     "id": "Error opening '{{.Location}}' to write.",
     "translation": "Error al abrir '{{.Location}}' para escribir."
   },
@@ -252,6 +256,18 @@
     "translation": "Obtenga la región y la clase de un depósito."
   },
   {
+    "id": "Get the static website configuration on a bucket.",
+    "translation": "Obtenga la configuración de sitio web estático de un depósito."
+  },
+  {
+    "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
+    "translation": "Si un depósito se configura como un sitio web, redirige las solicitudes relativas a la clave de objeto a otro objeto del mismo depósito o a un URL (`LOCATION`)."
+  },
+  {
+    "id": "Index Suffix: ",
+    "translation": "Sufijo de índice: "
+  },
+  {
     "id": "Initiated",
     "translation": "Iniciado"
   },
@@ -261,7 +277,7 @@
   },
   {
     "id": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.",
-    "translation": "Argumento no válido. Debe configurarse un CRN de instancia de servicio válido para crear o enumerar depósitos. Verifique el CRN utilizando ‘ibmcloud cos config list’."
+    "translation": "Argumento no válido.  Debe configurarse un CRN de instancia de servicio válido para crear o enumerar depósitos.  Verifique el CRN utilizando ‘ibmcloud cos config list’."
   },
   {
     "id": "Invalid boolean balue in Flag '--%s'",
@@ -380,12 +396,24 @@
     "translation": "Número de pieza `VALUE` después del cual se inicia el listado"
   },
   {
+    "id": "Redirect Hostname: ",
+    "translation": "Nombre de host de redirección: "
+  },
+  {
+    "id": "Redirect Protocol: ",
+    "translation": "Protocolo de redirección: "
+  },
+  {
     "id": "Region: ",
     "translation": "Región: "
   },
   {
     "id": "Regions endpoint `URL`.",
     "translation": "`URL` de punto final de regiones."
+  },
+  {
+    "id": "Remove static website configuration from a bucket.",
+    "translation": "Elimine la configuración del sitio web estático de un depósito."
   },
   {
     "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
@@ -420,8 +448,20 @@
     "translation": "Guardando el nuevo ID de instancia de servicio..."
   },
   {
+    "id": "Service Endpoint",
+    "translation": "Punto final de servicio"
+  },
+  {
+    "id": "Set custom Service Endpoint for all operations.",
+    "translation": "Establezca el punto final de servicio personalizado para todas las operaciones."
+  },
+  {
     "id": "Set regions endpoint URL.",
     "translation": "Establezca un URL de punto final de regiones."
+  },
+  {
+    "id": "Set static website configuration on a bucket.",
+    "translation": "Establezca la configuración de sitio web estático en un depósito."
   },
   {
     "id": "Set the CORS configuration on a bucket.",
@@ -516,6 +556,10 @@
     "translation": "Se ha borrado correctamente el URL de punto final de regiones."
   },
   {
+    "id": "Successfully cleared service endpoint URL",
+    "translation": "URL de punto final de servicio borrado satisfactoriamente"
+  },
+  {
     "id": "Successfully copied '{{.Object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
     "translation": "Se ha copiado satisfactoriamente '{{.Object}}' del depósito '{{.bucket1}}' en el depósito '{{.bucket2}}'."
   },
@@ -562,6 +606,10 @@
   {
     "id": "Successfully updated regions endpoint URL to {{.URL}}.",
     "translation": "El URL de punto final de regiones se ha actualizado correctamente en {{.URL}}."
+  },
+  {
+    "id": "Successfully updated service endpoint URL.",
+    "translation": "URL de punto final de servicio actualizado satisfactoriamente."
   },
   {
     "id": "Successfully uploaded '{{.Key}}' to bucket '{{.Bucket}}'.",
@@ -640,6 +688,10 @@
     "translation": "El nombre de depósito solicitado no está disponible. El espacio de nombres del depósito es compartido por todos los usuarios del sistema. Seleccione un nombre diferente y vuelva a intentar la operación."
   },
   {
+    "id": "The specified bucket does not have website configuration.",
+    "translation": "El depósito especificado no tiene configuración de sitio web."
+  },
+  {
     "id": "The specified bucket is not empty. Delete all the files in the bucket, then try again.",
     "translation": "El depósito especificado no está vacío. Suprima todos los archivos en el depósito y vuelva a intentarlo."
   },
@@ -716,6 +768,10 @@
     "translation": "No se puede borrar el URL de punto final de regiones."
   },
   {
+    "id": "Unable to clear service endpoint URL.",
+    "translation": "No se puede borrar el URL de punto final de servicio."
+  },
+  {
     "id": "Unable to get new CRN.",
     "translation": "No se puede obtener el nuevo CRN."
   },
@@ -758,6 +814,10 @@
   {
     "id": "Unable to read new region.",
     "translation": "No se puede leer la nueva región."
+  },
+  {
+    "id": "Unable to save new Service Endpoint URL.",
+    "translation": "No se puede guardar el nuevo URL de punto final de servicio."
   },
   {
     "id": "Unable to save new region.",
@@ -828,6 +888,10 @@
     "translation": "AVISO: Un objeto con el nombre '{{.file}}' ya existe en '{{.dl}}'."
   },
   {
+    "id": "WARNING: This will permanently delete any bucket website configuration from the bucket '{{.Bucket}}'.",
+    "translation": "AVISO: Esto suprimirá permanentemente cualquier configuración del sitio web de depósito del depósito '{{.Bucket}}'."
+  },
+  {
     "id": "WARNING: This will permanently delete the bucket '{{.Bucket}}' from your account.",
     "translation": "AVISO: Esto suprimirá de forma definitiva el depósito '{{.Bucket}}' de la cuenta."
   },
@@ -860,8 +924,16 @@
     "translation": "Espere hasta que se satisfaga una condición determinada.  Cada submandato sondea una API hasta cumplir el requisito de la lista."
   },
   {
+    "id": "Website Configuration",
+    "translation": "Configuración de sitio web"
+  },
+  {
     "id": "Your proposed upload is smaller than the minimum allowed size. File parts must be greater than 5 MB in size, except for the last part.",
     "translation": "Su carga propuesta es más pequeña que el tamaño mínimo permitido. Las partes del archivo deben tener un tamaño superior a 5 MB, excepto la última parte."
+  },
+  {
+    "id": "[Deprecated] Output returned in raw JSON format.",
+    "translation": "[En desuso] La salida se ha devuelto en formato JSON sin formato."
   },
   {
     "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",

@@ -8,10 +8,10 @@ import (
 	"testing"
 
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
+	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/commands"
-	"github.com/IBM/ibmcloud-cos-cli/config/flags"
 	"github.com/IBM/ibmcloud-cos-cli/cos"
 	"github.com/IBM/ibmcloud-cos-cli/di/providers"
 	"github.com/stretchr/testify/assert"
@@ -19,7 +19,7 @@ import (
 	"github.com/urfave/cli"
 )
 
-func TestObjectDeleteSunnyPath(t *testing.T) {
+func TestBucketWebsiteGetSunnyPath(t *testing.T) {
 	defer providers.MocksRESET()
 
 	// --- Arrange ---
@@ -29,34 +29,31 @@ func TestObjectDeleteSunnyPath(t *testing.T) {
 		exitCode = &ec
 	}
 
-	targetBucket := "TargetBucket"
-	targetKey := "TargetKey"
+	targetBucket := "TARGETBUCKET"
 
 	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
-	providers.MockS3API.On("WaitUntilObjectNotExists", mock.Anything).Return(nil).Once()
-
 	providers.MockS3API.
-		On("DeleteObject", mock.MatchedBy(
-			func(input *s3.DeleteObjectInput) bool {
+		On("GetBucketWebsite", mock.MatchedBy(
+			func(input *s3.GetBucketWebsiteInput) bool {
 				return *input.Bucket == targetBucket
 			})).
-		Return(new(s3.DeleteObjectOutput), nil).
+		Return(new(s3.GetBucketWebsiteOutput).
+			SetErrorDocument(&s3.ErrorDocument{Key: aws.String("error.html")}).
+			SetIndexDocument(&s3.IndexDocument{Suffix: aws.String("index.html")}).
+			SetRedirectAllRequestsTo(new(s3.RedirectAllRequestsTo)).
+			SetRoutingRules([]*s3.RoutingRule{}), nil).
 		Once()
-
-	providers.FakeUI.Inputs("Y")
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.ObjectDelete, "--bucket", targetBucket,
-		"--" + flags.Key, targetKey,
-		"--" + flags.Region, "REG"}
-	//call  plugin
+	os.Args = []string{"-", commands.BucketWebsiteGet, "--bucket", targetBucket, "--region", "REG"}
+	//call plugin
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
 	// assert s3 api called once per region ( since success is last )
-	providers.MockS3API.AssertNumberOfCalls(t, "DeleteObject", 1)
+	providers.MockS3API.AssertNumberOfCalls(t, "GetBucketWebsite", 1)
 	//assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all output //
@@ -64,11 +61,13 @@ func TestObjectDeleteSunnyPath(t *testing.T) {
 	errors := providers.FakeUI.Errors()
 	//assert OK
 	assert.Contains(t, output, "OK")
+	assert.Contains(t, output, "Index Suffix: index.html")
+	assert.Contains(t, output, "Error Document: error.html")
 	//assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
-
 }
-func TestObjectDeleteSunnyPathForce(t *testing.T) {
+
+func TestBucketWebsiteGetJsonSunnyPath(t *testing.T) {
 	defer providers.MocksRESET()
 
 	// --- Arrange ---
@@ -78,46 +77,48 @@ func TestObjectDeleteSunnyPathForce(t *testing.T) {
 		exitCode = &ec
 	}
 
-	targetBucket := "TargetBucket"
-	targetKey := "TargetKey"
+	targetBucket := "TARGETBUCKET"
 
 	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
-	providers.MockS3API.On("WaitUntilObjectNotExists", mock.Anything).Return(nil).Once()
-
 	providers.MockS3API.
-		On("DeleteObject", mock.MatchedBy(
-			func(input *s3.DeleteObjectInput) bool {
+		On("GetBucketWebsite", mock.MatchedBy(
+			func(input *s3.GetBucketWebsiteInput) bool {
 				return *input.Bucket == targetBucket
 			})).
-		Return(new(s3.DeleteObjectOutput), nil).
+		Return(new(s3.GetBucketWebsiteOutput).
+			SetErrorDocument(&s3.ErrorDocument{Key: aws.String("error.html")}).
+			SetIndexDocument(&s3.IndexDocument{Suffix: aws.String("index.html")}).
+			SetRedirectAllRequestsTo(new(s3.RedirectAllRequestsTo)).
+			SetRoutingRules([]*s3.RoutingRule{}), nil).
 		Once()
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.ObjectDelete, "--bucket", targetBucket,
-		"--" + flags.Key, targetKey,
-		"--" + flags.Region, "REG",
-		"--" + flags.Force}
+	os.Args = []string{"-", commands.BucketWebsiteGet, "--bucket", targetBucket, "--region", "REG", "--output", "json"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
 	// assert s3 api called once per region ( since success is last )
-	providers.MockS3API.AssertNumberOfCalls(t, "DeleteObject", 1)
+	providers.MockS3API.AssertNumberOfCalls(t, "GetBucketWebsite", 1)
 	//assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
 	//assert OK
-	assert.Contains(t, output, "OK")
+	assert.Contains(t, output, "\"ErrorDocument\": ")
+	assert.Contains(t, output, "\"Key\": \"error.html\"")
+	assert.Contains(t, output, "\"IndexDocument\": ")
+	assert.Contains(t, output, "\"Suffix\": \"index.html\"")
+	assert.Contains(t, output, "\"RedirectAllRequestsTo\":")
+	assert.Contains(t, output, "\"RoutingRules\": []")
 	//assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
-
 }
 
-func TestObjectDeleteRainyPath(t *testing.T) {
+func TestBucketWebsiteGetWithoutBucket(t *testing.T) {
 	defer providers.MocksRESET()
 
 	// --- Arrange ---
@@ -127,46 +128,43 @@ func TestObjectDeleteRainyPath(t *testing.T) {
 		exitCode = &ec
 	}
 
-	targetBucket := "TargetBucket"
-	badKey := "NoSuchKey"
+	targetBucket := "TARGETBUCKET"
 
 	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
-		On("DeleteObject", mock.MatchedBy(
-			func(input *s3.DeleteObjectInput) bool {
+		On("GetBucketWebsite", mock.MatchedBy(
+			func(input *s3.GetBucketWebsiteInput) bool {
 				return *input.Bucket == targetBucket
-
 			})).
-		Return(nil, errors.New("NoSuchKey")).
+		Return(new(s3.GetBucketWebsiteOutput).
+			SetErrorDocument(&s3.ErrorDocument{Key: aws.String("error.html")}).
+			SetIndexDocument(&s3.IndexDocument{Suffix: aws.String("index.html")}).
+			SetRedirectAllRequestsTo(new(s3.RedirectAllRequestsTo)).
+			SetRoutingRules([]*s3.RoutingRule{}), nil).
 		Once()
-
-	providers.FakeUI.Inputs("Y")
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.ObjectDelete, "--bucket", targetBucket,
-		"--" + flags.Key, badKey,
-		"--region", "REG"}
+	os.Args = []string{"-", commands.BucketWebsiteGet, "--region", "REG"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
 	// assert s3 api called once per region ( since success is last )
-	providers.MockS3API.AssertNumberOfCalls(t, "DeleteObject", 1)
-	//assert exit code is zero
-	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
+	providers.MockS3API.AssertNumberOfCalls(t, "GetBucketWebsite", 0)
+	//assert exit code is non-zero
+	assert.Equal(t, 1, *exitCode) // exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert Not OK
+	//assert not OK
 	assert.NotContains(t, output, "OK")
 	//assert Fail
 	assert.Contains(t, errors, "FAIL")
-
 }
 
-func TestObjectDeleteWithoutKey(t *testing.T) {
+func TestBucketWebsiteGetNoWebsite(t *testing.T) {
 	defer providers.MocksRESET()
 
 	// --- Arrange ---
@@ -176,39 +174,34 @@ func TestObjectDeleteWithoutKey(t *testing.T) {
 		exitCode = &ec
 	}
 
-	targetBucket := "TargetBucket"
+	targetBucket := "TARGETBUCKET"
 
 	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
-		On("DeleteObject", mock.MatchedBy(
-			func(input *s3.DeleteObjectInput) bool {
+		On("GetBucketWebsite", mock.MatchedBy(
+			func(input *s3.GetBucketWebsiteInput) bool {
 				return *input.Bucket == targetBucket
-
 			})).
-		Return(nil, errors.New("NoSuchKey")).
+		Return(nil, errors.New("NoSuchWebsiteConfiguration")).
 		Once()
-
-	providers.FakeUI.Inputs("Y")
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.ObjectDelete, "--bucket", targetBucket,
-		"--region", "REG"}
+	os.Args = []string{"-", commands.BucketWebsiteGet, "--bucket", targetBucket, "--region", "REG"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
 	// assert s3 api called once per region ( since success is last )
-	providers.MockS3API.AssertNumberOfCalls(t, "DeleteObject", 0)
-	//assert exit code is zero
-	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
+	providers.MockS3API.AssertNumberOfCalls(t, "GetBucketWebsite", 1)
+	//assert exit code is non-zero
+	assert.Equal(t, 1, *exitCode) // exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert Not OK
+	//assert not OK
 	assert.NotContains(t, output, "OK")
 	//assert Fail
 	assert.Contains(t, errors, "FAIL")
-
 }

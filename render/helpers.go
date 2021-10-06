@@ -8,7 +8,7 @@ import (
 
 var (
 	// Possible bucket class names
-	Classes = []string{"standard", "vault", "cold", "flex"}
+	Classes = []string{"standard", "vault", "cold", "flex", "smart"}
 	// Class tokenizer
 	classTokenizer = strings.Join(Classes, `|`)
 	/// Region specifications
@@ -17,7 +17,7 @@ var (
 	RegionDecoderRegex = regexp.MustCompile(regionSpec)
 )
 
-// Retreive class from the location constraint
+// Retrieve class from the location constraint
 func getClassFromLocationConstraint(location string) string {
 	// Break down regions and storage class
 	regionDetails := RegionDecoderRegex.FindStringSubmatch(location)
@@ -28,7 +28,7 @@ func getClassFromLocationConstraint(location string) string {
 	return ""
 }
 
-// Retreive region from the location constraint
+// Retrieve region from the location constraint
 func getRegionFromLocationConstraint(location string) string {
 	// Break down regions and storage class
 	regionDetails := RegionDecoderRegex.FindStringSubmatch(location)

@@ -109,6 +109,8 @@ func (txtRender *TextRender) Display(
 		return txtRender.printUpload(input, castedOutput)
 	case *DownloadOutput:
 		return txtRender.printDownload(input, castedOutput)
+	case *s3.GetBucketWebsiteOutput:
+		return txtRender.printGetBucketWebsite(input, castedOutput)
 	default:
 		return
 	}
@@ -348,13 +350,7 @@ func (txtRender *TextRender) printCopyObject(input interface{}, output *s3.CopyO
 		return badCastError
 	}
 	source := aws.StringValue(castInput.CopySource)
-	var sourceBucket string
-	if idx := strings.Index(source[1:], "/"); idx > 0 {
-		sourceBucket = source[1 : 1+idx]
-	} else {
-		return invalidFormatError
-	}
-
+	sourceBucket := strings.Split(source, "/")[0]
 	txtRender.Say(T("Successfully copied '{{.Object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
 		map[string]interface{}{object: terminal.EntityNameColor(aws.StringValue(castInput.Key)),
 			"bucket1": terminal.EntityNameColor(sourceBucket),
@@ -610,5 +606,27 @@ func (txtRender *TextRender) printDownload(input interface{}, output *DownloadOu
 		}))
 
 	txtRender.Say(FormatFileSize(output.TotalBytes) + T(" downloaded."))
+	return
+}
+
+func (txtRender *TextRender) printGetBucketWebsite(input interface{}, output *s3.GetBucketWebsiteOutput) (err error) {
+	errorDocument := output.ErrorDocument
+	indexDocument := output.IndexDocument
+	redirectRequests := output.RedirectAllRequestsTo
+
+	// Output the successful message
+	txtRender.Say(T("Website Configuration"))
+	if indexDocument.Suffix != nil {
+		txtRender.Say(T("Index Suffix: ") + terminal.EntityNameColor(aws.StringValue(indexDocument.Suffix)))
+	}
+	if errorDocument.Key != nil {
+		txtRender.Say(T("Error Document: ") + terminal.EntityNameColor(aws.StringValue(errorDocument.Key)))
+	}
+	if redirectRequests != nil && redirectRequests.HostName != nil {
+		txtRender.Say(T("Redirect Hostname: ") + terminal.EntityNameColor(aws.StringValue(redirectRequests.HostName)))
+	}
+	if redirectRequests != nil && redirectRequests.Protocol != nil {
+		txtRender.Say(T("Redirect Protocol: ") + terminal.EntityNameColor(aws.StringValue(redirectRequests.Protocol)))
+	}
 	return
 }

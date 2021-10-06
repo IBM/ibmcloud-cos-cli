@@ -122,9 +122,10 @@ func TestUploadSunnyPath(t *testing.T) {
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all output //
 	//output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert OK
 	assert.Contains(t, output, "OK")
 	//assert Not Fail
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 
 }

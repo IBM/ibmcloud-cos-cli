@@ -40,6 +40,15 @@ const (
 	// BucketLocationGet Command
 	BucketLocationGet = "bucket-location-get"
 
+	// BucketWebsiteDelete Command
+	BucketWebsiteDelete = "bucket-website-delete"
+
+	// BucketWebsiteGet Command
+	BucketWebsiteGet = "bucket-website-get"
+
+	// BucketWebsitePut Command
+	BucketWebsitePut = "bucket-website-put"
+
 	// CompleteMultipartUpload Command
 	CompleteMultipartUpload = "complete-multipart-upload"
 

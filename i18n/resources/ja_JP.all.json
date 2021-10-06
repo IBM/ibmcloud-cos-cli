@@ -25,7 +25,7 @@
   },
   {
     "id": "(`SOURCE`) The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.",
-    "translation": "(`SOURCE`) スラッシュ (/) で区切られた、ソース・バケットの名前とソース・オブジェクトのキー名。URL エンコードされていなければなりません。"
+    "translation": "(`SOURCE`) スラッシュ (/) で区切られた、ソース・バケットの名前とソース・オブジェクトのキー名。 URL エンコードされていなければなりません。"
   },
   {
     "id": "1 bucket found in your account:\n",
@@ -53,15 +53,15 @@
   },
   {
     "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
-    "translation": "ファイル内の JSON 構文を使用する `STRUCTURE` です。IBM Cloud 資料を参照してください。"
+    "translation": "ファイル内の JSON 構文を使用する `STRUCTURE` です。 IBM Cloud 資料を参照してください。"
   },
   {
     "id": "A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
-    "translation": "JSON 構文を使用する `STRUCTURE` です。IBM Cloud 資料を参照してください。"
+    "translation": "JSON 構文を使用する `STRUCTURE` です。 IBM Cloud 資料を参照してください。"
   },
   {
     "id": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation.",
-    "translation": "省略表現または JSON 構文のいずれかを使用する `STRUCTURE` です。IBM Cloud 資料を参照してください。"
+    "translation": "省略表現または JSON 構文のいずれかを使用する `STRUCTURE` です。 IBM Cloud 資料を参照してください。"
   },
   {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
@@ -193,7 +193,7 @@
   },
   {
     "id": "Details about bucket ",
-    "translation": "バケットについての詳細"
+    "translation": "バケットについての詳細 "
   },
   {
     "id": "Details about your multipart upload instance:",
@@ -232,6 +232,10 @@
     "translation": "ETag"
   },
   {
+    "id": "Error Document: ",
+    "translation": "エラー文書: "
+  },
+  {
     "id": "Error opening '{{.Location}}' to write.",
     "translation": "'{{.Location}}' を書き込み用にオープン中にエラーが発生しました。"
   },
@@ -252,6 +256,18 @@
     "translation": "バケットの Region とクラスを取得します。"
   },
   {
+    "id": "Get the static website configuration on a bucket.",
+    "translation": "バケット上で静的 Web サイト構成を取得します。"
+  },
+  {
+    "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
+    "translation": "バケットを Web サイトとして構成する場合、オブジェクト・キーの要求を同じバケット内の別のオブジェクトまたは URL (`LOCATION`) にリダイレクトします。"
+  },
+  {
+    "id": "Index Suffix: ",
+    "translation": "索引接尾部: "
+  },
+  {
     "id": "Initiated",
     "translation": "開始されました"
   },
@@ -261,7 +277,7 @@
   },
   {
     "id": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.",
-    "translation": "無効な引数です。バケットを作成またはリストするために、有効なサービス・インスタンス CRN を構成する必要があります。‘ibmcloud cos config list’を使用して CRN を確認してください。"
+    "translation": "無効な引数です。  バケットを作成またはリストするために、有効なサービス・インスタンス CRN を構成する必要があります。  ‘ibmcloud cos config list’を使用して CRN を確認してください。"
   },
   {
     "id": "Invalid boolean balue in Flag '--%s'",
@@ -325,7 +341,7 @@
   },
   {
     "id": "Max number of `PARTS` which will be uploaded to S3 that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.",
-    "translation": "アップロードされるオブジェクトのパーツ・サイズを計算する S3 にアップロードされる `PARTS` の最大数。上限は 10,000 パーツです。"
+    "translation": "アップロードされるオブジェクトのパーツ・サイズを計算する S3 にアップロードされる `PARTS` の最大数。  上限は 10,000 パーツです。"
   },
   {
     "id": "Name",
@@ -380,12 +396,24 @@
     "translation": "リスト表示が開始する前のパーツの番号 `VALUE`"
   },
   {
+    "id": "Redirect Hostname: ",
+    "translation": "リダイレクト・ホスト名: "
+  },
+  {
+    "id": "Redirect Protocol: ",
+    "translation": "リダイレクト・プロトコル: "
+  },
+  {
     "id": "Region: ",
     "translation": "Region: "
   },
   {
     "id": "Regions endpoint `URL`.",
     "translation": "Region エンドポイント `URL`。"
+  },
+  {
+    "id": "Remove static website configuration from a bucket.",
+    "translation": "バケットから静的 Web サイト構成を削除します。"
   },
   {
     "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
@@ -420,8 +448,20 @@
     "translation": "新規サービス・インスタンス ID を保存中..."
   },
   {
+    "id": "Service Endpoint",
+    "translation": "サービス・エンドポイント"
+  },
+  {
+    "id": "Set custom Service Endpoint for all operations.",
+    "translation": "すべての操作にカスタム・サービス・エンドポイントを設定します。"
+  },
+  {
     "id": "Set regions endpoint URL.",
     "translation": "Region エンドポイント URL を設定します。"
+  },
+  {
+    "id": "Set static website configuration on a bucket.",
+    "translation": "バケット上で静的 Web サイト構成を設定します。"
   },
   {
     "id": "Set the CORS configuration on a bucket.",
@@ -516,6 +556,10 @@
     "translation": "Region エンドポイント URL が正常にクリアされました。"
   },
   {
+    "id": "Successfully cleared service endpoint URL",
+    "translation": "サービス・エンドポイント URL が正常にクリアされました。"
+  },
+  {
     "id": "Successfully copied '{{.Object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
     "translation": "'{{.Object}}' がバケット '{{.bucket1}}' からバケット '{{.bucket2}}' に正常にコピーされました。"
   },
@@ -537,7 +581,7 @@
   },
   {
     "id": "Successfully saved S3 {{.Style}} style hosting option. CLI calls will use {{.Style}} style requests.",
-    "translation": "S3 {{.Style}} スタイル・ホスティング・オプションが正常に保存されました。CLI 呼び出しでは {{.Style}} スタイル要求が使用されます。"
+    "translation": "S3 {{.Style}} スタイル・ホスティング・オプションが正常に保存されました。 CLI 呼び出しでは {{.Style}} スタイル要求が使用されます。"
   },
   {
     "id": "Successfully saved default region. The program will look for buckets in the region {{.region}}.",
@@ -562,6 +606,10 @@
   {
     "id": "Successfully updated regions endpoint URL to {{.URL}}.",
     "translation": "Region エンドポイント URL が {{.URL}} に正常に更新されました。"
+  },
+  {
+    "id": "Successfully updated service endpoint URL.",
+    "translation": "サービス・エンドポイント URL が正常に更新されました。"
   },
   {
     "id": "Successfully uploaded '{{.Key}}' to bucket '{{.Bucket}}'.",
@@ -601,7 +649,7 @@
   },
   {
     "id": "The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the COS service, retrieving fewer items in each call. This can help prevent the service calls from timing out.",
-    "translation": "サービス呼び出しで取得する各ページの `SIZE`。 これは、コマンドの出力として返される項目の数には影響しません。 ページ・サイズをより小さく指定することで、各呼び出しで取得する項目が少なくなり、COS サービスに送られる呼び出し数が増えることになります。これにより、サービス呼び出しのタイムアウトを防ぐことができます。"
+    "translation": "サービス呼び出しで取得する各ページの `SIZE`。 これは、コマンドの出力として返される項目の数には影響しません。 ページ・サイズをより小さく指定することで、各呼び出しで取得する項目が少なくなり、COS サービスに送られる呼び出し数が増えることになります。 これにより、サービス呼び出しのタイムアウトを防ぐことができます。"
   },
   {
     "id": "The base64-encoded 128-bit `MD5` digest of the data.",
@@ -609,7 +657,7 @@
   },
   {
     "id": "The buffer `SIZE` (in bytes) to use when buffering data into chunks and ending them as parts to S3. The minimum allowed part size is 5MB.",
-    "translation": "データをチャンクにバッファリングし、S3 へのパーツとして完成させるときに使用するバッファー `SIZE` (バイト単位) です。許可される最小パーツ・サイズは 5MB です。"
+    "translation": "データをチャンクにバッファリングし、S3 へのパーツとして完成させるときに使用するバッファー `SIZE` (バイト単位) です。 許可される最小パーツ・サイズは 5MB です。"
   },
   {
     "id": "The download destination '{{.Location}}' is a directory.",
@@ -625,7 +673,7 @@
   },
   {
     "id": "The number of goroutines to spin up in parallel per call to Upload when sending parts. Default value is 5.",
-    "translation": "パーツの送信時、アップロードの呼び出しがあるたびに同時に立ち上げる goroutines の数です。デフォルト値は 5 です。"
+    "translation": "パーツの送信時、アップロードの呼び出しがあるたびに同時に立ち上げる goroutines の数です。 デフォルト値は 5 です。"
   },
   {
     "id": "The operation will do not ask for confirmation.",
@@ -637,7 +685,11 @@
   },
   {
     "id": "The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.",
-    "translation": "要求されたバケット名は使用できません。バケット名前空間はシステムのすべてのユーザーにより共有されます。 別の名前を選択してやり直してください。"
+    "translation": "要求されたバケット名は使用できません。 バケット名前空間はシステムのすべてのユーザーにより共有されます。 別の名前を選択してやり直してください。"
+  },
+  {
+    "id": "The specified bucket does not have website configuration.",
+    "translation": "指定したバケットには Web サイト構成がありません。"
   },
   {
     "id": "The specified bucket is not empty. Delete all the files in the bucket, then try again.",
@@ -649,7 +701,7 @@
   },
   {
     "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again.",
-    "translation": "指定したバケットが IBM Cloud アカウントに見つかりませんでした。 これは、誤った Region を指定したことが原因です。バケットの正しい Region を指定して、もう一度実行してください。"
+    "translation": "指定したバケットが IBM Cloud アカウントに見つかりませんでした。 これは、誤った Region を指定したことが原因です。 バケットの正しい Region を指定して、もう一度実行してください。"
   },
   {
     "id": "The specified download location does not exist on your system. Try again with a valid download path.",
@@ -716,6 +768,10 @@
     "translation": "新規 Region エンドポイント URL をクリアできません。"
   },
   {
+    "id": "Unable to clear service endpoint URL.",
+    "translation": "サービス・エンドポイント URL をクリアできません。"
+  },
+  {
     "id": "Unable to get new CRN.",
     "translation": "新規 CRN を取得できません。"
   },
@@ -758,6 +814,10 @@
   {
     "id": "Unable to read new region.",
     "translation": "新規 Region を読み取れません。"
+  },
+  {
+    "id": "Unable to save new Service Endpoint URL.",
+    "translation": "新規サービス・エンドポイント URL を保存できません。"
   },
   {
     "id": "Unable to save new region.",
@@ -828,6 +888,10 @@
     "translation": "警告: '{{.file}}' という名前のオブジェクトは '{{.dl}}' に既に存在します。"
   },
   {
+    "id": "WARNING: This will permanently delete any bucket website configuration from the bucket '{{.Bucket}}'.",
+    "translation": "警告: これによりすべてのバケット Web サイト構成がバケット '{{.Bucket}}' から完全に削除されます。"
+  },
+  {
     "id": "WARNING: This will permanently delete the bucket '{{.Bucket}}' from your account.",
     "translation": "警告: これによりバケット '{{.Bucket}}' がアカウントから完全に削除されます。"
   },
@@ -860,8 +924,16 @@
     "translation": "特定の条件が満たされるまで待機します。  各サブコマンドは、リストされた要件が満たされるまで API をポーリングします。"
   },
   {
+    "id": "Website Configuration",
+    "translation": "Web サイト構成"
+  },
+  {
     "id": "Your proposed upload is smaller than the minimum allowed size. File parts must be greater than 5 MB in size, except for the last part.",
     "translation": "指定したアップロードが許可される最小サイズよりも小さくなっています。 ファイルのパーツのサイズは、最後のパーツを除き 5 MB より大きい必要があります。"
+  },
+  {
+    "id": "[Deprecated] Output returned in raw JSON format.",
+    "translation": "[非推奨] 未加工 JSON フォーマットで返された出力。"
   },
   {
     "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",

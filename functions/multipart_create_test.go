@@ -98,15 +98,15 @@ func TestMPUCreateSunnyPath(t *testing.T) {
 
 	// capture all output //
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert OK
 	assert.Contains(t, output, "OK")
 	//assert Not Fail
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 
 	assert.Contains(t, output, targetBucket)
 	assert.Contains(t, output, targetKey)
 	assert.Contains(t, output, targetUploadID)
-
 }
 
 func TestMPUCreateRainyPath(t *testing.T) {
@@ -182,11 +182,11 @@ func TestMPUCreateRainyPath(t *testing.T) {
 
 	// capture all output //
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert Not OK
 	assert.NotContains(t, output, "OK")
 	//assert Fail
-	assert.Contains(t, output, "FAIL")
-
+	assert.Contains(t, errors, "FAIL")
 }
 
 func TestMPUCreateWithoutKey(t *testing.T) {
@@ -229,9 +229,101 @@ func TestMPUCreateWithoutKey(t *testing.T) {
 
 	// capture all output //
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert Not OK
 	assert.NotContains(t, output, "OK")
 	//assert Fail
-	assert.Contains(t, output, "FAIL")
+	assert.Contains(t, errors, "FAIL")
+}
 
+func TestMultipartUploadCreateWebsiteRedirectLocation(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	targetBucket := "TargetBucket"
+	targetKey := "TargetKey"
+	targetCacheControl := "TargetCacheControl"
+	targetContentDisposition := "TargetContentDisposition"
+	targetContentEncoding := "TargetContentEncoding"
+	targetContentLanguage := "TargetContentLanguage"
+	targetContentType := "TargetContentType"
+	targetMetadata := "key1=value1,key2=value2,key3=value3"
+	targetWebsiteRedirectLocation := "https://cloud.ibm.com"
+
+	targetMetadataAsMap := map[string]*string{
+		"key1": aws.String("value1"),
+		"key2": aws.String("value2"),
+		"key3": aws.String("value3"),
+	}
+
+	targetUploadID := "TargetUploadID"
+
+	var capturedInput *s3.CreateMultipartUploadInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	providers.MockS3API.
+		On("CreateMultipartUpload", mock.MatchedBy(
+			func(input *s3.CreateMultipartUploadInput) bool {
+				capturedInput = input
+				return true
+			})).
+		Return(
+			new(s3.CreateMultipartUploadOutput).
+				SetBucket(targetBucket).
+				SetKey(targetKey).
+				SetUploadId(targetUploadID), nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	os.Args = []string{"-", commands.MultipartUploadCreate,
+		"--" + flags.Bucket, targetBucket,
+		"--" + flags.Key, targetKey,
+		"--" + flags.CacheControl, targetCacheControl,
+		"--" + flags.ContentDisposition, targetContentDisposition,
+		"--" + flags.ContentEncoding, targetContentEncoding,
+		"--" + flags.ContentLanguage, targetContentLanguage,
+		"--" + flags.ContentType, targetContentType,
+		"--" + flags.Metadata, targetMetadata,
+		"--" + flags.Region, "us",
+		"--" + flags.WebsiteRedirectLocation, targetWebsiteRedirectLocation,
+	}
+	//call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+	// assert s3 api called once per region ( since success is last )
+	providers.MockS3API.AssertNumberOfCalls(t, "CreateMultipartUpload", 1)
+	//assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+
+	// assert request match cli parameters
+	assert.Equal(t, targetBucket, *capturedInput.Bucket)
+	assert.Equal(t, targetKey, *capturedInput.Key)
+	assert.Equal(t, targetCacheControl, *capturedInput.CacheControl)
+	assert.Equal(t, targetContentDisposition, *capturedInput.ContentDisposition)
+	assert.Equal(t, targetContentEncoding, *capturedInput.ContentEncoding)
+	assert.Equal(t, targetContentLanguage, *capturedInput.ContentLanguage)
+	assert.Equal(t, targetContentType, *capturedInput.ContentType)
+	assert.Equal(t, targetMetadataAsMap, capturedInput.Metadata)
+	assert.Equal(t, targetWebsiteRedirectLocation, *capturedInput.WebsiteRedirectLocation)
+
+	// capture all output //
+	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
+	//assert OK
+	assert.Contains(t, output, "OK")
+	//assert Not Fail
+	assert.NotContains(t, errors, "FAIL")
+
+	assert.Contains(t, output, targetBucket)
+	assert.Contains(t, output, targetKey)
+	assert.Contains(t, output, targetUploadID)
 }

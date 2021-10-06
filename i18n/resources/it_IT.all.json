@@ -232,6 +232,10 @@
     "translation": "ETag"
   },
   {
+    "id": "Error Document: ",
+    "translation": "Documento in errore: "
+  },
+  {
     "id": "Error opening '{{.Location}}' to write.",
     "translation": "Errore durante l'apertura di '{{.Location}}' per la scrittura."
   },
@@ -250,6 +254,18 @@
   {
     "id": "Get the region and class of a bucket.",
     "translation": "Richiamare la regione e la classe di un bucket."
+  },
+  {
+    "id": "Get the static website configuration on a bucket.",
+    "translation": "Richiamare la configurazione sito web statico su un bucket."
+  },
+  {
+    "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
+    "translation": "Se un bucket è configurato come un sito web, reindirizza le richieste per la chiave oggetto a un altro oggetto nello stesso bucket o a un URL (`UBICAZIONE`)."
+  },
+  {
+    "id": "Index Suffix: ",
+    "translation": "Suffisso indice: "
   },
   {
     "id": "Initiated",
@@ -380,12 +396,24 @@
     "translation": "`VALORE` numero parte dopo il quale inizia l'elenco"
   },
   {
+    "id": "Redirect Hostname: ",
+    "translation": "Nome host di reindirizzamento: "
+  },
+  {
+    "id": "Redirect Protocol: ",
+    "translation": "Protocollo di reindirizzamento: "
+  },
+  {
     "id": "Region: ",
     "translation": "Regione: "
   },
   {
     "id": "Regions endpoint `URL`.",
     "translation": "`URL` endpoint regioni."
+  },
+  {
+    "id": "Remove static website configuration from a bucket.",
+    "translation": "Rimuovere una configurazione sito web statico da un bucket."
   },
   {
     "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
@@ -420,8 +448,20 @@
     "translation": "Salvataggio nuovo ID istanza servizio..."
   },
   {
+    "id": "Service Endpoint",
+    "translation": "Endpoint del servizio"
+  },
+  {
+    "id": "Set custom Service Endpoint for all operations.",
+    "translation": "Impostare un endpoint del servizio personalizzato per tutte le operazioni."
+  },
+  {
     "id": "Set regions endpoint URL.",
     "translation": "Impostare l'URL endpoint regioni."
+  },
+  {
+    "id": "Set static website configuration on a bucket.",
+    "translation": "Impostare una configurazione sito web statico su un bucket."
   },
   {
     "id": "Set the CORS configuration on a bucket.",
@@ -516,6 +556,10 @@
     "translation": "URL endpoint regioni cancellati correttamente."
   },
   {
+    "id": "Successfully cleared service endpoint URL",
+    "translation": "URL endpoint del servizio cancellato correttamente"
+  },
+  {
     "id": "Successfully copied '{{.Object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
     "translation": "Copiato correttamente '{{.Object}}' dal bucket '{{.bucket1}}' al bucket '{{.bucket2}}'."
   },
@@ -541,7 +585,7 @@
   },
   {
     "id": "Successfully saved default region. The program will look for buckets in the region {{.region}}.",
-    "translation": "Regione predefinita salvata correttamente. Il programma cercher à i bucket nella regione {{.region}}."
+    "translation": "Regione predefinita salvata correttamente. Il programma cercherà i bucket nella regione {{.region}}."
   },
   {
     "id": "Successfully saved download location. New files will be downloaded to '",
@@ -562,6 +606,10 @@
   {
     "id": "Successfully updated regions endpoint URL to {{.URL}}.",
     "translation": "URL endpoint regioni aggiornati correttamente a {{.URL}}."
+  },
+  {
+    "id": "Successfully updated service endpoint URL.",
+    "translation": "URL endpoint del servizio aggiornato correttamente."
   },
   {
     "id": "Successfully uploaded '{{.Key}}' to bucket '{{.Bucket}}'.",
@@ -609,7 +657,7 @@
   },
   {
     "id": "The buffer `SIZE` (in bytes) to use when buffering data into chunks and ending them as parts to S3. The minimum allowed part size is 5MB.",
-    "translation": "La `DIMENSIONE` buffer (in byte) da utilizzare quando si esegue il buffering dei dati in sezioni e si terminano come parti in S3. La dimensione parte minima consentita è 5MB."
+    "translation": "La `DIMENSIONE` buffer (in byte) da utilizzare quando si esegue il buffering dei dati in sezioni e si terminano come parti in S3. La dimensione parte minima consentita è 5 MB."
   },
   {
     "id": "The download destination '{{.Location}}' is a directory.",
@@ -638,6 +686,10 @@
   {
     "id": "The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.",
     "translation": "Il nome bucket richiesto non è disponibile. Lo spazio dei nomi bucket è condiviso da tutti gli utenti del sistema. Selezionare un nome differente e riprovare."
+  },
+  {
+    "id": "The specified bucket does not have website configuration.",
+    "translation": "Il bucket specificato non dispone di una configurazione sito web. "
   },
   {
     "id": "The specified bucket is not empty. Delete all the files in the bucket, then try again.",
@@ -716,6 +768,10 @@
     "translation": "Impossibile cancellare l'URL endpoint regioni."
   },
   {
+    "id": "Unable to clear service endpoint URL.",
+    "translation": "Impossibile cancellare l'URL endpoint del servizio."
+  },
+  {
     "id": "Unable to get new CRN.",
     "translation": "Impossibile richiamare il nuovo CRN."
   },
@@ -758,6 +814,10 @@
   {
     "id": "Unable to read new region.",
     "translation": "Impossibile leggere la nuova regione."
+  },
+  {
+    "id": "Unable to save new Service Endpoint URL.",
+    "translation": "Impossibile salvare il nuovo URL endpoint del servizio."
   },
   {
     "id": "Unable to save new region.",
@@ -828,6 +888,10 @@
     "translation": "AVVERTENZA: un oggetto con nome '{{.file}}' esiste già in '{{.dl}}'."
   },
   {
+    "id": "WARNING: This will permanently delete any bucket website configuration from the bucket '{{.Bucket}}'.",
+    "translation": "AVVERTENZA: Questo eliminerà definitivamente qualsiasi configurazione sito web del bucket dal bucket '{{.Bucket}}'."
+  },
+  {
     "id": "WARNING: This will permanently delete the bucket '{{.Bucket}}' from your account.",
     "translation": "AVVERTENZA: Questo eliminerà definitivamente il bucket '{{.Bucket}}' dall'account."
   },
@@ -860,8 +924,16 @@
     "translation": "Attendere finché non viene soddisfatta una condizione particolare.  Ogni sottocomando esegue il polling di una API finché non viene soddisfatto il requisito elencato."
   },
   {
+    "id": "Website Configuration",
+    "translation": "Configurazione sito web"
+  },
+  {
     "id": "Your proposed upload is smaller than the minimum allowed size. File parts must be greater than 5 MB in size, except for the last part.",
     "translation": "Il caricamento proposto è inferiore alla dimensione minima consentita. Le parti di file devono essere di dimensione superiore a 5 MB, tranne l'ultima parte."
+  },
+  {
+    "id": "[Deprecated] Output returned in raw JSON format.",
+    "translation": "[Obsoleto] Output restituito in formato JSON grezzo."
   },
   {
     "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",

@@ -232,6 +232,10 @@
     "translation": "ETag"
   },
   {
+    "id": "Error Document: ",
+    "translation": "Fehlerdokument: "
+  },
+  {
     "id": "Error opening '{{.Location}}' to write.",
     "translation": "Fehler beim Öffnen von '{{.Location}}' zum Schreiben."
   },
@@ -250,6 +254,18 @@
   {
     "id": "Get the region and class of a bucket.",
     "translation": "Ruft die Region und die Klasse eines Buckets ab."
+  },
+  {
+    "id": "Get the static website configuration on a bucket.",
+    "translation": "Ruft die Konfiguration einer statischen Website für ein Bucket ab."
+  },
+  {
+    "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
+    "translation": "Wenn ein Bucket als Website konfiguriert ist, werden Anforderungen für den Objektschlüssel an ein anderes Objekt im selben Bucket oder an eine URL (LOCATION) umgeleitet."
+  },
+  {
+    "id": "Index Suffix: ",
+    "translation": "Indexsuffix: "
   },
   {
     "id": "Initiated",
@@ -380,12 +396,24 @@
     "translation": "Teilenummer (VALUE), nach der die Auflistung beginnt"
   },
   {
+    "id": "Redirect Hostname: ",
+    "translation": "Hostname für die Umleitung: "
+  },
+  {
+    "id": "Redirect Protocol: ",
+    "translation": "Umleitungsprotokoll: "
+  },
+  {
     "id": "Region: ",
     "translation": "Region: "
   },
   {
     "id": "Regions endpoint `URL`.",
     "translation": "Endpunkt-URL (URL) der Region."
+  },
+  {
+    "id": "Remove static website configuration from a bucket.",
+    "translation": "Entfernt die Konfiguration einer statischen Website aus einem Bucket."
   },
   {
     "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
@@ -420,12 +448,24 @@
     "translation": "Neue Serviceinstanz-ID wird gespeichert..."
   },
   {
+    "id": "Service Endpoint",
+    "translation": "Serviceendpunkt"
+  },
+  {
+    "id": "Set custom Service Endpoint for all operations.",
+    "translation": "Legt einen angepassten Serviceendpunkt für alle Operationen fest."
+  },
+  {
     "id": "Set regions endpoint URL.",
     "translation": "Legt die Endpunkt-URL der Region fest."
   },
   {
+    "id": "Set static website configuration on a bucket.",
+    "translation": "Legt die Konfiguration einer statischen Website für ein Bucket fest."
+  },
+  {
     "id": "Set the CORS configuration on a bucket.",
-    "translation": "Legt die die CORS-Konfiguration für ein Bucket fest."
+    "translation": "Legt die CORS-Konfiguration für ein Bucket fest."
   },
   {
     "id": "Set the default location for downloads.",
@@ -516,6 +556,10 @@
     "translation": "Die Endpunkt-URL der Region wurde erfolgreich gelöscht."
   },
   {
+    "id": "Successfully cleared service endpoint URL",
+    "translation": "Die URL des Serviceendpunkts wurde erfolgreich gelöscht."
+  },
+  {
     "id": "Successfully copied '{{.Object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
     "translation": "'{{.Object}}' wurde erfolgreich aus dem Bucket '{{.bucket1}}' in das Bucket '{{.bucket2}}' kopiert."
   },
@@ -562,6 +606,10 @@
   {
     "id": "Successfully updated regions endpoint URL to {{.URL}}.",
     "translation": "Die Endpunkt-URL der Region wurde erfolgreich aktualisiert und ist nun {{.URL}}. "
+  },
+  {
+    "id": "Successfully updated service endpoint URL.",
+    "translation": "Die URL des Serviceendpunkts wurde erfolgreich aktualisiert."
   },
   {
     "id": "Successfully uploaded '{{.Key}}' to bucket '{{.Bucket}}'.",
@@ -640,6 +688,10 @@
     "translation": "Der angeforderte Bucketname ist nicht verfügbar. Der Namensbereich des Buckets wird von allen Benutzern des Systems gemeinsam genutzt. Wählen Sie einen anderen Namen aus und wiederholen Sie die Aktion. "
   },
   {
+    "id": "The specified bucket does not have website configuration.",
+    "translation": "Das angegebene Bucket enthält keine Websitekonfiguration. "
+  },
+  {
     "id": "The specified bucket is not empty. Delete all the files in the bucket, then try again.",
     "translation": "Das angegebene Bucket ist nicht leer. Löschen Sie alle Dateien aus dem Bucket und wiederholen Sie die Aktion."
   },
@@ -716,6 +768,10 @@
     "translation": "Die Endpunkt-URL der Region konnte nicht gelöscht werden."
   },
   {
+    "id": "Unable to clear service endpoint URL.",
+    "translation": "Die URL des Serviceendpunkts konnte nicht gelöscht werden."
+  },
+  {
     "id": "Unable to get new CRN.",
     "translation": "Der neue Cloud Resource Name (CRN) kann nicht abgerufen werden."
   },
@@ -758,6 +814,10 @@
   {
     "id": "Unable to read new region.",
     "translation": "Die neue Region kann nicht gelesen werden."
+  },
+  {
+    "id": "Unable to save new Service Endpoint URL.",
+    "translation": "Die neue URL des Serviceendpunkts kann nicht gespeichert werden."
   },
   {
     "id": "Unable to save new region.",
@@ -828,6 +888,10 @@
     "translation": "WARNUNG: Ein Objekt mit dem Namen '{{.file}}' ist in '{{.dl}}' bereits vorhanden. "
   },
   {
+    "id": "WARNING: This will permanently delete any bucket website configuration from the bucket '{{.Bucket}}'.",
+    "translation": "WARNUNG: Durch diese Aktion wird die Konfiguration der Bucket-Website dauerhaft aus dem Bucket '{{.Bucket}}' gelöscht."
+  },
+  {
     "id": "WARNING: This will permanently delete the bucket '{{.Bucket}}' from your account.",
     "translation": "WARNUNG: Durch diese Aktion wird das Bucket '{{.Bucket}}' aus Ihrem Konto gelöscht."
   },
@@ -860,8 +924,16 @@
     "translation": "Wartet, bis eine bestimmte Bedingung erfüllt ist. Jeder Unterbefehl fragt eine API ab, bis die aufgelistete Anforderung erfüllt ist. "
   },
   {
+    "id": "Website Configuration",
+    "translation": "Websitekonfiguration"
+  },
+  {
     "id": "Your proposed upload is smaller than the minimum allowed size. File parts must be greater than 5 MB in size, except for the last part.",
     "translation": "Der geplante Upload ist kleiner als die minimal zulässige Größe. Mit Ausnahme des letzten Teils müssen die Dateikomponenten größer als 5 MB sein."
+  },
+  {
+    "id": "[Deprecated] Output returned in raw JSON format.",
+    "translation": "[Veraltet] Die Ausgabe wird im unformatierten JSON-Format zurückgegeben."
   },
   {
     "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",

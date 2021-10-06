@@ -389,8 +389,104 @@ func TestObjectGetDestinationIsDir(t *testing.T) {
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 	// capture all wroteContent //
 	wroteContent := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert OK
 	assert.NotContains(t, wroteContent, "OK")
 	//assert Not Fail
-	assert.Contains(t, wroteContent, "FAIL")
+	assert.Contains(t, errors, "FAIL")
+}
+
+func TestObjectGetWebsiteRedirectLocation(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	// flags
+	targetBucket := "GetObjBucket"
+	targetKey := "GetObjKey"
+	expectedWebsiteRedirectLocation := "https://cloud.ibm.com"
+
+	// mock writing destination
+	targetPath := "/mock/path"
+	targetFileName := targetPath + "/MockFileName"
+
+	// string to collect the writes
+	wroteFileContent := ""
+	// checks if destination file was closed
+	isClosed := false
+
+	// random string to mock file content
+	objectContent := "content"
+	// checks if file removed in the end
+	isRemoved := false
+
+	var inputCapture *s3.GetObjectInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	providers.MockFileOperations.
+		On("GetFileInfo", mock.MatchedBy(func(path string) bool { return path == targetFileName })).
+		Return(os.Stat(targetFileName)) // some random name that must not exist
+
+	providers.MockFileOperations.
+		On("WriteCloserOpen", mock.MatchedBy(func(path string) bool { return path == targetFileName })).
+		Return(utils.WriteToString(&wroteFileContent, &isClosed), nil)
+
+	providers.MockS3API.
+		On("GetObject", mock.MatchedBy(
+			func(input *s3.GetObjectInput) bool {
+				inputCapture = input
+				return true
+			})).
+		Return(new(s3.GetObjectOutput).
+			SetContentLength(int64(len(objectContent))).
+			SetBody(ioutil.NopCloser(strings.NewReader(objectContent))).
+			SetLastModified(time.Now()).
+			SetWebsiteRedirectLocation(expectedWebsiteRedirectLocation), nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	// all args for later verification
+	os.Args = []string{
+		"-",
+		commands.ObjectGet,
+		"--" + flags.Bucket, targetBucket,
+		"--" + flags.Key, targetKey,
+		"--" + flags.Region, "REG",
+		"--" + flags.Output, "json",
+		targetFileName,
+	}
+	//call  plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+
+	// verify all parameters fwd
+	assert.Equal(t, targetBucket, *inputCapture.Bucket)
+	assert.Equal(t, targetKey, *inputCapture.Key)
+
+	// assert s3 api called once per region ( since success is last )
+	providers.MockS3API.AssertNumberOfCalls(t, "GetObject", 1)
+	//assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+	// capture all wroteContent //
+	wroteContent := providers.FakeUI.Outputs()
+	//assert expectedWebsiteRedirectLocation in JSON output
+	assert.Contains(t, wroteContent, expectedWebsiteRedirectLocation)
+	assert.Contains(t, wroteContent, "WebsiteRedirectLocation")
+	//assert Not Fail
+	assert.NotContains(t, wroteContent, "FAIL")
+
+	// assert file closed
+	assert.True(t, isClosed, "Is Closed")
+	// assert file not removed
+	assert.False(t, isRemoved, "Is Removed")
+
+	assert.Equal(t, objectContent, wroteFileContent)
 }

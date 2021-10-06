@@ -232,6 +232,10 @@
     "translation": "ETag"
   },
   {
+    "id": "Error Document: ",
+    "translation": "錯誤文件："
+  },
+  {
     "id": "Error opening '{{.Location}}' to write.",
     "translation": "開啟 '{{.Location}}' 進行寫入時發生錯誤。"
   },
@@ -250,6 +254,18 @@
   {
     "id": "Get the region and class of a bucket.",
     "translation": "取得儲存區的區域和類別。"
+  },
+  {
+    "id": "Get the static website configuration on a bucket.",
+    "translation": "在儲存區上取得靜態網站配置。"
+  },
+  {
+    "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
+    "translation": "如果將儲存區配置為網站，請將物件索引鍵的要求重新導向至相同儲存區中的另一個物件或 URL (`LOCATION`)。"
+  },
+  {
+    "id": "Index Suffix: ",
+    "translation": "索引字尾："
   },
   {
     "id": "Initiated",
@@ -380,12 +396,24 @@
     "translation": "作為清單起始產品編號的 `VALUE`"
   },
   {
+    "id": "Redirect Hostname: ",
+    "translation": "重新導向主機名稱："
+  },
+  {
+    "id": "Redirect Protocol: ",
+    "translation": "重新導向通訊協定："
+  },
+  {
     "id": "Region: ",
     "translation": "區域："
   },
   {
     "id": "Regions endpoint `URL`.",
     "translation": "區域端點 `URL`。"
+  },
+  {
+    "id": "Remove static website configuration from a bucket.",
+    "translation": "從儲存區移除靜態網站配置。"
   },
   {
     "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
@@ -420,8 +448,20 @@
     "translation": "正在儲存新的服務實例 ID..."
   },
   {
+    "id": "Service Endpoint",
+    "translation": "服務端點"
+  },
+  {
+    "id": "Set custom Service Endpoint for all operations.",
+    "translation": "設定所有作業的自訂服務端點。"
+  },
+  {
     "id": "Set regions endpoint URL.",
     "translation": "設定區域端點 URL。"
+  },
+  {
+    "id": "Set static website configuration on a bucket.",
+    "translation": "在儲存區上設定靜態網站配置。"
   },
   {
     "id": "Set the CORS configuration on a bucket.",
@@ -516,6 +556,10 @@
     "translation": "已順利清除區域端點 URL。"
   },
   {
+    "id": "Successfully cleared service endpoint URL",
+    "translation": "已順利清除服務端點 URL"
+  },
+  {
     "id": "Successfully copied '{{.Object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
     "translation": "已順利將 '{{.Object}}' 從儲存區 '{{.bucket1}}' 複製到儲存區 '{{.bucket2}}'。"
   },
@@ -562,6 +606,10 @@
   {
     "id": "Successfully updated regions endpoint URL to {{.URL}}.",
     "translation": "已順利將區域端點 URL 更新為 {{.URL}}。"
+  },
+  {
+    "id": "Successfully updated service endpoint URL.",
+    "translation": "已順利更新服務端點 URL。"
   },
   {
     "id": "Successfully uploaded '{{.Key}}' to bucket '{{.Bucket}}'.",
@@ -640,6 +688,10 @@
     "translation": "所要求的儲存區名稱無法使用。儲存區名稱空間由系統的所有使用者共用。請選取其他名稱，然後再試一次。"
   },
   {
+    "id": "The specified bucket does not have website configuration.",
+    "translation": "指定的儲存區沒有網站配置。"
+  },
+  {
     "id": "The specified bucket is not empty. Delete all the files in the bucket, then try again.",
     "translation": "指定的儲存區非空白。請刪除儲存區中的所有檔案，然後重試。"
   },
@@ -716,6 +768,10 @@
     "translation": "無法清除區域端點 URL。"
   },
   {
+    "id": "Unable to clear service endpoint URL.",
+    "translation": "無法清除服務端點 URL。"
+  },
+  {
     "id": "Unable to get new CRN.",
     "translation": "無法取得新的 CRN。"
   },
@@ -758,6 +814,10 @@
   {
     "id": "Unable to read new region.",
     "translation": "無法讀取新的區域。"
+  },
+  {
+    "id": "Unable to save new Service Endpoint URL.",
+    "translation": "無法儲存新的服務端點 URL。"
   },
   {
     "id": "Unable to save new region.",
@@ -828,6 +888,10 @@
     "translation": "警告：名稱為 '{{.file}}' 的物件已存在於 '{{.dl}}' 中。"
   },
   {
+    "id": "WARNING: This will permanently delete any bucket website configuration from the bucket '{{.Bucket}}'.",
+    "translation": "警告：這會永久刪除儲存區 '{{.Bucket}}' 中的任何儲存區網站配置。"
+  },
+  {
     "id": "WARNING: This will permanently delete the bucket '{{.Bucket}}' from your account.",
     "translation": "警告：這將從您的帳戶中永久地刪除儲存區 '{{.Bucket}}'。"
   },
@@ -860,8 +924,16 @@
     "translation": "請等候直到特定條件得到滿足。每一個次指令都會輪詢 API，直到所列出的需求得到滿足。"
   },
   {
+    "id": "Website Configuration",
+    "translation": "網站配置"
+  },
+  {
     "id": "Your proposed upload is smaller than the minimum allowed size. File parts must be greater than 5 MB in size, except for the last part.",
     "translation": "您提出的上傳小於容許的大小下限。檔案組件大小必須大於 5 MB，最後一個組件除外。"
+  },
+  {
+    "id": "[Deprecated] Output returned in raw JSON format.",
+    "translation": "[已淘汰] 以原始 JSON 格式傳回的輸出。"
   },
   {
     "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",

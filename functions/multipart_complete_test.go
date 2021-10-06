@@ -81,10 +81,11 @@ func TestMPUCompleteSunnyPath(t *testing.T) {
 
 	// capture all output //
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert OK
 	assert.Contains(t, output, "OK")
 	//assert Not Fail
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 }
 
 func TestMPUCompleteRainyPath(t *testing.T) {
@@ -133,10 +134,11 @@ func TestMPUCompleteRainyPath(t *testing.T) {
 
 	// capture all output //
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert Not OK
 	assert.NotContains(t, output, "OK")
 	//assert Fail
-	assert.Contains(t, output, "FAIL")
+	assert.Contains(t, errors, "FAIL")
 
 }
 
@@ -184,9 +186,10 @@ func TestMPUCompleteWithoutUploadID(t *testing.T) {
 
 	// capture all output //
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert Not OK
 	assert.NotContains(t, output, "OK")
 	//assert Fail
-	assert.Contains(t, output, "FAIL")
+	assert.Contains(t, errors, "FAIL")
 
 }

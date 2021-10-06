@@ -1,25 +1,24 @@
 package functions
 
 import (
-	"io"
-
+	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/bluemix/terminal"
 	"github.com/IBM/ibmcloud-cos-cli/errors"
 
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3iface"
-
 	"github.com/IBM/ibmcloud-cos-cli/config/fields"
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
+	"github.com/IBM/ibmcloud-cos-cli/render"
 	"github.com/IBM/ibmcloud-cos-cli/utils"
 	"github.com/urfave/cli"
 )
 
-// ObjectPut - puts an object to a bucket without using multipart upload
+// BucketWebsiteDelete removes website configuration from a bucket.
 // Parameter:
 //   	CLI Context Application
 // Returns:
 //  	Error = zero or non-zero
-func ObjectPut(c *cli.Context) (err error) {
+func BucketWebsiteDelete(c *cli.Context) (err error) {
 	// check the number of arguments
 	if c.NArg() > 0 {
 		// Build Command Error struct
@@ -37,38 +36,32 @@ func ObjectPut(c *cli.Context) (err error) {
 		return
 	}
 
-	// Build PutObjectInput
-	input := new(s3.PutObjectInput)
+	// Initialize input structure
+	input := new(s3.DeleteBucketWebsiteInput)
 
-	// Required parameters for PutObject
+	// Required parameters
 	mandatory := map[string]string{
 		fields.Bucket: flags.Bucket,
-		fields.Key:    flags.Key,
 	}
 
-	//
-	// Optional parameters for PutObject
-	options := map[string]string{
-		fields.CacheControl:            flags.CacheControl,
-		fields.ContentDisposition:      flags.ContentDisposition,
-		fields.ContentEncoding:         flags.ContentEncoding,
-		fields.ContentLanguage:         flags.ContentLanguage,
-		fields.ContentLength:           flags.ContentLength,
-		fields.ContentMD5:              flags.ContentMD5,
-		fields.ContentType:             flags.ContentType,
-		fields.Metadata:                flags.Metadata,
-		fields.Body:                    flags.Body,
-		fields.WebsiteRedirectLocation: flags.WebsiteRedirectLocation,
-	}
+	// Optional parameters
+	options := map[string]string{}
 
 	// Validate User Inputs
 	if err = MapToSDKInput(c, input, mandatory, options); err != nil {
 		return
 	}
 
-	// Deferring close of Body
-	if closeAble, ok := input.Body.(io.Closer); ok {
-		defer closeAble.Close()
+	// No force on deleting bucket website, alert users
+	if !c.Bool(flags.Force) {
+		confirmed := false
+		// Warn the user that they're about to delete a bucket website.
+		cosContext.UI.Warn(render.WarningDeleteBucketWebsite(input))
+		cosContext.UI.Prompt(render.MessageConfirmationContinue(), &terminal.PromptOptions{}).Resolve(&confirmed)
+		if !confirmed {
+			cosContext.UI.Say(render.MessageOperationCanceled())
+			return
+		}
 	}
 
 	// Setting client to do the call
@@ -77,9 +70,9 @@ func ObjectPut(c *cli.Context) (err error) {
 		return
 	}
 
-	// PutObject Op
-	var output *s3.PutObjectOutput
-	if output, err = client.PutObject(input); err != nil {
+	// DeleteBucketWebsite Op
+	var output *s3.DeleteBucketWebsiteOutput
+	if output, err = client.DeleteBucketWebsite(input); err != nil {
 		return
 	}
 

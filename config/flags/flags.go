@@ -253,6 +253,16 @@ var (
 		Usage: T("Sets the Expires `HEADER` of the response."),
 	}
 
+	FlagWebsiteConfiguration = cli.StringFlag{
+		Name:  WebsiteConfiguration,
+		Usage: T("A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation."),
+	}
+
+	FlagWebsiteRedirectLocation = cli.StringFlag{
+		Name:  WebsiteRedirectLocation,
+		Usage: T("If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`)."),
+	}
+
 	FlagUploadID = cli.StringFlag{
 		Name:   UploadID,
 		Usage:  T("Upload `ID` identifying the multipart upload."),

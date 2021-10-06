@@ -54,6 +54,8 @@ const (
 	ResponseContentLanguage     = "response-content-language"
 	ResponseContentType         = "response-content-type"
 	ResponseExpires             = "response-expires"
+	WebsiteConfiguration        = "website-configuration"
+	WebsiteRedirectLocation     = "website-redirect-location"
 	UploadID                    = "upload-id"
 	UploadIDMarker              = "upload-id-marker"
 	List                        = "list"

@@ -68,16 +68,16 @@ Enter 'ibmcloud cos help [command]' for more information about a command.
 ### Example CLI usage
 
 - Create a bucket in your IBM Cloud Object Storage account.
-  - Usage: `create-bucket --bucket BUCKET_NAME [--ibm-service-instance-id ID] [--class CLASS_NAME] [--region REGION]`
-    - EXAMPLE: `ibmcloud cos create-bucket --bucket testcoscli --region us-south --class VAULT`
+  - Usage: `bucket-create --bucket BUCKET_NAME [--ibm-service-instance-id ID] [--class CLASS_NAME] [--region REGION]`
+    - EXAMPLE: `ibmcloud cos bucket-create --bucket testcoscli --region us-south --class VAULT`
 
 - Put an object in an existing bucket.
-  - Usage: `put-object --bucket BUCKET_NAME --key KEY [--body FILE_PATH] [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-length SIZE] [--content-md5 MD5] [--content-type MIME] [--metadata STRUCTURE] [--region REGION]`
-    - EXAMPLE: `ibmcloud cos put-object --bucket testcoscli --key cosfile --region us-south`
+  - Usage: `object-put --bucket BUCKET_NAME --key KEY [--body FILE_PATH] [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-length SIZE] [--content-md5 MD5] [--content-type MIME] [--metadata STRUCTURE] [--region REGION] [--website-redirect-location LOCATION]`
+    - EXAMPLE: `ibmcloud cos object-put --bucket testcoscli --key cosfile --region us-south`
 
 - Delete an object in an existing bucket.
-  - Usage: `ibmcloud cos delete-object --bucket BUCKET_NAME --key KEY_NAME [--region REGION_NAME] [--force]`
-  - EXAMPLE: `ibmcloud cos delete-object --bucket testcoscli --key cosfile --region us-south`
+  - Usage: `ibmcloud cos object-delete --bucket BUCKET_NAME --key KEY_NAME [--region REGION_NAME] [--force]`
+  - EXAMPLE: `ibmcloud cos object-delete --bucket testcoscli --key cosfile --region us-south`
 
 For information on other commands, go to our plug-in [page](https://cloud.ibm.com/docs/cloud-object-storage-cli-plugin?topic=cloud-object-storage-cli-ic-use-the-ibm-cli).
 

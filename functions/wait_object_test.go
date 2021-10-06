@@ -85,9 +85,9 @@ func TestWaitObjectNotExistsHappy(t *testing.T) {
 	assert.Equal(t, targetPartNumber, *inputCapture.PartNumber)
 
 	// capture all output //
-	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert Not Fail
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 }
 
 func TestWaitObjectExistsHappy(t *testing.T) {
@@ -136,7 +136,7 @@ func TestWaitObjectExistsHappy(t *testing.T) {
 	assert.Equal(t, targetKey, *inputCapture.Key)
 
 	// capture all output //
-	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	//assert Not Fail
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 }

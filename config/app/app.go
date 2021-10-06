@@ -57,6 +57,9 @@ func NewApp(name string) *cli.App {
 		commands.CommandBucketCorsDelete,
 		commands.CommandListBucketsExtended,
 		commands.CommandBucketsExtended,
+		commands.CommandBucketWebsiteDelete,
+		commands.CommandBucketWebsiteGet,
+		commands.CommandBucketWebsitePut,
 		// Objects
 		commands.CommandGetObject,
 		commands.CommandObjectGet,

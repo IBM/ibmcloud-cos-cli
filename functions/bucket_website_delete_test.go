@@ -3,23 +3,22 @@
 package functions_test
 
 import (
-	"errors"
 	"os"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+	"github.com/urfave/cli"
 
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/commands"
-	"github.com/IBM/ibmcloud-cos-cli/config/flags"
 	"github.com/IBM/ibmcloud-cos-cli/cos"
 	"github.com/IBM/ibmcloud-cos-cli/di/providers"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
-	"github.com/urfave/cli"
 )
 
-func TestPartUploadCopySunnyPath(t *testing.T) {
+func TestBucketWebsiteDeleteSunnyPath(t *testing.T) {
 	defer providers.MocksRESET()
 
 	// --- Arrange ---
@@ -29,36 +28,29 @@ func TestPartUploadCopySunnyPath(t *testing.T) {
 		exitCode = &ec
 	}
 
-	targetBucket := "TargetBucket"
-	targetKey := "TargetKey"
-	targetCopySource := "SourceBucket/SourceKey"
-	targetPartNumber := "1"
-	targetUploadID := "80fds-afdasfa-s32141"
+	targetBucket := "TARGETBUCKET"
 
 	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
-		On("UploadPartCopy", mock.MatchedBy(
-			func(input *s3.UploadPartCopyInput) bool {
+		On("DeleteBucketWebsite", mock.MatchedBy(
+			func(input *s3.DeleteBucketWebsiteInput) bool {
 				return *input.Bucket == targetBucket
 			})).
-		Return(new(s3.UploadPartCopyOutput), nil).
+		Return(new(s3.DeleteBucketWebsiteOutput), nil).
 		Once()
+
+	providers.FakeUI.Inputs("Y")
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.PartUploadCopy, "--bucket", targetBucket,
-		"--" + flags.Key, targetKey,
-		"--" + flags.CopySource, targetCopySource,
-		"--" + flags.PartNumber, targetPartNumber,
-		"--" + flags.UploadID, targetUploadID,
-		"--region", "REG"}
+	os.Args = []string{"-", commands.BucketWebsiteDelete, "--bucket", targetBucket, "--region", "REG"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
 	// assert s3 api called once per region ( since success is last )
-	providers.MockS3API.AssertNumberOfCalls(t, "UploadPartCopy", 1)
+	providers.MockS3API.AssertNumberOfCalls(t, "DeleteBucketWebsite", 1)
 	//assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all output //
@@ -68,10 +60,12 @@ func TestPartUploadCopySunnyPath(t *testing.T) {
 	assert.Contains(t, output, "OK")
 	//assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
-
+	// Confirm warning prompt is shown when --force not present
+	assert.Contains(t, output, "Are you sure you would like to continue?")
+	assert.Contains(t, errors, "WARNING")
 }
 
-func TestPartUploadCopyRainyPath(t *testing.T) {
+func TestBucketWebsiteDeleteSunnyPathForce(t *testing.T) {
 	defer providers.MocksRESET()
 
 	// --- Arrange ---
@@ -81,50 +75,44 @@ func TestPartUploadCopyRainyPath(t *testing.T) {
 		exitCode = &ec
 	}
 
-	targetBucket := "TargetBucket"
-	targetKey := "TargetKey"
-	targetCopySource := "SourceBucket/SourceKey"
-	targetPartNumber := "1"
-	targetUploadID := "80fds-afdasfa-s32141"
+	targetBucket := "TARGETBUCKET"
+
+	providers.MockS3API.On("WaitUntilBucketNotExists", mock.Anything).Return(nil).Once()
 
 	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	providers.MockS3API.
-		On("UploadPartCopy", mock.MatchedBy(
-			func(input *s3.UploadPartCopyInput) bool {
+		On("DeleteBucketWebsite", mock.MatchedBy(
+			func(input *s3.DeleteBucketWebsiteInput) bool {
 				return *input.Bucket == targetBucket
-
 			})).
-		Return(nil, errors.New("InvalidUploadID")).
+		Return(new(s3.DeleteBucketWebsiteOutput), nil).
 		Once()
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.PartUploadCopy, "--bucket", targetBucket,
-		"--" + flags.Key, targetKey,
-		"--" + flags.CopySource, targetCopySource,
-		"--" + flags.PartNumber, targetPartNumber,
-		"--" + flags.UploadID, targetUploadID,
-		"--region", "REG"}
+	os.Args = []string{"-", commands.BucketWebsiteDelete, "--bucket", targetBucket, "--region", "REG", "--force"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
 	// assert s3 api called once per region ( since success is last )
-	providers.MockS3API.AssertNumberOfCalls(t, "UploadPartCopy", 1)
+	providers.MockS3API.AssertNumberOfCalls(t, "DeleteBucketWebsite", 1)
 	//assert exit code is zero
-	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert Not OK
-	assert.NotContains(t, output, "OK")
+	//assert OK
+	assert.Contains(t, output, "OK")
 	//assert Not Fail
-	assert.Contains(t, errors, "FAIL")
-
+	assert.NotContains(t, output, "FAIL")
+	// Confirm warning prompt is not shown when --force present
+	assert.NotContains(t, output, "Are you sure you would like to continue?")
+	assert.NotContains(t, errors, "WARNING")
 }
 
-func TestPartUploadCopyWithoutCopySource(t *testing.T) {
+func TestBucketDeleteWebsiteWithoutBucket(t *testing.T) {
 	defer providers.MocksRESET()
 
 	// --- Arrange ---
@@ -134,37 +122,33 @@ func TestPartUploadCopyWithoutCopySource(t *testing.T) {
 		exitCode = &ec
 	}
 
-	targetBucket := "TargetBucket"
-	targetKey := "TargetKey"
-	targetPartNumber := "1"
-	targetUploadID := "80fds-afdasfa-s32141"
+	targetBucket := "TARGETBUCKET"
 
 	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
-	providers.MockS3API.
-		On("UploadPartCopy", mock.MatchedBy(
-			func(input *s3.UploadPartCopyInput) bool {
-				return *input.Bucket == targetBucket
+	providers.MockS3API.On("WaitUntilBucketNotExists", mock.Anything).Return(nil).Once()
 
+	providers.MockS3API.
+		On("DeleteBucketWebsite", mock.MatchedBy(
+			func(input *s3.DeleteBucketWebsiteInput) bool {
+				return *input.Bucket == targetBucket
 			})).
-		Return(nil, errors.New("InvalidUploadID")).
+		Return(new(s3.DeleteBucketOutput), nil).
 		Once()
 
 	// --- Act ----
 	// set os args
-	os.Args = []string{"-", commands.PartUploadCopy, "--bucket", targetBucket,
-		"--" + flags.Key, targetKey,
-		"--" + flags.PartNumber, targetPartNumber,
-		"--" + flags.UploadID, targetUploadID,
-		"--region", "REG"}
+	os.Args = []string{"-", commands.BucketWebsiteDelete,
+		"--region", "REG",
+		"--force"}
 	//call plugin
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
 	// assert s3 api called once per region ( since success is last )
-	providers.MockS3API.AssertNumberOfCalls(t, "UploadPartCopy", 0)
-	//assert exit code is zero
-	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
+	providers.MockS3API.AssertNumberOfCalls(t, "DeleteBucketWebsite", 0)
+	//assert exit code is non-zero
+	assert.Equal(t, 1, *exitCode) // exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
@@ -172,6 +156,4 @@ func TestPartUploadCopyWithoutCopySource(t *testing.T) {
 	assert.NotContains(t, output, "OK")
 	//assert Fail
 	assert.Contains(t, errors, "FAIL")
-	assert.Contains(t, errors, "'--copy-source' is missing")
-
 }

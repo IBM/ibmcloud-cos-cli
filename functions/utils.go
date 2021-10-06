@@ -35,7 +35,7 @@ func GetCosContext(cliContext *cli.Context) (*utils.CosContext, error) {
 	// check the metadata map contains the cos context key
 	if value, found := cliContext.App.Metadata[config.CosContextKey]; found {
 		// if key found
-		// tries type assertion to CosCostext and returns it
+		// tries type assertion to CosContext and returns it
 		if result, typeMatch := value.(*utils.CosContext); typeMatch {
 			return result, nil
 		}
@@ -44,7 +44,7 @@ func GetCosContext(cliContext *cli.Context) (*utils.CosContext, error) {
 
 	}
 	// if key not present return error
-	return nil, awserr.New("metadata.coscontext.notfound", "Metadata Value does not constains CosContext Key", nil)
+	return nil, awserr.New("metadata.coscontext.notfound", "Metadata Value does not contain CosContext Key", nil)
 }
 
 // MapToSDKInput - validates the user flags and their contents against
@@ -62,7 +62,7 @@ func MapToSDKInput(cliContext *cli.Context, destination interface{},
 	// gets a new reflect value from the original value
 	destinationRflx := reflect.ValueOf(destination)
 
-	// check the kind of the relfect value,
+	// check the kind of the reflect value,
 	if destinationRflx.Kind() == reflect.Ptr {
 		// follow the pointer to the actual value pointed to
 		destinationRflx = destinationRflx.Elem()
@@ -94,7 +94,7 @@ func MapToSDKInput(cliContext *cli.Context, destination interface{},
 		}
 		// for each field maps the flag content to S3 input field
 		err := populateField(cliContext, flagName, destinationRflx, fieldName)
-		// check if the maping returned an error
+		// check if the mapping returned an error
 		// if error occurred stop processing the remaining fields/flags
 		if err != nil {
 			return err
@@ -146,7 +146,7 @@ func populateField(cliContext *cli.Context,
 	if fieldRflx.Type().Kind() == reflect.Interface {
 		// create a value of type io.ReadSeeker and gets it reflection
 		readSeekerRflx := reflect.ValueOf(new(io.ReadSeeker)).Elem()
-		// checks if the io.ReadSeeker inplements the type of the field interface
+		// checks if the io.ReadSeeker implements the type of the field interface
 		if readSeekerRflx.Type().Implements(fieldRflx.Type()) {
 			// allocates a var to hold the cos context
 			var cosContext *utils.CosContext
@@ -179,7 +179,7 @@ func populateField(cliContext *cli.Context,
 		ptr := reflect.New(fieldRflx.Type())
 		// set a reflection build map at the pointer destination
 		ptr.Elem().Set(reflect.MakeMap(fieldRflx.Type()))
-		// since used parseJSONinFile instead of parseJSON it alsos accept the format file://
+		// since used parseJSONinFile instead of parseJSON it also accepts the format file://
 		// tries to parse the content of the flag as a map
 		err = parseJSONinFile(cliContext, ptr.Interface(), cliContext.String(flagName))
 		// if no error thrown set map build using reflection as the s3 input field value
@@ -206,10 +206,10 @@ func populateField(cliContext *cli.Context,
 	// each type as its mapper
 	switch f := v.Interface().(type) {
 	case *string:
-		// if field is type pointer to string , uses directly the value of the flag
+		// if field is type pointer to string, uses directly the value of the flag
 		*f = cliContext.String(flagName)
 	case *bool:
-		// if field is type pointer to bool , uses directly the value of the flag
+		// if field is type pointer to bool, uses directly the value of the flag
 		*f = cliContext.Bool(flagName)
 	case *int64:
 		// if field is type pointer to int64
@@ -220,21 +220,24 @@ func populateField(cliContext *cli.Context,
 		tmp, err = parseInt64(cliContext.String(flagName))
 		*f = int(tmp)
 	case *time.Time:
-		// if field type is pointer to time , parse the time value using parseTime
+		// if field type is pointer to time, parse the time value using parseTime
 		*f, err = parseTime(cliContext.String(flagName))
 	case *s3.Delete:
-		// if type is pointer to Delete , use golang json decoder to map value
+		// if type is pointer to Delete, use golang json decoder to map value
 		err = parseJSONinFile(cliContext, f, cliContext.String(flagName))
 	// case *s3.CreateBucketConfiguration:
 	// 	err = parseJSONinFile(f, cliContext.String(flagName))
 	case *s3.CORSConfiguration:
-		// if type is pointer to CORSConfiguration , use golang json decoder to map value
+		// if type is pointer to CORSConfiguration, use golang json decoder to map value
 		err = parseJSONinFile(cliContext, f, cliContext.String(flagName))
 	case *s3.CompletedMultipartUpload:
-		// if type is pointer to CompletedMultipartUpload , use golang json decoder to map value
+		// if type is pointer to CompletedMultipartUpload, use golang json decoder to map value
 		err = parseJSONinFile(cliContext, f, cliContext.String(flagName))
 	case *s3.AccessControlPolicy:
 		// if type is pointer to AccessControlPolicy, use golang json decoder to map value
+		err = parseJSONinFile(cliContext, f, cliContext.String(flagName))
+	case *s3.WebsiteConfiguration:
+		// if type is pointer to WebsiteConfiguration, use golang json decoder to map value
 		err = parseJSONinFile(cliContext, f, cliContext.String(flagName))
 	default:
 		panic("INVALID TYPE -- not mapped type yet")

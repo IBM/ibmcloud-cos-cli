@@ -130,6 +130,8 @@ func getMessageByCodeError(errorIn errors.CodeError) string {
 		return T("Your proposed upload is smaller than the minimum allowed size. File parts must be greater than 5 MB in size, except for the last part.")
 	case "NoSuchKey":
 		return T("The specified key does not exist.")
+	case "NoSuchWebsiteConfiguration":
+		return T("The specified bucket does not have website configuration.")
 	default:
 		return errorIn.Error()
 	}

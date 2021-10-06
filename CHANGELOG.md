@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 1.3.0
+
+### Content
+
+#### Features
+
+* Static Website support
+* Smart Tier support
+
 ## 1.2.4
 
 ### Content

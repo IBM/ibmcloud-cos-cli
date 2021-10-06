@@ -232,6 +232,10 @@
     "translation": "ETag"
   },
   {
+    "id": "Error Document: ",
+    "translation": "Document d'erreur : "
+  },
+  {
     "id": "Error opening '{{.Location}}' to write.",
     "translation": "Erreur en ouvrant '{{.Location}}' pour écriture."
   },
@@ -250,6 +254,18 @@
   {
     "id": "Get the region and class of a bucket.",
     "translation": "Obtenir la région et la classe d'un compartiment."
+  },
+  {
+    "id": "Get the static website configuration on a bucket.",
+    "translation": "Obtenir la configuration de site web statique d'un compartiment."
+  },
+  {
+    "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
+    "translation": "Si un compartiment (bucket) est configuré comme un site web, redirige les demandes portant sur la clé d'objet vers un autre objet du même compartiment ou vers une URL (`LOCATION`)."
+  },
+  {
+    "id": "Index Suffix: ",
+    "translation": "Suffix d'index : "
   },
   {
     "id": "Initiated",
@@ -380,12 +396,24 @@
     "translation": "Numéro de partie (VALUE) après lequel commence le répertoriage"
   },
   {
+    "id": "Redirect Hostname: ",
+    "translation": "Nom d'hôte de redirection : "
+  },
+  {
+    "id": "Redirect Protocol: ",
+    "translation": "Protocole de redirection : "
+  },
+  {
     "id": "Region: ",
     "translation": "Région : "
   },
   {
     "id": "Regions endpoint `URL`.",
     "translation": "URL du noeud final des régions."
+  },
+  {
+    "id": "Remove static website configuration from a bucket.",
+    "translation": "Retirer la configuration de site web statique d'un compartiment."
   },
   {
     "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
@@ -420,8 +448,20 @@
     "translation": "Sauvegarde de l'ID de la nouvelle instance de service..."
   },
   {
+    "id": "Service Endpoint",
+    "translation": "Point d'extrémité des services"
+  },
+  {
+    "id": "Set custom Service Endpoint for all operations.",
+    "translation": "Fixer le point d'extrémité des services personnalisé pour toutes les opérations."
+  },
+  {
     "id": "Set regions endpoint URL.",
     "translation": "Définir l'URL de noeud final des régions."
+  },
+  {
+    "id": "Set static website configuration on a bucket.",
+    "translation": "Fixer la configuration de site web statique d'un compartiment."
   },
   {
     "id": "Set the CORS configuration on a bucket.",
@@ -516,6 +556,10 @@
     "translation": "L'URL de noeud final des régions a été effacée avec succès."
   },
   {
+    "id": "Successfully cleared service endpoint URL",
+    "translation": "L'URL de point d'extrémité des services a été effacée avec succès."
+  },
+  {
     "id": "Successfully copied '{{.Object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
     "translation": "Copie réussie de '{{.Object}}' du compartiment '{{.bucket1}}' au compartiment '{{.bucket2}}'."
   },
@@ -562,6 +606,10 @@
   {
     "id": "Successfully updated regions endpoint URL to {{.URL}}.",
     "translation": "Mise à jour réussie de l'URL de noeud final des régions à {{.URL}}."
+  },
+  {
+    "id": "Successfully updated service endpoint URL.",
+    "translation": "Mise à jour réussie de l'URL de point d'extrémité des services."
   },
   {
     "id": "Successfully uploaded '{{.Key}}' to bucket '{{.Bucket}}'.",
@@ -640,6 +688,10 @@
     "translation": "Le nom de compartiment demandé n'est pas disponible. L'espace de noms des compartiments est partagé par tous les utilisateurs du système. Sélectionnez un autre nom et réessayez."
   },
   {
+    "id": "The specified bucket does not have website configuration.",
+    "translation": "Le compartiment spécifié n'a pas de configuration de site web."
+  },
+  {
     "id": "The specified bucket is not empty. Delete all the files in the bucket, then try again.",
     "translation": "Le compartiment spécifié n'est pas vide. Supprimez-en tous les fichiers puis réessayez."
   },
@@ -716,6 +768,10 @@
     "translation": "Impossible d'effacer l'URL de noeud final des régions."
   },
   {
+    "id": "Unable to clear service endpoint URL.",
+    "translation": "Impossible d'effacer l'URL de point d'extrémité des services."
+  },
+  {
     "id": "Unable to get new CRN.",
     "translation": "Impossible d'obtenir le nouveau CRN."
   },
@@ -758,6 +814,10 @@
   {
     "id": "Unable to read new region.",
     "translation": "Impossible de lire la nouvelle région."
+  },
+  {
+    "id": "Unable to save new Service Endpoint URL.",
+    "translation": "Impossible de sauvegarder la nouvelle URL de point d'extrémité des services."
   },
   {
     "id": "Unable to save new region.",
@@ -828,6 +888,10 @@
     "translation": "AVERTISSEMENT : Il existe déjà un objet de nom '{{.file}}' à '{{.dl}}'."
   },
   {
+    "id": "WARNING: This will permanently delete any bucket website configuration from the bucket '{{.Bucket}}'.",
+    "translation": "AVERTISSEMENT : Cela supprimera définitivement toute configuration de site web compartiment du compartiment '{{.Bucket}}'."
+  },
+  {
     "id": "WARNING: This will permanently delete the bucket '{{.Bucket}}' from your account.",
     "translation": "AVERTISSEMENT : Cela supprimera définitivement le compartiment '{{.Bucket}}' de votre compte."
   },
@@ -860,8 +924,16 @@
     "translation": "Attendez qu'une condition particulière soit satisfaite.  Chaque sous-commande sonde une API jusqu'à ce que l'exigence indiquée soit remplie."
   },
   {
+    "id": "Website Configuration",
+    "translation": "Configuration de site web"
+  },
+  {
     "id": "Your proposed upload is smaller than the minimum allowed size. File parts must be greater than 5 MB in size, except for the last part.",
     "translation": "La remontée proposée est plus petite que la taille minimum autorisée. Les parties du fichier doivent faire plus de 5 Mo, sauf la dernière."
+  },
+  {
+    "id": "[Deprecated] Output returned in raw JSON format.",
+    "translation": "[Déprécié] Sortie renvoyée au format JSON brut."
   },
   {
     "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",

@@ -74,8 +74,9 @@ func TestListBucketsExtendedHappyPath(t *testing.T) {
 	assert.Equal(t, targetPrefix, *inputCapture.Prefix)
 
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	assert.Contains(t, output, "OK")
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 	assert.Contains(t, output, fmt.Sprintf("Found no bucket"))
 }
 
@@ -130,8 +131,9 @@ func TestBucketsListExtendedWhenPageBiggerThanMaxRequestMax(t *testing.T) {
 	assert.Equal(t, targetMaxKeys, *inputCapture.MaxKeys)
 
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	assert.Contains(t, output, "OK")
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 }
 
 func TestLBEWhenPageSmallerThanMaxRequestPage(t *testing.T) {
@@ -185,8 +187,9 @@ func TestLBEWhenPageSmallerThanMaxRequestPage(t *testing.T) {
 	assert.Equal(t, targetMaxKeys, *inputCapture.MaxKeys)
 
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	assert.Contains(t, output, "OK")
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 }
 
 func TestBucketsListExtendedPaginate(t *testing.T) {
@@ -248,8 +251,9 @@ func TestBucketsListExtendedPaginate(t *testing.T) {
 	assert.Equal(t, []int{20, 20, 20, 15}, pagesSzCapture)
 
 	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
 	assert.Contains(t, output, "OK")
-	assert.NotContains(t, output, "FAIL")
+	assert.NotContains(t, errors, "FAIL")
 	assert.Contains(t, output, fmt.Sprintf("Found %d buckets", targetMaxItems))
 
 }

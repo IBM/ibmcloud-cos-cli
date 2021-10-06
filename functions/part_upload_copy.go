@@ -70,9 +70,6 @@ func PartUploadCopy(c *cli.Context) (err error) {
 		return awserr.New("copy.source.bucket.missing", "no source bucket", nil)
 	}
 
-	// Concatenate forward slash in the beginning of the copy source
-	*input.CopySource = "/" + *input.CopySource
-
 	// Setting client to do the call
 	var client s3iface.S3API
 	if client, err = cosContext.GetClient(c.String(flags.Region)); err != nil {
