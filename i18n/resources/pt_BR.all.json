@@ -5,7 +5,7 @@
   },
   {
     "id": " buckets:",
-    "translation": " Depósitos:"
+    "translation": " depósitos:"
   },
   {
     "id": " downloaded.",
@@ -85,7 +85,7 @@
   },
   {
     "id": "Authentication Method",
-    "translation": "Método de Autenticação."
+    "translation": "Método de autenticação"
   },
   {
     "id": "Authentication `METHOD`.",
@@ -161,7 +161,7 @@
   },
   {
     "id": "Date Created",
-    "translation": "Data criada"
+    "translation": "Data de criação"
   },
   {
     "id": "Default Region",
@@ -280,12 +280,12 @@
     "translation": "Argumento inválido.  Um CRN de instância de serviço válido deve ser configurado para criar ou listar depósitos.  Verifique o CRN usando ‘ibmcloud cos config list’."
   },
   {
-    "id": "Invalid boolean balue in Flag '--%s'",
-    "translation": "Valor booleano inválido na Sinalização '--%s'"
-  },
-  {
     "id": "Invalid boolean flag '--%s'",
     "translation": "Sinalização booleana inválida '--%s'"
+  },
+  {
+    "id": "Invalid boolean value in Flag '--%s'",
+    "translation": "Valor booleano inválido na Sinalização '--%s'"
   },
   {
     "id": "It was last updated on {{.lastupdated}}.",
@@ -297,7 +297,7 @@
   },
   {
     "id": "Last Modified",
-    "translation": "Última modificação"
+    "translation": "Modificado pela Última Vez"
   },
   {
     "id": "Last Modified: {{.lastmodified}}",
@@ -609,7 +609,7 @@
   },
   {
     "id": "Successfully updated service endpoint URL.",
-    "translation": "A URL de terminal de serviço foi atualizada com sucesso."
+    "translation": "A URL de terminal em serviço foi atualizada com sucesso."
   },
   {
     "id": "Successfully uploaded '{{.Key}}' to bucket '{{.Bucket}}'.",
@@ -801,7 +801,7 @@
   },
   {
     "id": "Unable to read new Authentication Method.",
-    "translation": "Não foi possível ler o novo Método de Autenticação."
+    "translation": "Não foi possível ler o novo método de autenticação."
   },
   {
     "id": "Unable to read new URL Style value.",

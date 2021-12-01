@@ -204,12 +204,13 @@ func TestURLStyleListBeforeSet(t *testing.T) {
 	assert.Equal(t, (*int)(nil), exitCode)
 	providers.MockPluginConfig.AssertExpectations(t)
 
-	expectedOutput := `Key         Value   
+	// Trailing spaces followed by a newline are in the output
+	expectedOutput := `Key         Value   ` + `
 URL Style   ` + config.VHost
 	assert.Contains(t, providers.FakeUI.Outputs(), expectedOutput)
 }
 
-func TestURLStyleListAferSetVHost(t *testing.T) {
+func TestURLStyleListAfterSetVHost(t *testing.T) {
 	defer providers.MocksRESET()
 
 	// --- Arrange ---
@@ -242,12 +243,13 @@ func TestURLStyleListAferSetVHost(t *testing.T) {
 	assert.Equal(t, (*int)(nil), exitCode)
 	providers.MockPluginConfig.AssertExpectations(t)
 
-	expectedOutput := `Key         Value   
+	// Trailing spaces followed by a newline are in the output
+	expectedOutput := `Key         Value   ` + `
 URL Style   ` + config.VHost
 	assert.Contains(t, providers.FakeUI.Outputs(), expectedOutput)
 }
 
-func TestURLStyleListAferSetPath(t *testing.T) {
+func TestURLStyleListAfterSetPath(t *testing.T) {
 	defer providers.MocksRESET()
 
 	// --- Arrange ---
@@ -280,7 +282,8 @@ func TestURLStyleListAferSetPath(t *testing.T) {
 	assert.Equal(t, (*int)(nil), exitCode)
 	providers.MockPluginConfig.AssertExpectations(t)
 
-	expectedOutput := `Key         Value   
+	// Trailing spaces followed by a newline are in the output
+	expectedOutput := `Key         Value   ` + `
 URL Style   ` + config.Path
 	assert.Contains(t, providers.FakeUI.Outputs(), expectedOutput)
 }

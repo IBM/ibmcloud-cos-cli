@@ -25,7 +25,7 @@
   },
   {
     "id": "(`SOURCE`) The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.",
-    "translation": "QUELLE (SOURCE) Der Name des Quellenbuckets und der Schlüsselname des Quellenobjekts, getrennt durch einen Schrägstrich (/). Die Angabe muss als URL codiert sein. "
+    "translation": "QUELLE (SOURCE) Der Name des Quellenbuckets und der Schlüsselname des Quellenobjekts, getrennt durch einen Schrägstrich (/). Die Angabe muss als URL codiert sein."
   },
   {
     "id": "1 bucket found in your account:\n",
@@ -53,15 +53,15 @@
   },
   {
     "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
-    "translation": "Eine Struktur (STRUCTURE), die JSON-Syntax in einer Datei verwendet. Weitere Informationen finden Sie in der Dokumentation zu IBM Cloud. "
+    "translation": "Eine Struktur (STRUCTURE), die JSON-Syntax in einer Datei verwendet. Weitere Informationen finden Sie in der Dokumentation zu IBM Cloud."
   },
   {
     "id": "A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
-    "translation": "Eine Struktur (STRUCTURE), die die JSON-Syntax verwendet. Weitere Informationen finden Sie in der Dokumentation zu IBM Cloud. "
+    "translation": "Eine Struktur (STRUCTURE), die die JSON-Syntax verwendet. Weitere Informationen finden Sie in der Dokumentation zu IBM Cloud."
   },
   {
     "id": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation.",
-    "translation": "Eine Struktur (STRUCTURE), die eine Kurzform oder JSON-Syntax verwendet. Weitere Informationen finden Sie in der Dokumentation zu IBM Cloud. "
+    "translation": "Eine Struktur (STRUCTURE), die eine Kurzform oder JSON-Syntax verwendet. Weitere Informationen finden Sie in der Dokumentation zu IBM Cloud."
   },
   {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
@@ -77,7 +77,7 @@
   },
   {
     "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
-    "translation": "Der Zugriff auf Ihr IBM Cloud-Konto wurde verweigert. Melden Sie sich erneut an. Geben Sie dazu den Befehl 'ibmcloud login --sso' ein. "
+    "translation": "Der Zugriff auf Ihr IBM Cloud-Konto wurde verweigert. Melden Sie sich erneut an. Geben Sie dazu den Befehl 'ibmcloud login --sso' ein."
   },
   {
     "id": "Are you sure you would like to continue?",
@@ -97,7 +97,7 @@
   },
   {
     "id": "Bucket '{{.Bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
-    "translation": "In Ihrem IBM Cloud Object Storage-Konto wurde das Bucket '{{.Bucket}}' in der Region {{.region}} gefunden. "
+    "translation": "In Ihrem IBM Cloud Object Storage-Konto wurde das Bucket '{{.Bucket}}' in der Region {{.region}} gefunden."
   },
   {
     "id": "CRN",
@@ -125,7 +125,7 @@
   },
   {
     "id": "Complete an existing multipart upload instance.",
-    "translation": "Schließt eine vorhandene Instanz eines mehrteiligen Uploads ab. "
+    "translation": "Schließt eine vorhandene Instanz eines mehrteiligen Uploads ab."
   },
   {
     "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
@@ -153,7 +153,7 @@
   },
   {
     "id": "Create a new multipart upload instance.",
-    "translation": "Erstellt eine neue Instanz eines mehrteiligen Uploads. "
+    "translation": "Erstellt eine neue Instanz eines mehrteiligen Uploads."
   },
   {
     "id": "Creation Date",
@@ -169,7 +169,7 @@
   },
   {
     "id": "Delete '{{.Key}}' from bucket '{{.Bucket}}' ran successfully.",
-    "translation": "Das Löschen von '{{.Key}}' aus dem Bucket '{{.Bucket}}' wurde erfolgreich ausgeführt. "
+    "translation": "Das Löschen von '{{.Key}}' aus dem Bucket '{{.Bucket}}' wurde erfolgreich ausgeführt."
   },
   {
     "id": "Delete an existing bucket.",
@@ -185,7 +185,7 @@
   },
   {
     "id": "Delete multiple objects from bucket '{{.Bucket}}' ran successfully.",
-    "translation": "Das Löschen mehrerer Objekte aus dem Bucket '{{.Bucket}}' wurde erfolgreich ausgeführt. "
+    "translation": "Das Löschen mehrerer Objekte aus dem Bucket '{{.Bucket}}' wurde erfolgreich ausgeführt."
   },
   {
     "id": "Delete the CORS configuration from a bucket.",
@@ -201,15 +201,15 @@
   },
   {
     "id": "Determine if a specified bucket exists in your account.",
-    "translation": "Ermittelt, ob ein bestimmtes Bucket in Ihrem Konto vorhanden ist. "
+    "translation": "Ermittelt, ob ein bestimmtes Bucket in Ihrem Konto vorhanden ist."
   },
   {
     "id": "Determine if an object exists within a bucket.",
-    "translation": "Ermittelt, ob ein Objekt in einem Bucket vorhanden ist. "
+    "translation": "Ermittelt, ob ein Objekt in einem Bucket vorhanden ist."
   },
   {
     "id": "Display the list of uploaded parts of an object.",
-    "translation": "Zeigt die Liste der hochgeladenen Teile eines Objekts an. "
+    "translation": "Zeigt die Liste der hochgeladenen Teile eines Objekts an."
   },
   {
     "id": "Download Location",
@@ -280,12 +280,12 @@
     "translation": "Ungültiges Argument. Damit Buckets erstellt oder aufgelistet werden können, muss eine gültige Serviceinstanz-CRN konfiguriert sein. Überprüfen Sie die CRN mit dem Befehl 'ibmcloud cos config list'."
   },
   {
-    "id": "Invalid boolean balue in Flag '--%s'",
-    "translation": "Ungültiger boolescher Wert in Flag '--%s'"
-  },
-  {
     "id": "Invalid boolean flag '--%s'",
     "translation": "Ungültiger boolescher Flag '--%s'"
+  },
+  {
+    "id": "Invalid boolean value in Flag '--%s'",
+    "translation": "Ungültiger boolescher Wert in Flag '--%s'"
   },
   {
     "id": "It was last updated on {{.lastupdated}}.",
@@ -313,7 +313,7 @@
   },
   {
     "id": "List all objects in a specific bucket.",
-    "translation": "Listet alle Objekte in einem bestimmten Bucket auf. "
+    "translation": "Listet alle Objekte in einem bestimmten Bucket auf."
   },
   {
     "id": "List all the buckets in your IBM Cloud Object Storage account.",
@@ -341,7 +341,7 @@
   },
   {
     "id": "Max number of `PARTS` which will be uploaded to S3 that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.",
-    "translation": "Die maximale Anzahl der Teile (PARTS), die auf S3 hochgeladen werden. Mit diesem Wert wird die Teilegröße des hochzuladenden Objekts berechnet. Das Limit ist 10.000 Teile. "
+    "translation": "Die maximale Anzahl der Teile (PARTS), die auf S3 hochgeladen werden. Mit diesem Wert wird die Teilegröße des hochzuladenden Objekts berechnet. Das Limit ist 10.000 Teile."
   },
   {
     "id": "Name",
@@ -417,23 +417,23 @@
   },
   {
     "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
-    "translation": "Fordert an, dass die Objektschlüssel in der Antwort codiert werden sollen und gibt die zu verwendende Codierungsmethode (METHOD) an. "
+    "translation": "Fordert an, dass die Objektschlüssel in der Antwort codiert werden sollen und gibt die zu verwendende Codierungsmethode (METHOD) an."
   },
   {
     "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified).",
-    "translation": "Gibt an, dass das Objekt nur zurückgegeben werden soll, wenn es seit der angegebenen Zeitmarke (TIMESTAMP) geändert wurde; andernfalls wird der Code 304 (nicht geändert) zurückgegeben. "
+    "translation": "Gibt an, dass das Objekt nur zurückgegeben werden soll, wenn es seit der angegebenen Zeitmarke (TIMESTAMP) geändert wurde; andernfalls wird der Code 304 (nicht geändert) zurückgegeben."
   },
   {
     "id": "Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed).",
-    "translation": "Gibt an, dass das Objekt nur zurückgegeben werden soll, wenn es seit der angegebenen Zeitmarke (TIMESTAMP) nicht geändert wurde; andernfalls wird der Code 412 (Vorbedingung fehlgeschlagen) zurückgegeben. "
+    "translation": "Gibt an, dass das Objekt nur zurückgegeben werden soll, wenn es seit der angegebenen Zeitmarke (TIMESTAMP) nicht geändert wurde; andernfalls wird der Code 412 (Vorbedingung fehlgeschlagen) zurückgegeben."
   },
   {
     "id": "Return the object only if its entity tag (ETag) is different from the `ETAG` specified, otherwise return a 304 (not modified).",
-    "translation": "Gibt an, dass das Objekt nur zurückgegeben werden soll, wenn sein Entitätstag (ETag) sich vom angegebenen ETag (ETAG) unterscheidet; andernfalls wird der Code 304 (nicht geändert) zurückgegeben. "
+    "translation": "Gibt an, dass das Objekt nur zurückgegeben werden soll, wenn sein Entitätstag (ETag) sich vom angegebenen ETag (ETAG) unterscheidet; andernfalls wird der Code 304 (nicht geändert) zurückgegeben."
   },
   {
     "id": "Return the object only if its entity tag (ETag) is the same as the `ETAG` specified, otherwise return a 412 (precondition failed).",
-    "translation": "Gibt an, dass das Objekt nur zurückgegeben werden soll, wenn sein Entitätstag (ETag) mit dem angegebenen ETag (ETAG) identisch ist; andernfalls wird der Code 412 (Vorbedingung fehlgeschlagen) zurückgegeben. "
+    "translation": "Gibt an, dass das Objekt nur zurückgegeben werden soll, wenn sein Entitätstag (ETag) mit dem angegebenen ETag (ETAG) identisch ist; andernfalls wird der Code 412 (Vorbedingung fehlgeschlagen) zurückgegeben."
   },
   {
     "id": "Returns the class type of the specified bucket.",
@@ -501,7 +501,7 @@
   },
   {
     "id": "Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.",
-    "translation": "Wird dieser Wert auf 'true' gesetzt, ruft das SDK bei einem Fehlschlag nicht 'AbortMultipartUpload' auf. Dadurch verbleiben alle erfolgreich hochgeladenen Teile zur manuellen Fehlerbehebung auf S3. "
+    "translation": "Wird dieser Wert auf 'true' gesetzt, ruft das SDK bei einem Fehlschlag nicht 'AbortMultipartUpload' auf. Dadurch verbleiben alle erfolgreich hochgeladenen Teile zur manuellen Fehlerbehebung auf S3."
   },
   {
     "id": "Size",
@@ -521,7 +521,7 @@
   },
   {
     "id": "Specifies what content encodings (`CONTENT_ENCODING`) have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.",
-    "translation": "Gibt an, welche Inhaltscodierungen (CONTENT_ENCODING) auf das Objekt angewendet wurden und welche Decodierungsmechanismen daher angewendet werden müssen, um den im Headerfeld 'Content-Type' referenzierten Medientyp (media-type) zu erhalten. "
+    "translation": "Gibt an, welche Inhaltscodierungen (CONTENT_ENCODING) auf das Objekt angewendet wurden und welche Decodierungsmechanismen daher angewendet werden müssen, um den im Headerfeld 'Content-Type' referenzierten Medientyp (media-type) zu erhalten."
   },
   {
     "id": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. `DIRECTIVE` values: COPY, REPLACE.",
@@ -545,11 +545,11 @@
   },
   {
     "id": "Store your service instance ID (`CRN`) in the config.",
-    "translation": "ID der Serviceinstanz (CRN) in der Konfiguration speichern. "
+    "translation": "ID der Serviceinstanz (CRN) in der Konfiguration speichern."
   },
   {
     "id": "Successfully aborted a multipart upload instance with key '{{.Key}}' and bucket '{{.Bucket}}'.",
-    "translation": "Die Instanz des mehrteiligen Uploads mit dem Schlüssel '{{.Key}}' und dem Bucket '{{.Bucket}}' wurde erfolgreich abgebrochen. "
+    "translation": "Die Instanz des mehrteiligen Uploads mit dem Schlüssel '{{.Key}}' und dem Bucket '{{.Bucket}}' wurde erfolgreich abgebrochen."
   },
   {
     "id": "Successfully cleared regions endpoint URL.",
@@ -569,7 +569,7 @@
   },
   {
     "id": "Successfully deleted bucket '{{.Bucket}}'. The bucket '{{.Bucket}}' will be available for reuse after 15 minutes.",
-    "translation": "Das Bucket '{{.Bucket}}' wurde erfolgreich gelöscht. Das Bucket '{{.Bucket}}' kann nach 15 Minuten wiederverwendet werden. "
+    "translation": "Das Bucket '{{.Bucket}}' wurde erfolgreich gelöscht. Das Bucket '{{.Bucket}}' kann nach 15 Minuten wiederverwendet werden."
   },
   {
     "id": "Successfully downloaded '{{.Key}}' from bucket '{{.Bucket}}'",
@@ -585,7 +585,7 @@
   },
   {
     "id": "Successfully saved default region. The program will look for buckets in the region {{.region}}.",
-    "translation": "Die Standardregion wurde erfolgreich gespeichert. Das Programm sucht in der Region {{.region}} nach Buckets. "
+    "translation": "Die Standardregion wurde erfolgreich gespeichert. Das Programm sucht in der Region {{.region}} nach Buckets."
   },
   {
     "id": "Successfully saved download location. New files will be downloaded to '",
@@ -601,11 +601,11 @@
   },
   {
     "id": "Successfully switched to {{.Auth}}-based authentication. The program will access your Cloud Object Storage account using your {{.Auth}} Credentials.",
-    "translation": "Erfolgreich gewechselt zu {{.Auth}}-basierte Authentifizierung. Das Programm greift auf ihr Cloud Object Storage-Konto zu und verwendet dafür Ihre {{.Auth}}-Berechtigungsnachweise. "
+    "translation": "Erfolgreich gewechselt zu {{.Auth}}-basierte Authentifizierung. Das Programm greift auf ihr Cloud Object Storage-Konto zu und verwendet dafür Ihre {{.Auth}}-Berechtigungsnachweise."
   },
   {
     "id": "Successfully updated regions endpoint URL to {{.URL}}.",
-    "translation": "Die Endpunkt-URL der Region wurde erfolgreich aktualisiert und ist nun {{.URL}}. "
+    "translation": "Die Endpunkt-URL der Region wurde erfolgreich aktualisiert und ist nun {{.URL}}."
   },
   {
     "id": "Successfully updated service endpoint URL.",
@@ -613,11 +613,11 @@
   },
   {
     "id": "Successfully uploaded '{{.Key}}' to bucket '{{.Bucket}}'.",
-    "translation": "'{{.Key}}' wurde erfolgreich in das Bucket '{{.Bucket}}' hochgeladen. "
+    "translation": "'{{.Key}}' wurde erfolgreich in das Bucket '{{.Bucket}}' hochgeladen."
   },
   {
     "id": "Successfully uploaded object '{{.Key}}' to bucket '{{.Bucket}}'.",
-    "translation": "Das Objekt '{{.Key}}' wurde erfolgreich in das Bucket '{{.Bucket}}' hochgeladen. "
+    "translation": "Das Objekt '{{.Key}}' wurde erfolgreich in das Bucket '{{.Bucket}}' hochgeladen."
   },
   {
     "id": "Switch between HMAC and IAM authentication",
@@ -645,11 +645,11 @@
   },
   {
     "id": "The `REGION` where the bucket is present. If this flag is not provided, the program will use the default option specified in config.",
-    "translation": "Die Region (REGION), in der sich das Bucket befindet. Wird dieses Flag nicht angegeben, verwendet das Programm die in der Konfiguration angegebene Standardoption. "
+    "translation": "Die Region (REGION), in der sich das Bucket befindet. Wird dieses Flag nicht angegeben, verwendet das Programm die in der Konfiguration angegebene Standardoption."
   },
   {
     "id": "The `SIZE` of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the COS service, retrieving fewer items in each call. This can help prevent the service calls from timing out.",
-    "translation": "Die Größe (SIZE) jeder in dem Serviceaufruf abzurufenden Seite. Diese Angabe hat keine Auswirkung auf die Anzahl der in der Befehlsausgabe zurückgegebenen Elemente. Wird eine kleinere Seitengröße festgelegt, führt dies zu einer größeren Anzahl von Aufrufen an den COS-Service, wobei bei jedem Aufruf weniger Elemente abgerufen werden. Dies kann hilfreich sein, um Zeitlimitüberschreitungen bei den Serviceaufrufen zu vermeiden. "
+    "translation": "Die Größe (SIZE) jeder in dem Serviceaufruf abzurufenden Seite. Diese Angabe hat keine Auswirkung auf die Anzahl der in der Befehlsausgabe zurückgegebenen Elemente. Wird eine kleinere Seitengröße festgelegt, führt dies zu einer größeren Anzahl von Aufrufen an den COS-Service, wobei bei jedem Aufruf weniger Elemente abgerufen werden. Dies kann hilfreich sein, um Zeitlimitüberschreitungen bei den Serviceaufrufen zu vermeiden."
   },
   {
     "id": "The base64-encoded 128-bit `MD5` digest of the data.",
@@ -685,11 +685,11 @@
   },
   {
     "id": "The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.",
-    "translation": "Der angeforderte Bucketname ist nicht verfügbar. Der Namensbereich des Buckets wird von allen Benutzern des Systems gemeinsam genutzt. Wählen Sie einen anderen Namen aus und wiederholen Sie die Aktion. "
+    "translation": "Der angeforderte Bucketname ist nicht verfügbar. Der Namensbereich des Buckets wird von allen Benutzern des Systems gemeinsam genutzt. Wählen Sie einen anderen Namen aus und wiederholen Sie die Aktion."
   },
   {
     "id": "The specified bucket does not have website configuration.",
-    "translation": "Das angegebene Bucket enthält keine Websitekonfiguration. "
+    "translation": "Das angegebene Bucket enthält keine Websitekonfiguration."
   },
   {
     "id": "The specified bucket is not empty. Delete all the files in the bucket, then try again.",
@@ -697,19 +697,19 @@
   },
   {
     "id": "The specified bucket name is invalid. Bucket names must start and end in alphanumeric characters (from 3 to 63) and are limited to lowercase, numbers, non-consecutive dots, and hyphens.",
-    "translation": "Der angegebene Bucketname ist ungültig. Bucketnamen müssen mit alphanumerischen Zeichen (Anzahl zwischen 3 und 63) beginnen und enden. Im Namen können nur Kleinbuchstaben, Zahlen, nicht aufeinanderfolgende Punkte und Bindestriche verwendet werden. "
+    "translation": "Der angegebene Bucketname ist ungültig. Bucketnamen müssen mit alphanumerischen Zeichen (Anzahl zwischen 3 und 63) beginnen und enden. Im Namen können nur Kleinbuchstaben, Zahlen, nicht aufeinanderfolgende Punkte und Bindestriche verwendet werden."
   },
   {
     "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again.",
-    "translation": "Das angegebene Bucket wurde in Ihrem IBM Cloud-Konto nicht gefunden. Möglicherweise haben Sie die falsche Region angegeben. Geben Sie die korrekte Region des Buckets an und wiederholen Sie die Aktion. "
+    "translation": "Das angegebene Bucket wurde in Ihrem IBM Cloud-Konto nicht gefunden. Möglicherweise haben Sie die falsche Region angegeben. Geben Sie die korrekte Region des Buckets an und wiederholen Sie die Aktion."
   },
   {
     "id": "The specified download location does not exist on your system. Try again with a valid download path.",
-    "translation": "Die angegebene Speicherposition für den Download ist auf Ihrem System nicht vorhanden. Geben Sie einen gültigen Downloadpfad an und wiederholen Sie die Aktion. "
+    "translation": "Die angegebene Speicherposition für den Download ist auf Ihrem System nicht vorhanden. Geben Sie einen gültigen Downloadpfad an und wiederholen Sie die Aktion."
   },
   {
     "id": "The specified download location is not valid. Try again with a valid download path.",
-    "translation": "Die angegebene Speicherposition für den Download ist nicht gültig. Geben Sie einen gültigen Downloadpfad an und wiederholen Sie die Aktion. "
+    "translation": "Die angegebene Speicherposition für den Download ist nicht gültig. Geben Sie einen gültigen Downloadpfad an und wiederholen Sie die Aktion."
   },
   {
     "id": "The specified key does not exist.",
@@ -717,7 +717,7 @@
   },
   {
     "id": "The total `NUMBER` of items to return in the command's output.",
-    "translation": "Die Gesamtzahl (NUMBER) der Elemente, die in der Befehlsausgabe zurückgegeben werden sollen. "
+    "translation": "Die Gesamtzahl (NUMBER) der Elemente, die in der Befehlsausgabe zurückgegeben werden sollen."
   },
   {
     "id": "The value in flag '--%s' is invalid",
@@ -745,11 +745,11 @@
   },
   {
     "id": "Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.",
-    "translation": "Dieser Parameter gibt zusammen mit 'key-marker' den mehrteiligen Upload an, nach dem die Auflistung beginnen soll. Ist 'key-marker' nicht angegeben, wird der Parameter 'upload-id-marker' ignoriert. "
+    "translation": "Dieser Parameter gibt zusammen mit 'key-marker' den mehrteiligen Upload an, nach dem die Auflistung beginnen soll. Ist 'key-marker' nicht angegeben, wird der Parameter 'upload-id-marker' ignoriert."
   },
   {
     "id": "Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.",
-    "translation": "Dieser Parameter gibt zusammen mit 'upload-id-marker' den mehrteiligen Upload an, nach dem die Auflistung beginnen soll. "
+    "translation": "Dieser Parameter gibt zusammen mit 'upload-id-marker' den mehrteiligen Upload an, nach dem die Auflistung beginnen soll."
   },
   {
     "id": "Try logging in using 'ibmcloud login'.",
@@ -885,7 +885,7 @@
   },
   {
     "id": "WARNING: An object with the name '{{.file}}' already exists at '{{.dl}}'.",
-    "translation": "WARNUNG: Ein Objekt mit dem Namen '{{.file}}' ist in '{{.dl}}' bereits vorhanden. "
+    "translation": "WARNUNG: Ein Objekt mit dem Namen '{{.file}}' ist in '{{.dl}}' bereits vorhanden."
   },
   {
     "id": "WARNING: This will permanently delete any bucket website configuration from the bucket '{{.Bucket}}'.",
@@ -901,27 +901,27 @@
   },
   {
     "id": "WARNING: You have already stored a service instance ID before.",
-    "translation": "WARNUNG: Sie haben bereits eine Serviceinstanz-ID gespeichert. "
+    "translation": "WARNUNG: Sie haben bereits eine Serviceinstanz-ID gespeichert."
   },
   {
     "id": "Wait until 200 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.",
-    "translation": "Wartet, bis eine Antwort mit dem Code 200 empfangen wird, wenn die Abfrage mit der Option 'head-bucket' ausgeführt wird. Die Abfrage wird alle 5 Sekunden ausgeführt, bis ein erfolgreicher Status erreicht wird. Nach 20 fehlgeschlagenen Prüfungen wird die Operation mit dem Rückgabecode 255 beendet. "
+    "translation": "Wartet, bis eine Antwort mit dem Code 200 empfangen wird, wenn die Abfrage mit der Option 'head-bucket' ausgeführt wird. Die Abfrage wird alle 5 Sekunden ausgeführt, bis ein erfolgreicher Status erreicht wird. Nach 20 fehlgeschlagenen Prüfungen wird die Operation mit dem Rückgabecode 255 beendet."
   },
   {
     "id": "Wait until 200 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
-    "translation": "Wartet, bis eine Antwort mit dem Code 200 empfangen wird, wenn die Abfrage mit der Option 'head-object' ausgeführt wird. Die Abfrage wird alle 5 Sekunden ausgeführt, bis ein erfolgreicher Status erreicht wird. Nach 20 fehlgeschlagenen Prüfungen wird die Operation mit dem Rückgabecode 255 beendet. "
+    "translation": "Wartet, bis eine Antwort mit dem Code 200 empfangen wird, wenn die Abfrage mit der Option 'head-object' ausgeführt wird. Die Abfrage wird alle 5 Sekunden ausgeführt, bis ein erfolgreicher Status erreicht wird. Nach 20 fehlgeschlagenen Prüfungen wird die Operation mit dem Rückgabecode 255 beendet."
   },
   {
     "id": "Wait until 404 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
-    "translation": "Wartet, bis eine Antwort mit dem Code 404 empfangen wird, wenn die Abfrage mit der Option 'head-bucket' ausgeführt wird.  Die Abfrage wird alle 5 Sekunden ausgeführt, bis ein erfolgreicher Status erreicht wird. Nach 20 fehlgeschlagenen Prüfungen wird die Operation mit dem Rückgabecode 255 beendet. "
+    "translation": "Wartet, bis eine Antwort mit dem Code 404 empfangen wird, wenn die Abfrage mit der Option 'head-bucket' ausgeführt wird.  Die Abfrage wird alle 5 Sekunden ausgeführt, bis ein erfolgreicher Status erreicht wird. Nach 20 fehlgeschlagenen Prüfungen wird die Operation mit dem Rückgabecode 255 beendet."
   },
   {
     "id": "Wait until 404 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
-    "translation": "Wartet, bis eine Antwort mit dem Code 404 empfangen wird, wenn die Abfrage mit der Option 'head-object' ausgeführt wird. Die Abfrage wird alle 5 Sekunden ausgeführt, bis ein erfolgreicher Status erreicht wird. Nach 20 fehlgeschlagenen Prüfungen wird die Operation mit dem Rückgabecode 255 beendet. "
+    "translation": "Wartet, bis eine Antwort mit dem Code 404 empfangen wird, wenn die Abfrage mit der Option 'head-object' ausgeführt wird. Die Abfrage wird alle 5 Sekunden ausgeführt, bis ein erfolgreicher Status erreicht wird. Nach 20 fehlgeschlagenen Prüfungen wird die Operation mit dem Rückgabecode 255 beendet."
   },
   {
     "id": "Wait until a particular condition is satisfied.  Each subcommand polls an API until the listed requirement is met.",
-    "translation": "Wartet, bis eine bestimmte Bedingung erfüllt ist. Jeder Unterbefehl fragt eine API ab, bis die aufgelistete Anforderung erfüllt ist. "
+    "translation": "Wartet, bis eine bestimmte Bedingung erfüllt ist. Jeder Unterbefehl fragt eine API ab, bis die aufgelistete Anforderung erfüllt ist."
   },
   {
     "id": "Website Configuration",
@@ -937,7 +937,7 @@
   },
   {
     "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",
-    "translation": "Die Größe (SIZE) des Hauptteils in Byte. Dieser Parameter ist hilfreich, wenn die Größe des Hauptteils nicht automatisch ermittelt werden kann. "
+    "translation": "Die Größe (SIZE) des Hauptteils in Byte. Dieser Parameter ist hilfreich, wenn die Größe des Hauptteils nicht automatisch ermittelt werden kann."
   },
   {
     "id": "no buckets.",

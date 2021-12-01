@@ -1,7 +1,7 @@
 [
   {
     "id": " buckets found in your account:\n",
-    "translation": " アカウントにバケットが見つかりました:\n"
+    "translation": " 個のバケットがアカウントに見つかりました:\n"
   },
   {
     "id": " buckets:",
@@ -29,7 +29,7 @@
   },
   {
     "id": "1 bucket found in your account:\n",
-    "translation": "アカウントに 1 個のバケットが見つかりました:\n"
+    "translation": "個のバケットがアカウントに見つかりました:\n"
   },
   {
     "id": "1 bucket:",
@@ -265,7 +265,7 @@
   },
   {
     "id": "Index Suffix: ",
-    "translation": "索引接尾部: "
+    "translation": "インデックス接尾部: "
   },
   {
     "id": "Initiated",
@@ -280,12 +280,12 @@
     "translation": "無効な引数です。  バケットを作成またはリストするために、有効なサービス・インスタンス CRN を構成する必要があります。  ‘ibmcloud cos config list’を使用して CRN を確認してください。"
   },
   {
-    "id": "Invalid boolean balue in Flag '--%s'",
-    "translation": "フラグ '--%s' に無効なブール値があります"
-  },
-  {
     "id": "Invalid boolean flag '--%s'",
     "translation": "ブール・フラグ '--%s' が無効です"
+  },
+  {
+    "id": "Invalid boolean value in Flag '--%s'",
+    "translation": "フラグ '--%s' に無効なブール値があります"
   },
   {
     "id": "It was last updated on {{.lastupdated}}.",
@@ -297,7 +297,7 @@
   },
   {
     "id": "Last Modified",
-    "translation": "最終変更日時"
+    "translation": "最終変更日"
   },
   {
     "id": "Last Modified: {{.lastmodified}}",
@@ -349,7 +349,7 @@
   },
   {
     "id": "No buckets found in your account.",
-    "translation": "アカウントにバケットが見つかりませんでした。"
+    "translation": "個のバケットがアカウントに見つかりました:\n"
   },
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
@@ -377,7 +377,7 @@
   },
   {
     "id": "Output returned in raw JSON format.",
-    "translation": "未加工 JSON フォーマットで返された出力。"
+    "translation": "未加工 JSON フォーマットで返される出力。"
   },
   {
     "id": "Override the default location providing an OUTFILE parameter",
@@ -453,7 +453,7 @@
   },
   {
     "id": "Set custom Service Endpoint for all operations.",
-    "translation": "すべての操作にカスタム・サービス・エンドポイントを設定します。"
+    "translation": "すべての操作向けにカスタム・サービス・エンドポイントを設定します。"
   },
   {
     "id": "Set regions endpoint URL.",
@@ -933,7 +933,7 @@
   },
   {
     "id": "[Deprecated] Output returned in raw JSON format.",
-    "translation": "[非推奨] 未加工 JSON フォーマットで返された出力。"
+    "translation": "[非推奨] 未加工 JSON フォーマットで返される出力。"
   },
   {
     "id": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.",

@@ -194,9 +194,9 @@ func populateField(cliContext *cli.Context,
 
 	// gets the type of the reflected field
 	fieldTypeRflx := fieldRflx.Type()
-	// checks if the type is of kinf of pointer
+	// checks if the type is of kind "Pointer"
 	if fieldRflx.Kind() == reflect.Ptr {
-		// if pinter uses the Elem() operation to get the pointed to Type
+		// if pointer uses the Elem() operation to get the pointed to Type
 		fieldTypeRflx = fieldTypeRflx.Elem()
 	}
 

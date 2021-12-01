@@ -20,16 +20,16 @@ import (
 
 // ListKnownRegions interface to hold the GetAllRegions operation
 type ListKnownRegions interface {
-	// GetAllRegions funcction to get all known regions
+	// GetAllRegions function to get all known regions
 	GetAllRegions() ([]string, error)
 }
 
 var (
 	// DefaultCOSEndPointsWS default regions endpoint url
-	DefaultCOSEndPointsWS = `https://cos-service.bluemix.net/v2/endpoints`
+	DefaultCOSEndPointsWS = `https://control.cloud-object-storage.cloud.ibm.com/v2/endpoints`
 
 	// Classes ibm cos storage classes
-	// needed to desambiguation between us-south vs us-geo vs us-flex in region constraint
+	// needed to disambiguation between us-south vs us-geo vs us-flex in region constraint
 	Classes        = []string{"standard", "vault", "cold", "flex"}
 	classTokenizer = strings.Join(Classes, `|`)
 	regionSpec     = fmt.Sprintf(`(?i)^(\w+(?:-\w+)??)(-geo)?(?:-(%s|\*))?$`, classTokenizer)
@@ -39,7 +39,7 @@ var (
 
 // IBMEndPoints maps the struct of the endpoints region
 type IBMEndPoints struct {
-	// Service urls organised by relience level
+	// Service urls organised by resiliency level
 	Service *ResiliencyEP `json:"service-endpoints"`
 	// Identity service url
 	Identity *Identity `json:"identity-endpoints"`
@@ -91,10 +91,10 @@ type COSEndPointsWSClient struct {
 
 // NewIBMEndPoints creates a new client receiving the config and regions endpoint url as parameters
 func NewIBMEndPoints(config *aws.Config, endpointsURL string) (*COSEndPointsWSClient, error) {
-	// alocates memory for the client struct
+	// allocates memory for the client struct
 	c := COSEndPointsWSClient{}
 
-	// checks if a regions enpooint url was provided, if not provided use default value
+	// checks if a regions endpoint url was provided, if not provided use default value
 	c.EndpointsURL = endpointsURL
 	if c.EndpointsURL == "" {
 		c.EndpointsURL = DefaultCOSEndPointsWS
@@ -128,11 +128,11 @@ func NewIBMEndPoints(config *aws.Config, endpointsURL string) (*COSEndPointsWSCl
 	return &c, nil
 }
 
-// connects to the enpoint and retrieves the values
+// connects to the endpoint and retrieves the values
 func (c *COSEndPointsWSClient) fetchEndPointsDetails() (err error) {
 	// full lock of the client struct to avoid race conditions accessing it
 	c.mutex.Lock()
-	// defer the unlock to garantee it will be unlock when function exit
+	// defer the unlock to guarantee it will be unlock when function exit
 	defer c.mutex.Unlock()
 
 	// builds a new get request
@@ -174,7 +174,7 @@ func (c *COSEndPointsWSClient) fetchEndPointsDetails() (err error) {
 		return
 	}
 
-	// check responsse code
+	// check response code
 	if 200 < response.StatusCode || 300 <= response.StatusCode {
 		err = fmt.Errorf("url:'%s' Status: %s", c.EndpointsURL, response.Status)
 		return
@@ -192,7 +192,7 @@ func (c *COSEndPointsWSClient) fetchEndPointsDetails() (err error) {
 		return
 	}
 	c.endPoints = tmp
-	// check the parse of the buffer was succefully
+	// check the parse of the buffer was successfully
 	if c.endPoints.Service == nil || c.endPoints.Identity == nil {
 		c.endPoints = nil
 		err = awserr.New("ibm.Resolver.ErrorFetchingEndpoints", "Error Fetching And Parsing Endpoints JSON", nil)
@@ -211,14 +211,14 @@ func (c *COSEndPointsWSClient) Refresh() (err error) {
 // EndpointFor method required by the sdk to use the client as sdk Resolver
 func (c *COSEndPointsWSClient) EndpointFor(service, region string,
 	opts ...func(options *endpoints.Options)) (endpoint endpoints.ResolvedEndpoint, err error) {
-	// apply a read lock to garantee other can read but no write can be dne until lock released
+	// apply a read lock to guarantee other can read but no write can be dne until lock released
 	c.mutex.RLock()
 	// defer the release of the read lock
 	defer c.mutex.RUnlock()
 
 	// if no endpoints present
 	// release read lock
-	// accquire a full lock
+	// acquire a full lock
 	if c.endPoints == nil {
 		c.mutex.RUnlock()
 		err := c.fetchEndPointsDetails()
@@ -276,7 +276,7 @@ func (c *COSEndPointsWSClient) EndpointFor(service, region string,
 	return endpoint, awserr.New("ibm.Resolver.ServiceNotSupported", service+": Service Not Supported", nil)
 }
 
-// GetAllRegions methos that returns all known regions
+// GetAllRegions method that returns all known regions
 // useful when looking for a bucket location in unknown region
 func (c *COSEndPointsWSClient) GetAllRegions() ([]string, error) {
 	c.mutex.RLock()
@@ -312,7 +312,7 @@ func (c *COSEndPointsWSClient) GetAllRegions() ([]string, error) {
 		idx++
 	}
 
-	// add csingle site regions to slice
+	// add single site regions to slice
 	for region := range c.endPoints.Service.SingleSite {
 		regions[idx] = region
 		idx++

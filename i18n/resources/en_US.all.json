@@ -280,12 +280,12 @@
     "translation": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’."
   },
   {
-    "id": "Invalid boolean balue in Flag '--%s'",
-    "translation": "Invalid boolean balue in Flag '--%s'"
-  },
-  {
     "id": "Invalid boolean flag '--%s'",
     "translation": "Invalid boolean flag '--%s'"
+  },
+  {
+    "id": "Invalid boolean value in Flag '--%s'",
+    "translation": "Invalid boolean value in Flag '--%s'"
   },
   {
     "id": "It was last updated on {{.lastupdated}}.",
@@ -525,7 +525,7 @@
   },
   {
     "id": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. `DIRECTIVE` values: COPY, REPLACE.",
-    "translation": "Specifies whetherthe metadata is copied from the source object or replaced with metadata provided in the request. `DIRECTIVE` values: COPY, REPLACE."
+    "translation": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. `DIRECTIVE` values: COPY, REPLACE."
   },
   {
     "id": "Store CRN in the config.",
@@ -681,7 +681,7 @@
   },
   {
     "id": "The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB.",
-    "translation": "The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy thefirst ten bytes of the source. You can copy a range only if the source object is greater than 5 MB."
+    "translation": "The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB."
   },
   {
     "id": "The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.",
@@ -705,7 +705,7 @@
   },
   {
     "id": "The specified download location does not exist on your system. Try again with a valid download path.",
-    "translation": "The specified download location does not exist on your system. Tryagain with a valid download path."
+    "translation": "The specified download location does not exist on your system. Try again with a valid download path."
   },
   {
     "id": "The specified download location is not valid. Try again with a valid download path.",
@@ -909,15 +909,15 @@
   },
   {
     "id": "Wait until 200 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
-    "translation": "Wait until 200 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exitwith a return code of 255 after 20 failed checks."
+    "translation": "Wait until 200 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks."
   },
   {
     "id": "Wait until 404 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
-    "translation": "Wait until 404 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached.  This will exitwith a return code of 255 after 20 failed checks."
+    "translation": "Wait until 404 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks."
   },
   {
     "id": "Wait until 404 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
-    "translation": "Wait until 404 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exitwith a return code of 255 after 20 failed checks."
+    "translation": "Wait until 404 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks."
   },
   {
     "id": "Wait until a particular condition is satisfied.  Each subcommand polls an API until the listed requirement is met.",

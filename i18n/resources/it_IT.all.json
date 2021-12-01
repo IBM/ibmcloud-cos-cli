@@ -153,7 +153,7 @@
   },
   {
     "id": "Create a new multipart upload instance.",
-    "translation": "Crea una nuova istanza di caricamento multiparte."
+    "translation": "Creare una nuova istanza di caricamento multiparte."
   },
   {
     "id": "Creation Date",
@@ -181,7 +181,7 @@
   },
   {
     "id": "Delete multiple objects from a bucket",
-    "translation": "Elimina gli oggetti multipli da un bucket"
+    "translation": "Eliminare più oggetti da un bucket"
   },
   {
     "id": "Delete multiple objects from bucket '{{.Bucket}}' ran successfully.",
@@ -273,19 +273,19 @@
   },
   {
     "id": "Interact with IBM Cloud Object Storage services",
-    "translation": "Interagisci con i servizi di IBM Cloud Object Storage"
+    "translation": "Interagire con i servizi di IBM Cloud Object Storage"
   },
   {
     "id": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.",
     "translation": "Argomento non valido.  È necessario configurare un CRN di istanza di servizio valido per creare o elencare i bucket.  Verificare il CRN utilizzando ‘ibmcloud cos config list’."
   },
   {
-    "id": "Invalid boolean balue in Flag '--%s'",
-    "translation": "Valore booleano non valido nell'indicatore '--%s'"
-  },
-  {
     "id": "Invalid boolean flag '--%s'",
     "translation": "Indicatore booleano non valido '--%s'"
+  },
+  {
+    "id": "Invalid boolean value in Flag '--%s'",
+    "translation": "Valore booleano non valido nell'indicatore '--%s'"
   },
   {
     "id": "It was last updated on {{.lastupdated}}.",
@@ -437,7 +437,7 @@
   },
   {
     "id": "Returns the class type of the specified bucket.",
-    "translation": "Restituisce il tipo di classe del bucket specificato."
+    "translation": "Restituire il tipo di classe del bucket specificato."
   },
   {
     "id": "Saving default download location...",
@@ -621,7 +621,7 @@
   },
   {
     "id": "Switch between HMAC and IAM authentication",
-    "translation": "Passa da autenticazione HMAC a IAM e viceversa"
+    "translation": "Passare da autenticazione HMAC a IAM e viceversa"
   },
   {
     "id": "Switch between VHost and Path URL style.",
@@ -689,7 +689,7 @@
   },
   {
     "id": "The specified bucket does not have website configuration.",
-    "translation": "Il bucket specificato non dispone di una configurazione sito web. "
+    "translation": "Il bucket specificato non dispone di una configurazione sito web."
   },
   {
     "id": "The specified bucket is not empty. Delete all the files in the bucket, then try again.",
@@ -889,15 +889,15 @@
   },
   {
     "id": "WARNING: This will permanently delete any bucket website configuration from the bucket '{{.Bucket}}'.",
-    "translation": "AVVERTENZA: Questo eliminerà definitivamente qualsiasi configurazione sito web del bucket dal bucket '{{.Bucket}}'."
+    "translation": "AVVERTENZA: Questa operazione eliminerà definitivamente qualsiasi configurazione sito web del bucket dal bucket '{{.Bucket}}'."
   },
   {
     "id": "WARNING: This will permanently delete the bucket '{{.Bucket}}' from your account.",
-    "translation": "AVVERTENZA: Questo eliminerà definitivamente il bucket '{{.Bucket}}' dall'account."
+    "translation": "AVVERTENZA: Questa operazione eliminerà definitivamente il bucket '{{.Bucket}}' dall'account."
   },
   {
     "id": "WARNING: This will permanently delete the object '{{.Key}}' from the bucket '{{.Bucket}}'.",
-    "translation": "AVVERTENZA: Questo eliminerà definitivamente l'oggetto '{{.Key}}' dal bucket '{{.Bucket}}'."
+    "translation": "AVVERTENZA: Questa operazione eliminerà definitivamente l'oggetto '{{.Key}}' dal bucket '{{.Bucket}}'."
   },
   {
     "id": "WARNING: You have already stored a service instance ID before.",

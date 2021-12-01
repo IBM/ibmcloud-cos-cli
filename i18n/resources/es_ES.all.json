@@ -265,7 +265,7 @@
   },
   {
     "id": "Index Suffix: ",
-    "translation": "Sufijo de índice: "
+    "translation": "Sufijo del índice: "
   },
   {
     "id": "Initiated",
@@ -280,12 +280,12 @@
     "translation": "Argumento no válido.  Debe configurarse un CRN de instancia de servicio válido para crear o enumerar depósitos.  Verifique el CRN utilizando ‘ibmcloud cos config list’."
   },
   {
-    "id": "Invalid boolean balue in Flag '--%s'",
-    "translation": "Valor booleano no válido en el distintivo '--%s'"
-  },
-  {
     "id": "Invalid boolean flag '--%s'",
     "translation": "Distintivo booleano no válido '--%s'"
+  },
+  {
+    "id": "Invalid boolean value in Flag '--%s'",
+    "translation": "Valor booleano no válido en el distintivo '--%s'"
   },
   {
     "id": "It was last updated on {{.lastupdated}}.",
@@ -413,7 +413,7 @@
   },
   {
     "id": "Remove static website configuration from a bucket.",
-    "translation": "Elimine la configuración del sitio web estático de un depósito."
+    "translation": "Elimine la configuración de sitio web estático de un depósito."
   },
   {
     "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
@@ -889,7 +889,7 @@
   },
   {
     "id": "WARNING: This will permanently delete any bucket website configuration from the bucket '{{.Bucket}}'.",
-    "translation": "AVISO: Esto suprimirá permanentemente cualquier configuración del sitio web de depósito del depósito '{{.Bucket}}'."
+    "translation": "AVISO: Esto suprimirá permanentemente cualquier configuración de sitio web de depósito del depósito '{{.Bucket}}'."
   },
   {
     "id": "WARNING: This will permanently delete the bucket '{{.Bucket}}' from your account.",

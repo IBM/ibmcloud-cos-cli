@@ -54,7 +54,7 @@ func TestMultiPartListHappyPathNoUploads(t *testing.T) {
 			mock.Anything).
 		Run(func(args mock.Arguments) {
 			funcCapture := args.Get(1).(func(page *s3.ListMultipartUploadsOutput, last bool) bool)
-			paggerSrvMock(inputCapture, funcCapture, 0, nil)
+			pagerSrvMockMPL(inputCapture, funcCapture, 0, nil)
 		}).
 		Return(nil).
 		Once()
@@ -239,7 +239,7 @@ func TestMultiPartListPaginate(t *testing.T) {
 			mock.Anything).
 		Run(func(args mock.Arguments) {
 			funcCapture := args.Get(1).(func(page *s3.ListMultipartUploadsOutput, last bool) bool)
-			paggerSrvMock(inputCapture, funcCapture, 1000, &pagesSzCapture)
+			pagerSrvMockMPL(inputCapture, funcCapture, 1000, &pagesSzCapture)
 		}).
 		Return(nil).
 		Once()
@@ -277,7 +277,7 @@ func TestMultiPartListPaginate(t *testing.T) {
 
 }
 
-func paggerSrvMock(input *s3.ListMultipartUploadsInput, backFeed func(*s3.ListMultipartUploadsOutput, bool) bool,
+func pagerSrvMockMPL(input *s3.ListMultipartUploadsInput, backFeed func(*s3.ListMultipartUploadsOutput, bool) bool,
 	hardLimit int, results *[]int) {
 	keepGoing := true
 	if hardLimit == 0 {

@@ -109,7 +109,7 @@
   },
   {
     "id": "Class: ",
-    "translation": "类："
+    "translation": "类： "
   },
   {
     "id": "Clear the option value.",
@@ -193,7 +193,7 @@
   },
   {
     "id": "Details about bucket ",
-    "translation": "有关存储区的详细信息"
+    "translation": "有关存储区的详细信息 "
   },
   {
     "id": "Details about your multipart upload instance:",
@@ -233,7 +233,7 @@
   },
   {
     "id": "Error Document: ",
-    "translation": "错误文档："
+    "translation": "错误文档： "
   },
   {
     "id": "Error opening '{{.Location}}' to write.",
@@ -245,7 +245,7 @@
   },
   {
     "id": "Found ",
-    "translation": "已找到"
+    "translation": "已找到 "
   },
   {
     "id": "Get the CORS configuration from a bucket.",
@@ -265,7 +265,7 @@
   },
   {
     "id": "Index Suffix: ",
-    "translation": "索引后缀："
+    "translation": "索引后缀： "
   },
   {
     "id": "Initiated",
@@ -280,12 +280,12 @@
     "translation": "自变量无效。必须配置有效的服务实例 CRN 才能创建或列出存储区。使用“ibmcloud cos config list”验证 CRN。"
   },
   {
-    "id": "Invalid boolean balue in Flag '--%s'",
-    "translation": "标记“--%s”中存在无效布尔值"
-  },
-  {
     "id": "Invalid boolean flag '--%s'",
     "translation": "无效布尔标记“--%s”"
+  },
+  {
+    "id": "Invalid boolean value in Flag '--%s'",
+    "translation": "标记“--%s”中存在无效布尔值"
   },
   {
     "id": "It was last updated on {{.lastupdated}}.",
@@ -397,15 +397,15 @@
   },
   {
     "id": "Redirect Hostname: ",
-    "translation": "重定向主机名："
+    "translation": "重定向主机名： "
   },
   {
     "id": "Redirect Protocol: ",
-    "translation": "重定向协议："
+    "translation": "重定向协议： "
   },
   {
     "id": "Region: ",
-    "translation": "区域："
+    "translation": "区域： "
   },
   {
     "id": "Regions endpoint `URL`.",
@@ -629,7 +629,7 @@
   },
   {
     "id": "The CORS configuration of ",
-    "translation": "的 CORS 配置"
+    "translation": "的 CORS 配置 "
   },
   {
     "id": "The `KEY` of the object.",
@@ -729,7 +729,7 @@
   },
   {
     "id": "To retrieve the next set of buckets, use this value marker for the next command: ",
-    "translation": "要检索下一组存储区，请对下一条命令使用此值标记："
+    "translation": "要检索下一组存储区，请对下一条命令使用此值标记： "
   },
   {
     "id": "To retrieve the next set of multipart uploads, use the following markers in the next command:",
@@ -737,11 +737,11 @@
   },
   {
     "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
-    "translation": "要检索下一组对象，请使用此键作为下一条命令的 --marker："
+    "translation": "要检索下一组对象，请使用此键作为下一条命令的 --marker： "
   },
   {
     "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",
-    "translation": "要检索下一组部件，请使用此标记作为下一条命令的 part-number-marker："
+    "translation": "要检索下一组部件，请使用此标记作为下一条命令的 part-number-marker： "
   },
   {
     "id": "Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.",

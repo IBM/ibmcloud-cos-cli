@@ -54,7 +54,7 @@ func doBucketWait(c *cli.Context, bwb bucketWaiterBuild) (err error) {
 	// Build PutObjectInput
 	input := new(s3.HeadBucketInput)
 
-	// Required parameters and no optional parameter for Headbucket
+	// Required parameters and no optional parameter for Head bucket
 	mandatory := map[string]string{
 		fields.Bucket: flags.Bucket,
 	}

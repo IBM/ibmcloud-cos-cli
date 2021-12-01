@@ -14,7 +14,7 @@ func main() {
 	exitCode := 0
 
 	// urfave-cli process some exit codes before bubble them up,
-	// this wrapper will help the exiterror bubble up until the error render
+	// this wrapper will help the exit error bubble up until the error render
 	cli.OsExiter = wrapExiter(&exitCode)
 	// Start starts the plugin -
 	// Calling to the IBM Cloud CLI SDK

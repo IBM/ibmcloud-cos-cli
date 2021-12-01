@@ -72,7 +72,7 @@ func BucketClassLocation(c *cli.Context) (err error) {
 	return
 }
 
-// GetLocationWrapper builds a struct for GetBucketLocationOuput and Error
+// GetLocationWrapper builds a struct for GetBucketLocationOutput and Error
 type GetLocationWrapper struct {
 	Result *s3.GetBucketLocationOutput
 	Error  error
@@ -94,10 +94,10 @@ func getBucketLocationCoordinator(cosContext *utils.CosContext,
 	cancelAbleCtx, cancelFn := context.WithCancel(context.Background())
 	defer cancelFn()
 
-	// Set background channell for GetLocationWrapper
+	// Set background channel for GetLocationWrapper
 	channel := make(chan GetLocationWrapper)
 
-	// Initialize waitgroup for current known COS regions
+	// Initialize wait group for current known COS regions
 	var wg sync.WaitGroup
 	wg.Add(len(listKnownRegions))
 

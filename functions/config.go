@@ -166,7 +166,7 @@ func boolToAuth(b bool) string {
 	return config.IAM
 }
 
-// convert an authentication method name to a boolean ( is HMAC )
+// convert an authentication method name to a boolean (is HMAC)
 func authToBool(auth string) (bool, error) {
 	// switch over auth method string
 	switch strings.ToUpper(auth) {
@@ -197,7 +197,7 @@ func mapURLStyle(input interface{}) string {
 
 // boolToURLStyle maps the authentication value from boolean ForcePathStyle to VHost or Path
 func boolToURLStyle(b bool) string {
-	// if true is hamc else is iam
+	// if true is hmac else is iam
 	if b {
 		return config.Path
 	}
@@ -209,10 +209,10 @@ func urlStyleToBool(urlStyle string) (bool, error) {
 	// switch over auth method string
 	switch strings.ToUpper(urlStyle) {
 	case strings.ToUpper(config.VHost):
-		// if hamc map it to true
+		// if hmac map it to true
 		return false, nil
 	case strings.ToUpper(config.Path):
-		// if iam  map it false
+		// if iam map it false
 		return true, nil
 	default:
 		// if not previous cases rise an error
@@ -275,7 +275,7 @@ func ConfigChangeDefaultRegion(c *cli.Context) error {
 	var region string
 	var err error
 
-	// if region falg is set , use its value
+	// if region flag is set , use its value
 	if c.IsSet(flags.Region) {
 		region = c.String(flags.Region)
 	} else {
@@ -322,7 +322,7 @@ func ConfigSetDLLocation(c *cli.Context) error {
 	ui := cosContext.UI
 	conf := cosContext.Config
 
-	// check the number of args and falgs
+	// check the number of args and flags
 	if c.NumFlags() > 1 || c.NArg() > 0 {
 		cli.ShowCommandHelpAndExit(c, c.Command.Name, 1)
 	}
@@ -493,7 +493,7 @@ func ConfigCRN(c *cli.Context) error {
 	// Alerts users that CRN is to be saved in the config file
 	ui.Say(T("Saving new Service Instance ID..."))
 
-	// Set the CRN in the confg file
+	// Set the CRN in the config file
 	err = conf.Set(config.CRN, crn)
 	if err != nil {
 		ui.Failed(T("Unable to store Secret key."))
@@ -704,7 +704,7 @@ func ConfigSetRegionsEndpointURL(c *cli.Context) error {
 			map[string]interface{}{"URL": terminal.EntityNameColor(regionsURL)}))
 	}
 
-	// if clear falg set, clear the override value, falling back to original default value
+	// if clear flag set, clear the override value, falling back to original default value
 	if c.IsSet(flags.Clear) {
 
 		err = conf.Erase(config.RegionsEndpointURL)

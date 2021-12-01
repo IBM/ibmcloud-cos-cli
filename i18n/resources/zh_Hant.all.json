@@ -109,7 +109,7 @@
   },
   {
     "id": "Class: ",
-    "translation": "類別："
+    "translation": "類別： "
   },
   {
     "id": "Clear the option value.",
@@ -193,7 +193,7 @@
   },
   {
     "id": "Details about bucket ",
-    "translation": "關於儲存區的詳細資料"
+    "translation": "關於儲存區的詳細資料 "
   },
   {
     "id": "Details about your multipart upload instance:",
@@ -233,7 +233,7 @@
   },
   {
     "id": "Error Document: ",
-    "translation": "錯誤文件："
+    "translation": "錯誤文件： "
   },
   {
     "id": "Error opening '{{.Location}}' to write.",
@@ -265,7 +265,7 @@
   },
   {
     "id": "Index Suffix: ",
-    "translation": "索引字尾："
+    "translation": "索引字尾： "
   },
   {
     "id": "Initiated",
@@ -280,12 +280,12 @@
     "translation": "無效的引數。必須配置有效的服務實例 CRN 以建立或列出儲存區。請使用 'ibmcloud cos config list' 驗證 CRN。"
   },
   {
-    "id": "Invalid boolean balue in Flag '--%s'",
-    "translation": "旗標 '--%s' 中的布林值無效"
-  },
-  {
     "id": "Invalid boolean flag '--%s'",
     "translation": "布林旗標 '--%s' 無效"
+  },
+  {
+    "id": "Invalid boolean value in Flag '--%s'",
+    "translation": "旗標 '--%s' 中的布林值無效"
   },
   {
     "id": "It was last updated on {{.lastupdated}}.",
@@ -297,7 +297,7 @@
   },
   {
     "id": "Last Modified",
-    "translation": "前次修改時間"
+    "translation": "前次修改"
   },
   {
     "id": "Last Modified: {{.lastmodified}}",
@@ -397,15 +397,15 @@
   },
   {
     "id": "Redirect Hostname: ",
-    "translation": "重新導向主機名稱："
+    "translation": "重新導向主機名稱： "
   },
   {
     "id": "Redirect Protocol: ",
-    "translation": "重新導向通訊協定："
+    "translation": "重新導向通訊協定： "
   },
   {
     "id": "Region: ",
-    "translation": "區域："
+    "translation": "區域： "
   },
   {
     "id": "Regions endpoint `URL`.",
@@ -629,7 +629,7 @@
   },
   {
     "id": "The CORS configuration of ",
-    "translation": "下列項目的 CORS 配置："
+    "translation": "下列項目的 CORS 配置： "
   },
   {
     "id": "The `KEY` of the object.",
@@ -729,7 +729,7 @@
   },
   {
     "id": "To retrieve the next set of buckets, use this value marker for the next command: ",
-    "translation": "如果要擷取下一組儲存區，請將此值標記用於下一個指令："
+    "translation": "如果要擷取下一組儲存區，請將此值標記用於下一個指令： "
   },
   {
     "id": "To retrieve the next set of multipart uploads, use the following markers in the next command:",
@@ -737,11 +737,11 @@
   },
   {
     "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
-    "translation": "如果要擷取下一組物件，請使用此索引鍵作為下一個指令的 --marker："
+    "translation": "如果要擷取下一組物件，請使用此索引鍵作為下一個指令的 --marker： "
   },
   {
     "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",
-    "translation": "如果要擷取下一組組件，請使用此標記作為下一個指令的 part-number-marker："
+    "translation": "如果要擷取下一組組件，請使用此標記作為下一個指令的 part-number-marker： "
   },
   {
     "id": "Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.",

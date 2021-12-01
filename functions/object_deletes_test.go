@@ -77,7 +77,7 @@ func TestObjectDeletesRainyPath(t *testing.T) {
 	}
 
 	targetBucket := "TargetBucket"
-	BadDelete := "Objects=[{Key=string},{Key=string}],Quiet=fale"
+	BadDelete := "Objects=[{Key=string},{Key=string}],Quiet=fale" // Quiet intentionally has a typo
 
 	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 

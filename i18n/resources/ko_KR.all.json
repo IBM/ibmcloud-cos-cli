@@ -280,12 +280,12 @@
     "translation": "올바르지 않은 인수입니다. 버킷을 작성하거나 나열하려면 올바른 서비스 인스턴스 CRN을 구성해야 합니다. ‘ibmcloud cos config list’를 사용하여 CRN을 확인하십시오."
   },
   {
-    "id": "Invalid boolean balue in Flag '--%s'",
-    "translation": "'--%s' 플래그에 올바르지 않은 부울 값이 있습니다."
-  },
-  {
     "id": "Invalid boolean flag '--%s'",
     "translation": "올바르지 않은 부울 플래그 '--%s'입니다."
+  },
+  {
+    "id": "Invalid boolean value in Flag '--%s'",
+    "translation": "'--%s' 플래그에 올바르지 않은 부울 값이 있습니다."
   },
   {
     "id": "It was last updated on {{.lastupdated}}.",
@@ -345,7 +345,7 @@
   },
   {
     "id": "Name",
-    "translation": "이름"
+    "translation": "이름 은(는)"
   },
   {
     "id": "No buckets found in your account.",
@@ -453,7 +453,7 @@
   },
   {
     "id": "Set custom Service Endpoint for all operations.",
-    "translation": "모든 오퍼레이션의 사용자 정의 서비스 엔드포인트를 설정하십시오. "
+    "translation": "모든 오퍼레이션의 사용자 정의 서비스 엔드포인트를 설정하십시오."
   },
   {
     "id": "Set regions endpoint URL.",
@@ -689,7 +689,7 @@
   },
   {
     "id": "The specified bucket does not have website configuration.",
-    "translation": "지정된 버킷에 웹 사이트 구성이 없습니다. "
+    "translation": "지정된 버킷에 웹 사이트 구성이 없습니다."
   },
   {
     "id": "The specified bucket is not empty. Delete all the files in the bucket, then try again.",
@@ -817,7 +817,7 @@
   },
   {
     "id": "Unable to save new Service Endpoint URL.",
-    "translation": "새 서비스 엔드포인트 URL을 저장할 수 없습니다. "
+    "translation": "새 서비스 엔드포인트 URL을 저장할 수 없습니다."
   },
   {
     "id": "Unable to save new region.",

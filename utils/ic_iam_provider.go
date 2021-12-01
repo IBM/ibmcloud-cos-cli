@@ -118,7 +118,7 @@ func (bx *bxIAM) init() error {
 	// Raw Token passed in from IBM Cloud CLI that
 	// IAMToken returns the IAM access tokenValue
 	if !bx.pluginContext.IsLoggedIn() {
-		return awserr.New("auth.iam.logout", "Loggin Required", nil)
+		return awserr.New("auth.iam.logout", "Login Required", nil)
 	}
 
 	rawToken := bx.pluginContext.IAMToken()

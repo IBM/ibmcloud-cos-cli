@@ -10,7 +10,7 @@ import (
 	"github.com/urfave/cli"
 )
 
-// BucketCorsDelete - Deletes CORS confuration from a bucket
+// BucketCorsDelete - Deletes CORS configuration from a bucket
 // Parameter:
 //     	CLI Context Application
 // Returns:

@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.3.1
+
+### Content
+
+#### Defect Fixes
+
+* Update Default COS Endpoint URL
+
 ## 1.3.0
 
 ### Content

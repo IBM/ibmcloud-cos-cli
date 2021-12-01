@@ -53,7 +53,7 @@ func TestListObjectsHappyPath(t *testing.T) {
 			mock.Anything).
 		Run(func(args mock.Arguments) {
 			funcCapture := args.Get(1).(func(page *s3.ListObjectsOutput, last bool) bool)
-			pagerSrvMock(inputCapture, funcCapture, 0, nil)
+			pagerSrvMockOL(inputCapture, funcCapture, 0, nil)
 		}).
 		Return(nil).
 		Once()
@@ -235,7 +235,7 @@ func TestObjectsListPaginate(t *testing.T) {
 			mock.Anything).
 		Run(func(args mock.Arguments) {
 			funcCapture := args.Get(1).(func(page *s3.ListObjectsOutput, last bool) bool)
-			pagerSrvMock(inputCapture, funcCapture, 1000, &pagesSzCapture)
+			pagerSrvMockOL(inputCapture, funcCapture, 1000, &pagesSzCapture)
 		}).
 		Return(nil).
 		Once()
@@ -273,7 +273,7 @@ func TestObjectsListPaginate(t *testing.T) {
 
 }
 
-func pagerSrvMock(input *s3.ListObjectsInput, backFeed func(*s3.ListObjectsOutput, bool) bool,
+func pagerSrvMockOL(input *s3.ListObjectsInput, backFeed func(*s3.ListObjectsOutput, bool) bool,
 	hardLimit int, results *[]int) {
 	keepGoing := true
 	if hardLimit == 0 {

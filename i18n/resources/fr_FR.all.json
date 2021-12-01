@@ -169,7 +169,7 @@
   },
   {
     "id": "Delete '{{.Key}}' from bucket '{{.Bucket}}' ran successfully.",
-    "translation": "La suppression de '{{.Key}}' du compartiment '{{.Bucket}}' s'est exécutée avec succès."
+    "translation": "La suppression de '{{.Key}}' du compartiment '{{.Bucket}}' s'est bien exécutée."
   },
   {
     "id": "Delete an existing bucket.",
@@ -185,7 +185,7 @@
   },
   {
     "id": "Delete multiple objects from bucket '{{.Bucket}}' ran successfully.",
-    "translation": "La suppression de plusieurs objets du compartiment '{{.Bucket}}' s'est exécutée avec succès."
+    "translation": "La suppression de plusieurs objets du compartiment '{{.Bucket}}' s'est bien exécutée."
   },
   {
     "id": "Delete the CORS configuration from a bucket.",
@@ -257,15 +257,15 @@
   },
   {
     "id": "Get the static website configuration on a bucket.",
-    "translation": "Obtenir la configuration de site web statique d'un compartiment."
+    "translation": "Obtenir la configuration de site Web statique d'un compartiment."
   },
   {
     "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
-    "translation": "Si un compartiment (bucket) est configuré comme un site web, redirige les demandes portant sur la clé d'objet vers un autre objet du même compartiment ou vers une URL (`LOCATION`)."
+    "translation": "Si un compartiment (bucket) est configuré comme un site Web, redirige les demandes portant sur la clé d'objet vers un autre objet du même compartiment ou vers une URL (`LOCATION`)."
   },
   {
     "id": "Index Suffix: ",
-    "translation": "Suffix d'index : "
+    "translation": "Suffixe d'index : "
   },
   {
     "id": "Initiated",
@@ -280,12 +280,12 @@
     "translation": "Argument non valide.  Un CRN d'instance de service valide doit être configuré pour créer ou répertorier des compartiments.  Vérifier le CRN à l'aide de la commande ‘ibmcloud cos config list’."
   },
   {
-    "id": "Invalid boolean balue in Flag '--%s'",
-    "translation": "Valeur booléenne non valide dans l'indicateur '--%s'"
-  },
-  {
     "id": "Invalid boolean flag '--%s'",
     "translation": "Indicateur booléen non valide '--%s'"
+  },
+  {
+    "id": "Invalid boolean value in Flag '--%s'",
+    "translation": "Valeur booléenne non valide dans l'indicateur '--%s'"
   },
   {
     "id": "It was last updated on {{.lastupdated}}.",
@@ -297,7 +297,7 @@
   },
   {
     "id": "Last Modified",
-    "translation": "Dernière modification"
+    "translation": "Date de dernière modification"
   },
   {
     "id": "Last Modified: {{.lastmodified}}",
@@ -409,11 +409,11 @@
   },
   {
     "id": "Regions endpoint `URL`.",
-    "translation": "URL du noeud final des régions."
+    "translation": "URL de point d'extrémité final des régions."
   },
   {
     "id": "Remove static website configuration from a bucket.",
-    "translation": "Retirer la configuration de site web statique d'un compartiment."
+    "translation": "Retirer la configuration de site Web statique d'un compartiment."
   },
   {
     "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
@@ -445,23 +445,23 @@
   },
   {
     "id": "Saving new Service Instance ID...",
-    "translation": "Sauvegarde de l'ID de la nouvelle instance de service..."
+    "translation": "Sauvegarde du nouvel ID instance de service..."
   },
   {
     "id": "Service Endpoint",
-    "translation": "Point d'extrémité des services"
+    "translation": "Point d'extrémité de service"
   },
   {
     "id": "Set custom Service Endpoint for all operations.",
-    "translation": "Fixer le point d'extrémité des services personnalisé pour toutes les opérations."
+    "translation": "Définir un point d'extrémité de service personnalisé pour toutes les opérations."
   },
   {
     "id": "Set regions endpoint URL.",
-    "translation": "Définir l'URL de noeud final des régions."
+    "translation": "Définir l'URL de point d'extrémité des régions."
   },
   {
     "id": "Set static website configuration on a bucket.",
-    "translation": "Fixer la configuration de site web statique d'un compartiment."
+    "translation": "Définir la configuration de site Web statique sur un compartiment."
   },
   {
     "id": "Set the CORS configuration on a bucket.",
@@ -497,11 +497,11 @@
   },
   {
     "id": "Sets the IBM Service Instance `ID` in the request.",
-    "translation": "Définit l'ID de l'instance de service IBM dans la demande."
+    "translation": "Définit l'ID instance de service IBM dans la demande."
   },
   {
     "id": "Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.",
-    "translation": "Lorsque cette valeur est à true, le SDK n'appelle pas AbortMultipartUpload s'il y a un échec, laissant toutes les parties remontées avec succès sur S3 pour une récupération manuelle."
+    "translation": "Lorsque cette valeur est à true, le SDK n'appelle pas AbortMultipartUpload s'il y a un échec, laissant toutes les parties remontées sur S3 pour une récupération manuelle."
   },
   {
     "id": "Size",
@@ -545,79 +545,79 @@
   },
   {
     "id": "Store your service instance ID (`CRN`) in the config.",
-    "translation": "Enregistrer l'ID de votre instance de service (CRN) dans la configuration."
+    "translation": "Enregistrer vitre ID instance de service (CRN) dans la configuration."
   },
   {
     "id": "Successfully aborted a multipart upload instance with key '{{.Key}}' and bucket '{{.Bucket}}'.",
-    "translation": "Abandon réussi d'une instance de remontée multipartie avec la clé '{{.Key}}' et le compartiment '{{.Bucket}}'."
+    "translation": "L'abandon d'une instance de remontée multipartie avec la clé '{{.Key}}' et le compartiment '{{.Bucket}}' a abouti."
   },
   {
     "id": "Successfully cleared regions endpoint URL.",
-    "translation": "L'URL de noeud final des régions a été effacée avec succès."
+    "translation": "L'URL de point d'extrémité des régions a été effacée."
   },
   {
     "id": "Successfully cleared service endpoint URL",
-    "translation": "L'URL de point d'extrémité des services a été effacée avec succès."
+    "translation": "L'URL de point d'extrémité de service a été effacée."
   },
   {
     "id": "Successfully copied '{{.Object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
-    "translation": "Copie réussie de '{{.Object}}' du compartiment '{{.bucket1}}' au compartiment '{{.bucket2}}'."
+    "translation": "La copie de '{{.Object}}' du compartiment '{{.bucket1}}' au compartiment '{{.bucket2}}' a abouti."
   },
   {
     "id": "Successfully deleted CORS configuration on bucket: {{.Bucket}}",
-    "translation": "Suppression réussie de la configuration CORS du compartiment : {{.Bucket}}"
+    "translation": "La configuration CORS a été supprimée sur le compartiment : {{.Bucket}}"
   },
   {
     "id": "Successfully deleted bucket '{{.Bucket}}'. The bucket '{{.Bucket}}' will be available for reuse after 15 minutes.",
-    "translation": "Suppression réussie du compartiment '{{.Bucket}}'. Le compartiment '{{.Bucket}}' pourra être réutilisé au bout de 15 minutes."
+    "translation": "Le compartiment '{{.Bucket}}' a été supprimé. Le compartiment '{{.Bucket}}' pourra être réutilisé après 15 minutes."
   },
   {
     "id": "Successfully downloaded '{{.Key}}' from bucket '{{.Bucket}}'",
-    "translation": "Clé '{{.Key}}' téléchargée avec succès depuis le compartiment '{{.Bucket}}'"
+    "translation": "Clé '{{.Key}}' téléchargée depuis le compartiment '{{.Bucket}}'"
   },
   {
     "id": "Successfully saved HMAC Credentials to file.",
-    "translation": "Sauvegarde réussie des identifiants HMAC dans le fichier."
+    "translation": "Les identifiants HMAC ont été sauvegardés dans le fichier."
   },
   {
     "id": "Successfully saved S3 {{.Style}} style hosting option. CLI calls will use {{.Style}} style requests.",
-    "translation": "Option d'hébergement de style {{.Style}} de S3 enregistrée avec succès. Les appels CLI utiliseront des demandes de style {{.Style}}."
+    "translation": "Option d'hébergement de style {{.Style}} de S3 sauvegardée. Les appels CLI utiliseront des demandes de style {{.Style}}."
   },
   {
     "id": "Successfully saved default region. The program will look for buckets in the region {{.region}}.",
-    "translation": "Sauvegarde réussie de la région par défaut. Le programme recherchera les compartiments dans la région {{.region}}."
+    "translation": "La région par défaut a été sauvegardée. Le programme recherchera les compartiments dans la région {{.region}}."
   },
   {
     "id": "Successfully saved download location. New files will be downloaded to '",
-    "translation": "Sauvegarde réussie de l'emplacement de téléchargement. Les nouveaux fichiers seront téléchargés dans '"
+    "translation": "L'emplacement de téléchargement a été sauvegardé. Les nouveaux fichiers seront téléchargés dans '"
   },
   {
     "id": "Successfully set CORS configuration on bucket: {{.Bucket}}",
-    "translation": "Définition réussie de la configuration CORS du compartiment : {{.Bucket}}"
+    "translation": "La configuration CORS a été définie sur le compartiment : {{.Bucket}}"
   },
   {
     "id": "Successfully stored your service instance ID.",
-    "translation": "Enregistrement réussi de l'ID de votre instance de service."
+    "translation": "Votre ID instance de service a été enregistré."
   },
   {
     "id": "Successfully switched to {{.Auth}}-based authentication. The program will access your Cloud Object Storage account using your {{.Auth}} Credentials.",
-    "translation": "Passage réussi à l'authentification {{.Auth}}. Le programme accédera à votre compte Cloud Object Storage avec vos identifiants {{.Auth}}."
+    "translation": "Passage à l'authentification {{.Auth}} effectué. Le programme accèdera à votre compte Cloud Object Storage avec vos identifiants {{.Auth}}."
   },
   {
     "id": "Successfully updated regions endpoint URL to {{.URL}}.",
-    "translation": "Mise à jour réussie de l'URL de noeud final des régions à {{.URL}}."
+    "translation": "Mise à jour de l'URL de point d'extrémité des régions à {{.URL}} effectuée."
   },
   {
     "id": "Successfully updated service endpoint URL.",
-    "translation": "Mise à jour réussie de l'URL de point d'extrémité des services."
+    "translation": "Mise à jour de l'URL de point d'extrémité de service effectuée."
   },
   {
     "id": "Successfully uploaded '{{.Key}}' to bucket '{{.Bucket}}'.",
-    "translation": "Remontée réussie de '{{.Key}}' dans le compartiment '{{.Bucket}}'."
+    "translation": "Remontée de '{{.Key}}' dans le compartiment '{{.Bucket}}' effectuée."
   },
   {
     "id": "Successfully uploaded object '{{.Key}}' to bucket '{{.Bucket}}'.",
-    "translation": "Remontée réussie de l'objet '{{.Key}}' dans le compartiment '{{.Bucket}}'."
+    "translation": "Remontée de l'objet '{{.Key}}' dans le compartiment '{{.Bucket}}' effectuée."
   },
   {
     "id": "Switch between HMAC and IAM authentication",
@@ -689,7 +689,7 @@
   },
   {
     "id": "The specified bucket does not have website configuration.",
-    "translation": "Le compartiment spécifié n'a pas de configuration de site web."
+    "translation": "Le compartiment spécifié n'a pas de configuration de site Web."
   },
   {
     "id": "The specified bucket is not empty. Delete all the files in the bucket, then try again.",
@@ -765,11 +765,11 @@
   },
   {
     "id": "Unable to clear regions endpoint URL.",
-    "translation": "Impossible d'effacer l'URL de noeud final des régions."
+    "translation": "Impossible d'effacer l'URL de point d'extrémité des régions."
   },
   {
     "id": "Unable to clear service endpoint URL.",
-    "translation": "Impossible d'effacer l'URL de point d'extrémité des services."
+    "translation": "Impossible d'effacer l'URL de point d'extrémité de service."
   },
   {
     "id": "Unable to get new CRN.",
@@ -817,7 +817,7 @@
   },
   {
     "id": "Unable to save new Service Endpoint URL.",
-    "translation": "Impossible de sauvegarder la nouvelle URL de point d'extrémité des services."
+    "translation": "Impossible de sauvegarder la nouvelle URL de point d'extrémité de service."
   },
   {
     "id": "Unable to save new region.",
@@ -825,7 +825,7 @@
   },
   {
     "id": "Unable to save new regions endpoint URL.",
-    "translation": "Impossible de sauvegarder la nouvelle URL de noeud final des régions."
+    "translation": "Impossible de sauvegarder la nouvelle URL de point d'extrémité des régions."
   },
   {
     "id": "Unable to store Access key.",
@@ -889,15 +889,15 @@
   },
   {
     "id": "WARNING: This will permanently delete any bucket website configuration from the bucket '{{.Bucket}}'.",
-    "translation": "AVERTISSEMENT : Cela supprimera définitivement toute configuration de site web compartiment du compartiment '{{.Bucket}}'."
+    "translation": "AVERTISSEMENT : Cette opération supprimera définitivement toute configuration de site Web de compartiment du compartiment '{{.Bucket}}'."
   },
   {
     "id": "WARNING: This will permanently delete the bucket '{{.Bucket}}' from your account.",
-    "translation": "AVERTISSEMENT : Cela supprimera définitivement le compartiment '{{.Bucket}}' de votre compte."
+    "translation": "AVERTISSEMENT : Cette opération supprimera définitivement le compartiment '{{.Bucket}}' de votre compte."
   },
   {
     "id": "WARNING: This will permanently delete the object '{{.Key}}' from the bucket '{{.Bucket}}'.",
-    "translation": "AVERTISSEMENT : Cela supprimera définitivement l'objet '{{.Key}}' du compartiment '{{.Bucket}}'."
+    "translation": "AVERTISSEMENT : Cette opération supprimera définitivement l'objet '{{.Key}}' du compartiment '{{.Bucket}}'."
   },
   {
     "id": "WARNING: You have already stored a service instance ID before.",
@@ -925,7 +925,7 @@
   },
   {
     "id": "Website Configuration",
-    "translation": "Configuration de site web"
+    "translation": "Configuration de site Web"
   },
   {
     "id": "Your proposed upload is smaller than the minimum allowed size. File parts must be greater than 5 MB in size, except for the last part.",
