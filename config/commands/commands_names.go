@@ -40,6 +40,12 @@ const (
 	// BucketLocationGet Command
 	BucketLocationGet = "bucket-location-get"
 
+	// BucketVersioningGet Command
+	BucketVersioningGet = "bucket-versioning-get"
+
+	// BucketVersioningPut Command
+	BucketVersioningPut = "bucket-versioning-put"
+
 	// BucketWebsiteDelete Command
 	BucketWebsiteDelete = "bucket-website-delete"
 
@@ -151,6 +157,18 @@ const (
 	// Objects Command
 	Objects = "objects"
 
+	// ObjectTaggingDelete Command
+	ObjectTaggingDelete = "object-tagging-delete"
+
+	// ObjectTaggingGet Command
+	ObjectTaggingGet = "object-tagging-get"
+
+	// ObjectTaggingPut Command
+	ObjectTaggingPut = "object-tagging-put"
+
+	// ObjectVersions Command
+	ObjectVersions = "object-versions"
+
 	// PartUpload Command
 	PartUpload = "part-upload"
 
@@ -165,6 +183,15 @@ const (
 
 	// PutObject Command
 	PutObject = "put-object"
+
+	// PublicAccessBlockDelete Command
+	PublicAccessBlockDelete = "public-access-block-delete"
+
+	// PublicAccessBlockGet Command
+	PublicAccessBlockGet = "public-access-block-get"
+
+	// PublicAccessBlockPut Command
+	PublicAccessBlockPut = "public-access-block-put"
 
 	// Upload Command from S3Manager
 	Upload = "upload"

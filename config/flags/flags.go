@@ -213,6 +213,11 @@ var (
 		Usage: T("Limits the response to keys that begin with the specified `PREFIX`."),
 	}
 
+	FlagPublicAccessBlockConfiguration = cli.StringFlag{
+		Name:  PublicAccessBlockConfiguration,
+		Usage: T("A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation."),
+	}
+
 	FlagRange = cli.StringFlag{
 		Name:  Range,
 		Usage: T("Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35."),
@@ -253,6 +258,31 @@ var (
 		Usage: T("Sets the Expires `HEADER` of the response."),
 	}
 
+	FlagTagging = cli.StringFlag{
+		Name:  Tagging,
+		Usage: T("A tag-set for the object encoded as URL query parameters (`Key1=Value1`). For `object-tagging-put`, a `STRUCTURE` using JSON syntax. See IBM Cloud Documentation."),
+	}
+
+	FlagTaggingDirective = cli.StringFlag{
+		Name:  TaggingDirective,
+		Usage: T("Specifies whether to copy the tag-set from the source object or replace it with the tag-set provided"),
+	}
+
+	FlagVersioningConfiguration = cli.StringFlag{
+		Name:  VersioningConfiguration,
+		Usage: T("A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation."),
+	}
+
+	FlagVersionId = cli.StringFlag{
+		Name:  VersionId,
+		Usage: T("The object version identifier"),
+	}
+
+	FlagVersionIdMarker = cli.StringFlag{
+		Name:  VersionIdMarker,
+		Usage: T("Together with key-marker, specifies the object version from which to start listing object versions in a bucket"),
+	}
+
 	FlagWebsiteConfiguration = cli.StringFlag{
 		Name:  WebsiteConfiguration,
 		Usage: T("A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation."),
@@ -286,7 +316,7 @@ var (
 
 	FlagKeyMarker = cli.StringFlag{
 		Name:  KeyMarker,
-		Usage: T("Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin."),
+		Usage: T("Together with another listing parameter, specifies the key from which to start listing"),
 	}
 
 	FlagUploadIDMarker = cli.StringFlag{

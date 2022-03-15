@@ -131,18 +131,18 @@ func TestBucketWebsitePutSunnyPathJSONString(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "PutBucketWebsite", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
-	//assert json proper parsed
+	// assert json proper parsed
 	assert.Equal(t, websiteConfigurationObject, capturedWebsiteConfiguration)
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert OK
+	// assert OK
 	assert.Contains(t, output, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
 }
 
@@ -188,18 +188,18 @@ func TestBucketWebsitePutSunnyPathJSONFile(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "PutBucketWebsite", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
-	//assert json proper parsed
+	// assert json proper parsed
 	assert.Equal(t, websiteConfigurationObject, capturedWebsiteConfiguration)
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert OK
+	// assert OK
 	assert.Contains(t, output, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
 }
 
@@ -236,18 +236,18 @@ func TestBucketWebsitePutSunnyPathSimplifiedJSONString(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "PutBucketWebsite", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
-	//assert json proper parsed
+	// assert json proper parsed
 	assert.Equal(t, websiteConfigurationObject, capturedWebsiteConfiguration)
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert OK
+	// assert OK
 	assert.Contains(t, output, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
 }
 
@@ -284,18 +284,18 @@ func TestBucketWebsitePutSunnyPathRedirectRequestsJSONString(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "PutBucketWebsite", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
-	//assert json proper parsed
+	// assert json proper parsed
 	assert.Equal(t, websiteConfigurationRedirectObject, capturedWebsiteConfiguration)
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert OK
+	// assert OK
 	assert.Contains(t, output, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
 }
 
@@ -341,18 +341,18 @@ func TestBucketWebsitePutSunnyPathRedirectRequestsJSONFile(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "PutBucketWebsite", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
-	//assert json proper parsed
+	// assert json proper parsed
 	assert.Equal(t, websiteConfigurationRedirectObject, capturedWebsiteConfiguration)
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert OK
+	// assert OK
 	assert.Contains(t, output, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
 }
 
@@ -389,18 +389,18 @@ func TestBucketWebsitePutSunnyPathRedirectRequestsSimplifiedJSONString(t *testin
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "PutBucketWebsite", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
-	//assert json proper parsed
+	// assert json proper parsed
 	assert.Equal(t, websiteConfigurationRedirectObject, capturedWebsiteConfiguration)
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert OK
+	// assert OK
 	assert.Contains(t, output, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
 }
 
@@ -434,16 +434,16 @@ func TestBucketPutWebsiteWithoutBucket(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "PutBucketWebsite", 0)
-	//assert exit code is non-zero
+	// assert exit code is non-zero
 	assert.Equal(t, 1, *exitCode) // exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert not OK
+	// assert not OK
 	assert.NotContains(t, output, "OK")
-	//assert Fail
+	// assert Fail
 	assert.Contains(t, errors, "FAIL")
 }
 
@@ -476,16 +476,16 @@ func TestBucketPutWebsiteWithoutWebsiteConfiguration(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "PutBucketWebsite", 0)
-	//assert exit code is non-zero
+	// assert exit code is non-zero
 	assert.Equal(t, 1, *exitCode) // exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert not OK
+	// assert not OK
 	assert.NotContains(t, output, "OK")
-	//assert Fail
+	// assert Fail
 	assert.Contains(t, errors, "FAIL")
 	assert.Contains(t, errors, "Mandatory Flag '--website-configuration' is missing")
 }
@@ -520,16 +520,16 @@ func TestBucketPutWebsiteWithMalformedJsonWebsiteConfiguration(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "PutBucketWebsite", 0)
-	//assert exit code is non-zero
+	// assert exit code is non-zero
 	assert.Equal(t, 1, *exitCode) // exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert not OK
+	// assert not OK
 	assert.NotContains(t, output, "OK")
-	//assert Fail
+	// assert Fail
 	assert.Contains(t, errors, "FAIL")
 	assert.Contains(t, errors, "The value in flag '--website-configuration' is invalid")
 }

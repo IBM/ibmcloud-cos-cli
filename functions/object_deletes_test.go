@@ -48,22 +48,21 @@ func TestObjectDeletesSunnyPath(t *testing.T) {
 	os.Args = []string{"-", commands.ObjectsDelete, "--bucket", targetBucket,
 		"--" + flags.Delete, targetDelete,
 		"--" + flags.Region, "REG"}
-	//call  plugin
+	// call plugin
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "DeleteObjects", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert OK
+	// assert OK
 	assert.Contains(t, output, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
-
 }
 
 func TestObjectDeletesRainyPath(t *testing.T) {
@@ -98,18 +97,17 @@ func TestObjectDeletesRainyPath(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "DeleteObjects", 0)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert Not OK
+	// assert Not OK
 	assert.NotContains(t, output, "OK")
-	//assert Fail
+	// assert Fail
 	assert.Contains(t, errors, "FAIL")
-
 }
 
 func TestObjectDeletesBadJson(t *testing.T) {
@@ -144,18 +142,17 @@ func TestObjectDeletesBadJson(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "DeleteObjects", 0)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert Not OK
+	// assert Not OK
 	assert.NotContains(t, output, "OK")
-	//assert Fail
+	// assert Fail
 	assert.Contains(t, errors, "FAIL")
-
 }
 
 func TestObjectDeletesWithoutDelete(t *testing.T) {
@@ -189,17 +186,61 @@ func TestObjectDeletesWithoutDelete(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "DeleteObjects", 0)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert Not OK
+	// assert Not OK
 	assert.NotContains(t, output, "OK")
 	assert.Contains(t, errors, "'--delete' is missing")
-	//assert Fail
+	// assert Fail
 	assert.Contains(t, errors, "FAIL")
+}
 
+func TestObjectsDeletVersionId(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	targetBucket := "TargetBucket"
+	targetDelete := "Objects=[{Key=a,VersionId=id1},{Key=a,VersionId=id2}],Quiet=false"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	providers.MockS3API.
+		On("DeleteObjects", mock.MatchedBy(
+			func(input *s3.DeleteObjectsInput) bool {
+				return *input.Bucket == targetBucket
+			})).
+		Return(new(s3.DeleteObjectsOutput), nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	os.Args = []string{"-", commands.ObjectsDelete, "--bucket", targetBucket,
+		"--" + flags.Delete, targetDelete,
+		"--" + flags.Region, "REG"}
+	// call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+	// assert s3 api called once per region (since success is last)
+	providers.MockS3API.AssertNumberOfCalls(t, "DeleteObjects", 1)
+	// assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+	// capture all output //
+	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
+	// assert OK
+	assert.Contains(t, output, "OK")
+	// assert Not Fail
+	assert.NotContains(t, errors, "FAIL")
 }

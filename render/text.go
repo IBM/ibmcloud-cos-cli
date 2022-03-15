@@ -93,6 +93,8 @@ func (txtRender *TextRender) Display(
 		return txtRender.printHeadObject(input, castedOutput)
 	case *s3.ListObjectsOutput:
 		return txtRender.printListObjects(input, castedOutput)
+	case *s3.ListObjectVersionsOutput:
+		return txtRender.printListObjectVersions(input, castedOutput)
 	case *s3.PutObjectOutput:
 		return txtRender.printPutObject(input, castedOutput)
 	case *s3.ListPartsOutput:
@@ -109,8 +111,18 @@ func (txtRender *TextRender) Display(
 		return txtRender.printUpload(input, castedOutput)
 	case *DownloadOutput:
 		return txtRender.printDownload(input, castedOutput)
+	case *s3.GetBucketVersioningOutput:
+		return txtRender.printGetBucketVersioning(input, castedOutput)
 	case *s3.GetBucketWebsiteOutput:
 		return txtRender.printGetBucketWebsite(input, castedOutput)
+	case *s3.DeleteObjectTaggingOutput:
+		return txtRender.printDeleteTaggingObject(input, castedOutput)
+	case *s3.GetObjectTaggingOutput:
+		return txtRender.printGetTaggingObject(input, castedOutput)
+	case *s3.PutObjectTaggingOutput:
+		return txtRender.printPutTaggingObject(input, castedOutput)
+	case *s3.GetPublicAccessBlockOutput:
+		return txtRender.printGetPublicAccessBlock(input, castedOutput)
 	default:
 		return
 	}
@@ -279,6 +291,9 @@ func (txtRender *TextRender) printCompleteMultipartUpload(input interface{},
 	txtRender.Say(T("Successfully uploaded '{{.Key}}' to bucket '{{.Bucket}}'.",
 		map[string]interface{}{"Key": terminal.EntityNameColor(*castInput.Key),
 			bucket: terminal.EntityNameColor(*castInput.Bucket)}))
+	if output.VersionId != nil {
+		txtRender.Say(T("Version ID: ") + terminal.EntityNameColor(aws.StringValue(output.VersionId)))
+	}
 	return
 }
 
@@ -350,16 +365,37 @@ func (txtRender *TextRender) printCopyObject(input interface{}, output *s3.CopyO
 		return badCastError
 	}
 	source := aws.StringValue(castInput.CopySource)
-	sourceBucket := strings.Split(source, "/")[0]
+	sourceBucket := strings.Split(source, "/")[0] // <bucket>/<key>?versionId=<version>
 	txtRender.Say(T("Successfully copied '{{.Object}}' from bucket '{{.bucket1}}' to bucket '{{.bucket2}}'.",
 		map[string]interface{}{object: terminal.EntityNameColor(aws.StringValue(castInput.Key)),
 			"bucket1": terminal.EntityNameColor(sourceBucket),
 			"bucket2": terminal.EntityNameColor(aws.StringValue(castInput.Bucket))}))
+	if output.CopySourceVersionId != nil {
+		txtRender.Say(T("Copy Source Version ID: ") + terminal.EntityNameColor(aws.StringValue(output.CopySourceVersionId)))
+	}
+	if output.VersionId != nil {
+		txtRender.Say(T("Version ID: ") + terminal.EntityNameColor(aws.StringValue(output.VersionId)))
+	}
 	return
 }
 
-func (txtRender *TextRender) printDeleteObject(input interface{}, _ *s3.DeleteObjectOutput) (err error) {
-	txtRender.Say(T("Delete '{{.Key}}' from bucket '{{.Bucket}}' ran successfully.", input))
+func (txtRender *TextRender) printDeleteObject(input interface{}, output *s3.DeleteObjectOutput) (err error) {
+	var castInput *s3.DeleteObjectInput
+	var ok bool
+	if castInput, ok = input.(*s3.DeleteObjectInput); !ok {
+		return badCastError
+	}
+	if output.VersionId == nil {
+		// Regular delete on a never-versioned bucket
+		txtRender.Say(T("Delete '{{.Key}}' from bucket '{{.Bucket}}' ran successfully.", castInput))
+	} else if aws.BoolValue(output.DeleteMarker) == true {
+		// Simple versioned delete that created a delete marker
+		txtRender.Say(T("Delete marker created for '{{.Key}}' from bucket '{{.Bucket}}'.", castInput))
+		txtRender.Say(T("Delete marker version ID: " + terminal.EntityNameColor(aws.StringValue(output.VersionId))))
+	} else {
+		// Targeted version delete that removed a specific version
+		txtRender.Say(T("Delete '{{.Key}}' from bucket '{{.Bucket}}' with version ID '{{.VersionId}}' ran successfully.", castInput))
+	}
 	return
 }
 
@@ -379,6 +415,9 @@ func (txtRender *TextRender) printHeadObject(input interface{}, output *s3.HeadO
 			fields.Key:    terminal.EntityNameColor(aws.StringValue(castInput.Key)),
 			fields.Bucket: terminal.EntityNameColor(aws.StringValue(castInput.Bucket)),
 		}))
+	if output.VersionId != nil {
+		txtRender.Say(T("Version ID: " + terminal.EntityNameColor(aws.StringValue(output.VersionId))))
+	}
 	txtRender.Say(T("Object Size: {{.objectsize}}", map[string]interface{}{
 		"objectsize": FormatFileSize(aws.Int64Value(output.ContentLength))},
 	))
@@ -438,7 +477,96 @@ func (txtRender *TextRender) printListObjects(_ interface{}, output *s3.ListObje
 	return
 }
 
-func (txtRender *TextRender) printPutObject(input interface{}, _ *s3.PutObjectOutput) (err error) {
+func (txtRender *TextRender) printListObjectVersions(_ interface{}, output *s3.ListObjectVersionsOutput) (err error) {
+	if len(output.CommonPrefixes) > 0 {
+		table := txtRender.Table([]string{
+			T("Common Prefixes:"),
+		})
+		for _, prefix := range output.CommonPrefixes {
+			table.Add(aws.StringValue(prefix.Prefix))
+		}
+		table.Print()
+		txtRender.Say("")
+	}
+	var foundString string
+	objectVersionsLength := len(output.Versions)
+	switch objectVersionsLength {
+	case 0:
+		foundString = T("no object versions in bucket '") +
+			terminal.EntityNameColor(aws.StringValue(output.Name)) + "'.\n"
+	case 1:
+		foundString = T("1 object version in bucket '") +
+			terminal.EntityNameColor(aws.StringValue(output.Name)) + "':\n"
+	default:
+		foundString = strconv.Itoa(objectVersionsLength) + T(" object versions in bucket '") +
+			terminal.EntityNameColor(aws.StringValue(output.Name)) + "':\n"
+	}
+	txtRender.Say(found + foundString)
+
+	if objectVersionsLength > 0 {
+		table := txtRender.Table([]string{
+			T("Name"),
+			T("Version ID"),
+			T("Last Modified"),
+			T("Object Size"),
+			T("Is Latest"),
+		})
+		for _, object := range output.Versions {
+			table.Add(
+				aws.StringValue(object.Key),
+				aws.StringValue(object.VersionId),
+				object.LastModified.Format(timeFormat),
+				FormatFileSize(aws.Int64Value(object.Size)),
+				strconv.FormatBool(aws.BoolValue(object.IsLatest)),
+			)
+		}
+		table.Print()
+		txtRender.Say("")
+	}
+
+	deleteMarkersLength := len(output.DeleteMarkers)
+	switch deleteMarkersLength {
+	case 0:
+		foundString = T("no delete markers in bucket '") +
+			terminal.EntityNameColor(aws.StringValue(output.Name)) + "'.\n"
+	case 1:
+		foundString = T("1 delete marker in bucket '") +
+			terminal.EntityNameColor(aws.StringValue(output.Name)) + "':\n"
+	default:
+		foundString = strconv.Itoa(deleteMarkersLength) + T(" delete markers in bucket '") +
+			terminal.EntityNameColor(aws.StringValue(output.Name)) + "':\n"
+	}
+	txtRender.Say(found + foundString)
+
+	if deleteMarkersLength > 0 {
+		table := txtRender.Table([]string{
+			T("Name"),
+			T("Version ID"),
+			T("Last Modified"),
+			T("Is Latest"),
+		})
+		for _, marker := range output.DeleteMarkers {
+			table.Add(
+				aws.StringValue(marker.Key),
+				aws.StringValue(marker.VersionId),
+				marker.LastModified.Format(timeFormat),
+				strconv.FormatBool(aws.BoolValue(marker.IsLatest)),
+			)
+		}
+		table.Print()
+		txtRender.Say("")
+	}
+
+	if aws.BoolValue(output.IsTruncated) {
+		txtRender.Say(T("To retrieve the next set of objects use the following values for the next command: "))
+		txtRender.Say(T("Key Marker: ") + terminal.EntityNameColor(aws.StringValue(output.NextKeyMarker)))
+		txtRender.Say(T("Version ID Marker: ") + terminal.EntityNameColor(aws.StringValue(output.NextVersionIdMarker)))
+		txtRender.Say("")
+	}
+	return
+}
+
+func (txtRender *TextRender) printPutObject(input interface{}, output *s3.PutObjectOutput) (err error) {
 	var castInput *s3.PutObjectInput
 	var ok bool
 	if castInput, ok = input.(*s3.PutObjectInput); !ok {
@@ -447,6 +575,9 @@ func (txtRender *TextRender) printPutObject(input interface{}, _ *s3.PutObjectOu
 	txtRender.Say(T("Successfully uploaded object '{{.Key}}' to bucket '{{.Bucket}}'.",
 		map[string]interface{}{fields.Key: terminal.EntityNameColor(aws.StringValue(castInput.Key)),
 			fields.Bucket: terminal.EntityNameColor(aws.StringValue(castInput.Bucket))}))
+	if output.VersionId != nil {
+		txtRender.Say(T("Version ID: ") + terminal.EntityNameColor(aws.StringValue(output.VersionId)))
+	}
 	return
 }
 
@@ -507,7 +638,7 @@ func (txtRender *TextRender) printUploadPart(input interface{}, output *s3.Uploa
 	return
 }
 
-func (txtRender *TextRender) printUploadPartCopy(input interface{}, _ *s3.UploadPartCopyOutput) (err error) {
+func (txtRender *TextRender) printUploadPartCopy(input interface{}, output *s3.UploadPartCopyOutput) (err error) {
 	var castInput *s3.UploadPartCopyInput
 	var ok bool
 	if castInput, ok = input.(*s3.UploadPartCopyInput); !ok {
@@ -518,6 +649,7 @@ func (txtRender *TextRender) printUploadPartCopy(input interface{}, _ *s3.Upload
 			"part": terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(castInput.PartNumber), 10)),
 			object: terminal.EntityNameColor(aws.StringValue(castInput.Key)),
 		}))
+	txtRender.Say(T("Copy Source Version ID: ") + terminal.EntityNameColor(aws.StringValue(output.CopySourceVersionId)))
 	return
 }
 
@@ -538,12 +670,14 @@ func (txtRender *TextRender) printListBucketsExtended(_ interface{}, output *s3.
 			T("Name"),
 			T("Location Constraint"),
 			T("Creation Date"),
+			T("Creation Template ID"),
 		})
 		for _, bucket := range output.Buckets {
 			table.Add(
 				aws.StringValue(bucket.Name),
 				aws.StringValue(bucket.LocationConstraint),
 				bucket.CreationDate.Format(timeFormat),
+				aws.StringValue(bucket.CreationTemplateId),
 			)
 		}
 		table.Print()
@@ -572,7 +706,9 @@ func (txtRender *TextRender) printGetObject(input interface{}, output *s3.GetObj
 			"Key":  terminal.EntityNameColor(aws.StringValue(castInput.Key)),
 			bucket: terminal.EntityNameColor(aws.StringValue(castInput.Bucket)),
 		}))
-
+	if output.VersionId != nil {
+		txtRender.Say(T("Version ID: ") + terminal.EntityNameColor(aws.StringValue(output.VersionId)))
+	}
 	txtRender.Say(FormatFileSize(aws.Int64Value(output.ContentLength)) + T(" downloaded."))
 	return
 }
@@ -609,6 +745,17 @@ func (txtRender *TextRender) printDownload(input interface{}, output *DownloadOu
 	return
 }
 
+func (txtRender *TextRender) printGetBucketVersioning(input interface{}, output *s3.GetBucketVersioningOutput) (err error) {
+	// Output the successful message
+	txtRender.Say(T("Versioning Configuration"))
+	if output.Status != nil {
+		txtRender.Say(T("Status: ") + terminal.EntityNameColor(aws.StringValue(output.Status)))
+	} else {
+		txtRender.Say(T("(empty response from server; versioning has never been configured for this bucket)"))
+	}
+	return
+}
+
 func (txtRender *TextRender) printGetBucketWebsite(input interface{}, output *s3.GetBucketWebsiteOutput) (err error) {
 	errorDocument := output.ErrorDocument
 	indexDocument := output.IndexDocument
@@ -628,5 +775,51 @@ func (txtRender *TextRender) printGetBucketWebsite(input interface{}, output *s3
 	if redirectRequests != nil && redirectRequests.Protocol != nil {
 		txtRender.Say(T("Redirect Protocol: ") + terminal.EntityNameColor(aws.StringValue(redirectRequests.Protocol)))
 	}
+	return
+}
+
+func (txtRender *TextRender) printDeleteTaggingObject(input interface{}, output *s3.DeleteObjectTaggingOutput) (err error) {
+	// Output the successful message
+	if output.VersionId != nil {
+		txtRender.Say(T("Version ID: ") + terminal.EntityNameColor(aws.StringValue(output.VersionId)))
+	}
+	return
+}
+
+func (txtRender *TextRender) printGetTaggingObject(input interface{}, output *s3.GetObjectTaggingOutput) (err error) {
+	// Output the successful message
+	if output.VersionId != nil {
+		txtRender.Say(T("Version ID: ") + terminal.EntityNameColor(aws.StringValue(output.VersionId)))
+	}
+
+	if output.TagSet != nil && len(output.TagSet) > 0 {
+		// Create a table object to display each tag set in an organized fashion.
+		table := txtRender.Table([]string{T("Key"), T("Value")})
+		for _, entry := range output.TagSet {
+			table.Add(terminal.EntityNameColor(aws.StringValue(entry.Key)), terminal.EntityNameColor(aws.StringValue(entry.Value)))
+		}
+		table.Print()
+		txtRender.Say("")
+	} else {
+		txtRender.Say(T("No tags returned"))
+	}
+	return
+}
+
+func (txtRender *TextRender) printPutTaggingObject(input interface{}, output *s3.PutObjectTaggingOutput) (err error) {
+	// Output the successful message
+	if output.VersionId != nil {
+		txtRender.Say(T("Version ID: ") + terminal.EntityNameColor(aws.StringValue(output.VersionId)))
+	}
+	return
+}
+
+func (txtRender *TextRender) printGetPublicAccessBlock(input interface{}, output *s3.GetPublicAccessBlockOutput) (err error) {
+	config := output.PublicAccessBlockConfiguration
+
+	// Output the successful message
+	txtRender.Say(T("Public Access Block Configuration"))
+	txtRender.Say(T("Block Public ACLs: ") + terminal.EntityNameColor(strconv.FormatBool(aws.BoolValue(config.BlockPublicAcls))))
+	txtRender.Say(T("Ignore Public ACLs: ") + terminal.EntityNameColor(strconv.FormatBool(aws.BoolValue(config.IgnorePublicAcls))))
 	return
 }

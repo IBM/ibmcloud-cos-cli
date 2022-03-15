@@ -57,8 +57,8 @@ func (c *CosContext) GetCurrentRegion(overrideRegion string) (string, error) {
 }
 
 // GetClient generates an S3 client to make requests through Go SDK
-// if a override region is passed it sets session region to be the passed value
-// if empty string passed loads the default region from configuration
+// - if an override region is passed, set the session region to be the passed value
+// - if empty string is passed, load the default region from configuration
 func (c *CosContext) GetClient(overrideRegion string) (client s3iface.S3API, err error) {
 	var region string
 	if region, err = c.GetCurrentRegion(overrideRegion); err != nil {

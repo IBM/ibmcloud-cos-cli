@@ -48,19 +48,9 @@ func (jsr *JSONRender) Display(_ interface{}, output interface{}, _ map[string]i
 		return nil
 	case *s3.DeleteBucketCorsOutput:
 		return nil
-	case *s3.DeleteObjectOutput:
-		return nil
-	case *s3.DeleteObjectsOutput:
-		return nil
 	case *s3.GetObjectOutput:
 		output = new(GetObjectOutput)
 		structMap(output, castedOutput)
-	// "Pretty-print" JSON just leaves out fields and creates a tedious maintenance burden.
-	// If a user wants JSON, just give them everything, even with nulls, empty strings, or empty lists
-	// If this violates OneCloud Compliance, say so on the PR review.
-	//case *s3.GetBucketWebsiteOutput:
-	//output = new(GetBucketWebsiteOutput)
-	//structMap(output, castedOutput)
 	case *s3.HeadBucketOutput:
 		return nil
 	case *s3.HeadObjectOutput:
@@ -82,9 +72,6 @@ func (jsr *JSONRender) Display(_ interface{}, output interface{}, _ map[string]i
 	case *s3.ListPartsOutput:
 		output = new(ListPartsOutput)
 		structMap(output, castedOutput)
-	case *s3.PutObjectOutput:
-		output = new(PutObjectOutput)
-		structMap(output, castedOutput)
 	case *s3.PutBucketCorsOutput:
 		return nil
 	case *s3manager.UploadOutput:
@@ -104,7 +91,9 @@ func (jsr *JSONRender) Display(_ interface{}, output interface{}, _ map[string]i
 }
 
 type CopyObjectOutput struct {
-	CopyObjectResult *s3.CopyObjectResult `json:",omitempty"`
+	CopyObjectResult    *s3.CopyObjectResult `json:",omitempty"`
+	CopySourceVersionId *string              `json:",omitempty"`
+	VersionId           *string              `json:",omitempty"`
 }
 
 type CreateMultipartUploadOutput struct {
@@ -114,10 +103,16 @@ type CreateMultipartUploadOutput struct {
 }
 
 type CompleteMultipartUploadOutput struct {
-	ETag     *string `json:",omitempty"`
-	Bucket   *string `json:",omitempty"`
-	Location *string `json:",omitempty"`
-	Key      *string `json:",omitempty"`
+	ETag      *string `json:",omitempty"`
+	Bucket    *string `json:",omitempty"`
+	Location  *string `json:",omitempty"`
+	Key       *string `json:",omitempty"`
+	VersionId *string `json:",omitempty"`
+}
+
+type DeleteObjectOutput struct {
+	DeleteMarker *bool   `json:",omitempty"`
+	VersionId    *string `json:",omitempty"`
 }
 
 type GetObjectOutput struct {
@@ -135,6 +130,8 @@ type GetObjectOutput struct {
 	ContentRange            *string            `json:",omitempty"`
 	MissingMeta             *int64             `json:",omitempty"`
 	StorageClass            *string            `json:",omitempty"`
+	TagCount                *int64             `json:",omitempty"`
+	VersionId               *string            `json:",omitempty"`
 	WebsiteRedirectLocation *string            `json:",omitempty"`
 }
 
@@ -153,6 +150,7 @@ type HeadObjectOutput struct {
 	MissingMeta             *int64             `json:",omitempty"`
 	PartsCount              *int64             `json:",omitempty"`
 	StorageClass            *string            `json:",omitempty"`
+	VersionId               *string            `json:",omitempty"`
 	WebsiteRedirectLocation *string            `json:",omitempty"`
 }
 type ListBucketsExtendedOutput struct {
@@ -208,10 +206,6 @@ type ListPartsOutput struct {
 	UploadId             *string       `json:",omitempty"`
 }
 
-type PutObjectOutput struct {
-	ETag *string `json:",omitempty"`
-}
-
 type UploadOutput struct {
 	Location string `json:",omitempty"`
 	UploadID string `json:",omitempty"`
@@ -221,7 +215,8 @@ type UploadPartOutput struct {
 }
 
 type UploadPartCopyOutput struct {
-	CopyPartResult *s3.CopyPartResult `json:",omitempty"`
+	CopyPartResult      *s3.CopyPartResult `json:",omitempty"`
+	CopySourceVersionId *string            `json:",omitempty"`
 }
 
 func structMap(destination, origin interface{}) {

@@ -12,6 +12,7 @@ import (
 	"github.com/urfave/cli"
 
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
+	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/commands"
@@ -48,20 +49,20 @@ func TestObjectPutSunnyPath(t *testing.T) {
 	os.Args = []string{"-", commands.ObjectPut, "--bucket", targetBucket,
 		"--" + flags.Key, targetKey,
 		"--" + flags.Region, "REG"}
-	//call  plugin
+	// call plugin
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "PutObject", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert OK
+	// assert OK
 	assert.Contains(t, output, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
 }
 
@@ -98,16 +99,16 @@ func TestObjectPutRainyPath(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "PutObject", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert Not OK
+	// assert Not OK
 	assert.NotContains(t, output, "OK")
-	//assert Fail
+	// assert Fail
 	assert.Contains(t, errors, "FAIL")
 }
 
@@ -142,20 +143,19 @@ func TestObjectPutWithoutKey(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "PutObject", 0)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert Not OK
+	// assert Not OK
 	assert.NotContains(t, output, "OK")
-	//assert Fail
+	// assert Fail
 	assert.Contains(t, errors, "FAIL")
 }
 
-// TestObjectPutWebsiteRedirectLocation
 func TestObjectPutWebsiteRedirectLocation(t *testing.T) {
 	defer providers.MocksRESET()
 
@@ -189,13 +189,13 @@ func TestObjectPutWebsiteRedirectLocation(t *testing.T) {
 		"--" + flags.Key, targetKey,
 		"--" + flags.Region, "REG",
 		"--" + flags.WebsiteRedirectLocation, targetWebsiteRedirectLocation}
-	//call  plugin
+	// call plugin
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "PutObject", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// assert request match cli parameters
 	assert.Equal(t, targetBucket, *capturedInput.Bucket)
@@ -204,9 +204,154 @@ func TestObjectPutWebsiteRedirectLocation(t *testing.T) {
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert OK
+	// assert OK
 	assert.Contains(t, output, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
+}
 
+func TestObjectPutVersionIdText(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	targetBucket := "TargetBucket"
+	targetKey := "TargetKey"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	providers.MockS3API.
+		On("PutObject", mock.MatchedBy(
+			func(input *s3.PutObjectInput) bool {
+				return *input.Bucket == targetBucket
+			})).
+		Return(new(s3.PutObjectOutput).
+			SetVersionId("88024d62-d55f-4332-be26-9b65c4d73bc0"), nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	os.Args = []string{"-", commands.ObjectPut, "--bucket", targetBucket,
+		"--" + flags.Key, targetKey,
+		"--" + flags.Region, "REG",
+		"--output", "text"}
+	// call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+	// assert s3 api called once per region (since success is last)
+	providers.MockS3API.AssertNumberOfCalls(t, "PutObject", 1)
+	// assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+	// capture all output //
+	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
+	// assert OK
+	assert.Contains(t, output, "OK")
+	assert.Contains(t, output, "Version ID: 88024d62-d55f-4332-be26-9b65c4d73bc0")
+	// assert Not Fail
+	assert.NotContains(t, errors, "FAIL")
+}
+
+func TestObjectPutVersionIdJson(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	targetBucket := "TargetBucket"
+	targetKey := "TargetKey"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	providers.MockS3API.
+		On("PutObject", mock.MatchedBy(
+			func(input *s3.PutObjectInput) bool {
+				return *input.Bucket == targetBucket
+			})).
+		Return(new(s3.PutObjectOutput).
+			SetVersionId("88024d62-d55f-4332-be26-9b65c4d73bc0"), nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	os.Args = []string{"-", commands.ObjectPut, "--bucket", targetBucket,
+		"--" + flags.Key, targetKey,
+		"--" + flags.Region, "REG",
+		"--output", "json"}
+	// call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+	// assert s3 api called once per region (since success is last)
+	providers.MockS3API.AssertNumberOfCalls(t, "PutObject", 1)
+	// assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+	// capture all output //
+	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
+	// assert targetVersionId in JSON output
+	assert.Contains(t, output, "\"VersionId\": \"88024d62-d55f-4332-be26-9b65c4d73bc0\"")
+	// assert Not Fail
+	assert.NotContains(t, errors, "FAIL")
+}
+
+func TestObjectPutWithTagging(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	targetBucket := "TargetBucket"
+	targetKey := "TargetKey"
+	targetTag := "Key1=Value1"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	var capturedInput = new(s3.PutObjectInput)
+	providers.MockS3API.
+		On("PutObject", mock.MatchedBy(
+			func(input *s3.PutObjectInput) bool {
+				capturedInput = input
+				return *input.Bucket == targetBucket
+			})).
+		Return(new(s3.PutObjectOutput), nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	os.Args = []string{"-", commands.ObjectPut, "--bucket", targetBucket,
+		"--" + flags.Key, targetKey,
+		"--tagging", targetTag,
+		"--" + flags.Region, "REG",
+		"--output", "text"}
+	// call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+	// assert s3 api called once per region (since success is last)
+	providers.MockS3API.AssertNumberOfCalls(t, "PutObject", 1)
+	// assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+	// capture all output //
+	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
+	// assert OK
+	assert.Contains(t, output, "OK")
+	assert.Equal(t, aws.StringValue(capturedInput.Tagging), targetTag)
+	// assert Not Fail
+	assert.NotContains(t, errors, "FAIL")
 }

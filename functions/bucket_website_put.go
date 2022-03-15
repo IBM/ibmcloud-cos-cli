@@ -50,7 +50,7 @@ func BucketWebsitePut(c *cli.Context) (err error) {
 		return
 	}
 
-	// GetBucketWebsite Op
+	// PutBucketWebsite Op
 	var output *s3.PutBucketWebsiteOutput
 	if output, err = client.PutBucketWebsite(input); err != nil {
 		return

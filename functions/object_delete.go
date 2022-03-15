@@ -18,7 +18,6 @@ import (
 // Returns:
 //  	Error = zero or non-zero
 func ObjectDelete(c *cli.Context) (err error) {
-
 	// check the number of arguments
 	if c.NArg() > 0 {
 		err = &errors.CommandError{
@@ -44,7 +43,9 @@ func ObjectDelete(c *cli.Context) (err error) {
 		fields.Key:    flags.Key,
 	}
 
-	options := map[string]string{}
+	options := map[string]string{
+		fields.VersionId: flags.VersionId,
+	}
 
 	// Validate User Inputs
 	if err = MapToSDKInput(c, input, mandatory, options); err != nil {

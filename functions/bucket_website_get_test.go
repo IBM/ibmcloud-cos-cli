@@ -52,18 +52,18 @@ func TestBucketWebsiteGetSunnyPath(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "GetBucketWebsite", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert OK
+	// assert OK
 	assert.Contains(t, output, "OK")
 	assert.Contains(t, output, "Index Suffix: index.html")
 	assert.Contains(t, output, "Error Document: error.html")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
 }
 
@@ -100,21 +100,21 @@ func TestBucketWebsiteGetJsonSunnyPath(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "GetBucketWebsite", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert OK
+	// assert OK
 	assert.Contains(t, output, "\"ErrorDocument\": ")
 	assert.Contains(t, output, "\"Key\": \"error.html\"")
 	assert.Contains(t, output, "\"IndexDocument\": ")
 	assert.Contains(t, output, "\"Suffix\": \"index.html\"")
 	assert.Contains(t, output, "\"RedirectAllRequestsTo\":")
 	assert.Contains(t, output, "\"RoutingRules\": []")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
 }
 
@@ -151,16 +151,16 @@ func TestBucketWebsiteGetWithoutBucket(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "GetBucketWebsite", 0)
-	//assert exit code is non-zero
+	// assert exit code is non-zero
 	assert.Equal(t, 1, *exitCode) // exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert not OK
+	// assert not OK
 	assert.NotContains(t, output, "OK")
-	//assert Fail
+	// assert Fail
 	assert.Contains(t, errors, "FAIL")
 }
 
@@ -193,15 +193,15 @@ func TestBucketWebsiteGetNoWebsite(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "GetBucketWebsite", 1)
-	//assert exit code is non-zero
+	// assert exit code is non-zero
 	assert.Equal(t, 1, *exitCode) // exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert not OK
+	// assert not OK
 	assert.NotContains(t, output, "OK")
-	//assert Fail
+	// assert Fail
 	assert.Contains(t, errors, "FAIL")
 }

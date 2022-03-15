@@ -70,9 +70,9 @@ func TestWaitObjectNotExistsHappy(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "WaitUntilObjectNotExists", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 
 	assert.Equal(t, targetBucket, *inputCapture.Bucket)
@@ -86,7 +86,7 @@ func TestWaitObjectNotExistsHappy(t *testing.T) {
 
 	// capture all output //
 	errors := providers.FakeUI.Errors()
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
 }
 
@@ -127,9 +127,9 @@ func TestWaitObjectExistsHappy(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "WaitUntilObjectExists", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 
 	assert.Equal(t, targetBucket, *inputCapture.Bucket)
@@ -137,6 +137,6 @@ func TestWaitObjectExistsHappy(t *testing.T) {
 
 	// capture all output //
 	errors := providers.FakeUI.Errors()
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
 }

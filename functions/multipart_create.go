@@ -56,6 +56,7 @@ func MultipartCreate(c *cli.Context) (err error) {
 		fields.ContentLanguage:         flags.ContentLanguage,
 		fields.ContentType:             flags.ContentType,
 		fields.Metadata:                flags.Metadata,
+		fields.Tagging:                 flags.Tagging,
 		fields.WebsiteRedirectLocation: flags.WebsiteRedirectLocation,
 	}
 

@@ -61,9 +61,9 @@ func TestMPUAbortSunnyPath(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "AbortMultipartUpload", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 
 	// assert request match cli parameters
@@ -74,9 +74,9 @@ func TestMPUAbortSunnyPath(t *testing.T) {
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert OK
+	// assert OK
 	assert.Contains(t, output, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
 }
 
@@ -123,9 +123,9 @@ func TestMPUAbortRainyPath(t *testing.T) {
 	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "AbortMultipartUpload", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 
 	// assert request match cli parameters
@@ -136,9 +136,9 @@ func TestMPUAbortRainyPath(t *testing.T) {
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert Not OK
+	// assert Not OK
 	assert.NotContains(t, output, "OK")
-	//assert Fail
+	// assert Fail
 	assert.Contains(t, errors, "FAIL")
 
 }
@@ -178,17 +178,17 @@ func TestMPUAbortWithoutUploadID(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "AbortMultipartUpload", 0)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert Not OK
+	// assert Not OK
 	assert.NotContains(t, output, "OK")
-	//assert Fail
+	// assert Fail
 	assert.Contains(t, errors, "FAIL")
 
 }

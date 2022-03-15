@@ -48,6 +48,7 @@ func ObjectHead(c *cli.Context) (err error) {
 		fields.IfNoneMatch:       flags.IfNoneMatch,
 		fields.IfUnmodifiedSince: flags.IfUnmodifiedSince,
 		fields.Range:             flags.Range,
+		fields.VersionId:         flags.VersionId,
 	}
 
 	// Validate User Inputs

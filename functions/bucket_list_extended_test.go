@@ -3,6 +3,7 @@
 package functions_test
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 	"strconv"
@@ -66,13 +67,11 @@ func TestListBucketsExtendedHappyPath(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "ListBucketsExtendedPages", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
-
 	assert.Equal(t, targetPrefix, *inputCapture.Prefix)
-
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
 	assert.Contains(t, output, "OK")
@@ -123,13 +122,11 @@ func TestBucketsListExtendedWhenPageBiggerThanMaxRequestMax(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "ListBucketsExtendedPages", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
-
 	assert.Equal(t, targetMaxKeys, *inputCapture.MaxKeys)
-
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
 	assert.Contains(t, output, "OK")
@@ -179,13 +176,11 @@ func TestLBEWhenPageSmallerThanMaxRequestPage(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "ListBucketsExtendedPages", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
-
 	assert.Equal(t, targetMaxKeys, *inputCapture.MaxKeys)
-
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
 	assert.Contains(t, output, "OK")
@@ -242,20 +237,17 @@ func TestBucketsListExtendedPaginate(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "ListBucketsExtendedPages", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
-
 	// requested 75 elements split in 20 size pages
 	assert.Equal(t, []int{20, 20, 20, 15}, pagesSzCapture)
-
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
 	assert.Contains(t, output, "OK")
 	assert.NotContains(t, errors, "FAIL")
 	assert.Contains(t, output, fmt.Sprintf("Found %d buckets", targetMaxItems))
-
 }
 
 func pagerBktSrvMock(input *s3.ListBucketsExtendedInput, backFeed func(*s3.ListBucketsExtendedOutput, bool) bool,
@@ -283,4 +275,142 @@ func buildListBucketsExtendedOutput(howMany int) *s3.ListBucketsExtendedOutput {
 		result.Buckets = append(result.Buckets, bucket)
 	}
 	return result
+}
+
+func TestListBucketsExtendedCreationTemplateIdText(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	expectedCreationDate := time.Now()
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+	providers.MockPluginConfig.
+		On("GetStringWithDefault", "Default Region", mock.AnythingOfType("string")).
+		Return("us", nil)
+
+	providers.MockS3API.
+		On("ListBucketsExtendedPages",
+			mock.MatchedBy(
+				func(input *s3.ListBucketsExtendedInput) bool {
+					return true
+				}),
+			mock.Anything).
+		Run(func(args mock.Arguments) {
+			funcCapture := args.Get(1).(func(page *s3.ListBucketsExtendedOutput, last bool) bool)
+			mockCreationTemplateIdPager(expectedCreationDate, funcCapture)
+		}).
+		Return(nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	os.Args = []string{"-",
+		commands.BucketsExtended,
+		"--output", "text",
+	}
+	//call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+	// assert s3 api called once per region (since success is last)
+	providers.MockS3API.AssertNumberOfCalls(t, "ListBucketsExtendedPages", 1)
+	// assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
+	assert.Contains(t, output, "OK")
+	assert.NotContains(t, errors, "FAIL")
+	assert.Contains(t, output, "Name")
+	assert.Contains(t, output, "Location Constraint")
+	assert.Contains(t, output, "Creation Date")
+	assert.Contains(t, output, "Creation Template ID")
+	assert.Contains(t, output, "BucketName")
+	assert.Contains(t, output, "CreationTemplateId")
+	assert.Contains(t, output, expectedCreationDate.Format("Jan 02, 2006 at 15:04:05"))
+	assert.Contains(t, output, "LocationConstraint")
+}
+
+func TestListBucketsExtendedCreationTemplateIdJson(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	expectedCreationDate := time.Now()
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+	providers.MockPluginConfig.
+		On("GetStringWithDefault", "Default Region", mock.AnythingOfType("string")).
+		Return("us", nil)
+
+	providers.MockS3API.
+		On("ListBucketsExtendedPages",
+			mock.MatchedBy(
+				func(input *s3.ListBucketsExtendedInput) bool {
+					return true
+				}),
+			mock.Anything).
+		Run(func(args mock.Arguments) {
+			funcCapture := args.Get(1).(func(page *s3.ListBucketsExtendedOutput, last bool) bool)
+			mockCreationTemplateIdPager(expectedCreationDate, funcCapture)
+		}).
+		Return(nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	os.Args = []string{"-",
+		commands.BucketsExtended,
+		"--output", "json",
+	}
+	//call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+	// assert s3 api called once per region (since success is last)
+	providers.MockS3API.AssertNumberOfCalls(t, "ListBucketsExtendedPages", 1)
+	// assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
+	assert.NotContains(t, errors, "FAIL")
+	parsedOutput := new(s3.ListBucketsExtendedOutput)
+	err := json.Unmarshal([]byte(output), &parsedOutput)
+	assert.Nil(t, err)
+	assert.NotNil(t, parsedOutput.Buckets)
+	assert.Equal(t, len(parsedOutput.Buckets), 1)
+	bucketEntry := parsedOutput.Buckets[0]
+	assert.Contains(t, expectedCreationDate.String(), aws.TimeValue(bucketEntry.CreationDate).String())
+	assert.Equal(t, aws.StringValue(bucketEntry.CreationTemplateId), "CreationTemplateId")
+	assert.Equal(t, aws.StringValue(bucketEntry.LocationConstraint), "LocationConstraint")
+	assert.Equal(t, aws.StringValue(bucketEntry.Name), "BucketName")
+}
+
+func mockCreationTemplateIdPager(expectedCreationDate time.Time, helper func(*s3.ListBucketsExtendedOutput, bool) bool) {
+	mockOutput := mockCreationTemplateIdBuilder(expectedCreationDate)
+	helper(mockOutput, true)
+	return
+}
+
+func mockCreationTemplateIdBuilder(expectedCreationDate time.Time) *s3.ListBucketsExtendedOutput {
+	mockEntry := new(s3.BucketExtended).
+		SetCreationDate(expectedCreationDate).
+		SetCreationTemplateId("CreationTemplateId").
+		SetLocationConstraint("LocationConstraint").
+		SetName("BucketName")
+	mockList := []*s3.BucketExtended{}
+	mockList = append(mockList, mockEntry)
+	mockOutput := new(s3.ListBucketsExtendedOutput).
+		SetBuckets(mockList)
+	return mockOutput
 }

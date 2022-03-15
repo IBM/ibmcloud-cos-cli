@@ -82,6 +82,7 @@ func ObjectGet(c *cli.Context) (err error) {
 		fields.ResponseContentLanguage:    flags.ResponseContentLanguage,
 		fields.ResponseContentType:        flags.ResponseContentType,
 		fields.ResponseExpires:            flags.ResponseExpires,
+		fields.VersionId:                  flags.VersionId,
 	}
 
 	// populate the input values using the mandatory and optional maps define before

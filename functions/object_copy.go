@@ -63,6 +63,8 @@ func ObjectCopy(c *cli.Context) (err error) {
 		fields.CopySourceIfUnmodifiedSince: flags.CopySourceIfUnmodifiedSince,
 		fields.Metadata:                    flags.Metadata,
 		fields.MetadataDirective:           flags.MetadataDirective,
+		fields.Tagging:                     flags.Tagging,
+		fields.TaggingDirective:            flags.TaggingDirective,
 		fields.WebsiteRedirectLocation:     flags.WebsiteRedirectLocation,
 	}
 

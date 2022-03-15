@@ -68,9 +68,9 @@ func TestMPUCompleteSunnyPath(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "CompleteMultipartUpload", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 
 	// assert request match cli parameters
@@ -82,9 +82,9 @@ func TestMPUCompleteSunnyPath(t *testing.T) {
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert OK
+	// assert OK
 	assert.Contains(t, output, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
 }
 
@@ -127,19 +127,18 @@ func TestMPUCompleteRainyPath(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "CompleteMultipartUpload", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert Not OK
+	// assert Not OK
 	assert.NotContains(t, output, "OK")
-	//assert Fail
+	// assert Fail
 	assert.Contains(t, errors, "FAIL")
-
 }
 
 func TestMPUCompleteWithoutUploadID(t *testing.T) {
@@ -179,17 +178,158 @@ func TestMPUCompleteWithoutUploadID(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "CompleteMultipartUpload", 0)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert Not OK
+	// assert Not OK
 	assert.NotContains(t, output, "OK")
-	//assert Fail
+	// assert Fail
 	assert.Contains(t, errors, "FAIL")
+}
 
+func TestMPUCompleteVersionIdText(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	targetBucket := "TargetBucket"
+	targetKey := "TargetKey"
+	targetUploadID := "TargetUploadID"
+	targetMultipartUpload := "Parts=[{ETag=etag1,PartNumber=1},{ETag=etag2,PartNumber=2}]"
+	targetMultipartUploadObject := new(s3.CompletedMultipartUpload).SetParts(
+		[]*s3.CompletedPart{
+			new(s3.CompletedPart).SetETag("etag1").SetPartNumber(1),
+			new(s3.CompletedPart).SetETag("etag2").SetPartNumber(2),
+		},
+	)
+	targetVersionId := "88024d62-d55f-4332-be26-9b65c4d73bc0"
+
+	var capturedInput *s3.CompleteMultipartUploadInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	providers.MockS3API.
+		On("CompleteMultipartUpload", mock.MatchedBy(
+			func(input *s3.CompleteMultipartUploadInput) bool {
+				capturedInput = input
+				return true
+			})).
+		Return(
+			new(s3.CompleteMultipartUploadOutput).
+				SetVersionId(targetVersionId), nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	os.Args = []string{"-", commands.MultipartUploadComplete,
+		"--" + flags.Bucket, targetBucket,
+		"--" + flags.Key, targetKey,
+		"--" + flags.UploadID, targetUploadID,
+		"--" + flags.MultipartUpload, targetMultipartUpload,
+		"--" + flags.Region, "us",
+	}
+	//call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+	// assert s3 api called once per region (since success is last)
+	providers.MockS3API.AssertNumberOfCalls(t, "CompleteMultipartUpload", 1)
+	// assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+
+	// assert request match cli parameters
+	assert.Equal(t, *capturedInput.Bucket, targetBucket)
+	assert.Equal(t, *capturedInput.Key, targetKey)
+	assert.Equal(t, *capturedInput.UploadId, targetUploadID)
+	assert.Equal(t, *capturedInput.MultipartUpload, *targetMultipartUploadObject)
+
+	// capture all output //
+	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
+	// assert OK
+	assert.Contains(t, output, "OK")
+	assert.Contains(t, output, "Version ID: "+targetVersionId)
+	// assert Not Fail
+	assert.NotContains(t, errors, "FAIL")
+}
+
+func TestMPUCompleteVersionIdJson(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	targetBucket := "TargetBucket"
+	targetKey := "TargetKey"
+	targetUploadID := "TargetUploadID"
+	targetMultipartUpload := "Parts=[{ETag=etag1,PartNumber=1},{ETag=etag2,PartNumber=2}]"
+	targetMultipartUploadObject := new(s3.CompletedMultipartUpload).SetParts(
+		[]*s3.CompletedPart{
+			new(s3.CompletedPart).SetETag("etag1").SetPartNumber(1),
+			new(s3.CompletedPart).SetETag("etag2").SetPartNumber(2),
+		},
+	)
+	targetVersionId := "88024d62-d55f-4332-be26-9b65c4d73bc0"
+
+	var capturedInput *s3.CompleteMultipartUploadInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	providers.MockS3API.
+		On("CompleteMultipartUpload", mock.MatchedBy(
+			func(input *s3.CompleteMultipartUploadInput) bool {
+				capturedInput = input
+				return true
+			})).
+		Return(
+			new(s3.CompleteMultipartUploadOutput).
+				SetVersionId(targetVersionId), nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	os.Args = []string{"-", commands.MultipartUploadComplete,
+		"--" + flags.Bucket, targetBucket,
+		"--" + flags.Key, targetKey,
+		"--" + flags.UploadID, targetUploadID,
+		"--" + flags.MultipartUpload, targetMultipartUpload,
+		"--" + flags.Region, "us",
+		"--" + flags.Output, "json",
+	}
+	//call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+	// assert s3 api called once per region (since success is last)
+	providers.MockS3API.AssertNumberOfCalls(t, "CompleteMultipartUpload", 1)
+	// assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+
+	// assert request match cli parameters
+	assert.Equal(t, *capturedInput.Bucket, targetBucket)
+	assert.Equal(t, *capturedInput.Key, targetKey)
+	assert.Equal(t, *capturedInput.UploadId, targetUploadID)
+	assert.Equal(t, *capturedInput.MultipartUpload, *targetMultipartUploadObject)
+
+	// capture all output //
+	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
+	// assert json
+	assert.Contains(t, output, "\"VersionId\": \""+targetVersionId+"\"")
+	// assert Not Fail
+	assert.NotContains(t, errors, "FAIL")
 }

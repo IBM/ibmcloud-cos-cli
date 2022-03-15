@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 1.4.0
+
+### Content
+
+#### Features
+
+* Object Versioning
+* Object Tagging
+* Public Block Access
+* IBM Cloud Security and Compliance Center Support
+* Update to use Go SDK 1.8.0
+
 ## 1.3.1
 
 ### Content

@@ -19,7 +19,6 @@ import (
 // Returns:
 //  	Error = zero or non-zero
 func BucketsListExtended(c *cli.Context) (err error) {
-
 	// check the number of arguments
 	if c.NArg() > 0 {
 		err = &errors.CommandError{

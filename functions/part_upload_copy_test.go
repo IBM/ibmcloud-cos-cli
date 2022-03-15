@@ -57,18 +57,17 @@ func TestPartUploadCopySunnyPath(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "UploadPartCopy", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert OK
+	// assert OK
 	assert.Contains(t, output, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
-
 }
 
 func TestPartUploadCopyRainyPath(t *testing.T) {
@@ -110,18 +109,17 @@ func TestPartUploadCopyRainyPath(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "UploadPartCopy", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert Not OK
+	// assert Not OK
 	assert.NotContains(t, output, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.Contains(t, errors, "FAIL")
-
 }
 
 func TestPartUploadCopyWithoutCopySource(t *testing.T) {
@@ -161,17 +159,124 @@ func TestPartUploadCopyWithoutCopySource(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "UploadPartCopy", 0)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 	// capture all output //
 	output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert Not OK
+	// assert Not OK
 	assert.NotContains(t, output, "OK")
-	//assert Fail
+	// assert Fail
 	assert.Contains(t, errors, "FAIL")
 	assert.Contains(t, errors, "'--copy-source' is missing")
+}
 
+func TestPartUploadCopyCopySourceVersionIdText(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	targetBucket := "TargetBucket"
+	targetKey := "TargetKey"
+	targetCopySourceVersionId := "88024d62-d55f-4332-be26-9b65c4d73bc0"
+	targetCopySource := "SourceBucket/SourceKey?versionId=" + targetCopySourceVersionId
+	targetPartNumber := "1"
+	targetUploadID := "80fds-afdasfa-s32141"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	providers.MockS3API.
+		On("UploadPartCopy", mock.MatchedBy(
+			func(input *s3.UploadPartCopyInput) bool {
+				return *input.Bucket == targetBucket
+			})).
+		Return(new(s3.UploadPartCopyOutput).
+			SetCopySourceVersionId(targetCopySourceVersionId), nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	os.Args = []string{"-", commands.PartUploadCopy, "--bucket", targetBucket,
+		"--" + flags.Key, targetKey,
+		"--" + flags.CopySource, targetCopySource,
+		"--" + flags.PartNumber, targetPartNumber,
+		"--" + flags.UploadID, targetUploadID,
+		"--region", "REG"}
+	//call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+	// assert s3 api called once per region (since success is last)
+	providers.MockS3API.AssertNumberOfCalls(t, "UploadPartCopy", 1)
+	// assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+	// capture all output //
+	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
+	// assert OK
+	assert.Contains(t, output, "OK")
+	assert.Contains(t, output, "Copy Source Version ID: "+targetCopySourceVersionId)
+	// assert Not Fail
+	assert.NotContains(t, errors, "FAIL")
+}
+
+func TestPartUploadCopyCopySourceVersionIdJson(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	targetBucket := "TargetBucket"
+	targetKey := "TargetKey"
+	targetCopySourceVersionId := "88024d62-d55f-4332-be26-9b65c4d73bc0"
+	targetCopySource := "SourceBucket/SourceKey?versionId=" + targetCopySourceVersionId
+	targetPartNumber := "1"
+	targetUploadID := "80fds-afdasfa-s32141"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	providers.MockS3API.
+		On("UploadPartCopy", mock.MatchedBy(
+			func(input *s3.UploadPartCopyInput) bool {
+				return *input.Bucket == targetBucket
+			})).
+		Return(new(s3.UploadPartCopyOutput).
+			SetCopySourceVersionId(targetCopySourceVersionId), nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	os.Args = []string{"-", commands.PartUploadCopy, "--bucket", targetBucket,
+		"--" + flags.Key, targetKey,
+		"--" + flags.CopySource, targetCopySource,
+		"--" + flags.PartNumber, targetPartNumber,
+		"--" + flags.UploadID, targetUploadID,
+		"--output", "json",
+		"--region", "REG"}
+	//call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+	// assert s3 api called once per region (since success is last)
+	providers.MockS3API.AssertNumberOfCalls(t, "UploadPartCopy", 1)
+	// assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+	// capture all output //
+	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
+	// assert json
+	assert.Contains(t, output, "\"CopySourceVersionId\": \""+targetCopySourceVersionId+"\"")
+	// assert Not Fail
+	assert.NotContains(t, errors, "FAIL")
 }

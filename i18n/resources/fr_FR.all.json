@@ -72,10 +72,6 @@
     "translation": "Type MIME standard décrivant le format des données d'objet."
   },
   {
-    "id": "Abort a multipart upload instance.",
-    "translation": "Abandonner une instance de remontée multipartie."
-  },
-  {
     "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
     "translation": "L'accès à votre compte IBM Cloud a été refusé. Reconnectez-vous en entrant ibmcloud login --sso."
   },
@@ -101,11 +97,7 @@
   },
   {
     "id": "CRN",
-    "translation": "CRN"
-  },
-  {
-    "id": "Changes plugin configuration",
-    "translation": "Change la configuration du plug-in"
+    "translation": "Nom de ressource de cloud (CRN)"
   },
   {
     "id": "Class: ",
@@ -124,10 +116,6 @@
     "translation": "Préfixes communs :"
   },
   {
-    "id": "Complete an existing multipart upload instance.",
-    "translation": "Terminer une instance de remontée multipartie existante."
-  },
-  {
     "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
     "translation": "Copie l'objet s'il a été modifié depuis le moment spécifié (TIMESTAMP)."
   },
@@ -144,16 +132,12 @@
     "translation": "Copie l'objet si son étiquette d'entité (ETag) correspond à l'étiquette spécifiée (ETAG)."
   },
   {
-    "id": "Copy an object from one bucket to another.",
-    "translation": "Copier un objet d'un compartiment à un autre."
+    "id": "Copy an object from one bucket to another",
+    "translation": "Copie d'un objet d'un compartiment vers un autre"
   },
   {
-    "id": "Create a new bucket.",
-    "translation": "Créer un nouveau compartiment."
-  },
-  {
-    "id": "Create a new multipart upload instance.",
-    "translation": "Créer une nouvelle instance de remontée multipartie."
+    "id": "Create a new bucket",
+    "translation": "Création d'un nouveau compartiment"
   },
   {
     "id": "Creation Date",
@@ -172,12 +156,12 @@
     "translation": "La suppression de '{{.Key}}' du compartiment '{{.Bucket}}' s'est bien exécutée."
   },
   {
-    "id": "Delete an existing bucket.",
-    "translation": "Supprimer un compartiment existant."
+    "id": "Delete an existing bucket",
+    "translation": "Suppression d'un compartiment existant"
   },
   {
-    "id": "Delete an object from a bucket.",
-    "translation": "Supprimer un objet d'un compartiment."
+    "id": "Delete an object from a bucket",
+    "translation": "Suppression d'un objet d'un compartiment"
   },
   {
     "id": "Delete multiple objects from a bucket",
@@ -188,8 +172,8 @@
     "translation": "La suppression de plusieurs objets du compartiment '{{.Bucket}}' s'est bien exécutée."
   },
   {
-    "id": "Delete the CORS configuration from a bucket.",
-    "translation": "Supprimer la configuration CORS d'un compartiment."
+    "id": "Delete the CORS configuration from a bucket",
+    "translation": "Supprimer la configuration CORS d'un compartiment"
   },
   {
     "id": "Details about bucket ",
@@ -200,28 +184,12 @@
     "translation": "Détails sur votre instance de remontée multipartie :"
   },
   {
-    "id": "Determine if a specified bucket exists in your account.",
-    "translation": "Déterminer l'existence d'un compartiment donné dans votre compte."
-  },
-  {
-    "id": "Determine if an object exists within a bucket.",
-    "translation": "Déterminer l'existence d'un objet dans un compartiment."
-  },
-  {
-    "id": "Display the list of uploaded parts of an object.",
-    "translation": "Afficher la liste des parties remontées d'un objet."
-  },
-  {
     "id": "Download Location",
     "translation": "Emplacement de téléchargement"
   },
   {
-    "id": "Download an object from a bucket.",
-    "translation": "Télécharger un objet d'un compartiment."
-  },
-  {
-    "id": "Download objects from S3 concurrently.",
-    "translation": "Télécharger les objets depuis S3 simultanément."
+    "id": "Download an object from a bucket",
+    "translation": "Télécharger un objet à partir d'un compartiment"
   },
   {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
@@ -248,16 +216,8 @@
     "translation": "Trouvé "
   },
   {
-    "id": "Get the CORS configuration from a bucket.",
-    "translation": "Obtenir la configuration CORS d'un compartiment."
-  },
-  {
-    "id": "Get the region and class of a bucket.",
-    "translation": "Obtenir la région et la classe d'un compartiment."
-  },
-  {
-    "id": "Get the static website configuration on a bucket.",
-    "translation": "Obtenir la configuration de site Web statique d'un compartiment."
+    "id": "Get the static website configuration on a bucket",
+    "translation": "Obtenir la configuration de site Web statique dans un compartiment"
   },
   {
     "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
@@ -312,16 +272,8 @@
     "translation": "Limite la réponse aux clés qui commencent par le préfixe (PREFIX) spécifié."
   },
   {
-    "id": "List all objects in a specific bucket.",
-    "translation": "Répertorier tous les objets d'un compartiment donné."
-  },
-  {
-    "id": "List all the buckets in your IBM Cloud Object Storage account.",
-    "translation": "Répertorier tous les compartiments de votre compte IBM Cloud Object Storage."
-  },
-  {
-    "id": "List all the extended buckets with pagination support.",
-    "translation": "Répertorier tous les compartiments étendus avec support de la pagination."
+    "id": "List all objects in a specific bucket",
+    "translation": "Répertorier tous les objets d'un compartiment spécifique"
   },
   {
     "id": "List configuration",
@@ -376,10 +328,6 @@
     "translation": "Le 'FORMAT' de sortie ne peut être que json ou text."
   },
   {
-    "id": "Output returned in raw JSON format.",
-    "translation": "Sortie renvoyée au format JSON brut."
-  },
-  {
     "id": "Override the default location providing an OUTFILE parameter",
     "translation": "Remplace l'emplacement par défaut fournissant un paramètre OUTFILE"
   },
@@ -412,8 +360,8 @@
     "translation": "URL de point d'extrémité final des régions."
   },
   {
-    "id": "Remove static website configuration from a bucket.",
-    "translation": "Retirer la configuration de site Web statique d'un compartiment."
+    "id": "Remove static website configuration from a bucket",
+    "translation": "Retirer la configuration de site Web statique d'un compartiment"
   },
   {
     "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
@@ -436,10 +384,6 @@
     "translation": "Ne renvoyer l'objet que si son étiquette d'entité (ETag) est identique à l'étiquette (ETAG) spécifiée, sinon renvoyer un code 412 (échec de précondition)."
   },
   {
-    "id": "Returns the class type of the specified bucket.",
-    "translation": "Renvoyer le type de classe du compartiment spécifié."
-  },
-  {
     "id": "Saving default download location...",
     "translation": "Sauvegarde de l'emplacement de téléchargement par défaut..."
   },
@@ -452,20 +396,20 @@
     "translation": "Point d'extrémité de service"
   },
   {
-    "id": "Set custom Service Endpoint for all operations.",
-    "translation": "Définir un point d'extrémité de service personnalisé pour toutes les opérations."
+    "id": "Set custom Service Endpoint for all operations",
+    "translation": "Définir le noeud final de service personnalisé pour toutes les opérations"
   },
   {
-    "id": "Set regions endpoint URL.",
-    "translation": "Définir l'URL de point d'extrémité des régions."
+    "id": "Set regions endpoint URL",
+    "translation": "Définir l'URL du noeud final des régions"
   },
   {
-    "id": "Set static website configuration on a bucket.",
-    "translation": "Définir la configuration de site Web statique sur un compartiment."
+    "id": "Set static website configuration on a bucket",
+    "translation": "Définir la configuration de site Web statique dans un compartiment"
   },
   {
-    "id": "Set the CORS configuration on a bucket.",
-    "translation": "Définir la configuration CORS sur un compartiment."
+    "id": "Set the CORS configuration on a bucket",
+    "translation": "Définir la configuration CORS dans un compartiment"
   },
   {
     "id": "Set the default location for downloads.",
@@ -525,23 +469,23 @@
   },
   {
     "id": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. `DIRECTIVE` values: COPY, REPLACE.",
-    "translation": "Spécifie si les métadonnées sont copiées depuis l'objet source ou remplacées par celles fournies dans la demande. Valeurs pour DIRECTIVE : COPY, REPLACE."
+    "translation": "Indique si les métadonnées sont copiées à partir de l'objet source ou remplacées par des métadonnées fournies dans la demande. Valeurs `DIRECTIVE` : COPY, REPLACE."
   },
   {
-    "id": "Store CRN in the config.",
-    "translation": "Enregistrer le CRN dans la configuration."
+    "id": "Store CRN in the config",
+    "translation": "Stocker le nom de ressource de cloud (CRN) dans la configuration"
   },
   {
-    "id": "Store Default Download Location in the config.",
-    "translation": "Enregistrer l'emplacement de téléchargement par défaut dans la configuration."
+    "id": "Store Default Download Location in the config",
+    "translation": "Stocker l'emplacement de téléchargement par défaut dans la configuration"
   },
   {
-    "id": "Store Default Region in the config.",
-    "translation": "Enregistrer la région par défaut dans la configuration."
+    "id": "Store Default Region in the config",
+    "translation": "Stocker la région par défaut dans la configuration"
   },
   {
-    "id": "Store HMAC credentials in the config.",
-    "translation": "Enregistrer les identifiants HMAC dans la configuration."
+    "id": "Store HMAC credentials in the config",
+    "translation": "Stocker les données d'identification HMAC dans la configuration"
   },
   {
     "id": "Store your service instance ID (`CRN`) in the config.",
@@ -549,7 +493,7 @@
   },
   {
     "id": "Successfully aborted a multipart upload instance with key '{{.Key}}' and bucket '{{.Bucket}}'.",
-    "translation": "L'abandon d'une instance de remontée multipartie avec la clé '{{.Key}}' et le compartiment '{{.Bucket}}' a abouti."
+    "translation": "Abandon d'une instance de remontée multipartie avec la clé '{{.Key}}' et le compartiment '{{.Bucket}}'."
   },
   {
     "id": "Successfully cleared regions endpoint URL.",
@@ -624,8 +568,8 @@
     "translation": "Commuter entre l'authentification HMAC et IAM"
   },
   {
-    "id": "Switch between VHost and Path URL style.",
-    "translation": "Commuter entre les styles d'URL VHost et Chemin."
+    "id": "Switch between VHost and Path URL style",
+    "translation": "Basculer entre le style d'URL VHost et de chemin"
   },
   {
     "id": "The CORS configuration of ",
@@ -681,7 +625,7 @@
   },
   {
     "id": "The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB.",
-    "translation": "Plage d'octets à copier depuis l'objet source. La valeur doit être de la forme bytes=premier-dernier, premier et dernier étant les décalages comptés à partir de zéro. Par exemple, bytes=0-9 indique que vous voulez copier les dix premiers octets de la source. Vous ne pouvez copier une plage que si l'objet source fait plus de 5 Mo."
+    "translation": "Plage d'octets à copier depuis l'objet source. La valeur de la plage doit être au format bytes=fist-last, first et last étant les décalages comptés à partir de zéro. Par exemple, bytes=0-9 indique que vous souhaitez copier les dix premiers octets de la source. Vous ne pouvez copier une plage que si l'objet source fait plus de 5 Mo."
   },
   {
     "id": "The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.",
@@ -724,10 +668,6 @@
     "translation": "La valeur dans l'indicateur '--%s' n'est pas valide"
   },
   {
-    "id": "This operation lists in-progress multipart uploads.",
-    "translation": "Cette opération répertorie les remontées multiparties en cours."
-  },
-  {
     "id": "To retrieve the next set of buckets, use this value marker for the next command: ",
     "translation": "Pour extraire l'ensemble de compartiments suivant, utilisez ce marqueur de valeur pour la prochaine commande : "
   },
@@ -746,10 +686,6 @@
   {
     "id": "Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.",
     "translation": "Avec key-marker, spécifie la remontée multipartie après laquelle le répertoriage doit commencer. Si key-marker n'est pas spécifié, le paramètre upload-id-marker est ignoré."
-  },
-  {
-    "id": "Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.",
-    "translation": "Avec upload-id-marker, ce paramètre spécifie la remontée multipartie après laquelle le répertoriage doit commencer."
   },
   {
     "id": "Try logging in using 'ibmcloud login'.",
@@ -852,20 +788,12 @@
     "translation": "ID de remontée identifiant la remontée multipartie."
   },
   {
-    "id": "Upload a part by copying data from an existing object.",
-    "translation": "Remonter une partie en copiant les données d'un objet existant."
+    "id": "Upload a part by copying data from an existing object",
+    "translation": "Envoyer par téléchargement une partie en copiant des données depuis un objet existant"
   },
   {
-    "id": "Upload a part of an object.",
-    "translation": "Remonter une partie d'un objet."
-  },
-  {
-    "id": "Upload an object to a bucket.",
-    "translation": "Remonter un objet dans un compartiment."
-  },
-  {
-    "id": "Upload objects from S3 concurrently.",
-    "translation": "Remonter les objets dans S3 simultanément."
+    "id": "Upload an object to a bucket",
+    "translation": "Envoi par téléchargement d'un objet à un compartiment"
   },
   {
     "id": "UploadId",
@@ -909,19 +837,15 @@
   },
   {
     "id": "Wait until 200 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
-    "translation": "Attendez une réponse 200 lors d'un sondage avec head-object.  Le sondage se fera toutes les 5 secondes jusqu'à ce qu'un état de réussite soit atteint.  La commande se terminera avec un code retour de 255 après 20 échecs de vérification."
+    "translation": "Permet d'attendre une réponse 200 lors d'un sondage avec head-object.  Le sondage se fera toutes les 5 secondes jusqu'à ce qu'un état de réussite soit atteint.  La commande se termine avec un code retour 255 après 20 échecs de vérification."
   },
   {
     "id": "Wait until 404 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
-    "translation": "Attendez une réponse 404 lors d'un sondage avec head-bucket.  Le sondage se fera toutes les 5 secondes jusqu'à ce qu'un état de réussite soit atteint.  La commande se terminera avec un code retour de 255 après 20 échecs de vérification."
+    "translation": "Permet d'attendre une réponse 404 lors d'un sondage avec head-bucket.  Le sondage se fera toutes les 5 secondes jusqu'à ce qu'un état de réussite soit atteint.  La commande se termine avec un code retour 255 après 20 échecs de vérification."
   },
   {
     "id": "Wait until 404 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
-    "translation": "Attendez une réponse 404 lors d'un sondage avec head-object.  Le sondage se fera toutes les 5 secondes jusqu'à ce qu'un état de réussite soit atteint.  La commande se terminera avec un code retour de 255 après 20 échecs de vérification."
-  },
-  {
-    "id": "Wait until a particular condition is satisfied.  Each subcommand polls an API until the listed requirement is met.",
-    "translation": "Attendez qu'une condition particulière soit satisfaite.  Chaque sous-commande sonde une API jusqu'à ce que l'exigence indiquée soit remplie."
+    "translation": "Permet d'attendre une réponse 404 lors d'un sondage avec head-object.  Le sondage se fera toutes les 5 secondes jusqu'à ce qu'un état de réussite soit atteint.  La commande se termine avec un code retour 255 après 20 échecs de vérification."
   },
   {
     "id": "Website Configuration",
@@ -954,5 +878,217 @@
   {
     "id": "no parts in the multipart upload for '",
     "translation": "aucune partie dans la remontée multipartie pour '"
+  },
+  {
+    "id": "Set tags on an object",
+    "translation": "Définir des étiquettes pour un objet"
+  },
+  {
+    "id": "The object version identifier",
+    "translation": "Identificateur de version de l'objet"
+  },
+  {
+    "id": "(empty response from server; versioning has never been configured for this bucket)",
+    "translation": "(réponse vide du serveur ; la gestion des versions n'a jamais été configurée pour ce compartiment)"
+  },
+  {
+    "id": "Version ID: ",
+    "translation": "ID de version : "
+  },
+  {
+    "id": "Version ID",
+    "translation": "ID de version"
+  },
+  {
+    "id": "Abort an existing multipart upload",
+    "translation": "Abandonner un envoi par téléchargement à plusieurs parties existant"
+  },
+  {
+    "id": "To retrieve the next set of objects use the following values for the next command: ",
+    "translation": "Pour extraire l'ensemble d'objets suivant, utilisez les valeurs ci-après pour la commande suivante : "
+  },
+  {
+    "id": "List parts of an active multipart upload",
+    "translation": "Répertorier les parties d'un envoi par téléchargement à plusieurs parties actif"
+  },
+  {
+    "id": " object versions in bucket '",
+    "translation": " versions d'objet dans le compartiment '"
+  },
+  {
+    "id": "Get the versioning configuration for a bucket",
+    "translation": "Obtenir la configuration de gestion des versions pour un compartiment"
+  },
+  {
+    "id": "Download an object using a managed multipart transfer",
+    "translation": "Télécharger un objet à l'aide d'un transfert à plusieurs parties géré"
+  },
+  {
+    "id": "Block Public ACLs: ",
+    "translation": "Bloquer les listes de contrôle d'accès publiques : "
+  },
+  {
+    "id": "Together with key-marker, specifies the object version from which to start listing object versions in a bucket",
+    "translation": "Associé à un marqueur de clé, spécifie la version d'objet à partir de laquelle commencer à répertorier les versions d'objet dans un compartiment"
+  },
+  {
+    "id": "Get the location and billing tier of a bucket",
+    "translation": "Obtenir l'emplacement et le niveau de facturation d'un compartiment"
+  },
+  {
+    "id": "Remove tags from an object",
+    "translation": "Retirer des étiquettes d'un objet"
+  },
+  {
+    "id": "List all buckets in a service instance",
+    "translation": "Répertorier tous les compartiments d'une instance de service"
+  },
+  {
+    "id": "Versioning Configuration",
+    "translation": "Configuration de la gestion des versions"
+  },
+  {
+    "id": "Determine if a specified bucket exists in the target region",
+    "translation": "Déterminez si un compartiment spécifié existe dans la région cible"
+  },
+  {
+    "id": "Ignore Public ACLs: ",
+    "translation": "Ignorer les listes de contrôle d'accès publiques : "
+  },
+  {
+    "id": "Version ID Marker: ",
+    "translation": "Marqueur d'ID de version : "
+  },
+  {
+    "id": "Complete an existing multipart upload",
+    "translation": "Terminer un envoi par téléchargement à plusieurs parties existant"
+  },
+  {
+    "id": "Remove public access block configuration from a bucket",
+    "translation": "Retirer la configuration du bloc d'accès public d'un compartiment"
+  },
+  {
+    "id": "1 object version in bucket '",
+    "translation": "1 version d'objet dans le compartiment '"
+  },
+  {
+    "id": "no delete markers in bucket '",
+    "translation": "aucun marqueur de suppression dans le compartiment '"
+  },
+  {
+    "id": "Key Marker: ",
+    "translation": "Marqueur de clé : "
+  },
+  {
+    "id": "Creation Template ID",
+    "translation": "ID de modèle de création"
+  },
+  {
+    "id": "Status: ",
+    "translation": "Statut : "
+  },
+  {
+    "id": "List all object versions in a specific bucket",
+    "translation": "Répertorier toutes les versions d'objet dans un compartiment spécifique"
+  },
+  {
+    "id": "Change plugin configuration",
+    "translation": "Changer la configuration de plug-in"
+  },
+  {
+    "id": "Is Latest",
+    "translation": "Est le plus récent"
+  },
+  {
+    "id": "1 delete marker in bucket '",
+    "translation": "1 marqueur de suppression dans le compartiment '"
+  },
+  {
+    "id": "Get an object's size and last modified date",
+    "translation": "Obtenir la taille et la date de dernière modification d'un objet"
+  },
+  {
+    "id": "Set the versioning configuration on a bucket",
+    "translation": "Définir la configuration de gestion des versions sur un compartiment"
+  },
+  {
+    "id": "Specifies whether to copy the tag-set from the source object or replace it with the tag-set provided",
+    "translation": "Indique si l'ensemble d'étiquettes doit être copié depuis l'objet source ou s'il doit être remplacé par l'ensemble d'étiquettes fourni"
+  },
+  {
+    "id": "Set public access block configuration on a bucket",
+    "translation": "Définir la configuration d'un bloc d'accès public sur un compartiment"
+  },
+  {
+    "id": "no object versions in bucket '",
+    "translation": "aucune version d'objet dans le compartiment '"
+  },
+  {
+    "id": "No tags returned",
+    "translation": "Aucune étiquette renvoyée"
+  },
+  {
+    "id": "List all buckets in a service instance and their provisioning codes",
+    "translation": "Répertorier tous les compartiments d'une instance de service et leurs codes de mise à disposition"
+  },
+  {
+    "id": "List active multipart uploads",
+    "translation": "Répertorier les envois par téléchargement à plusieurs parties actifs"
+  },
+  {
+    "id": " delete markers in bucket '",
+    "translation": " supprimer des marqueurs dans le compartiment '"
+  },
+  {
+    "id": "A tag-set for the object encoded as URL query parameters (`Key1=Value1`). For `object-tagging-put`, a `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "Ensemble de balises pour l'objet, encodé sous forme de paramètres de requête d'URL (`Key1=Value1`). Pour `object-tagging-put`, une `STRUCTURE` utilisant la syntaxe JSON. Voir la documentation IBM Cloud."
+  },
+  {
+    "id": "Public Access Block Configuration",
+    "translation": "Configuration du bloc d'accès public"
+  },
+  {
+    "id": "Poll an API until a particular condition is satisfied",
+    "translation": "Interroger une API jusqu'à ce qu'une condition particulière soit satisfaite"
+  },
+  {
+    "id": "Delete marker created for '{{.Key}}' from bucket '{{.Bucket}}'.",
+    "translation": "Supprimez le marqueur créé pour '{{.Key}}' à partir du compartiment '{{.Bucket}}'."
+  },
+  {
+    "id": "Delete '{{.Key}}' from bucket '{{.Bucket}}' with version ID '{{.VersionId}}' ran successfully.",
+    "translation": "La suppression de '{{.Key}}' du compartiment '{{.Bucket}}' avec l'ID de version '{{.VersionId}}' a abouti."
+  },
+  {
+    "id": "Get the public access block configuration on a bucket",
+    "translation": "Obtenir la configuration du bloc d'accès public dans un compartiment"
+  },
+  {
+    "id": "Together with another listing parameter, specifies the key from which to start listing",
+    "translation": "Associé à un autre paramètre de liste, spécifie la clé à partir de laquelle commencer la liste"
+  },
+  {
+    "id": "Get the CORS configuration for a bucket",
+    "translation": "Obtenir la configuration CORS pour un compartiment"
+  },
+  {
+    "id": "Get tags for an object",
+    "translation": "Obtenir les étiquettes d'un objet"
+  },
+  {
+    "id": "Copy Source Version ID: ",
+    "translation": "Copier l'ID de version de la source : "
+  },
+  {
+    "id": "Initiate a new multipart upload",
+    "translation": "Initier un nouvel envoi par téléchargement à plusieurs parties"
+  },
+  {
+    "id": "Upload an object using a managed multipart transfer",
+    "translation": "Envoyer par téléchargement un objet à l'aide d'un transfert à plusieurs parties géré"
+  },
+  {
+    "id": "Upload a part",
+    "translation": "Envoi par téléchargement d'une partie"
   }
 ]

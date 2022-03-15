@@ -5,6 +5,7 @@ package functions_test
 import (
 	"io/ioutil"
 	"os"
+	"strconv"
 	"strings"
 	"testing"
 	"time"
@@ -117,7 +118,7 @@ func TestObjectGetSunnyPath(t *testing.T) {
 		"--" + flags.Region, "REG",
 		targetFileName,
 	}
-	//call  plugin
+	// call plugin
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
@@ -137,15 +138,15 @@ func TestObjectGetSunnyPath(t *testing.T) {
 	assert.Equal(t, targetResponseContentType, *inputCapture.ResponseContentType)
 	assert.Equal(t, targetResponseExpires, *inputCapture.ResponseExpires)
 
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "GetObject", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all wroteContent //
 	wroteContent := providers.FakeUI.Outputs()
-	//assert OK
+	// assert OK
 	assert.Contains(t, wroteContent, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, wroteContent, "FAIL")
 
 	// assert file closed
@@ -234,7 +235,7 @@ func TestObjectGetSunnyPath2(t *testing.T) {
 		"--" + flags.Key, targetKey,
 		"--" + flags.Region, "REG",
 	}
-	//call  plugin
+	// call plugin
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
@@ -243,18 +244,18 @@ func TestObjectGetSunnyPath2(t *testing.T) {
 	assert.Equal(t, targetBucket, *inputCapture.Bucket)
 	assert.Equal(t, targetKey, *inputCapture.Key)
 
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "GetObject", 1)
 
 	providers.MockFileOperations.AssertNotCalled(t, "Remove", mock.Anything)
 
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all wroteContent //
 	wroteContent := providers.FakeUI.Outputs()
-	//assert OK
+	// assert OK
 	assert.Contains(t, wroteContent, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, wroteContent, "FAIL")
 
 	// assert file closed
@@ -315,20 +316,20 @@ func TestObjectGetFileAlreadyExists(t *testing.T) {
 		"--" + flags.Key, targetKey,
 		"--" + flags.Region, "REG",
 	}
-	//call  plugin
+	// call plugin
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
 
 	providers.MockFileOperations.AssertNotCalled(t, "Remove", mock.Anything)
 
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all wroteContent //
 	wroteContent := providers.FakeUI.Outputs()
-	//assert OK
+	// assert OK
 	assert.NotContains(t, wroteContent, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, wroteContent, "FAIL")
 
 }
@@ -378,21 +379,21 @@ func TestObjectGetDestinationIsDir(t *testing.T) {
 		"--" + flags.Key, targetKey,
 		"--" + flags.Region, "REG",
 	}
-	//call  plugin
+	// call plugin
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
 
 	providers.MockFileOperations.AssertNotCalled(t, "Remove", mock.Anything)
 
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
 	// capture all wroteContent //
 	wroteContent := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert OK
+	// assert OK
 	assert.NotContains(t, wroteContent, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.Contains(t, errors, "FAIL")
 }
 
@@ -462,7 +463,7 @@ func TestObjectGetWebsiteRedirectLocation(t *testing.T) {
 		"--" + flags.Output, "json",
 		targetFileName,
 	}
-	//call  plugin
+	// call plugin
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
@@ -471,16 +472,301 @@ func TestObjectGetWebsiteRedirectLocation(t *testing.T) {
 	assert.Equal(t, targetBucket, *inputCapture.Bucket)
 	assert.Equal(t, targetKey, *inputCapture.Key)
 
-	// assert s3 api called once per region ( since success is last )
+	// assert s3 api called once per region (since success is last)
 	providers.MockS3API.AssertNumberOfCalls(t, "GetObject", 1)
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all wroteContent //
 	wroteContent := providers.FakeUI.Outputs()
-	//assert expectedWebsiteRedirectLocation in JSON output
+	// assert expectedWebsiteRedirectLocation in JSON output
 	assert.Contains(t, wroteContent, expectedWebsiteRedirectLocation)
 	assert.Contains(t, wroteContent, "WebsiteRedirectLocation")
-	//assert Not Fail
+	// assert Not Fail
+	assert.NotContains(t, wroteContent, "FAIL")
+
+	// assert file closed
+	assert.True(t, isClosed, "Is Closed")
+	// assert file not removed
+	assert.False(t, isRemoved, "Is Removed")
+
+	assert.Equal(t, objectContent, wroteFileContent)
+}
+
+func TestObjectGetVersionIdText(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	// flags
+	targetBucket := "GetObjBucket"
+	targetKey := "GetObjKey"
+	targetVersionId := "88024d62-d55f-4332-be26-9b65c4d73bc0"
+
+	// mock writing destination
+	targetPath := "/mock/path"
+	targetFileName := targetPath + "/MockFileName"
+
+	// string to collect the writes
+	wroteFileContent := ""
+	// checks if destination file was closed
+	isClosed := false
+
+	// random string to mock file content
+	objectContent := "content"
+	// checks if file removed in the end
+	isRemoved := false
+
+	var inputCapture *s3.GetObjectInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	providers.MockFileOperations.
+		On("GetFileInfo", mock.MatchedBy(func(path string) bool { return path == targetFileName })).
+		Return(os.Stat(targetFileName)) // some random name that must not exist
+
+	providers.MockFileOperations.
+		On("WriteCloserOpen", mock.MatchedBy(func(path string) bool { return path == targetFileName })).
+		Return(utils.WriteToString(&wroteFileContent, &isClosed), nil)
+
+	providers.MockS3API.
+		On("GetObject", mock.MatchedBy(
+			func(input *s3.GetObjectInput) bool {
+				inputCapture = input
+				return *input.VersionId == targetVersionId
+			})).
+		Return(new(s3.GetObjectOutput).
+			SetContentLength(int64(len(objectContent))).
+			SetBody(ioutil.NopCloser(strings.NewReader(objectContent))).
+			SetLastModified(time.Now()).
+			SetVersionId(targetVersionId), nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	// all args for later verification
+	os.Args = []string{
+		"-",
+		commands.ObjectGet,
+		"--" + flags.Bucket, targetBucket,
+		"--" + flags.Key, targetKey,
+		"--" + flags.VersionId, targetVersionId,
+		"--" + flags.Region, "REG",
+		targetFileName,
+	}
+	// call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+
+	// verify all parameters fwd
+	assert.Equal(t, targetBucket, *inputCapture.Bucket)
+	assert.Equal(t, targetKey, *inputCapture.Key)
+	assert.Equal(t, targetVersionId, *inputCapture.VersionId)
+
+	// assert s3 api called once per region (since success is last)
+	providers.MockS3API.AssertNumberOfCalls(t, "GetObject", 1)
+	// assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+	// capture all wroteContent //
+	wroteContent := providers.FakeUI.Outputs()
+	// assert targetVersionId in JSON output
+	assert.Contains(t, wroteContent, "Version ID: "+targetVersionId)
+	// assert Not Fail
+	assert.NotContains(t, wroteContent, "FAIL")
+
+	// assert file closed
+	assert.True(t, isClosed, "Is Closed")
+	// assert file not removed
+	assert.False(t, isRemoved, "Is Removed")
+
+	assert.Equal(t, objectContent, wroteFileContent)
+}
+
+func TestObjectGetVersionIdJson(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	// flags
+	targetBucket := "GetObjBucket"
+	targetKey := "GetObjKey"
+	targetVersionId := "88024d62-d55f-4332-be26-9b65c4d73bc0"
+
+	// mock writing destination
+	targetPath := "/mock/path"
+	targetFileName := targetPath + "/MockFileName"
+
+	// string to collect the writes
+	wroteFileContent := ""
+	// checks if destination file was closed
+	isClosed := false
+
+	// random string to mock file content
+	objectContent := "content"
+	// checks if file removed in the end
+	isRemoved := false
+
+	var inputCapture *s3.GetObjectInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	providers.MockFileOperations.
+		On("GetFileInfo", mock.MatchedBy(func(path string) bool { return path == targetFileName })).
+		Return(os.Stat(targetFileName)) // some random name that must not exist
+
+	providers.MockFileOperations.
+		On("WriteCloserOpen", mock.MatchedBy(func(path string) bool { return path == targetFileName })).
+		Return(utils.WriteToString(&wroteFileContent, &isClosed), nil)
+
+	providers.MockS3API.
+		On("GetObject", mock.MatchedBy(
+			func(input *s3.GetObjectInput) bool {
+				inputCapture = input
+				return *input.VersionId == targetVersionId
+			})).
+		Return(new(s3.GetObjectOutput).
+			SetContentLength(int64(len(objectContent))).
+			SetBody(ioutil.NopCloser(strings.NewReader(objectContent))).
+			SetLastModified(time.Now()).
+			SetVersionId(targetVersionId), nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	// all args for later verification
+	os.Args = []string{
+		"-",
+		commands.ObjectGet,
+		"--" + flags.Bucket, targetBucket,
+		"--" + flags.Key, targetKey,
+		"--" + flags.VersionId, targetVersionId,
+		"--" + flags.Region, "REG",
+		"--" + flags.Output, "json",
+		targetFileName,
+	}
+	// call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+
+	// verify all parameters fwd
+	assert.Equal(t, targetBucket, *inputCapture.Bucket)
+	assert.Equal(t, targetKey, *inputCapture.Key)
+	assert.Equal(t, targetVersionId, *inputCapture.VersionId)
+
+	// assert s3 api called once per region (since success is last)
+	providers.MockS3API.AssertNumberOfCalls(t, "GetObject", 1)
+	// assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+	// capture all wroteContent //
+	wroteContent := providers.FakeUI.Outputs()
+	// assert targetVersionId in JSON output
+	assert.Contains(t, wroteContent, "\"VersionId\": \""+targetVersionId+"\"")
+	// assert Not Fail
+	assert.NotContains(t, wroteContent, "FAIL")
+
+	// assert file closed
+	assert.True(t, isClosed, "Is Closed")
+	// assert file not removed
+	assert.False(t, isRemoved, "Is Removed")
+
+	assert.Equal(t, objectContent, wroteFileContent)
+}
+
+func TestObjectGetTagCountJson(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	// flags
+	targetBucket := "GetObjBucket"
+	targetKey := "GetObjKey"
+	targetTagCount := int64(12)
+
+	// mock writing destination
+	targetPath := "/mock/path"
+	targetFileName := targetPath + "/MockFileName"
+
+	// string to collect the writes
+	wroteFileContent := ""
+	// checks if destination file was closed
+	isClosed := false
+
+	// random string to mock file content
+	objectContent := "content"
+	// checks if file removed in the end
+	isRemoved := false
+
+	var inputCapture *s3.GetObjectInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	providers.MockFileOperations.
+		On("GetFileInfo", mock.MatchedBy(func(path string) bool { return path == targetFileName })).
+		Return(os.Stat(targetFileName)) // some random name that must not exist
+
+	providers.MockFileOperations.
+		On("WriteCloserOpen", mock.MatchedBy(func(path string) bool { return path == targetFileName })).
+		Return(utils.WriteToString(&wroteFileContent, &isClosed), nil)
+
+	providers.MockS3API.
+		On("GetObject", mock.MatchedBy(
+			func(input *s3.GetObjectInput) bool {
+				inputCapture = input
+				return *input.Bucket == targetBucket
+			})).
+		Return(new(s3.GetObjectOutput).
+			SetContentLength(int64(len(objectContent))).
+			SetBody(ioutil.NopCloser(strings.NewReader(objectContent))).
+			SetLastModified(time.Now()).
+			SetTagCount(targetTagCount), nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	// all args for later verification
+	os.Args = []string{
+		"-",
+		commands.ObjectGet,
+		"--" + flags.Bucket, targetBucket,
+		"--" + flags.Key, targetKey,
+		"--" + flags.Region, "REG",
+		"--" + flags.Output, "json",
+		targetFileName,
+	}
+	// call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+
+	// verify all parameters fwd
+	assert.Equal(t, targetBucket, *inputCapture.Bucket)
+	assert.Equal(t, targetKey, *inputCapture.Key)
+
+	// assert s3 api called once per region (since success is last)
+	providers.MockS3API.AssertNumberOfCalls(t, "GetObject", 1)
+	// assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+	// capture all wroteContent //
+	wroteContent := providers.FakeUI.Outputs()
+	// assert targetVersionId in JSON output
+	assert.Contains(t, wroteContent, "\"TagCount\": "+strconv.FormatInt(targetTagCount, 10))
+	// assert Not Fail
 	assert.NotContains(t, wroteContent, "FAIL")
 
 	// assert file closed

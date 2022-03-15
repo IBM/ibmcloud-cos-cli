@@ -46,7 +46,6 @@ func ObjectPut(c *cli.Context) (err error) {
 		fields.Key:    flags.Key,
 	}
 
-	//
 	// Optional parameters for PutObject
 	options := map[string]string{
 		fields.CacheControl:            flags.CacheControl,
@@ -58,6 +57,7 @@ func ObjectPut(c *cli.Context) (err error) {
 		fields.ContentType:             flags.ContentType,
 		fields.Metadata:                flags.Metadata,
 		fields.Body:                    flags.Body,
+		fields.Tagging:                 flags.Tagging,
 		fields.WebsiteRedirectLocation: flags.WebsiteRedirectLocation,
 	}
 

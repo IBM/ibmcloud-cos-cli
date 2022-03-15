@@ -3,7 +3,6 @@
 package functions_test
 
 import (
-	"fmt"
 	"os"
 	"strconv"
 	"testing"
@@ -97,9 +96,7 @@ func TestUploadSunnyPath(t *testing.T) {
 	plugin.Start(new(cos.Plugin))
 
 	// --- Assert ----
-
 	output := providers.FakeUI.Outputs()
-	fmt.Println(output)
 
 	// assert all command line options where set
 	assert.NotNil(t, inputCapture) // assert file name matched
@@ -118,14 +115,13 @@ func TestUploadSunnyPath(t *testing.T) {
 	assert.Equal(t, targetLeavePartsOnErrors, referenceUploader.LeavePartsOnError)
 	assert.Equal(t, targetMaxUploadParts, referenceUploader.MaxUploadParts)
 
-	//assert exit code is zero
+	// assert exit code is zero
 	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
 	// capture all output //
 	//output := providers.FakeUI.Outputs()
 	errors := providers.FakeUI.Errors()
-	//assert OK
+	// assert OK
 	assert.Contains(t, output, "OK")
-	//assert Not Fail
+	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
-
 }

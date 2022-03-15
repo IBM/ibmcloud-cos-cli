@@ -10,37 +10,47 @@ USAGE:
   ibmcloud cos command [arguments...] [command options]
 
 COMMANDS:
-  bucket-class-get            Returns the class type of the specified bucket.
-  bucket-cors-delete          Delete the CORS configuration from a bucket.
-  bucket-cors-get             Get the CORS configuration from a bucket.
-  bucket-cors-put             Set the CORS configuration on a bucket.
-  bucket-create               Create a new bucket.
-  bucket-delete               Delete an existing bucket.
-  bucket-head                 Determine if a specified bucket exists in your account.
-  bucket-location-get         Get the region and class of a bucket.
-  bucket-website-delete       Remove static website configuration from a bucket.
-  bucket-website-get          Get the static website configuration on a bucket.
-  bucket-website-put          Set static website configuration on a bucket.
-  buckets                     List all the buckets in your IBM Cloud Object Storage account.
-  buckets-extended            List all the extended buckets with pagination support.
-  config                      Changes plugin configuration
-  download                    Download objects from S3 concurrently.
-  multipart-upload-abort      Abort a multipart upload instance.
-  multipart-upload-complete   Complete an existing multipart upload instance.
-  multipart-upload-create     Create a new multipart upload instance.
-  multipart-uploads           This operation lists in-progress multipart uploads.
-  object-copy                 Copy an object from one bucket to another.
-  object-delete               Delete an object from a bucket.
-  object-get                  Download an object from a bucket.
-  object-head                 Determine if an object exists within a bucket.
-  object-put                  Upload an object to a bucket.
-  objects                     List all objects in a specific bucket.
-  objects-delete              Delete multiple objects from a bucket
-  part-upload-copy            Upload a part by copying data from an existing object.
-  parts                       Display the list of uploaded parts of an object.
-  upload                      Upload objects from S3 concurrently.
-  wait                        Wait until a particular condition is satisfied.  
-  help, h                     Show help
+  bucket-class-get             Get the location and billing tier of a bucket
+  bucket-cors-delete           Delete the CORS configuration from a bucket
+  bucket-cors-get              Get the CORS configuration for a bucket
+  bucket-cors-put              Set the CORS configuration on a bucket
+  bucket-create                Create a new bucket
+  bucket-delete                Delete an existing bucket
+  bucket-head                  Determine if a specified bucket exists in the target region
+  bucket-location-get          Get the location and billing tier of a bucket
+  bucket-versioning-get        Get the versioning configuration for a bucket
+  bucket-versioning-put        Set the versioning configuration on a bucket
+  bucket-website-delete        Remove static website configuration from a bucket
+  bucket-website-get           Get the static website configuration on a bucket
+  bucket-website-put           Set static website configuration on a bucket
+  buckets                      List all buckets in a service instance
+  buckets-extended             List all buckets in a service instance and their provisioning codes
+  config                       Change plugin configuration
+  download                     Download an object using a managed multipart transfer
+  multipart-upload-abort       Abort an existing multipart upload
+  multipart-upload-complete    Complete an existing multipart upload
+  multipart-upload-create      Initiate a new multipart upload
+  multipart-uploads            List active multipart uploads
+  object-copy                  Copy an object from one bucket to another
+  object-delete                Delete an object from a bucket
+  object-get                   Download an object from a bucket
+  object-head                  Get an object's size and last modified date
+  object-put                   Upload an object to a bucket
+  object-tagging-delete        Remove tags from an object
+  object-tagging-get           Get tags for an object
+  object-tagging-put           Set tags on an object
+  object-versions              List all object versions in a specific bucket
+  objects                      List all objects in a specific bucket
+  objects-delete               Delete multiple objects from a bucket
+  part-upload                  Upload a part
+  part-upload-copy             Upload a part by copying data from an existing object
+  parts                        List parts of an active multipart upload
+  public-access-block-delete   Remove public access block configuration from a bucket
+  public-access-block-get      Get the public access block configuration on a bucket
+  public-access-block-put      Set public access block configuration on a bucket
+  upload                       Upload an object using a managed multipart transfer
+  wait                         Poll an API until a particular condition is satisfied
+  help, h                      Show help
 ```
 
 ## Prerequisites
