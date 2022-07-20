@@ -1,5 +1,9 @@
 [
   {
+    "id": " and tags: ",
+    "translation": " およびタグ: "
+  },
+  {
     "id": " buckets found in your account:\n",
     "translation": " 個のバケットがアカウントに見つかりました:\n"
   },
@@ -8,12 +12,20 @@
     "translation": " バケット:"
   },
   {
+    "id": " delete markers in bucket '",
+    "translation": " バケットのマーカーを削除します '"
+  },
+  {
     "id": " downloaded.",
     "translation": " ダウンロードされました。"
   },
   {
     "id": " multipart uploads in bucket '",
     "translation": " バケットにマルチパート・アップロードがあります '"
+  },
+  {
+    "id": " object versions in bucket '",
+    "translation": " バケットのオブジェクト・バージョン '"
   },
   {
     "id": " objects in bucket '",
@@ -28,6 +40,10 @@
     "translation": "(`SOURCE`) スラッシュ (/) で区切られた、ソース・バケットの名前とソース・オブジェクトのキー名。 URL エンコードされていなければなりません。"
   },
   {
+    "id": "(empty response from server; versioning has never been configured for this bucket)",
+    "translation": "(サーバーから空白の応答。このバケットに対してバージョン管理が構成されていません)"
+  },
+  {
     "id": "1 bucket found in your account:\n",
     "translation": "個のバケットがアカウントに見つかりました:\n"
   },
@@ -36,12 +52,20 @@
     "translation": "1 個のバケット:"
   },
   {
+    "id": "1 delete marker in bucket '",
+    "translation": "バケットの1つの削除マーカー '"
+  },
+  {
     "id": "1 multipart upload in bucket '",
     "translation": "バケットに 1 個のマルチパート・アップロードがあります '"
   },
   {
     "id": "1 object in bucket '",
     "translation": "バケットに 1 個のオブジェクトがあります '"
+  },
+  {
+    "id": "1 object version in bucket '",
+    "translation": "バケットの一つののオブジェクト・バージョン '"
   },
   {
     "id": "1 part in the multipart upload for '",
@@ -72,6 +96,14 @@
     "translation": "オブジェクト・データの形式を記述する標準 `MIME` タイプです。"
   },
   {
+    "id": "A tag-set for the object encoded as URL query parameters (`Key1=Value1`). For `object-tagging-put`, a `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "URL 照会パラメーターとしてエンコードされたオブジェクトのタグ・セット (`Key1=Value1`)。「object-tagging-put」の場合は、JSON 構文を使用する「STRUCTURE」。 IBM Cloud 資料を参照してください。"
+  },
+  {
+    "id": "Abort an existing multipart upload",
+    "translation": "既存のマルチパート・アップロードを中止します"
+  },
+  {
     "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
     "translation": "IBM Cloud アカウントへのアクセスが拒否されました。 ibmcloud login --sso と入力することでログインをやり直してください。"
   },
@@ -92,12 +124,20 @@
     "translation": "'--%s' 内のフラグ構文が不適切です"
   },
   {
+    "id": "Block Public ACLs: ",
+    "translation": "パブリック ACL をブロック: "
+  },
+  {
     "id": "Bucket '{{.Bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
     "translation": "バケット '{{.Bucket}}' (Region {{.region}} 内) が IBM Cloud Object Storage アカウント内で見つかりました。"
   },
   {
     "id": "CRN",
     "translation": "CRN"
+  },
+  {
+    "id": "Change plugin configuration",
+    "translation": "プラグイン構成を変更します"
   },
   {
     "id": "Class: ",
@@ -116,6 +156,10 @@
     "translation": "共通接頭部:"
   },
   {
+    "id": "Complete an existing multipart upload",
+    "translation": "既存マルチパート・アップロードを完了します"
+  },
+  {
     "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
     "translation": "指定した時刻 (`TIMESTAMP`) 以降に変更されている場合にオブジェクトをコピーします。"
   },
@@ -132,8 +176,12 @@
     "translation": "エンティティー・タグ (ETag) が指定したタグ (`ETAG`) と一致する場合にオブジェクトをコピーします。"
   },
   {
+    "id": "Copy Source Version ID: ",
+    "translation": "ソース・バージョン ID のコピー: "
+  },
+  {
     "id": "Copy an object from one bucket to another",
-    "translation": "あるバケットから他のバケットにオブジェクトをコピーします。"
+    "translation": "あるバケットから他のバケットにオブジェクトをコピーします"
   },
   {
     "id": "Create a new bucket",
@@ -142,6 +190,10 @@
   {
     "id": "Creation Date",
     "translation": "作成日"
+  },
+  {
+    "id": "Creation Template ID",
+    "translation": "作成テンプレート ID"
   },
   {
     "id": "Date Created",
@@ -156,12 +208,24 @@
     "translation": "'{{.Key}}' のバケット '{{.Bucket}}' からの削除が正常に実行されました。"
   },
   {
+    "id": "Delete '{{.Key}}' from bucket '{{.Bucket}}' with version ID '{{.VersionId}}' ran successfully.",
+    "translation": "バージョン ID '{{.VersionId}}' のバケット '{{.Bucket}}' からの '{{.Key}}' の削除が正常に実行されました。"
+  },
+  {
     "id": "Delete an existing bucket",
     "translation": "既存のバケットの削除"
   },
   {
     "id": "Delete an object from a bucket",
-    "translation": "バケットからオブジェクトを削除"
+    "translation": "バケットからオブジェクトを削除します"
+  },
+  {
+    "id": "Delete marker created for '{{.Key}}' from bucket '{{.Bucket}}'.",
+    "translation": "バケット '{{.Bucket}}' から '{{.Key}}' 用に作成されたマーカーを削除します。"
+  },
+  {
+    "id": "Delete marker version ID: ",
+    "translation": "マーカー・バージョン ID の削除: "
   },
   {
     "id": "Delete multiple objects from a bucket",
@@ -173,7 +237,15 @@
   },
   {
     "id": "Delete the CORS configuration from a bucket",
-    "translation": "バケットから CORS 構成を削除します。"
+    "translation": "バケットから CORS 構成を削除します"
+  },
+  {
+    "id": "Delete the replication configuration from a bucket",
+    "translation": "Delete the replication configuration from a bucket"
+  },
+  {
+    "id": "Destination bucket: ",
+    "translation": "宛先バケット: "
   },
   {
     "id": "Details about bucket ",
@@ -184,12 +256,20 @@
     "translation": "マルチパート・アップロード・インスタンスについての詳細:"
   },
   {
+    "id": "Determine if a specified bucket exists in the target region",
+    "translation": "指定バケットがターゲット・リージョンにあるかどうかを判別します"
+  },
+  {
     "id": "Download Location",
     "translation": "ダウンロード場所"
   },
   {
     "id": "Download an object from a bucket",
-    "translation": "バケットからのオブジェクトをダウンロードします。"
+    "translation": "バケットからオブジェクトをダウンロードします"
+  },
+  {
+    "id": "Download an object using a managed multipart transfer",
+    "translation": "管理対象マルチパート転送を使用しているオブジェクトをダウンロードします"
   },
   {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
@@ -200,12 +280,32 @@
     "translation": "ETag"
   },
   {
+    "id": "Empty",
+    "translation": "空"
+  },
+  {
     "id": "Error Document: ",
     "translation": "エラー文書: "
   },
   {
     "id": "Error opening '{{.Location}}' to write.",
     "translation": "'{{.Location}}' を書き込み用にオープン中にエラーが発生しました。"
+  },
+  {
+    "id": "Filter by prefix: ",
+    "translation": "接頭部によるフィルター: "
+  },
+  {
+    "id": "Filter by tag: ",
+    "translation": "タグによるフィルター: "
+  },
+  {
+    "id": "Filter by tags: ",
+    "translation": "タグによるフィルター: "
+  },
+  {
+    "id": "Filter: ",
+    "translation": "フィルター: "
   },
   {
     "id": "Flag '--%s' requires a value",
@@ -216,16 +316,52 @@
     "translation": "見つかりました "
   },
   {
+    "id": "Get an object's size and last modified date",
+    "translation": "オブジェクトのサイズと最終変更日を取得します"
+  },
+  {
+    "id": "Get tags for an object",
+    "translation": "オブジェクトのタグを取得します"
+  },
+  {
+    "id": "Get the CORS configuration for a bucket",
+    "translation": "バケットの CORS 構成を取得します"
+  },
+  {
+    "id": "Get the location and billing tier of a bucket",
+    "translation": "バケットのロケーションと請求層を取得します"
+  },
+  {
+    "id": "Get the public access block configuration on a bucket",
+    "translation": "バケットでのパブリック・アクセス・ブロック構成を取得します。"
+  },
+  {
+    "id": "Get the replication configuration for a bucket",
+    "translation": "Get the replication configuration for a bucket"
+  },
+  {
     "id": "Get the static website configuration on a bucket",
-    "translation": "バケットの静的 Web サイト構成を取得します。"
+    "translation": "バケットの静的 Web サイト構成を取得します"
+  },
+  {
+    "id": "Get the versioning configuration for a bucket",
+    "translation": "バケットのバージョン管理構成を取得します"
   },
   {
     "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
     "translation": "バケットを Web サイトとして構成する場合、オブジェクト・キーの要求を同じバケット内の別のオブジェクトまたは URL (`LOCATION`) にリダイレクトします。"
   },
   {
+    "id": "Ignore Public ACLs: ",
+    "translation": "パブリック ACL を無視: "
+  },
+  {
     "id": "Index Suffix: ",
     "translation": "インデックス接尾部: "
+  },
+  {
+    "id": "Initiate a new multipart upload",
+    "translation": "新規マルチパート・アップロードを開始します"
   },
   {
     "id": "Initiated",
@@ -248,12 +384,20 @@
     "translation": "フラグ '--%s'ブール値が無効です"
   },
   {
+    "id": "Is Latest",
+    "translation": "最新"
+  },
+  {
     "id": "It was last updated on {{.lastupdated}}.",
     "translation": "{{.lastupdated}} に最終更新されました。"
   },
   {
     "id": "Key",
     "translation": "キー"
+  },
+  {
+    "id": "Key Marker: ",
+    "translation": "キー・マーカー: "
   },
   {
     "id": "Last Modified",
@@ -272,8 +416,24 @@
     "translation": "指定した `PREFIX` で始まるキーに応答を制限します。"
   },
   {
+    "id": "List active multipart uploads",
+    "translation": "アクティブなマルチパート・アップロードをリストします"
+  },
+  {
+    "id": "List all buckets in a service instance",
+    "translation": "サービス・インスタンス内すべてのバケットをリストします"
+  },
+  {
+    "id": "List all buckets in a service instance and their provisioning codes",
+    "translation": "サービス・インスタンスのすべてのバケットとそのプロビジョニング・コードをリストします"
+  },
+  {
+    "id": "List all object versions in a specific bucket",
+    "translation": "特定バケットのすべてのオブジェクト・バージョンをリストします"
+  },
+  {
     "id": "List all objects in a specific bucket",
-    "translation": "特定のバケットのあらゆるオブジェクトをリストします。"
+    "translation": "特定のバケットのすべてのオブジェクトをリストします"
   },
   {
     "id": "List configuration",
@@ -282,6 +442,10 @@
   {
     "id": "List configuration values.",
     "translation": "構成値をリストします。"
+  },
+  {
+    "id": "List parts of an active multipart upload",
+    "translation": "アクティブなマルチパート・アップロードのパーツをリストします"
   },
   {
     "id": "Location Constraint",
@@ -302,6 +466,10 @@
   {
     "id": "No buckets found in your account.",
     "translation": "個のバケットがアカウントに見つかりました:\n"
+  },
+  {
+    "id": "No tags returned",
+    "translation": "タグが返されませんでした。"
   },
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
@@ -344,6 +512,18 @@
     "translation": "リスト表示が開始する前のパーツの番号 `VALUE`"
   },
   {
+    "id": "Poll an API until a particular condition is satisfied",
+    "translation": "特定条件が満たされるまで API をポーリングします"
+  },
+  {
+    "id": "Priority: ",
+    "translation": "優先順位: "
+  },
+  {
+    "id": "Public Access Block Configuration",
+    "translation": "パブリック・アクセス・ブロックの構成"
+  },
+  {
     "id": "Redirect Hostname: ",
     "translation": "リダイレクト・ホスト名: "
   },
@@ -360,8 +540,20 @@
     "translation": "Region エンドポイント `URL`。"
   },
   {
+    "id": "Remove public access block configuration from a bucket",
+    "translation": "バケットからパブリック・アクセス・ブロック構成を削除します"
+  },
+  {
     "id": "Remove static website configuration from a bucket",
-    "translation": "バケットからの静的 Web サイト構成を削除します。"
+    "translation": "バケットから静的 Web サイト構成を削除します"
+  },
+  {
+    "id": "Remove tags from an object",
+    "translation": "オブジェクトからタグを削除します"
+  },
+  {
+    "id": "Replication Configuration",
+    "translation": "レプリケーションの構成"
   },
   {
     "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
@@ -397,23 +589,39 @@
   },
   {
     "id": "Set custom Service Endpoint for all operations",
-    "translation": "あらゆる操作のカスタム・サービス・エンドポイントを設定します。"
+    "translation": "すべての操作のカスタム・サービス・エンドポイントを設定します"
+  },
+  {
+    "id": "Set public access block configuration on a bucket",
+    "translation": "バケットに対するパブリック・アクセス・ブロック構成を設定します"
   },
   {
     "id": "Set regions endpoint URL",
-    "translation": "地域エンドポイント URLを設定します。"
+    "translation": "リージョン・エンドポイント URLを設定します"
   },
   {
     "id": "Set static website configuration on a bucket",
-    "translation": "バケットでの静的 Web サイト構成を設定します。"
+    "translation": "バケットでの静的 Web サイト構成を設定します"
+  },
+  {
+    "id": "Set tags on an object",
+    "translation": "オブジェクトにタグを設定します"
   },
   {
     "id": "Set the CORS configuration on a bucket",
-    "translation": "バケットのCORS 構成を設定します。"
+    "translation": "バケットの CORS 構成を設定します"
   },
   {
     "id": "Set the default location for downloads.",
     "translation": "ダウンロード用のデフォルトの場所を設定します。"
+  },
+  {
+    "id": "Set the replication configuration on a bucket",
+    "translation": "Set the replication configuration on a bucket"
+  },
+  {
+    "id": "Set the versioning configuration on a bucket",
+    "translation": "バケットのバージョン管理構成を設定します"
   },
   {
     "id": "Sets the Cache-Control `HEADER` of the response.",
@@ -472,20 +680,28 @@
     "translation": "メタデータをソースオブジェクトからコピーするか、請求で提供されたメタデータに置き換えるかどうかを指定します。 `DIRECTIVE`値：COPY、REPLACE。"
   },
   {
+    "id": "Specifies whether to copy the tag-set from the source object or replace it with the tag-set provided",
+    "translation": "ソース・オブジェクトからタグ・セットをコピーするか、指定タグ・セットで置き換えるかを指定します。"
+  },
+  {
+    "id": "Status: ",
+    "translation": "状況: "
+  },
+  {
     "id": "Store CRN in the config",
-    "translation": "CRN を構成に保管します。"
+    "translation": "CRN を構成に保管します"
   },
   {
     "id": "Store Default Download Location in the config",
-    "translation": "デフォルトのダウンロード・ロケーションを構成に保管します。"
+    "translation": "デフォルトのダウンロード・ロケーションを構成に保管します"
   },
   {
     "id": "Store Default Region in the config",
-    "translation": "デフォルト地域を構成に保管します。"
+    "translation": "デフォルト・リージョンを構成に保管します"
   },
   {
     "id": "Store HMAC credentials in the config",
-    "translation": "HMAC 資格情報を構成に保管します。"
+    "translation": "HMAC 資格情報を構成に保管します"
   },
   {
     "id": "Store your service instance ID (`CRN`) in the config.",
@@ -497,7 +713,7 @@
   },
   {
     "id": "Successfully cleared regions endpoint URL.",
-    "translation": "Region エンドポイント URL が正常にクリアされました。"
+    "translation": "リージョン・エンドポイント URL が正常にクリアされました。"
   },
   {
     "id": "Successfully cleared service endpoint URL",
@@ -549,7 +765,7 @@
   },
   {
     "id": "Successfully updated regions endpoint URL to {{.URL}}.",
-    "translation": "Region エンドポイント URL が {{.URL}} に正常に更新されました。"
+    "translation": "リージョン・エンドポイント URL が {{.URL}} に正常に更新されました。"
   },
   {
     "id": "Successfully updated service endpoint URL.",
@@ -565,11 +781,11 @@
   },
   {
     "id": "Switch between HMAC and IAM authentication",
-    "translation": "HMAC と IAM の認証の間で切り替えます"
+    "translation": "HMAC と IAM の間で認証を切り替えます"
   },
   {
     "id": "Switch between VHost and Path URL style",
-    "translation": "VHost とパス URL スタイルを切り替えます。"
+    "translation": "VHost とパスの間で URL スタイルを切り替えます"
   },
   {
     "id": "The CORS configuration of ",
@@ -620,12 +836,24 @@
     "translation": "パーツの送信時、アップロードの呼び出しがあるたびに同時に立ち上げる goroutines の数です。 デフォルト値は 5 です。"
   },
   {
+    "id": "The object version identifier",
+    "translation": "オブジェクト・バージョン ID"
+  },
+  {
     "id": "The operation will do not ask for confirmation.",
     "translation": "この操作では確認は求められません。"
   },
   {
+    "id": "The public access block configuration was not found.",
+    "translation": "パブリック・アクセス・ブロック構成が見つかりませんでした。"
+  },
+  {
     "id": "The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB.",
     "translation": "ソース・オブジェクトからコピーするバイトの範囲。 範囲値は bytes=first-last の形式にする必要があります。ここで、first と last はコピー対象を示すゼロで開始するバイト・オフセットです。 例えば、bytes=0-9 は、ソースの最初の 10 バイトをコピーすることを意味します。 ソース・オブジェクトが 5 MB を超える場合のみ、範囲コピーを行うことができます。"
+  },
+  {
+    "id": "The replication configuration was not found",
+    "translation": "複製構成が見つかりませんでした。"
   },
   {
     "id": "The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.",
@@ -676,6 +904,10 @@
     "translation": "マルチパート・アップロードの次のセットを取得するには、次のコマンドで以下のマーカーを使用します:"
   },
   {
+    "id": "To retrieve the next set of objects use the following values for the next command: ",
+    "translation": "次のオブジェクト・セットを取得するには、次のコマンドに以下の値を使ってください。 "
+  },
+  {
     "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
     "translation": "オブジェクトの次のセットを取得するには、このキーを次のコマンドの --marker として使用します: "
   },
@@ -684,8 +916,16 @@
     "translation": "パーツの次のセットを取得するには、このマーカーを次のコマンドの part-number-marker として使用します: "
   },
   {
+    "id": "Together with another listing parameter, specifies the key from which to start listing",
+    "translation": "別のリスト表示パラメーターと共に、リスト表示を開始するキーを指定します。"
+  },
+  {
     "id": "Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.",
-    "translation": "key-marker と共に、リスト表示が開始する前のマルチパート・アップロードを指定します。 key-marker を指定しないと、upload-id-marker パラメーターは無視されます。"
+    "translation": "key-marker と共に、リスト表示が開始する前のマルチパート・アップロードを指定します。key-marker を指定しないと、upload-id-marker パラメーターは無視されます。"
+  },
+  {
+    "id": "Together with key-marker, specifies the object version from which to start listing object versions in a bucket",
+    "translation": "キーマーカーとともに、バケット内のオブジェクトバージョンの一覧表示を開始するオブジェクトバージョンを指定します。"
   },
   {
     "id": "Try logging in using 'ibmcloud login'.",
@@ -788,12 +1028,20 @@
     "translation": "マルチパート・アップロードを識別する `ID` をアップロードします。"
   },
   {
+    "id": "Upload a part",
+    "translation": "パーツをアップロードします"
+  },
+  {
     "id": "Upload a part by copying data from an existing object",
-    "translation": "既存のオブジェクトからデータをコピーしてパーツをアップロードします。"
+    "translation": "既存のオブジェクトからデータをコピーしてパーツをアップロードします"
   },
   {
     "id": "Upload an object to a bucket",
-    "translation": "バケットへのオブジェクトのアップロード"
+    "translation": "オブジェクトをバケットにアップロードします"
+  },
+  {
+    "id": "Upload an object using a managed multipart transfer",
+    "translation": "管理対象マルチパート転送を使用しているオブジェクトをアップロードします"
   },
   {
     "id": "UploadId",
@@ -810,6 +1058,22 @@
   {
     "id": "Value",
     "translation": "値"
+  },
+  {
+    "id": "Version ID",
+    "translation": "バージョン ID"
+  },
+  {
+    "id": "Version ID Marker: ",
+    "translation": "バージョン ID マーカー: "
+  },
+  {
+    "id": "Version ID: ",
+    "translation": "バージョンID: "
+  },
+  {
+    "id": "Versioning Configuration",
+    "translation": "バージョン管理構成"
   },
   {
     "id": "WARNING: An object with the name '{{.file}}' already exists at '{{.dl}}'.",
@@ -868,8 +1132,16 @@
     "translation": "バケットがありません。"
   },
   {
+    "id": "no delete markers in bucket '",
+    "translation": "バケットに削除マーカーがありません '"
+  },
+  {
     "id": "no multipart uploads in bucket '",
     "translation": "バケット内にマルチパート・アップロードがありません '"
+  },
+  {
+    "id": "no object versions in bucket '",
+    "translation": "バケットにオブジェクト・バージョンがありません '"
   },
   {
     "id": "no objects in bucket '",
@@ -878,217 +1150,5 @@
   {
     "id": "no parts in the multipart upload for '",
     "translation": "次のマルチパート・アップロードにはパーツがありません: '"
-  },
-  {
-    "id": "Set tags on an object",
-    "translation": "オブジェクトにタグを設定します。"
-  },
-  {
-    "id": "The object version identifier",
-    "translation": "オブジェクト・バージョン ID"
-  },
-  {
-    "id": "(empty response from server; versioning has never been configured for this bucket)",
-    "translation": "(サーバーから空白の応答。このバケットに対してバージョン管理が構成されていません)"
-  },
-  {
-    "id": "Version ID: ",
-    "translation": "バージョンID: "
-  },
-  {
-    "id": "Version ID",
-    "translation": "バージョン ID"
-  },
-  {
-    "id": "Abort an existing multipart upload",
-    "translation": "既存のマルチパート・アップロードの中止"
-  },
-  {
-    "id": "To retrieve the next set of objects use the following values for the next command: ",
-    "translation": "次のオブジェクト・セットを取得するには、次のコマンドに以下の値を使ってください。 "
-  },
-  {
-    "id": "List parts of an active multipart upload",
-    "translation": "アクティブなマルチパート・アップロードの一部をリストします。"
-  },
-  {
-    "id": " object versions in bucket '",
-    "translation": " バケットのオブジェクト・バージョン '"
-  },
-  {
-    "id": "Get the versioning configuration for a bucket",
-    "translation": "バケットのバージョン管理構成を取得します。"
-  },
-  {
-    "id": "Download an object using a managed multipart transfer",
-    "translation": "管理対象マルチパート転送を使ったオブジェクトをダウンロードします。"
-  },
-  {
-    "id": "Block Public ACLs: ",
-    "translation": "ブロック　パブリック ACL : "
-  },
-  {
-    "id": "Together with key-marker, specifies the object version from which to start listing object versions in a bucket",
-    "translation": "キーマーカーとともに、バケット内のオブジェクトバージョンの一覧表示を開始するオブジェクトバージョンを指定します。"
-  },
-  {
-    "id": "Get the location and billing tier of a bucket",
-    "translation": "バケットのロケーションと請求層を取得します。"
-  },
-  {
-    "id": "Remove tags from an object",
-    "translation": "オブジェクトからのタグを削除します。"
-  },
-  {
-    "id": "List all buckets in a service instance",
-    "translation": "サービス・インスタンス内すべてのバケットをリストします。"
-  },
-  {
-    "id": "Versioning Configuration",
-    "translation": "バージョン管理構成"
-  },
-  {
-    "id": "Determine if a specified bucket exists in the target region",
-    "translation": "指定バケットがターゲット領域にあるかどうかを判別します。"
-  },
-  {
-    "id": "Ignore Public ACLs: ",
-    "translation": "パブリック ACL を無視します。 "
-  },
-  {
-    "id": "Version ID Marker: ",
-    "translation": "バージョン ID マーカー: "
-  },
-  {
-    "id": "Complete an existing multipart upload",
-    "translation": "既存マルチパート・アップロードを完了します。"
-  },
-  {
-    "id": "Remove public access block configuration from a bucket",
-    "translation": "バケットからのパブリック・アクセス・ブロック構成を削除します。"
-  },
-  {
-    "id": "1 object version in bucket '",
-    "translation": "バケットの一つののオブジェクト・バージョン '"
-  },
-  {
-    "id": "no delete markers in bucket '",
-    "translation": "バケットに削除マーカーがありません '"
-  },
-  {
-    "id": "Key Marker: ",
-    "translation": "キー・マーカー: "
-  },
-  {
-    "id": "Creation Template ID",
-    "translation": "作成テンプレート ID"
-  },
-  {
-    "id": "Status: ",
-    "translation": "状況: "
-  },
-  {
-    "id": "List all object versions in a specific bucket",
-    "translation": "特定バケットのすべてのオブジェクト・バージョンをリストします。"
-  },
-  {
-    "id": "Change plugin configuration",
-    "translation": "プラグイン構成の変更"
-  },
-  {
-    "id": "Is Latest",
-    "translation": "最新"
-  },
-  {
-    "id": "1 delete marker in bucket '",
-    "translation": "バケットの1つの削除マーカー '"
-  },
-  {
-    "id": "Get an object's size and last modified date",
-    "translation": "オブジェクトのサイズと最終変更日を取得します。"
-  },
-  {
-    "id": "Set the versioning configuration on a bucket",
-    "translation": "バケットのバージョン管理構成を設定します。"
-  },
-  {
-    "id": "Specifies whether to copy the tag-set from the source object or replace it with the tag-set provided",
-    "translation": "ソース・オブジェクトからタグ・セットをコピーするか、指定タグ・セットで置き換えるかを指定します。"
-  },
-  {
-    "id": "Set public access block configuration on a bucket",
-    "translation": "バケットに対するパブリック・アクセス・ブロック構成を設定します。"
-  },
-  {
-    "id": "no object versions in bucket '",
-    "translation": "バケットにオブジェクト・バージョンがありません '"
-  },
-  {
-    "id": "No tags returned",
-    "translation": "タグが返されませんでした。"
-  },
-  {
-    "id": "List all buckets in a service instance and their provisioning codes",
-    "translation": "サービス・インスタンスのすべてのバケットとそのプロビジョニング・コードをリストします。"
-  },
-  {
-    "id": "List active multipart uploads",
-    "translation": "アクティブなマルチパート・アップロードをリストします。"
-  },
-  {
-    "id": " delete markers in bucket '",
-    "translation": " バケットのマーカーを削除します '"
-  },
-  {
-    "id": "A tag-set for the object encoded as URL query parameters (`Key1=Value1`). For `object-tagging-put`, a `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
-    "translation": "URL 照会パラメーターとしてエンコードされたオブジェクトのタグ・セット (`Key1=Value1`)。 「object-tagging-put」の場合は、JSON 構文を使う「STRUCTURE」。 IBM Cloud 資料を参照してください。"
-  },
-  {
-    "id": "Public Access Block Configuration",
-    "translation": "パブリック・アクセス・ブロックの構成"
-  },
-  {
-    "id": "Poll an API until a particular condition is satisfied",
-    "translation": "特定条件が満たされるまで API をポーリングします。"
-  },
-  {
-    "id": "Delete marker created for '{{.Key}}' from bucket '{{.Bucket}}'.",
-    "translation": "バケット '{{.Bucket}}' から '{{.Key}}' 用に作成されたマーカーを削除します。"
-  },
-  {
-    "id": "Delete '{{.Key}}' from bucket '{{.Bucket}}' with version ID '{{.VersionId}}' ran successfully.",
-    "translation": "バージョン ID '{{.VersionId}}' のバケット '{{.Bucket}}' からの '{{.Key}}' の削除が正常に実行されました。"
-  },
-  {
-    "id": "Get the public access block configuration on a bucket",
-    "translation": "バケットでのパブリック・アクセス・ブロック構成を取得します。"
-  },
-  {
-    "id": "Together with another listing parameter, specifies the key from which to start listing",
-    "translation": "別のリスト・パラメーターと一緒に、リスト開始キーを指定します。"
-  },
-  {
-    "id": "Get the CORS configuration for a bucket",
-    "translation": "バケットの CORS 構成を取得します。"
-  },
-  {
-    "id": "Get tags for an object",
-    "translation": "オブジェクトのタグを取得します。"
-  },
-  {
-    "id": "Copy Source Version ID: ",
-    "translation": "ソース・バージョン ID のコピー: "
-  },
-  {
-    "id": "Initiate a new multipart upload",
-    "translation": "新規マルチパート・アップロードを開始します"
-  },
-  {
-    "id": "Upload an object using a managed multipart transfer",
-    "translation": "管理されたマルチパート転送を使ってオブジェクトをアップロードします。"
-  },
-  {
-    "id": "Upload a part",
-    "translation": "パートのアップロード"
   }
 ]

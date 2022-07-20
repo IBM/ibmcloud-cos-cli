@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 1.5.0
+
+### Content
+
+#### Features
+
+* Cloud Object Storage Replication
+* Update to use Go SDK 1.9.0
+
 ## 1.4.0
 
 ### Content

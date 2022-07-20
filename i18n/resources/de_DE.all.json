@@ -1,5 +1,9 @@
 [
   {
+    "id": " and tags: ",
+    "translation": " und Tags: "
+  },
+  {
     "id": " buckets found in your account:\n",
     "translation": " Buckets wurden in Ihrem Konto gefunden:\n"
   },
@@ -8,12 +12,20 @@
     "translation": " Buckets:"
   },
   {
+    "id": " delete markers in bucket '",
+    "translation": " Löschmarkierungen in Bucket '"
+  },
+  {
     "id": " downloaded.",
     "translation": " heruntergeladen."
   },
   {
     "id": " multipart uploads in bucket '",
     "translation": " mehrteilige Uploads in Bucket '"
+  },
+  {
+    "id": " object versions in bucket '",
+    "translation": " Objektversionen im Bucket '"
   },
   {
     "id": " objects in bucket '",
@@ -28,6 +40,10 @@
     "translation": "QUELLE (SOURCE) Der Name des Quellenbuckets und der Schlüsselname des Quellenobjekts, getrennt durch einen Schrägstrich (/). Die Angabe muss als URL codiert sein."
   },
   {
+    "id": "(empty response from server; versioning has never been configured for this bucket)",
+    "translation": "(leere Antwort vom Server; Versionssteuerung wurde für dieses Bucket nie konfiguriert)"
+  },
+  {
     "id": "1 bucket found in your account:\n",
     "translation": "1 Bucket wurde in Ihrem Konto gefunden:\n"
   },
@@ -36,12 +52,20 @@
     "translation": "1 Bucket:"
   },
   {
+    "id": "1 delete marker in bucket '",
+    "translation": "1 Löschmarkierung im Bucket '"
+  },
+  {
     "id": "1 multipart upload in bucket '",
     "translation": "1 mehrteiliger Upload in Bucket '"
   },
   {
     "id": "1 object in bucket '",
     "translation": "1 Objekt in Bucket '"
+  },
+  {
+    "id": "1 object version in bucket '",
+    "translation": "1 Objektversion in Bucket '"
   },
   {
     "id": "1 part in the multipart upload for '",
@@ -72,6 +96,14 @@
     "translation": "Ein 'MIME'-Standardtyp, der das Format der Objektdaten beschreibt."
   },
   {
+    "id": "A tag-set for the object encoded as URL query parameters (`Key1=Value1`). For `object-tagging-put`, a `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "Eine Tag-Gruppe für das Objekt, das als URL-Abfrageparameter codiert ist (`Key1=Value1`). Für `object-tagging-put` eine Struktur (STRUCTURE) mit JSON-Syntax. Weitere Informationen finden Sie in der Dokumentation zu IBM Cloud."
+  },
+  {
+    "id": "Abort an existing multipart upload",
+    "translation": "Vorhandenen mehrteiligen Upload abbrechen"
+  },
+  {
     "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
     "translation": "Der Zugriff auf Ihr IBM Cloud-Konto wurde verweigert. Melden Sie sich erneut an. Geben Sie dazu den Befehl 'ibmcloud login --sso' ein."
   },
@@ -92,12 +124,20 @@
     "translation": "Ungültige Flagsyntax in '--%s'"
   },
   {
+    "id": "Block Public ACLs: ",
+    "translation": "Öffentliche ACLs blockieren: "
+  },
+  {
     "id": "Bucket '{{.Bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
     "translation": "In Ihrem IBM Cloud Object Storage-Konto wurde das Bucket '{{.Bucket}}' in der Region {{.region}} gefunden."
   },
   {
     "id": "CRN",
     "translation": "CRN"
+  },
+  {
+    "id": "Change plugin configuration",
+    "translation": "Plug-in-Konfiguration ändern"
   },
   {
     "id": "Class: ",
@@ -116,6 +156,10 @@
     "translation": "Gängige Präfixe:"
   },
   {
+    "id": "Complete an existing multipart upload",
+    "translation": "Vorhandenen mehrteiligen Upload abschließen"
+  },
+  {
     "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
     "translation": "Kopiert das Objekt, wenn es nach dem angegebenen Zeitpunkt (TIMESTAMP) geändert wurde."
   },
@@ -132,6 +176,10 @@
     "translation": "Kopiert das Objekt, wenn sein Entitätstag (ETag) mit dem angegebenen Tag (ETAG) übereinstimmt."
   },
   {
+    "id": "Copy Source Version ID: ",
+    "translation": "Quellenversions-ID kopieren: "
+  },
+  {
     "id": "Copy an object from one bucket to another",
     "translation": "Objekt aus einem Bucket in ein anderes kopieren"
   },
@@ -142,6 +190,10 @@
   {
     "id": "Creation Date",
     "translation": "Erstellungsdatum"
+  },
+  {
+    "id": "Creation Template ID",
+    "translation": "Erstellung einer Vorlagen-ID"
   },
   {
     "id": "Date Created",
@@ -156,12 +208,24 @@
     "translation": "Das Löschen von '{{.Key}}' aus dem Bucket '{{.Bucket}}' wurde erfolgreich ausgeführt."
   },
   {
+    "id": "Delete '{{.Key}}' from bucket '{{.Bucket}}' with version ID '{{.VersionId}}' ran successfully.",
+    "translation": "Löschen von '{{.Key}}' aus Bucket '{{.Bucket}}' mit Versions-ID '{{.VersionId}}' erfolgreich ausgeführt."
+  },
+  {
     "id": "Delete an existing bucket",
     "translation": "Vorhandenes Bucket löschen"
   },
   {
     "id": "Delete an object from a bucket",
     "translation": "Objekt in Bucket löschen"
+  },
+  {
+    "id": "Delete marker created for '{{.Key}}' from bucket '{{.Bucket}}'.",
+    "translation": "Löschmarkierung für '{{.Key}}' aus Bucket '{{.Bucket}}' erstellt."
+  },
+  {
+    "id": "Delete marker version ID: ",
+    "translation": "Markierung der Versions-ID löschen: "
   },
   {
     "id": "Delete multiple objects from a bucket",
@@ -176,12 +240,24 @@
     "translation": "CORS-Konfiguration aus einem Bucket löschen"
   },
   {
+    "id": "Delete the replication configuration from a bucket",
+    "translation": "Delete the replication configuration from a bucket"
+  },
+  {
+    "id": "Destination bucket: ",
+    "translation": "Zielbucket: "
+  },
+  {
     "id": "Details about bucket ",
     "translation": "Details zum Bucket "
   },
   {
     "id": "Details about your multipart upload instance:",
     "translation": "Details zur Instanz des mehrteiligen Uploads:"
+  },
+  {
+    "id": "Determine if a specified bucket exists in the target region",
+    "translation": "Bestimmen, ob ein angegebenes Bucket in der Zielregion vorhanden ist"
   },
   {
     "id": "Download Location",
@@ -192,12 +268,20 @@
     "translation": "Objekt aus einem Bucket herunterladen"
   },
   {
+    "id": "Download an object using a managed multipart transfer",
+    "translation": "Objekt mit einer verwalteten mehrteiligen Übertragung herunterladen"
+  },
+  {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
     "translation": "Lädt den angegebenen Bytebereich (RANGE) eines Objekts herunter. Weitere Informationen zum HTTP-Header 'Range' finden Sie unter http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35."
   },
   {
     "id": "ETag",
     "translation": "ETag"
+  },
+  {
+    "id": "Empty",
+    "translation": "Leer"
   },
   {
     "id": "Error Document: ",
@@ -208,6 +292,22 @@
     "translation": "Fehler beim Öffnen von '{{.Location}}' zum Schreiben."
   },
   {
+    "id": "Filter by prefix: ",
+    "translation": "Nach Präfix filtern: "
+  },
+  {
+    "id": "Filter by tag: ",
+    "translation": "Nach Tag filtern: "
+  },
+  {
+    "id": "Filter by tags: ",
+    "translation": "Nach Tags filtern: "
+  },
+  {
+    "id": "Filter: ",
+    "translation": "Filter: "
+  },
+  {
     "id": "Flag '--%s' requires a value",
     "translation": "Für das Flag '--%s' muss ein Wert angegeben werden"
   },
@@ -216,16 +316,52 @@
     "translation": "Gefunden "
   },
   {
+    "id": "Get an object's size and last modified date",
+    "translation": "Größe und Datum der letzten Änderung eines Objekts abrufen"
+  },
+  {
+    "id": "Get tags for an object",
+    "translation": "Tags für ein Objekt abrufen"
+  },
+  {
+    "id": "Get the CORS configuration for a bucket",
+    "translation": "CORS-Konfiguration für ein Bucket abrufen"
+  },
+  {
+    "id": "Get the location and billing tier of a bucket",
+    "translation": "Standort und Abrechnungsstufe eines Buckets abrufen"
+  },
+  {
+    "id": "Get the public access block configuration on a bucket",
+    "translation": "Konfiguration einer Sperre der öffentlichen Zugriffsberechtigung in einem Bucket abrufen"
+  },
+  {
+    "id": "Get the replication configuration for a bucket",
+    "translation": "Get the replication configuration for a bucket"
+  },
+  {
     "id": "Get the static website configuration on a bucket",
     "translation": "Statische Websitekonfiguration für ein Bucket abrufen"
+  },
+  {
+    "id": "Get the versioning configuration for a bucket",
+    "translation": "Versionskonfiguration für ein Bucket abrufen"
   },
   {
     "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
     "translation": "Wenn ein Bucket als Website konfiguriert ist, werden Anforderungen für den Objektschlüssel an ein anderes Objekt im selben Bucket oder an eine URL (LOCATION) umgeleitet."
   },
   {
+    "id": "Ignore Public ACLs: ",
+    "translation": "Öffentliche ACLs ignorieren: "
+  },
+  {
     "id": "Index Suffix: ",
     "translation": "Indexsuffix: "
+  },
+  {
+    "id": "Initiate a new multipart upload",
+    "translation": "Neuen mehrteiligen Upload einleiten"
   },
   {
     "id": "Initiated",
@@ -248,12 +384,20 @@
     "translation": "Ungültiger boolescher Wert in Flag '--%s'"
   },
   {
+    "id": "Is Latest",
+    "translation": "Ist neueste"
+  },
+  {
     "id": "It was last updated on {{.lastupdated}}.",
     "translation": "Letzte Aktualisierung: {{.lastupdated}}."
   },
   {
     "id": "Key",
     "translation": "Schlüssel"
+  },
+  {
+    "id": "Key Marker: ",
+    "translation": "Schlüsselmarkierung: "
   },
   {
     "id": "Last Modified",
@@ -272,6 +416,22 @@
     "translation": "Begrenzt die Antwort auf Schlüssel, die mit dem angegebenen Präfix (PREFIX) beginnen."
   },
   {
+    "id": "List active multipart uploads",
+    "translation": "Aktive mehrteilige Uploads auflisten"
+  },
+  {
+    "id": "List all buckets in a service instance",
+    "translation": "Alle Buckets in einer Serviceinstanz auflisten"
+  },
+  {
+    "id": "List all buckets in a service instance and their provisioning codes",
+    "translation": "Alle Buckets in einer Serviceinstanz und ihre Bereitstellungscodes auflisten"
+  },
+  {
+    "id": "List all object versions in a specific bucket",
+    "translation": "Alle Objektversionen in einem bestimmten Bucket auflisten"
+  },
+  {
     "id": "List all objects in a specific bucket",
     "translation": "Alle Objekte in einem bestimmten Bucket auflisten"
   },
@@ -282,6 +442,10 @@
   {
     "id": "List configuration values.",
     "translation": "Listet die Konfigurationswerte auf."
+  },
+  {
+    "id": "List parts of an active multipart upload",
+    "translation": "Teile eines aktiven mehrteiligen Uploads auflisten"
   },
   {
     "id": "Location Constraint",
@@ -302,6 +466,10 @@
   {
     "id": "No buckets found in your account.",
     "translation": "In Ihrem Konto wurden keine Buckets gefunden."
+  },
+  {
+    "id": "No tags returned",
+    "translation": "Keine Tags zurückgegeben"
   },
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
@@ -344,6 +512,18 @@
     "translation": "Teilenummer (VALUE), nach der die Auflistung beginnt"
   },
   {
+    "id": "Poll an API until a particular condition is satisfied",
+    "translation": "API abfragen, bis eine bestimmte Bedingung erfüllt ist"
+  },
+  {
+    "id": "Priority: ",
+    "translation": "Priorität: "
+  },
+  {
+    "id": "Public Access Block Configuration",
+    "translation": "Konfiguration einer Sperre der öffentlichen Zugriffsberechtigung"
+  },
+  {
     "id": "Redirect Hostname: ",
     "translation": "Hostname für die Umleitung: "
   },
@@ -360,8 +540,20 @@
     "translation": "Endpunkt-URL (URL) der Region."
   },
   {
+    "id": "Remove public access block configuration from a bucket",
+    "translation": "Konfiguration einer Sperre der öffentlichen Zugriffsberechtigung aus einem Bucket entfernen"
+  },
+  {
     "id": "Remove static website configuration from a bucket",
     "translation": "Statische Websitekonfiguration aus einem Bucket entfernen"
+  },
+  {
+    "id": "Remove tags from an object",
+    "translation": "Tags von einem Objekt entfernen"
+  },
+  {
+    "id": "Replication Configuration",
+    "translation": "Replikationskonfiguration"
   },
   {
     "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
@@ -400,6 +592,10 @@
     "translation": "Angepassten Serviceendpunkt für alle Operationen festlegen"
   },
   {
+    "id": "Set public access block configuration on a bucket",
+    "translation": "Konfiguration einer Sperre der öffentlichen Zugriffsberechtigung in einem Bucket festlegen"
+  },
+  {
     "id": "Set regions endpoint URL",
     "translation": "Endpunkt-URL für Regionen festlegen"
   },
@@ -408,12 +604,24 @@
     "translation": "Statische Websitekonfiguration für ein Bucket festlegen"
   },
   {
+    "id": "Set tags on an object",
+    "translation": "Tags für ein Objekt festlegen"
+  },
+  {
     "id": "Set the CORS configuration on a bucket",
     "translation": "CORS-Konfiguration für ein Bucket festlegen"
   },
   {
     "id": "Set the default location for downloads.",
     "translation": "Legt die Standardposition für Downloads fest."
+  },
+  {
+    "id": "Set the replication configuration on a bucket",
+    "translation": "Set the replication configuration on a bucket"
+  },
+  {
+    "id": "Set the versioning configuration on a bucket",
+    "translation": "Versionskonfiguration für ein Bucket festlegen"
   },
   {
     "id": "Sets the Cache-Control `HEADER` of the response.",
@@ -470,6 +678,14 @@
   {
     "id": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. `DIRECTIVE` values: COPY, REPLACE.",
     "translation": "Gibt an, ob die Metadaten aus dem Quellenobjekt kopiert oder durch Metadaten ersetzt werden, die in der Anforderung bereitgestellt werden. Werte für die `ANWEISUNG`: KOPIEREN, ERSETZEN."
+  },
+  {
+    "id": "Specifies whether to copy the tag-set from the source object or replace it with the tag-set provided",
+    "translation": "Gibt an, ob die Tag-Gruppe aus dem Quellenobjekt kopiert oder durch die bereitgestellte Tag-Gruppe ersetzt werden soll"
+  },
+  {
+    "id": "Status: ",
+    "translation": "Status: "
   },
   {
     "id": "Store CRN in the config",
@@ -620,12 +836,24 @@
     "translation": "Die Anzahl der 'Goroutines', die pro Uploadaufruf den parallelen Betrieb aufnehmen sollen, wenn Teile gesendet werden. Der Standardwert ist 5."
   },
   {
+    "id": "The object version identifier",
+    "translation": "Versions-ID des Objekts"
+  },
+  {
     "id": "The operation will do not ask for confirmation.",
     "translation": "Die Operation fordert Sie nicht zur Bestätigung auf."
   },
   {
+    "id": "The public access block configuration was not found.",
+    "translation": "Die Konfiguration einer Sperre der öffentlichen Zugriffsberechtigung wurde nicht gefunden."
+  },
+  {
     "id": "The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB.",
     "translation": "Der Bereich der aus dem Quellenobjekt zu kopierenden Byte. Der Bereichswert im Format 'bytes=erster_wert-letzter_wert' verwenden, wobei 'erster_wert' und 'letzer_wert' die relativen Byteadressen mit der Basis null angeben, die kopiert werden sollen. Die Angabe 'bytes=0-9' gibt beispielweise an, dass die ersten  zehn Byte der Quelle kopiert werden sollen. Ein Bereich kann nur kopiert werden, wenn die Größe des Quellenobjekts 5 MB überschreitet."
+  },
+  {
+    "id": "The replication configuration was not found",
+    "translation": "Die Replikationskonfiguration wurde nicht gefunden"
   },
   {
     "id": "The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.",
@@ -676,6 +904,10 @@
     "translation": "Verwenden Sie die folgenden Markierungen im Befehl 'next', um die nächste Gruppe von mehrteiligen Uploads abzurufen:"
   },
   {
+    "id": "To retrieve the next set of objects use the following values for the next command: ",
+    "translation": "Um die nächste Gruppe von Objekten abzurufen, verwenden Sie für den nächsten Befehl die folgenden Werte: "
+  },
+  {
     "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
     "translation": "Verwenden Sie den folgenden Schlüssel als Parameter '--marker' im Befehl 'next', um die nächste Gruppe von Objekten abzurufen: "
   },
@@ -684,8 +916,16 @@
     "translation": "Verwenden Sie die folgende Markierung als Markierung für die Teilenummer (part-number-marker) im Befehl 'next', um die nächste Gruppe von Teilen abzurufen: "
   },
   {
+    "id": "Together with another listing parameter, specifies the key from which to start listing",
+    "translation": "Gibt zusammen mit einem anderen Listenparameter den Schlüssel an, ab dem die Auflistung gestartet werden soll."
+  },
+  {
     "id": "Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.",
     "translation": "Dieser Parameter gibt zusammen mit 'key-marker' den mehrteiligen Upload an, nach dem die Auflistung beginnen soll. Ist 'key-marker' nicht angegeben, wird der Parameter 'upload-id-marker' ignoriert."
+  },
+  {
+    "id": "Together with key-marker, specifies the object version from which to start listing object versions in a bucket",
+    "translation": "Gibt zusammen mit der Schlüsselmarkierung die Objektversion an, ab der Objektversionen in einem Bucket aufgelistet werden sollen"
   },
   {
     "id": "Try logging in using 'ibmcloud login'.",
@@ -788,12 +1028,20 @@
     "translation": "Upload-ID, die den mehrteiligen Upload identifiziert."
   },
   {
+    "id": "Upload a part",
+    "translation": "Teil hochladen"
+  },
+  {
     "id": "Upload a part by copying data from an existing object",
     "translation": "Teil durch Kopieren von Daten aus einem vorhandenen Objekt hochladen"
   },
   {
     "id": "Upload an object to a bucket",
     "translation": "Objekt in Bucket hochladen"
+  },
+  {
+    "id": "Upload an object using a managed multipart transfer",
+    "translation": "Objekt mithilfe einer verwalteten mehrteiligen Übertragung hochladen"
   },
   {
     "id": "UploadId",
@@ -810,6 +1058,22 @@
   {
     "id": "Value",
     "translation": "Wert"
+  },
+  {
+    "id": "Version ID",
+    "translation": "Versions-ID"
+  },
+  {
+    "id": "Version ID Marker: ",
+    "translation": "Markierung der Versions-ID: "
+  },
+  {
+    "id": "Version ID: ",
+    "translation": "Versions-ID: "
+  },
+  {
+    "id": "Versioning Configuration",
+    "translation": "Versionskonfiguration"
   },
   {
     "id": "WARNING: An object with the name '{{.file}}' already exists at '{{.dl}}'.",
@@ -868,8 +1132,16 @@
     "translation": "Keine Buckets"
   },
   {
+    "id": "no delete markers in bucket '",
+    "translation": "keine Löschmarkierungen in Bucket '"
+  },
+  {
     "id": "no multipart uploads in bucket '",
     "translation": "Keine mehrteiligen Uploads in Bucket '"
+  },
+  {
+    "id": "no object versions in bucket '",
+    "translation": "Keine Objektversionen in Bucket '"
   },
   {
     "id": "no objects in bucket '",
@@ -878,217 +1150,5 @@
   {
     "id": "no parts in the multipart upload for '",
     "translation": "Keine Teile im mehrteiligen Upload für '"
-  },
-  {
-    "id": "Set tags on an object",
-    "translation": "Tags für ein Objekt festlegen"
-  },
-  {
-    "id": "The object version identifier",
-    "translation": "Versions-ID des Objekts"
-  },
-  {
-    "id": "(empty response from server; versioning has never been configured for this bucket)",
-    "translation": "(leere Antwort vom Server; Versionssteuerung wurde für dieses Bucket nie konfiguriert)"
-  },
-  {
-    "id": "Version ID: ",
-    "translation": "Versions-ID: "
-  },
-  {
-    "id": "Version ID",
-    "translation": "Versions-ID"
-  },
-  {
-    "id": "Abort an existing multipart upload",
-    "translation": "Vorhandenen mehrteiligen Upload abbrechen"
-  },
-  {
-    "id": "To retrieve the next set of objects use the following values for the next command: ",
-    "translation": "Um die nächste Gruppe von Objekten abzurufen, verwenden Sie für den nächsten Befehl die folgenden Werte: "
-  },
-  {
-    "id": "List parts of an active multipart upload",
-    "translation": "Teile eines aktiven mehrteiligen Uploads auflisten"
-  },
-  {
-    "id": " object versions in bucket '",
-    "translation": " Objektversionen im Bucket '"
-  },
-  {
-    "id": "Get the versioning configuration for a bucket",
-    "translation": "Versionskonfiguration für ein Bucket abrufen"
-  },
-  {
-    "id": "Download an object using a managed multipart transfer",
-    "translation": "Objekt mit einer verwalteten mehrteiligen Übertragung herunterladen"
-  },
-  {
-    "id": "Block Public ACLs: ",
-    "translation": "Öffentliche ACLs blockieren: "
-  },
-  {
-    "id": "Together with key-marker, specifies the object version from which to start listing object versions in a bucket",
-    "translation": "Gibt zusammen mit der Schlüsselmarkierung die Objektversion an, ab der Objektversionen in einem Bucket aufgelistet werden sollen"
-  },
-  {
-    "id": "Get the location and billing tier of a bucket",
-    "translation": "Standort und Abrechnungsstufe eines Buckets abrufen"
-  },
-  {
-    "id": "Remove tags from an object",
-    "translation": "Tags von einem Objekt entfernen"
-  },
-  {
-    "id": "List all buckets in a service instance",
-    "translation": "Alle Buckets in einer Serviceinstanz auflisten"
-  },
-  {
-    "id": "Versioning Configuration",
-    "translation": "Versionskonfiguration"
-  },
-  {
-    "id": "Determine if a specified bucket exists in the target region",
-    "translation": "Bestimmen, ob ein angegebenes Bucket in der Zielregion vorhanden ist"
-  },
-  {
-    "id": "Ignore Public ACLs: ",
-    "translation": "Öffentliche ACLs ignorieren: "
-  },
-  {
-    "id": "Version ID Marker: ",
-    "translation": "Markierung der Versions-ID: "
-  },
-  {
-    "id": "Complete an existing multipart upload",
-    "translation": "Vorhandenen mehrteiligen Upload abschließen"
-  },
-  {
-    "id": "Remove public access block configuration from a bucket",
-    "translation": "Konfiguration einer Sperre der öffentlichen Zugriffsberechtigung aus einem Bucket entfernen"
-  },
-  {
-    "id": "1 object version in bucket '",
-    "translation": "1 Objektversion in Bucket '"
-  },
-  {
-    "id": "no delete markers in bucket '",
-    "translation": "keine Löschmarkierungen in Bucket '"
-  },
-  {
-    "id": "Key Marker: ",
-    "translation": "Schlüsselmarkierung: "
-  },
-  {
-    "id": "Creation Template ID",
-    "translation": "Erstellung einer Vorlagen-ID"
-  },
-  {
-    "id": "Status: ",
-    "translation": "Status: "
-  },
-  {
-    "id": "List all object versions in a specific bucket",
-    "translation": "Alle Objektversionen in einem bestimmten Bucket auflisten"
-  },
-  {
-    "id": "Change plugin configuration",
-    "translation": "Plug-in-Konfiguration ändern"
-  },
-  {
-    "id": "Is Latest",
-    "translation": "Ist neueste"
-  },
-  {
-    "id": "1 delete marker in bucket '",
-    "translation": "1 Löschmarkierung im Bucket '"
-  },
-  {
-    "id": "Get an object's size and last modified date",
-    "translation": "Größe und Datum der letzten Änderung eines Objekts abrufen"
-  },
-  {
-    "id": "Set the versioning configuration on a bucket",
-    "translation": "Versionskonfiguration für ein Bucket festlegen"
-  },
-  {
-    "id": "Specifies whether to copy the tag-set from the source object or replace it with the tag-set provided",
-    "translation": "Gibt an, ob die Tag-Gruppe aus dem Quellenobjekt kopiert oder durch die bereitgestellte Tag-Gruppe ersetzt werden soll"
-  },
-  {
-    "id": "Set public access block configuration on a bucket",
-    "translation": "Konfiguration einer Sperre der öffentlichen Zugriffsberechtigung in einem Bucket festlegen"
-  },
-  {
-    "id": "no object versions in bucket '",
-    "translation": "Keine Objektversionen in Bucket '"
-  },
-  {
-    "id": "No tags returned",
-    "translation": "Keine Tags zurückgegeben"
-  },
-  {
-    "id": "List all buckets in a service instance and their provisioning codes",
-    "translation": "Alle Buckets in einer Serviceinstanz und ihre Bereitstellungscodes auflisten"
-  },
-  {
-    "id": "List active multipart uploads",
-    "translation": "Aktive mehrteilige Uploads auflisten"
-  },
-  {
-    "id": " delete markers in bucket '",
-    "translation": " Löschen der Markierungen in Bucket '"
-  },
-  {
-    "id": "A tag-set for the object encoded as URL query parameters (`Key1=Value1`). For `object-tagging-put`, a `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
-    "translation": "Ein Tag-Set für das Objekt, das als URL-Abfrageparameter codiert ist (`Key1=Value1`). Für `object-tagging-put` eine `STRUKTUR` mit JSON-Syntax. Weitere Informationen finden Sie in der Dokumentation zu IBM Cloud."
-  },
-  {
-    "id": "Public Access Block Configuration",
-    "translation": "Konfiguration einer Sperre der öffentlichen Zugriffsberechtigung"
-  },
-  {
-    "id": "Poll an API until a particular condition is satisfied",
-    "translation": "API abfragen, bis eine bestimmte Bedingung erfüllt ist"
-  },
-  {
-    "id": "Delete marker created for '{{.Key}}' from bucket '{{.Bucket}}'.",
-    "translation": "Für '{{.Key}}' aus Bucket '{{.Bucket}}' erstellte Markierung löschen."
-  },
-  {
-    "id": "Delete '{{.Key}}' from bucket '{{.Bucket}}' with version ID '{{.VersionId}}' ran successfully.",
-    "translation": "Löschen von '{{.Key}}' aus Bucket '{{.Bucket}}' mit Versions-ID '{{.VersionId}}' erfolgreich ausgeführt."
-  },
-  {
-    "id": "Get the public access block configuration on a bucket",
-    "translation": "Konfiguration einer Sperre der öffentlichen Zugriffsberechtigung in einem Bucket abrufen"
-  },
-  {
-    "id": "Together with another listing parameter, specifies the key from which to start listing",
-    "translation": "Gibt zusammen mit einem anderen Listenparameter den Schlüssel an, ab dem die Auflistung gestartet werden soll."
-  },
-  {
-    "id": "Get the CORS configuration for a bucket",
-    "translation": "CORS-Konfiguration für ein Bucket abrufen"
-  },
-  {
-    "id": "Get tags for an object",
-    "translation": "Tags für ein Objekt abrufen"
-  },
-  {
-    "id": "Copy Source Version ID: ",
-    "translation": "Quellenversions-ID kopieren: "
-  },
-  {
-    "id": "Initiate a new multipart upload",
-    "translation": "Neuen mehrteiligen Upload einleiten"
-  },
-  {
-    "id": "Upload an object using a managed multipart transfer",
-    "translation": "Objekt mithilfe einer verwalteten mehrteiligen Übertragung hochladen"
-  },
-  {
-    "id": "Upload a part",
-    "translation": "Teil hochladen"
   }
 ]

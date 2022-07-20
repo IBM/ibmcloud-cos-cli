@@ -1,5 +1,9 @@
 [
   {
+    "id": " and tags: ",
+    "translation": " 和标记： "
+  },
+  {
     "id": " buckets found in your account:\n",
     "translation": " 个存储区位于您的帐户中：\n"
   },
@@ -8,12 +12,20 @@
     "translation": " 存储区："
   },
   {
+    "id": " delete markers in bucket '",
+    "translation": " 存储区中的删除标记 '"
+  },
+  {
     "id": " downloaded.",
     "translation": " 已下载。"
   },
   {
     "id": " multipart uploads in bucket '",
     "translation": " 多重部件上传位于存储区中 '"
+  },
+  {
+    "id": " object versions in bucket '",
+    "translation": " 存储区中的对象版本 '"
   },
   {
     "id": " objects in bucket '",
@@ -28,6 +40,10 @@
     "translation": "(`SOURCE`) 源存储区的名称和源对象的键名，使用斜杠 (/) 隔开。必须为 URL 编码形式。"
   },
   {
+    "id": "(empty response from server; versioning has never been configured for this bucket)",
+    "translation": "（来自服务器的空响应；从未对此存储区配置版本控制）"
+  },
+  {
     "id": "1 bucket found in your account:\n",
     "translation": "1 个存储区位于您的帐户中：\n"
   },
@@ -36,12 +52,20 @@
     "translation": "1 个存储区："
   },
   {
+    "id": "1 delete marker in bucket '",
+    "translation": "存储区中的 1 个删除标记 '"
+  },
+  {
     "id": "1 multipart upload in bucket '",
     "translation": "1 个多重部件上传位于存储区中 '"
   },
   {
     "id": "1 object in bucket '",
     "translation": "1 个对象位于存储区中 '"
+  },
+  {
+    "id": "1 object version in bucket '",
+    "translation": "存储区中有 1 个对象版本 '"
   },
   {
     "id": "1 part in the multipart upload for '",
@@ -72,6 +96,14 @@
     "translation": "标准的 `MIME` 类型，用于描述对象数据的格式。"
   },
   {
+    "id": "A tag-set for the object encoded as URL query parameters (`Key1=Value1`). For `object-tagging-put`, a `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "作为 URL 查询参数进行编码的对象的标记集（`Key1=Value1`）。 对于 ` object-tagging-put ` ，使用 JSON 语法的 ` STRUCTURE `。 请参阅 IBM Cloud 文档。"
+  },
+  {
+    "id": "Abort an existing multipart upload",
+    "translation": "中止现有多重部件上传"
+  },
+  {
     "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
     "translation": "已拒绝对您的 IBM Cloud 帐户的访问。请通过输入 ibmcloud login --sso 再次登录。"
   },
@@ -92,12 +124,20 @@
     "translation": "“--%s”中的标记语法无效"
   },
   {
+    "id": "Block Public ACLs: ",
+    "translation": "阻止公共 ACL： "
+  },
+  {
     "id": "Bucket '{{.Bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
     "translation": "在您的 IBM Cloud Object Storage 帐户中发现区域 {{.region}} 中的存储区“{{.Bucket}}”。"
   },
   {
     "id": "CRN",
     "translation": "CRN"
+  },
+  {
+    "id": "Change plugin configuration",
+    "translation": "更改插件配置"
   },
   {
     "id": "Class: ",
@@ -116,6 +156,10 @@
     "translation": "通用前缀："
   },
   {
+    "id": "Complete an existing multipart upload",
+    "translation": "完成现有多重部件上传"
+  },
+  {
     "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
     "translation": "如果对象在指定时间 (`TIMESTAMP`) 后进行了修改，请复制该对象。"
   },
@@ -132,6 +176,10 @@
     "translation": "如果对象的实体标记 (Etag) 与指定的标记 (`ETAG`) 匹配，请复制对象。"
   },
   {
+    "id": "Copy Source Version ID: ",
+    "translation": "复制源版本标识： "
+  },
+  {
     "id": "Copy an object from one bucket to another",
     "translation": "将对象从一个存储区复制到另一个存储区"
   },
@@ -144,6 +192,10 @@
     "translation": "创建日期"
   },
   {
+    "id": "Creation Template ID",
+    "translation": "创建模板标识"
+  },
+  {
     "id": "Date Created",
     "translation": "创建日期"
   },
@@ -153,7 +205,11 @@
   },
   {
     "id": "Delete '{{.Key}}' from bucket '{{.Bucket}}' ran successfully.",
-    "translation": "已成功运行从存储区“{{.Bucket}}”中删除“{{.Key}}”的操作。"
+    "translation": "已成功执行从存储区“{{.Bucket}}”中删除“{{.Key}}”的操作。"
+  },
+  {
+    "id": "Delete '{{.Key}}' from bucket '{{.Bucket}}' with version ID '{{.VersionId}}' ran successfully.",
+    "translation": "已成功执行从版本标识为“{{.VersionId}}”的存储区“{{.Bucket}}”中删除“{{.Key}}”的操作。"
   },
   {
     "id": "Delete an existing bucket",
@@ -161,7 +217,15 @@
   },
   {
     "id": "Delete an object from a bucket",
-    "translation": "从存储区中删除一个对象"
+    "translation": "从存储区中删除对象"
+  },
+  {
+    "id": "Delete marker created for '{{.Key}}' from bucket '{{.Bucket}}'.",
+    "translation": "从存储区“{{.Bucket}}”中删除为“{{.Key}}”创建的标记。"
+  },
+  {
+    "id": "Delete marker version ID: ",
+    "translation": "删除标记版本标识： "
   },
   {
     "id": "Delete multiple objects from a bucket",
@@ -169,11 +233,19 @@
   },
   {
     "id": "Delete multiple objects from bucket '{{.Bucket}}' ran successfully.",
-    "translation": "已成功运行从存储区“{{.Bucket}}”中删除多个对象的操作。"
+    "translation": "已成功执行从存储区“{{.Bucket}}”中删除多个对象的操作。"
   },
   {
     "id": "Delete the CORS configuration from a bucket",
     "translation": "从存储区中删除 CORS 配置"
+  },
+  {
+    "id": "Delete the replication configuration from a bucket",
+    "translation": "Delete the replication configuration from a bucket"
+  },
+  {
+    "id": "Destination bucket: ",
+    "translation": "目标存储区： "
   },
   {
     "id": "Details about bucket ",
@@ -184,12 +256,20 @@
     "translation": "有关多重部件上传实例的详细信息："
   },
   {
+    "id": "Determine if a specified bucket exists in the target region",
+    "translation": "确定目标区域中是否存在指定的存储区"
+  },
+  {
     "id": "Download Location",
     "translation": "下载位置"
   },
   {
     "id": "Download an object from a bucket",
     "translation": "从存储区下载对象"
+  },
+  {
+    "id": "Download an object using a managed multipart transfer",
+    "translation": "使用受管多重部件传输下载对象"
   },
   {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
@@ -200,12 +280,32 @@
     "translation": "ETag"
   },
   {
+    "id": "Empty",
+    "translation": "空"
+  },
+  {
     "id": "Error Document: ",
     "translation": "错误文档： "
   },
   {
     "id": "Error opening '{{.Location}}' to write.",
     "translation": "打开“{{.Location}}”以执行写操作时出错。"
+  },
+  {
+    "id": "Filter by prefix: ",
+    "translation": "按前缀过滤： "
+  },
+  {
+    "id": "Filter by tag: ",
+    "translation": "按标记过滤： "
+  },
+  {
+    "id": "Filter by tags: ",
+    "translation": "按标记过滤： "
+  },
+  {
+    "id": "Filter: ",
+    "translation": "过滤器： "
   },
   {
     "id": "Flag '--%s' requires a value",
@@ -216,16 +316,52 @@
     "translation": "已找到 "
   },
   {
+    "id": "Get an object's size and last modified date",
+    "translation": "获取对象的大小和上次修改日期"
+  },
+  {
+    "id": "Get tags for an object",
+    "translation": "获取对象的标记"
+  },
+  {
+    "id": "Get the CORS configuration for a bucket",
+    "translation": "获取存储区的 CORS 配置"
+  },
+  {
+    "id": "Get the location and billing tier of a bucket",
+    "translation": "获取存储区的位置和计费层"
+  },
+  {
+    "id": "Get the public access block configuration on a bucket",
+    "translation": "获取存储区上的公共访问块配置"
+  },
+  {
+    "id": "Get the replication configuration for a bucket",
+    "translation": "Get the replication configuration for a bucket"
+  },
+  {
     "id": "Get the static website configuration on a bucket",
     "translation": "获取存储区上的静态 Web 站点配置"
+  },
+  {
+    "id": "Get the versioning configuration for a bucket",
+    "translation": "获取存储区的版本控制配置"
   },
   {
     "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
     "translation": "如果将存储区配置为 Web 站点，那么将对对象密钥的请求重定向到同一存储区中的另一个对象或 URL (`LOCATION`)。"
   },
   {
+    "id": "Ignore Public ACLs: ",
+    "translation": "忽略公共 ACL： "
+  },
+  {
     "id": "Index Suffix: ",
     "translation": "索引后缀： "
+  },
+  {
+    "id": "Initiate a new multipart upload",
+    "translation": "启动新的多重部件上传"
   },
   {
     "id": "Initiated",
@@ -248,12 +384,20 @@
     "translation": "标志“--%s”中的布尔值无效"
   },
   {
+    "id": "Is Latest",
+    "translation": "最新"
+  },
+  {
     "id": "It was last updated on {{.lastupdated}}.",
     "translation": "上次更新时间：{{.lastupdated}}."
   },
   {
     "id": "Key",
     "translation": "键"
+  },
+  {
+    "id": "Key Marker: ",
+    "translation": "键标记： "
   },
   {
     "id": "Last Modified",
@@ -272,16 +416,36 @@
     "translation": "将响应限于以指定的 `PREFIX` 开头的键。"
   },
   {
+    "id": "List active multipart uploads",
+    "translation": "列出活动的多重部件上传"
+  },
+  {
+    "id": "List all buckets in a service instance",
+    "translation": "列出服务实例中的所有存储区"
+  },
+  {
+    "id": "List all buckets in a service instance and their provisioning codes",
+    "translation": "列出服务实例中的所有存储区及其供应代码"
+  },
+  {
+    "id": "List all object versions in a specific bucket",
+    "translation": "列出特定存储区中的所有对象版本"
+  },
+  {
     "id": "List all objects in a specific bucket",
     "translation": "列出特定存储区中的所有对象"
   },
   {
     "id": "List configuration",
-    "translation": "列示配置"
+    "translation": "列出配置"
   },
   {
     "id": "List configuration values.",
-    "translation": "列示配置值。"
+    "translation": "列出配置值。"
+  },
+  {
+    "id": "List parts of an active multipart upload",
+    "translation": "列出活动多重部件上传的部件"
   },
   {
     "id": "Location Constraint",
@@ -293,7 +457,7 @@
   },
   {
     "id": "Max number of `PARTS` which will be uploaded to S3 that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.",
-    "translation": "将上载至 S3 的最大 `PARTS` 数，用于计算要上载的对象的部件的大小。上限为 10,000 个部件。"
+    "translation": "将上传至 S3 的最大 `PARTS` 数，用于计算要上传的对象的部件的大小。上限为 10,000 个部件。"
   },
   {
     "id": "Name",
@@ -302,6 +466,10 @@
   {
     "id": "No buckets found in your account.",
     "translation": "在您的帐户中找不到存储区。"
+  },
+  {
+    "id": "No tags returned",
+    "translation": "未返回标记"
   },
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
@@ -344,6 +512,18 @@
     "translation": "部件号 `VALUE`，在其后列表开始"
   },
   {
+    "id": "Poll an API until a particular condition is satisfied",
+    "translation": "轮询 API，直到满足特定条件为止"
+  },
+  {
+    "id": "Priority: ",
+    "translation": "优先级： "
+  },
+  {
+    "id": "Public Access Block Configuration",
+    "translation": "公共访问块配置"
+  },
+  {
     "id": "Redirect Hostname: ",
     "translation": "重定向主机名： "
   },
@@ -360,8 +540,20 @@
     "translation": "区域端点 `URL`。"
   },
   {
+    "id": "Remove public access block configuration from a bucket",
+    "translation": "从存储区中除去公共访问块配置"
+  },
+  {
     "id": "Remove static website configuration from a bucket",
     "translation": "从存储区中除去静态 Web 站点配置"
+  },
+  {
+    "id": "Remove tags from an object",
+    "translation": "从对象中除去标记"
+  },
+  {
+    "id": "Replication Configuration",
+    "translation": "复制配置"
   },
   {
     "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
@@ -400,6 +592,10 @@
     "translation": "为所有操作设置定制服务端点"
   },
   {
+    "id": "Set public access block configuration on a bucket",
+    "translation": "在存储区上设置公共访问块配置"
+  },
+  {
     "id": "Set regions endpoint URL",
     "translation": "设置区域端点 URL"
   },
@@ -408,12 +604,24 @@
     "translation": "在存储区上设置静态 Web 站点配置"
   },
   {
+    "id": "Set tags on an object",
+    "translation": "在对象上设置标记"
+  },
+  {
     "id": "Set the CORS configuration on a bucket",
     "translation": "在存储区上设置 CORS 配置"
   },
   {
     "id": "Set the default location for downloads.",
     "translation": "设置下载的缺省位置。"
+  },
+  {
+    "id": "Set the replication configuration on a bucket",
+    "translation": "Set the replication configuration on a bucket"
+  },
+  {
+    "id": "Set the versioning configuration on a bucket",
+    "translation": "在存储区上设置版本控制配置"
   },
   {
     "id": "Sets the Cache-Control `HEADER` of the response.",
@@ -445,7 +653,7 @@
   },
   {
     "id": "Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.",
-    "translation": "将此值设置为 true 会导致 SDK 在发生故障时不会调用 AbortMultipartUpload，从而将所有成功上载的部件留在 S3 上以便进行手动恢复。"
+    "translation": "将此值设置为 true 会导致 SDK 在发生故障时不会调用 AbortMultipartUpload，从而将所有成功上传的部件留在 S3 上以便进行手动恢复。"
   },
   {
     "id": "Size",
@@ -461,7 +669,7 @@
   },
   {
     "id": "Specifies the `KEY` to start with when listing objects in a bucket.",
-    "translation": "指定在存储区中列示对象时开头所用的 `KEY`。"
+    "translation": "指定在存储区中列出对象时开头所用的 `KEY`。"
   },
   {
     "id": "Specifies what content encodings (`CONTENT_ENCODING`) have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.",
@@ -472,16 +680,24 @@
     "translation": "指定是从源对象复制元数据还是将其替换为请求中提供的元数据。“DIRECTIVE”值：COPY 和 REPLACE。"
   },
   {
+    "id": "Specifies whether to copy the tag-set from the source object or replace it with the tag-set provided",
+    "translation": "指定是从源对象复制标记集，还是将其替换为所提供的标记集"
+  },
+  {
+    "id": "Status: ",
+    "translation": "状态： "
+  },
+  {
     "id": "Store CRN in the config",
-    "translation": "在配置中存储 CRN"
+    "translation": "将 CRN 存储在配置中"
   },
   {
     "id": "Store Default Download Location in the config",
-    "translation": "在配置中存储缺省下载位置"
+    "translation": "将缺省下载位置存储在配置中"
   },
   {
     "id": "Store Default Region in the config",
-    "translation": "在配置中存储缺省区域"
+    "translation": "将缺省区域存储在配置中"
   },
   {
     "id": "Store HMAC credentials in the config",
@@ -585,7 +801,7 @@
   },
   {
     "id": "The `PATH` to the file to upload.",
-    "translation": "要上载的文件的 `PATH`。"
+    "translation": "要上传的文件的 `PATH`。"
   },
   {
     "id": "The `REGION` where the bucket is present. If this flag is not provided, the program will use the default option specified in config.",
@@ -601,7 +817,7 @@
   },
   {
     "id": "The buffer `SIZE` (in bytes) to use when buffering data into chunks and ending them as parts to S3. The minimum allowed part size is 5MB.",
-    "translation": "将数据缓存为若干块并最终将它们作为部件上载到 S3 时要使用的缓冲区 `SIZE`（以字节计）。所允许的最小块大小为 5MB。"
+    "translation": "将数据缓存为若干块并最终将它们作为部件上传到 S3 时要使用的缓冲区 `SIZE`（以字节计）。所允许的最小块大小为 5MB。"
   },
   {
     "id": "The download destination '{{.Location}}' is a directory.",
@@ -617,15 +833,27 @@
   },
   {
     "id": "The number of goroutines to spin up in parallel per call to Upload when sending parts. Default value is 5.",
-    "translation": "发送部件时，每个上载调用中要并行启动的 goroutine 数。缺省值为 5。"
+    "translation": "发送部件时，每个上传调用中要并行启动的 goroutine 数。缺省值为 5。"
+  },
+  {
+    "id": "The object version identifier",
+    "translation": "对象版本标识"
   },
   {
     "id": "The operation will do not ask for confirmation.",
     "translation": "此操作不会请求确认。"
   },
   {
+    "id": "The public access block configuration was not found.",
+    "translation": "未找到公共访问块配置。"
+  },
+  {
     "id": "The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB.",
     "translation": "要从源对象复制的字节的范围。 范围值必须使用格式 bytes=first-last，其中 first 和 last 是要复制的基于零的字节偏移量。 例如，bytes=0-9 指示要复制源的前 10 个字节。 仅当源对象大于 5 MB 时，才能复制范围。"
+  },
+  {
+    "id": "The replication configuration was not found",
+    "translation": "未找到复制配置"
   },
   {
     "id": "The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.",
@@ -676,6 +904,10 @@
     "translation": "要检索下一组多重部件上传，请在下一条命令中使用以下标记："
   },
   {
+    "id": "To retrieve the next set of objects use the following values for the next command: ",
+    "translation": "要检索下一组对象，请将以下值用于下一个命令： "
+  },
+  {
     "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
     "translation": "要检索下一组对象，请使用此键作为下一条命令的 --marker： "
   },
@@ -684,8 +916,16 @@
     "translation": "要检索下一组部件，请使用此标记作为下一条命令的 part-number-marker： "
   },
   {
+    "id": "Together with another listing parameter, specifies the key from which to start listing",
+    "translation": "与另一个列表参数一起指定要从其开始列表的键"
+  },
+  {
     "id": "Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.",
-    "translation": "结合 key-marker 一起指定多重部件上传，上传后应开始列示多重部件。如果未指定 key-marker，那么将忽略 upload-id-marker 参数。"
+    "translation": "与 key-marker 一起指定多重部件上传，上传后应开始列出多重部件。如果未指定 key-marker，那么将忽略 upload-id-marker 参数。"
+  },
+  {
+    "id": "Together with key-marker, specifies the object version from which to start listing object versions in a bucket",
+    "translation": "与 key-marker 一起指定从哪个对象版本开始列出存储区中的对象版本"
   },
   {
     "id": "Try logging in using 'ibmcloud login'.",
@@ -788,12 +1028,20 @@
     "translation": "用于标识多重部件上传的上传 `ID`。"
   },
   {
+    "id": "Upload a part",
+    "translation": "上传部件"
+  },
+  {
     "id": "Upload a part by copying data from an existing object",
-    "translation": "通过从现有对象复制数据来上载部件"
+    "translation": "通过从现有对象复制数据来上传部件"
   },
   {
     "id": "Upload an object to a bucket",
     "translation": "将对象上传到存储区"
+  },
+  {
+    "id": "Upload an object using a managed multipart transfer",
+    "translation": "使用受管多重部件传输来上传对象"
   },
   {
     "id": "UploadId",
@@ -810,6 +1058,22 @@
   {
     "id": "Value",
     "translation": "值"
+  },
+  {
+    "id": "Version ID",
+    "translation": "版本标识"
+  },
+  {
+    "id": "Version ID Marker: ",
+    "translation": "版本标识标记： "
+  },
+  {
+    "id": "Version ID: ",
+    "translation": "版本标识： "
+  },
+  {
+    "id": "Versioning Configuration",
+    "translation": "版本控制配置"
   },
   {
     "id": "WARNING: An object with the name '{{.file}}' already exists at '{{.dl}}'.",
@@ -833,19 +1097,19 @@
   },
   {
     "id": "Wait until 200 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.",
-    "translation": "轮询 head-bucket 时，请等待至收到 200 响应为止。它将每隔 5 秒轮询一次，直至达到成功状态为止。这样将在检查失败 20 次后退出并显示返回码 255。"
+    "translation": "轮询 head-bucket 时，等待直到收到 200 响应。它将每隔 5 秒轮询一次，直至达到成功状态为止。这样将在检查失败 20 次后退出并显示返回码 255。"
   },
   {
     "id": "Wait until 200 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
-    "translation": "轮询 head-object 时，等待直到收到 200 响应。  它将每隔 5 秒轮询一次，直至达到成功状态为止。  在检查失败 20 次后，此命令会退出并显示返回码 255。"
+    "translation": "轮询 head-object 时，等待直到收到 200 响应。  它将每隔 5 秒轮询一次，直至达到成功状态为止。  这样将在检查失败 20 次后退出并显示返回码 255。"
   },
   {
     "id": "Wait until 404 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
-    "translation": "轮询 head-bucket 时，等待直到收到 404 响应。  它将每隔 5 秒轮询一次，直至达到成功状态为止。  在检查失败 20 次后，此命令会退出并显示返回码 255。"
+    "translation": "轮询 head-bucket 时，等待直到收到 404 响应。  它将每隔 5 秒轮询一次，直至达到成功状态为止。  这样将在检查失败 20 次后退出并显示返回码 255。"
   },
   {
     "id": "Wait until 404 response is received when polling with head-object.  It will poll every 5 seconds until a successful state has been reached.  This will exit with a return code of 255 after 20 failed checks.",
-    "translation": "轮询 head-object 时，等待直到收到 404 响应。  它将每隔 5 秒轮询一次，直至达到成功状态为止。  在检查失败 20 次后，此命令会退出并显示返回码 255。"
+    "translation": "轮询 head-object 时，等待直到收到 404 响应。  它将每隔 5 秒轮询一次，直至达到成功状态为止。  这样将在检查失败 20 次后退出并显示返回码 255。"
   },
   {
     "id": "Website Configuration",
@@ -868,8 +1132,16 @@
     "translation": "无存储区。"
   },
   {
+    "id": "no delete markers in bucket '",
+    "translation": "存储区中没有删除标记 '"
+  },
+  {
     "id": "no multipart uploads in bucket '",
     "translation": "存储区中没有任何多重部件上传 '"
+  },
+  {
+    "id": "no object versions in bucket '",
+    "translation": "存储区中没有对象版本 '"
   },
   {
     "id": "no objects in bucket '",
@@ -878,217 +1150,5 @@
   {
     "id": "no parts in the multipart upload for '",
     "translation": "多重部件上传中没有任何部件用于 '"
-  },
-  {
-    "id": "Set tags on an object",
-    "translation": "在对象上设置标记"
-  },
-  {
-    "id": "The object version identifier",
-    "translation": "对象版本标识"
-  },
-  {
-    "id": "(empty response from server; versioning has never been configured for this bucket)",
-    "translation": "（来自服务器的空响应；从未对此存储区配置版本控制）"
-  },
-  {
-    "id": "Version ID: ",
-    "translation": "版本标识： "
-  },
-  {
-    "id": "Version ID",
-    "translation": "版本标识"
-  },
-  {
-    "id": "Abort an existing multipart upload",
-    "translation": "中止现有多重部件上载"
-  },
-  {
-    "id": "To retrieve the next set of objects use the following values for the next command: ",
-    "translation": "要检索下一组对象，请将以下值用于下一个命令： "
-  },
-  {
-    "id": "List parts of an active multipart upload",
-    "translation": "列出活动多重部件上载的部件"
-  },
-  {
-    "id": " object versions in bucket '",
-    "translation": " 存储区中的对象版本 '"
-  },
-  {
-    "id": "Get the versioning configuration for a bucket",
-    "translation": "获取存储区的版本控制配置"
-  },
-  {
-    "id": "Download an object using a managed multipart transfer",
-    "translation": "使用受管多重部件传输下载对象"
-  },
-  {
-    "id": "Block Public ACLs: ",
-    "translation": "阻止公共 ACL： "
-  },
-  {
-    "id": "Together with key-marker, specifies the object version from which to start listing object versions in a bucket",
-    "translation": "与 key-marker 一起，指定从哪个对象版本开始列示存储区中的对象版本"
-  },
-  {
-    "id": "Get the location and billing tier of a bucket",
-    "translation": "获取存储区的位置和计费层"
-  },
-  {
-    "id": "Remove tags from an object",
-    "translation": "从对象中除去标记"
-  },
-  {
-    "id": "List all buckets in a service instance",
-    "translation": "列出服务实例中的所有存储区"
-  },
-  {
-    "id": "Versioning Configuration",
-    "translation": "版本控制配置"
-  },
-  {
-    "id": "Determine if a specified bucket exists in the target region",
-    "translation": "确定目标区域中是否存在指定的存储区"
-  },
-  {
-    "id": "Ignore Public ACLs: ",
-    "translation": "忽略公共 ACL： "
-  },
-  {
-    "id": "Version ID Marker: ",
-    "translation": "版本标识标记： "
-  },
-  {
-    "id": "Complete an existing multipart upload",
-    "translation": "完成现有多重部件上载"
-  },
-  {
-    "id": "Remove public access block configuration from a bucket",
-    "translation": "从存储区中除去公共访问块配置"
-  },
-  {
-    "id": "1 object version in bucket '",
-    "translation": "存储区中有 1 个对象版本 '"
-  },
-  {
-    "id": "no delete markers in bucket '",
-    "translation": "存储区中没有删除标记 '"
-  },
-  {
-    "id": "Key Marker: ",
-    "translation": "键标记： "
-  },
-  {
-    "id": "Creation Template ID",
-    "translation": "创建模板标识"
-  },
-  {
-    "id": "Status: ",
-    "translation": "状态： "
-  },
-  {
-    "id": "List all object versions in a specific bucket",
-    "translation": "列出特定存储区中的所有对象版本"
-  },
-  {
-    "id": "Change plugin configuration",
-    "translation": "更改插件配置"
-  },
-  {
-    "id": "Is Latest",
-    "translation": "最新"
-  },
-  {
-    "id": "1 delete marker in bucket '",
-    "translation": "1 在存储区中删除 1 个标记 '"
-  },
-  {
-    "id": "Get an object's size and last modified date",
-    "translation": "获取对象的大小和上次修改日期"
-  },
-  {
-    "id": "Set the versioning configuration on a bucket",
-    "translation": "在存储区上设置版本控制配置"
-  },
-  {
-    "id": "Specifies whether to copy the tag-set from the source object or replace it with the tag-set provided",
-    "translation": "指定是从源对象复制标记集，还是将其替换为所提供的标记集"
-  },
-  {
-    "id": "Set public access block configuration on a bucket",
-    "translation": "在存储区上设置公共访问块配置"
-  },
-  {
-    "id": "no object versions in bucket '",
-    "translation": "存储区中没有对象版本 '"
-  },
-  {
-    "id": "No tags returned",
-    "translation": "未返回标记"
-  },
-  {
-    "id": "List all buckets in a service instance and their provisioning codes",
-    "translation": "列出服务实例中的所有存储区及其供应代码"
-  },
-  {
-    "id": "List active multipart uploads",
-    "translation": "列出活动的多重部件上传"
-  },
-  {
-    "id": " delete markers in bucket '",
-    "translation": " 删除存储区中的标记 '"
-  },
-  {
-    "id": "A tag-set for the object encoded as URL query parameters (`Key1=Value1`). For `object-tagging-put`, a `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
-    "translation": "作为 URL 查询参数进行编码的对象的标记集（`Key1=Value1`）。 对于 ` object-tagging-put ` ，使用 JSON 语法的 ` STRUCTURE `。 请参阅 IBM Cloud 文档。"
-  },
-  {
-    "id": "Public Access Block Configuration",
-    "translation": "公共访问块配置"
-  },
-  {
-    "id": "Poll an API until a particular condition is satisfied",
-    "translation": "轮询 API，直到满足特定条件为止"
-  },
-  {
-    "id": "Delete marker created for '{{.Key}}' from bucket '{{.Bucket}}'.",
-    "translation": "从存储区“{{.Bucket}}”中删除为“{{.Key}}”创建的标记。"
-  },
-  {
-    "id": "Delete '{{.Key}}' from bucket '{{.Bucket}}' with version ID '{{.VersionId}}' ran successfully.",
-    "translation": "已成功从版本标识为“{{.VersionId}}”的存储区“{{.Bucket}}”中删除“{{.Key}}”。"
-  },
-  {
-    "id": "Get the public access block configuration on a bucket",
-    "translation": "获取存储区上的公共访问块配置"
-  },
-  {
-    "id": "Together with another listing parameter, specifies the key from which to start listing",
-    "translation": "与另一个列表参数一起指定要从其开始列表的键"
-  },
-  {
-    "id": "Get the CORS configuration for a bucket",
-    "translation": "获取存储区的 CORS 配置"
-  },
-  {
-    "id": "Get tags for an object",
-    "translation": "获取对象的标记"
-  },
-  {
-    "id": "Copy Source Version ID: ",
-    "translation": "复制源版本标识： "
-  },
-  {
-    "id": "Initiate a new multipart upload",
-    "translation": "启动新的多重部件上载"
-  },
-  {
-    "id": "Upload an object using a managed multipart transfer",
-    "translation": "使用受管多重部件传输来上载对象"
-  },
-  {
-    "id": "Upload a part",
-    "translation": "上传分块"
   }
 ]

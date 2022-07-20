@@ -49,6 +49,7 @@ const (
 	PublicAccessBlockConfiguration = "public-access-block-configuration"
 	Range                          = "range"
 	Region                         = "region"
+	ReplicationConfiguration       = "replication-configuration"
 	ResponseCacheControl           = "response-cache-control"
 	ResponseContentDisposition     = "response-content-disposition"
 	ResponseContentEncoding        = "response-content-encoding"

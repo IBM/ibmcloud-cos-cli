@@ -49,6 +49,7 @@ const (
 	Prefix                         = "Prefix"
 	PublicAccessBlockConfiguration = "PublicAccessBlockConfiguration"
 	Range                          = "Range"
+	ReplicationConfiguration       = "ReplicationConfiguration"
 	ResponseCacheControl           = "ResponseCacheControl"
 	ResponseContentDisposition     = "ResponseContentDisposition"
 	ResponseContentEncoding        = "ResponseContentEncoding"

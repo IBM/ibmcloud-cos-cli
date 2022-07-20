@@ -663,6 +663,84 @@ func (_m *S3API) DeleteBucketLifecycleWithContext(_a0 context.Context, _a1 *s3.D
 	return r0, r1
 }
 
+// DeleteBucketReplication provides a mock function with given fields: _a0
+func (_m *S3API) DeleteBucketReplication(_a0 *s3.DeleteBucketReplicationInput) (*s3.DeleteBucketReplicationOutput, error) {
+	ret := _m.Called(_a0)
+
+	var r0 *s3.DeleteBucketReplicationOutput
+	if rf, ok := ret.Get(0).(func(*s3.DeleteBucketReplicationInput) *s3.DeleteBucketReplicationOutput); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.DeleteBucketReplicationOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(*s3.DeleteBucketReplicationInput) error); ok {
+		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// DeleteBucketReplicationRequest provides a mock function with given fields: _a0
+func (_m *S3API) DeleteBucketReplicationRequest(_a0 *s3.DeleteBucketReplicationInput) (*request.Request, *s3.DeleteBucketReplicationOutput) {
+	ret := _m.Called(_a0)
+
+	var r0 *request.Request
+	if rf, ok := ret.Get(0).(func(*s3.DeleteBucketReplicationInput) *request.Request); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*request.Request)
+		}
+	}
+
+	var r1 *s3.DeleteBucketReplicationOutput
+	if rf, ok := ret.Get(1).(func(*s3.DeleteBucketReplicationInput) *s3.DeleteBucketReplicationOutput); ok {
+		r1 = rf(_a0)
+	} else {
+		if ret.Get(1) != nil {
+			r1 = ret.Get(1).(*s3.DeleteBucketReplicationOutput)
+		}
+	}
+
+	return r0, r1
+}
+
+// DeleteBucketReplicationWithContext provides a mock function with given fields: _a0, _a1, _a2
+func (_m *S3API) DeleteBucketReplicationWithContext(_a0 context.Context, _a1 *s3.DeleteBucketReplicationInput, _a2 ...request.Option) (*s3.DeleteBucketReplicationOutput, error) {
+	_va := make([]interface{}, len(_a2))
+	for _i := range _a2 {
+		_va[_i] = _a2[_i]
+	}
+	var _ca []interface{}
+	_ca = append(_ca, _a0, _a1)
+	_ca = append(_ca, _va...)
+	ret := _m.Called(_ca...)
+
+	var r0 *s3.DeleteBucketReplicationOutput
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.DeleteBucketReplicationInput, ...request.Option) *s3.DeleteBucketReplicationOutput); ok {
+		r0 = rf(_a0, _a1, _a2...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.DeleteBucketReplicationOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.DeleteBucketReplicationInput, ...request.Option) error); ok {
+		r1 = rf(_a0, _a1, _a2...)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
 // DeleteBucketRequest provides a mock function with given fields: _a0
 func (_m *S3API) DeleteBucketRequest(_a0 *s3.DeleteBucketInput) (*request.Request, *s3.DeleteBucketOutput) {
 	ret := _m.Called(_a0)
@@ -1724,6 +1802,84 @@ func (_m *S3API) GetBucketProtectionConfigurationWithContext(_a0 context.Context
 
 	var r1 error
 	if rf, ok := ret.Get(1).(func(context.Context, *s3.GetBucketProtectionConfigurationInput, ...request.Option) error); ok {
+		r1 = rf(_a0, _a1, _a2...)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// GetBucketReplication provides a mock function with given fields: _a0
+func (_m *S3API) GetBucketReplication(_a0 *s3.GetBucketReplicationInput) (*s3.GetBucketReplicationOutput, error) {
+	ret := _m.Called(_a0)
+
+	var r0 *s3.GetBucketReplicationOutput
+	if rf, ok := ret.Get(0).(func(*s3.GetBucketReplicationInput) *s3.GetBucketReplicationOutput); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.GetBucketReplicationOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(*s3.GetBucketReplicationInput) error); ok {
+		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// GetBucketReplicationRequest provides a mock function with given fields: _a0
+func (_m *S3API) GetBucketReplicationRequest(_a0 *s3.GetBucketReplicationInput) (*request.Request, *s3.GetBucketReplicationOutput) {
+	ret := _m.Called(_a0)
+
+	var r0 *request.Request
+	if rf, ok := ret.Get(0).(func(*s3.GetBucketReplicationInput) *request.Request); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*request.Request)
+		}
+	}
+
+	var r1 *s3.GetBucketReplicationOutput
+	if rf, ok := ret.Get(1).(func(*s3.GetBucketReplicationInput) *s3.GetBucketReplicationOutput); ok {
+		r1 = rf(_a0)
+	} else {
+		if ret.Get(1) != nil {
+			r1 = ret.Get(1).(*s3.GetBucketReplicationOutput)
+		}
+	}
+
+	return r0, r1
+}
+
+// GetBucketReplicationWithContext provides a mock function with given fields: _a0, _a1, _a2
+func (_m *S3API) GetBucketReplicationWithContext(_a0 context.Context, _a1 *s3.GetBucketReplicationInput, _a2 ...request.Option) (*s3.GetBucketReplicationOutput, error) {
+	_va := make([]interface{}, len(_a2))
+	for _i := range _a2 {
+		_va[_i] = _a2[_i]
+	}
+	var _ca []interface{}
+	_ca = append(_ca, _a0, _a1)
+	_ca = append(_ca, _va...)
+	ret := _m.Called(_ca...)
+
+	var r0 *s3.GetBucketReplicationOutput
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.GetBucketReplicationInput, ...request.Option) *s3.GetBucketReplicationOutput); ok {
+		r0 = rf(_a0, _a1, _a2...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.GetBucketReplicationOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.GetBucketReplicationInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)
@@ -3572,6 +3728,84 @@ func (_m *S3API) PutBucketProtectionConfigurationWithContext(_a0 context.Context
 
 	var r1 error
 	if rf, ok := ret.Get(1).(func(context.Context, *s3.PutBucketProtectionConfigurationInput, ...request.Option) error); ok {
+		r1 = rf(_a0, _a1, _a2...)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// PutBucketReplication provides a mock function with given fields: _a0
+func (_m *S3API) PutBucketReplication(_a0 *s3.PutBucketReplicationInput) (*s3.PutBucketReplicationOutput, error) {
+	ret := _m.Called(_a0)
+
+	var r0 *s3.PutBucketReplicationOutput
+	if rf, ok := ret.Get(0).(func(*s3.PutBucketReplicationInput) *s3.PutBucketReplicationOutput); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.PutBucketReplicationOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(*s3.PutBucketReplicationInput) error); ok {
+		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// PutBucketReplicationRequest provides a mock function with given fields: _a0
+func (_m *S3API) PutBucketReplicationRequest(_a0 *s3.PutBucketReplicationInput) (*request.Request, *s3.PutBucketReplicationOutput) {
+	ret := _m.Called(_a0)
+
+	var r0 *request.Request
+	if rf, ok := ret.Get(0).(func(*s3.PutBucketReplicationInput) *request.Request); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*request.Request)
+		}
+	}
+
+	var r1 *s3.PutBucketReplicationOutput
+	if rf, ok := ret.Get(1).(func(*s3.PutBucketReplicationInput) *s3.PutBucketReplicationOutput); ok {
+		r1 = rf(_a0)
+	} else {
+		if ret.Get(1) != nil {
+			r1 = ret.Get(1).(*s3.PutBucketReplicationOutput)
+		}
+	}
+
+	return r0, r1
+}
+
+// PutBucketReplicationWithContext provides a mock function with given fields: _a0, _a1, _a2
+func (_m *S3API) PutBucketReplicationWithContext(_a0 context.Context, _a1 *s3.PutBucketReplicationInput, _a2 ...request.Option) (*s3.PutBucketReplicationOutput, error) {
+	_va := make([]interface{}, len(_a2))
+	for _i := range _a2 {
+		_va[_i] = _a2[_i]
+	}
+	var _ca []interface{}
+	_ca = append(_ca, _a0, _a1)
+	_ca = append(_ca, _va...)
+	ret := _m.Called(_ca...)
+
+	var r0 *s3.PutBucketReplicationOutput
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.PutBucketReplicationInput, ...request.Option) *s3.PutBucketReplicationOutput); ok {
+		r0 = rf(_a0, _a1, _a2...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.PutBucketReplicationOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.PutBucketReplicationInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)

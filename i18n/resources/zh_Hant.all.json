@@ -1,5 +1,9 @@
 [
   {
+    "id": " and tags: ",
+    "translation": " 及標籤： "
+  },
+  {
     "id": " buckets found in your account:\n",
     "translation": " 個儲存區位於您的帳戶中：\n"
   },
@@ -8,12 +12,20 @@
     "translation": " 儲存區："
   },
   {
+    "id": " delete markers in bucket '",
+    "translation": " 刪除儲存區中的標記 '"
+  },
+  {
     "id": " downloaded.",
     "translation": " 已下載。"
   },
   {
     "id": " multipart uploads in bucket '",
     "translation": " 項多組件上傳位於儲存區 '"
+  },
+  {
+    "id": " object versions in bucket '",
+    "translation": " 儲存區中的物件版本 '"
   },
   {
     "id": " objects in bucket '",
@@ -28,6 +40,10 @@
     "translation": "(`SOURCE`) 來源儲存區的名稱和來源物件的金鑰名稱，以斜線 (/) 區隔。必須是 URL 編碼。"
   },
   {
+    "id": "(empty response from server; versioning has never been configured for this bucket)",
+    "translation": "（來自伺服器的空回應；從未對此儲存區配置版本化）"
+  },
+  {
     "id": "1 bucket found in your account:\n",
     "translation": "1 個儲存區位於您的帳戶中：\n"
   },
@@ -36,12 +52,20 @@
     "translation": "1 個儲存區："
   },
   {
+    "id": "1 delete marker in bucket '",
+    "translation": "儲存區中有 1 個刪除標記 '"
+  },
+  {
     "id": "1 multipart upload in bucket '",
     "translation": "1 項多組件上傳位於儲存區 '"
   },
   {
     "id": "1 object in bucket '",
     "translation": "1 個物件位於儲存區 '"
+  },
+  {
+    "id": "1 object version in bucket '",
+    "translation": "儲存區中有 1 個物件版本 '"
   },
   {
     "id": "1 part in the multipart upload for '",
@@ -72,6 +96,14 @@
     "translation": "對物件資料格式進行說明的標準 `MIME` 類型。"
   },
   {
+    "id": "A tag-set for the object encoded as URL query parameters (`Key1=Value1`). For `object-tagging-put`, a `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
+    "translation": "編碼為 URL 查詢參數之物件的標籤集 (`Key1=Value1`)。對於 `object-tagging-put `，`STRUCTURE` 使用 JSON 語法。 請參閱 IBM Cloud 文件。"
+  },
+  {
+    "id": "Abort an existing multipart upload",
+    "translation": "中斷現有的多組件上傳"
+  },
+  {
     "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
     "translation": "存取您的 IBM Cloud 帳戶遭拒絕。若要重新登入，請輸入 ibmcloud login --sso。"
   },
@@ -92,12 +124,20 @@
     "translation": "'--%s' 中的旗標語法不正確"
   },
   {
+    "id": "Block Public ACLs: ",
+    "translation": "封鎖公用 ACL： "
+  },
+  {
     "id": "Bucket '{{.Bucket}}' in region {{.region}} found in your IBM Cloud Object Storage account.",
     "translation": "在您的 IBM Cloud Object Storage 帳戶中發現區域 {{.region}} 中的儲存區 '{{.Bucket}}'。"
   },
   {
     "id": "CRN",
     "translation": "CRN"
+  },
+  {
+    "id": "Change plugin configuration",
+    "translation": "變更外掛程式配置"
   },
   {
     "id": "Class: ",
@@ -116,6 +156,10 @@
     "translation": "一般字首："
   },
   {
+    "id": "Complete an existing multipart upload",
+    "translation": "完成現有的多組件上傳"
+  },
+  {
     "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
     "translation": "複製自指定時間 (`TIMESTAMP`) 以來修改的物件。"
   },
@@ -132,6 +176,10 @@
     "translation": "複製其實體標記 (Etag) 與所指定標記 (`ETAG`) 相符的物件。"
   },
   {
+    "id": "Copy Source Version ID: ",
+    "translation": "複製來源版本 ID： "
+  },
+  {
     "id": "Copy an object from one bucket to another",
     "translation": "將物件從一個儲存區複製到另一個儲存區"
   },
@@ -142,6 +190,10 @@
   {
     "id": "Creation Date",
     "translation": "建立日期"
+  },
+  {
+    "id": "Creation Template ID",
+    "translation": "建立範本 ID"
   },
   {
     "id": "Date Created",
@@ -156,12 +208,24 @@
     "translation": "已順利執行將 '{{.Key}}' 從儲存區 '{{.Bucket}}' 中刪除的作業。"
   },
   {
+    "id": "Delete '{{.Key}}' from bucket '{{.Bucket}}' with version ID '{{.VersionId}}' ran successfully.",
+    "translation": "已順利執行從儲存區 '{{.Bucket}}' 中刪除版本 ID 為 '{{.VersionId}}' 的 '{{.Key}}'。"
+  },
+  {
     "id": "Delete an existing bucket",
     "translation": "刪除現有儲存區"
   },
   {
     "id": "Delete an object from a bucket",
     "translation": "從儲存區刪除物件"
+  },
+  {
+    "id": "Delete marker created for '{{.Key}}' from bucket '{{.Bucket}}'.",
+    "translation": "從儲存區 '{{.Bucket}}' 中刪除為 '{{.Key}}' 建立的標記。"
+  },
+  {
+    "id": "Delete marker version ID: ",
+    "translation": "刪除標記版本 ID： "
   },
   {
     "id": "Delete multiple objects from a bucket",
@@ -176,12 +240,24 @@
     "translation": "從儲存區中刪除 CORS 配置"
   },
   {
+    "id": "Delete the replication configuration from a bucket",
+    "translation": "Delete the replication configuration from a bucket"
+  },
+  {
+    "id": "Destination bucket: ",
+    "translation": "目的地儲存區： "
+  },
+  {
     "id": "Details about bucket ",
     "translation": "關於儲存區的詳細資料 "
   },
   {
     "id": "Details about your multipart upload instance:",
     "translation": "關於多組件上傳實例的詳細資料："
+  },
+  {
+    "id": "Determine if a specified bucket exists in the target region",
+    "translation": "判斷指定的儲存區是否存在於目標區域中"
   },
   {
     "id": "Download Location",
@@ -192,12 +268,20 @@
     "translation": "從儲存區下載物件"
   },
   {
+    "id": "Download an object using a managed multipart transfer",
+    "translation": "使用受管理多組件傳送來下載物件"
+  },
+  {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
     "translation": "下載位元組為指定 `RANGE` 的物件。如需 HTTP 範圍標頭的相關資訊，請移至 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35。"
   },
   {
     "id": "ETag",
     "translation": "ETag"
+  },
+  {
+    "id": "Empty",
+    "translation": "空白"
   },
   {
     "id": "Error Document: ",
@@ -208,6 +292,22 @@
     "translation": "開啟 '{{.Location}}' 進行寫入時發生錯誤。"
   },
   {
+    "id": "Filter by prefix: ",
+    "translation": "依字首過濾： "
+  },
+  {
+    "id": "Filter by tag: ",
+    "translation": "依標籤過濾： "
+  },
+  {
+    "id": "Filter by tags: ",
+    "translation": "依標籤過濾： "
+  },
+  {
+    "id": "Filter: ",
+    "translation": "過濾器： "
+  },
+  {
     "id": "Flag '--%s' requires a value",
     "translation": "旗標 '--%s' 需要值"
   },
@@ -216,16 +316,52 @@
     "translation": "發現 "
   },
   {
+    "id": "Get an object's size and last modified date",
+    "translation": "取得物件的大小及前次修改日期"
+  },
+  {
+    "id": "Get tags for an object",
+    "translation": "取得物件的標籤"
+  },
+  {
+    "id": "Get the CORS configuration for a bucket",
+    "translation": "取得儲存區的 CORS 配置"
+  },
+  {
+    "id": "Get the location and billing tier of a bucket",
+    "translation": "取得儲存區的位置及計費層級"
+  },
+  {
+    "id": "Get the public access block configuration on a bucket",
+    "translation": "取得儲存區上的公用存取封鎖配置"
+  },
+  {
+    "id": "Get the replication configuration for a bucket",
+    "translation": "Get the replication configuration for a bucket"
+  },
+  {
     "id": "Get the static website configuration on a bucket",
     "translation": "取得儲存區上的靜態網站配置"
+  },
+  {
+    "id": "Get the versioning configuration for a bucket",
+    "translation": "取得儲存區的版本化配置"
   },
   {
     "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
     "translation": "如果將儲存區配置為網站，請將物件索引鍵的要求重新導向至相同儲存區中的另一個物件或 URL (`LOCATION`)。"
   },
   {
+    "id": "Ignore Public ACLs: ",
+    "translation": "忽略公用 ACL： "
+  },
+  {
     "id": "Index Suffix: ",
     "translation": "索引字尾： "
+  },
+  {
+    "id": "Initiate a new multipart upload",
+    "translation": "起始新的多組件上傳"
   },
   {
     "id": "Initiated",
@@ -248,12 +384,20 @@
     "translation": "旗標 '--%s' 中的布林值無效"
   },
   {
+    "id": "Is Latest",
+    "translation": "是最新"
+  },
+  {
     "id": "It was last updated on {{.lastupdated}}.",
     "translation": "前次更新日期：{{.lastupdated}}。"
   },
   {
     "id": "Key",
     "translation": "索引鍵"
+  },
+  {
+    "id": "Key Marker: ",
+    "translation": "索引鍵標記： "
   },
   {
     "id": "Last Modified",
@@ -272,6 +416,22 @@
     "translation": "將回應限制為以所指定 `PREFIX` 開頭的索引鍵。"
   },
   {
+    "id": "List active multipart uploads",
+    "translation": "列出作用中多組件上傳"
+  },
+  {
+    "id": "List all buckets in a service instance",
+    "translation": "列出服務實例中的所有儲存區"
+  },
+  {
+    "id": "List all buckets in a service instance and their provisioning codes",
+    "translation": "列出服務實例中的所有儲存區及其供應代碼"
+  },
+  {
+    "id": "List all object versions in a specific bucket",
+    "translation": "列出特定儲存區中的所有物件版本"
+  },
+  {
     "id": "List all objects in a specific bucket",
     "translation": "列出特定儲存區中的所有物件"
   },
@@ -282,6 +442,10 @@
   {
     "id": "List configuration values.",
     "translation": "列出配置值。"
+  },
+  {
+    "id": "List parts of an active multipart upload",
+    "translation": "列出作用中多組件上傳的組件"
   },
   {
     "id": "Location Constraint",
@@ -302,6 +466,10 @@
   {
     "id": "No buckets found in your account.",
     "translation": "在帳戶中找不到儲存區。"
+  },
+  {
+    "id": "No tags returned",
+    "translation": "未傳回任何標籤"
   },
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
@@ -344,6 +512,18 @@
     "translation": "作為清單起始產品編號的 `VALUE`"
   },
   {
+    "id": "Poll an API until a particular condition is satisfied",
+    "translation": "輪詢 API 直到滿足特定條件"
+  },
+  {
+    "id": "Priority: ",
+    "translation": "優先順序： "
+  },
+  {
+    "id": "Public Access Block Configuration",
+    "translation": "公用存取封鎖配置"
+  },
+  {
     "id": "Redirect Hostname: ",
     "translation": "重新導向主機名稱： "
   },
@@ -360,8 +540,20 @@
     "translation": "區域端點 `URL`。"
   },
   {
+    "id": "Remove public access block configuration from a bucket",
+    "translation": "從儲存區移除公用存取封鎖配置"
+  },
+  {
     "id": "Remove static website configuration from a bucket",
     "translation": "從儲存區移除靜態網站配置"
+  },
+  {
+    "id": "Remove tags from an object",
+    "translation": "從物件移除標籤"
+  },
+  {
+    "id": "Replication Configuration",
+    "translation": "抄寫配置"
   },
   {
     "id": "Requests to encode the object keys in the response and specifies the encoding `METHOD` to use.",
@@ -400,6 +592,10 @@
     "translation": "設定所有作業的自訂服務端點"
   },
   {
+    "id": "Set public access block configuration on a bucket",
+    "translation": "在儲存區上設定公用存取封鎖配置"
+  },
+  {
     "id": "Set regions endpoint URL",
     "translation": "設定區域端點 URL"
   },
@@ -408,12 +604,24 @@
     "translation": "在儲存區上設定靜態網站配置"
   },
   {
+    "id": "Set tags on an object",
+    "translation": "在物件上設定標籤"
+  },
+  {
     "id": "Set the CORS configuration on a bucket",
     "translation": "在儲存區上設定 CORS 配置"
   },
   {
     "id": "Set the default location for downloads.",
     "translation": "設定下載的預設位置。"
+  },
+  {
+    "id": "Set the replication configuration on a bucket",
+    "translation": "Set the replication configuration on a bucket"
+  },
+  {
+    "id": "Set the versioning configuration on a bucket",
+    "translation": "在儲存區上設定版本化配置"
   },
   {
     "id": "Sets the Cache-Control `HEADER` of the response.",
@@ -470,6 +678,14 @@
   {
     "id": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. `DIRECTIVE` values: COPY, REPLACE.",
     "translation": "指定是從來源物件複製 meta 資料，還是取代為要求中提供的 meta 資料。`DIRECTIVE` 值：COPY、REPLACE。"
+  },
+  {
+    "id": "Specifies whether to copy the tag-set from the source object or replace it with the tag-set provided",
+    "translation": "指定是要從來源物件複製標籤集，還是將它取代為提供的標籤集"
+  },
+  {
+    "id": "Status: ",
+    "translation": "狀態： "
   },
   {
     "id": "Store CRN in the config",
@@ -620,12 +836,24 @@
     "translation": "傳送組件時每個呼叫並行旋轉上傳的 goroutines 數目。預設值為 5。"
   },
   {
+    "id": "The object version identifier",
+    "translation": "物件版本 ID"
+  },
+  {
     "id": "The operation will do not ask for confirmation.",
     "translation": "作業將不會要求確認。"
   },
   {
+    "id": "The public access block configuration was not found.",
+    "translation": "找不到公用存取區塊配置。"
+  },
+  {
     "id": "The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB.",
     "translation": "要從來源物件中複製的位元組數範圍。 範圍值必須使用 bytes=first-last 形式，其中 first 及 last 是要複製的以零起始位元組偏移。 例如，bytes=0-9 指出您要複製來源的前 10 個位元組。 只有在來源物件大於 5 MB 時，您才能複製一個範圍。"
+  },
+  {
+    "id": "The replication configuration was not found",
+    "translation": "找不到抄寫配置"
   },
   {
     "id": "The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.",
@@ -641,7 +869,7 @@
   },
   {
     "id": "The specified bucket name is invalid. Bucket names must start and end in alphanumeric characters (from 3 to 63) and are limited to lowercase, numbers, non-consecutive dots, and hyphens.",
-    "translation": "指定的儲存區名稱無效。儲存區名稱必須以英數字元開頭及結尾（從 3 到 63），僅限於：小寫字母、數字、非連續的點以及連字號。"
+    "translation": "指定的儲存區名稱無效。儲存區名稱必須以英數字元（從 3 到 63 個）開頭和結尾，且限制為：小寫、數字、非連續的點和連字號。"
   },
   {
     "id": "The specified bucket was not found in your IBM Cloud account. This may be because you provided the wrong region. Provide the bucket's correct region and try again.",
@@ -676,6 +904,10 @@
     "translation": "如果要擷取下一組多組件上傳，請在下一個指令中使用下列標記："
   },
   {
+    "id": "To retrieve the next set of objects use the following values for the next command: ",
+    "translation": "若要擷取下一組物件，請在下一個指令中使用下列值： "
+  },
+  {
     "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
     "translation": "如果要擷取下一組物件，請使用此索引鍵作為下一個指令的 --marker： "
   },
@@ -684,8 +916,16 @@
     "translation": "如果要擷取下一組組件，請使用此標記作為下一個指令的 part-number-marker： "
   },
   {
+    "id": "Together with another listing parameter, specifies the key from which to start listing",
+    "translation": "與另一個 listing 參數一起指定從其開始列出清單的索引鍵"
+  },
+  {
     "id": "Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.",
     "translation": "指定 key-marker 以及作為清單開頭的多組件上傳。如果沒有指定 key-marker，則會忽略 upload-id-marker 參數。"
+  },
+  {
+    "id": "Together with key-marker, specifies the object version from which to start listing object versions in a bucket",
+    "translation": "與索引鍵標記一起使用，指定儲存區中的物件版本，會列出該物件版本及以後的版本。"
   },
   {
     "id": "Try logging in using 'ibmcloud login'.",
@@ -788,12 +1028,20 @@
     "translation": "用以識別多組件上傳的上傳 `ID`。"
   },
   {
+    "id": "Upload a part",
+    "translation": "上傳組件"
+  },
+  {
     "id": "Upload a part by copying data from an existing object",
     "translation": "從現有物件複製資料來上傳組件"
   },
   {
     "id": "Upload an object to a bucket",
     "translation": "將物件上傳至儲存區"
+  },
+  {
+    "id": "Upload an object using a managed multipart transfer",
+    "translation": "使用受管理多組件傳送來上傳物件"
   },
   {
     "id": "UploadId",
@@ -810,6 +1058,22 @@
   {
     "id": "Value",
     "translation": "值"
+  },
+  {
+    "id": "Version ID",
+    "translation": "版本 ID"
+  },
+  {
+    "id": "Version ID Marker: ",
+    "translation": "版本 ID 標記： "
+  },
+  {
+    "id": "Version ID: ",
+    "translation": "版本 ID： "
+  },
+  {
+    "id": "Versioning Configuration",
+    "translation": "版本化配置"
   },
   {
     "id": "WARNING: An object with the name '{{.file}}' already exists at '{{.dl}}'.",
@@ -868,8 +1132,16 @@
     "translation": "無儲存區。"
   },
   {
+    "id": "no delete markers in bucket '",
+    "translation": "儲存區中沒有刪除標記 '"
+  },
+  {
     "id": "no multipart uploads in bucket '",
     "translation": "零項多組件上傳位於儲存區 '"
+  },
+  {
+    "id": "no object versions in bucket '",
+    "translation": "儲存區中沒有物件版本 '"
   },
   {
     "id": "no objects in bucket '",
@@ -878,217 +1150,5 @@
   {
     "id": "no parts in the multipart upload for '",
     "translation": "零個組件位於多組件上傳中，針對 '"
-  },
-  {
-    "id": "Set tags on an object",
-    "translation": "在物件上設定標籤"
-  },
-  {
-    "id": "The object version identifier",
-    "translation": "物件版本 ID"
-  },
-  {
-    "id": "(empty response from server; versioning has never been configured for this bucket)",
-    "translation": "（來自伺服器的空回應；從未對此儲存區配置版本化）"
-  },
-  {
-    "id": "Version ID: ",
-    "translation": "版本 ID： "
-  },
-  {
-    "id": "Version ID",
-    "translation": "版本 ID"
-  },
-  {
-    "id": "Abort an existing multipart upload",
-    "translation": "中斷現有的多組件上傳"
-  },
-  {
-    "id": "To retrieve the next set of objects use the following values for the next command: ",
-    "translation": "若要擷取下一組物件，請在下一個指令中使用下列值： "
-  },
-  {
-    "id": "List parts of an active multipart upload",
-    "translation": "列出作用中多組件上傳的組件"
-  },
-  {
-    "id": " object versions in bucket '",
-    "translation": " 儲存區中的物件版本 '"
-  },
-  {
-    "id": "Get the versioning configuration for a bucket",
-    "translation": "取得儲存區的版本化配置"
-  },
-  {
-    "id": "Download an object using a managed multipart transfer",
-    "translation": "使用受管理多組件傳送來下載物件"
-  },
-  {
-    "id": "Block Public ACLs: ",
-    "translation": "封鎖公用 ACL： "
-  },
-  {
-    "id": "Together with key-marker, specifies the object version from which to start listing object versions in a bucket",
-    "translation": "與索引鍵標記一起使用，指定儲存區中的物件版本，會列出該物件版本及以後的版本。"
-  },
-  {
-    "id": "Get the location and billing tier of a bucket",
-    "translation": "取得儲存區的位置及計費層級"
-  },
-  {
-    "id": "Remove tags from an object",
-    "translation": "從物件移除標籤"
-  },
-  {
-    "id": "List all buckets in a service instance",
-    "translation": "列出服務實例中的所有儲存區"
-  },
-  {
-    "id": "Versioning Configuration",
-    "translation": "版本化配置"
-  },
-  {
-    "id": "Determine if a specified bucket exists in the target region",
-    "translation": "判斷指定的儲存區是否存在於目標區域中"
-  },
-  {
-    "id": "Ignore Public ACLs: ",
-    "translation": "忽略公用 ACL： "
-  },
-  {
-    "id": "Version ID Marker: ",
-    "translation": "版本 ID 標記： "
-  },
-  {
-    "id": "Complete an existing multipart upload",
-    "translation": "完成現有的多組件上傳"
-  },
-  {
-    "id": "Remove public access block configuration from a bucket",
-    "translation": "從儲存區移除公用存取區塊配置"
-  },
-  {
-    "id": "1 object version in bucket '",
-    "translation": "儲存區中有 1 個物件版本 '"
-  },
-  {
-    "id": "no delete markers in bucket '",
-    "translation": "儲存區中沒有刪除標記 '"
-  },
-  {
-    "id": "Key Marker: ",
-    "translation": "索引鍵標記： "
-  },
-  {
-    "id": "Creation Template ID",
-    "translation": "建立範本 ID"
-  },
-  {
-    "id": "Status: ",
-    "translation": "狀態： "
-  },
-  {
-    "id": "List all object versions in a specific bucket",
-    "translation": "列出特定儲存區中的所有物件版本"
-  },
-  {
-    "id": "Change plugin configuration",
-    "translation": "變更外掛程式配置"
-  },
-  {
-    "id": "Is Latest",
-    "translation": "是最新"
-  },
-  {
-    "id": "1 delete marker in bucket '",
-    "translation": "儲存區中有 1 個刪除標記 '"
-  },
-  {
-    "id": "Get an object's size and last modified date",
-    "translation": "取得物件的大小及前次修改日期"
-  },
-  {
-    "id": "Set the versioning configuration on a bucket",
-    "translation": "在儲存區上設定版本化配置"
-  },
-  {
-    "id": "Specifies whether to copy the tag-set from the source object or replace it with the tag-set provided",
-    "translation": "指定是要從來源物件複製標籤集，還是將它取代為提供的標籤集"
-  },
-  {
-    "id": "Set public access block configuration on a bucket",
-    "translation": "在儲存區上設定公用存取區塊配置"
-  },
-  {
-    "id": "no object versions in bucket '",
-    "translation": "儲存區中沒有物件版本 '"
-  },
-  {
-    "id": "No tags returned",
-    "translation": "未傳回任何標籤"
-  },
-  {
-    "id": "List all buckets in a service instance and their provisioning codes",
-    "translation": "列出服務實例中的所有儲存區及其供應代碼"
-  },
-  {
-    "id": "List active multipart uploads",
-    "translation": "列出作用中多組件上傳"
-  },
-  {
-    "id": " delete markers in bucket '",
-    "translation": " 刪除儲存區中的標記 '"
-  },
-  {
-    "id": "A tag-set for the object encoded as URL query parameters (`Key1=Value1`). For `object-tagging-put`, a `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
-    "translation": "編碼為 URL 查詢參數之物件的標籤集 (`Key1=Value1`)。對於 `object-tagging-put `，`STRUCTURE` 使用 JSON 語法。 請參閱 IBM Cloud 文件。"
-  },
-  {
-    "id": "Public Access Block Configuration",
-    "translation": "公用存取區塊配置"
-  },
-  {
-    "id": "Poll an API until a particular condition is satisfied",
-    "translation": "輪詢 API 直到滿足特定條件"
-  },
-  {
-    "id": "Delete marker created for '{{.Key}}' from bucket '{{.Bucket}}'.",
-    "translation": "從儲存區 '{{.Bucket}}' 中刪除為 '{{.Key}}' 建立的標記。"
-  },
-  {
-    "id": "Delete '{{.Key}}' from bucket '{{.Bucket}}' with version ID '{{.VersionId}}' ran successfully.",
-    "translation": "已順利執行從儲存區 '{{.Bucket}}' 中刪除版本 ID 為 '{{.VersionId}}' 的 '{{.Key}}'。"
-  },
-  {
-    "id": "Get the public access block configuration on a bucket",
-    "translation": "取得儲存區上的公用存取區塊配置"
-  },
-  {
-    "id": "Together with another listing parameter, specifies the key from which to start listing",
-    "translation": "與另一個 listing 參數一起指定從其開始列出清單的索引鍵"
-  },
-  {
-    "id": "Get the CORS configuration for a bucket",
-    "translation": "取得儲存區的 CORS 配置"
-  },
-  {
-    "id": "Get tags for an object",
-    "translation": "取得物件的標籤"
-  },
-  {
-    "id": "Copy Source Version ID: ",
-    "translation": "複製來源版本 ID： "
-  },
-  {
-    "id": "Initiate a new multipart upload",
-    "translation": "起始新的多組件上傳"
-  },
-  {
-    "id": "Upload an object using a managed multipart transfer",
-    "translation": "使用受管理多組件傳送來上傳物件"
-  },
-  {
-    "id": "Upload a part",
-    "translation": "上傳組件"
   }
 ]

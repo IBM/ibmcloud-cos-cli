@@ -228,6 +228,11 @@ var (
 		Usage: T("The `REGION` where the bucket is present. If this flag is not provided, the program will use the default option specified in config."),
 	}
 
+	FlagReplicationConfiguration = cli.StringFlag{
+		Name:  ReplicationConfiguration,
+		Usage: T("A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation."),
+	}
+
 	FlagResponseCacheControl = cli.StringFlag{
 		Name:  ResponseCacheControl,
 		Usage: T("Sets the Cache-Control `HEADER` of the response."),

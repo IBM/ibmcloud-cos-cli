@@ -123,6 +123,8 @@ func (txtRender *TextRender) Display(
 		return txtRender.printPutTaggingObject(input, castedOutput)
 	case *s3.GetPublicAccessBlockOutput:
 		return txtRender.printGetPublicAccessBlock(input, castedOutput)
+	case *s3.GetBucketReplicationOutput:
+		return txtRender.printGetBucketReplication(input, castedOutput)
 	default:
 		return
 	}
@@ -391,7 +393,7 @@ func (txtRender *TextRender) printDeleteObject(input interface{}, output *s3.Del
 	} else if aws.BoolValue(output.DeleteMarker) == true {
 		// Simple versioned delete that created a delete marker
 		txtRender.Say(T("Delete marker created for '{{.Key}}' from bucket '{{.Bucket}}'.", castInput))
-		txtRender.Say(T("Delete marker version ID: " + terminal.EntityNameColor(aws.StringValue(output.VersionId))))
+		txtRender.Say(T("Delete marker version ID: ") + terminal.EntityNameColor(aws.StringValue(output.VersionId)))
 	} else {
 		// Targeted version delete that removed a specific version
 		txtRender.Say(T("Delete '{{.Key}}' from bucket '{{.Bucket}}' with version ID '{{.VersionId}}' ran successfully.", castInput))
@@ -786,6 +788,14 @@ func (txtRender *TextRender) printDeleteTaggingObject(input interface{}, output 
 	return
 }
 
+func (txtRender *TextRender) printPutTaggingObject(input interface{}, output *s3.PutObjectTaggingOutput) (err error) {
+	// Output the successful message
+	if output.VersionId != nil {
+		txtRender.Say(T("Version ID: ") + terminal.EntityNameColor(aws.StringValue(output.VersionId)))
+	}
+	return
+}
+
 func (txtRender *TextRender) printGetTaggingObject(input interface{}, output *s3.GetObjectTaggingOutput) (err error) {
 	// Output the successful message
 	if output.VersionId != nil {
@@ -806,18 +816,47 @@ func (txtRender *TextRender) printGetTaggingObject(input interface{}, output *s3
 	return
 }
 
-func (txtRender *TextRender) printPutTaggingObject(input interface{}, output *s3.PutObjectTaggingOutput) (err error) {
-	// Output the successful message
-	if output.VersionId != nil {
-		txtRender.Say(T("Version ID: ") + terminal.EntityNameColor(aws.StringValue(output.VersionId)))
+func (txtRender *TextRender) printGetBucketReplication(input interface{}, output *s3.GetBucketReplicationOutput) (err error) {
+
+	config := output.ReplicationConfiguration.Rules[0]
+	txtRender.Say(T("Replication Configuration"))
+	txtRender.Say(T("Priority: ") + terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(config.Priority), 10)))
+	txtRender.Say(T("Status: ") + terminal.EntityNameColor(aws.StringValue(config.Status)))
+
+	var buildString strings.Builder
+	if config.Filter.Prefix == nil && config.Filter.And == nil && config.Filter.Tag == nil {
+		txtRender.Say(T("Filter: ") + terminal.EntityNameColor(T("Empty")))
+	} else {
+		if config.Filter.Prefix != nil {
+			// only prefix
+			txtRender.Say(T("Filter by prefix: ") + terminal.EntityNameColor(aws.StringValue(config.Filter.Prefix)))
+		} else if config.Filter.Tag != nil {
+			// only tag
+			txtRender.Say(T("Filter by tag: ") + "(" + terminal.EntityNameColor("'"+aws.StringValue(config.Filter.Tag.Key)+"': '"+aws.StringValue(config.Filter.Tag.Value)+"'") + ")")
+		} else {
+			if config.Filter.And.Prefix == nil {
+				// only tag(s)
+				for _, tag := range config.Filter.And.Tags {
+					buildString.WriteString("'" + aws.StringValue(tag.Key) + "': '" + aws.StringValue(tag.Value) + "', ")
+				}
+				output := strings.TrimSuffix(buildString.String(), ", ")
+				txtRender.Say(T("Filter by tags: ") + "(" + terminal.EntityNameColor(output) + ")")
+			} else {
+				// prefix and tag(s)
+				for _, tag := range config.Filter.And.Tags {
+					buildString.WriteString("'" + aws.StringValue(tag.Key) + "': '" + aws.StringValue(tag.Value) + "', ")
+				}
+				output := strings.TrimSuffix(buildString.String(), ", ")
+				txtRender.Say(T("Filter by prefix: ") + terminal.EntityNameColor("'"+aws.StringValue(config.Filter.And.Prefix)+"'") + T(" and tags: ") + "(" + terminal.EntityNameColor(output) + ")")
+			}
+		}
 	}
+	txtRender.Say(T("Destination bucket: ") + terminal.EntityNameColor(aws.StringValue(config.Destination.Bucket)))
 	return
 }
 
 func (txtRender *TextRender) printGetPublicAccessBlock(input interface{}, output *s3.GetPublicAccessBlockOutput) (err error) {
 	config := output.PublicAccessBlockConfiguration
-
-	// Output the successful message
 	txtRender.Say(T("Public Access Block Configuration"))
 	txtRender.Say(T("Block Public ACLs: ") + terminal.EntityNameColor(strconv.FormatBool(aws.BoolValue(config.BlockPublicAcls))))
 	txtRender.Say(T("Ignore Public ACLs: ") + terminal.EntityNameColor(strconv.FormatBool(aws.BoolValue(config.IgnorePublicAcls))))

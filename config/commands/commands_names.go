@@ -40,6 +40,15 @@ const (
 	// BucketLocationGet Command
 	BucketLocationGet = "bucket-location-get"
 
+	// BucketReplicationDelete Command
+	BucketReplicationDelete = "bucket-replication-delete"
+
+	// BucketReplicationGet Command
+	BucketReplicationGet = "bucket-replication-get"
+
+	// BucketReplicationPut Command
+	BucketReplicationPut = "bucket-replication-put"
+
 	// BucketVersioningGet Command
 	BucketVersioningGet = "bucket-versioning-get"
 

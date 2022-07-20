@@ -132,6 +132,10 @@ func getMessageByCodeError(errorIn errors.CodeError) string {
 		return T("The specified key does not exist.")
 	case "NoSuchWebsiteConfiguration":
 		return T("The specified bucket does not have website configuration.")
+	case "NoSuchPublicAccessBlockConfiguration":
+		return T("The public access block configuration was not found.")
+	case "ReplicationConfigurationNotFoundError":
+		return T("The replication configuration was not found")
 	default:
 		return errorIn.Error()
 	}

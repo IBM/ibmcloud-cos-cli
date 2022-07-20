@@ -145,6 +145,43 @@ var (
 		Action: functions.BucketCorsPut,
 	}
 
+	// CommandBucketReplicationDelete - Delete the replication configuration from a bucket with DeleteBucketReplication
+	CommandBucketReplicationDelete = cli.Command{
+		Name:        BucketReplicationDelete,
+		Description: T("Delete the replication configuration from a bucket"),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagRegion,
+			flags.FlagOutput,
+		},
+		Action: functions.BucketReplicationDelete,
+	}
+
+	// CommandBucketReplicationGet - Get the replication configuration for a bucket with GetBucketReplication
+	CommandBucketReplicationGet = cli.Command{
+		Name:        BucketReplicationGet,
+		Description: T("Get the replication configuration for a bucket"),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagRegion,
+			flags.FlagOutput,
+		},
+		Action: functions.BucketReplicationGet,
+	}
+
+	// CommandBucketReplicationPut - Set the replication configuration on a bucket with PutBucketReplication
+	CommandBucketReplicationPut = cli.Command{
+		Name:        BucketReplicationPut,
+		Description: T("Set the replication configuration on a bucket"),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagReplicationConfiguration,
+			flags.FlagRegion,
+			flags.FlagOutput,
+		},
+		Action: functions.BucketReplicationPut,
+	}
+
 	// CommandBucketsExtended - List all the extended buckets (OneCloud version)
 	// command:
 	//	 ibmcloud cos buckets-extended

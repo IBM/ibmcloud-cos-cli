@@ -4,7 +4,7 @@ go 1.13
 
 require (
 	github.com/IBM-Cloud/ibm-cloud-cli-sdk v0.5.3
-	github.com/IBM/ibm-cos-sdk-go v1.8.0
+	github.com/IBM/ibm-cos-sdk-go v1.9.0
 	github.com/cloudfoundry/jibber_jabber v0.0.0-20151120183258-bcc4c8345a21
 	github.com/fatih/color v1.9.0 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
