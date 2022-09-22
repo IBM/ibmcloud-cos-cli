@@ -112,6 +112,10 @@
     "translation": "계속하시겠습니까?"
   },
   {
+    "id": "Aspera Transferd binary not found. Installing now...",
+    "translation": "Aspera 전송 바이너리를 찾을 수 없습니다. 지금 설치 중..."
+  },
+  {
     "id": "Authentication Method",
     "translation": "인증 방법"
   },
@@ -241,7 +245,7 @@
   },
   {
     "id": "Delete the replication configuration from a bucket",
-    "translation": "Delete the replication configuration from a bucket"
+    "translation": "버킷에서 복제 구성 삭제"
   },
   {
     "id": "Destination bucket: ",
@@ -270,6 +274,10 @@
   {
     "id": "Download an object using a managed multipart transfer",
     "translation": "관리 다중 파트 전송을 사용하여 오브젝트 다운로드"
+  },
+  {
+    "id": "Download objects via Aspera",
+    "translation": "Aspera를 통해 오브젝트 다운로드"
   },
   {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
@@ -337,7 +345,7 @@
   },
   {
     "id": "Get the replication configuration for a bucket",
-    "translation": "Get the replication configuration for a bucket"
+    "translation": "버킷에 대한 복제 구성 가져오기"
   },
   {
     "id": "Get the static website configuration on a bucket",
@@ -461,7 +469,7 @@
   },
   {
     "id": "Name",
-    "translation": "이름 은(는)"
+    "translation": "이름"
   },
   {
     "id": "No buckets found in your account.",
@@ -617,7 +625,7 @@
   },
   {
     "id": "Set the replication configuration on a bucket",
-    "translation": "Set the replication configuration on a bucket"
+    "translation": "버킷에 복제 구성 설정"
   },
   {
     "id": "Set the versioning configuration on a bucket",
@@ -1044,6 +1052,10 @@
     "translation": "관리 다중 파트 전송을 사용하여 오브젝트 업로드"
   },
   {
+    "id": "Upload files or directories via Aspera",
+    "translation": "Aspera를 통해 파일 또는 디렉토리 업로드"
+  },
+  {
     "id": "UploadId",
     "translation": "UploadId"
   },
@@ -1128,6 +1140,10 @@
     "translation": "본문의 `SIZE`(바이트)입니다. 이 매개변수는 본문의 크기를 자동으로 판별할 수 없는 경우 유용합니다."
   },
   {
+    "id": "missing Environment Variable: ",
+    "translation": "누락된 환경 변수: "
+  },
+  {
     "id": "no buckets.",
     "translation": "버킷이 없습니다."
   },
@@ -1150,5 +1166,13 @@
   {
     "id": "no parts in the multipart upload for '",
     "translation": "다중 파트 업로드에 파트가 없음 '"
+  },
+  {
+    "id": "no such directory: ",
+    "translation": "다음 디렉토리 없음: "
+  },
+  {
+    "id": "unable to install Aspera SDK: ",
+    "translation": "Aspera SDK를 설치할 수 없음: "
   }
 ]

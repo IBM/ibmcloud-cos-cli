@@ -1,0 +1,110 @@
+#!/bin/bash
+
+set -e
+
+ROOT_DIR=$(cd $(dirname $(dirname $0)) && pwd)
+ASPERA_VERSION_FILE=${ROOT_DIR}/aspera/version.go
+SDK_PATH="${ROOT_DIR}/aspera/transfersdk"
+PROTOC_VERSION="21.5"
+GOPATH="$(go env GOPATH)"
+export PATH=$PATH:${GOPATH}/bin
+
+# use [[:space:]] here instead of \s for compatibility with BSD sed on macOS
+version=$(sed -En 's/.*version[[:space:]]+=[[:space:]]+"([^"]+)"/\1/p' "${ASPERA_VERSION_FILE}")
+commit=$(sed -En 's/.*commit[[:space:]]+=[[:space:]]+"([^"]+)"/\1/p' "${ASPERA_VERSION_FILE}")
+prefix=$(sed -En 's/.*prefix[[:space:]]+=[[:space:]]+"([^"]+)"/\1/p' "${ASPERA_VERSION_FILE}")
+
+trap 'rm -rf "$tmpdir"' EXIT
+tmpdir=$(mktemp -d)|| exit 1
+
+fix_bug(){
+    local proto_file=$1
+    # repeated Path is supposed to be an array
+    sed -E -i.bak 's/repeated Path path /repeated Path paths /; s/ibm.com\/(aspera\/transfersdk)/\1/;' "${proto_file}"
+}
+
+sdk_exists() {
+    [ -f "${SDK_PATH}/transfer.pb.go" ] && [ -f "${SDK_PATH}/.version" ] \
+    && [ "$(cat ${SDK_PATH}/.version)" == "${version}" ]
+}
+
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+install_protoc() {
+    local version=$1
+
+    case $(uname -s) in
+        Linux)
+            os="linux"
+        ;;
+        Darwin)
+            os="osx"
+        ;;
+        *)
+            echo "unsupported os"
+            exit 1
+    esac
+
+    case $(uname -m) in
+        arm64|aarch64)
+            arch="aarch_64"
+        ;;
+        x86_64|amd64)
+            arch="x86_64"
+        ;;
+        i386|i686)
+            arch="x86_32"
+        ;;
+        ppc64le)
+            arch="ppcle_64"
+        ;;
+        s390x)
+            arch="s390_64"
+        ;;
+        *)
+            echo "unsupported CPU arch"
+            exit 1
+        ;;
+    esac
+
+    package="protoc-${version}-${os}-${arch}.zip"
+    download_url="https://github.com/protocolbuffers/protobuf/releases/download/v${version}/${package}"
+    echo "downloading protoc..."
+
+    curl -L --fail "${download_url}" -o "${tmpdir}/${package}"
+    # copy the protoc binary to $GOPATH/bin
+    unzip -o "${tmpdir}/${package}" -d "${GOPATH}" bin/protoc
+}
+
+sdk_exists && echo "TransferSDK exists and is up-to-date" && exit 0
+
+if ! (command_exists protoc);then
+    install_protoc "${PROTOC_VERSION}"
+fi
+
+if ! (command_exists protoc-gen-go && command_exists protoc-gen-go-grpc);then
+    # go get does not install binary since 1.16
+    go get google.golang.org/protobuf/cmd/protoc-gen-go
+    go install google.golang.org/protobuf/cmd/protoc-gen-go
+
+    go get google.golang.org/grpc/cmd/protoc-gen-go-grpc
+    go install google.golang.org/grpc/cmd/protoc-gen-go-grpc
+fi
+
+# .proto file is platform independent,
+# so it's ok to use the osx version for any platform.
+sdk_name="osx-amd64"
+sdk_pkg="${sdk_name}-${commit}.tar.gz"
+
+
+echo "downloading SDK..."
+curl --fail "${prefix}/${version}/${sdk_pkg}" -o "${tmpdir}/${sdk_pkg}"
+tar -xf "${tmpdir}/${sdk_pkg}" -C "${tmpdir}"
+
+fix_bug "${tmpdir}/${sdk_name}/connectors/transfer.proto"
+protoc --go_out="${ROOT_DIR}" --go-grpc_out="${ROOT_DIR}" \
+    --proto_path="${tmpdir}/${sdk_name}/connectors" \
+    "${tmpdir}/${sdk_name}/connectors/transfer.proto"
+echo "$version" > "${SDK_PATH}/.version"

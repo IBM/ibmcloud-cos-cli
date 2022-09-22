@@ -12,6 +12,11 @@ type DownloadOutput struct {
 	TotalBytes int64
 }
 
+// AsperaUpload for displaying different results for json and text
+type AsperaUploadOutput struct {
+	TotalBytes int64
+}
+
 // Display type - JSON or Text
 type Display interface {
 	Display(interface{}, interface{}, map[string]interface{}) error

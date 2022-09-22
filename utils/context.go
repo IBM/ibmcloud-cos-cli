@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"context"
 	"fmt"
 	"io"
 	"os"
@@ -13,6 +14,7 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3iface"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3manager"
+	"github.com/IBM/ibmcloud-cos-cli/aspera"
 	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/render"
 )
@@ -26,16 +28,17 @@ import (
 // List of available Regions for COS
 // File Operations
 type CosContext struct {
-	UI               terminal.UI
-	Config           plugin.PluginConfig
-	Session          *session.Session
-	ListKnownRegions ListKnownRegions
-	JSONRender       *render.JSONRender
-	TextRender       *render.TextRender
-	ErrorRender      *render.ErrorRender
-	ClientGen        func(*session.Session) s3iface.S3API
-	DownloaderGen    func(svc s3iface.S3API, options ...func(*s3manager.Downloader)) Downloader
-	UploaderGen      func(svc s3iface.S3API, options ...func(output *s3manager.Uploader)) Uploader
+	UI                terminal.UI
+	Config            plugin.PluginConfig
+	Session           *session.Session
+	ListKnownRegions  ListKnownRegions
+	JSONRender        *render.JSONRender
+	TextRender        *render.TextRender
+	ErrorRender       *render.ErrorRender
+	ClientGen         func(*session.Session) s3iface.S3API
+	DownloaderGen     func(svc s3iface.S3API, options ...func(*s3manager.Downloader)) Downloader
+	UploaderGen       func(svc s3iface.S3API, options ...func(output *s3manager.Uploader)) Uploader
+	AsperaTransferGen func(sess *session.Session, apikey string) (AsperaTransfer, error)
 
 	FileOperations
 }
@@ -109,6 +112,22 @@ func (c *CosContext) GetUploader(overrideRegion string,
 	return
 }
 
+func (c *CosContext) GetAsperaTransfer(apikey string, overrideRegion string) (transfer AsperaTransfer, err error) {
+	var region string
+	if region, err = c.GetCurrentRegion(overrideRegion); err != nil {
+		return
+	}
+
+	serviceEndpoint, err := c.GetServiceEndpoint()
+	if err != nil {
+		return
+	}
+
+	cfg := new(aws.Config).WithRegion(region).WithEndpoint(serviceEndpoint)
+	session := c.Session.Copy(cfg)
+	return c.AsperaTransferGen(session, apikey)
+}
+
 // GetDisplay generates output either in text or json format
 func (c *CosContext) GetDisplay(output string, isJSON bool) render.Display {
 
@@ -146,6 +165,7 @@ type FileOperations interface {
 	WriteCloserOpen(location string) (WriteCloser, error)
 	GetFileInfo(location string) (os.FileInfo, error)
 	Remove(location string) error
+	GetTotalBytes(location string) (int64, error)
 }
 
 // ReadSeekerCloser a FileOperations interface
@@ -183,4 +203,9 @@ type Downloader interface {
 		options ...func(*s3manager.Downloader)) (n int64, err error)
 	DownloadWithIterator(ctx aws.Context, iter s3manager.BatchDownloadIterator,
 		opts ...func(*s3manager.Downloader)) error
+}
+
+type AsperaTransfer interface {
+	Download(context.Context, *aspera.COSInput) error
+	Upload(context.Context, *aspera.COSInput) error
 }

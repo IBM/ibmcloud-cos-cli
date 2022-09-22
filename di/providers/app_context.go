@@ -5,6 +5,7 @@ package providers
 import (
 	gohttp "net/http"
 	"os"
+	"path/filepath"
 	"time"
 
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/bluemix/http"
@@ -18,6 +19,7 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3iface"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3manager"
+	"github.com/IBM/ibmcloud-cos-cli/aspera"
 	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/utils"
 )
@@ -48,6 +50,15 @@ func GetUploaderAPI(svc s3iface.S3API, options ...func(output *s3manager.Uploade
 
 func GetUploaderAPIFn() func(svc s3iface.S3API, options ...func(output *s3manager.Uploader)) utils.Uploader {
 	return GetUploaderAPI
+}
+
+func GetAsperaTransfer(sess *session.Session, apikey string) (utils.AsperaTransfer, error) {
+	svc := s3.New(sess)
+	return aspera.New(svc, apikey)
+}
+
+func GetAsperaTransferFn() func(sess *session.Session, apikey string) (utils.AsperaTransfer, error) {
+	return GetAsperaTransfer
 }
 
 func GetPluginConfig(ctx plugin.PluginContext) plugin.PluginConfig {
@@ -121,6 +132,20 @@ func (_ *FileOperationsImpl) GetFileInfo(location string) (os.FileInfo, error) {
 
 func (_ *FileOperationsImpl) Remove(location string) error {
 	return os.Remove(location)
+}
+
+func (_ *FileOperationsImpl) GetTotalBytes(location string) (int64, error) {
+	var size int64
+	err := filepath.Walk(location, func(_ string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		if !info.IsDir() {
+			size += info.Size()
+		}
+		return err
+	})
+	return size, err
 }
 
 func GetFileOperations() *FileOperationsImpl {

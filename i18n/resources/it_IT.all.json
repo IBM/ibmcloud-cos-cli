@@ -112,6 +112,10 @@
     "translation": "Continuare?"
   },
   {
+    "id": "Aspera Transferd binary not found. Installing now...",
+    "translation": "File binario di trasferimento Aspera non trovato. In installazione ora..."
+  },
+  {
     "id": "Authentication Method",
     "translation": "Metodo di autenticazione"
   },
@@ -241,7 +245,7 @@
   },
   {
     "id": "Delete the replication configuration from a bucket",
-    "translation": "Delete the replication configuration from a bucket"
+    "translation": "Eliminare la configurazione di replica da un bucket"
   },
   {
     "id": "Destination bucket: ",
@@ -270,6 +274,10 @@
   {
     "id": "Download an object using a managed multipart transfer",
     "translation": "Scaricare un oggetto utilizzando un trasferimento multiparte gestito"
+  },
+  {
+    "id": "Download objects via Aspera",
+    "translation": "Scarica oggetti tramite Aspera"
   },
   {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
@@ -337,7 +345,7 @@
   },
   {
     "id": "Get the replication configuration for a bucket",
-    "translation": "Get the replication configuration for a bucket"
+    "translation": "Ottenere la configurazione di replica per un bucket"
   },
   {
     "id": "Get the static website configuration on a bucket",
@@ -617,7 +625,7 @@
   },
   {
     "id": "Set the replication configuration on a bucket",
-    "translation": "Set the replication configuration on a bucket"
+    "translation": "Impostare la configurazione di replica su un bucket"
   },
   {
     "id": "Set the versioning configuration on a bucket",
@@ -1044,6 +1052,10 @@
     "translation": "Caricare un oggetto utilizzando un trasferimento multiparte gestito"
   },
   {
+    "id": "Upload files or directories via Aspera",
+    "translation": "Carica file o directory tramite Aspera"
+  },
+  {
     "id": "UploadId",
     "translation": "ID caricamento"
   },
@@ -1128,6 +1140,10 @@
     "translation": "`SIZE` del corpo in byte. Questo parametro è utile quando la dimensione del corpo non può essere determinata automaticamente."
   },
   {
+    "id": "missing Environment Variable: ",
+    "translation": "variabile di ambiente mancante: "
+  },
+  {
     "id": "no buckets.",
     "translation": "nessun bucket."
   },
@@ -1150,5 +1166,13 @@
   {
     "id": "no parts in the multipart upload for '",
     "translation": "nessuna parte nel caricamento multiparte per '"
+  },
+  {
+    "id": "no such directory: ",
+    "translation": "directory non trovata: "
+  },
+  {
+    "id": "unable to install Aspera SDK: ",
+    "translation": "impossibile installare Aspera SDK: "
   }
 ]

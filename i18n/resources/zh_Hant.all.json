@@ -112,6 +112,10 @@
     "translation": "您確定要繼續作業嗎？"
   },
   {
+    "id": "Aspera Transferd binary not found. Installing now...",
+    "translation": "找不到 Aspera 傳遞的二進位檔。 正在安裝 ..."
+  },
+  {
     "id": "Authentication Method",
     "translation": "鑑別方法"
   },
@@ -241,7 +245,7 @@
   },
   {
     "id": "Delete the replication configuration from a bucket",
-    "translation": "Delete the replication configuration from a bucket"
+    "translation": "從儲存區刪除抄寫配置"
   },
   {
     "id": "Destination bucket: ",
@@ -270,6 +274,10 @@
   {
     "id": "Download an object using a managed multipart transfer",
     "translation": "使用受管理多組件傳送來下載物件"
+  },
+  {
+    "id": "Download objects via Aspera",
+    "translation": "透過 Aspera 下載物件"
   },
   {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
@@ -337,7 +345,7 @@
   },
   {
     "id": "Get the replication configuration for a bucket",
-    "translation": "Get the replication configuration for a bucket"
+    "translation": "取得儲存區的抄寫配置"
   },
   {
     "id": "Get the static website configuration on a bucket",
@@ -401,7 +409,7 @@
   },
   {
     "id": "Last Modified",
-    "translation": "前次修改"
+    "translation": "前次修改時間"
   },
   {
     "id": "Last Modified: {{.lastmodified}}",
@@ -617,7 +625,7 @@
   },
   {
     "id": "Set the replication configuration on a bucket",
-    "translation": "Set the replication configuration on a bucket"
+    "translation": "在儲存區上設定抄寫配置"
   },
   {
     "id": "Set the versioning configuration on a bucket",
@@ -845,7 +853,7 @@
   },
   {
     "id": "The public access block configuration was not found.",
-    "translation": "找不到公用存取區塊配置。"
+    "translation": "找不到公用存取封鎖配置。"
   },
   {
     "id": "The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB.",
@@ -1044,6 +1052,10 @@
     "translation": "使用受管理多組件傳送來上傳物件"
   },
   {
+    "id": "Upload files or directories via Aspera",
+    "translation": "透過 Aspera 上傳檔案或目錄"
+  },
+  {
     "id": "UploadId",
     "translation": "上傳 ID"
   },
@@ -1128,6 +1140,10 @@
     "translation": "內文的 `SIZE`（以位元組為單位）。無法自動判定內文大小時可使用此參數。"
   },
   {
+    "id": "missing Environment Variable: ",
+    "translation": "遺漏環境變數： "
+  },
+  {
     "id": "no buckets.",
     "translation": "無儲存區。"
   },
@@ -1150,5 +1166,13 @@
   {
     "id": "no parts in the multipart upload for '",
     "translation": "零個組件位於多組件上傳中，針對 '"
+  },
+  {
+    "id": "no such directory: ",
+    "translation": "沒有此類目錄: "
+  },
+  {
+    "id": "unable to install Aspera SDK: ",
+    "translation": "無法安裝 Aspera SDK： "
   }
 ]

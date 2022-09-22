@@ -112,6 +112,10 @@
     "translation": "确定要继续吗？"
   },
   {
+    "id": "Aspera Transferd binary not found. Installing now...",
+    "translation": "找不到 Aspera Transferd 二进制文件。 正在安装..."
+  },
+  {
     "id": "Authentication Method",
     "translation": "认证方法"
   },
@@ -241,7 +245,7 @@
   },
   {
     "id": "Delete the replication configuration from a bucket",
-    "translation": "Delete the replication configuration from a bucket"
+    "translation": "从存储区中删除复制配置"
   },
   {
     "id": "Destination bucket: ",
@@ -270,6 +274,10 @@
   {
     "id": "Download an object using a managed multipart transfer",
     "translation": "使用受管多重部件传输下载对象"
+  },
+  {
+    "id": "Download objects via Aspera",
+    "translation": "通过 Aspera 下载对象"
   },
   {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
@@ -337,7 +345,7 @@
   },
   {
     "id": "Get the replication configuration for a bucket",
-    "translation": "Get the replication configuration for a bucket"
+    "translation": "获取存储区的复制配置"
   },
   {
     "id": "Get the static website configuration on a bucket",
@@ -617,7 +625,7 @@
   },
   {
     "id": "Set the replication configuration on a bucket",
-    "translation": "Set the replication configuration on a bucket"
+    "translation": "在存储区上设置复制配置"
   },
   {
     "id": "Set the versioning configuration on a bucket",
@@ -1044,6 +1052,10 @@
     "translation": "使用受管多重部件传输来上传对象"
   },
   {
+    "id": "Upload files or directories via Aspera",
+    "translation": "通过 Aspera 上传文件或目录"
+  },
+  {
     "id": "UploadId",
     "translation": "UploadId"
   },
@@ -1128,6 +1140,10 @@
     "translation": "主体的 `SIZE`（字节）。当无法自动确定主体大小时，适用此参数。"
   },
   {
+    "id": "missing Environment Variable: ",
+    "translation": "缺少环境变量： "
+  },
+  {
     "id": "no buckets.",
     "translation": "无存储区。"
   },
@@ -1150,5 +1166,13 @@
   {
     "id": "no parts in the multipart upload for '",
     "translation": "多重部件上传中没有任何部件用于 '"
+  },
+  {
+    "id": "no such directory: ",
+    "translation": "无此类目录： "
+  },
+  {
+    "id": "unable to install Aspera SDK: ",
+    "translation": "无法安装 Aspera SDK： "
   }
 ]

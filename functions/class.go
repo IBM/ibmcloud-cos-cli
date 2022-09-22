@@ -19,6 +19,11 @@ func (c Class) String() string {
 		return "Cold Vault"
 	}
 
+	// Check if the class is onerate_active, return "One-rate Active"
+	if c == "onerate_active" {
+		return "One-rate Active"
+	}
+
 	// Return
 	return strings.Title(string(c))
 }

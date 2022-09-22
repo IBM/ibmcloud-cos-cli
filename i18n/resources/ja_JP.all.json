@@ -45,7 +45,7 @@
   },
   {
     "id": "1 bucket found in your account:\n",
-    "translation": "個のバケットがアカウントに見つかりました:\n"
+    "translation": "アカウントに 1 個のバケットが見つかりました:\n"
   },
   {
     "id": "1 bucket:",
@@ -110,6 +110,10 @@
   {
     "id": "Are you sure you would like to continue?",
     "translation": "続行してよろしいですか?"
+  },
+  {
+    "id": "Aspera Transferd binary not found. Installing now...",
+    "translation": "Aspera Transferd バイナリーが見つかりません。 インストールしています..."
   },
   {
     "id": "Authentication Method",
@@ -241,7 +245,7 @@
   },
   {
     "id": "Delete the replication configuration from a bucket",
-    "translation": "Delete the replication configuration from a bucket"
+    "translation": "バケットからの複製構成の削除"
   },
   {
     "id": "Destination bucket: ",
@@ -270,6 +274,10 @@
   {
     "id": "Download an object using a managed multipart transfer",
     "translation": "管理対象マルチパート転送を使用しているオブジェクトをダウンロードします"
+  },
+  {
+    "id": "Download objects via Aspera",
+    "translation": "Aspera 経由でのオブジェクトのダウンロード"
   },
   {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
@@ -337,7 +345,7 @@
   },
   {
     "id": "Get the replication configuration for a bucket",
-    "translation": "Get the replication configuration for a bucket"
+    "translation": "バケットからの複製構成の取得"
   },
   {
     "id": "Get the static website configuration on a bucket",
@@ -401,7 +409,7 @@
   },
   {
     "id": "Last Modified",
-    "translation": "最終変更日"
+    "translation": "最終変更日時"
   },
   {
     "id": "Last Modified: {{.lastmodified}}",
@@ -465,7 +473,7 @@
   },
   {
     "id": "No buckets found in your account.",
-    "translation": "個のバケットがアカウントに見つかりました:\n"
+    "translation": "アカウントにバケットが見つかりませんでした。"
   },
   {
     "id": "No tags returned",
@@ -617,7 +625,7 @@
   },
   {
     "id": "Set the replication configuration on a bucket",
-    "translation": "Set the replication configuration on a bucket"
+    "translation": "バケットでの複製構成の設定"
   },
   {
     "id": "Set the versioning configuration on a bucket",
@@ -1044,6 +1052,10 @@
     "translation": "管理対象マルチパート転送を使用しているオブジェクトをアップロードします"
   },
   {
+    "id": "Upload files or directories via Aspera",
+    "translation": "Aspera 経由でのファイルまたはディレクトリーのアップロード"
+  },
+  {
     "id": "UploadId",
     "translation": "UploadId"
   },
@@ -1128,6 +1140,10 @@
     "translation": "本文の `SIZE` (バイト単位)。 このパラメーターは、本文のサイズが自動的に判定されない場合に便利です。"
   },
   {
+    "id": "missing Environment Variable: ",
+    "translation": "環境変数がありません: "
+  },
+  {
     "id": "no buckets.",
     "translation": "バケットがありません。"
   },
@@ -1150,5 +1166,13 @@
   {
     "id": "no parts in the multipart upload for '",
     "translation": "次のマルチパート・アップロードにはパーツがありません: '"
+  },
+  {
+    "id": "no such directory: ",
+    "translation": "存在しないディレクトリーです: "
+  },
+  {
+    "id": "unable to install Aspera SDK: ",
+    "translation": "Aspera SDK をインストールできません: "
   }
 ]

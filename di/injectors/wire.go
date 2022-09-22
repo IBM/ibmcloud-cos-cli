@@ -23,6 +23,7 @@ func InitializeCosContext(_ plugin.PluginContext) (*utils.CosContext, error) {
 		providers.GetS3APIFn,
 		providers.GetDownloaderAPIFn,
 		providers.GetUploaderAPIFn,
+		providers.GetAsperaTransferFn,
 		providers.GetPluginConfig,
 		providers.NewSession,
 		providers.NewConfig,

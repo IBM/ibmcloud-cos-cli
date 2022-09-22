@@ -32,3 +32,7 @@ func MessageConfirmationContinue() string { return T("Are you sure you would lik
 
 // MessageOperationCanceled - Operation cancellation message
 func MessageOperationCanceled() string { return T("Operation canceled.") }
+
+func MessageAsperaBinaryNotFound() string {
+	return T("Aspera Transferd binary not found. Installing now...")
+}

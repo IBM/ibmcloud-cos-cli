@@ -30,7 +30,7 @@ var (
 
 	// Classes ibm cos storage classes
 	// needed to disambiguation between us-south vs us-geo vs us-flex in region constraint
-	Classes        = []string{"standard", "vault", "cold", "flex", "smart"}
+	Classes        = []string{"standard", "vault", "cold", "flex", "smart", "onerate_active"}
 	classTokenizer = strings.Join(Classes, `|`)
 	regionSpec     = fmt.Sprintf(`(?i)^(\w+(?:-\w+)??)(-geo)?(?:-(%s|\*))?$`, classTokenizer)
 	// RegionDecoderRegex regular expression to break down regions and storage class

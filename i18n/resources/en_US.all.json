@@ -112,6 +112,10 @@
     "translation": "Are you sure you would like to continue?"
   },
   {
+    "id": "Aspera Transferd binary not found. Installing now...",
+    "translation": "Aspera Transferd binary not found. Installing now..."
+  },
+  {
     "id": "Authentication Method",
     "translation": "Authentication Method"
   },
@@ -270,6 +274,10 @@
   {
     "id": "Download an object using a managed multipart transfer",
     "translation": "Download an object using a managed multipart transfer"
+  },
+  {
+    "id": "Download objects via Aspera",
+    "translation": "Download objects via Aspera"
   },
   {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
@@ -1044,6 +1052,10 @@
     "translation": "Upload an object using a managed multipart transfer"
   },
   {
+    "id": "Upload files or directories via Aspera",
+    "translation": "Upload files or directories via Aspera"
+  },
+  {
     "id": "UploadId",
     "translation": "UploadId"
   },
@@ -1128,6 +1140,10 @@
     "translation": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically."
   },
   {
+    "id": "missing Environment Variable: ",
+    "translation": "missing Environment Variable: "
+  },
+  {
     "id": "no buckets.",
     "translation": "no buckets."
   },
@@ -1150,5 +1166,13 @@
   {
     "id": "no parts in the multipart upload for '",
     "translation": "no parts in the multipart upload for '"
+  },
+  {
+    "id": "no such directory: ",
+    "translation": "no such directory: "
+  },
+  {
+    "id": "unable to install Aspera SDK: ",
+    "translation": "unable to install Aspera SDK: "
   }
 ]

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 1.6.0
+
+### Content
+
+#### Features
+
+* One Rate Active Plan Support
+* Aspera High-Speed Transfer Support
+
 ## 1.5.0
 
 ### Content

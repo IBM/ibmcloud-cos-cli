@@ -112,6 +112,10 @@
     "translation": "Souhaitez-vous vraiment continuer ?"
   },
   {
+    "id": "Aspera Transferd binary not found. Installing now...",
+    "translation": "Binaire Aspera Transfer introuvable. Installation en cours..."
+  },
+  {
     "id": "Authentication Method",
     "translation": "Méthode d'authentification"
   },
@@ -133,7 +137,7 @@
   },
   {
     "id": "CRN",
-    "translation": "Nom de ressource de cloud (CRN)"
+    "translation": "CRN"
   },
   {
     "id": "Change plugin configuration",
@@ -241,7 +245,7 @@
   },
   {
     "id": "Delete the replication configuration from a bucket",
-    "translation": "Delete the replication configuration from a bucket"
+    "translation": "Supprimer la configuration de réplication d'un compartiment"
   },
   {
     "id": "Destination bucket: ",
@@ -270,6 +274,10 @@
   {
     "id": "Download an object using a managed multipart transfer",
     "translation": "Télécharger un objet à l'aide d'un transfert multiparties géré"
+  },
+  {
+    "id": "Download objects via Aspera",
+    "translation": "Télécharger des objets via Aspera"
   },
   {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
@@ -337,7 +345,7 @@
   },
   {
     "id": "Get the replication configuration for a bucket",
-    "translation": "Get the replication configuration for a bucket"
+    "translation": "Obtenir la configuration de réplication pour un compartiment"
   },
   {
     "id": "Get the static website configuration on a bucket",
@@ -401,7 +409,7 @@
   },
   {
     "id": "Last Modified",
-    "translation": "Date de dernière modification"
+    "translation": "Dernière modification"
   },
   {
     "id": "Last Modified: {{.lastmodified}}",
@@ -617,7 +625,7 @@
   },
   {
     "id": "Set the replication configuration on a bucket",
-    "translation": "Set the replication configuration on a bucket"
+    "translation": "Définir la configuration de la réplication sur un compartiment"
   },
   {
     "id": "Set the versioning configuration on a bucket",
@@ -845,7 +853,7 @@
   },
   {
     "id": "The public access block configuration was not found.",
-    "translation": "La configuration du bloc d'accès public est introuvable."
+    "translation": "La configuration de blocage d'accès public est introuvable."
   },
   {
     "id": "The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB.",
@@ -1044,6 +1052,10 @@
     "translation": "Remonter un objet à l'aide d'un transfert multiparties géré"
   },
   {
+    "id": "Upload files or directories via Aspera",
+    "translation": "Transférer des fichiers ou des répertoires via Aspera"
+  },
+  {
     "id": "UploadId",
     "translation": "ID de remontée"
   },
@@ -1128,6 +1140,10 @@
     "translation": "Taille (SIZE) du corps en octets. Ce paramètre est utile quand la taille du corps ne peut pas être déterminée automatiquement."
   },
   {
+    "id": "missing Environment Variable: ",
+    "translation": "Variable d'environnement manquante : "
+  },
+  {
     "id": "no buckets.",
     "translation": "aucun compartiment."
   },
@@ -1150,5 +1166,13 @@
   {
     "id": "no parts in the multipart upload for '",
     "translation": "aucune partie dans la remontée multiparties pour '"
+  },
+  {
+    "id": "no such directory: ",
+    "translation": "répertoire inexistant : "
+  },
+  {
+    "id": "unable to install Aspera SDK: ",
+    "translation": "impossible d'installer Aspera SDK : "
   }
 ]

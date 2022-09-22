@@ -18,11 +18,14 @@ SHELL:=/bin/bash
 
 SupportedOperatingSystems = darwin linux windows ppc64le s390x
 
-.PHONY: all test clean cleanAll build install buildSupported $(SupportedOperatingSystems) set_env_vars buildWithMod vendorWithMod
+.PHONY: all test clean cleanAll aspera build install buildSupported $(SupportedOperatingSystems) set_env_vars buildWithMod vendorWithMod
 
 .DEFAULT_GOAL := build
 
-build:
+aspera:
+	bin/download-aspera-mod
+
+build: aspera
 	CGO_ENABLED=0 go build -o build/${APP}-${GOHOSTOS}-${GOHOSTARCH} -ldflags "-s -w" -a -installsuffix cgo .
 
 clean:
@@ -43,7 +46,7 @@ windows : EXT := .exe
 
 buildSupported: $(SupportedOperatingSystems)
 
-${SupportedOperatingSystems}:
+${SupportedOperatingSystems}: aspera
 	if [ "$@" != "ppc64le" ] && [ "$@" != "s390x" ]; then\
 	    CGO_ENABLED=0 GOOS=$@ GOARCH=amd64 go build -o build/${APP}-$@-amd64${EXT} -ldflags "-s -w" -a -installsuffix cgo . ;\
 	else\

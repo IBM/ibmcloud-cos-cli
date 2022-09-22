@@ -109,6 +109,8 @@ func (txtRender *TextRender) Display(
 		return txtRender.printGetObject(input, castedOutput)
 	case *s3manager.UploadOutput:
 		return txtRender.printUpload(input, castedOutput)
+	case *AsperaUploadOutput:
+		return txtRender.printUpload(input, nil)
 	case *DownloadOutput:
 		return txtRender.printDownload(input, castedOutput)
 	case *s3.GetBucketVersioningOutput:

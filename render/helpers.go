@@ -8,7 +8,7 @@ import (
 
 var (
 	// Possible bucket class names
-	Classes = []string{"standard", "vault", "cold", "flex", "smart"}
+	Classes = []string{"standard", "vault", "cold", "flex", "smart", "onerate_active"}
 	// Class tokenizer
 	classTokenizer = strings.Join(Classes, `|`)
 	/// Region specifications
@@ -46,6 +46,8 @@ func renderClass(class string) string {
 		return "Standard"
 	case "cold":
 		return "Cold Vault"
+	case "onerate_active":
+		return "One-rate Active"
 	default:
 		return strings.Title(class)
 	}

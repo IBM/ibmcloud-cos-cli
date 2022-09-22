@@ -17,11 +17,12 @@ import (
 
 // Test Environment Shared Mocks
 var (
-	FakeUI            = new(terminalHelpers.FakeUI)
-	MockS3API         = new(mocks.S3API)
-	MockUploaderAPI   = new(mocks.Uploader)
-	MockDownloaderAPI = new(mocks.Downloader)
-	MockPluginConfig  = new(mocks.PluginConfig)
+	FakeUI             = new(terminalHelpers.FakeUI)
+	MockS3API          = new(mocks.S3API)
+	MockUploaderAPI    = new(mocks.Uploader)
+	MockDownloaderAPI  = new(mocks.Downloader)
+	MockAsperaTransfer = new(mocks.AsperaTransfer)
+	MockPluginConfig   = new(mocks.PluginConfig)
 
 	MockRegionResolver = &RegionResolverMock{
 		ListKnownRegions: mocks.ListKnownRegions{},
@@ -39,6 +40,7 @@ func MocksRESET() {
 	MockS3API = new(mocks.S3API)
 	MockUploaderAPI = new(mocks.Uploader)
 	MockDownloaderAPI = new(mocks.Downloader)
+	MockAsperaTransfer = new(mocks.AsperaTransfer)
 	MockPluginConfig = new(mocks.PluginConfig)
 
 	MockRegionResolver = &RegionResolverMock{
@@ -64,6 +66,12 @@ func NewUI() terminal.UI {
 func GetS3APIFn() func(*session.Session) s3iface.S3API {
 	return func(*session.Session) s3iface.S3API {
 		return MockS3API
+	}
+}
+
+func GetAsperaTransferFn() func(sess *session.Session, apikey string) (utils.AsperaTransfer, error) {
+	return func(sess *session.Session, apikey string) (utils.AsperaTransfer, error) {
+		return MockAsperaTransfer, nil
 	}
 }
 

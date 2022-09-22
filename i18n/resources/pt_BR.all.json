@@ -112,6 +112,10 @@
     "translation": "Tem certeza de que gostaria de continuar?"
   },
   {
+    "id": "Aspera Transferd binary not found. Installing now...",
+    "translation": "O binário Aspera Transferd não foi localizado. Instalando agora..."
+  },
+  {
     "id": "Authentication Method",
     "translation": "Método de autenticação"
   },
@@ -197,7 +201,7 @@
   },
   {
     "id": "Date Created",
-    "translation": "Data de criação"
+    "translation": "Data criada"
   },
   {
     "id": "Default Region",
@@ -241,7 +245,7 @@
   },
   {
     "id": "Delete the replication configuration from a bucket",
-    "translation": "Delete the replication configuration from a bucket"
+    "translation": "Excluir a configuração de replicação a partir de um depósito"
   },
   {
     "id": "Destination bucket: ",
@@ -270,6 +274,10 @@
   {
     "id": "Download an object using a managed multipart transfer",
     "translation": "Faça download de um objeto usando uma transferência de multipartes gerenciada"
+  },
+  {
+    "id": "Download objects via Aspera",
+    "translation": "Fazer o download de objetos por meio do Aspera"
   },
   {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
@@ -337,7 +345,7 @@
   },
   {
     "id": "Get the replication configuration for a bucket",
-    "translation": "Get the replication configuration for a bucket"
+    "translation": "Obter a configuração de replicação para um depósito"
   },
   {
     "id": "Get the static website configuration on a bucket",
@@ -401,7 +409,7 @@
   },
   {
     "id": "Last Modified",
-    "translation": "Modificado pela Última Vez"
+    "translation": "Última modificação"
   },
   {
     "id": "Last Modified: {{.lastmodified}}",
@@ -617,7 +625,7 @@
   },
   {
     "id": "Set the replication configuration on a bucket",
-    "translation": "Set the replication configuration on a bucket"
+    "translation": "Configurar a configuração de replicação em um depósito"
   },
   {
     "id": "Set the versioning configuration on a bucket",
@@ -1044,6 +1052,10 @@
     "translation": "Faça o upload de um objeto usando uma transferência de multipartes gerenciada"
   },
   {
+    "id": "Upload files or directories via Aspera",
+    "translation": "Fazer o upload de arquivos ou diretórios por meio do Aspera"
+  },
+  {
     "id": "UploadId",
     "translation": "UploadId"
   },
@@ -1128,6 +1140,10 @@
     "translation": "`SIZE` do corpo em bytes. Este parâmetro é útil quando o tamanho do corpo não pode ser determinado automaticamente."
   },
   {
+    "id": "missing Environment Variable: ",
+    "translation": "Variável de ambiente ausente: "
+  },
+  {
     "id": "no buckets.",
     "translation": "sem depósitos."
   },
@@ -1150,5 +1166,13 @@
   {
     "id": "no parts in the multipart upload for '",
     "translation": "nenhuma parte no upload de diversas partes para '"
+  },
+  {
+    "id": "no such directory: ",
+    "translation": "não existe esse diretório: "
+  },
+  {
+    "id": "unable to install Aspera SDK: ",
+    "translation": "não foi possível instalar o Aspera SDK: "
   }
 ]

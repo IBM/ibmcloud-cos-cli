@@ -705,6 +705,20 @@ var (
 		Action:    functions.Download,
 	}
 
+	CommandAsperaDownload = cli.Command{
+		Name:        AsperaDownload,
+		Description: T("Download objects via Aspera"),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagKey,
+			flags.FlagRegion,
+			flags.FlagOutput,
+			flags.FlagJSON,
+		},
+		ArgsUsage: "[OUTFILE]",
+		Action:    functions.AsperaDownload,
+	}
+
 	// CommandUpload - Upload objects concurrently using S3 Transfer Manager
 	// command:
 	//	 ibmcloud cos upload
@@ -732,6 +746,20 @@ var (
 			flags.FlagJSON,
 		},
 		Action: functions.Upload,
+	}
+
+	CommandAsperaUpload = cli.Command{
+		Name:        AsperaUpload,
+		Description: T("Upload files or directories via Aspera"),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagKey,
+			flags.FlagRegion,
+			flags.FlagOutput,
+			flags.FlagJSON,
+		},
+		ArgsUsage: "[SRCFILE]",
+		Action:    functions.AsperaUpload,
 	}
 
 	// CommandWait - Wait until a particular condition is satisfied.

@@ -112,6 +112,10 @@
     "translation": "Wollen Sie fortfahren?"
   },
   {
+    "id": "Aspera Transferd binary not found. Installing now...",
+    "translation": "Aspera-Übertragungsbinärdatei nicht gefunden. Installation läuft..."
+  },
+  {
     "id": "Authentication Method",
     "translation": "Authentifizierungsmethode"
   },
@@ -225,7 +229,7 @@
   },
   {
     "id": "Delete marker version ID: ",
-    "translation": "Markierung der Versions-ID löschen: "
+    "translation": "Versions-ID der Löschmarkierung: "
   },
   {
     "id": "Delete multiple objects from a bucket",
@@ -241,7 +245,7 @@
   },
   {
     "id": "Delete the replication configuration from a bucket",
-    "translation": "Delete the replication configuration from a bucket"
+    "translation": "Replikationskonfiguration aus einem Bucket löschen"
   },
   {
     "id": "Destination bucket: ",
@@ -270,6 +274,10 @@
   {
     "id": "Download an object using a managed multipart transfer",
     "translation": "Objekt mit einer verwalteten mehrteiligen Übertragung herunterladen"
+  },
+  {
+    "id": "Download objects via Aspera",
+    "translation": "Objekte über Aspera herunterladen"
   },
   {
     "id": "Downloads the specified `RANGE` bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.",
@@ -337,7 +345,7 @@
   },
   {
     "id": "Get the replication configuration for a bucket",
-    "translation": "Get the replication configuration for a bucket"
+    "translation": "Replikationskonfiguration für ein Bucket abrufen"
   },
   {
     "id": "Get the static website configuration on a bucket",
@@ -617,7 +625,7 @@
   },
   {
     "id": "Set the replication configuration on a bucket",
-    "translation": "Set the replication configuration on a bucket"
+    "translation": "Replikationskonfiguration für ein Bucket festlegen"
   },
   {
     "id": "Set the versioning configuration on a bucket",
@@ -1044,6 +1052,10 @@
     "translation": "Objekt mithilfe einer verwalteten mehrteiligen Übertragung hochladen"
   },
   {
+    "id": "Upload files or directories via Aspera",
+    "translation": "Dateien oder Verzeichnisse über Aspera hochladen"
+  },
+  {
     "id": "UploadId",
     "translation": "UploadId"
   },
@@ -1128,6 +1140,10 @@
     "translation": "Die Größe (SIZE) des Hauptteils in Byte. Dieser Parameter ist hilfreich, wenn die Größe des Hauptteils nicht automatisch ermittelt werden kann."
   },
   {
+    "id": "missing Environment Variable: ",
+    "translation": "fehlende Umgebungsvariable: "
+  },
+  {
     "id": "no buckets.",
     "translation": "Keine Buckets"
   },
@@ -1150,5 +1166,13 @@
   {
     "id": "no parts in the multipart upload for '",
     "translation": "Keine Teile im mehrteiligen Upload für '"
+  },
+  {
+    "id": "no such directory: ",
+    "translation": "kein solches Verzeichnis: "
+  },
+  {
+    "id": "unable to install Aspera SDK: ",
+    "translation": "Aspera SDK kann nicht installiert werden: "
   }
 ]

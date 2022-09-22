@@ -36,6 +36,10 @@ func InitializeCosContext(pluginContext plugin.PluginContext) (*utils.CosContext
 	v := providers.GetS3APIFn()
 	v2 := providers.GetDownloaderAPIFn()
 	v3 := providers.GetUploaderAPIFn()
+	v4 := providers.GetAsperaTransferFn()
+	if err != nil {
+		return nil, err
+	}
 	fileOperationsImpl := providers.GetFileOperations()
 	cosContext := &utils.CosContext{
 		UI:               ui,
@@ -48,6 +52,7 @@ func InitializeCosContext(pluginContext plugin.PluginContext) (*utils.CosContext
 		ClientGen:        v,
 		DownloaderGen:    v2,
 		UploaderGen:      v3,
+		AsperaTransferGen: v4,
 		FileOperations:   fileOperationsImpl,
 	}
 	return cosContext, nil
