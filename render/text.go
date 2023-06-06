@@ -127,6 +127,13 @@ func (txtRender *TextRender) Display(
 		return txtRender.printGetPublicAccessBlock(input, castedOutput)
 	case *s3.GetBucketReplicationOutput:
 		return txtRender.printGetBucketReplication(input, castedOutput)
+	case *s3.GetObjectLockConfigurationOutput:
+		return txtRender.printGetObjectLockConfiguration(input, castedOutput)
+	case *s3.GetObjectLegalHoldOutput:
+		return txtRender.printGetObjectLegalHold(input, castedOutput)
+	case *s3.GetObjectRetentionOutput:
+		return txtRender.printGetObjectRetention(input, castedOutput)
+
 	default:
 		return
 	}
@@ -862,5 +869,35 @@ func (txtRender *TextRender) printGetPublicAccessBlock(input interface{}, output
 	txtRender.Say(T("Public Access Block Configuration"))
 	txtRender.Say(T("Block Public ACLs: ") + terminal.EntityNameColor(strconv.FormatBool(aws.BoolValue(config.BlockPublicAcls))))
 	txtRender.Say(T("Ignore Public ACLs: ") + terminal.EntityNameColor(strconv.FormatBool(aws.BoolValue(config.IgnorePublicAcls))))
+	return
+}
+
+func (txtRender *TextRender) printGetObjectLockConfiguration(input interface{}, output *s3.GetObjectLockConfigurationOutput) (err error) {
+	config := output.ObjectLockConfiguration
+	txtRender.Say(T("Object Lock Configuration"))
+	txtRender.Say(T("Object Lock Status: ") + terminal.EntityNameColor((aws.StringValue(config.ObjectLockEnabled))))
+
+ if config.Rule != nil {
+	txtRender.Say(T("Retention Mode: ") + terminal.EntityNameColor((aws.StringValue(config.Rule.DefaultRetention.Mode))))
+		if config.Rule.DefaultRetention.Years !=nil {
+			txtRender.Say(T("Retention Period: ") + terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(config.Rule.DefaultRetention.Years), 10)) + " Years")
+		} else {
+				txtRender.Say(T("Retention Period: ") + terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(config.Rule.DefaultRetention.Days), 10))+ " Days")
+		}
+ }
+	return
+}
+
+func (txtRender *TextRender) printGetObjectLegalHold(input interface{}, output *s3.GetObjectLegalHoldOutput) (err error) {
+	config := output.LegalHold
+	txtRender.Say(T("Legal Hold Status: ") + terminal.EntityNameColor((aws.StringValue(config.Status))))
+	return
+}
+
+func (txtRender *TextRender) printGetObjectRetention(input interface{}, output *s3.GetObjectRetentionOutput) (err error) {
+	config := output.Retention
+	txtRender.Say(T("Retention"))
+	txtRender.Say(T("Mode: ") + terminal.EntityNameColor((aws.StringValue(config.Mode))))
+	txtRender.Say(T("Retain Until Date: ") + terminal.EntityNameColor(aws.TimeValue(config.RetainUntilDate).Format(timeFormat)))
 	return
 }

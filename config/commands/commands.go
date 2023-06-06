@@ -20,6 +20,8 @@ var (
 			flags.FlagIbmServiceInstanceID,
 			flags.FlagClass,
 			flags.FlagRegion,
+			flags.FlagKmsRootKeyCrn,
+			flags.FlagKmsEncryptionAlgorithm,
 			flags.FlagOutput,
 			flags.FlagJSON,
 		},
@@ -181,6 +183,88 @@ var (
 		},
 		Action: functions.BucketReplicationPut,
 	}
+
+	// CommandObjectLockConfigurationGet - Get the object lock configuration for a bucket with GetObjectLockConfiguration
+	CommandObjectLockGet = cli.Command{
+		Name:        ObjectLockGet,
+		Description: T("Get the object lock configuration for a bucket"),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagRegion,
+			flags.FlagOutput,
+		},
+		Action: functions.ObjectLockGet,
+	}
+
+	// CommandObjectLockConfigurationPut - Set the object lock configuration on a bucket with PutObjectLockConfiguration
+	CommandObjectLockPut = cli.Command{
+		Name:        ObjectLockPut,
+		Description: T("Set the object lock configuration on a bucket"),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagObjectLockConfiguration,
+			flags.FlagRegion,
+			flags.FlagOutput,
+		},
+		Action: functions.ObjectLockPut,
+	}
+
+	// CommandObjectLegalHoldGet - Get the object lock configuration for a object with GetObjectLegalHold
+	CommandObjectLegalHoldGet = cli.Command{
+		Name:        ObjectLegalHoldGet,
+		Description: T("Get legal hold for a object"),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagKey,
+			flags.FlagRegion,
+			flags.FlagOutput,
+		},
+		Action: functions.ObjectLegalHoldGet,
+	}
+
+	// CommandObjectLegalHoldPut - Set the object lock configuration on a object with PutObjectLegalHold
+	CommandObjectLegalHoldPut = cli.Command{
+		Name:        ObjectLegalHoldPut,
+		Description: T("Set the legal hold on a object"),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagKey,
+			flags.FlagObjectLegalHold,
+			flags.FlagRegion,
+			flags.FlagOutput,
+		},
+		Action: functions.ObjectLegalHoldPut,
+	}
+
+
+	// CommandObjectRetentionGet - Get retention on a object with GetObjectRetention
+	CommandObjectRetentionGet = cli.Command{
+		Name:        ObjectRetentionGet,
+		Description: T("Get retention on a object "),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagKey,
+			flags.FlagRegion,
+			flags.FlagOutput,
+		},
+		Action: functions.ObjectRetentionGet,
+	}
+
+	// CommandObjectRetentionPut - Set retention on a object with PutObjectRetention
+	CommandObjectRetentionPut = cli.Command{
+		Name:        ObjectRetentionPut,
+		Description: T("Set retention on a object"),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagKey,
+			flags.FlagObjectRetention,
+			flags.FlagRegion,
+			flags.FlagOutput,
+		},
+		Action: functions.ObjectRetentionPut,
+	}
+
+
 
 	// CommandBucketsExtended - List all the extended buckets (OneCloud version)
 	// command:

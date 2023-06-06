@@ -157,6 +157,18 @@ var (
 		Hidden: true,
 	}
 
+	FlagKmsEncryptionAlgorithm = cli.StringFlag{
+		Name:   KmsEncryptionAlgorithm,
+		Usage:  T("The `ALGORITHM` and `SIZE` to use with the encryption key stored by using key protect."),
+		Hidden: true,
+	}
+
+	FlagKmsRootKeyCrn = cli.StringFlag{
+		Name:   KmsRootKeyCrn,
+		Usage:  T("The `CUSTOMERROOTKEYCRN` of the KMS  root key associated with the bucket for data encryption."),
+		Hidden: true,
+	}
+
 	FlagLeavePartsOnErrors = cli.BoolFlag{
 		Name:  LeavePartsOnErrors,
 		Usage: T("Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery."),
@@ -230,6 +242,21 @@ var (
 
 	FlagReplicationConfiguration = cli.StringFlag{
 		Name:  ReplicationConfiguration,
+		Usage: T("A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation."),
+	}
+
+	FlagObjectLockConfiguration = cli.StringFlag{
+		Name:  ObjectLockConfiguration,
+		Usage: T("A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation."),
+	}
+
+	FlagObjectLegalHold = cli.StringFlag{
+		Name:  LegalHold,
+		Usage: T("A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation."),
+	}
+
+	FlagObjectRetention = cli.StringFlag{
+		Name:  Retention,
 		Usage: T("A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation."),
 	}
 

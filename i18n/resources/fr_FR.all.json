@@ -124,8 +124,8 @@
     "translation": "Méthode (METHOD) d'authentification."
   },
   {
-    "id": "Bad Flag Syntax in '--%s'",
-    "translation": "Mauvaise syntaxe d'indicateur dans '--%s'"
+    "id": "Bad Flag Syntax in '%s'",
+    "translation": "Mauvaise syntaxe d'indicateur dans '%s'"
   },
   {
     "id": "Block Public ACLs: ",
@@ -328,6 +328,14 @@
     "translation": "Obtenir la taille et la date de dernière modification d'un objet"
   },
   {
+    "id": "Get legal hold for a object",
+    "translation": "Obtenir la rétention légale pour un objet"
+  },
+  {
+    "id": "Get retention on a object ",
+    "translation": "Obtenir la rétention sur un objet "
+  },
+  {
     "id": "Get tags for an object",
     "translation": "Obtenir les balises d'un objet"
   },
@@ -338,6 +346,10 @@
   {
     "id": "Get the location and billing tier of a bucket",
     "translation": "Obtenir l'emplacement et le niveau de facturation d'un compartiment"
+  },
+  {
+    "id": "Get the object lock configuration for a bucket",
+    "translation": "Obtenir la configuration de verrouillage d'objet pour un compartiment"
   },
   {
     "id": "Get the public access block configuration on a bucket",
@@ -420,6 +432,10 @@
     "translation": "Dernière mise à jour"
   },
   {
+    "id": "Legal Hold Status: ",
+    "translation": "Statut de la rétention légale : "
+  },
+  {
     "id": "Limits the response to keys that begin with the specified `PREFIX`.",
     "translation": "Limite la réponse aux clés qui commencent par le préfixe (PREFIX) spécifié."
   },
@@ -468,6 +484,10 @@
     "translation": "Nombre maximum de parties ('PARTS') qui seront remontées dans S3, qui détermine la taille des parties de l'objet à remonter.  La limite est de 10 000 parties."
   },
   {
+    "id": "Mode: ",
+    "translation": "Mode : "
+  },
+  {
     "id": "Name",
     "translation": "Nom"
   },
@@ -482,6 +502,14 @@
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
     "translation": "L'objet '{{.Key}}' a été trouvé dans le compartiment '{{.Bucket}}'."
+  },
+  {
+    "id": "Object Lock Configuration",
+    "translation": "Configuration du verrouillage d'objet"
+  },
+  {
+    "id": "Object Lock Status: ",
+    "translation": "Statut de verrouillage d'objet : "
   },
   {
     "id": "Object Size",
@@ -568,6 +596,22 @@
     "translation": "Demande le codage des clés d'objet dans la réponse et spécifie la méthode (METHOD) de codage à utiliser."
   },
   {
+    "id": "Retain Until Date: ",
+    "translation": "Date limite de conservation : "
+  },
+  {
+    "id": "Retention",
+    "translation": "Conservation"
+  },
+  {
+    "id": "Retention Mode: ",
+    "translation": "Mode de conservation : "
+  },
+  {
+    "id": "Retention Period: ",
+    "translation": "Durée de conservation : "
+  },
+  {
     "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified).",
     "translation": "Ne renvoyer l'objet que s'il a été modifié depuis l'horodate (TIMESTAMP) spécifiée, sinon renvoyer un code 304 (non modifié)."
   },
@@ -608,6 +652,10 @@
     "translation": "Définir l'URL de point d'extrémité des régions"
   },
   {
+    "id": "Set retention on a object",
+    "translation": "Définir la conservation sur un objet"
+  },
+  {
     "id": "Set static website configuration on a bucket",
     "translation": "Définir la configuration de site Web statique sur un compartiment"
   },
@@ -622,6 +670,14 @@
   {
     "id": "Set the default location for downloads.",
     "translation": "Définir l'emplacement par défaut pour les téléchargements."
+  },
+  {
+    "id": "Set the legal hold on a object",
+    "translation": "Définir la rétention légale sur un objet"
+  },
+  {
+    "id": "Set the object lock configuration on a bucket",
+    "translation": "Définir la configuration de verrouillage d'objet sur un compartiment"
   },
   {
     "id": "Set the replication configuration on a bucket",
@@ -798,6 +854,14 @@
   {
     "id": "The CORS configuration of ",
     "translation": "La configuration CORS de "
+  },
+  {
+    "id": "The `ALGORITHM` and `SIZE` to use with the encryption key stored by using key protect.",
+    "translation": "Les valeurs ` ALGORITHM ` et ` SIZE ` à utiliser avec la clé de chiffrement stockée à l'aide de Key Protect."
+  },
+  {
+    "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
+    "translation": "Le nom ` CUSTOMERROOTKEYCRN ` de la clé racine KMS associée au compartiment pour le chiffrement des données."
   },
   {
     "id": "The `KEY` of the object.",
@@ -1140,8 +1204,8 @@
     "translation": "Taille (SIZE) du corps en octets. Ce paramètre est utile quand la taille du corps ne peut pas être déterminée automatiquement."
   },
   {
-    "id": "missing Environment Variable: ",
-    "translation": "Variable d'environnement manquante : "
+    "id": "missing Environment Variable: %s",
+    "translation": "Variable d'environnement manquante : %s"
   },
   {
     "id": "no buckets.",
@@ -1168,11 +1232,11 @@
     "translation": "aucune partie dans la remontée multiparties pour '"
   },
   {
-    "id": "no such directory: ",
-    "translation": "répertoire inexistant : "
+    "id": "no such directory: %s",
+    "translation": "répertoire inexistant : %s"
   },
   {
-    "id": "unable to install Aspera SDK: ",
-    "translation": "impossible d'installer Aspera SDK : "
+    "id": "unable to install Aspera SDK: %s",
+    "translation": "impossible d'installer Aspera SDK : %s"
   }
 ]

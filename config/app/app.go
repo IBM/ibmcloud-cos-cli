@@ -56,6 +56,12 @@ func NewApp(name string) *cli.App {
 		commands.CommandBucketWebsiteGet,
 		commands.CommandBucketWebsitePut,
 		// Objects
+		commands.CommandObjectLockGet,
+		commands.CommandObjectLockPut,
+		commands.CommandObjectLegalHoldGet,
+		commands.CommandObjectLegalHoldPut,
+		commands.CommandObjectRetentionGet,
+		commands.CommandObjectRetentionPut,
 		commands.CommandObjectGet,
 		commands.CommandObjectHead,
 		commands.CommandObjectPut,

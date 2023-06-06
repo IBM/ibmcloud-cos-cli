@@ -124,8 +124,8 @@
     "translation": "認証 `METHOD`。"
   },
   {
-    "id": "Bad Flag Syntax in '--%s'",
-    "translation": "'--%s' 内のフラグ構文が不適切です"
+    "id": "Bad Flag Syntax in '%s'",
+    "translation": "'%s' 内のフラグ構文が不適切です"
   },
   {
     "id": "Block Public ACLs: ",
@@ -328,6 +328,14 @@
     "translation": "オブジェクトのサイズと最終変更日を取得します"
   },
   {
+    "id": "Get legal hold for a object",
+    "translation": "オブジェクトの訴訟ホールドの取得"
+  },
+  {
+    "id": "Get retention on a object ",
+    "translation": "オブジェクトの保存の取得 "
+  },
+  {
     "id": "Get tags for an object",
     "translation": "オブジェクトのタグを取得します"
   },
@@ -338,6 +346,10 @@
   {
     "id": "Get the location and billing tier of a bucket",
     "translation": "バケットのロケーションと請求層を取得します"
+  },
+  {
+    "id": "Get the object lock configuration for a bucket",
+    "translation": "バケットのオブジェクト・ロック構成の取得"
   },
   {
     "id": "Get the public access block configuration on a bucket",
@@ -420,6 +432,10 @@
     "translation": "最終更新"
   },
   {
+    "id": "Legal Hold Status: ",
+    "translation": "訴訟ホールドの状況: "
+  },
+  {
     "id": "Limits the response to keys that begin with the specified `PREFIX`.",
     "translation": "指定した `PREFIX` で始まるキーに応答を制限します。"
   },
@@ -468,6 +484,10 @@
     "translation": "アップロードされるオブジェクトのパーツ・サイズを計算する S3 にアップロードされる `PARTS` の最大数。上限は 10,000 パーツです。"
   },
   {
+    "id": "Mode: ",
+    "translation": "モード: "
+  },
+  {
     "id": "Name",
     "translation": "名前"
   },
@@ -482,6 +502,14 @@
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
     "translation": "オブジェクト '{{.Key}}' がバケット '{{.Bucket}}' で見つかりました。"
+  },
+  {
+    "id": "Object Lock Configuration",
+    "translation": "オブジェクト・ロック構成"
+  },
+  {
+    "id": "Object Lock Status: ",
+    "translation": "オブジェクト・ロック状況: "
   },
   {
     "id": "Object Size",
@@ -568,6 +596,22 @@
     "translation": "応答内のオブジェクト・キーをエンコードするように要求し、使用するエンコード `METHOD` を指定します。"
   },
   {
+    "id": "Retain Until Date: ",
+    "translation": "保存期限日: "
+  },
+  {
+    "id": "Retention",
+    "translation": "保存"
+  },
+  {
+    "id": "Retention Mode: ",
+    "translation": "保存モード: "
+  },
+  {
+    "id": "Retention Period: ",
+    "translation": "保存期間: "
+  },
+  {
     "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified).",
     "translation": "指定した `TIMESTAMP` までに変更された場合にのみオブジェクトを返します。それ以外の場合は 304 (変更なし) を返します。"
   },
@@ -608,6 +652,10 @@
     "translation": "リージョン・エンドポイント URLを設定します"
   },
   {
+    "id": "Set retention on a object",
+    "translation": "オブジェクトの保存の設定"
+  },
+  {
     "id": "Set static website configuration on a bucket",
     "translation": "バケットでの静的 Web サイト構成を設定します"
   },
@@ -622,6 +670,14 @@
   {
     "id": "Set the default location for downloads.",
     "translation": "ダウンロード用のデフォルトの場所を設定します。"
+  },
+  {
+    "id": "Set the legal hold on a object",
+    "translation": "オブジェクトに対する訴訟ホールドの設定"
+  },
+  {
+    "id": "Set the object lock configuration on a bucket",
+    "translation": "バケットに対するオブジェクト・ロック構成の設定"
   },
   {
     "id": "Set the replication configuration on a bucket",
@@ -798,6 +854,14 @@
   {
     "id": "The CORS configuration of ",
     "translation": "次の CORS 構成: "
+  },
+  {
+    "id": "The `ALGORITHM` and `SIZE` to use with the encryption key stored by using key protect.",
+    "translation": "鍵保護を使用して保管された暗号鍵で使用する「ALGORITHM」および「SIZE」。"
+  },
+  {
+    "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
+    "translation": "データ暗号化のバケットに関連付けられている KMS ルート鍵の「CUSTOMERROOTKEYCRN」。"
   },
   {
     "id": "The `KEY` of the object.",
@@ -1140,8 +1204,8 @@
     "translation": "本文の `SIZE` (バイト単位)。 このパラメーターは、本文のサイズが自動的に判定されない場合に便利です。"
   },
   {
-    "id": "missing Environment Variable: ",
-    "translation": "環境変数がありません: "
+    "id": "missing Environment Variable: %s",
+    "translation": "環境変数がありません: %s"
   },
   {
     "id": "no buckets.",
@@ -1168,11 +1232,11 @@
     "translation": "次のマルチパート・アップロードにはパーツがありません: '"
   },
   {
-    "id": "no such directory: ",
-    "translation": "存在しないディレクトリーです: "
+    "id": "no such directory: %s",
+    "translation": "存在しないディレクトリーです: %s"
   },
   {
-    "id": "unable to install Aspera SDK: ",
-    "translation": "Aspera SDK をインストールできません: "
+    "id": "unable to install Aspera SDK: %s",
+    "translation": "Aspera SDK をインストールできません: %s"
   }
 ]

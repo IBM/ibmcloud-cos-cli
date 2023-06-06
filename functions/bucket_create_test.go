@@ -243,7 +243,6 @@ func TestBucketCreateClassSmart(t *testing.T) {
 
 }
 
-
 func TestBucketCreateClassOneRate(t *testing.T) {
 	defer providers.MocksRESET()
 
@@ -302,6 +301,248 @@ func TestBucketCreateClassOneRate(t *testing.T) {
 	// assert OK
 	assert.Contains(t, output, "OK")
 	assert.Contains(t, output, "Class: One-rate Active")
+	// assert Not Fail
+	assert.NotContains(t, errors, "FAIL")
+
+}
+
+func TestBucketCreateKPEnabled(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	targetBucket := "TARGETBUCKET"
+	targetRegion := "us-south"
+	targetClass := "standard"
+	targetKmsRootKeyCrn := "mockKPCRN:key:mockRootKeyId"
+	var capturedInput *s3.CreateBucketInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	providers.MockS3API.On("WaitUntilBucketExists", mock.Anything).Return(nil).Once()
+
+	providers.MockS3API.
+		On("CreateBucket", mock.MatchedBy(
+			func(input *s3.CreateBucketInput) bool {
+				capturedInput = input
+				return true
+			})).
+		Return(new(s3.CreateBucketOutput), nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	os.Args = []string{"-", commands.BucketCreate,
+		"--bucket", targetBucket,
+		"--region", targetRegion,
+		"--class", targetClass,
+		"--kms-root-key-crn", targetKmsRootKeyCrn,
+	}
+	//call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+	// assert s3 api called once per region (since success is last)
+	providers.MockS3API.AssertNumberOfCalls(t, "CreateBucket", 1)
+	// assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+
+	// assert request match cli parameters
+	assert.Equal(t, *capturedInput.Bucket, targetBucket)
+	assert.Equal(t, *capturedInput.CreateBucketConfiguration.LocationConstraint, targetRegion+"-"+targetClass)
+	assert.Equal(t, *capturedInput.IBMSSEKPCustomerRootKeyCrn, targetKmsRootKeyCrn)
+
+	// capture all output //
+	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
+	// assert OK
+	assert.Contains(t, output, "OK")
+	// assert Not Fail
+	assert.NotContains(t, errors, "FAIL")
+
+}
+
+func TestBucketCreateKPEnabledWithValidEncryptionAlgorithm(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	targetBucket := "TARGETBUCKET"
+	targetRegion := "us-south"
+	targetClass := "standard"
+	targetKmsRootKeyCrn := "mockKPCRN:key:mockRootKeyId"
+	encryptionAlgorithm := "AES256"
+	var capturedInput *s3.CreateBucketInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	providers.MockS3API.On("WaitUntilBucketExists", mock.Anything).Return(nil).Once()
+
+	providers.MockS3API.
+		On("CreateBucket", mock.MatchedBy(
+			func(input *s3.CreateBucketInput) bool {
+				capturedInput = input
+				return true
+			})).
+		Return(new(s3.CreateBucketOutput), nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	os.Args = []string{"-", commands.BucketCreate,
+		"--bucket", targetBucket,
+		"--region", targetRegion,
+		"--class", targetClass,
+		"--kms-root-key-crn", targetKmsRootKeyCrn,
+		"--kms-encryption-algorithm", encryptionAlgorithm,
+	}
+	//call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+	// assert s3 api called once per region (since success is last)
+	providers.MockS3API.AssertNumberOfCalls(t, "CreateBucket", 1)
+	// assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+
+	// assert request match cli parameters
+	assert.Equal(t, *capturedInput.Bucket, targetBucket)
+	assert.Equal(t, *capturedInput.CreateBucketConfiguration.LocationConstraint, targetRegion+"-"+targetClass)
+	assert.Equal(t, *capturedInput.IBMSSEKPCustomerRootKeyCrn, targetKmsRootKeyCrn)
+	assert.Equal(t, *capturedInput.IBMSSEKPEncryptionAlgorithm, encryptionAlgorithm)
+
+	// capture all output //
+	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
+	// assert OK
+	assert.Contains(t, output, "OK")
+	// assert Not Fail
+	assert.NotContains(t, errors, "FAIL")
+
+}
+
+func TestBucketCreateKPEnabledWithInvalidEncryptionAlgorithm(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	targetBucket := "TARGETBUCKET"
+	targetRegion := "us-south"
+	targetClass := "standard"
+	targetKmsRootKeyCrn := "mockKPCRN:key:mockRootKeyId"
+	encryptionAlgorithm := "BADAES256"
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	providers.MockS3API.On("WaitUntilBucketExists", mock.Anything).Return(nil).Once()
+
+	providers.MockS3API.
+		On("CreateBucket", mock.MatchedBy(
+			func(input *s3.CreateBucketInput) bool {
+				return true
+			})).
+		Return(nil, errors.New("InvalidEncryptionAlgorithmError")).
+		Once()
+
+	// --- Act ----
+	// set os args
+	os.Args = []string{"-", commands.BucketCreate,
+		"--bucket", targetBucket,
+		"--region", targetRegion,
+		"--class", targetClass,
+		"--kms-root-key-crn", targetKmsRootKeyCrn,
+		"--kms-encryption-algorithm", encryptionAlgorithm,
+	}
+	//call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+	// assert s3 api called once per region (since success is last)
+	providers.MockS3API.AssertNumberOfCalls(t, "CreateBucket", 1)
+	// assert exit code is zero
+	assert.Equal(t, 1, *exitCode) // no exit trigger in the cli
+
+	// capture all output //
+	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
+	// assert OK
+	assert.NotContains(t, output, "OK")
+	// assert Not Fail
+	assert.Contains(t, errors, "FAIL")
+
+}
+
+func TestBucketCreateHPCSEnabled(t *testing.T) {
+	defer providers.MocksRESET()
+
+	// --- Arrange ---
+	// disable and capture OS EXIT
+	var exitCode *int
+	cli.OsExiter = func(ec int) {
+		exitCode = &ec
+	}
+
+	targetBucket := "TARGETBUCKET"
+	targetRegion := "us-south"
+	targetClass := "standard"
+	targetKmsRootKeyCrn := "mockHPCSCRN:key:mockRootKeyId"
+	var capturedInput *s3.CreateBucketInput
+
+	providers.MockPluginConfig.On("GetString", config.ServiceEndpointURL).Return("", nil)
+
+	providers.MockS3API.On("WaitUntilBucketExists", mock.Anything).Return(nil).Once()
+
+	providers.MockS3API.
+		On("CreateBucket", mock.MatchedBy(
+			func(input *s3.CreateBucketInput) bool {
+				capturedInput = input
+				return true
+			})).
+		Return(new(s3.CreateBucketOutput), nil).
+		Once()
+
+	// --- Act ----
+	// set os args
+	os.Args = []string{"-", commands.BucketCreate,
+		"--bucket", targetBucket,
+		"--region", targetRegion,
+		"--class", targetClass,
+		"--kms-root-key-crn", targetKmsRootKeyCrn,
+	}
+	//call plugin
+	plugin.Start(new(cos.Plugin))
+
+	// --- Assert ----
+	// assert s3 api called once per region (since success is last)
+	providers.MockS3API.AssertNumberOfCalls(t, "CreateBucket", 1)
+	// assert exit code is zero
+	assert.Equal(t, (*int)(nil), exitCode) // no exit trigger in the cli
+
+	// assert request match cli parameters
+	assert.Equal(t, *capturedInput.Bucket, targetBucket)
+	assert.Equal(t, *capturedInput.CreateBucketConfiguration.LocationConstraint, targetRegion+"-"+targetClass)
+	assert.Equal(t, *capturedInput.IBMSSEKPCustomerRootKeyCrn, targetKmsRootKeyCrn)
+
+	// capture all output //
+	output := providers.FakeUI.Outputs()
+	errors := providers.FakeUI.Errors()
+	// assert OK
+	assert.Contains(t, output, "OK")
 	// assert Not Fail
 	assert.NotContains(t, errors, "FAIL")
 

@@ -43,7 +43,9 @@ func BucketCreate(c *cli.Context) (err error) {
 
 	// Optional parameters for CreateBucket
 	options := map[string]string{
-		fields.IBMServiceInstanceID: flags.IbmServiceInstanceID,
+		fields.IBMServiceInstanceID:        flags.IbmServiceInstanceID,
+		fields.IBMSSEKPCustomerRootKeyCrn:  flags.KmsRootKeyCrn,
+		fields.IBMSSEKPEncryptionAlgorithm: flags.KmsEncryptionAlgorithm,
 	}
 
 	// Check through user inputs for validation

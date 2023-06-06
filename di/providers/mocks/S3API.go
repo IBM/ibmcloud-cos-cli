@@ -1888,6 +1888,242 @@ func (_m *S3API) GetBucketReplicationWithContext(_a0 context.Context, _a1 *s3.Ge
 	return r0, r1
 }
 
+
+// GetObjectLock provides a mock function with given fields: _a0
+func (_m *S3API) GetObjectLockConfiguration(_a0 *s3.GetObjectLockConfigurationInput) (*s3.GetObjectLockConfigurationOutput, error) {
+	ret := _m.Called(_a0)
+
+	var r0 *s3.GetObjectLockConfigurationOutput
+	if rf, ok := ret.Get(0).(func(*s3.GetObjectLockConfigurationInput) *s3.GetObjectLockConfigurationOutput); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.GetObjectLockConfigurationOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(*s3.GetObjectLockConfigurationInput) error); ok {
+		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// GetObjectLockRequest provides a mock function with given fields: _a0
+func (_m *S3API) GetObjectLockConfigurationRequest(_a0 *s3.GetObjectLockConfigurationInput) (*request.Request, *s3.GetObjectLockConfigurationOutput) {
+	ret := _m.Called(_a0)
+
+	var r0 *request.Request
+	if rf, ok := ret.Get(0).(func(*s3.GetObjectLockConfigurationInput) *request.Request); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*request.Request)
+		}
+	}
+
+	var r1 *s3.GetObjectLockConfigurationOutput
+	if rf, ok := ret.Get(1).(func(*s3.GetObjectLockConfigurationInput) *s3.GetObjectLockConfigurationOutput); ok {
+		r1 = rf(_a0)
+	} else {
+		if ret.Get(1) != nil {
+			r1 = ret.Get(1).(*s3.GetObjectLockConfigurationOutput)
+		}
+	}
+
+	return r0, r1
+}
+
+// GetObjectLockWithContext provides a mock function with given fields: _a0, _a1, _a2
+func (_m *S3API) GetObjectLockConfigurationWithContext(_a0 context.Context, _a1 *s3.GetObjectLockConfigurationInput, _a2 ...request.Option) (*s3.GetObjectLockConfigurationOutput, error) {
+	_va := make([]interface{}, len(_a2))
+	for _i := range _a2 {
+		_va[_i] = _a2[_i]
+	}
+	var _ca []interface{}
+	_ca = append(_ca, _a0, _a1)
+	_ca = append(_ca, _va...)
+	ret := _m.Called(_ca...)
+
+	var r0 *s3.GetObjectLockConfigurationOutput
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.GetObjectLockConfigurationInput, ...request.Option) *s3.GetObjectLockConfigurationOutput); ok {
+		r0 = rf(_a0, _a1, _a2...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.GetObjectLockConfigurationOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.GetObjectLockConfigurationInput, ...request.Option) error); ok {
+		r1 = rf(_a0, _a1, _a2...)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// GetObjectLegalHold provides a mock function with given fields: _a0
+func (_m *S3API) GetObjectLegalHold(_a0 *s3.GetObjectLegalHoldInput) (*s3.GetObjectLegalHoldOutput, error) {
+	ret := _m.Called(_a0)
+
+	var r0 *s3.GetObjectLegalHoldOutput
+	if rf, ok := ret.Get(0).(func(*s3.GetObjectLegalHoldInput) *s3.GetObjectLegalHoldOutput); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.GetObjectLegalHoldOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(*s3.GetObjectLegalHoldInput) error); ok {
+		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// GetObjectLegalHoldRequest provides a mock function with given fields: _a0
+func (_m *S3API) GetObjectLegalHoldRequest(_a0 *s3.GetObjectLegalHoldInput) (*request.Request, *s3.GetObjectLegalHoldOutput) {
+	ret := _m.Called(_a0)
+
+	var r0 *request.Request
+	if rf, ok := ret.Get(0).(func(*s3.GetObjectLegalHoldInput) *request.Request); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*request.Request)
+		}
+	}
+
+	var r1 *s3.GetObjectLegalHoldOutput
+	if rf, ok := ret.Get(1).(func(*s3.GetObjectLegalHoldInput) *s3.GetObjectLegalHoldOutput); ok {
+		r1 = rf(_a0)
+	} else {
+		if ret.Get(1) != nil {
+			r1 = ret.Get(1).(*s3.GetObjectLegalHoldOutput)
+		}
+	}
+
+	return r0, r1
+}
+
+// GetObjectLegalHoldWithContext provides a mock function with given fields: _a0, _a1, _a2
+func (_m *S3API) GetObjectLegalHoldWithContext(_a0 context.Context, _a1 *s3.GetObjectLegalHoldInput, _a2 ...request.Option) (*s3.GetObjectLegalHoldOutput, error) {
+	_va := make([]interface{}, len(_a2))
+	for _i := range _a2 {
+		_va[_i] = _a2[_i]
+	}
+	var _ca []interface{}
+	_ca = append(_ca, _a0, _a1)
+	_ca = append(_ca, _va...)
+	ret := _m.Called(_ca...)
+
+	var r0 *s3.GetObjectLegalHoldOutput
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.GetObjectLegalHoldInput, ...request.Option) *s3.GetObjectLegalHoldOutput); ok {
+		r0 = rf(_a0, _a1, _a2...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.GetObjectLegalHoldOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.GetObjectLegalHoldInput, ...request.Option) error); ok {
+		r1 = rf(_a0, _a1, _a2...)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// GetObjectRetention provides a mock function with given fields: _a0
+func (_m *S3API) GetObjectRetention(_a0 *s3.GetObjectRetentionInput) (*s3.GetObjectRetentionOutput, error) {
+	ret := _m.Called(_a0)
+
+	var r0 *s3.GetObjectRetentionOutput
+	if rf, ok := ret.Get(0).(func(*s3.GetObjectRetentionInput) *s3.GetObjectRetentionOutput); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.GetObjectRetentionOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(*s3.GetObjectRetentionInput) error); ok {
+		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// GetObjectRetentionRequest provides a mock function with given fields: _a0
+func (_m *S3API) GetObjectRetentionRequest(_a0 *s3.GetObjectRetentionInput) (*request.Request, *s3.GetObjectRetentionOutput) {
+	ret := _m.Called(_a0)
+
+	var r0 *request.Request
+	if rf, ok := ret.Get(0).(func(*s3.GetObjectRetentionInput) *request.Request); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*request.Request)
+		}
+	}
+
+	var r1 *s3.GetObjectRetentionOutput
+	if rf, ok := ret.Get(1).(func(*s3.GetObjectRetentionInput) *s3.GetObjectRetentionOutput); ok {
+		r1 = rf(_a0)
+	} else {
+		if ret.Get(1) != nil {
+			r1 = ret.Get(1).(*s3.GetObjectRetentionOutput)
+		}
+	}
+
+	return r0, r1
+}
+
+// GetObjectRetentionWithContext provides a mock function with given fields: _a0, _a1, _a2
+func (_m *S3API) GetObjectRetentionWithContext(_a0 context.Context, _a1 *s3.GetObjectRetentionInput, _a2 ...request.Option) (*s3.GetObjectRetentionOutput, error) {
+	_va := make([]interface{}, len(_a2))
+	for _i := range _a2 {
+		_va[_i] = _a2[_i]
+	}
+	var _ca []interface{}
+	_ca = append(_ca, _a0, _a1)
+	_ca = append(_ca, _va...)
+	ret := _m.Called(_ca...)
+
+	var r0 *s3.GetObjectRetentionOutput
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.GetObjectRetentionInput, ...request.Option) *s3.GetObjectRetentionOutput); ok {
+		r0 = rf(_a0, _a1, _a2...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.GetObjectRetentionOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.GetObjectRetentionInput, ...request.Option) error); ok {
+		r1 = rf(_a0, _a1, _a2...)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+
 // GetBucketVersioning provides a mock function with given fields: _a0
 func (_m *S3API) GetBucketVersioning(_a0 *s3.GetBucketVersioningInput) (*s3.GetBucketVersioningOutput, error) {
 	ret := _m.Called(_a0)
@@ -3806,6 +4042,240 @@ func (_m *S3API) PutBucketReplicationWithContext(_a0 context.Context, _a1 *s3.Pu
 
 	var r1 error
 	if rf, ok := ret.Get(1).(func(context.Context, *s3.PutBucketReplicationInput, ...request.Option) error); ok {
+		r1 = rf(_a0, _a1, _a2...)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// PutObjectLockConfiguration provides a mock function with given fields: _a0
+func (_m *S3API) PutObjectLockConfiguration(_a0 *s3.PutObjectLockConfigurationInput) (*s3.PutObjectLockConfigurationOutput, error) {
+	ret := _m.Called(_a0)
+
+	var r0 *s3.PutObjectLockConfigurationOutput
+	if rf, ok := ret.Get(0).(func(*s3.PutObjectLockConfigurationInput) *s3.PutObjectLockConfigurationOutput); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.PutObjectLockConfigurationOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(*s3.PutObjectLockConfigurationInput) error); ok {
+		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// PutObjectLockConfigurationRequest provides a mock function with given fields: _a0
+func (_m *S3API) PutObjectLockConfigurationRequest(_a0 *s3.PutObjectLockConfigurationInput) (*request.Request, *s3.PutObjectLockConfigurationOutput) {
+	ret := _m.Called(_a0)
+
+	var r0 *request.Request
+	if rf, ok := ret.Get(0).(func(*s3.PutObjectLockConfigurationInput) *request.Request); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*request.Request)
+		}
+	}
+
+	var r1 *s3.PutObjectLockConfigurationOutput
+	if rf, ok := ret.Get(1).(func(*s3.PutObjectLockConfigurationInput) *s3.PutObjectLockConfigurationOutput); ok {
+		r1 = rf(_a0)
+	} else {
+		if ret.Get(1) != nil {
+			r1 = ret.Get(1).(*s3.PutObjectLockConfigurationOutput)
+		}
+	}
+
+	return r0, r1
+}
+
+// PutObjectLockConfigurationWithContext provides a mock function with given fields: _a0, _a1, _a2
+func (_m *S3API) PutObjectLockConfigurationWithContext(_a0 context.Context, _a1 *s3.PutObjectLockConfigurationInput, _a2 ...request.Option) (*s3.PutObjectLockConfigurationOutput, error) {
+	_va := make([]interface{}, len(_a2))
+	for _i := range _a2 {
+		_va[_i] = _a2[_i]
+	}
+	var _ca []interface{}
+	_ca = append(_ca, _a0, _a1)
+	_ca = append(_ca, _va...)
+	ret := _m.Called(_ca...)
+
+	var r0 *s3.PutObjectLockConfigurationOutput
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.PutObjectLockConfigurationInput, ...request.Option) *s3.PutObjectLockConfigurationOutput); ok {
+		r0 = rf(_a0, _a1, _a2...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.PutObjectLockConfigurationOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.PutObjectLockConfigurationInput, ...request.Option) error); ok {
+		r1 = rf(_a0, _a1, _a2...)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// PutObjectLegalHold provides a mock function with given fields: _a0
+func (_m *S3API) PutObjectLegalHold(_a0 *s3.PutObjectLegalHoldInput) (*s3.PutObjectLegalHoldOutput, error) {
+	ret := _m.Called(_a0)
+
+	var r0 *s3.PutObjectLegalHoldOutput
+	if rf, ok := ret.Get(0).(func(*s3.PutObjectLegalHoldInput) *s3.PutObjectLegalHoldOutput); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.PutObjectLegalHoldOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(*s3.PutObjectLegalHoldInput) error); ok {
+		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// PutObjectLegalHoldRequest provides a mock function with given fields: _a0
+func (_m *S3API) PutObjectLegalHoldRequest(_a0 *s3.PutObjectLegalHoldInput) (*request.Request, *s3.PutObjectLegalHoldOutput) {
+	ret := _m.Called(_a0)
+
+	var r0 *request.Request
+	if rf, ok := ret.Get(0).(func(*s3.PutObjectLegalHoldInput) *request.Request); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*request.Request)
+		}
+	}
+
+	var r1 *s3.PutObjectLegalHoldOutput
+	if rf, ok := ret.Get(1).(func(*s3.PutObjectLegalHoldInput) *s3.PutObjectLegalHoldOutput); ok {
+		r1 = rf(_a0)
+	} else {
+		if ret.Get(1) != nil {
+			r1 = ret.Get(1).(*s3.PutObjectLegalHoldOutput)
+		}
+	}
+
+	return r0, r1
+}
+
+// PutObjectLegalHoldWithContext provides a mock function with given fields: _a0, _a1, _a2
+func (_m *S3API) PutObjectLegalHoldWithContext(_a0 context.Context, _a1 *s3.PutObjectLegalHoldInput, _a2 ...request.Option) (*s3.PutObjectLegalHoldOutput, error) {
+	_va := make([]interface{}, len(_a2))
+	for _i := range _a2 {
+		_va[_i] = _a2[_i]
+	}
+	var _ca []interface{}
+	_ca = append(_ca, _a0, _a1)
+	_ca = append(_ca, _va...)
+	ret := _m.Called(_ca...)
+
+	var r0 *s3.PutObjectLegalHoldOutput
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.PutObjectLegalHoldInput, ...request.Option) *s3.PutObjectLegalHoldOutput); ok {
+		r0 = rf(_a0, _a1, _a2...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.PutObjectLegalHoldOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.PutObjectLegalHoldInput, ...request.Option) error); ok {
+		r1 = rf(_a0, _a1, _a2...)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// PutObjectRetention provides a mock function with given fields: _a0
+func (_m *S3API) PutObjectRetention(_a0 *s3.PutObjectRetentionInput) (*s3.PutObjectRetentionOutput, error) {
+	ret := _m.Called(_a0)
+
+	var r0 *s3.PutObjectRetentionOutput
+	if rf, ok := ret.Get(0).(func(*s3.PutObjectRetentionInput) *s3.PutObjectRetentionOutput); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.PutObjectRetentionOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(*s3.PutObjectRetentionInput) error); ok {
+		r1 = rf(_a0)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// PutObjectRetentionRequest provides a mock function with given fields: _a0
+func (_m *S3API) PutObjectRetentionRequest(_a0 *s3.PutObjectRetentionInput) (*request.Request, *s3.PutObjectRetentionOutput) {
+	ret := _m.Called(_a0)
+
+	var r0 *request.Request
+	if rf, ok := ret.Get(0).(func(*s3.PutObjectRetentionInput) *request.Request); ok {
+		r0 = rf(_a0)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*request.Request)
+		}
+	}
+
+	var r1 *s3.PutObjectRetentionOutput
+	if rf, ok := ret.Get(1).(func(*s3.PutObjectRetentionInput) *s3.PutObjectRetentionOutput); ok {
+		r1 = rf(_a0)
+	} else {
+		if ret.Get(1) != nil {
+			r1 = ret.Get(1).(*s3.PutObjectRetentionOutput)
+		}
+	}
+
+	return r0, r1
+}
+
+// PutObjectRetentionWithContext provides a mock function with given fields: _a0, _a1, _a2
+func (_m *S3API) PutObjectRetentionWithContext(_a0 context.Context, _a1 *s3.PutObjectRetentionInput, _a2 ...request.Option) (*s3.PutObjectRetentionOutput, error) {
+	_va := make([]interface{}, len(_a2))
+	for _i := range _a2 {
+		_va[_i] = _a2[_i]
+	}
+	var _ca []interface{}
+	_ca = append(_ca, _a0, _a1)
+	_ca = append(_ca, _va...)
+	ret := _m.Called(_ca...)
+
+	var r0 *s3.PutObjectRetentionOutput
+	if rf, ok := ret.Get(0).(func(context.Context, *s3.PutObjectRetentionInput, ...request.Option) *s3.PutObjectRetentionOutput); ok {
+		r0 = rf(_a0, _a1, _a2...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*s3.PutObjectRetentionOutput)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(context.Context, *s3.PutObjectRetentionInput, ...request.Option) error); ok {
 		r1 = rf(_a0, _a1, _a2...)
 	} else {
 		r1 = ret.Error(1)

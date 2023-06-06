@@ -124,8 +124,8 @@
     "translation": "认证 `METHOD`。"
   },
   {
-    "id": "Bad Flag Syntax in '--%s'",
-    "translation": "“--%s”中的标记语法无效"
+    "id": "Bad Flag Syntax in '%s'",
+    "translation": "“%s”中的标记语法无效"
   },
   {
     "id": "Block Public ACLs: ",
@@ -328,6 +328,14 @@
     "translation": "获取对象的大小和上次修改日期"
   },
   {
+    "id": "Get legal hold for a object",
+    "translation": "获取对象的合法保留"
+  },
+  {
+    "id": "Get retention on a object ",
+    "translation": "获取对象上的保留时间 "
+  },
+  {
     "id": "Get tags for an object",
     "translation": "获取对象的标记"
   },
@@ -338,6 +346,10 @@
   {
     "id": "Get the location and billing tier of a bucket",
     "translation": "获取存储区的位置和计费层"
+  },
+  {
+    "id": "Get the object lock configuration for a bucket",
+    "translation": "获取存储区的对象锁定配置"
   },
   {
     "id": "Get the public access block configuration on a bucket",
@@ -420,6 +432,10 @@
     "translation": "上次更新时间"
   },
   {
+    "id": "Legal Hold Status: ",
+    "translation": "合法保留状态： "
+  },
+  {
     "id": "Limits the response to keys that begin with the specified `PREFIX`.",
     "translation": "将响应限于以指定的 `PREFIX` 开头的键。"
   },
@@ -468,6 +484,10 @@
     "translation": "将上传至 S3 的最大 `PARTS` 数，用于计算要上传的对象的部件的大小。上限为 10,000 个部件。"
   },
   {
+    "id": "Mode: ",
+    "translation": "方式： "
+  },
+  {
     "id": "Name",
     "translation": "名称"
   },
@@ -482,6 +502,14 @@
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
     "translation": "在存储区“{{.Bucket}}”中找到对象“{{.Key}}”。"
+  },
+  {
+    "id": "Object Lock Configuration",
+    "translation": "对象锁定配置"
+  },
+  {
+    "id": "Object Lock Status: ",
+    "translation": "对象锁定状态： "
   },
   {
     "id": "Object Size",
@@ -568,6 +596,22 @@
     "translation": "请求对响应中的对象密钥进行编码，并指定要使用的编码 `METHOD`。"
   },
   {
+    "id": "Retain Until Date: ",
+    "translation": "保留截止日期： "
+  },
+  {
+    "id": "Retention",
+    "translation": "保留时间"
+  },
+  {
+    "id": "Retention Mode: ",
+    "translation": "保留方式： "
+  },
+  {
+    "id": "Retention Period: ",
+    "translation": "保留期： "
+  },
+  {
     "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified).",
     "translation": "仅当在指定 `TIMESTAMP` 后对象已发生修改的情况下，才返回对象，否则返回 304（未修改）。"
   },
@@ -608,6 +652,10 @@
     "translation": "设置区域端点 URL"
   },
   {
+    "id": "Set retention on a object",
+    "translation": "在对象上设置保留时间"
+  },
+  {
     "id": "Set static website configuration on a bucket",
     "translation": "在存储区上设置静态 Web 站点配置"
   },
@@ -622,6 +670,14 @@
   {
     "id": "Set the default location for downloads.",
     "translation": "设置下载的缺省位置。"
+  },
+  {
+    "id": "Set the legal hold on a object",
+    "translation": "在对象上设置合法保留"
+  },
+  {
+    "id": "Set the object lock configuration on a bucket",
+    "translation": "在存储区上设置对象锁定配置"
   },
   {
     "id": "Set the replication configuration on a bucket",
@@ -798,6 +854,14 @@
   {
     "id": "The CORS configuration of ",
     "translation": "的 CORS 配置 "
+  },
+  {
+    "id": "The `ALGORITHM` and `SIZE` to use with the encryption key stored by using key protect.",
+    "translation": "要与使用 Key Protect 存储的加密密钥配合使用的“ALGORITHM”和“SIZE”"
+  },
+  {
+    "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
+    "translation": "与数据加密的存储区关联的 KMS 根密钥的“CUSTOMERROOTKEYCRN”。"
   },
   {
     "id": "The `KEY` of the object.",
@@ -1140,8 +1204,8 @@
     "translation": "主体的 `SIZE`（字节）。当无法自动确定主体大小时，适用此参数。"
   },
   {
-    "id": "missing Environment Variable: ",
-    "translation": "缺少环境变量： "
+    "id": "missing Environment Variable: %s",
+    "translation": "缺少环境变量： %s"
   },
   {
     "id": "no buckets.",
@@ -1168,11 +1232,11 @@
     "translation": "多重部件上传中没有任何部件用于 '"
   },
   {
-    "id": "no such directory: ",
-    "translation": "无此类目录： "
+    "id": "no such directory: %s",
+    "translation": "无此类目录： %s"
   },
   {
-    "id": "unable to install Aspera SDK: ",
-    "translation": "无法安装 Aspera SDK： "
+    "id": "unable to install Aspera SDK: %s",
+    "translation": "无法安装 Aspera SDK： %s"
   }
 ]

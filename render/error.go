@@ -65,7 +65,7 @@ func getMessageFromGetObjectError(getObjectError *errors.ObjectGetError) string 
 }
 
 var commandErrorCausesStrings = map[errors.CommandErrorCause]string{
-	errors.BadFlagSyntax:       T("Bad Flag Syntax in '--%s'"),
+	errors.BadFlagSyntax:       T("Bad Flag Syntax in '%s'"),
 	errors.NotDefinedFlag:      T("Command does not support Flag '--%s'"),
 	errors.InvalidBooleanValue: T("Invalid boolean value in Flag '--%s'"),
 	errors.InvalidBooleanFlag:  T("Invalid boolean flag '--%s'"),

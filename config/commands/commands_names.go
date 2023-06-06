@@ -49,6 +49,24 @@ const (
 	// BucketReplicationPut Command
 	BucketReplicationPut = "bucket-replication-put"
 
+	// ObjectLockGet Command
+	ObjectLockGet = "object-lock-configuration-get"
+
+	// ObjectLockPut Command
+	ObjectLockPut = "object-lock-configuration-put"
+
+	// ObjectLegalHoldGet Command
+	ObjectLegalHoldGet = "object-legal-hold-get"
+
+	// ObjectLegalHoldPut Command
+	ObjectLegalHoldPut = "object-legal-hold-put"
+
+	// ObjectRetentionGet Command
+	ObjectRetentionGet = "object-retention-get"
+
+	// ObjectRetentionPut Command
+	ObjectRetentionPut = "object-retention-put"
+
 	// BucketVersioningGet Command
 	BucketVersioningGet = "bucket-versioning-get"
 

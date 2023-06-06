@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 1.7.0
+
+### Content
+
+#### Features
+
+* Key Protect and Hyper Protect Crypto Services(HPCS) Support
+* S3 Compatible Object Lock Support
+* Update to use Go SDK 1.10.0
+
+#### Defect Fixes
+
+* COSSDK-99295: <https://github.com/IBM/ibmcloud-cos-cli/issues/4>
+
 ## 1.6.0
 
 ### Content

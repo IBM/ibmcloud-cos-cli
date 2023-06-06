@@ -124,8 +124,8 @@
     "translation": "인증 `METHOD`입니다."
   },
   {
-    "id": "Bad Flag Syntax in '--%s'",
-    "translation": "'--%s'의 잘못된 플래그 구문"
+    "id": "Bad Flag Syntax in '%s'",
+    "translation": "'%s'의 잘못된 플래그 구문"
   },
   {
     "id": "Block Public ACLs: ",
@@ -328,6 +328,14 @@
     "translation": "오브젝트의 크기 및 마지막 수정 날짜 가져오기"
   },
   {
+    "id": "Get legal hold for a object",
+    "translation": "오브젝트에 대한 증거보존 통지 가져오기"
+  },
+  {
+    "id": "Get retention on a object ",
+    "translation": "오브젝트에 대한 보존 가져오기 "
+  },
+  {
     "id": "Get tags for an object",
     "translation": "오브젝트의 태그 가져오기"
   },
@@ -338,6 +346,10 @@
   {
     "id": "Get the location and billing tier of a bucket",
     "translation": "버킷의 위치 및 청구 티어 가져오기"
+  },
+  {
+    "id": "Get the object lock configuration for a bucket",
+    "translation": "버킷에 대한 오브젝트 잠금 구성 가져오기"
   },
   {
     "id": "Get the public access block configuration on a bucket",
@@ -420,6 +432,10 @@
     "translation": "마지막 업데이트 날짜"
   },
   {
+    "id": "Legal Hold Status: ",
+    "translation": "증거보존 통지 상태: "
+  },
+  {
     "id": "Limits the response to keys that begin with the specified `PREFIX`.",
     "translation": "지정된 `PREFIX`로 시작하는 키워드에 대한 응답을 제한합니다."
   },
@@ -468,6 +484,10 @@
     "translation": "업로드할 오브젝트의 파트 크기를 계산하는 S3에 업로드할 `PARTS`의 최대수입니다. 한계는 10,000개의 파트입니다."
   },
   {
+    "id": "Mode: ",
+    "translation": "모드: "
+  },
+  {
     "id": "Name",
     "translation": "이름"
   },
@@ -482,6 +502,14 @@
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
     "translation": "'{{.Key}}' 오브젝트를 '{{.Bucket}}' 버킷에서 찾았습니다."
+  },
+  {
+    "id": "Object Lock Configuration",
+    "translation": "오브젝트 잠금 구성"
+  },
+  {
+    "id": "Object Lock Status: ",
+    "translation": "오브젝트 잠금 상태: "
   },
   {
     "id": "Object Size",
@@ -568,6 +596,22 @@
     "translation": "응답의 오브젝트 키를 인코딩하도록 요청하며 사용할 인코딩 `METHOD`를 지정합니다."
   },
   {
+    "id": "Retain Until Date: ",
+    "translation": "보존 기한 날짜: "
+  },
+  {
+    "id": "Retention",
+    "translation": "보존"
+  },
+  {
+    "id": "Retention Mode: ",
+    "translation": "보존 모드: "
+  },
+  {
+    "id": "Retention Period: ",
+    "translation": "보존 기간: "
+  },
+  {
     "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified).",
     "translation": "지정된 `TIMESTAMP` 이후에 수정된 오브젝트만 리턴하며, 그렇지 않은 경우에는 304(수정되지 않음)를 리턴합니다."
   },
@@ -608,6 +652,10 @@
     "translation": "지역 엔드포인트 URL 설정"
   },
   {
+    "id": "Set retention on a object",
+    "translation": "오브젝트에 대한 보존 설정"
+  },
+  {
     "id": "Set static website configuration on a bucket",
     "translation": "버킷에 정적 웹 사이트 구성 설정"
   },
@@ -622,6 +670,14 @@
   {
     "id": "Set the default location for downloads.",
     "translation": "다운로드에 사용할 기본 위치를 설정하십시오."
+  },
+  {
+    "id": "Set the legal hold on a object",
+    "translation": "오브젝트에 대한 증거보존 통지 설정"
+  },
+  {
+    "id": "Set the object lock configuration on a bucket",
+    "translation": "버킷에 대한 오브젝트 잠금 구성 설정"
   },
   {
     "id": "Set the replication configuration on a bucket",
@@ -798,6 +854,14 @@
   {
     "id": "The CORS configuration of ",
     "translation": "CORS 구성 "
+  },
+  {
+    "id": "The `ALGORITHM` and `SIZE` to use with the encryption key stored by using key protect.",
+    "translation": "Key Protect를 사용하여 저장된 암호화 키와 함께 사용할 `ALGORITHM` 및 `SIZE`."
+  },
+  {
+    "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
+    "translation": "데이터 암호화를 위해 버킷과 연결된 KMS 루트 키의 'CUSTOMERROOTKEYCRN'."
   },
   {
     "id": "The `KEY` of the object.",
@@ -1140,8 +1204,8 @@
     "translation": "본문의 `SIZE`(바이트)입니다. 이 매개변수는 본문의 크기를 자동으로 판별할 수 없는 경우 유용합니다."
   },
   {
-    "id": "missing Environment Variable: ",
-    "translation": "누락된 환경 변수: "
+    "id": "missing Environment Variable: %s",
+    "translation": "누락된 환경 변수: %s"
   },
   {
     "id": "no buckets.",
@@ -1168,11 +1232,11 @@
     "translation": "다중 파트 업로드에 파트가 없음 '"
   },
   {
-    "id": "no such directory: ",
-    "translation": "다음 디렉토리 없음: "
+    "id": "no such directory: %s",
+    "translation": "다음 디렉토리 없음: %s"
   },
   {
-    "id": "unable to install Aspera SDK: ",
-    "translation": "Aspera SDK를 설치할 수 없음: "
+    "id": "unable to install Aspera SDK: %s",
+    "translation": "Aspera SDK를 설치할 수 없음: %s"
   }
 ]

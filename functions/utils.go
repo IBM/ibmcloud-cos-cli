@@ -242,6 +242,15 @@ func populateField(cliContext *cli.Context,
 	case *s3.ReplicationConfiguration:
 		// if type is pointer to ReplicationConfiguration, use golang json decoder to map value
 		err = parseJSONinFile(cliContext, f, cliContext.String(flagName))
+	case *s3.ObjectLockConfiguration:
+		// if type is pointer to ObjectLockConfiguration, use golang json decoder to map value
+		err = parseJSONinFile(cliContext, f, cliContext.String(flagName))
+	case *s3.ObjectLockLegalHold:
+		// if type is pointer to ObjectLegalHold, use golang json decoder to map value
+		err = parseJSONinFile(cliContext, f, cliContext.String(flagName))
+	case *s3.ObjectLockRetention:
+		// if type is pointer to ObjectLockRetention, use golang json decoder to map value
+		err = parseJSONinFile(cliContext, f, cliContext.String(flagName))
 	case *s3.Tagging:
 		// if type is pointer to Tagging, use golang json decoder to map value
 		err = parseJSONinFile(cliContext, f, cliContext.String(flagName))
