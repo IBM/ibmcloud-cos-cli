@@ -148,6 +148,9 @@ const (
 	// ListObjects Command
 	ListObjects = "list-objects"
 
+	// ListObjectsV2 Command
+	ListObjectsV2 = "list-objects-v2"
+
 	// ListParts Command
 	ListParts = "list-parts"
 

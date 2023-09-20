@@ -1,5 +1,9 @@
 [
   {
+    "id": " `Start After` is where you want S3 to start listing from. S3 starts listing after this specified key. StartAfter can be any key in the bucket.",
+    "translation": " `Start After` is where you want S3 to start listing from. S3 starts listing after this specified key. StartAfter can be any key in the bucket."
+  },
+  {
     "id": " and tags: ",
     "translation": " and tags: "
   },
@@ -86,6 +90,10 @@
   {
     "id": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation.",
     "translation": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation."
+  },
+  {
+    "id": "A `Starting Token` to specify where to start paginating. This is the NextContinuationToken from a previously truncated response.",
+    "translation": "A `Starting Token` to specify where to start paginating. This is the NextContinuationToken from a previously truncated response."
   },
   {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
@@ -860,6 +868,10 @@
     "translation": "The `ALGORITHM` and `SIZE` to use with the encryption key stored by using key protect."
   },
   {
+    "id": "The `Boolean` is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true.",
+    "translation": "The `Boolean` is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true."
+  },
+  {
     "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
     "translation": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption."
   },
@@ -982,6 +994,10 @@
   {
     "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
     "translation": "To retrieve the next set of objects use this Key as your --marker for the next command: "
+  },
+  {
+    "id": "To retrieve the next set of objects use this Token as your --starting-token for the next command: ",
+    "translation": "To retrieve the next set of objects use this Token as your --starting-token for the next command: "
   },
   {
     "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",

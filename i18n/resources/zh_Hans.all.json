@@ -1,5 +1,9 @@
 [
   {
+    "id": " `Start After` is where you want S3 to start listing from. S3 starts listing after this specified key. StartAfter can be any key in the bucket.",
+    "translation": " `Start After` 是您希望 S3 从其开始列示的位置。 S3 在此指定键之后开始列示。 StartAfter 可以是存储区中的任何键。"
+  },
+  {
     "id": " and tags: ",
     "translation": " 和标记： "
   },
@@ -88,6 +92,10 @@
     "translation": "`STRUCTURE` 使用简称或 JSON 语法。请参阅 IBM Cloud 文档。"
   },
   {
+    "id": "A `Starting Token` to specify where to start paginating. This is the NextContinuationToken from a previously truncated response.",
+    "translation": "用于指定开始分页位置的 `Starting Token`。 这是先前截断的响应中的 NextContinuationToken。"
+  },
+  {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
     "translation": "您的帐户中已存在指定名称的存储区。请使用新的名称创建存储区。"
   },
@@ -125,7 +133,7 @@
   },
   {
     "id": "Bad Flag Syntax in '%s'",
-    "translation": "“%s”中的标记语法无效"
+    "translation": "“%s”中存在错误的标志语法"
   },
   {
     "id": "Block Public ACLs: ",
@@ -333,7 +341,7 @@
   },
   {
     "id": "Get retention on a object ",
-    "translation": "获取对象上的保留时间 "
+    "translation": "获取对象上的保留 "
   },
   {
     "id": "Get tags for an object",
@@ -653,7 +661,7 @@
   },
   {
     "id": "Set retention on a object",
-    "translation": "在对象上设置保留时间"
+    "translation": "在对象上设置保留"
   },
   {
     "id": "Set static website configuration on a bucket",
@@ -857,7 +865,11 @@
   },
   {
     "id": "The `ALGORITHM` and `SIZE` to use with the encryption key stored by using key protect.",
-    "translation": "要与使用 Key Protect 存储的加密密钥配合使用的“ALGORITHM”和“SIZE”"
+    "translation": "要与使用 Key Protect 存储的加密密钥一起使用的“ALGORITHM”和“SIZE”"
+  },
+  {
+    "id": "The `Boolean` is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true.",
+    "translation": "缺省情况下，`Boolean` 不会出现在 listV2 中，如果要在结果中返回包含每个键的所有者字段，请将访存所有者字段设置为 true。"
   },
   {
     "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
@@ -982,6 +994,10 @@
   {
     "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
     "translation": "要检索下一组对象，请使用此键作为下一条命令的 --marker： "
+  },
+  {
+    "id": "To retrieve the next set of objects use this Token as your --starting-token for the next command: ",
+    "translation": "要检索下一组对象，请将此令牌用作下一个命令的 --starting-token： "
   },
   {
     "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",

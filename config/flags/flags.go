@@ -390,4 +390,20 @@ var (
 		Name:  Output,
 		Usage: T("Output `FORMAT` can be only json or text."),
 	}
+
+	FlagContinuationToken = cli.StringFlag{
+		Name:  ContinuationToken,
+		Usage: T("A `Starting Token` to specify where to start paginating. This is the NextContinuationToken from a previously truncated response."),
+	}
+
+	FlagFetchOwner = cli.BoolFlag{
+		Name:  FetchOwner,
+		Usage: T("The `Boolean` is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true."),
+	}
+
+	FlagStartAfter = cli.StringFlag{
+		Name:  StartAfter,
+		Usage: T(" `Start After` is where you want S3 to start listing from. S3 starts listing after this specified key. StartAfter can be any key in the bucket."),
+	}
+
 )

@@ -1,5 +1,9 @@
 [
   {
+    "id": " `Start After` is where you want S3 to start listing from. S3 starts listing after this specified key. StartAfter can be any key in the bucket.",
+    "translation": " 「Start After」は、S3 がリストを開始する場所です。 S3 は、この指定されたキーの後からリストを開始します。 StartAfter は、バケット内の任意のキーにすることができます。"
+  },
+  {
     "id": " and tags: ",
     "translation": " およびタグ: "
   },
@@ -88,6 +92,10 @@
     "translation": "省略表現または JSON 構文のいずれかを使用する `STRUCTURE` です。 IBM Cloud 資料を参照してください。"
   },
   {
+    "id": "A `Starting Token` to specify where to start paginating. This is the NextContinuationToken from a previously truncated response.",
+    "translation": "ページ編集を開始する場所を指定する「開始トークン」。 これは、以前に切り捨てられた応答からの NextContinuationトークンです。"
+  },
+  {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
     "translation": "指定した名前を持つバケットはアカウントに既に存在します。 新しい名前でバケットを作成してください。"
   },
@@ -125,7 +133,7 @@
   },
   {
     "id": "Bad Flag Syntax in '%s'",
-    "translation": "'%s' 内のフラグ構文が不適切です"
+    "translation": "「%s」のフラグ構文が正しくありません"
   },
   {
     "id": "Block Public ACLs: ",
@@ -433,7 +441,7 @@
   },
   {
     "id": "Legal Hold Status: ",
-    "translation": "訴訟ホールドの状況: "
+    "translation": "訴訟ホールドの状況： "
   },
   {
     "id": "Limits the response to keys that begin with the specified `PREFIX`.",
@@ -509,7 +517,7 @@
   },
   {
     "id": "Object Lock Status: ",
-    "translation": "オブジェクト・ロック状況: "
+    "translation": "オブジェクト・ロック状況： "
   },
   {
     "id": "Object Size",
@@ -605,11 +613,11 @@
   },
   {
     "id": "Retention Mode: ",
-    "translation": "保存モード: "
+    "translation": "保存モード： "
   },
   {
     "id": "Retention Period: ",
-    "translation": "保存期間: "
+    "translation": "保存期間： "
   },
   {
     "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified).",
@@ -860,8 +868,12 @@
     "translation": "鍵保護を使用して保管された暗号鍵で使用する「ALGORITHM」および「SIZE」。"
   },
   {
+    "id": "The `Boolean` is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true.",
+    "translation": "「ブール」は、デフォルトでは listV2 には存在しません。結果の各キーとともに所有者フィールドを返す場合は、フェッチ所有者フィールドを true に設定します。"
+  },
+  {
     "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
-    "translation": "データ暗号化のバケットに関連付けられている KMS ルート鍵の「CUSTOMERROOTKEYCRN」。"
+    "translation": "データ暗号化のバケットに関連付けられているKMSルート鍵の「CUSTOMERROOTKEYCRN」。"
   },
   {
     "id": "The `KEY` of the object.",
@@ -982,6 +994,10 @@
   {
     "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
     "translation": "オブジェクトの次のセットを取得するには、このキーを次のコマンドの --marker として使用します: "
+  },
+  {
+    "id": "To retrieve the next set of objects use this Token as your --starting-token for the next command: ",
+    "translation": "次のオブジェクト・セットを取得するには、次のコマンドの -- starting-token としてこのトークンを使用します。 "
   },
   {
     "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",

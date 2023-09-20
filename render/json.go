@@ -69,6 +69,9 @@ func (jsr *JSONRender) Display(_ interface{}, output interface{}, _ map[string]i
 	case *s3.ListObjectsOutput:
 		output = new(ListObjectsOutput)
 		structMap(output, castedOutput)
+	case *s3.ListObjectsV2Output:
+		output = new(ListObjectsV2Output)
+		structMap(output, castedOutput)
 	case *s3.ListPartsOutput:
 		output = new(ListPartsOutput)
 		structMap(output, castedOutput)
@@ -189,6 +192,21 @@ type ListObjectsOutput struct {
 	Name           *string            `json:",omitempty"`
 	Prefix         *string            `json:",omitempty"`
 	NextMarker     *string            `json:",omitempty"`
+}
+
+type ListObjectsV2Output struct {
+	Contents              []*s3.Object       `json:",omitempty"`
+	CommonPrefixes        []*s3.CommonPrefix `json:",omitempty"`
+	ContinuationToken     *string            `json:",omitempty"`
+	Delimiter             *string            `json:",omitempty"`
+	EncodingType          *string            `json:",omitempty"`
+	IsTruncated           *bool              `json:",omitempty"`
+	KeyCount              *int64             `json:",omitempty"`
+	MaxKeys               *int64             `json:",omitempty"`
+	Name                  *string            `json:",omitempty"`
+	NextContinuationToken *string            `json:",omitempty"`
+	Prefix                *string            `json:",omitempty"`
+	StartAfter            *string            `json:",omitempty"`
 }
 
 type ListPartsOutput struct {

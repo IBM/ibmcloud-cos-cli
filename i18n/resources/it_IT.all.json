@@ -1,5 +1,9 @@
 [
   {
+    "id": " `Start After` is where you want S3 to start listing from. S3 starts listing after this specified key. StartAfter can be any key in the bucket.",
+    "translation": " `Start After` è il punto da cui si desidera che S3 inizi l'elenco. S3 inizia l'elenco dopo questa chiave specificata. StartAfter può essere qualsiasi chiave nel bucket."
+  },
+  {
     "id": " and tags: ",
     "translation": " e tag: "
   },
@@ -88,6 +92,10 @@
     "translation": "Una `STRUTTURA` che utilizza la sintassi JSON o semplificata. Consultare la documentazione IBM."
   },
   {
+    "id": "A `Starting Token` to specify where to start paginating. This is the NextContinuationToken from a previously truncated response.",
+    "translation": "Uno `Starting Token` per specificare dove iniziare la paginazione. Si tratta del NextContinuationToken ricavato da una risposta precedentemente troncata."
+  },
+  {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
     "translation": "Un bucket con il nome specificato esiste già nell'account. Creare un bucket con un nuovo nome."
   },
@@ -125,7 +133,7 @@
   },
   {
     "id": "Bad Flag Syntax in '%s'",
-    "translation": "Sintassi indicatore non corretta in '%s'"
+    "translation": "Sintassi indicatore errata in '%s'"
   },
   {
     "id": "Block Public ACLs: ",
@@ -329,11 +337,11 @@
   },
   {
     "id": "Get legal hold for a object",
-    "translation": "Ottieni conservazione legale per un oggetto"
+    "translation": "Ottenere la conservazione legale per un oggetto"
   },
   {
     "id": "Get retention on a object ",
-    "translation": "Ottieni conservazione su un oggetto "
+    "translation": "Ottenere la conservazione su un oggetto "
   },
   {
     "id": "Get tags for an object",
@@ -349,7 +357,7 @@
   },
   {
     "id": "Get the object lock configuration for a bucket",
-    "translation": "Ottieni la configurazione di blocco oggetti per un bucket"
+    "translation": "Ottenere la configurazione del blocco oggetti per un bucket"
   },
   {
     "id": "Get the public access block configuration on a bucket",
@@ -653,7 +661,7 @@
   },
   {
     "id": "Set retention on a object",
-    "translation": "Imposta conservazione su un oggetto"
+    "translation": "Impostare la conservazione su un oggetto"
   },
   {
     "id": "Set static website configuration on a bucket",
@@ -673,11 +681,11 @@
   },
   {
     "id": "Set the legal hold on a object",
-    "translation": "Imposta la conservazione legale su un oggetto"
+    "translation": "Impostare la conservazione legale su un oggetto"
   },
   {
     "id": "Set the object lock configuration on a bucket",
-    "translation": "Imposta la configurazione di blocco oggetti su un bucket"
+    "translation": "Impostare la configurazione del blocco oggetti su un bucket"
   },
   {
     "id": "Set the replication configuration on a bucket",
@@ -860,6 +868,10 @@
     "translation": "I valori `ALGORITHM` e `SIZE` da utilizzare con la chiave di crittografia memorizzata mediante Key Protect."
   },
   {
+    "id": "The `Boolean` is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true.",
+    "translation": "Il valore `Boolean` non è presente in listV2 per impostazione predefinita, se si desidera restituire il campo proprietario con ciascuna chiave nel risultato, impostare il campo proprietario di recupero su true."
+  },
+  {
     "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
     "translation": "Il valore `CUSTOMERROOTKEYCRN` della chiave root KMS associata al bucket per la crittografia dei dati."
   },
@@ -982,6 +994,10 @@
   {
     "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
     "translation": "Per richiamare l'insieme successivo di oggetti, utilizzare questo indicatore come --marker nel comando successivo: "
+  },
+  {
+    "id": "To retrieve the next set of objects use this Token as your --starting-token for the next command: ",
+    "translation": "Per richiamare la serie successiva di oggetti, utilizzare questo token come --starting-token per il comando successivo: "
   },
   {
     "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",

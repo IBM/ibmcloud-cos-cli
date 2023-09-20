@@ -1,5 +1,9 @@
 [
   {
+    "id": " `Start After` is where you want S3 to start listing from. S3 starts listing after this specified key. StartAfter can be any key in the bucket.",
+    "translation": " `Start After`는 S3의 나열을 시작할 위치입니다. S3는 이 지정된 키 다음에 나열을 시작합니다. StartAfter는 버킷의 모든 키가 될 수 있습니다."
+  },
+  {
     "id": " and tags: ",
     "translation": " 및 태그: "
   },
@@ -88,6 +92,10 @@
     "translation": "약칭 또는 JSON 구문을 사용하는 `STRUCTURE`입니다. IBM Cloud 문서를 참조하십시오."
   },
   {
+    "id": "A `Starting Token` to specify where to start paginating. This is the NextContinuationToken from a previously truncated response.",
+    "translation": "페이지 매김을 시작할 위치를 지정하는 `Starting Token`입니다. 이전에 잘린 응답의 NextContinuationToken입니다."
+  },
+  {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
     "translation": "지정된 이름의 버킷이 이미 계정에 있습니다. 새로운 이름의 버킷을 작성하십시오."
   },
@@ -125,7 +133,7 @@
   },
   {
     "id": "Bad Flag Syntax in '%s'",
-    "translation": "'%s'의 잘못된 플래그 구문"
+    "translation": "'%s'에서 잘못된 플래그 구문"
   },
   {
     "id": "Block Public ACLs: ",
@@ -860,6 +868,10 @@
     "translation": "Key Protect를 사용하여 저장된 암호화 키와 함께 사용할 `ALGORITHM` 및 `SIZE`."
   },
   {
+    "id": "The `Boolean` is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true.",
+    "translation": "'Boolean'은 기본적으로 listV2에 표시되지 않으며, 결과의 각 키를 사용하여 소유자 필드를 반환하려면 페치 소유자 필드를 true로 설정하십시오."
+  },
+  {
     "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
     "translation": "데이터 암호화를 위해 버킷과 연결된 KMS 루트 키의 'CUSTOMERROOTKEYCRN'."
   },
@@ -982,6 +994,10 @@
   {
     "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
     "translation": "다음 오브젝트 세트를 검색하려면 이 키를 다음 명령의 --marker로 사용하십시오. "
+  },
+  {
+    "id": "To retrieve the next set of objects use this Token as your --starting-token for the next command: ",
+    "translation": "다음 오브젝트 세트를 검색하려면 다음 명령에 대해 이 토큰을 -- starting-token으로 사용하십시오. "
   },
   {
     "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",

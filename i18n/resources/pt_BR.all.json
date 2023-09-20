@@ -1,5 +1,9 @@
 [
   {
+    "id": " `Start After` is where you want S3 to start listing from. S3 starts listing after this specified key. StartAfter can be any key in the bucket.",
+    "translation": " A opção de comando `start after` é onde você deseja que o S3 inicie a listagem. O S3 inicia a listagem após essa chave especificada. A opção de comando StartAfter pode ser qualquer chave no depósito."
+  },
+  {
     "id": " and tags: ",
     "translation": " e tags: "
   },
@@ -88,6 +92,10 @@
     "translation": "Uma `STRUCTURE` que usa uma sintaxe de abreviação ou de JSON. Consulte a documentação do IBM Cloud."
   },
   {
+    "id": "A `Starting Token` to specify where to start paginating. This is the NextContinuationToken from a previously truncated response.",
+    "translation": "Um `starting token` para especificar onde iniciar a paginação. Este é o NextContinuationToken a partir de uma resposta truncada anteriormente."
+  },
+  {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
     "translation": "Um depósito com o nome especificado já existe em sua conta. Crie um depósito com um novo nome."
   },
@@ -125,7 +133,7 @@
   },
   {
     "id": "Bad Flag Syntax in '%s'",
-    "translation": "Sintaxe de Sinalização ruim '%s'"
+    "translation": "Sintaxe de sinalização inválida em '%s'"
   },
   {
     "id": "Block Public ACLs: ",
@@ -505,7 +513,7 @@
   },
   {
     "id": "Object Lock Configuration",
-    "translation": "Configuração do bloqueio de objeto"
+    "translation": "Configuração de bloqueio de objeto"
   },
   {
     "id": "Object Lock Status: ",
@@ -673,7 +681,7 @@
   },
   {
     "id": "Set the legal hold on a object",
-    "translation": "Configure a retenção jurídica em um objeto"
+    "translation": "Configurar a retenção jurídica em um objeto"
   },
   {
     "id": "Set the object lock configuration on a bucket",
@@ -857,7 +865,11 @@
   },
   {
     "id": "The `ALGORITHM` and `SIZE` to use with the encryption key stored by using key protect.",
-    "translation": "O `ALGORITHM` e `SIZE` para usar com a chave de criptografia armazenada usando o Key Protect."
+    "translation": "O `ALGORITHM` e `SIZE` a serem usados com a chave de criptografia armazenada ao usar o Key Protect."
+  },
+  {
+    "id": "The `Boolean` is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true.",
+    "translation": "A opção de comando `Boolean` não está presente em listV2 por padrão. Se deseja retornar o campo do proprietário com cada chave no resultado, configure o campo do proprietário de busca com o valor 'true'."
   },
   {
     "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
@@ -982,6 +994,10 @@
   {
     "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
     "translation": "Para recuperar o próximo conjunto de objetos, use essa chave como seu --marker para o próximo comando: "
+  },
+  {
+    "id": "To retrieve the next set of objects use this Token as your --starting-token for the next command: ",
+    "translation": "Para recuperar o próximo conjunto de objetos, use este token como seu --starting-token para o próximo comando: "
   },
   {
     "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",
