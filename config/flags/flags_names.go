@@ -76,4 +76,7 @@ const (
 	Clear                          = "clear"
 	Style                          = "style"
 	JSON                           = "json"
+	FetchOwner                     = "fetch-owner"
+	StartAfter                     = "start-after"
+	ContinuationToken              = "starting-token"
 )

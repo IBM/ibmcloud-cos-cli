@@ -1,5 +1,9 @@
 [
   {
+    "id": " `Start After` is where you want S3 to start listing from. S3 starts listing after this specified key. StartAfter can be any key in the bucket.",
+    "translation": " 'Start After' ist die Position, an der S3 mit der Auflistung beginnen soll. S3 startet die Auflistung nach diesem angegebenen Schlüssel. StartAfter kann ein beliebiger Schlüssel im Bucket sein."
+  },
+  {
     "id": " and tags: ",
     "translation": " und Tags: "
   },
@@ -88,6 +92,10 @@
     "translation": "Eine Struktur (STRUCTURE), die eine Kurzform oder JSON-Syntax verwendet. Weitere Informationen finden Sie in der Dokumentation zu IBM Cloud."
   },
   {
+    "id": "A `Starting Token` to specify where to start paginating. This is the NextContinuationToken from a previously truncated response.",
+    "translation": "Ein Starttoken, mit dem angegeben wird, wo der Seitenumbruch beginnen soll. Dies ist das NextContinuation-Token aus einer zuvor abgeschnittenen Antwort."
+  },
+  {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
     "translation": "Ein Bucket mit dem angegebenen Namen ist in Ihrem Konto bereits vorhanden. Erstellen Sie ein Bucket mit einem neuen Namen."
   },
@@ -125,7 +133,7 @@
   },
   {
     "id": "Bad Flag Syntax in '%s'",
-    "translation": "Ungültige Flagsyntax in '%s'"
+    "translation": "Fehlerhafte Syntax für Flag in '%s'"
   },
   {
     "id": "Block Public ACLs: ",
@@ -329,7 +337,7 @@
   },
   {
     "id": "Get legal hold for a object",
-    "translation": "Beweissperre für ein Objekt abrufen"
+    "translation": "Gesetzliche Aufbewahrungspflicht für ein Objekt abrufen"
   },
   {
     "id": "Get retention on a object ",
@@ -433,7 +441,7 @@
   },
   {
     "id": "Legal Hold Status: ",
-    "translation": "Status der gesetzlichen Rückstellung: "
+    "translation": "Status der gesetzlichen Aufbewahrungspflicht: "
   },
   {
     "id": "Limits the response to keys that begin with the specified `PREFIX`.",
@@ -673,7 +681,7 @@
   },
   {
     "id": "Set the legal hold on a object",
-    "translation": "Beweissperre für ein Objekt festlegen"
+    "translation": "Gesetzliche Aufbewahrungspflicht für ein Objekt festlegen"
   },
   {
     "id": "Set the object lock configuration on a bucket",
@@ -857,7 +865,11 @@
   },
   {
     "id": "The `ALGORITHM` and `SIZE` to use with the encryption key stored by using key protect.",
-    "translation": "Der 'ALGORITHM' und die 'SIZE', die mit dem Verschlüsselungsschlüssel verwendet werden sollen, der mit Key Protect gespeichert wird."
+    "translation": "'ALGORITHM' und 'SIZE', die mit dem Verschlüsselungsschlüssel verwendet werden sollen, werden mit Key Protect gespeichert."
+  },
+  {
+    "id": "The `Boolean` is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true.",
+    "translation": "Der boolesche Wert ist in listV2 standardmäßig nicht vorhanden. Wenn Sie das Eigentümerfeld mit jedem Schlüssel im Ergebnis zurückgeben möchten, setzen Sie den Wert für den Abruf des Eigentümerfelds auf 'true'."
   },
   {
     "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
@@ -982,6 +994,10 @@
   {
     "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
     "translation": "Verwenden Sie den folgenden Schlüssel als Parameter '--marker' im Befehl 'next', um die nächste Gruppe von Objekten abzurufen: "
+  },
+  {
+    "id": "To retrieve the next set of objects use this Token as your --starting-token for the next command: ",
+    "translation": "Um die nächste Gruppe von Objekten abzurufen, verwenden Sie dieses Token als --starting-token für den nächsten Befehl: "
   },
   {
     "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",

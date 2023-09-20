@@ -111,6 +111,7 @@ func NewApp(name string) *cli.App {
 		commands.CommandDeleteObjects,
 		commands.CommandCopyObject,
 		commands.CommandListObjects,
+		commands.CommandListObjectsV2,
 		commands.CommandAbortMPU,
 		commands.CommandCompleteMPU,
 		commands.CommandCreateMPU,

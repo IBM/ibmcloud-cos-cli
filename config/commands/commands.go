@@ -1362,6 +1362,29 @@ var (
 		Hidden: true,
 	}
 
+	// CommandListObjectsV2 - List all objects in a bucket
+	// command:
+	//	 ibmcloud cos list-objects-v2
+	CommandListObjectsV2 = cli.Command{
+		Name:        ListObjectsV2,
+		Description: T("List all objects in a specific bucket"),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagContinuationToken,
+			flags.FlagDelimiter,
+			flags.FlagEncodingType,
+			flags.FlagFetchOwner,
+			flags.FlagMaxItems,
+			flags.FlagPrefix,
+			flags.FlagStartAfter,
+			flags.FlagPageSize,
+			flags.FlagRegion,
+			flags.FlagOutput,
+			flags.FlagJSON,
+		},
+		Action: functions.ObjectsListV2,
+	}
+
 	// CommandCreateMPU - Create a new multipart upload instance (Legacy version)
 	// command:
 	//	 ibmcloud cos create-multipart-upload

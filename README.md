@@ -32,6 +32,7 @@ COMMANDS:
   buckets-extended                List all buckets in a service instance and their provisioning codes
   config                          Change plugin configuration
   download                        Download an object using a managed multipart transfer
+  list-objects-v2                 List all objects in a specific bucket
   multipart-upload-abort          Abort an existing multipart upload
   multipart-upload-complete       Complete an existing multipart upload
   multipart-upload-create         Initiate a new multipart upload

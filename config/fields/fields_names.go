@@ -70,4 +70,7 @@ const (
 	VersioningConfiguration        = "VersioningConfiguration"
 	WebsiteConfiguration           = "WebsiteConfiguration"
 	WebsiteRedirectLocation        = "WebsiteRedirectLocation"
+	FetchOwner                     = "FetchOwner"
+	StartAfter                     = "StartAfter"
+	ContinuationToken              = "ContinuationToken"
 )

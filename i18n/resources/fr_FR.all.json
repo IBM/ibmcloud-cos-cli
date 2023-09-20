@@ -1,5 +1,9 @@
 [
   {
+    "id": " `Start After` is where you want S3 to start listing from. S3 starts listing after this specified key. StartAfter can be any key in the bucket.",
+    "translation": " `StartAfter` permet d'indiquer l'endroit à partir duquel vous voulez que S3 commence la liste. S3 commence la liste après la clé spécifiée. StartAfter peut indiquer n'importe quelle clé dans le compartiment."
+  },
+  {
     "id": " and tags: ",
     "translation": " et balises : "
   },
@@ -88,6 +92,10 @@
     "translation": "'STRUCTURE' utilisant la syntaxe abrégée ou JSON. Voir la documentation IBM Cloud."
   },
   {
+    "id": "A `Starting Token` to specify where to start paginating. This is the NextContinuationToken from a previously truncated response.",
+    "translation": "`Jeton de début` indiquant où commencer la pagination. Il s'agit du jeton NextContinuation issu d'une réponse précédemment tronquée."
+  },
+  {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
     "translation": "Il y a déjà un compartiment du nom indiqué dans votre compte. Créez-en un avec un nouveau nom."
   },
@@ -125,7 +133,7 @@
   },
   {
     "id": "Bad Flag Syntax in '%s'",
-    "translation": "Mauvaise syntaxe d'indicateur dans '%s'"
+    "translation": "Syntaxe d'indicateur incorrecte dans '%s'"
   },
   {
     "id": "Block Public ACLs: ",
@@ -329,11 +337,11 @@
   },
   {
     "id": "Get legal hold for a object",
-    "translation": "Obtenir la rétention légale pour un objet"
+    "translation": "Obtenir la conservation à des fins juridiques d'un objet"
   },
   {
     "id": "Get retention on a object ",
-    "translation": "Obtenir la rétention sur un objet "
+    "translation": "Obtenir la conservation d'un objet "
   },
   {
     "id": "Get tags for an object",
@@ -349,7 +357,7 @@
   },
   {
     "id": "Get the object lock configuration for a bucket",
-    "translation": "Obtenir la configuration de verrouillage d'objet pour un compartiment"
+    "translation": "Obtenir la configuration de verrou d'objet pour un compartiment"
   },
   {
     "id": "Get the public access block configuration on a bucket",
@@ -433,7 +441,7 @@
   },
   {
     "id": "Legal Hold Status: ",
-    "translation": "Statut de la rétention légale : "
+    "translation": "Statut de la conservation à des fins juridiques : "
   },
   {
     "id": "Limits the response to keys that begin with the specified `PREFIX`.",
@@ -505,11 +513,11 @@
   },
   {
     "id": "Object Lock Configuration",
-    "translation": "Configuration du verrouillage d'objet"
+    "translation": "Configuration du verrou d'objet"
   },
   {
     "id": "Object Lock Status: ",
-    "translation": "Statut de verrouillage d'objet : "
+    "translation": "Statut du verrou d'objet : "
   },
   {
     "id": "Object Size",
@@ -653,7 +661,7 @@
   },
   {
     "id": "Set retention on a object",
-    "translation": "Définir la conservation sur un objet"
+    "translation": "Définir la conservation d'un objet"
   },
   {
     "id": "Set static website configuration on a bucket",
@@ -673,11 +681,11 @@
   },
   {
     "id": "Set the legal hold on a object",
-    "translation": "Définir la rétention légale sur un objet"
+    "translation": "Définir la conservation à des fins juridique d'un objet"
   },
   {
     "id": "Set the object lock configuration on a bucket",
-    "translation": "Définir la configuration de verrouillage d'objet sur un compartiment"
+    "translation": "Définir la configuration de verrou d'objet pour un compartiment"
   },
   {
     "id": "Set the replication configuration on a bucket",
@@ -857,11 +865,15 @@
   },
   {
     "id": "The `ALGORITHM` and `SIZE` to use with the encryption key stored by using key protect.",
-    "translation": "Les valeurs ` ALGORITHM ` et ` SIZE ` à utiliser avec la clé de chiffrement stockée à l'aide de Key Protect."
+    "translation": "Valeurs ALGORITHM et SIZE à utiliser avec la clé de chiffrement stockée à l'aide de Key Protect."
+  },
+  {
+    "id": "The `Boolean` is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true.",
+    "translation": "La valeur `Boolean` n'est pas présente dans listV2 par défaut. Si vous voulez renvoyer la zone de propriétaire avec chaque clé dans le résultat, associez la zone de propriétaire à extraire à la valeur true."
   },
   {
     "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
-    "translation": "Le nom ` CUSTOMERROOTKEYCRN ` de la clé racine KMS associée au compartiment pour le chiffrement des données."
+    "translation": "Valeur CUSTOMERROOTKEYCRN de la clé racine KMS associée au compartiment pour le chiffrement des données."
   },
   {
     "id": "The `KEY` of the object.",
@@ -982,6 +994,10 @@
   {
     "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
     "translation": "Pour extraire l'ensemble suivant d'objets, utilisez cette clé comme --marker pour la commande suivante : "
+  },
+  {
+    "id": "To retrieve the next set of objects use this Token as your --starting-token for the next command: ",
+    "translation": "Pour extraire l'ensemble d'objets suivant, utilisez ce jeton pour --starting-token dans la commande suivante : "
   },
   {
     "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",

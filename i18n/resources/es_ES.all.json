@@ -1,5 +1,9 @@
 [
   {
+    "id": " `Start After` is where you want S3 to start listing from. S3 starts listing after this specified key. StartAfter can be any key in the bucket.",
+    "translation": " \"Start After\" (iniciar después) indica dónde quiere el usuario que S3 inicie el listado. S3 inicia el listado tras la clave especificada. StartAfter puede ser cualquier clave del grupo."
+  },
+  {
     "id": " and tags: ",
     "translation": " y etiquetas: "
   },
@@ -88,6 +92,10 @@
     "translation": "Estructura `STRUCTURE` que utiliza sintaxis abreviada o sintaxis JSON. Consulte la documentación de IBM Cloud."
   },
   {
+    "id": "A `Starting Token` to specify where to start paginating. This is the NextContinuationToken from a previously truncated response.",
+    "translation": "Una \"Starting Token\" (señal de inicio) para especificar dónde se debe iniciar la paginación. Es la señal NextContinuation de una respuesta truncada anteriormente."
+  },
+  {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
     "translation": "Ya existe un grupo con el nombre especificado en su cuenta. Cree un nuevo grupo con un nuevo nombre."
   },
@@ -125,7 +133,7 @@
   },
   {
     "id": "Bad Flag Syntax in '%s'",
-    "translation": "Sintaxis de distintivo no válido en '%s'"
+    "translation": "Sintaxis de distintivo errónea en '%s'"
   },
   {
     "id": "Block Public ACLs: ",
@@ -860,6 +868,10 @@
     "translation": "`ALGORITHM` y `SIZE` para utilizar con la clave de cifrado almacenada utilizando la protección de claves."
   },
   {
+    "id": "The `Boolean` is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true.",
+    "translation": "El valor \"Boolean\" (booleano) no se encuentra de forma predeterminada en listV2, si quiere devolver el campo Propietario con cada clave del resultado, establezca el campo Captar propietario en true."
+  },
+  {
     "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
     "translation": "`CUSTOMERROOTKEYCRN` de la clave raíz de KMS asociada con el grupo para el cifrado de datos."
   },
@@ -982,6 +994,10 @@
   {
     "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
     "translation": "Para recuperar el conjunto siguiente de objetos, utilice esta clave como --marker en el mandato siguiente: "
+  },
+  {
+    "id": "To retrieve the next set of objects use this Token as your --starting-token for the next command: ",
+    "translation": "Para recuperar el siguiente conjunto de objetos, utilice esta señal como --starting-token (señal de inicio) para el siguiente mandato: "
   },
   {
     "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",

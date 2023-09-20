@@ -93,6 +93,8 @@ func (txtRender *TextRender) Display(
 		return txtRender.printHeadObject(input, castedOutput)
 	case *s3.ListObjectsOutput:
 		return txtRender.printListObjects(input, castedOutput)
+	case *s3.ListObjectsV2Output:
+		return txtRender.printListObjectsV2(input, castedOutput)
 	case *s3.ListObjectVersionsOutput:
 		return txtRender.printListObjectVersions(input, castedOutput)
 	case *s3.PutObjectOutput:
@@ -483,6 +485,57 @@ func (txtRender *TextRender) printListObjects(_ interface{}, output *s3.ListObje
 	if aws.BoolValue(output.IsTruncated) {
 		txtRender.Say(T("To retrieve the next set of objects use this Key as your --marker for the next command: "))
 		txtRender.Say(terminal.EntityNameColor(aws.StringValue(output.NextMarker)))
+		txtRender.Say("")
+	}
+	return
+}
+
+func (txtRender *TextRender) printListObjectsV2(_ interface{}, output *s3.ListObjectsV2Output) (err error) {
+	if len(output.CommonPrefixes) > 0 {
+		table := txtRender.Table([]string{
+			T("Common Prefixes:"),
+		})
+		for _, prefix := range output.CommonPrefixes {
+			table.Add(aws.StringValue(prefix.Prefix))
+		}
+		table.Print()
+		txtRender.Say("")
+	}
+	var foundString string
+
+	if len(output.Contents) > 0 {
+		table := txtRender.Table([]string{
+			T("Name"),
+			T("Last Modified"),
+			T("Object Size"),
+		})
+		for _, object := range output.Contents {
+			table.Add(
+				aws.StringValue(object.Key),
+				object.LastModified.Format(timeFormat),
+				FormatFileSize(aws.Int64Value(object.Size)),
+			)
+		}
+		table.Print()
+		txtRender.Say("")
+	}
+	switch len(output.Contents) {
+	case 0:
+		foundString = T("no objects in bucket '") +
+			terminal.EntityNameColor(aws.StringValue(output.Name)) + "'."
+	case 1:
+		foundString = T("1 object in bucket '") +
+			terminal.EntityNameColor(aws.StringValue(output.Name)) + "'"
+	default:
+		foundString = strconv.Itoa(len(output.Contents)) + T(" objects in bucket '") +
+			terminal.EntityNameColor(aws.StringValue(output.Name))  + "'"
+	}
+	txtRender.Say(found + foundString)
+	txtRender.Say("")
+
+	if aws.BoolValue(output.IsTruncated) {
+		txtRender.Say(T("To retrieve the next set of objects use this Token as your --starting-token for the next command: "))
+		txtRender.Say(terminal.EntityNameColor(aws.StringValue(output.NextContinuationToken)))
 		txtRender.Say("")
 	}
 	return

@@ -1,5 +1,9 @@
 [
   {
+    "id": " `Start After` is where you want S3 to start listing from. S3 starts listing after this specified key. StartAfter can be any key in the bucket.",
+    "translation": " `Start After` 是您想要 S3 開始列出的位置。 S3 會在此指定索引鍵之後開始列出。 StartAfter 可以是儲存區中的任何索引鍵。"
+  },
+  {
     "id": " and tags: ",
     "translation": " 及標籤： "
   },
@@ -86,6 +90,10 @@
   {
     "id": "A `STRUCTURE` using either shorthand or JSON syntax. See IBM Cloud Documentation.",
     "translation": "此 `STRUCTURE` 使用速記或 JSON 語法。請參閱 IBM Cloud 文件。"
+  },
+  {
+    "id": "A `Starting Token` to specify where to start paginating. This is the NextContinuationToken from a previously truncated response.",
+    "translation": "`Starting Token`，以指定開始分頁的位置。 這是來自先前截斷回應的 NextContinuation記號。"
   },
   {
     "id": "A bucket with the specified name already exists in your account. Create a bucket with a new name.",
@@ -860,6 +868,10 @@
     "translation": "與使用金鑰保護儲存的加密金鑰搭配使用的 `ALGORITHM` 和 `SIZE`。"
   },
   {
+    "id": "The `Boolean` is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true.",
+    "translation": "依預設，listV2 中不存在 `Boolean`，如果您要傳回擁有者欄位，並在結果中包含每一個索引鍵，則將提取擁有者欄位設為 true。"
+  },
+  {
     "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
     "translation": "與資料加密儲存區相關聯之 KMS 根金鑰的 `CUSTOMERROOTKEYCRN`。"
   },
@@ -982,6 +994,10 @@
   {
     "id": "To retrieve the next set of objects use this Key as your --marker for the next command: ",
     "translation": "如果要擷取下一組物件，請使用此索引鍵作為下一個指令的 --marker： "
+  },
+  {
+    "id": "To retrieve the next set of objects use this Token as your --starting-token for the next command: ",
+    "translation": "若要擷取下一組物件，請使用此記號作為下一個指令的 --starting-token： "
   },
   {
     "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",

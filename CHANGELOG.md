@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.8.0
+
+### Content
+
+#### Features
+
+* GET Bucket (List Objects) Version 2
+
 ## 1.7.0
 
 ### Content

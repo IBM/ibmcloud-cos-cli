@@ -9,6 +9,6 @@ const CLIName = "ibm-cloud-cos-cli"
 // CLIVersion is the version of the CLI
 var CLIVersion = plugin.VersionType{
 	Major: 1,
-	Minor: 7,
+	Minor: 8,
 	Build: 0,
 }
