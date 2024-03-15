@@ -49,6 +49,9 @@ buildSupported: $(SupportedOperatingSystems)
 ${SupportedOperatingSystems}: aspera
 	if [ "$@" != "ppc64le" ] && [ "$@" != "s390x" ]; then\
 	    CGO_ENABLED=0 GOOS=$@ GOARCH=amd64 go build -o build/${APP}-$@-amd64${EXT} -ldflags "-s -w" -a -installsuffix cgo . ;\
+	    if [ "$@" == "darwin" ] || [ "$@" == "linux" ]; then\
+          CGO_ENABLED=0 GOOS=$@ GOARCH=arm64 go build -o build/${APP}-$@-arm64${EXT} -ldflags "-s -w" -a -installsuffix cgo . ;\
+	    fi \
 	else\
 	    CGO_ENABLED=0 GOOS=linux GOARCH=$@ go build -o build/${APP}-linux-$@ -ldflags "-s -w" -a -installsuffix cgo . ;\
 	fi

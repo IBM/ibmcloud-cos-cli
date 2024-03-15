@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 1.8.1
+
+### Content
+
+#### Defect Fixes
+
+* Internal fixes and improvements
+* Update to use Go SDK 1.10.2
+
 ## 1.8.0
 
 ### Content
