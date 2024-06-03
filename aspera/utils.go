@@ -39,13 +39,13 @@ func GetSDKDownloadURL() (url string, platform string, err error) {
 	if err != nil {
 		return
 	}
-	url = fmt.Sprintf("%s/%s/%s-%s.%s", prefix, version, platform, commit, ext)
+	url = fmt.Sprintf("%s/%s/%s-%s-%s.%s", prefix, version, platform, version, commit, ext)
 	return
 }
 
 func getSDKAttributes(os, arch string) (platform string, ext string, err error) {
 	platforms := map[string][]string{
-		"darwin":  {"amd64"},
+		"darwin":  {"amd64", "arm64"},
 		"linux":   {"amd64", "ppc64le", "s390x"},
 		"windows": {"amd64"},
 		"aix":     {"ppc64"},
@@ -57,7 +57,8 @@ func getSDKAttributes(os, arch string) (platform string, ext string, err error) 
 		for _, a := range archs {
 			if a == arch {
 				if os == "darwin" {
-					os = "osx"
+					os = "macos"
+					ext = "zip"
 				}
 				if os == "windows" {
 					ext = "zip"

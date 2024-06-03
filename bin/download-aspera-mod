@@ -95,8 +95,14 @@ fi
 
 # .proto file is platform independent,
 # so it's ok to use the osx version for any platform.
-sdk_name="osx-amd64"
-sdk_pkg="${sdk_name}-${commit}.tar.gz"
+
+if [ "$(uname)" == "Linux" ];then
+    sdk_name="linux-amd64"
+    sdk_pkg="${sdk_name}-${version}-${commit}.tar.gz"
+else
+   sdk_name="macos-arm64"
+    sdk_pkg="${sdk_name}-${version}-${commit}.zip"
+fi
 
 
 echo "downloading SDK..."

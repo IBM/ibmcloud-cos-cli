@@ -1,7 +1,7 @@
 package aspera
 
 const (
-	version = "1.1.1"
-	commit  = "52a85ef"
-	prefix  = "https://download.asperasoft.com/download/sw/sdk/transfer"
+	version = "1.1.2"
+	commit  = "753f662"
+	prefix  = "https://production-transfer-sdk.s3.us-west-2.amazonaws.com"
 )

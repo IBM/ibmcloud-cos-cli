@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 1.9.0
+
+### Content
+
+#### Features
+
+* COS CLI support for darwin-arm64 and linux-arm64 platform
+* Update to use Go SDK 1.10.3
+
 ## 1.8.1
 
 ### Content
