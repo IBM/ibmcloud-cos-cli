@@ -5,7 +5,7 @@ set -e
 ROOT_DIR=$(cd $(dirname $(dirname $0)) && pwd)
 ASPERA_VERSION_FILE=${ROOT_DIR}/aspera/version.go
 SDK_PATH="${ROOT_DIR}/aspera/transfersdk"
-PROTOC_VERSION="21.5"
+PROTOC_VERSION="28.1"
 GOPATH="$(go env GOPATH)"
 export PATH=$PATH:${GOPATH}/bin
 
