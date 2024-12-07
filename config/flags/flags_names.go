@@ -79,4 +79,5 @@ const (
 	FetchOwner                     = "fetch-owner"
 	StartAfter                     = "start-after"
 	ContinuationToken              = "starting-token"
+	LifecycleConfiguration         = "lifecycle-configuration"
 )

@@ -12,9 +12,12 @@ import (
 
 // NewApp Object for the CLI
 // Parameter:
-//     Name: Name of the App (COS)
+//
+//	Name: Name of the App (COS)
+//
 // Returns:
-//     CLI Application
+//
+//	CLI Application
 func NewApp(name string) *cli.App {
 
 	// Generation of the Application with
@@ -55,6 +58,9 @@ func NewApp(name string) *cli.App {
 		commands.CommandBucketWebsiteDelete,
 		commands.CommandBucketWebsiteGet,
 		commands.CommandBucketWebsitePut,
+		commands.CommandBucketLifecycleConfigurationDelete,
+		commands.CommandBucketLifecycleConfigurationGet,
+		commands.CommandBucketLifecycleConfigurationPut,
 		// Objects
 		commands.CommandObjectLockGet,
 		commands.CommandObjectLockPut,

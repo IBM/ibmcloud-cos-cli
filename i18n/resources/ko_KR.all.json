@@ -28,6 +28,10 @@
     "translation": " 버킷에 다중 파트 업로드 '"
   },
   {
+    "id": " noncurrentVersionTransitions in bucket lifecycle configuration",
+    "translation": " 버킷 수명 주기 구성에서 noncurrentVersionTransitions"
+  },
+  {
     "id": " object versions in bucket '",
     "translation": " 버킷에 오브젝트 버전이 존재함 '"
   },
@@ -38,6 +42,10 @@
   {
     "id": " parts in the multipart upload for '",
     "translation": " 다중 파트 업로드의 파트 '"
+  },
+  {
+    "id": " transitions in bucket lifecycle configuration",
+    "translation": " 버킷 수명 주기 구성의 전환"
   },
   {
     "id": "(`SOURCE`) The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.",
@@ -64,6 +72,10 @@
     "translation": "버킷의 한 다중 파트 업로드 '"
   },
   {
+    "id": "1 noncurrentVersionTransition in bucket lifecycle configuration",
+    "translation": "버킷 수명 주기 구성의 noncurrentVersionTransition 1개"
+  },
+  {
     "id": "1 object in bucket '",
     "translation": "버킷의 한 오브젝트 '"
   },
@@ -74,6 +86,10 @@
   {
     "id": "1 part in the multipart upload for '",
     "translation": "다중 파트 업로드의 한 개 파트 '"
+  },
+  {
+    "id": "1 transitions in bucket lifecycle configuration",
+    "translation": "버킷 수명 주기 구성의 1개의 전환"
   },
   {
     "id": "A `DELIMITER` is a character you use to group keys.",
@@ -110,6 +126,14 @@
   {
     "id": "Abort an existing multipart upload",
     "translation": "기존 다중 파트 업로드 중단"
+  },
+  {
+    "id": "Abort incomplete multipart upload initiated after, in days: ",
+    "translation": "며칠 후에 시작된 불완전한 다중 파트 업로드 중단: "
+  },
+  {
+    "id": "AbortIncompleteMultipartUpload: ",
+    "translation": "AbortIncompleteMultipartUpload: "
   },
   {
     "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
@@ -252,6 +276,10 @@
     "translation": "버킷에서 CORS 구성 삭제"
   },
   {
+    "id": "Delete the lifecycle configuration from a bucket",
+    "translation": "버킷에서 수명 주기 구성 삭제"
+  },
+  {
     "id": "Delete the replication configuration from a bucket",
     "translation": "버킷에서 복제 구성 삭제"
   },
@@ -308,6 +336,22 @@
     "translation": "쓰기 위해 '{{.Location}}'을(를) 여는 중에 오류가 발생했습니다."
   },
   {
+    "id": "Expiration by date: ",
+    "translation": "날짜별 만료: "
+  },
+  {
+    "id": "Expiration in days: ",
+    "translation": "만료(일): "
+  },
+  {
+    "id": "Expiration: ",
+    "translation": "만료: "
+  },
+  {
+    "id": "Filter by And operator: ",
+    "translation": "And 연산자로 필터링: "
+  },
+  {
     "id": "Filter by prefix: ",
     "translation": "접두어로 필터링: "
   },
@@ -318,6 +362,14 @@
   {
     "id": "Filter by tags: ",
     "translation": "태그별 필터링: "
+  },
+  {
+    "id": "Filter object with Size less than: ",
+    "translation": "보다 작은 크기로 오브젝트 필터링: "
+  },
+  {
+    "id": "Filter object with size greater than: ",
+    "translation": "보다 큰 크기로 오브젝트 필터링: "
   },
   {
     "id": "Filter: ",
@@ -352,6 +404,10 @@
     "translation": "버킷에 대한 CORS 구성 가져오기"
   },
   {
+    "id": "Get the lifecycle configuration for a bucket",
+    "translation": "버킷의 수명 주기 구성 가져오기"
+  },
+  {
     "id": "Get the location and billing tier of a bucket",
     "translation": "버킷의 위치 및 청구 티어 가져오기"
   },
@@ -374,6 +430,10 @@
   {
     "id": "Get the versioning configuration for a bucket",
     "translation": "버킷에 대한 버전화 구성 가져오기"
+  },
+  {
+    "id": "ID: ",
+    "translation": "ID: "
   },
   {
     "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
@@ -444,6 +504,10 @@
     "translation": "증거보존 통지 상태: "
   },
   {
+    "id": "Lifecycle Configuration",
+    "translation": "수명 주기 구성"
+  },
+  {
     "id": "Limits the response to keys that begin with the specified `PREFIX`.",
     "translation": "지정된 `PREFIX`로 시작하는 키워드에 대한 응답을 제한합니다."
   },
@@ -500,12 +564,32 @@
     "translation": "이름"
   },
   {
+    "id": "Newer noncurrent versions",
+    "translation": "최신 비현재 버전"
+  },
+  {
     "id": "No buckets found in your account.",
     "translation": "계정에 버킷이 없습니다."
   },
   {
+    "id": "No lifecycle configuration rules returned",
+    "translation": "수명 주기 구성 규칙이 리턴되지 않음"
+  },
+  {
     "id": "No tags returned",
     "translation": "리턴된 태그가 없음"
+  },
+  {
+    "id": "NoncurrentVersionExpiration by newer noncurrent versions: ",
+    "translation": "최신 비현재 버전에 따른 NoncurrentVersionExpiration "
+  },
+  {
+    "id": "NoncurrentVersionExpiration by noncurrent days: ",
+    "translation": "비현재 일 수에 따른 NoncurrentVersionExpiration: "
+  },
+  {
+    "id": "NoncurrentVersionExpiration: ",
+    "translation": "NoncurrentVersionExpiration: "
   },
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
@@ -530,6 +614,14 @@
   {
     "id": "Object data location (`FILE_PATH`).",
     "translation": "오브젝트 데이터 위치(`FILE_PATH`)."
+  },
+  {
+    "id": "ObjectSizeGreaterThan: ",
+    "translation": "ObjectSizeGreaterThan: "
+  },
+  {
+    "id": "ObjectSizeLessThan: ",
+    "translation": "ObjectSizeLessThan: "
   },
   {
     "id": "Operation canceled.",
@@ -560,6 +652,10 @@
     "translation": "특정 조건이 충족될 때까지 API 폴링"
   },
   {
+    "id": "Prefix: ",
+    "translation": "접두부: "
+  },
+  {
     "id": "Priority: ",
     "translation": "우선순위: "
   },
@@ -582,6 +678,10 @@
   {
     "id": "Regions endpoint `URL`.",
     "translation": "지역 엔드포인트 `URL`입니다."
+  },
+  {
+    "id": "Remove delete markers on expired objects: ",
+    "translation": "만료된 오브젝트의 삭제 마커 제거: "
   },
   {
     "id": "Remove public access block configuration from a bucket",
@@ -682,6 +782,10 @@
   {
     "id": "Set the legal hold on a object",
     "translation": "오브젝트에 대한 증거보존 통지 설정"
+  },
+  {
+    "id": "Set the lifecycle configuration on a bucket",
+    "translation": "버킷에 대한 수명 주기 구성 설정"
   },
   {
     "id": "Set the object lock configuration on a bucket",
@@ -860,6 +964,10 @@
     "translation": "VHost 및 경로 URL 스타일 사이에서 전환"
   },
   {
+    "id": "Tags: ",
+    "translation": "태그: "
+  },
+  {
     "id": "The CORS configuration of ",
     "translation": "CORS 구성 "
   },
@@ -872,7 +980,7 @@
     "translation": "'Boolean'은 기본적으로 listV2에 표시되지 않으며, 결과의 각 키를 사용하여 소유자 필드를 반환하려면 페치 소유자 필드를 true로 설정하십시오."
   },
   {
-    "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
+    "id": "The `CUSTOMERROOTKEYCRN` of the KMS  root key associated with the bucket for data encryption.",
     "translation": "데이터 암호화를 위해 버킷과 연결된 KMS 루트 키의 'CUSTOMERROOTKEYCRN'."
   },
   {
@@ -908,6 +1016,10 @@
     "translation": "다운로드 대상 '{{.Location}}'은(는) 디렉토리입니다."
   },
   {
+    "id": "The lifecycle configuration was not found",
+    "translation": "수명 주기 구성을 찾을 수 없음"
+  },
+  {
     "id": "The name (`BUCKET_NAME`) of the bucket.",
     "translation": "버킷의 이름(`BUCKET_NAME`)입니다."
   },
@@ -922,10 +1034,6 @@
   {
     "id": "The object version identifier",
     "translation": "오브젝트 버전 ID"
-  },
-  {
-    "id": "The operation will do not ask for confirmation.",
-    "translation": "오퍼레이션에서 확인하도록 요청하지 않습니다."
   },
   {
     "id": "The public access block configuration was not found.",
@@ -978,6 +1086,10 @@
   {
     "id": "The value in flag '--%s' is invalid",
     "translation": "'--%s' 플래그의 값이 올바르지 않습니다."
+  },
+  {
+    "id": "This option skips confirmation prompts and executes the operation.",
+    "translation": "이 옵션은 확인 메시지를 건너뛰고 조작을 실행합니다."
   },
   {
     "id": "To retrieve the next set of buckets, use this value marker for the next command: ",
@@ -1220,6 +1332,18 @@
     "translation": "본문의 `SIZE`(바이트)입니다. 이 매개변수는 본문의 크기를 자동으로 판별할 수 없는 경우 유용합니다."
   },
   {
+    "id": "date",
+    "translation": "날짜"
+  },
+  {
+    "id": "days",
+    "translation": "일"
+  },
+  {
+    "id": "key",
+    "translation": "키"
+  },
+  {
     "id": "missing Environment Variable: %s",
     "translation": "누락된 환경 변수: %s"
   },
@@ -1234,6 +1358,10 @@
   {
     "id": "no multipart uploads in bucket '",
     "translation": "버킷에 다중 파트를 업로드하지 않음 '"
+  },
+  {
+    "id": "no noncurrentVersionTransitions in bucket lifecycle configuration",
+    "translation": "버킷 수명 주기 구성에 noncurrentVersionTransitions 없음"
   },
   {
     "id": "no object versions in bucket '",
@@ -1252,7 +1380,23 @@
     "translation": "다음 디렉토리 없음: %s"
   },
   {
+    "id": "no transitions in bucket lifecycle configuration",
+    "translation": "버킷 수명 주기 구성에서 전환 없음"
+  },
+  {
+    "id": "noncurrent days",
+    "translation": "비현재 일 수"
+  },
+  {
+    "id": "storage class",
+    "translation": "스토리지 클래스"
+  },
+  {
     "id": "unable to install Aspera SDK: %s",
     "translation": "Aspera SDK를 설치할 수 없음: %s"
+  },
+  {
+    "id": "value",
+    "translation": "값"
   }
 ]

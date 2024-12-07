@@ -28,6 +28,10 @@
     "translation": " uploads de diversas partes no depósito '"
   },
   {
+    "id": " noncurrentVersionTransitions in bucket lifecycle configuration",
+    "translation": " noncurrentVersionTransitions na configuração do ciclo de vida do bucket"
+  },
+  {
     "id": " object versions in bucket '",
     "translation": " versões de objetos no depósito '"
   },
@@ -38,6 +42,10 @@
   {
     "id": " parts in the multipart upload for '",
     "translation": " partes no upload de diversas partes para '"
+  },
+  {
+    "id": " transitions in bucket lifecycle configuration",
+    "translation": " transições na configuração do ciclo de vida do bucket"
   },
   {
     "id": "(`SOURCE`) The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.",
@@ -64,6 +72,10 @@
     "translation": "1 upload de diversas partes no depósito '"
   },
   {
+    "id": "1 noncurrentVersionTransition in bucket lifecycle configuration",
+    "translation": "1 noncurrentVersionTransition na configuração do ciclo de vida do bucket"
+  },
+  {
     "id": "1 object in bucket '",
     "translation": "1 objeto no depósito '"
   },
@@ -74,6 +86,10 @@
   {
     "id": "1 part in the multipart upload for '",
     "translation": "Parte 1 no upload de diversas partes para '"
+  },
+  {
+    "id": "1 transitions in bucket lifecycle configuration",
+    "translation": "1 transições na configuração do ciclo de vida do bucket"
   },
   {
     "id": "A `DELIMITER` is a character you use to group keys.",
@@ -110,6 +126,14 @@
   {
     "id": "Abort an existing multipart upload",
     "translation": "Abortar um upload de multipartes existente"
+  },
+  {
+    "id": "Abort incomplete multipart upload initiated after, in days: ",
+    "translation": "Interromper upload incompleto de várias partes iniciado após, em dias: "
+  },
+  {
+    "id": "AbortIncompleteMultipartUpload: ",
+    "translation": "AbortIncompleteMultipartUpload: "
   },
   {
     "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
@@ -252,6 +276,10 @@
     "translation": "Excluir a configuração do CORS a partir de um depósito"
   },
   {
+    "id": "Delete the lifecycle configuration from a bucket",
+    "translation": "Excluir a configuração do ciclo de vida de um bucket"
+  },
+  {
     "id": "Delete the replication configuration from a bucket",
     "translation": "Excluir a configuração de replicação a partir de um depósito"
   },
@@ -308,6 +336,22 @@
     "translation": "Erro ao abrir '{{.Location}}' para gravação."
   },
   {
+    "id": "Expiration by date: ",
+    "translation": "Data de expiração: "
+  },
+  {
+    "id": "Expiration in days: ",
+    "translation": "Expiração em dias: "
+  },
+  {
+    "id": "Expiration: ",
+    "translation": "Expiração: "
+  },
+  {
+    "id": "Filter by And operator: ",
+    "translation": "Filtrar por operador And: "
+  },
+  {
     "id": "Filter by prefix: ",
     "translation": "Filtrar por prefixo: "
   },
@@ -318,6 +362,14 @@
   {
     "id": "Filter by tags: ",
     "translation": "Filtrar por tags: "
+  },
+  {
+    "id": "Filter object with Size less than: ",
+    "translation": "Filtrar objeto com tamanho menor que: "
+  },
+  {
+    "id": "Filter object with size greater than: ",
+    "translation": "Filtrar objeto com tamanho maior que: "
   },
   {
     "id": "Filter: ",
@@ -352,6 +404,10 @@
     "translation": "Obter a configuração do CORS para um depósito"
   },
   {
+    "id": "Get the lifecycle configuration for a bucket",
+    "translation": "Obter a configuração do ciclo de vida de um bucket"
+  },
+  {
     "id": "Get the location and billing tier of a bucket",
     "translation": "Receber a localização e a camada de faturamento de um depósito"
   },
@@ -374,6 +430,10 @@
   {
     "id": "Get the versioning configuration for a bucket",
     "translation": "Obter a configuração de versionamento para um depósito"
+  },
+  {
+    "id": "ID: ",
+    "translation": "ID: "
   },
   {
     "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
@@ -444,6 +504,10 @@
     "translation": "Status da retenção jurídica: "
   },
   {
+    "id": "Lifecycle Configuration",
+    "translation": "Configuração do ciclo de vida"
+  },
+  {
     "id": "Limits the response to keys that begin with the specified `PREFIX`.",
     "translation": "Limita a resposta para chaves que começam com o `PREFIX` especificado."
   },
@@ -500,12 +564,32 @@
     "translation": "Nome"
   },
   {
+    "id": "Newer noncurrent versions",
+    "translation": "Versões não atuais mais recentes"
+  },
+  {
     "id": "No buckets found in your account.",
     "translation": "Nenhum depósito localizado na conta."
   },
   {
+    "id": "No lifecycle configuration rules returned",
+    "translation": "Nenhuma regra de configuração de ciclo de vida retornada"
+  },
+  {
     "id": "No tags returned",
     "translation": "Nenhuma tag retornada"
+  },
+  {
+    "id": "NoncurrentVersionExpiration by newer noncurrent versions: ",
+    "translation": "NoncurrentVersionExpiration por versões não atuais mais recentes: "
+  },
+  {
+    "id": "NoncurrentVersionExpiration by noncurrent days: ",
+    "translation": "NoncurrentVersionExpiration por dias não atuais: "
+  },
+  {
+    "id": "NoncurrentVersionExpiration: ",
+    "translation": "NoncurrentVersionExpiration: "
   },
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
@@ -530,6 +614,14 @@
   {
     "id": "Object data location (`FILE_PATH`).",
     "translation": "Local dos dados do objeto (`FILE_PATH`)."
+  },
+  {
+    "id": "ObjectSizeGreaterThan: ",
+    "translation": "ObjectSizeGreaterThan: "
+  },
+  {
+    "id": "ObjectSizeLessThan: ",
+    "translation": "ObjectSizeLessThan: "
   },
   {
     "id": "Operation canceled.",
@@ -560,6 +652,10 @@
     "translation": "Pesquise uma API até que uma determinada condição seja atendida"
   },
   {
+    "id": "Prefix: ",
+    "translation": "Prefixo: "
+  },
+  {
     "id": "Priority: ",
     "translation": "Prioridade: "
   },
@@ -582,6 +678,10 @@
   {
     "id": "Regions endpoint `URL`.",
     "translation": "`URL` do terminal de regiões."
+  },
+  {
+    "id": "Remove delete markers on expired objects: ",
+    "translation": "Remover marcadores de exclusão em objetos expirados: "
   },
   {
     "id": "Remove public access block configuration from a bucket",
@@ -682,6 +782,10 @@
   {
     "id": "Set the legal hold on a object",
     "translation": "Configurar a retenção jurídica em um objeto"
+  },
+  {
+    "id": "Set the lifecycle configuration on a bucket",
+    "translation": "Definir a configuração do ciclo de vida em um bucket"
   },
   {
     "id": "Set the object lock configuration on a bucket",
@@ -860,6 +964,10 @@
     "translation": "Alternar entre o estilo VHost e Caminho URL"
   },
   {
+    "id": "Tags: ",
+    "translation": "Tags: "
+  },
+  {
     "id": "The CORS configuration of ",
     "translation": "A configuração do CORS de "
   },
@@ -872,7 +980,7 @@
     "translation": "A opção de comando `Boolean` não está presente em listV2 por padrão. Se deseja retornar o campo do proprietário com cada chave no resultado, configure o campo do proprietário de busca com o valor 'true'."
   },
   {
-    "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
+    "id": "The `CUSTOMERROOTKEYCRN` of the KMS  root key associated with the bucket for data encryption.",
     "translation": "O `CUSTOMERROOTKEYCRN` da chave raiz KMS associada ao depósito para criptografia de dados."
   },
   {
@@ -908,6 +1016,10 @@
     "translation": "O destino de download '{{.Location}}' é um diretório."
   },
   {
+    "id": "The lifecycle configuration was not found",
+    "translation": "A configuração do ciclo de vida não foi localizada"
+  },
+  {
     "id": "The name (`BUCKET_NAME`) of the bucket.",
     "translation": "O nome (`BUCKET_NAME`) do depósito."
   },
@@ -922,10 +1034,6 @@
   {
     "id": "The object version identifier",
     "translation": "O identificador de versão do objeto"
-  },
-  {
-    "id": "The operation will do not ask for confirmation.",
-    "translation": "A operação não pedirá confirmação."
   },
   {
     "id": "The public access block configuration was not found.",
@@ -978,6 +1086,10 @@
   {
     "id": "The value in flag '--%s' is invalid",
     "translation": "O valor da sinalização '-- %s' é inválido"
+  },
+  {
+    "id": "This option skips confirmation prompts and executes the operation.",
+    "translation": "Esta opção ignora os prompts de confirmação e executa a operação."
   },
   {
     "id": "To retrieve the next set of buckets, use this value marker for the next command: ",
@@ -1220,6 +1332,18 @@
     "translation": "`SIZE` do corpo em bytes. Este parâmetro é útil quando o tamanho do corpo não pode ser determinado automaticamente."
   },
   {
+    "id": "date",
+    "translation": "data"
+  },
+  {
+    "id": "days",
+    "translation": "dias"
+  },
+  {
+    "id": "key",
+    "translation": "Chave"
+  },
+  {
     "id": "missing Environment Variable: %s",
     "translation": "Variável de ambiente ausente: %s"
   },
@@ -1234,6 +1358,10 @@
   {
     "id": "no multipart uploads in bucket '",
     "translation": "nenhum upload de diversas partes no depósito '"
+  },
+  {
+    "id": "no noncurrentVersionTransitions in bucket lifecycle configuration",
+    "translation": "nenhuma noncurrentVersionTransitions na configuração do ciclo de vida do bucket"
   },
   {
     "id": "no object versions in bucket '",
@@ -1252,7 +1380,23 @@
     "translation": "não existe esse diretório: %s"
   },
   {
+    "id": "no transitions in bucket lifecycle configuration",
+    "translation": "nenhuma transição na configuração do ciclo de vida do bucket"
+  },
+  {
+    "id": "noncurrent days",
+    "translation": "dias não atuais"
+  },
+  {
+    "id": "storage class",
+    "translation": "classe de armazenamento"
+  },
+  {
     "id": "unable to install Aspera SDK: %s",
     "translation": "não foi possível instalar o Aspera SDK: %s"
+  },
+  {
+    "id": "value",
+    "translation": "valor"
   }
 ]

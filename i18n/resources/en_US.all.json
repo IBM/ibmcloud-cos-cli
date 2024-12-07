@@ -28,6 +28,10 @@
     "translation": " multipart uploads in bucket '"
   },
   {
+    "id": " noncurrentVersionTransitions in bucket lifecycle configuration",
+    "translation": " noncurrentVersionTransitions in bucket lifecycle configuration"
+  },
+  {
     "id": " object versions in bucket '",
     "translation": " object versions in bucket '"
   },
@@ -38,6 +42,10 @@
   {
     "id": " parts in the multipart upload for '",
     "translation": " parts in the multipart upload for '"
+  },
+  {
+    "id": " transitions in bucket lifecycle configuration",
+    "translation": " transitions in bucket lifecycle configuration"
   },
   {
     "id": "(`SOURCE`) The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.",
@@ -64,6 +72,10 @@
     "translation": "1 multipart upload in bucket '"
   },
   {
+    "id": "1 noncurrentVersionTransition in bucket lifecycle configuration",
+    "translation": "1 noncurrentVersionTransition in bucket lifecycle configuration"
+  },
+  {
     "id": "1 object in bucket '",
     "translation": "1 object in bucket '"
   },
@@ -74,6 +86,10 @@
   {
     "id": "1 part in the multipart upload for '",
     "translation": "1 part in the multipart upload for '"
+  },
+  {
+    "id": "1 transitions in bucket lifecycle configuration",
+    "translation": "1 transitions in bucket lifecycle configuration"
   },
   {
     "id": "A `DELIMITER` is a character you use to group keys.",
@@ -110,6 +126,14 @@
   {
     "id": "Abort an existing multipart upload",
     "translation": "Abort an existing multipart upload"
+  },
+  {
+    "id": "Abort incomplete multipart upload initiated after, in days: ",
+    "translation": "Abort incomplete multipart upload initiated after, in days: "
+  },
+  {
+    "id": "AbortIncompleteMultipartUpload: ",
+    "translation": "AbortIncompleteMultipartUpload: "
   },
   {
     "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
@@ -252,6 +276,10 @@
     "translation": "Delete the CORS configuration from a bucket"
   },
   {
+    "id": "Delete the lifecycle configuration from a bucket",
+    "translation": "Delete the lifecycle configuration from a bucket"
+  },
+  {
     "id": "Delete the replication configuration from a bucket",
     "translation": "Delete the replication configuration from a bucket"
   },
@@ -308,6 +336,22 @@
     "translation": "Error opening '{{.Location}}' to write."
   },
   {
+    "id": "Expiration by date: ",
+    "translation": "Expiration by date: "
+  },
+  {
+    "id": "Expiration in days: ",
+    "translation": "Expiration in days: "
+  },
+  {
+    "id": "Expiration: ",
+    "translation": "Expiration: "
+  },
+  {
+    "id": "Filter by And operator: ",
+    "translation": "Filter by And operator: "
+  },
+  {
     "id": "Filter by prefix: ",
     "translation": "Filter by prefix: "
   },
@@ -318,6 +362,14 @@
   {
     "id": "Filter by tags: ",
     "translation": "Filter by tags: "
+  },
+  {
+    "id": "Filter object with Size less than: ",
+    "translation": "Filter object with Size less than: "
+  },
+  {
+    "id": "Filter object with size greater than: ",
+    "translation": "Filter object with size greater than: "
   },
   {
     "id": "Filter: ",
@@ -352,6 +404,10 @@
     "translation": "Get the CORS configuration for a bucket"
   },
   {
+    "id": "Get the lifecycle configuration for a bucket",
+    "translation": "Get the lifecycle configuration for a bucket"
+  },
+  {
     "id": "Get the location and billing tier of a bucket",
     "translation": "Get the location and billing tier of a bucket"
   },
@@ -374,6 +430,10 @@
   {
     "id": "Get the versioning configuration for a bucket",
     "translation": "Get the versioning configuration for a bucket"
+  },
+  {
+    "id": "ID: ",
+    "translation": "ID: "
   },
   {
     "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
@@ -444,6 +504,10 @@
     "translation": "Legal Hold Status: "
   },
   {
+    "id": "Lifecycle Configuration",
+    "translation": "Lifecycle Configuration"
+  },
+  {
     "id": "Limits the response to keys that begin with the specified `PREFIX`.",
     "translation": "Limits the response to keys that begin with the specified `PREFIX`."
   },
@@ -500,12 +564,32 @@
     "translation": "Name"
   },
   {
+    "id": "Newer noncurrent versions",
+    "translation": "Newer noncurrent versions"
+  },
+  {
     "id": "No buckets found in your account.",
     "translation": "No buckets found in your account."
   },
   {
+    "id": "No lifecycle configuration rules returned",
+    "translation": "No lifecycle configuration rules returned"
+  },
+  {
     "id": "No tags returned",
     "translation": "No tags returned"
+  },
+  {
+    "id": "NoncurrentVersionExpiration by newer noncurrent versions: ",
+    "translation": "NoncurrentVersionExpiration by newer noncurrent versions: "
+  },
+  {
+    "id": "NoncurrentVersionExpiration by noncurrent days: ",
+    "translation": "NoncurrentVersionExpiration by noncurrent days: "
+  },
+  {
+    "id": "NoncurrentVersionExpiration: ",
+    "translation": "NoncurrentVersionExpiration: "
   },
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
@@ -530,6 +614,14 @@
   {
     "id": "Object data location (`FILE_PATH`).",
     "translation": "Object data location (`FILE_PATH`)."
+  },
+  {
+    "id": "ObjectSizeGreaterThan: ",
+    "translation": "ObjectSizeGreaterThan: "
+  },
+  {
+    "id": "ObjectSizeLessThan: ",
+    "translation": "ObjectSizeLessThan: "
   },
   {
     "id": "Operation canceled.",
@@ -560,6 +652,10 @@
     "translation": "Poll an API until a particular condition is satisfied"
   },
   {
+    "id": "Prefix: ",
+    "translation": "Prefix: "
+  },
+  {
     "id": "Priority: ",
     "translation": "Priority: "
   },
@@ -582,6 +678,10 @@
   {
     "id": "Regions endpoint `URL`.",
     "translation": "Regions endpoint `URL`."
+  },
+  {
+    "id": "Remove delete markers on expired objects: ",
+    "translation": "Remove delete markers on expired objects: "
   },
   {
     "id": "Remove public access block configuration from a bucket",
@@ -682,6 +782,10 @@
   {
     "id": "Set the legal hold on a object",
     "translation": "Set the legal hold on a object"
+  },
+  {
+    "id": "Set the lifecycle configuration on a bucket",
+    "translation": "Set the lifecycle configuration on a bucket"
   },
   {
     "id": "Set the object lock configuration on a bucket",
@@ -860,6 +964,10 @@
     "translation": "Switch between VHost and Path URL style"
   },
   {
+    "id": "Tags: ",
+    "translation": "Tags: "
+  },
+  {
     "id": "The CORS configuration of ",
     "translation": "The CORS configuration of "
   },
@@ -872,8 +980,8 @@
     "translation": "The `Boolean` is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true."
   },
   {
-    "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
-    "translation": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption."
+    "id": "The `CUSTOMERROOTKEYCRN` of the KMS  root key associated with the bucket for data encryption.",
+    "translation": "The `CUSTOMERROOTKEYCRN` of the KMS  root key associated with the bucket for data encryption."
   },
   {
     "id": "The `KEY` of the object.",
@@ -908,6 +1016,10 @@
     "translation": "The download destination '{{.Location}}' is a directory."
   },
   {
+    "id": "The lifecycle configuration was not found",
+    "translation": "The lifecycle configuration was not found"
+  },
+  {
     "id": "The name (`BUCKET_NAME`) of the bucket.",
     "translation": "The name (`BUCKET_NAME`) of the bucket."
   },
@@ -922,10 +1034,6 @@
   {
     "id": "The object version identifier",
     "translation": "The object version identifier"
-  },
-  {
-    "id": "The operation will do not ask for confirmation.",
-    "translation": "The operation will do not ask for confirmation."
   },
   {
     "id": "The public access block configuration was not found.",
@@ -978,6 +1086,10 @@
   {
     "id": "The value in flag '--%s' is invalid",
     "translation": "The value in flag '--%s' is invalid"
+  },
+  {
+    "id": "This option skips confirmation prompts and executes the operation.",
+    "translation": "This option skips confirmation prompts and executes the operation."
   },
   {
     "id": "To retrieve the next set of buckets, use this value marker for the next command: ",
@@ -1220,6 +1332,18 @@
     "translation": "`SIZE` of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically."
   },
   {
+    "id": "date",
+    "translation": "date"
+  },
+  {
+    "id": "days",
+    "translation": "days"
+  },
+  {
+    "id": "key",
+    "translation": "key"
+  },
+  {
     "id": "missing Environment Variable: %s",
     "translation": "missing Environment Variable: %s"
   },
@@ -1234,6 +1358,10 @@
   {
     "id": "no multipart uploads in bucket '",
     "translation": "no multipart uploads in bucket '"
+  },
+  {
+    "id": "no noncurrentVersionTransitions in bucket lifecycle configuration",
+    "translation": "no noncurrentVersionTransitions in bucket lifecycle configuration"
   },
   {
     "id": "no object versions in bucket '",
@@ -1252,7 +1380,23 @@
     "translation": "no such directory: %s"
   },
   {
+    "id": "no transitions in bucket lifecycle configuration",
+    "translation": "no transitions in bucket lifecycle configuration"
+  },
+  {
+    "id": "noncurrent days",
+    "translation": "noncurrent days"
+  },
+  {
+    "id": "storage class",
+    "translation": "storage class"
+  },
+  {
     "id": "unable to install Aspera SDK: %s",
     "translation": "unable to install Aspera SDK: %s"
+  },
+  {
+    "id": "value",
+    "translation": "value"
   }
 ]

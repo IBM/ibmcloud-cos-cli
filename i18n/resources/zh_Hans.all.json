@@ -28,6 +28,10 @@
     "translation": " 多重部件上传位于存储区中 '"
   },
   {
+    "id": " noncurrentVersionTransitions in bucket lifecycle configuration",
+    "translation": " 存储区生命周期配置中的 noncurrentVersionTransitions"
+  },
+  {
     "id": " object versions in bucket '",
     "translation": " 存储区中的对象版本 '"
   },
@@ -38,6 +42,10 @@
   {
     "id": " parts in the multipart upload for '",
     "translation": " 多重部件上传中的部件用于 '"
+  },
+  {
+    "id": " transitions in bucket lifecycle configuration",
+    "translation": " 存储区生命周期配置中的转换"
   },
   {
     "id": "(`SOURCE`) The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.",
@@ -64,6 +72,10 @@
     "translation": "1 个多重部件上传位于存储区中 '"
   },
   {
+    "id": "1 noncurrentVersionTransition in bucket lifecycle configuration",
+    "translation": "存储区生命周期配置中包含 1 个 noncurrentVersionTransition"
+  },
+  {
     "id": "1 object in bucket '",
     "translation": "1 个对象位于存储区中 '"
   },
@@ -74,6 +86,10 @@
   {
     "id": "1 part in the multipart upload for '",
     "translation": "多重部件上传中的 1 个部件用于 '"
+  },
+  {
+    "id": "1 transitions in bucket lifecycle configuration",
+    "translation": "存储区生命周期配置中包含 1 个转换"
   },
   {
     "id": "A `DELIMITER` is a character you use to group keys.",
@@ -110,6 +126,14 @@
   {
     "id": "Abort an existing multipart upload",
     "translation": "中止现有多重部件上传"
+  },
+  {
+    "id": "Abort incomplete multipart upload initiated after, in days: ",
+    "translation": "在以下天数后终止已启动的未完成多重部件上载： "
+  },
+  {
+    "id": "AbortIncompleteMultipartUpload: ",
+    "translation": "AbortIncompleteMultipartUpload: "
   },
   {
     "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
@@ -252,6 +276,10 @@
     "translation": "从存储区中删除 CORS 配置"
   },
   {
+    "id": "Delete the lifecycle configuration from a bucket",
+    "translation": "从存储区中删除生命周期配置"
+  },
+  {
     "id": "Delete the replication configuration from a bucket",
     "translation": "从存储区中删除复制配置"
   },
@@ -308,6 +336,22 @@
     "translation": "打开“{{.Location}}”以执行写操作时出错。"
   },
   {
+    "id": "Expiration by date: ",
+    "translation": "到期日期： "
+  },
+  {
+    "id": "Expiration in days: ",
+    "translation": "有效期（天）： "
+  },
+  {
+    "id": "Expiration: ",
+    "translation": "到期时间： "
+  },
+  {
+    "id": "Filter by And operator: ",
+    "translation": "按 And 运算符过滤： "
+  },
+  {
     "id": "Filter by prefix: ",
     "translation": "按前缀过滤： "
   },
@@ -318,6 +362,14 @@
   {
     "id": "Filter by tags: ",
     "translation": "按标记过滤： "
+  },
+  {
+    "id": "Filter object with Size less than: ",
+    "translation": "过滤大小小于以下值的对象： "
+  },
+  {
+    "id": "Filter object with size greater than: ",
+    "translation": "过滤大小大于以下值的对象： "
   },
   {
     "id": "Filter: ",
@@ -352,6 +404,10 @@
     "translation": "获取存储区的 CORS 配置"
   },
   {
+    "id": "Get the lifecycle configuration for a bucket",
+    "translation": "获取存储区的生命周期配置"
+  },
+  {
     "id": "Get the location and billing tier of a bucket",
     "translation": "获取存储区的位置和计费层"
   },
@@ -374,6 +430,10 @@
   {
     "id": "Get the versioning configuration for a bucket",
     "translation": "获取存储区的版本控制配置"
+  },
+  {
+    "id": "ID: ",
+    "translation": "标识： "
   },
   {
     "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
@@ -444,6 +504,10 @@
     "translation": "合法保留状态： "
   },
   {
+    "id": "Lifecycle Configuration",
+    "translation": "生命周期配置"
+  },
+  {
     "id": "Limits the response to keys that begin with the specified `PREFIX`.",
     "translation": "将响应限于以指定的 `PREFIX` 开头的键。"
   },
@@ -500,12 +564,32 @@
     "translation": "名称"
   },
   {
+    "id": "Newer noncurrent versions",
+    "translation": "较新非当前版本"
+  },
+  {
     "id": "No buckets found in your account.",
     "translation": "在您的帐户中找不到存储区。"
   },
   {
+    "id": "No lifecycle configuration rules returned",
+    "translation": "未返回生命周期配置规则"
+  },
+  {
     "id": "No tags returned",
     "translation": "未返回标记"
+  },
+  {
+    "id": "NoncurrentVersionExpiration by newer noncurrent versions: ",
+    "translation": "较新非当前版本的 NoncurrentVersionExpiration： "
+  },
+  {
+    "id": "NoncurrentVersionExpiration by noncurrent days: ",
+    "translation": "NoncurrentVersionExpiration 非当前版本天数： "
+  },
+  {
+    "id": "NoncurrentVersionExpiration: ",
+    "translation": "NoncurrentVersionExpiration: "
   },
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
@@ -530,6 +614,14 @@
   {
     "id": "Object data location (`FILE_PATH`).",
     "translation": "对象数据位置 (`FILE_PATH`)。"
+  },
+  {
+    "id": "ObjectSizeGreaterThan: ",
+    "translation": "ObjectSizeGreaterThan: "
+  },
+  {
+    "id": "ObjectSizeLessThan: ",
+    "translation": "ObjectSizeLessThan: "
   },
   {
     "id": "Operation canceled.",
@@ -560,6 +652,10 @@
     "translation": "轮询 API，直到满足特定条件为止"
   },
   {
+    "id": "Prefix: ",
+    "translation": "前缀： "
+  },
+  {
     "id": "Priority: ",
     "translation": "优先级： "
   },
@@ -582,6 +678,10 @@
   {
     "id": "Regions endpoint `URL`.",
     "translation": "区域端点 `URL`。"
+  },
+  {
+    "id": "Remove delete markers on expired objects: ",
+    "translation": "移除过期对象上的删除标记： "
   },
   {
     "id": "Remove public access block configuration from a bucket",
@@ -682,6 +782,10 @@
   {
     "id": "Set the legal hold on a object",
     "translation": "在对象上设置合法保留"
+  },
+  {
+    "id": "Set the lifecycle configuration on a bucket",
+    "translation": "在存储区上设置生命周期配置"
   },
   {
     "id": "Set the object lock configuration on a bucket",
@@ -860,6 +964,10 @@
     "translation": "在 VHost 和路径 URL 样式之间切换"
   },
   {
+    "id": "Tags: ",
+    "translation": "标记： "
+  },
+  {
     "id": "The CORS configuration of ",
     "translation": "的 CORS 配置 "
   },
@@ -872,7 +980,7 @@
     "translation": "缺省情况下，`Boolean` 不会出现在 listV2 中，如果要在结果中返回包含每个键的所有者字段，请将访存所有者字段设置为 true。"
   },
   {
-    "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
+    "id": "The `CUSTOMERROOTKEYCRN` of the KMS  root key associated with the bucket for data encryption.",
     "translation": "与数据加密的存储区关联的 KMS 根密钥的“CUSTOMERROOTKEYCRN”。"
   },
   {
@@ -908,6 +1016,10 @@
     "translation": "下载目标“{{.Location}}”是一个目录。"
   },
   {
+    "id": "The lifecycle configuration was not found",
+    "translation": "未找到生命周期配置"
+  },
+  {
     "id": "The name (`BUCKET_NAME`) of the bucket.",
     "translation": "存储区的名称 (`BUCKET_NAME`)。"
   },
@@ -922,10 +1034,6 @@
   {
     "id": "The object version identifier",
     "translation": "对象版本标识"
-  },
-  {
-    "id": "The operation will do not ask for confirmation.",
-    "translation": "此操作不会请求确认。"
   },
   {
     "id": "The public access block configuration was not found.",
@@ -978,6 +1086,10 @@
   {
     "id": "The value in flag '--%s' is invalid",
     "translation": "标记“--%s”中的值无效"
+  },
+  {
+    "id": "This option skips confirmation prompts and executes the operation.",
+    "translation": "该选项将跳过确认提示并执行操作。"
   },
   {
     "id": "To retrieve the next set of buckets, use this value marker for the next command: ",
@@ -1220,6 +1332,18 @@
     "translation": "主体的 `SIZE`（字节）。当无法自动确定主体大小时，适用此参数。"
   },
   {
+    "id": "date",
+    "translation": "日期"
+  },
+  {
+    "id": "days",
+    "translation": "days"
+  },
+  {
+    "id": "key",
+    "translation": "键"
+  },
+  {
     "id": "missing Environment Variable: %s",
     "translation": "缺少环境变量： %s"
   },
@@ -1234,6 +1358,10 @@
   {
     "id": "no multipart uploads in bucket '",
     "translation": "存储区中没有任何多重部件上传 '"
+  },
+  {
+    "id": "no noncurrentVersionTransitions in bucket lifecycle configuration",
+    "translation": "存储区生命周期配置中没有 noncurrentVersionTransitions"
   },
   {
     "id": "no object versions in bucket '",
@@ -1252,7 +1380,23 @@
     "translation": "无此类目录： %s"
   },
   {
+    "id": "no transitions in bucket lifecycle configuration",
+    "translation": "存储区生命周期配置中没有任何转换"
+  },
+  {
+    "id": "noncurrent days",
+    "translation": "非当前版本天数"
+  },
+  {
+    "id": "storage class",
+    "translation": "存储类"
+  },
+  {
     "id": "unable to install Aspera SDK: %s",
     "translation": "无法安装 Aspera SDK： %s"
+  },
+  {
+    "id": "value",
+    "translation": "值"
   }
 ]

@@ -267,4 +267,13 @@ const (
 
 	// SetEndpoint Set Service Endpoint URL
 	SetEndpoint = "endpoint-url"
+
+	// BucketLifeCycleConfigurationDelete Command
+	BucketLifeCycleConfigurationDelete = "bucket-lifecycle-configuration-delete"
+
+	// BucketLifeCycleConfigurationGet Command
+	BucketLifeCycleConfigurationGet = "bucket-lifecycle-configuration-get"
+
+	// BucketLifeCycleConfigurationPut Command
+	BucketLifeCycleConfigurationPut = "bucket-lifecycle-configuration-put"
 )

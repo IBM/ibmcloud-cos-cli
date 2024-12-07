@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 1.10.0
+
+### Content
+
+#### Features
+
+* Tag Based Filtering for Object Expiration
+* Support for Private Endpoint
+
+#### Defect Fixes
+
+* Update to use Go SDK 1.12.0
+
 ## 1.9.1
 
 ### Content

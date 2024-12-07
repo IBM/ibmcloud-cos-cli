@@ -184,6 +184,43 @@ var (
 		Action: functions.BucketReplicationPut,
 	}
 
+	// CommandBucketLifecycleConfigurationDelete - Delete the lifecycle configuration from a bucket with DeleteBucketLifeCycleConfiguration
+	CommandBucketLifecycleConfigurationDelete = cli.Command{
+		Name:        BucketLifeCycleConfigurationDelete,
+		Description: T("Delete the lifecycle configuration from a bucket"),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagRegion,
+			flags.FlagOutput,
+		},
+		Action: functions.BucketLifecycleConfigurationDelete,
+	}
+
+	// CommandBucketLifecycleConfigurationGet - Get the lifecycle configuration for a bucket with GetBucketLifeCycleConfiguration
+	CommandBucketLifecycleConfigurationGet = cli.Command{
+		Name:        BucketLifeCycleConfigurationGet,
+		Description: T("Get the lifecycle configuration for a bucket"),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagRegion,
+			flags.FlagOutput,
+		},
+		Action: functions.BucketLifecycleConfigurationGet,
+	}
+
+	// CommandBucketLifecycleConfigurationPut - Set the lifecycle configuration on a bucket with PutBucketLifeCycleConfiguration
+	CommandBucketLifecycleConfigurationPut = cli.Command{
+		Name:        BucketLifeCycleConfigurationPut,
+		Description: T("Set the lifecycle configuration on a bucket"),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagLifecycleConfiguration,
+			flags.FlagRegion,
+			flags.FlagOutput,
+		},
+		Action: functions.BucketLifecycleConfigurationPut,
+	}
+
 	// CommandObjectLockConfigurationGet - Get the object lock configuration for a bucket with GetObjectLockConfiguration
 	CommandObjectLockGet = cli.Command{
 		Name:        ObjectLockGet,
@@ -236,7 +273,6 @@ var (
 		Action: functions.ObjectLegalHoldPut,
 	}
 
-
 	// CommandObjectRetentionGet - Get retention on a object with GetObjectRetention
 	CommandObjectRetentionGet = cli.Command{
 		Name:        ObjectRetentionGet,
@@ -263,8 +299,6 @@ var (
 		},
 		Action: functions.ObjectRetentionPut,
 	}
-
-
 
 	// CommandBucketsExtended - List all the extended buckets (OneCloud version)
 	// command:

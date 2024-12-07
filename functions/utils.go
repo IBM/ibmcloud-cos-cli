@@ -50,12 +50,15 @@ func GetCosContext(cliContext *cli.Context) (*utils.CosContext, error) {
 // MapToSDKInput - validates the user flags and their contents against
 // SDK interfaces to ensure types in the parameters passed in are valid
 // Parameters:
-//		CLI Context Application
-//		Destination Interface (API Inputs such as DeleteObjectsInput)
-//		Required Parameters for a CLI command
-//		Optional Parameters for a CLI command
+//
+//	CLI Context Application
+//	Destination Interface (API Inputs such as DeleteObjectsInput)
+//	Required Parameters for a CLI command
+//	Optional Parameters for a CLI command
+//
 // Return:
-//		Error - nil or a valid error
+//
+//	Error - nil or a valid error
 func MapToSDKInput(cliContext *cli.Context, destination interface{},
 	mandatoryFields map[string]string, optionalFields map[string]string) error {
 
@@ -75,7 +78,7 @@ func MapToSDKInput(cliContext *cli.Context, destination interface{},
 	if cliContext.IsSet(flags.Output) {
 		format := cliContext.String(flags.Output)
 		if !strings.EqualFold(format, "json") && !strings.EqualFold(format, "text") {
-			err := awserr.New("Incorrect Usage", "Invalid Display Value", nil)
+			err := awserr.New("Incorrect Usage", "Invalid output format. Use json or text with --output option.", nil)
 			return err
 		}
 	}
@@ -259,6 +262,9 @@ func populateField(cliContext *cli.Context,
 		err = parseJSONinFile(cliContext, f, cliContext.String(flagName))
 	case *s3.WebsiteConfiguration:
 		// if type is pointer to WebsiteConfiguration, use golang json decoder to map value
+		err = parseJSONinFile(cliContext, f, cliContext.String(flagName))
+	case *s3.LifecycleConfiguration:
+		// if type is pointer to LifecycleConfiguration, use golang json decoder to map value
 		err = parseJSONinFile(cliContext, f, cliContext.String(flagName))
 	default:
 		panic("INVALID TYPE -- not mapped type yet")

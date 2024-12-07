@@ -28,6 +28,10 @@
     "translation": " バケットにマルチパート・アップロードがあります '"
   },
   {
+    "id": " noncurrentVersionTransitions in bucket lifecycle configuration",
+    "translation": " バケットのライフサイクル設定の noncurrentVersionTransitions"
+  },
+  {
     "id": " object versions in bucket '",
     "translation": " バケットのオブジェクト・バージョン '"
   },
@@ -38,6 +42,10 @@
   {
     "id": " parts in the multipart upload for '",
     "translation": " 次のマルチパート・アップロードにパーツがあります: '"
+  },
+  {
+    "id": " transitions in bucket lifecycle configuration",
+    "translation": " バケットのライフサイクル構成に移行します"
   },
   {
     "id": "(`SOURCE`) The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.",
@@ -64,6 +72,10 @@
     "translation": "バケットに 1 個のマルチパート・アップロードがあります '"
   },
   {
+    "id": "1 noncurrentVersionTransition in bucket lifecycle configuration",
+    "translation": "1 バケットのライフサイクル設定の noncurrentVersionTransition"
+  },
+  {
     "id": "1 object in bucket '",
     "translation": "バケットに 1 個のオブジェクトがあります '"
   },
@@ -74,6 +86,10 @@
   {
     "id": "1 part in the multipart upload for '",
     "translation": "次のマルチパート・アップロードに 1 個のパーツがあります: '"
+  },
+  {
+    "id": "1 transitions in bucket lifecycle configuration",
+    "translation": "バケットのライフサイクル構成が1つ変更されました"
   },
   {
     "id": "A `DELIMITER` is a character you use to group keys.",
@@ -110,6 +126,14 @@
   {
     "id": "Abort an existing multipart upload",
     "translation": "既存のマルチパート・アップロードを中止します"
+  },
+  {
+    "id": "Abort incomplete multipart upload initiated after, in days: ",
+    "translation": "不完全なマルチパート・アップロードの中止が開始された後、次の日数で開始されます。 "
+  },
+  {
+    "id": "AbortIncompleteMultipartUpload: ",
+    "translation": "AbortIncompleteMultipartUpload: "
   },
   {
     "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
@@ -252,6 +276,10 @@
     "translation": "バケットから CORS 構成を削除します"
   },
   {
+    "id": "Delete the lifecycle configuration from a bucket",
+    "translation": "バケツからライフサイクル設定を削除する"
+  },
+  {
     "id": "Delete the replication configuration from a bucket",
     "translation": "バケットからの複製構成の削除"
   },
@@ -308,6 +336,22 @@
     "translation": "'{{.Location}}' を書き込み用にオープン中にエラーが発生しました。"
   },
   {
+    "id": "Expiration by date: ",
+    "translation": "有効期限: "
+  },
+  {
+    "id": "Expiration in days: ",
+    "translation": "有効期限日数: "
+  },
+  {
+    "id": "Expiration: ",
+    "translation": "期限切れ: "
+  },
+  {
+    "id": "Filter by And operator: ",
+    "translation": "And 演算子でフィルタ: "
+  },
+  {
     "id": "Filter by prefix: ",
     "translation": "接頭部によるフィルター: "
   },
@@ -318,6 +362,14 @@
   {
     "id": "Filter by tags: ",
     "translation": "タグによるフィルター: "
+  },
+  {
+    "id": "Filter object with Size less than: ",
+    "translation": "サイズが次の値より小さいオブジェクトをフィルタリングします。 "
+  },
+  {
+    "id": "Filter object with size greater than: ",
+    "translation": "次のサイズよりも大きいオブジェクトをフィルタリングします。 "
   },
   {
     "id": "Filter: ",
@@ -352,6 +404,10 @@
     "translation": "バケットの CORS 構成を取得します"
   },
   {
+    "id": "Get the lifecycle configuration for a bucket",
+    "translation": "バケツのライフサイクル設定を取得する"
+  },
+  {
     "id": "Get the location and billing tier of a bucket",
     "translation": "バケットのロケーションと請求層を取得します"
   },
@@ -374,6 +430,10 @@
   {
     "id": "Get the versioning configuration for a bucket",
     "translation": "バケットのバージョン管理構成を取得します"
+  },
+  {
+    "id": "ID: ",
+    "translation": "ID: "
   },
   {
     "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
@@ -444,6 +504,10 @@
     "translation": "訴訟ホールドの状況： "
   },
   {
+    "id": "Lifecycle Configuration",
+    "translation": "ライフサイクル構成"
+  },
+  {
     "id": "Limits the response to keys that begin with the specified `PREFIX`.",
     "translation": "指定した `PREFIX` で始まるキーに応答を制限します。"
   },
@@ -500,12 +564,32 @@
     "translation": "名前"
   },
   {
+    "id": "Newer noncurrent versions",
+    "translation": "新しい非現行バージョン"
+  },
+  {
     "id": "No buckets found in your account.",
     "translation": "アカウントにバケットが見つかりませんでした。"
   },
   {
+    "id": "No lifecycle configuration rules returned",
+    "translation": "ライフサイクル構成ルールが返されない"
+  },
+  {
     "id": "No tags returned",
     "translation": "タグが返されませんでした。"
+  },
+  {
+    "id": "NoncurrentVersionExpiration by newer noncurrent versions: ",
+    "translation": "NoncurrentVersionExpiration を新しいバージョンの以前のバージョンで追加します。 "
+  },
+  {
+    "id": "NoncurrentVersionExpiration by noncurrent days: ",
+    "translation": "NoncurrentVersionExpiration 非現行日数: "
+  },
+  {
+    "id": "NoncurrentVersionExpiration: ",
+    "translation": "NoncurrentVersionExpiration: "
   },
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
@@ -530,6 +614,14 @@
   {
     "id": "Object data location (`FILE_PATH`).",
     "translation": "オブジェクト・データの場所 (`FILE_PATH`)."
+  },
+  {
+    "id": "ObjectSizeGreaterThan: ",
+    "translation": "ObjectSizeGreaterThan: "
+  },
+  {
+    "id": "ObjectSizeLessThan: ",
+    "translation": "ObjectSizeLessThan: "
   },
   {
     "id": "Operation canceled.",
@@ -560,6 +652,10 @@
     "translation": "特定条件が満たされるまで API をポーリングします"
   },
   {
+    "id": "Prefix: ",
+    "translation": "接頭語: "
+  },
+  {
     "id": "Priority: ",
     "translation": "優先順位: "
   },
@@ -582,6 +678,10 @@
   {
     "id": "Regions endpoint `URL`.",
     "translation": "Region エンドポイント `URL`。"
+  },
+  {
+    "id": "Remove delete markers on expired objects: ",
+    "translation": "期限切れのオブジェクトの削除マーカーを削除します: "
   },
   {
     "id": "Remove public access block configuration from a bucket",
@@ -682,6 +782,10 @@
   {
     "id": "Set the legal hold on a object",
     "translation": "オブジェクトに対する訴訟ホールドの設定"
+  },
+  {
+    "id": "Set the lifecycle configuration on a bucket",
+    "translation": "バケットのライフサイクル構成を設定します"
   },
   {
     "id": "Set the object lock configuration on a bucket",
@@ -860,6 +964,10 @@
     "translation": "VHost とパスの間で URL スタイルを切り替えます"
   },
   {
+    "id": "Tags: ",
+    "translation": "タグ: "
+  },
+  {
     "id": "The CORS configuration of ",
     "translation": "次の CORS 構成: "
   },
@@ -872,8 +980,8 @@
     "translation": "「ブール」は、デフォルトでは listV2 には存在しません。結果の各キーとともに所有者フィールドを返す場合は、フェッチ所有者フィールドを true に設定します。"
   },
   {
-    "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
-    "translation": "データ暗号化のバケットに関連付けられているKMSルート鍵の「CUSTOMERROOTKEYCRN」。"
+    "id": "The `CUSTOMERROOTKEYCRN` of the KMS  root key associated with the bucket for data encryption.",
+    "translation": "データ暗号化のバケットに関連付けられている KMS ルート鍵の「CUSTOMERROOTKEYCRN」。"
   },
   {
     "id": "The `KEY` of the object.",
@@ -908,6 +1016,10 @@
     "translation": "ダウンロード先 '{{.Location}}' がディレクトリーです。"
   },
   {
+    "id": "The lifecycle configuration was not found",
+    "translation": "ライフサイクル設定が見つかりません"
+  },
+  {
     "id": "The name (`BUCKET_NAME`) of the bucket.",
     "translation": "バケットの名前 (`BUCKET_NAME`) です。"
   },
@@ -922,10 +1034,6 @@
   {
     "id": "The object version identifier",
     "translation": "オブジェクト・バージョン ID"
-  },
-  {
-    "id": "The operation will do not ask for confirmation.",
-    "translation": "この操作では確認は求められません。"
   },
   {
     "id": "The public access block configuration was not found.",
@@ -978,6 +1086,10 @@
   {
     "id": "The value in flag '--%s' is invalid",
     "translation": "フラグ '--%s' の値は無効です"
+  },
+  {
+    "id": "This option skips confirmation prompts and executes the operation.",
+    "translation": "このオプションは、確認プロンプトをスキップして操作を実行します。"
   },
   {
     "id": "To retrieve the next set of buckets, use this value marker for the next command: ",
@@ -1220,6 +1332,18 @@
     "translation": "本文の `SIZE` (バイト単位)。 このパラメーターは、本文のサイズが自動的に判定されない場合に便利です。"
   },
   {
+    "id": "date",
+    "translation": "date"
+  },
+  {
+    "id": "days",
+    "translation": "日数"
+  },
+  {
+    "id": "key",
+    "translation": "キー"
+  },
+  {
     "id": "missing Environment Variable: %s",
     "translation": "環境変数がありません: %s"
   },
@@ -1234,6 +1358,10 @@
   {
     "id": "no multipart uploads in bucket '",
     "translation": "バケット内にマルチパート・アップロードがありません '"
+  },
+  {
+    "id": "no noncurrentVersionTransitions in bucket lifecycle configuration",
+    "translation": "バケットのライフサイクル設定に noncurrentVersionTransitions がない"
   },
   {
     "id": "no object versions in bucket '",
@@ -1252,7 +1380,23 @@
     "translation": "存在しないディレクトリーです: %s"
   },
   {
+    "id": "no transitions in bucket lifecycle configuration",
+    "translation": "バケットのライフサイクルの設定に変更がありません"
+  },
+  {
+    "id": "noncurrent days",
+    "translation": "非現行日数"
+  },
+  {
+    "id": "storage class",
+    "translation": "ストレージ・クラス"
+  },
+  {
     "id": "unable to install Aspera SDK: %s",
     "translation": "Aspera SDK をインストールできません: %s"
+  },
+  {
+    "id": "value",
+    "translation": "値"
   }
 ]

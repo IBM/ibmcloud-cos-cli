@@ -128,7 +128,7 @@ var (
 
 	FlagForce = cli.BoolFlag{
 		Name:  Force,
-		Usage: T("The operation will do not ask for confirmation."),
+		Usage: T("This option skips confirmation prompts and executes the operation."),
 	}
 
 	FlagIfMatch = cli.StringFlag{
@@ -406,4 +406,8 @@ var (
 		Usage: T(" `Start After` is where you want S3 to start listing from. S3 starts listing after this specified key. StartAfter can be any key in the bucket."),
 	}
 
+	FlagLifecycleConfiguration = cli.StringFlag{
+		Name:  LifecycleConfiguration,
+		Usage: T("A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation."),
+	}
 )

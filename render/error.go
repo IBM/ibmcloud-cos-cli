@@ -23,11 +23,13 @@ func NewErrorRender(terminal terminal.UI) *ErrorRender {
 
 // DisplayError print the error details in screen
 // THE CONCEPT
-//  For each specific type a new entry should be added in the switch
-//  the switch is evaluated from top to down from left to right,
-//  more specific types needs to be evaluated before more generic ones.
-//  If type specific entry not found tries to safe cast to "CodeError" interface
-//  and produce code driven messages, if safe cast fails fallback to just print error message.
+//
+//	For each specific type a new entry should be added in the switch
+//	the switch is evaluated from top to down from left to right,
+//	more specific types needs to be evaluated before more generic ones.
+//	If type specific entry not found tries to safe cast to "CodeError" interface
+//	and produce code driven messages, if safe cast fails fallback to just print error message.
+//
 // Still in POC state, most of errors use default strings coming from server
 // a more complete error mapping will be added later to make plugin more globalization friendly,
 // currently a few error mappings are done to show expected execution flow and hook points
@@ -100,7 +102,7 @@ func getMessageFromCommandError(commandError *errors.CommandError) string {
 }
 
 // more can be added from
-//https://cloud.ibm.com/docs/infrastructure/cloud-object-storage-infrastructure?topic=cloud-object-storage-infrastructure-common-error-codes
+// https://cloud.ibm.com/docs/infrastructure/cloud-object-storage-infrastructure?topic=cloud-object-storage-infrastructure-common-error-codes
 func getMessageByCodeError(errorIn errors.CodeError) string {
 	switch errorIn.Code() {
 	case "EmptyStaticCreds":
@@ -136,6 +138,8 @@ func getMessageByCodeError(errorIn errors.CodeError) string {
 		return T("The public access block configuration was not found.")
 	case "ReplicationConfigurationNotFoundError":
 		return T("The replication configuration was not found")
+	case "LifecycleConfigurationNotFoundError":
+		return T("The lifecycle configuration was not found")
 	default:
 		return errorIn.Error()
 	}

@@ -72,6 +72,7 @@ func (_ *Plugin) GetMetadata() plugin.PluginMetadata {
 	cosPlugin := plugin.PluginMetadata{
 		Name:    "cloud-object-storage",
 		Version: version.CLIVersion,
+		PrivateEndpointSupported: true,
 		Namespaces: append(ns, plugin.Namespace{
 			Name:        NameSpace,
 			Description: T("Interact with IBM Cloud Object Storage services"),

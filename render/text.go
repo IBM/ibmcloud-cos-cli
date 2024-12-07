@@ -135,6 +135,8 @@ func (txtRender *TextRender) Display(
 		return txtRender.printGetObjectLegalHold(input, castedOutput)
 	case *s3.GetObjectRetentionOutput:
 		return txtRender.printGetObjectRetention(input, castedOutput)
+	case *s3.GetBucketLifecycleConfigurationOutput:
+		return txtRender.printGetBucketLifecycleConfiguration(input, castedOutput)
 
 	default:
 		return
@@ -528,7 +530,7 @@ func (txtRender *TextRender) printListObjectsV2(_ interface{}, output *s3.ListOb
 			terminal.EntityNameColor(aws.StringValue(output.Name)) + "'"
 	default:
 		foundString = strconv.Itoa(len(output.Contents)) + T(" objects in bucket '") +
-			terminal.EntityNameColor(aws.StringValue(output.Name))  + "'"
+			terminal.EntityNameColor(aws.StringValue(output.Name)) + "'"
 	}
 	txtRender.Say(found + foundString)
 	txtRender.Say("")
@@ -890,14 +892,11 @@ func (txtRender *TextRender) printGetBucketReplication(input interface{}, output
 		txtRender.Say(T("Filter: ") + terminal.EntityNameColor(T("Empty")))
 	} else {
 		if config.Filter.Prefix != nil {
-			// only prefix
 			txtRender.Say(T("Filter by prefix: ") + terminal.EntityNameColor(aws.StringValue(config.Filter.Prefix)))
 		} else if config.Filter.Tag != nil {
-			// only tag
 			txtRender.Say(T("Filter by tag: ") + "(" + terminal.EntityNameColor("'"+aws.StringValue(config.Filter.Tag.Key)+"': '"+aws.StringValue(config.Filter.Tag.Value)+"'") + ")")
 		} else {
 			if config.Filter.And.Prefix == nil {
-				// only tag(s)
 				for _, tag := range config.Filter.And.Tags {
 					buildString.WriteString("'" + aws.StringValue(tag.Key) + "': '" + aws.StringValue(tag.Value) + "', ")
 				}
@@ -917,6 +916,172 @@ func (txtRender *TextRender) printGetBucketReplication(input interface{}, output
 	return
 }
 
+func (txtRender *TextRender) printGetBucketLifecycleConfiguration(input interface{}, output *s3.GetBucketLifecycleConfigurationOutput) (err error) {
+
+	if output.Rules != nil && len(output.Rules) > 0 {
+		txtRender.Say(T("Lifecycle Configuration"))
+		for _, config := range output.Rules {
+			txtRender.Say(T("ID: ") + terminal.EntityNameColor(aws.StringValue(config.ID)))
+			txtRender.Say(T("Status: ") + terminal.EntityNameColor(aws.StringValue(config.Status)))
+			if config.Filter == nil || (config.Filter.Prefix == nil && config.Filter.And == nil && config.Filter.Tag == nil && config.Filter.ObjectSizeGreaterThan == nil && config.Filter.ObjectSizeLessThan == nil) {
+				txtRender.Say(T("Filter: ") + terminal.EntityNameColor(T("Empty")))
+			} else {
+				if config.Filter.Prefix != nil {
+					txtRender.Say(T("Filter by prefix: ") + terminal.EntityNameColor(aws.StringValue(config.Filter.Prefix)))
+				}
+				if config.Filter.Tag != nil {
+					txtRender.Say(T("Filter by tag: ") + terminal.EntityNameColor("'"+aws.StringValue(config.Filter.Tag.Key)+"': '"+aws.StringValue(config.Filter.Tag.Value)+"'"))
+				}
+				if config.Filter.ObjectSizeGreaterThan != nil {
+					txtRender.Say(T("Filter object with size greater than: ") + terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(config.Filter.ObjectSizeGreaterThan), 10)+" bytes"))
+				}
+				if config.Filter.ObjectSizeLessThan != nil {
+					txtRender.Say(T("Filter object with Size less than: ") + terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(config.Filter.ObjectSizeLessThan), 10)+" bytes"))
+				}
+				if config.Filter.And != nil {
+					txtRender.Say(T("Filter by And operator: "))
+					if config.Filter.And.Tags != nil {
+						txtRender.Say(T("Tags: "))
+						if len(config.Filter.And.Tags) > 0 {
+							table := txtRender.Table([]string{
+								T("key"),
+								T("value"),
+							})
+							for _, tag := range config.Filter.And.Tags {
+								table.Add(*tag.Key, *tag.Value)
+							}
+							txtRender.Say("-------")
+							table.Print()
+							txtRender.Say("-------")
+
+						}
+					}
+					if config.Filter.And.Prefix != nil {
+						txtRender.Say(T("Prefix: ") + terminal.EntityNameColor(aws.StringValue(config.Filter.And.Prefix)))
+					}
+					if config.Filter.And.ObjectSizeGreaterThan != nil {
+						txtRender.Say(T("ObjectSizeGreaterThan: ") + terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(config.Filter.And.ObjectSizeGreaterThan), 10)+" bytes"))
+					}
+					if config.Filter.And.ObjectSizeLessThan != nil {
+						txtRender.Say(T("ObjectSizeLessThan: ") + terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(config.Filter.And.ObjectSizeLessThan), 10)+" bytes"))
+					}
+				}
+			}
+
+			if config.Expiration == nil || (config.Expiration.Date == nil && config.Expiration.Days == nil && config.Expiration.ExpiredObjectDeleteMarker == nil) {
+				txtRender.Say(T("Expiration: ") + terminal.EntityNameColor(T("Empty")))
+			} else {
+				if config.Expiration.Days != nil {
+					txtRender.Say(T("Expiration in days: ") + terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(config.Expiration.Days), 10)))
+				}
+				if config.Expiration.Date != nil {
+					txtRender.Say(T("Expiration by date: ") + terminal.EntityNameColor(aws.TimeValue(config.Expiration.Date).Format(timeFormat)))
+				}
+				if config.Expiration.ExpiredObjectDeleteMarker != nil {
+					txtRender.Say(T("Remove delete markers on expired objects: ") + terminal.EntityNameColor(strconv.FormatBool(aws.BoolValue(config.Expiration.ExpiredObjectDeleteMarker))))
+				}
+			}
+
+			if config.AbortIncompleteMultipartUpload != nil {
+				if config.AbortIncompleteMultipartUpload.DaysAfterInitiation == nil {
+					txtRender.Say(T("AbortIncompleteMultipartUpload: ") + terminal.EntityNameColor(T("Empty")))
+				} else {
+					txtRender.Say(T("Abort incomplete multipart upload initiated after, in days: ") + terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(config.AbortIncompleteMultipartUpload.DaysAfterInitiation), 10)))
+				}
+			}
+
+			if config.NoncurrentVersionExpiration != nil {
+				if config.NoncurrentVersionExpiration.NewerNoncurrentVersions == nil && config.NoncurrentVersionExpiration.NoncurrentDays == nil {
+					txtRender.Say(T("NoncurrentVersionExpiration: ") + terminal.EntityNameColor(T("Empty")))
+				} else {
+					if config.NoncurrentVersionExpiration.NewerNoncurrentVersions != nil {
+						txtRender.Say(T("NoncurrentVersionExpiration by newer noncurrent versions: ") + terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(config.NoncurrentVersionExpiration.NewerNoncurrentVersions), 10)))
+					}
+					if config.NoncurrentVersionExpiration.NoncurrentDays != nil {
+						txtRender.Say(T("NoncurrentVersionExpiration by noncurrent days: ") + terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(config.NoncurrentVersionExpiration.NoncurrentDays), 10)))
+					}
+				}
+			}
+
+			var foundNonCurrentVersionTransitions string
+			switch len(config.NoncurrentVersionTransitions) {
+			case 0:
+				foundNonCurrentVersionTransitions = T("no noncurrentVersionTransitions in bucket lifecycle configuration")
+			case 1:
+				foundNonCurrentVersionTransitions = T("1 noncurrentVersionTransition in bucket lifecycle configuration")
+			default:
+				foundNonCurrentVersionTransitions = strconv.Itoa(len(config.NoncurrentVersionTransitions)) + T(" noncurrentVersionTransitions in bucket lifecycle configuration")
+			}
+			txtRender.Say(found + foundNonCurrentVersionTransitions)
+
+			if len(config.NoncurrentVersionTransitions) > 0 {
+				table := txtRender.Table([]string{
+					T("Newer noncurrent versions"),
+					T("noncurrent days"),
+					T("storage class"),
+				})
+				for _, noncurrentVersionTransition := range config.NoncurrentVersionTransitions {
+					newerNoncurrentVersions := "null"
+					NoncurrentDays := "null"
+					storageClass := "null"
+					if noncurrentVersionTransition.NewerNoncurrentVersions != nil {
+						newerNoncurrentVersions = strconv.FormatInt(aws.Int64Value(noncurrentVersionTransition.NewerNoncurrentVersions), 10)
+					}
+					if noncurrentVersionTransition.NoncurrentDays != nil {
+						NoncurrentDays = strconv.FormatInt(aws.Int64Value(noncurrentVersionTransition.NoncurrentDays), 10)
+					}
+					if noncurrentVersionTransition.StorageClass != nil {
+						storageClass = aws.StringValue(noncurrentVersionTransition.StorageClass)
+					}
+					table.Add(newerNoncurrentVersions, NoncurrentDays, storageClass)
+				}
+				table.Print()
+				txtRender.Say("")
+			}
+
+			var foundTransitions string
+			switch len(config.Transitions) {
+			case 0:
+				foundTransitions = T("no transitions in bucket lifecycle configuration")
+			case 1:
+				foundTransitions = T("1 transitions in bucket lifecycle configuration")
+			default:
+				foundTransitions = strconv.Itoa(len(config.Transitions)) + T(" transitions in bucket lifecycle configuration")
+			}
+			txtRender.Say(found + foundTransitions)
+
+			if len(config.Transitions) > 0 {
+				table := txtRender.Table([]string{
+					T("days"),
+					T("date"),
+					T("storage class"),
+				})
+				for _, transition := range config.Transitions {
+					days := "null"
+					date := "null"
+					class := "null"
+					if transition.Days != nil {
+						days = strconv.FormatInt(aws.Int64Value(transition.Days), 10)
+					}
+					if transition.Date != nil {
+						date = aws.TimeValue(transition.Date).Format(timeFormat)
+					}
+					if transition.StorageClass != nil {
+						class = aws.StringValue(transition.StorageClass)
+					}
+					table.Add(days, date, class)
+				}
+				table.Print()
+				txtRender.Say("")
+			}
+		}
+	} else {
+		txtRender.Say(T("No lifecycle configuration rules returned"))
+	}
+
+	return
+}
+
 func (txtRender *TextRender) printGetPublicAccessBlock(input interface{}, output *s3.GetPublicAccessBlockOutput) (err error) {
 	config := output.PublicAccessBlockConfiguration
 	txtRender.Say(T("Public Access Block Configuration"))
@@ -930,14 +1095,14 @@ func (txtRender *TextRender) printGetObjectLockConfiguration(input interface{}, 
 	txtRender.Say(T("Object Lock Configuration"))
 	txtRender.Say(T("Object Lock Status: ") + terminal.EntityNameColor((aws.StringValue(config.ObjectLockEnabled))))
 
- if config.Rule != nil {
-	txtRender.Say(T("Retention Mode: ") + terminal.EntityNameColor((aws.StringValue(config.Rule.DefaultRetention.Mode))))
-		if config.Rule.DefaultRetention.Years !=nil {
+	if config.Rule != nil {
+		txtRender.Say(T("Retention Mode: ") + terminal.EntityNameColor((aws.StringValue(config.Rule.DefaultRetention.Mode))))
+		if config.Rule.DefaultRetention.Years != nil {
 			txtRender.Say(T("Retention Period: ") + terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(config.Rule.DefaultRetention.Years), 10)) + " Years")
 		} else {
-				txtRender.Say(T("Retention Period: ") + terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(config.Rule.DefaultRetention.Days), 10))+ " Days")
+			txtRender.Say(T("Retention Period: ") + terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(config.Rule.DefaultRetention.Days), 10)) + " Days")
 		}
- }
+	}
 	return
 }
 

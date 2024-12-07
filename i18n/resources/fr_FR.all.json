@@ -28,6 +28,10 @@
     "translation": " remontées multiparties dans le compartiment '"
   },
   {
+    "id": " noncurrentVersionTransitions in bucket lifecycle configuration",
+    "translation": " éléments noncurrentVersionTransitions dans la configuration du cycle de vie du compartiment"
+  },
+  {
     "id": " object versions in bucket '",
     "translation": " versions d'objet dans le compartiment '"
   },
@@ -38,6 +42,10 @@
   {
     "id": " parts in the multipart upload for '",
     "translation": " parties dans la remontée multiparties pour '"
+  },
+  {
+    "id": " transitions in bucket lifecycle configuration",
+    "translation": " transitions dans la configuration du cycle de vie du compartiment"
   },
   {
     "id": "(`SOURCE`) The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.",
@@ -64,6 +72,10 @@
     "translation": "1 remontée multiparties dans le compartiment '"
   },
   {
+    "id": "1 noncurrentVersionTransition in bucket lifecycle configuration",
+    "translation": "1 élément noncurrentVersionTransition dans la configuration du cycle de vie du compartiment"
+  },
+  {
     "id": "1 object in bucket '",
     "translation": "1 objet dans le compartiment '"
   },
@@ -74,6 +86,10 @@
   {
     "id": "1 part in the multipart upload for '",
     "translation": "1 partie dans la remontée multiparties pour '"
+  },
+  {
+    "id": "1 transitions in bucket lifecycle configuration",
+    "translation": "1 transition dans la configuration du cycle de vie du compartiment"
   },
   {
     "id": "A `DELIMITER` is a character you use to group keys.",
@@ -110,6 +126,14 @@
   {
     "id": "Abort an existing multipart upload",
     "translation": "Abandonner une remontée multiparties existante"
+  },
+  {
+    "id": "Abort incomplete multipart upload initiated after, in days: ",
+    "translation": "Abandonner le transfert à plusieurs parties incomplet initié après (en jours) : "
+  },
+  {
+    "id": "AbortIncompleteMultipartUpload: ",
+    "translation": "AbortIncompleteMultipartUpload: "
   },
   {
     "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
@@ -252,6 +276,10 @@
     "translation": "Supprimer la configuration CORS d'un compartiment"
   },
   {
+    "id": "Delete the lifecycle configuration from a bucket",
+    "translation": "Supprimer la configuration du cycle de vie depuis un compartiment"
+  },
+  {
     "id": "Delete the replication configuration from a bucket",
     "translation": "Supprimer la configuration de réplication d'un compartiment"
   },
@@ -308,6 +336,22 @@
     "translation": "Erreur en ouvrant '{{.Location}}' pour écriture."
   },
   {
+    "id": "Expiration by date: ",
+    "translation": "Expiration par date : "
+  },
+  {
+    "id": "Expiration in days: ",
+    "translation": "Expiration en jours : "
+  },
+  {
+    "id": "Expiration: ",
+    "translation": "Expiration : "
+  },
+  {
+    "id": "Filter by And operator: ",
+    "translation": "Filtrer selon l'opérateur Et : "
+  },
+  {
     "id": "Filter by prefix: ",
     "translation": "Filtrer par préfixe : "
   },
@@ -318,6 +362,14 @@
   {
     "id": "Filter by tags: ",
     "translation": "Filtrer par étiquettes : "
+  },
+  {
+    "id": "Filter object with Size less than: ",
+    "translation": "Filtrer les objets dont la taille est inférieure à : "
+  },
+  {
+    "id": "Filter object with size greater than: ",
+    "translation": "Filtrer les objets dont la taille est supérieure à : "
   },
   {
     "id": "Filter: ",
@@ -352,6 +404,10 @@
     "translation": "Obtenir la configuration CORS pour un compartiment"
   },
   {
+    "id": "Get the lifecycle configuration for a bucket",
+    "translation": "Obtenir la configuration du cycle de vie pour un compartiment"
+  },
+  {
     "id": "Get the location and billing tier of a bucket",
     "translation": "Obtenir l'emplacement et le niveau de facturation d'un compartiment"
   },
@@ -374,6 +430,10 @@
   {
     "id": "Get the versioning configuration for a bucket",
     "translation": "Obtenir la configuration de gestion des versions pour un compartiment"
+  },
+  {
+    "id": "ID: ",
+    "translation": "ID : "
   },
   {
     "id": "If a bucket is configured as a website, redirects requests for the object key to another object in the same bucket or to a URL (`LOCATION`).",
@@ -444,6 +504,10 @@
     "translation": "Statut de la conservation à des fins juridiques : "
   },
   {
+    "id": "Lifecycle Configuration",
+    "translation": "Configuration du cycle de vie"
+  },
+  {
     "id": "Limits the response to keys that begin with the specified `PREFIX`.",
     "translation": "Limite la réponse aux clés qui commencent par le préfixe (PREFIX) spécifié."
   },
@@ -500,12 +564,32 @@
     "translation": "Nom"
   },
   {
+    "id": "Newer noncurrent versions",
+    "translation": "Versions non actuelles plus récentes"
+  },
+  {
     "id": "No buckets found in your account.",
     "translation": "Aucun compartiment trouvé dans votre compte."
   },
   {
+    "id": "No lifecycle configuration rules returned",
+    "translation": "Aucune règle de configuration du cycle de vie renvoyée"
+  },
+  {
     "id": "No tags returned",
     "translation": "Aucune balise renvoyée"
+  },
+  {
+    "id": "NoncurrentVersionExpiration by newer noncurrent versions: ",
+    "translation": "Elément NoncurrentVersionExpiration par versions non actuelles plus récentes : "
+  },
+  {
+    "id": "NoncurrentVersionExpiration by noncurrent days: ",
+    "translation": "Elément NoncurrentVersionExpiration par nombre de jours pendant lequel une version n'est pas actuelle : "
+  },
+  {
+    "id": "NoncurrentVersionExpiration: ",
+    "translation": "NoncurrentVersionExpiration: "
   },
   {
     "id": "Object '{{.Key}}' was found in bucket '{{.Bucket}}'.",
@@ -530,6 +614,14 @@
   {
     "id": "Object data location (`FILE_PATH`).",
     "translation": "Emplacement des données d'objet (FILE_PATH)."
+  },
+  {
+    "id": "ObjectSizeGreaterThan: ",
+    "translation": "ObjectSizeGreaterThan: "
+  },
+  {
+    "id": "ObjectSizeLessThan: ",
+    "translation": "ObjectSizeLessThan: "
   },
   {
     "id": "Operation canceled.",
@@ -560,6 +652,10 @@
     "translation": "Interroger une API jusqu'à ce qu'une condition particulière soit satisfaite"
   },
   {
+    "id": "Prefix: ",
+    "translation": "Préfixe : "
+  },
+  {
     "id": "Priority: ",
     "translation": "Priorité : "
   },
@@ -582,6 +678,10 @@
   {
     "id": "Regions endpoint `URL`.",
     "translation": "URL de point d'extrémité des régions."
+  },
+  {
+    "id": "Remove delete markers on expired objects: ",
+    "translation": "Retirer les marqueurs de suppression sur les objets arrivés à expiration : "
   },
   {
     "id": "Remove public access block configuration from a bucket",
@@ -682,6 +782,10 @@
   {
     "id": "Set the legal hold on a object",
     "translation": "Définir la conservation à des fins juridique d'un objet"
+  },
+  {
+    "id": "Set the lifecycle configuration on a bucket",
+    "translation": "Définir la configuration du cycle de vie dans un compartiment"
   },
   {
     "id": "Set the object lock configuration on a bucket",
@@ -860,6 +964,10 @@
     "translation": "Basculer entre le style d'URL VHost et de chemin"
   },
   {
+    "id": "Tags: ",
+    "translation": "Balises : "
+  },
+  {
     "id": "The CORS configuration of ",
     "translation": "La configuration CORS de "
   },
@@ -872,8 +980,8 @@
     "translation": "La valeur `Boolean` n'est pas présente dans listV2 par défaut. Si vous voulez renvoyer la zone de propriétaire avec chaque clé dans le résultat, associez la zone de propriétaire à extraire à la valeur true."
   },
   {
-    "id": "The `CUSTOMERROOTKEYCRN` of the KMS root key associated with the bucket for data encryption.",
-    "translation": "Valeur CUSTOMERROOTKEYCRN de la clé racine KMS associée au compartiment pour le chiffrement des données."
+    "id": "The `CUSTOMERROOTKEYCRN` of the KMS  root key associated with the bucket for data encryption.",
+    "translation": "Le nom ` CUSTOMERROOTKEYCRN ` de la clé racine KMS associée au compartiment pour le chiffrement des données."
   },
   {
     "id": "The `KEY` of the object.",
@@ -908,6 +1016,10 @@
     "translation": "La destination de téléchargement '{{.Location}}' est un répertoire."
   },
   {
+    "id": "The lifecycle configuration was not found",
+    "translation": "La configuration du cycle de vie est introuvable"
+  },
+  {
     "id": "The name (`BUCKET_NAME`) of the bucket.",
     "translation": "Nom (BUCKET_NAME) du compartiment."
   },
@@ -922,10 +1034,6 @@
   {
     "id": "The object version identifier",
     "translation": "Identificateur de version de l'objet"
-  },
-  {
-    "id": "The operation will do not ask for confirmation.",
-    "translation": "L'opération ne demandera pas de confirmation."
   },
   {
     "id": "The public access block configuration was not found.",
@@ -978,6 +1086,10 @@
   {
     "id": "The value in flag '--%s' is invalid",
     "translation": "La valeur dans l'indicateur '--%s' n'est pas valide"
+  },
+  {
+    "id": "This option skips confirmation prompts and executes the operation.",
+    "translation": "Cette option permet d'ignorer les invites de confirmation et d'exécuter l'opération."
   },
   {
     "id": "To retrieve the next set of buckets, use this value marker for the next command: ",
@@ -1220,6 +1332,18 @@
     "translation": "Taille (SIZE) du corps en octets. Ce paramètre est utile quand la taille du corps ne peut pas être déterminée automatiquement."
   },
   {
+    "id": "date",
+    "translation": "date"
+  },
+  {
+    "id": "days",
+    "translation": "jours"
+  },
+  {
+    "id": "key",
+    "translation": "clé"
+  },
+  {
     "id": "missing Environment Variable: %s",
     "translation": "Variable d'environnement manquante : %s"
   },
@@ -1234,6 +1358,10 @@
   {
     "id": "no multipart uploads in bucket '",
     "translation": "aucune remontée multiparties dans le compartiment '"
+  },
+  {
+    "id": "no noncurrentVersionTransitions in bucket lifecycle configuration",
+    "translation": "aucun élément noncurrentVersionTransitions dans la configuration du cycle de vie du compartiment"
   },
   {
     "id": "no object versions in bucket '",
@@ -1252,7 +1380,23 @@
     "translation": "répertoire inexistant : %s"
   },
   {
+    "id": "no transitions in bucket lifecycle configuration",
+    "translation": "aucune transition dans la configuration du cycle de vie du compartiment"
+  },
+  {
+    "id": "noncurrent days",
+    "translation": "nombre de jours pendant lequel une version n'est pas actuelle"
+  },
+  {
+    "id": "storage class",
+    "translation": "classe d\"archivage"
+  },
+  {
     "id": "unable to install Aspera SDK: %s",
     "translation": "impossible d'installer Aspera SDK : %s"
+  },
+  {
+    "id": "value",
+    "translation": "valeur"
   }
 ]

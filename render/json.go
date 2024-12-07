@@ -136,6 +136,7 @@ type GetObjectOutput struct {
 	TagCount                *int64             `json:",omitempty"`
 	VersionId               *string            `json:",omitempty"`
 	WebsiteRedirectLocation *string            `json:",omitempty"`
+	Expiration              *string            `json:",omitempty"`
 }
 
 type HeadObjectOutput struct {
