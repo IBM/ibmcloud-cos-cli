@@ -14,13 +14,17 @@ import (
 	"github.com/IBM/ibmcloud-cos-cli/render"
 	"github.com/IBM/ibmcloud-cos-cli/utils"
 	"github.com/urfave/cli"
+	"gopkg.in/cheggaaa/pb.v1"
 )
 
 // ObjectGet downloads a file from a bucket.
 // Parameter:
-//   	CLI Context Application
+//
+//	CLI Context Application
+//
 // Returns:
-//  	Error = zero or non-zero
+//
+//	Error = zero or non-zero
 func ObjectGet(c *cli.Context) (err error) {
 	// check the number of arguments
 	if c.NArg() > 1 {
@@ -101,7 +105,7 @@ func ObjectGet(c *cli.Context) (err error) {
 	// checks if an error occurred or
 	// the file value is empty ( when destination exists and user do not confirm overwrite )
 	if dstPath, file, err = getAndValidateDownloadPath(cosContext, c.Args().First(),
-		aws.StringValue(input.Key)); err != nil || file == nil {
+		aws.StringValue(input.Key), c.IsSet(flags.Force)); err != nil || file == nil {
 		// propagate current error value ( can be nil )
 		// and stops any further processing
 		return
@@ -130,12 +134,27 @@ func ObjectGet(c *cli.Context) (err error) {
 
 	// register a function to close the Body once function gets out of scope
 	defer output.Body.Close()
-	// copy from the response body to the file defined in the command invocation / default destination
-	// and checks no error occurred
-	if _, err = io.Copy(file, output.Body); err != nil {
-		// if error occurred propagate the error
-		return
+
+	// No need to show progress bar when user wants json output,
+	display := cosContext.GetDisplay(c.String(flags.Output), c.Bool(flags.JSON))
+	if _, ok := display.(*render.TextRender); ok {
+		// Create a new progress bar with the total content length in bytes
+		bar := pb.New64(*output.ContentLength).SetUnits(pb.U_BYTES)
+		bar.Start()
+		// Write output to both file and bar
+		if _, err = io.Copy(io.MultiWriter(file, bar), output.Body); err != nil {
+			return
+		}
+		bar.Finish()
+	} else {
+		// copy from the response body to the file defined in the command invocation / default destination
+		// and checks no error occurred
+		if _, err = io.Copy(file, output.Body); err != nil {
+			// if error occurred propagate the error
+			return
+		}
 	}
+
 	// flags the file should not be deleted
 	keepFile = true
 
@@ -159,6 +178,7 @@ func getAndValidateDownloadPath(
 	cosContext *utils.CosContext,
 	outfile string,
 	key string,
+	force bool,
 ) (
 	path string,
 	wc utils.WriteCloser,
@@ -209,13 +229,16 @@ func getAndValidateDownloadPath(
 		if absDir, err := filepath.Abs(dir); err == nil {
 			dir = absDir
 		}
-		// warn that the destination location already exists and ask for confirmation before overwrite
-		cosContext.UI.Warn(render.WarningGetObject(filepath.Base(outfile), dir))
-		cosContext.UI.Prompt(render.MessageConfirmationContinue(), &terminal.PromptOptions{}).Resolve(&confirmed)
-		// if the user does not confirm the overwrite, display a message and exit this function
-		if !confirmed {
-			cosContext.UI.Say(render.MessageOperationCanceled())
-			return
+
+		if !force {
+			// warn that the destination location already exists and ask for confirmation before overwrite
+			cosContext.UI.Warn(render.WarningGetObject(filepath.Base(outfile), dir))
+			cosContext.UI.Prompt(render.MessageConfirmationContinue(), &terminal.PromptOptions{}).Resolve(&confirmed)
+			// if the user does not confirm the overwrite, display a message and exit this function
+			if !confirmed {
+				cosContext.UI.Say(render.MessageOperationCanceled())
+				return
+			}
 		}
 	}
 

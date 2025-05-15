@@ -390,6 +390,7 @@ var (
 		Flags: []cli.Flag{
 			flags.FlagBucket,
 			flags.FlagKey,
+			flags.FlagForce,
 			flags.FlagIfMatch,
 			flags.FlagIfModifiedSince,
 			flags.FlagIfNoneMatch,
@@ -802,6 +803,7 @@ var (
 		Flags: []cli.Flag{
 			flags.FlagBucket,
 			flags.FlagKey,
+			flags.FlagForce,
 			flags.FlagConcurrency,
 			flags.FlagPartSize,
 			flags.FlagIfMatch,
@@ -1001,7 +1003,7 @@ var (
 	// CommandCRN - (subcommand for Config)
 	CommandCRN = cli.Command{
 		Name:        CRN,
-		Description: T("Store CRN in the config"),
+		Description: T("Store Service Instance ID / CRN in the config"),
 		Flags: []cli.Flag{
 			flags.FlagList,
 			flags.FlagCRN,
@@ -1064,6 +1066,15 @@ var (
 			flags.FlagURL,
 		},
 		Action: functions.ConfigSetEndpointURL,
+	}
+
+	// CommandVersion - Prints the version of cos plugin
+	// command:
+	//	 ibmcloud cos version
+	CommandVersion = cli.Command{
+		Name:        Version,
+		Description: T("Print the version"),
+		Action:      functions.Version,
 	}
 
 	// *********************************************************

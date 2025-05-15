@@ -14,9 +14,12 @@ import (
 
 // Download - utilizes S3 Manager Downloader API to download objects from S3 concurrently.
 // Parameter:
-//   	CLI Context Application
+//
+//	CLI Context Application
+//
 // Returns:
-//  	Error = zero or non-zero
+//
+//	Error = zero or non-zero
 func Download(c *cli.Context) (err error) {
 
 	// check the number of arguments
@@ -82,7 +85,7 @@ func Download(c *cli.Context) (err error) {
 	// Validate Download Location
 	var file utils.WriteCloser
 	if dstPath, file, err = getAndValidateDownloadPath(cosContext, c.Args().First(),
-		aws.StringValue(input.Key)); err != nil || file == nil {
+		aws.StringValue(input.Key), c.IsSet(flags.Force)); err != nil || file == nil {
 		return
 	}
 
@@ -128,7 +131,6 @@ func Download(c *cli.Context) (err error) {
 	return
 }
 
-//
 // Build Download from the Config
 func applyConfigDownloader(c *cli.Context, options map[string]string, err *error) func(u *s3manager.Downloader) {
 	return func(u *s3manager.Downloader) {

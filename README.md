@@ -64,6 +64,7 @@ COMMANDS:
   public-access-block-get                 Get the public access block configuration on a bucket
   public-access-block-put                 Set public access block configuration on a bucket
   upload                                  Upload an object using a managed multipart transfer
+  version                                 Print the version
   wait                                    Poll an API until a particular condition is satisfied
   help, h                                 Show help
 ```

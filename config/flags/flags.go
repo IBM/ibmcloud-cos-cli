@@ -153,20 +153,18 @@ var (
 
 	FlagKey = cli.StringFlag{
 		Name:   Key,
-		Usage:  T("The `KEY` of the object."),
+		Usage:  T("The `KEY` (OBJECT_NAME) of the object."),
 		Hidden: true,
 	}
 
 	FlagKmsEncryptionAlgorithm = cli.StringFlag{
-		Name:   KmsEncryptionAlgorithm,
-		Usage:  T("The `ALGORITHM` and `SIZE` to use with the encryption key stored by using key protect."),
-		Hidden: true,
+		Name:  KmsEncryptionAlgorithm,
+		Usage: T("The `ALGORITHM` and `SIZE` to use with the encryption key stored by using key protect."),
 	}
 
 	FlagKmsRootKeyCrn = cli.StringFlag{
-		Name:   KmsRootKeyCrn,
-		Usage:  T("The `CUSTOMERROOTKEYCRN` of the KMS  root key associated with the bucket for data encryption."),
-		Hidden: true,
+		Name:  KmsRootKeyCrn,
+		Usage: T("The `CUSTOMERROOTKEYCRN` of the KMS  root key associated with the bucket for data encryption."),
 	}
 
 	FlagLeavePartsOnErrors = cli.BoolFlag{
@@ -176,7 +174,7 @@ var (
 
 	FlagMarker = cli.StringFlag{
 		Name:  Marker,
-		Usage: T("Specifies the `KEY` to start with when listing objects in a bucket."),
+		Usage: T("Specifies the `KEY` (OBJECT_NAME) to start with when listing objects in a bucket."),
 	}
 
 	FlagMaxItems = cli.StringFlag{
@@ -333,7 +331,7 @@ var (
 
 	FlagCRN = cli.StringFlag{
 		Name:  CRN,
-		Usage: T("Store your service instance ID (`CRN`) in the config."),
+		Usage: T("Store your Service Instance ID / `CRN` in the config."),
 	}
 
 	FlagDDL = cli.StringFlag{
@@ -343,7 +341,7 @@ var (
 
 	FlagIbmServiceInstanceID = cli.StringFlag{
 		Name:  IbmServiceInstanceID,
-		Usage: T("Sets the IBM Service Instance `ID` in the request."),
+		Usage: T("Sets the IBM Service Instance `ID` / CRN in the request."),
 	}
 
 	FlagKeyMarker = cli.StringFlag{

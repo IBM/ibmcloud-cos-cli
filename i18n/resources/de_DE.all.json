@@ -224,16 +224,16 @@
     "translation": "Neues Bucket erstellen"
   },
   {
-    "id": "Creation Date",
-    "translation": "Erstellungsdatum"
+    "id": "Creation Date (UTC)",
+    "translation": "Erstellungsdatum (UTC)"
   },
   {
     "id": "Creation Template ID",
     "translation": "Erstellung einer Vorlagen-ID"
   },
   {
-    "id": "Date Created",
-    "translation": "Erstellungsdatum"
+    "id": "Date Created (UTC)",
+    "translation": "Erstellungsdatum (UTC)"
   },
   {
     "id": "Default Region",
@@ -336,8 +336,8 @@
     "translation": "Fehler beim Öffnen von '{{.Location}}' zum Schreiben."
   },
   {
-    "id": "Expiration by date: ",
-    "translation": "Ablauf nach Datum: "
+    "id": "Expiration by date (UTC): ",
+    "translation": "Verfallsdatum (UTC): "
   },
   {
     "id": "Expiration in days: ",
@@ -452,16 +452,16 @@
     "translation": "Neuen mehrteiligen Upload einleiten"
   },
   {
-    "id": "Initiated",
-    "translation": "Gestartet"
+    "id": "Initiated (UTC)",
+    "translation": "Eingeleitet (UTC)"
   },
   {
     "id": "Interact with IBM Cloud Object Storage services",
     "translation": "Interaktion mit den IBM Cloud Object Storage-Services"
   },
   {
-    "id": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.",
-    "translation": "Ungültiges Argument. Damit Buckets erstellt oder aufgelistet werden können, muss eine gültige Serviceinstanz-CRN konfiguriert sein. Überprüfen Sie die CRN mit dem Befehl 'ibmcloud cos config list'."
+    "id": "A valid Service Instance ID / CRN must be configured to create or list buckets.\nIf the Service Instance has not been created already, create it using CLI: ‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\nAlternatively, you can create it using the IBM Cloud UI: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\nGet the CRN using: ‘ibmcloud resource service-instance <instance-name> --crn’.\nConfigure the CRN using: ‘ibmcloud cos config crn --crn <crn-value>’.\nVerify the Service Instance ID / CRN using: ‘ibmcloud cos config list’.",
+    "translation": "Eine gültige Service-Instanz-ID / CRN muss konfiguriert sein, um die Buckets zu erstellen oder aufzulisten.\nWenn die Service-Instanz noch nicht erstellt wurde, erstellen Sie sie mit der CLI: 'ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\nAlternatively, Sie können sie mit der IBM Cloud UI erstellen: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\nGet die CRN mit: 'ibmcloud resource service-instance <instance-name> --crn’.\nKonfigurieren Sie die CRN mit: 'ibmcloud cos config crn --crn <crn-value>’.\nVerifizieren Sie die Service-Instanz-ID / CRN mithilfe von: 'ibmcloud cos config list'."
   },
   {
     "id": "Invalid boolean flag '--%s'",
@@ -488,12 +488,12 @@
     "translation": "Schlüsselmarkierung: "
   },
   {
-    "id": "Last Modified",
-    "translation": "Letzte Änderung"
+    "id": "Last Modified (UTC)",
+    "translation": "Letzte Änderung (UTC)"
   },
   {
-    "id": "Last Modified: {{.lastmodified}}",
-    "translation": "Letzte Änderung: {{.lastmodified}}"
+    "id": "Last Modified (UTC): {{.lastmodified}}",
+    "translation": "Letzte Änderung (UTC): {{.lastmodified}}"
   },
   {
     "id": "Last Updated",
@@ -704,8 +704,8 @@
     "translation": "Fordert an, dass die Objektschlüssel in der Antwort codiert werden sollen und gibt die zu verwendende Codierungsmethode (METHOD) an."
   },
   {
-    "id": "Retain Until Date: ",
-    "translation": "Aufbewahren bis: "
+    "id": "Retain Until Date (UTC): ",
+    "translation": "Aufbewahren bis Datum (UTC): "
   },
   {
     "id": "Retention",
@@ -740,8 +740,8 @@
     "translation": "Standarddownloadposition wird gespeichert..."
   },
   {
-    "id": "Saving new Service Instance ID...",
-    "translation": "Neue Serviceinstanz-ID wird gespeichert..."
+    "id": "Saving new Service Instance ID / CRN...",
+    "translation": "Speichern der neuen Service-Instanz-ID / CRN..."
   },
   {
     "id": "Service Endpoint",
@@ -824,8 +824,8 @@
     "translation": "Legt den Header 'Expires' der Antwort fest."
   },
   {
-    "id": "Sets the IBM Service Instance `ID` in the request.",
-    "translation": "Legt die ID der IBM Serviceinstanz in der Anforderung fest."
+    "id": "Sets the IBM Service Instance `ID` / CRN in the request.",
+    "translation": "Legt die IBM Service-Instanz `ID` / CRN in der Anfrage fest."
   },
   {
     "id": "Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.",
@@ -844,8 +844,8 @@
     "translation": "Gibt Darstellungsinformationen (DIRECTIVES) an."
   },
   {
-    "id": "Specifies the `KEY` to start with when listing objects in a bucket.",
-    "translation": "Gibt den Schlüssel (KEY) an, mit dem beim Auflisten von Objekten in einem Bucket begonnen werden soll."
+    "id": "Specifies the `KEY` (OBJECT_NAME) to start with when listing objects in a bucket.",
+    "translation": "Gibt den `KEY` (OBJECT_NAME) an, mit dem bei der Auflistung von Objekten in einem Bucket begonnen werden soll."
   },
   {
     "id": "Specifies what content encodings (`CONTENT_ENCODING`) have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.",
@@ -864,8 +864,8 @@
     "translation": "Status: "
   },
   {
-    "id": "Store CRN in the config",
-    "translation": "CRN in der Konfiguration speichern"
+    "id": "Store Service Instance ID / CRN in the config",
+    "translation": "Speichern der Service-Instanz-ID / CRN in der Konfiguration"
   },
   {
     "id": "Store Default Download Location in the config",
@@ -880,8 +880,8 @@
     "translation": "HMAC-Berechtigungsnachweise in der Konfiguration speichern"
   },
   {
-    "id": "Store your service instance ID (`CRN`) in the config.",
-    "translation": "ID der Serviceinstanz (CRN) in der Konfiguration speichern."
+    "id": "Store your Service Instance ID / `CRN` in the config.",
+    "translation": "Speichern Sie Ihre Service-Instanz-ID / `CRN` in der Konfiguration."
   },
   {
     "id": "Successfully aborted a multipart upload instance with key '{{.Key}}' and bucket '{{.Bucket}}'.",
@@ -932,8 +932,20 @@
     "translation": "Die CORS-Konfiguration für Bucket '{{.Bucket}}' wurde erfolgreich festgelegt"
   },
   {
-    "id": "Successfully stored your service instance ID.",
-    "translation": "Die Serviceinstanz-ID wurde erfolgreich gespeichert."
+    "id": "Successfully stored your Service Instance ID / CRN.",
+    "translation": "Ihre Service-Instanz-ID / CRN wurde erfolgreich gespeichert."
+  },
+  {
+    "id": "Select the Service Instance ID / CRN",
+    "translation": "Wählen Sie die Service-Instanz-ID / CRN"
+  },
+  {
+    "id": "Service Instance ID / CRN:",
+    "translation": "Service-Instanz-ID / CRN:"
+  },
+  {
+    "id": "Unable to store Service Instance ID / CRN.",
+    "translation": "Die Service-Instanz-ID / CRN kann nicht gespeichert werden."
   },
   {
     "id": "Successfully switched to {{.Auth}}-based authentication. The program will access your Cloud Object Storage account using your {{.Auth}} Credentials.",
@@ -984,8 +996,8 @@
     "translation": "Der 'CUSTOMERROOTKEYCRN' des KMS-Rootschlüssels, der dem Bucket für die Datenverschlüsselung zugeordnet ist."
   },
   {
-    "id": "The `KEY` of the object.",
-    "translation": "Der Schlüssel (KEY) des Objekts."
+    "id": "The `KEY` (OBJECT_NAME) of the object.",
+    "translation": "Der `KEY` (OBJECT_NAME) des Objekts."
   },
   {
     "id": "The `LANGUAGE` the content is in.",
@@ -1148,8 +1160,8 @@
     "translation": "Die URL des Serviceendpunkts konnte nicht gelöscht werden."
   },
   {
-    "id": "Unable to get new CRN.",
-    "translation": "Der neue Cloud Resource Name (CRN) kann nicht abgerufen werden."
+    "id": "Unable to get new Service Instance ID / CRN.",
+    "translation": "Es kann keine neue Service-Instanz-ID / CRN abgerufen werden."
   },
   {
     "id": "Unable to load config method.",
@@ -1296,8 +1308,8 @@
     "translation": "WARNUNG: Durch diese Aktion wird das Objekt '{{.Key}}' dauerhaft aus dem Bucket '{{.Bucket}}' gelöscht."
   },
   {
-    "id": "WARNING: You have already stored a service instance ID before.",
-    "translation": "WARNUNG: Sie haben bereits eine Serviceinstanz-ID gespeichert."
+    "id": "WARNING: You have already stored a Service Instance ID / CRN before.",
+    "translation": "ACHTUNG: Sie haben bereits zuvor eine Service-Instanz-ID / CRN gespeichert."
   },
   {
     "id": "Wait until 200 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.",
@@ -1332,8 +1344,8 @@
     "translation": "Die Größe (SIZE) des Hauptteils in Byte. Dieser Parameter ist hilfreich, wenn die Größe des Hauptteils nicht automatisch ermittelt werden kann."
   },
   {
-    "id": "date",
-    "translation": "Datum"
+    "id": "date (UTC)",
+    "translation": "Datum (UTC)"
   },
   {
     "id": "days",

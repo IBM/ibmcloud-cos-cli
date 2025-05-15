@@ -271,7 +271,7 @@ func (txtRender *TextRender) printListBuckets(input interface{}, output *s3.List
 	}
 
 	// Create a table object to display each bucket in an organized fashion.
-	table := txtRender.Table([]string{T("Name"), T("Date Created")})
+	table := txtRender.Table([]string{T("Name"), T("Date Created (UTC)")})
 
 	for _, b := range output.Buckets {
 		// Add each bucket's name and date created to the table.
@@ -351,7 +351,7 @@ func (txtRender *TextRender) printListMultipartUploads(_ interface{},
 		table := txtRender.Table([]string{
 			T("UploadId"),
 			T("Key"),
-			T("Initiated"),
+			T("Initiated (UTC)"),
 		})
 		for _, upload := range output.Uploads {
 			table.Add(
@@ -436,9 +436,9 @@ func (txtRender *TextRender) printHeadObject(input interface{}, output *s3.HeadO
 	txtRender.Say(T("Object Size: {{.objectsize}}", map[string]interface{}{
 		"objectsize": FormatFileSize(aws.Int64Value(output.ContentLength))},
 	))
-	txtRender.Say(T("Last Modified: {{.lastmodified}}",
+	txtRender.Say(T("Last Modified (UTC): {{.lastmodified}}",
 		map[string]interface{}{
-			"lastmodified": output.LastModified.Format("Monday, January 02, 2006 at 15:04:05"),
+			"lastmodified": output.LastModified.Format(timeFormat),
 		}))
 	return
 }
@@ -471,7 +471,7 @@ func (txtRender *TextRender) printListObjects(_ interface{}, output *s3.ListObje
 	if len(output.Contents) > 0 {
 		table := txtRender.Table([]string{
 			T("Name"),
-			T("Last Modified"),
+			T("Last Modified (UTC)"),
 			T("Object Size"),
 		})
 		for _, object := range output.Contents {
@@ -508,7 +508,7 @@ func (txtRender *TextRender) printListObjectsV2(_ interface{}, output *s3.ListOb
 	if len(output.Contents) > 0 {
 		table := txtRender.Table([]string{
 			T("Name"),
-			T("Last Modified"),
+			T("Last Modified (UTC)"),
 			T("Object Size"),
 		})
 		for _, object := range output.Contents {
@@ -573,7 +573,7 @@ func (txtRender *TextRender) printListObjectVersions(_ interface{}, output *s3.L
 		table := txtRender.Table([]string{
 			T("Name"),
 			T("Version ID"),
-			T("Last Modified"),
+			T("Last Modified (UTC)"),
 			T("Object Size"),
 			T("Is Latest"),
 		})
@@ -608,7 +608,7 @@ func (txtRender *TextRender) printListObjectVersions(_ interface{}, output *s3.L
 		table := txtRender.Table([]string{
 			T("Name"),
 			T("Version ID"),
-			T("Last Modified"),
+			T("Last Modified (UTC)"),
 			T("Is Latest"),
 		})
 		for _, marker := range output.DeleteMarkers {
@@ -665,7 +665,7 @@ func (txtRender *TextRender) printListParts(_ interface{}, output *s3.ListPartsO
 	if len(output.Parts) > 0 {
 		table := txtRender.Table([]string{
 			T("Part Number"),
-			T("Last Modified"),
+			T("Last Modified (UTC)"),
 			T("ETag"),
 			T("Size"),
 		})
@@ -735,7 +735,7 @@ func (txtRender *TextRender) printListBucketsExtended(_ interface{}, output *s3.
 		table := txtRender.Table([]string{
 			T("Name"),
 			T("Location Constraint"),
-			T("Creation Date"),
+			T("Creation Date (UTC)"),
 			T("Creation Template ID"),
 		})
 		for _, bucket := range output.Buckets {
@@ -975,7 +975,7 @@ func (txtRender *TextRender) printGetBucketLifecycleConfiguration(input interfac
 					txtRender.Say(T("Expiration in days: ") + terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(config.Expiration.Days), 10)))
 				}
 				if config.Expiration.Date != nil {
-					txtRender.Say(T("Expiration by date: ") + terminal.EntityNameColor(aws.TimeValue(config.Expiration.Date).Format(timeFormat)))
+					txtRender.Say(T("Expiration by date (UTC): ") + terminal.EntityNameColor(aws.TimeValue(config.Expiration.Date).Format(timeFormat)))
 				}
 				if config.Expiration.ExpiredObjectDeleteMarker != nil {
 					txtRender.Say(T("Remove delete markers on expired objects: ") + terminal.EntityNameColor(strconv.FormatBool(aws.BoolValue(config.Expiration.ExpiredObjectDeleteMarker))))
@@ -1053,7 +1053,7 @@ func (txtRender *TextRender) printGetBucketLifecycleConfiguration(input interfac
 			if len(config.Transitions) > 0 {
 				table := txtRender.Table([]string{
 					T("days"),
-					T("date"),
+					T("date (UTC)"),
 					T("storage class"),
 				})
 				for _, transition := range config.Transitions {
@@ -1116,6 +1116,6 @@ func (txtRender *TextRender) printGetObjectRetention(input interface{}, output *
 	config := output.Retention
 	txtRender.Say(T("Retention"))
 	txtRender.Say(T("Mode: ") + terminal.EntityNameColor((aws.StringValue(config.Mode))))
-	txtRender.Say(T("Retain Until Date: ") + terminal.EntityNameColor(aws.TimeValue(config.RetainUntilDate).Format(timeFormat)))
+	txtRender.Say(T("Retain Until Date (UTC): ") + terminal.EntityNameColor(aws.TimeValue(config.RetainUntilDate).Format(timeFormat)))
 	return
 }

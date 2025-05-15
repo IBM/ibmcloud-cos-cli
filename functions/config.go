@@ -469,7 +469,7 @@ func ConfigCRN(c *cli.Context) error {
 		var lastUpdatedDate string
 		lastUpdatedDate, err = conf.GetStringWithDefault(config.LastUpdated, "UNKNOWN")
 
-		ui.Warn(T("WARNING: You have already stored a service instance ID before."))
+		ui.Warn(T("WARNING: You have already stored a Service Instance ID / CRN before."))
 		ui.Say(T("It was last updated on {{.lastupdated}}.", map[string]interface{}{"lastupdated": lastUpdatedDate}))
 
 	}
@@ -478,25 +478,25 @@ func ConfigCRN(c *cli.Context) error {
 	if c.IsSet(flags.CRN) {
 		crn = c.String(flags.CRN)
 		if !force && oldCRN != "" && crn != oldCRN {
-			ui.ChoicesPrompt("Select the CRN", []string{crn, oldCRN},
+			ui.ChoicesPrompt(T("Select the Service Instance ID / CRN"), []string{crn, oldCRN},
 				&terminal.PromptOptions{}).Resolve(&crn)
 		}
 	} else {
 		// else prompt the user for a new one using the old old one as fallback
 		crn = oldCRN
-		if err = ui.Prompt("Resource Instance ID CRN: ", nil).Resolve(&crn); err != nil {
-			ui.Failed(T("Unable to get new CRN."))
+		if err = ui.Prompt(T("Service Instance ID / CRN:"), nil).Resolve(&crn); err != nil {
+			ui.Failed(T("Unable to get new Service Instance ID / CRN."))
 			return cli.NewExitError("", 1)
 		}
 	}
 
 	// Alerts users that CRN is to be saved in the config file
-	ui.Say(T("Saving new Service Instance ID..."))
+	ui.Say(T("Saving new Service Instance ID / CRN..."))
 
 	// Set the CRN in the config file
 	err = conf.Set(config.CRN, crn)
 	if err != nil {
-		ui.Failed(T("Unable to store Secret key."))
+		ui.Failed(T("Unable to store Service Instance ID / CRN."))
 		return cli.NewExitError("", 1)
 	}
 
@@ -507,7 +507,7 @@ func ConfigCRN(c *cli.Context) error {
 	ui.Ok()
 
 	// Output the message
-	ui.Say(T("Successfully stored your service instance ID."))
+	ui.Say(T("Successfully stored your Service Instance ID / CRN."))
 
 	// Return
 	return nil

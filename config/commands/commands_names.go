@@ -238,6 +238,9 @@ const (
 	// UploadPartCopy Command
 	UploadPartCopy = "upload-part-copy"
 
+	// Version Command
+	Version = "version"
+
 	// Wait Command
 	Wait = "wait"
 

@@ -224,16 +224,16 @@
     "translation": "新規バケットの作成"
   },
   {
-    "id": "Creation Date",
-    "translation": "作成日"
+    "id": "Creation Date (UTC)",
+    "translation": "作成日 (UTC)"
   },
   {
     "id": "Creation Template ID",
     "translation": "作成テンプレート ID"
   },
   {
-    "id": "Date Created",
-    "translation": "作成日"
+    "id": "Date Created (UTC)",
+    "translation": "作成日 (UTC)"
   },
   {
     "id": "Default Region",
@@ -336,8 +336,8 @@
     "translation": "'{{.Location}}' を書き込み用にオープン中にエラーが発生しました。"
   },
   {
-    "id": "Expiration by date: ",
-    "translation": "有効期限: "
+    "id": "Expiration by date (UTC): ",
+    "translation": "有効期限 (UTC): "
   },
   {
     "id": "Expiration in days: ",
@@ -452,16 +452,16 @@
     "translation": "新規マルチパート・アップロードを開始します"
   },
   {
-    "id": "Initiated",
-    "translation": "開始されました"
+    "id": "Initiated (UTC)",
+    "translation": "開始 (UTC)"
   },
   {
     "id": "Interact with IBM Cloud Object Storage services",
     "translation": "IBM Cloud Object Storage サービスと対話します"
   },
   {
-    "id": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.",
-    "translation": "無効な引数です。  バケットを作成またはリストするために、有効なサービス・インスタンス CRN を構成する必要があります。  ‘ibmcloud cos config list’を使用して CRN を確認してください。"
+    "id": "A valid Service Instance ID / CRN must be configured to create or list buckets.\nIf the Service Instance has not been created already, create it using CLI: ‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\nAlternatively, you can create it using the IBM Cloud UI: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\nGet the CRN using: ‘ibmcloud resource service-instance <instance-name> --crn’.\nConfigure the CRN using: ‘ibmcloud cos config crn --crn <crn-value>’.\nVerify the Service Instance ID / CRN using: ‘ibmcloud cos config list’.",
+    "translation": "バケットを作成または一覧表示するには、有効なサービス・インスタンス ID または CRN を設定する必要があります。\nサービス・インスタンスがまだ作成されていない場合は、CLI を使用して作成します:「ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>」。\nまたは、IBM Cloud UI を使用して作成することもできます: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance。\n次を使用して CRN を取得します:「ibmcloud resource service-instance <instance-name> --crn」。\n次を使用して CRN を設定します:「ibmcloud cos config crn --crn <crn-value>」\n次を使用してサービス・インスタンス ID/CRN を確認します:「ibmcloud cos config list」。"
   },
   {
     "id": "Invalid boolean flag '--%s'",
@@ -488,12 +488,12 @@
     "translation": "キー・マーカー: "
   },
   {
-    "id": "Last Modified",
-    "translation": "最終変更日時"
+    "id": "Last Modified (UTC)",
+    "translation": "最終更新日 (UTC)"
   },
   {
-    "id": "Last Modified: {{.lastmodified}}",
-    "translation": "最終変更日時: {{.lastmodified}}"
+    "id": "Last Modified (UTC): {{.lastmodified}}",
+    "translation": "最終更新日 (UTC): {{.lastmodified}}"
   },
   {
     "id": "Last Updated",
@@ -704,8 +704,8 @@
     "translation": "応答内のオブジェクト・キーをエンコードするように要求し、使用するエンコード `METHOD` を指定します。"
   },
   {
-    "id": "Retain Until Date: ",
-    "translation": "保存期限日: "
+    "id": "Retain Until Date (UTC): ",
+    "translation": "保存期限日 (UTC): "
   },
   {
     "id": "Retention",
@@ -740,8 +740,8 @@
     "translation": "デフォルトのダウンロード場所を保存中..."
   },
   {
-    "id": "Saving new Service Instance ID...",
-    "translation": "新規サービス・インスタンス ID を保存中..."
+    "id": "Saving new Service Instance ID / CRN...",
+    "translation": "新しいサービス・インスタンス ID/CRN を保存しています..."
   },
   {
     "id": "Service Endpoint",
@@ -824,8 +824,8 @@
     "translation": "応答の Expires `HEADER` を設定します。"
   },
   {
-    "id": "Sets the IBM Service Instance `ID` in the request.",
-    "translation": "IBM サービス・インスタンス `ID` を要求に設定します。"
+    "id": "Sets the IBM Service Instance `ID` / CRN in the request.",
+    "translation": "リクエスト内に IBM サービスインスタンスの「ID」/CRN を設定します。"
   },
   {
     "id": "Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.",
@@ -844,8 +844,8 @@
     "translation": "表現のための情報 (`DIRECTIVES`) を指定します。"
   },
   {
-    "id": "Specifies the `KEY` to start with when listing objects in a bucket.",
-    "translation": "バケット内のオブジェクトをリストするときの開始 `KEY` を指定します。"
+    "id": "Specifies the `KEY` (OBJECT_NAME) to start with when listing objects in a bucket.",
+    "translation": "バケツ内のオブジェクトを一覧表示する際に、開始する「KEY」(OBJECT_NAME) を指定します。"
   },
   {
     "id": "Specifies what content encodings (`CONTENT_ENCODING`) have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.",
@@ -864,8 +864,8 @@
     "translation": "状況: "
   },
   {
-    "id": "Store CRN in the config",
-    "translation": "CRN を構成に保管します"
+    "id": "Store Service Instance ID / CRN in the config",
+    "translation": "設定にサービス・インスタンス ID/CRN を保存します。"
   },
   {
     "id": "Store Default Download Location in the config",
@@ -880,8 +880,8 @@
     "translation": "HMAC 資格情報を構成に保管します"
   },
   {
-    "id": "Store your service instance ID (`CRN`) in the config.",
-    "translation": "サービス・インスタンス ID (`CRN`) を構成に保管します。"
+    "id": "Store your Service Instance ID / `CRN` in the config.",
+    "translation": "設定にサービス・インスタンス ID/「CRN」を保存します。"
   },
   {
     "id": "Successfully aborted a multipart upload instance with key '{{.Key}}' and bucket '{{.Bucket}}'.",
@@ -932,8 +932,20 @@
     "translation": "次のバケット上に CORS 構成が正常に設定されました: {{.Bucket}}"
   },
   {
-    "id": "Successfully stored your service instance ID.",
-    "translation": "サービス・インスタンス ID が正常に保管されました。"
+    "id": "Successfully stored your Service Instance ID / CRN.",
+    "translation": "サービス・インスタンス ID/CRN を正常に保存しました。"
+  },
+  {
+    "id": "Select the Service Instance ID / CRN",
+    "translation": "サービス・インスタンス ID/CRN を選択する"
+  },
+  {
+    "id": "Service Instance ID / CRN:",
+    "translation": "サービス・インスタンス ID/CRN:"
+  },
+  {
+    "id": "Unable to store Service Instance ID / CRN.",
+    "translation": "サービス・インスタンス ID/CRN を保存できません。"
   },
   {
     "id": "Successfully switched to {{.Auth}}-based authentication. The program will access your Cloud Object Storage account using your {{.Auth}} Credentials.",
@@ -984,8 +996,8 @@
     "translation": "データ暗号化のバケットに関連付けられている KMS ルート鍵の「CUSTOMERROOTKEYCRN」。"
   },
   {
-    "id": "The `KEY` of the object.",
-    "translation": "オブジェクトの `KEY` です。"
+    "id": "The `KEY` (OBJECT_NAME) of the object.",
+    "translation": "オブジェクトの「KEY」(OBJECT_NAME)。"
   },
   {
     "id": "The `LANGUAGE` the content is in.",
@@ -1148,8 +1160,8 @@
     "translation": "サービス・エンドポイント URL をクリアできません。"
   },
   {
-    "id": "Unable to get new CRN.",
-    "translation": "新規 CRN を取得できません。"
+    "id": "Unable to get new Service Instance ID / CRN.",
+    "translation": "新しいサービス・インスタンス ID/CRN を取得できません。"
   },
   {
     "id": "Unable to load config method.",
@@ -1296,8 +1308,8 @@
     "translation": "警告: これによりオブジェクト '{{.Key}}' がバケット '{{.Bucket}}' から完全に削除されます。"
   },
   {
-    "id": "WARNING: You have already stored a service instance ID before.",
-    "translation": "警告: 以前にサービス・インスタンス ID を既に保管済みです。"
+    "id": "WARNING: You have already stored a Service Instance ID / CRN before.",
+    "translation": "警告: 以前にすでにサービス・インスタンス ID/CRN を保存しています。"
   },
   {
     "id": "Wait until 200 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.",
@@ -1332,8 +1344,8 @@
     "translation": "本文の `SIZE` (バイト単位)。 このパラメーターは、本文のサイズが自動的に判定されない場合に便利です。"
   },
   {
-    "id": "date",
-    "translation": "date"
+    "id": "date (UTC)",
+    "translation": "日付 (UTC)"
   },
   {
     "id": "days",

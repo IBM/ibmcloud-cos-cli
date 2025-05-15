@@ -1,3 +1,4 @@
+//go:build unit
 // +build unit
 
 package functions_test
@@ -164,7 +165,7 @@ func TestListObjectVersionsOneObjectVersion(t *testing.T) {
 	assert.Contains(t, output, "OK")
 	assert.NotContains(t, errors, "FAIL")
 	assert.Contains(t, output, fmt.Sprintf("Found 1 object version in bucket '%s':", targetBucket))
-	assert.Contains(t, output, "Name   Version ID     Last Modified              Object Size   Is Latest   ")
+	assert.Contains(t, output, "Name   Version ID     Last Modified (UTC)        Object Size   Is Latest")
 	assert.Contains(t, output, "key0   version-id-0")
 	assert.Contains(t, output, "true")
 	assert.Contains(t, output, fmt.Sprintf("Found no delete markers in bucket '%s'.", targetBucket))
@@ -239,7 +240,7 @@ func TestListObjectVersionsObjectVersionsTextNoTruncation(t *testing.T) {
 	assert.Contains(t, output, "OK")
 	assert.NotContains(t, errors, "FAIL")
 	assert.Contains(t, output, fmt.Sprintf("Found 5 object versions in bucket '%s':", targetBucket))
-	assert.Contains(t, output, "Name   Version ID     Last Modified              Object Size   Is Latest   ")
+	assert.Contains(t, output, "Name   Version ID     Last Modified (UTC)        Object Size   Is Latest")
 	assert.Contains(t, output, "key0   version-id-0")
 	assert.Contains(t, output, "key0   version-id-1")
 	assert.Contains(t, output, "key2   version-id-2")
@@ -392,7 +393,7 @@ func TestListObjectVersionsOneDeleteMarker(t *testing.T) {
 	assert.NotContains(t, errors, "FAIL")
 	assert.Contains(t, output, fmt.Sprintf("Found no object versions in bucket '%s'.", targetBucket))
 	assert.Contains(t, output, fmt.Sprintf("Found 1 delete marker in bucket '%s':", targetBucket))
-	assert.Contains(t, output, "Name   Version ID     Last Modified              Is Latest   ")
+	assert.Contains(t, output, "Name   Version ID     Last Modified (UTC)        Is Latest")
 	assert.Contains(t, output, "key0   version-id-0")
 	assert.Contains(t, output, "true")
 }
@@ -467,7 +468,7 @@ func TestListObjectVersionsDeleteMarkersTextNoTruncation(t *testing.T) {
 	assert.NotContains(t, errors, "FAIL")
 	assert.Contains(t, output, fmt.Sprintf("Found no object versions in bucket '%s'.", targetBucket))
 	assert.Contains(t, output, fmt.Sprintf("Found 5 delete markers in bucket '%s':", targetBucket))
-	assert.Contains(t, output, "Name   Version ID     Last Modified              Is Latest   ")
+	assert.Contains(t, output, "Name   Version ID     Last Modified (UTC)        Is Latest")
 	assert.Contains(t, output, "key0   version-id-0")
 	assert.Contains(t, output, "key0   version-id-1")
 	assert.Contains(t, output, "key2   version-id-2")

@@ -224,16 +224,16 @@
     "translation": "建立新的儲存區"
   },
   {
-    "id": "Creation Date",
-    "translation": "建立日期"
+    "id": "Creation Date (UTC)",
+    "translation": "建立日期 (UTC)"
   },
   {
     "id": "Creation Template ID",
     "translation": "建立範本 ID"
   },
   {
-    "id": "Date Created",
-    "translation": "建立日期"
+    "id": "Date Created (UTC)",
+    "translation": "建立日期 (UTC)"
   },
   {
     "id": "Default Region",
@@ -336,8 +336,8 @@
     "translation": "開啟 '{{.Location}}' 進行寫入時發生錯誤。"
   },
   {
-    "id": "Expiration by date: ",
-    "translation": "到期日： "
+    "id": "Expiration by date (UTC): ",
+    "translation": "到期日期 (UTC)： "
   },
   {
     "id": "Expiration in days: ",
@@ -452,16 +452,16 @@
     "translation": "起始新的多組件上傳"
   },
   {
-    "id": "Initiated",
-    "translation": "已起始"
+    "id": "Initiated (UTC)",
+    "translation": "啟動時間 (UTC)"
   },
   {
     "id": "Interact with IBM Cloud Object Storage services",
     "translation": "與 IBM Cloud Object Storage 服務互動"
   },
   {
-    "id": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.",
-    "translation": "無效的引數。必須配置有效的服務實例 CRN 以建立或列出儲存區。請使用 'ibmcloud cos config list' 驗證 CRN。"
+    "id": "A valid Service Instance ID / CRN must be configured to create or list buckets.\nIf the Service Instance has not been created already, create it using CLI: ‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\nAlternatively, you can create it using the IBM Cloud UI: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\nGet the CRN using: ‘ibmcloud resource service-instance <instance-name> --crn’.\nConfigure the CRN using: ‘ibmcloud cos config crn --crn <crn-value>’.\nVerify the Service Instance ID / CRN using: ‘ibmcloud cos config list’.",
+    "translation": "必須配置有效的服務實例 ID / CRN，才能建立或列出儲存區。\n如果尚未建立服務實例，請使用 CLI 建立：‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’。\n或者，您可以使用 IBM Cloud UI 建立：https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance。\n使用 下列指令取得 CRN：‘ibmcloud resource service-instance <instance-name> --crn’。\n使用下列指令配置 CRN：‘ibmcloud cos config crn --crn <crn-value>’。\n使用下列指令驗證服務實例 ID / CRN：‘ibmcloud cos config list’。"
   },
   {
     "id": "Invalid boolean flag '--%s'",
@@ -488,12 +488,12 @@
     "translation": "索引鍵標記： "
   },
   {
-    "id": "Last Modified",
-    "translation": "前次修改時間"
+    "id": "Last Modified (UTC)",
+    "translation": "最後修改時間 (UTC)"
   },
   {
-    "id": "Last Modified: {{.lastmodified}}",
-    "translation": "前次修改時間：{{.lastmodified}}"
+    "id": "Last Modified (UTC): {{.lastmodified}}",
+    "translation": "最後修改時間 (UTC)：{{.lastmodified}}"
   },
   {
     "id": "Last Updated",
@@ -704,8 +704,8 @@
     "translation": "要求對回應中的物件索引鍵進行編碼並指定要使用的編碼 `METHOD`。"
   },
   {
-    "id": "Retain Until Date: ",
-    "translation": "保留截止日期： "
+    "id": "Retain Until Date (UTC): ",
+    "translation": "保留截止日期 (UTC)： "
   },
   {
     "id": "Retention",
@@ -740,8 +740,8 @@
     "translation": "正在儲存預設下載位置..."
   },
   {
-    "id": "Saving new Service Instance ID...",
-    "translation": "正在儲存新的服務實例 ID..."
+    "id": "Saving new Service Instance ID / CRN...",
+    "translation": "儲存新的服務實例 ID / CRN..."
   },
   {
     "id": "Service Endpoint",
@@ -824,8 +824,8 @@
     "translation": "設定回應的到期時間 `HEADER`。"
   },
   {
-    "id": "Sets the IBM Service Instance `ID` in the request.",
-    "translation": "在要求中設定 IBM 服務實例 `ID`。"
+    "id": "Sets the IBM Service Instance `ID` / CRN in the request.",
+    "translation": "在要求中設定 IBM 服務實例 `ID` / CRN。"
   },
   {
     "id": "Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.",
@@ -844,8 +844,8 @@
     "translation": "指定呈現資訊 (`DIRECTIVES`)。"
   },
   {
-    "id": "Specifies the `KEY` to start with when listing objects in a bucket.",
-    "translation": "指定列出儲存區中物件時的起始 `KEY`。"
+    "id": "Specifies the `KEY` (OBJECT_NAME) to start with when listing objects in a bucket.",
+    "translation": "指定列出儲存區的物件時，要從 `KEY` (OBJECT_NAME) 開始。"
   },
   {
     "id": "Specifies what content encodings (`CONTENT_ENCODING`) have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.",
@@ -864,8 +864,8 @@
     "translation": "狀態： "
   },
   {
-    "id": "Store CRN in the config",
-    "translation": "將 CRN 儲存在配置中"
+    "id": "Store Service Instance ID / CRN in the config",
+    "translation": "在配置中儲存服務實例 ID / CRN"
   },
   {
     "id": "Store Default Download Location in the config",
@@ -880,8 +880,8 @@
     "translation": "將 HMAC 認證儲存在配置中"
   },
   {
-    "id": "Store your service instance ID (`CRN`) in the config.",
-    "translation": "將您的服務實例 ID (`CRN`) 儲存在配置中。"
+    "id": "Store your Service Instance ID / `CRN` in the config.",
+    "translation": "在配置中儲存您的服務實例 ID / `CRN`。"
   },
   {
     "id": "Successfully aborted a multipart upload instance with key '{{.Key}}' and bucket '{{.Bucket}}'.",
@@ -932,8 +932,20 @@
     "translation": "已順利地在儲存區 {{.Bucket}} 上設定 CORS 配置"
   },
   {
-    "id": "Successfully stored your service instance ID.",
-    "translation": "已順利儲存服務實例 ID。"
+    "id": "Successfully stored your Service Instance ID / CRN.",
+    "translation": "成功儲存您的服務實例 ID / CRN。"
+  },
+  {
+    "id": "Select the Service Instance ID / CRN",
+    "translation": "選取服務實例 ID / CRN"
+  },
+  {
+    "id": "Service Instance ID / CRN:",
+    "translation": "服務實例 ID / CRN："
+  },
+  {
+    "id": "Unable to store Service Instance ID / CRN.",
+    "translation": "無法儲存服務實例 ID / CRN。"
   },
   {
     "id": "Successfully switched to {{.Auth}}-based authentication. The program will access your Cloud Object Storage account using your {{.Auth}} Credentials.",
@@ -984,8 +996,8 @@
     "translation": "與資料加密儲存區相關聯之 KMS 根金鑰的 `CUSTOMERROOTKEYCRN`。"
   },
   {
-    "id": "The `KEY` of the object.",
-    "translation": "物件的 `KEY`。"
+    "id": "The `KEY` (OBJECT_NAME) of the object.",
+    "translation": "物件的 `KEY` (OBJECT_NAME)。"
   },
   {
     "id": "The `LANGUAGE` the content is in.",
@@ -1148,8 +1160,8 @@
     "translation": "無法清除服務端點 URL。"
   },
   {
-    "id": "Unable to get new CRN.",
-    "translation": "無法取得新的 CRN。"
+    "id": "Unable to get new Service Instance ID / CRN.",
+    "translation": "無法取得新的服務實例 ID / CRN。"
   },
   {
     "id": "Unable to load config method.",
@@ -1296,8 +1308,8 @@
     "translation": "警告：這將從儲存區 '{{.Bucket}}' 中永久地刪除物件 '{{.Key}}'。"
   },
   {
-    "id": "WARNING: You have already stored a service instance ID before.",
-    "translation": "警告：您先前已儲存服務實例 ID。"
+    "id": "WARNING: You have already stored a Service Instance ID / CRN before.",
+    "translation": "警告：您之前已儲存服務實例 ID / CRN。"
   },
   {
     "id": "Wait until 200 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.",
@@ -1332,8 +1344,8 @@
     "translation": "內文的 `SIZE`（以位元組為單位）。無法自動判定內文大小時可使用此參數。"
   },
   {
-    "id": "date",
-    "translation": "日期"
+    "id": "date (UTC)",
+    "translation": "日期 (UTC)"
   },
   {
     "id": "days",

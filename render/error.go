@@ -74,8 +74,8 @@ var commandErrorCausesStrings = map[errors.CommandErrorCause]string{
 	errors.MissingValue:        T("Flag '--%s' requires a value"),
 	errors.InvalidValue:        T("The value in flag '--%s' is invalid"),
 	errors.MissingRequiredFlag: T("Mandatory Flag '--%s' is missing"),
-	errors.InvalidNArg:         "Unexpected number of arguments in command '%s'.",
-	errors.InvalidDisplayValue: "Unsupported output format for command '%s', only ‘JSON’ and ‘TEXT’ are supported.",
+	errors.InvalidNArg:         T("Unexpected number of arguments in command '%s'."),
+	errors.InvalidDisplayValue: T("Unsupported output format for command '%s', only ‘JSON’ and ‘TEXT’ are supported."),
 }
 
 func getMessageFromCommandError(commandError *errors.CommandError) string {
@@ -115,7 +115,7 @@ func getMessageByCodeError(errorIn errors.CodeError) string {
 		if !strings.Contains(errorIn.Error(), "Invalid Argument") {
 			return errorIn.Error()
 		}
-		return T("Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.")
+		return T("A valid Service Instance ID / CRN must be configured to create or list buckets.\nIf the Service Instance has not been created already, create it using CLI: ‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\nAlternatively, you can create it using the IBM Cloud UI: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\nGet the CRN using: ‘ibmcloud resource service-instance <instance-name> --crn’.\nConfigure the CRN using: ‘ibmcloud cos config crn --crn <crn-value>’.\nVerify the Service Instance ID / CRN using: ‘ibmcloud cos config list’.")
 	case "InvalidBucketName":
 		return T("The specified bucket name is invalid. Bucket names must start and end in alphanumeric characters (from 3 to 63) and are limited to lowercase, numbers, non-consecutive dots, and hyphens.")
 	case "BucketAlreadyExists":

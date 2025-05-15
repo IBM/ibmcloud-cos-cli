@@ -224,16 +224,16 @@
     "translation": "새 버킷 작성"
   },
   {
-    "id": "Creation Date",
-    "translation": "작성 날짜"
+    "id": "Creation Date (UTC)",
+    "translation": "작성 날짜(UTC)"
   },
   {
     "id": "Creation Template ID",
     "translation": "작성 템플리트 ID"
   },
   {
-    "id": "Date Created",
-    "translation": "작성한 날짜"
+    "id": "Date Created (UTC)",
+    "translation": "작성된 날짜(UTC)"
   },
   {
     "id": "Default Region",
@@ -336,8 +336,8 @@
     "translation": "쓰기 위해 '{{.Location}}'을(를) 여는 중에 오류가 발생했습니다."
   },
   {
-    "id": "Expiration by date: ",
-    "translation": "날짜별 만료: "
+    "id": "Expiration by date (UTC): ",
+    "translation": "만료 날짜(UTC): "
   },
   {
     "id": "Expiration in days: ",
@@ -452,16 +452,16 @@
     "translation": "새 다중 파트 업로드 시작"
   },
   {
-    "id": "Initiated",
-    "translation": "시작됨"
+    "id": "Initiated (UTC)",
+    "translation": "시작됨(UTC)"
   },
   {
     "id": "Interact with IBM Cloud Object Storage services",
     "translation": "IBM Cloud Object Storage 서비스와 상호 작용"
   },
   {
-    "id": "Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.",
-    "translation": "올바르지 않은 인수입니다. 버킷을 작성하거나 나열하려면 올바른 서비스 인스턴스 CRN을 구성해야 합니다. ‘ibmcloud cos config list’를 사용하여 CRN을 확인하십시오."
+    "id": "A valid Service Instance ID / CRN must be configured to create or list buckets.\nIf the Service Instance has not been created already, create it using CLI: ‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\nAlternatively, you can create it using the IBM Cloud UI: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\nGet the CRN using: ‘ibmcloud resource service-instance <instance-name> --crn’.\nConfigure the CRN using: ‘ibmcloud cos config crn --crn <crn-value>’.\nVerify the Service Instance ID / CRN using: ‘ibmcloud cos config list’.",
+    "translation": "버킷을 작성하거나 나열하려면 유효한 서비스 인스턴스 ID/CRN을 구성해야 합니다.\n서비스 인스턴스가 아직 작성되지 않은 경우 다음 CLI를 사용하여 작성합니다. ‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\n또는 IBM Cloud UI를 사용하여 작성할 수 있습니다. https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\n다음을 사용하여 CRN을 가져옵니다. ‘ibmcloud resource service-instance <instance-name> --crn’.\n다음을 사용하여 CRN을 구성합니다.‘ibmcloud cos config crn --crn <crn-value>’.\n다음을 사용하여 서비스 인스턴스 ID/CRN을 검증합니다. ‘ibmcloud cos config list’."
   },
   {
     "id": "Invalid boolean flag '--%s'",
@@ -488,12 +488,12 @@
     "translation": "키 마커: "
   },
   {
-    "id": "Last Modified",
-    "translation": "마지막 수정"
+    "id": "Last Modified (UTC)",
+    "translation": "마지막 수정 시간(UTC)"
   },
   {
-    "id": "Last Modified: {{.lastmodified}}",
-    "translation": "마지막 수정: {{.lastmodified}}"
+    "id": "Last Modified (UTC): {{.lastmodified}}",
+    "translation": "마지막 수정 시간(UTC): {{.lastmodified}}"
   },
   {
     "id": "Last Updated",
@@ -704,8 +704,8 @@
     "translation": "응답의 오브젝트 키를 인코딩하도록 요청하며 사용할 인코딩 `METHOD`를 지정합니다."
   },
   {
-    "id": "Retain Until Date: ",
-    "translation": "보존 기한 날짜: "
+    "id": "Retain Until Date (UTC): ",
+    "translation": "보존 기한(UTC): "
   },
   {
     "id": "Retention",
@@ -740,8 +740,8 @@
     "translation": "기본 다운로드 위치 저장 중..."
   },
   {
-    "id": "Saving new Service Instance ID...",
-    "translation": "새 서비스 인스턴스 ID 저장 중..."
+    "id": "Saving new Service Instance ID / CRN...",
+    "translation": "새 서비스 인스턴스 ID/CRN 저장 중..."
   },
   {
     "id": "Service Endpoint",
@@ -824,8 +824,8 @@
     "translation": "응답의 만료 `HEADER`를 설정합니다."
   },
   {
-    "id": "Sets the IBM Service Instance `ID` in the request.",
-    "translation": "요청에 IBM Service Instance `ID`를 설정합니다."
+    "id": "Sets the IBM Service Instance `ID` / CRN in the request.",
+    "translation": "요청에 IBM 서비스 인스턴스 `ID`/CRN을 설정합니다."
   },
   {
     "id": "Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.",
@@ -844,8 +844,8 @@
     "translation": "프리젠테이션 정보(`DIRECTIVES`)를 지정합니다."
   },
   {
-    "id": "Specifies the `KEY` to start with when listing objects in a bucket.",
-    "translation": "버킷에 오브젝트를 나열할 때 시작할 `KEY`를 지정합니다."
+    "id": "Specifies the `KEY` (OBJECT_NAME) to start with when listing objects in a bucket.",
+    "translation": "버킷에 오브젝트를 나열할 때 시작할 `KEY`(OBJECT_NAME)를 지정합니다."
   },
   {
     "id": "Specifies what content encodings (`CONTENT_ENCODING`) have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.",
@@ -864,8 +864,8 @@
     "translation": "상태: "
   },
   {
-    "id": "Store CRN in the config",
-    "translation": "구성에 CRN 저장"
+    "id": "Store Service Instance ID / CRN in the config",
+    "translation": "구성에 서비스 인스턴스 ID/CRN 저장"
   },
   {
     "id": "Store Default Download Location in the config",
@@ -880,8 +880,8 @@
     "translation": "구성에 HMAC 신임 정보 저장"
   },
   {
-    "id": "Store your service instance ID (`CRN`) in the config.",
-    "translation": "구성에 서비스 인스턴스 ID(`CRN`)를 저장하십시오."
+    "id": "Store your Service Instance ID / `CRN` in the config.",
+    "translation": "구성에 서비스 인스턴스 ID/`CRN`을 저장합니다."
   },
   {
     "id": "Successfully aborted a multipart upload instance with key '{{.Key}}' and bucket '{{.Bucket}}'.",
@@ -932,8 +932,20 @@
     "translation": "{{.Bucket}} 버킷에 CORS 구성을 설정했습니다."
   },
   {
-    "id": "Successfully stored your service instance ID.",
-    "translation": "서비스 인스턴스 ID를 저장했습니다."
+    "id": "Successfully stored your Service Instance ID / CRN.",
+    "translation": "서비스 인스턴스 ID/CRN을 저장했습니다."
+  },
+  {
+    "id": "Select the Service Instance ID / CRN",
+    "translation": "서비스 인스턴스 ID/CRN 선택"
+  },
+  {
+    "id": "Service Instance ID / CRN:",
+    "translation": "서비스 인스턴스 ID/CRN:"
+  },
+  {
+    "id": "Unable to store Service Instance ID / CRN.",
+    "translation": "서비스 인스턴스 ID/CRN을 저장할 수 없습니다."
   },
   {
     "id": "Successfully switched to {{.Auth}}-based authentication. The program will access your Cloud Object Storage account using your {{.Auth}} Credentials.",
@@ -984,8 +996,8 @@
     "translation": "데이터 암호화를 위해 버킷과 연결된 KMS 루트 키의 'CUSTOMERROOTKEYCRN'."
   },
   {
-    "id": "The `KEY` of the object.",
-    "translation": "오브젝트의 `KEY`입니다."
+    "id": "The `KEY` (OBJECT_NAME) of the object.",
+    "translation": "오브젝트의 `KEY`(OBJECT_NAME)입니다."
   },
   {
     "id": "The `LANGUAGE` the content is in.",
@@ -1148,8 +1160,8 @@
     "translation": "서비스 엔드포인트 URL을 지울 수 없습니다."
   },
   {
-    "id": "Unable to get new CRN.",
-    "translation": "새 CRN을 가져올 수 없습니다."
+    "id": "Unable to get new Service Instance ID / CRN.",
+    "translation": "새 서비스 인스턴스 ID/CRN을 가져올 수 없습니다."
   },
   {
     "id": "Unable to load config method.",
@@ -1296,8 +1308,8 @@
     "translation": "경고: 그러면 '{{.Key}}' 오브젝트가 '{{.Bucket}}' 버킷에서 영구적으로 삭제됩니다."
   },
   {
-    "id": "WARNING: You have already stored a service instance ID before.",
-    "translation": "경고: 이미 서비스 인스턴스 ID를 저장했습니다."
+    "id": "WARNING: You have already stored a Service Instance ID / CRN before.",
+    "translation": "경고: 이전에 이미 서비스 인스턴스 ID/CRN을 저장했습니다."
   },
   {
     "id": "Wait until 200 response is received when polling with head-bucket.  It will poll every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.",
@@ -1332,8 +1344,8 @@
     "translation": "본문의 `SIZE`(바이트)입니다. 이 매개변수는 본문의 크기를 자동으로 판별할 수 없는 경우 유용합니다."
   },
   {
-    "id": "date",
-    "translation": "날짜"
+    "id": "date (UTC)",
+    "translation": "날짜(UTC)"
   },
   {
     "id": "days",

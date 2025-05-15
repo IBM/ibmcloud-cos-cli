@@ -99,6 +99,7 @@ func NewApp(name string) *cli.App {
 		commands.CommandAsperaDownload,
 		commands.CommandAsperaUpload,
 		commands.CommandWait,
+		commands.CommandVersion,
 		// Legacy commands (deprecated syntax)
 		commands.CommandCreateBucket,
 		commands.CommandDeleteBucket,
