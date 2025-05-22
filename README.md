@@ -104,7 +104,7 @@ Next, copy and paste the `resource_instance_id` from the credentials file into t
 - Delete an object in an existing bucket.
   - EXAMPLE: `ibmcloud cos object-delete --bucket test-cli-bucket --key my-file`
 
-For information on other commands, go to our plug-in [page](https://cloud.ibm.com/docs/cloud-object-storage-cli-plugin?topic=cloud-object-storage-cli-ic-use-the-ibm-cli).
+For information on other commands, go to CLI documentation [page](https://cloud.ibm.com/docs/cli?topic=cli-ic-cos-cli).
 
 ## Build the plug-in from source
 
