@@ -92,12 +92,20 @@
     "translation": "버킷 수명 주기 구성의 1개의 전환"
   },
   {
+    "id": "A JSON `STRUCTURE` for configuring static website hosting.\n\tExample:\n\t{\n\t\t\"ErrorDocument\": {\n\t\t\t\"Key\": \"error.html\"\n\t\t},\n\t\t\"IndexDocument\": {\n\t\t\t\"Suffix\": \"index.html\"\n\t\t},\n\t\t\"RoutingRules\": [\n\t\t\t{\n\t\t\t\t\"Condition\": {\n\t\t\t\t\t...\n\t\t\t\t},\n\t\t\t\t\"Redirect\": {\n\t\t\t\t\t...\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}",
+    "translation": "정적 웹사이트 호스팅 구성을 위한 JSON `STRUCTURE`. 예:\n{\n\"ErrorDocument\": {\n\t\t\t\"Key\": \"error.html\"\n\t\t},\n\"IndexDocument\": {\n\t\t\t\"Suffix\": \"index.html\"\n\t\t},\n\"RoutingRules\": [\n{\n\"Condition\": {\n\t\t\t\t\t...\n\t\t\t\t},\n\"Redirect\": {\n\t\t\t\t\t...\n\t\t\t\t}\n}\n]\n}"
+  },
+  {
     "id": "A `DELIMITER` is a character you use to group keys.",
     "translation": "`DELIMITER`는 키를 그룹화하는 데 사용하는 문자입니다."
   },
   {
-    "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
-    "translation": "파일에서 JSON 구문을 사용하는 `STRUCTURE`입니다. IBM Cloud 문서를 참조하십시오."
+    "id": "A `STRUCTURE` using JSON syntax in a file.\n\tExample:\n\t{\n\t\t\"CORSRules\": [\n\t\t\t{\n\t\t\t\t\"AllowedHeaders\": [\"*\"],\n\t\t\t\t\"AllowedMethods\": [\"PUT\", \"GET\", \"DELETE\"],\n\t\t\t\t\"AllowedOrigins\": [\"http://www.example.com\"],\n\t\t\t\t\"ExposeHeaders\": [\"ExposeHeader7\", \"ExposeHeader8\"],\n\t\t\t\t\"MaxAgeSeconds\": 75\n\t\t\t}\n\t\t]\n\t}",
+    "translation": "JSON 구문을 사용하는 파일 내 `구문`.\n 예: \n{\n\"CORSRules\": [\n{\n\t\t\t\t\"AllowedHeaders\": [\"*\"],\n\t\t\t\t\"AllowedMethods\": [\"PUT\", \"GET\", \"DELETE\"],\n\t\t\t\t\"AllowedOrigins\": [\"http://www.example.com\"],\n\t\t\t\t\"ExposeHeaders\": [\"ExposeHeader7\", \"ExposeHeader8\"],\n\t\t\t\t\"MaxAgeSeconds\": 75\n\t\t\t}\n]\n}"
+  },
+  {
+    "id": "A `STRUCTURE` using JSON syntax.\n\tExample:\n\t{\n\t\t\"Rules\": [\n\t\t\t{\n\t\t\t\t\"Status\": \"Enabled\",\n\t\t\t\t\"Priority\": 1,\n\t\t\t\t\"Filter\": {\n\t\t\t\t\t\"Prefix\": \"\"\n\t\t\t\t},\n\t\t\t\t\"DeleteMarkerReplication\": {\n\t\t\t\t\t\"Status\": \"Disabled\"\n\t\t\t\t},\n\t\t\t\t\"Destination\": {\n\t\t\t\t\t\"Bucket\": \"DEST-BUCKET-NAME\"\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}",
+    "translation": "JSON 구문을 사용하는 '구문'. \n 예:\n{\n\"Rules\": [\n{\n\"Status\": \"Enabled\",\n\"Priority\": 1,\n\"Filter\": {\n\t\t\t\t\t\"Prefix\": \"\"\n\t\t\t\t},\n\"DeleteMarkerReplication\": {\n\t\t\t\t\t\"Status\": \"Disabled\"\n\t\t\t\t},\n\"Destination\": {\n\t\t\t\t\t\"Bucket\": \"DEST-BUCKET-NAME\"\n\t\t\t\t}\n}\n]\n}"
   },
   {
     "id": "A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
@@ -124,6 +132,10 @@
     "translation": "URL 쿼리 매개변수(`Key1=Value1`)로 인코딩된 오브젝트에 대한 태그 세트입니다. `object-tagging-put`의 경우에는 JSON 구문을 사용한 `STRUCTURE`입니다. IBM Cloud 문서를 참조하십시오."
   },
   {
+    "id": "A valid Service Instance ID / CRN must be configured to create or list buckets.\nIf the Service Instance has not been created already, create it using CLI: ‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\nAlternatively, you can create it using the IBM Cloud UI: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\nGet the CRN using: ‘ibmcloud resource service-instance <instance-name> --crn’.\nConfigure the CRN using: ‘ibmcloud cos config crn --crn <crn-value>’.\nVerify the Service Instance ID / CRN using: ‘ibmcloud cos config list’.",
+    "translation": "버킷을 작성하거나 나열하려면 유효한 서비스 인스턴스 ID/CRN을 구성해야 합니다.\n서비스 인스턴스가 아직 작성되지 않은 경우 다음 CLI를 사용하여 작성합니다. ‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\n또는 IBM Cloud UI를 사용하여 작성할 수 있습니다. https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\n다음을 사용하여 CRN을 가져옵니다. ‘ibmcloud resource service-instance <instance-name> --crn’.\n다음을 사용하여 CRN을 구성합니다.‘ibmcloud cos config crn --crn <crn-value>’.\n다음을 사용하여 서비스 인스턴스 ID/CRN을 검증합니다. ‘ibmcloud cos config list’."
+  },
+  {
     "id": "Abort an existing multipart upload",
     "translation": "기존 다중 파트 업로드 중단"
   },
@@ -136,8 +148,8 @@
     "translation": "AbortIncompleteMultipartUpload: "
   },
   {
-    "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
-    "translation": "IBM Cloud 계정에 대한 액세스가 거부되었습니다. ibmcloud login --sso를 입력하여 다시 로그인하십시오."
+    "id": "Access to the IBM Cloud account was denied — please verify that the Service Instance ID / CRN is valid, and ensure the correct endpoint URL is being used (check using ‘ibmcloud cos config list’).",
+    "translation": "IBM Cloud 계정에 대한 액세스가 거부되었습니다. 서비스 인스턴스 ID/CRN이 유효한지 확인하고 올바른 엔드포인트 URL가 사용 중인지 확인하십시오('ibmcloud cos config list'를 사용하여 확인)."
   },
   {
     "id": "Are you sure you would like to continue?",
@@ -184,6 +196,10 @@
     "translation": "옵션 값을 지우십시오."
   },
   {
+    "id": "Clear the value of a configuration item to the default",
+    "translation": "구성 품목의 값을 기본값으로 지우기"
+  },
+  {
     "id": "Command does not support Flag '--%s'",
     "translation": "명령에서 '--%s' 플래그를 지원하지 않습니다."
   },
@@ -196,12 +212,12 @@
     "translation": "기존 다중 파트 업로드 완료"
   },
   {
-    "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
-    "translation": "지정된 시간((`TIMESTAMP`) 이후에 수정된 경우 오브젝트를 복사합니다."
+    "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "지정된 시간(`TIMESTAMP`) 이후 오브젝트가 수정된 경우 오브젝트를 복사합니다. 시간소인은 RFC3339 형식이어야 합니다(예: 2025-01-01T00:00:00Z)"
   },
   {
-    "id": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`).",
-    "translation": "지정된 시간((`TIMESTAMP`) 이후로 수정되지 않은 경우 오브젝트를 복사합니다."
+    "id": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "지정된 시간(`TIMESTAMP`) 이후 오브젝트가 수정되지 않은 경우 오브젝트를 복사합니다. 시간소인은 RFC3339 형식이어야 합니다(예: 2025-01-01T00:00:00Z)"
   },
   {
     "id": "Copies the object if its entity tag (ETag) is different than the specified tag (`ETAG`).",
@@ -310,6 +326,10 @@
   {
     "id": "Download an object using a managed multipart transfer",
     "translation": "관리 다중 파트 전송을 사용하여 오브젝트 다운로드"
+  },
+  {
+    "id": "Download location: '{{.destination}}'",
+    "translation": "다운로드 위치: '{{.destination}}'"
   },
   {
     "id": "Download objects via Aspera",
@@ -428,6 +448,10 @@
     "translation": "버킷에서 정적 웹 사이트 구성 가져오기"
   },
   {
+    "id": "Get the value of a configuration item",
+    "translation": "구성 품목의 값 가져오기"
+  },
+  {
     "id": "Get the versioning configuration for a bucket",
     "translation": "버킷에 대한 버전화 구성 가져오기"
   },
@@ -458,10 +482,6 @@
   {
     "id": "Interact with IBM Cloud Object Storage services",
     "translation": "IBM Cloud Object Storage 서비스와 상호 작용"
-  },
-  {
-    "id": "A valid Service Instance ID / CRN must be configured to create or list buckets.\nIf the Service Instance has not been created already, create it using CLI: ‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\nAlternatively, you can create it using the IBM Cloud UI: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\nGet the CRN using: ‘ibmcloud resource service-instance <instance-name> --crn’.\nConfigure the CRN using: ‘ibmcloud cos config crn --crn <crn-value>’.\nVerify the Service Instance ID / CRN using: ‘ibmcloud cos config list’.",
-    "translation": "버킷을 작성하거나 나열하려면 유효한 서비스 인스턴스 ID/CRN을 구성해야 합니다.\n서비스 인스턴스가 아직 작성되지 않은 경우 다음 CLI를 사용하여 작성합니다. ‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\n또는 IBM Cloud UI를 사용하여 작성할 수 있습니다. https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\n다음을 사용하여 CRN을 가져옵니다. ‘ibmcloud resource service-instance <instance-name> --crn’.\n다음을 사용하여 CRN을 구성합니다.‘ibmcloud cos config crn --crn <crn-value>’.\n다음을 사용하여 서비스 인스턴스 ID/CRN을 검증합니다. ‘ibmcloud cos config list’."
   },
   {
     "id": "Invalid boolean flag '--%s'",
@@ -532,6 +552,10 @@
     "translation": "특정 버킷에 있는 모든 오브젝트 나열"
   },
   {
+    "id": "List all objects in a specific bucket with pagination support",
+    "translation": "페이지 매김을 지원하는 특정 버킷의 모든 오브젝트 나열"
+  },
+  {
     "id": "List configuration",
     "translation": "목록 구성"
   },
@@ -542,6 +566,10 @@
   {
     "id": "List parts of an active multipart upload",
     "translation": "활성 다중 파트 업로드의 파트 나열"
+  },
+  {
+    "id": "List s3 endpoint-url for regions",
+    "translation": "지역에 대한 s3 엔드포인트-url 나열"
   },
   {
     "id": "Location Constraint",
@@ -672,6 +700,10 @@
     "translation": "경로 재지정 프로토콜: "
   },
   {
+    "id": "Region is empty. Use ‘ibmcloud cos endpoints --region <region-name>’ to specify a region.",
+    "translation": "지역이 비어 있습니다. 지역을 지정하려면 ‘ibmcloud cos endpoints --region <region-name>’을(를) 사용하십시오."
+  },
+  {
     "id": "Region: ",
     "translation": "지역: "
   },
@@ -720,12 +752,12 @@
     "translation": "보존 기간: "
   },
   {
-    "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified).",
-    "translation": "지정된 `TIMESTAMP` 이후에 수정된 오브젝트만 리턴하며, 그렇지 않은 경우에는 304(수정되지 않음)를 리턴합니다."
+    "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "지정된 `TIMESTAMP` 이후에 수정된 오브젝트만 리턴하며, 그렇지 않은 경우에는 304(수정되지 않음)를 리턴합니다. 시간소인은 RFC3339 형식이어야 합니다(예: 2025-01-01T00:00:00Z)"
   },
   {
-    "id": "Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed).",
-    "translation": "지정된 `TIMESTAMP` 이후에 수정되지 않은 오브젝트만 리턴하며, 그렇지 않은 경우에는 412(전제조건 실패)를 리턴합니다."
+    "id": "Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "지정된 `TIMESTAMP` 이후에 수정되지 않은 오브젝트만 리턴하며, 그렇지 않은 경우에는 412(전제조건 실패)를 리턴합니다. 시간소인은 RFC3339 형식이어야 합니다(예: 2025-01-01T00:00:00Z)"
   },
   {
     "id": "Return the object only if its entity tag (ETag) is different from the `ETAG` specified, otherwise return a 304 (not modified).",
@@ -744,8 +776,16 @@
     "translation": "새 서비스 인스턴스 ID/CRN 저장 중..."
   },
   {
+    "id": "Select the Service Instance ID / CRN",
+    "translation": "서비스 인스턴스 ID/CRN 선택"
+  },
+  {
     "id": "Service Endpoint",
     "translation": "서비스 엔드포인트"
+  },
+  {
+    "id": "Service Instance ID / CRN:",
+    "translation": "서비스 인스턴스 ID/CRN:"
   },
   {
     "id": "Set custom Service Endpoint for all operations",
@@ -860,12 +900,12 @@
     "translation": "소스 오브젝트에서 태그 세트를 복사하거나 제공된 태그 세트로 대체할 것인지 여부 지정"
   },
   {
-    "id": "Status: ",
-    "translation": "상태: "
+    "id": "Specify the value of a configuration item",
+    "translation": "구성 품목의 값을 지정하십시오."
   },
   {
-    "id": "Store Service Instance ID / CRN in the config",
-    "translation": "구성에 서비스 인스턴스 ID/CRN 저장"
+    "id": "Status: ",
+    "translation": "상태: "
   },
   {
     "id": "Store Default Download Location in the config",
@@ -878,6 +918,10 @@
   {
     "id": "Store HMAC credentials in the config",
     "translation": "구성에 HMAC 신임 정보 저장"
+  },
+  {
+    "id": "Store Service Instance ID / CRN in the config",
+    "translation": "구성에 서비스 인스턴스 ID/CRN 저장"
   },
   {
     "id": "Store your Service Instance ID / `CRN` in the config.",
@@ -904,8 +948,8 @@
     "translation": "{{.Bucket}} 버킷에서 CORS 구성을 삭제함"
   },
   {
-    "id": "Successfully deleted bucket '{{.Bucket}}'. The bucket '{{.Bucket}}' will be available for reuse after 15 minutes.",
-    "translation": "'{{.Bucket}}' 버킷을 삭제했습니다. '{{.Bucket}}' 버킷은 15분 후에 다시 사용할 수 있습니다."
+    "id": "Successfully deleted bucket '{{.Bucket}}'. The bucket name '{{.Bucket}}' will be available for reuse after 15 minutes.",
+    "translation": "버킷 '{{.Bucket}}' 삭제에 성공했습니다. 버킷 이름 '{{.Bucket}}'은(는) 15분 후에 재사용할 수 있습니다."
   },
   {
     "id": "Successfully downloaded '{{.Key}}' from bucket '{{.Bucket}}'",
@@ -934,18 +978,6 @@
   {
     "id": "Successfully stored your Service Instance ID / CRN.",
     "translation": "서비스 인스턴스 ID/CRN을 저장했습니다."
-  },
-  {
-    "id": "Select the Service Instance ID / CRN",
-    "translation": "서비스 인스턴스 ID/CRN 선택"
-  },
-  {
-    "id": "Service Instance ID / CRN:",
-    "translation": "서비스 인스턴스 ID/CRN:"
-  },
-  {
-    "id": "Unable to store Service Instance ID / CRN.",
-    "translation": "서비스 인스턴스 ID/CRN을 저장할 수 없습니다."
   },
   {
     "id": "Successfully switched to {{.Auth}}-based authentication. The program will access your Cloud Object Storage account using your {{.Auth}} Credentials.",
@@ -1028,6 +1060,10 @@
     "translation": "다운로드 대상 '{{.Location}}'은(는) 디렉토리입니다."
   },
   {
+    "id": "The given region '{{.Region}}' is not valid. Use ‘ibmcloud cos endpoints --list-regions’ to list all regions.",
+    "translation": "지정된 지역 '{{.Region}}'이(가) 유효하지 않습니다. 모든 지역을 나열하려면 'ibmcloud cos endpoint --list-regions'를 사용하십시오."
+  },
+  {
     "id": "The lifecycle configuration was not found",
     "translation": "수명 주기 구성을 찾을 수 없음"
   },
@@ -1036,8 +1072,8 @@
     "translation": "버킷의 이름(`BUCKET_NAME`)입니다."
   },
   {
-    "id": "The name (`CLASS_NAME`) of the Class.",
-    "translation": "클래스의 이름(`CLASS_NAME`)입니다."
+    "id": "The name (`CLASS_NAME`) of the storage class to assign to the bucket.",
+    "translation": "버킷에 지정할 스토리지 클래스의 이름(`CLASS_NAME`)입니다."
   },
   {
     "id": "The number of goroutines to spin up in parallel per call to Upload when sending parts. Default value is 5.",
@@ -1090,6 +1126,10 @@
   {
     "id": "The specified key does not exist.",
     "translation": "지정된 키가 없습니다."
+  },
+  {
+    "id": "The stored region '{{.Region}}' is not valid. Store a valid region using ‘ibmcloud cos config region --region <region-name>’.",
+    "translation": "저장된 지역 '{{.Region}}'이(가) 유효하지 않습니다. ‘ibmcloud cos config region --region <region-name>’을(를) 사용하여 유효한 지역을 저장하십시오."
   },
   {
     "id": "The total `NUMBER` of items to return in the command's output.",
@@ -1224,6 +1264,10 @@
     "translation": "비밀 키를 저장할 수 없습니다."
   },
   {
+    "id": "Unable to store Service Instance ID / CRN.",
+    "translation": "서비스 인스턴스 ID/CRN을 저장할 수 없습니다."
+  },
+  {
     "id": "Unable to store new download location.",
     "translation": "새 다운로드 위치를 저장할 수 없습니다."
   },
@@ -1352,6 +1396,14 @@
     "translation": "일"
   },
   {
+    "id": "invalid URL Style, use valid style like VHost, Path etc",
+    "translation": "올바르지 않은 URL 스타일, VHost, Path 등과 같은 올바른 스타일 사용"
+  },
+  {
+    "id": "invalid method, use valid methods like IAM, hmac etc",
+    "translation": "유효하지 않은 메소드, IAM, hmac 등과 같은 유효한 메소드 사용"
+  },
+  {
     "id": "key",
     "translation": "키"
   },
@@ -1410,5 +1462,9 @@
   {
     "id": "value",
     "translation": "값"
+  },
+  {
+    "id": "{{.operation}} a value for {{.subcommand}} option",
+    "translation": "{{.operation}}{{.subcommand}} 옵션의 값"
   }
 ]

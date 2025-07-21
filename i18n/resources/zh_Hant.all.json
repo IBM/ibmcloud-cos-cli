@@ -92,12 +92,20 @@
     "translation": "儲存區生命週期配置的 1 個轉換"
   },
   {
+    "id": "A JSON `STRUCTURE` for configuring static website hosting.\n\tExample:\n\t{\n\t\t\"ErrorDocument\": {\n\t\t\t\"Key\": \"error.html\"\n\t\t},\n\t\t\"IndexDocument\": {\n\t\t\t\"Suffix\": \"index.html\"\n\t\t},\n\t\t\"RoutingRules\": [\n\t\t\t{\n\t\t\t\t\"Condition\": {\n\t\t\t\t\t...\n\t\t\t\t},\n\t\t\t\t\"Redirect\": {\n\t\t\t\t\t...\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}",
+    "translation": "用於配置靜態網站代管的 JSON `STRUCTURE` 。\nExample:\n{\n\"ErrorDocument\": {\n\t\t\t\"Key\": \"error.html\"\n\t\t},\n\"IndexDocument\": {\n\t\t\t\"Suffix\": \"index.html\"\n\t\t},\n\"RoutingRules\": [\n{\n\"Condition\": {\n\t\t\t\t\t...\n\t\t\t\t},\n\"Redirect\": {\n\t\t\t\t\t...\n\t\t\t\t}\n}\n]\n}"
+  },
+  {
     "id": "A `DELIMITER` is a character you use to group keys.",
     "translation": "`DELIMITER` 是用於給金鑰分組的字元。"
   },
   {
-    "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
-    "translation": "此 `STRUCTURE` 會在檔案中使用 JSON 語法。請參閱 IBM Cloud 文件。"
+    "id": "A `STRUCTURE` using JSON syntax in a file.\n\tExample:\n\t{\n\t\t\"CORSRules\": [\n\t\t\t{\n\t\t\t\t\"AllowedHeaders\": [\"*\"],\n\t\t\t\t\"AllowedMethods\": [\"PUT\", \"GET\", \"DELETE\"],\n\t\t\t\t\"AllowedOrigins\": [\"http://www.example.com\"],\n\t\t\t\t\"ExposeHeaders\": [\"ExposeHeader7\", \"ExposeHeader8\"],\n\t\t\t\t\"MaxAgeSeconds\": 75\n\t\t\t}\n\t\t]\n\t}",
+    "translation": "檔案中使用 JSON 語法的 `STRUCTURE`。\n 範例：\n{\n\"CORSRules\": [\n{\n\t\t\t\t\"AllowedHeaders\": [\"*\"],\n\t\t\t\t\"AllowedMethods\": [\"PUT\", \"GET\", \"DELETE\"],\n\t\t\t\t\"AllowedOrigins\": [\"http://www.example.com\"],\n\t\t\t\t\"ExposeHeaders\": [\"ExposeHeader7\", \"ExposeHeader8\"],\n\t\t\t\t\"MaxAgeSeconds\": 75\n\t\t\t}\n]\n}"
+  },
+  {
+    "id": "A `STRUCTURE` using JSON syntax.\n\tExample:\n\t{\n\t\t\"Rules\": [\n\t\t\t{\n\t\t\t\t\"Status\": \"Enabled\",\n\t\t\t\t\"Priority\": 1,\n\t\t\t\t\"Filter\": {\n\t\t\t\t\t\"Prefix\": \"\"\n\t\t\t\t},\n\t\t\t\t\"DeleteMarkerReplication\": {\n\t\t\t\t\t\"Status\": \"Disabled\"\n\t\t\t\t},\n\t\t\t\t\"Destination\": {\n\t\t\t\t\t\"Bucket\": \"DEST-BUCKET-NAME\"\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}",
+    "translation": "使用 JSON 語法的 'STRUCTURE'。\n範例：\n{\n\"Rules\": [\n{\n\"Status\": \"Enabled\",\n\"Priority\": 1,\n\"Filter\": {\n\t\t\t\t\t\"Prefix\": \"\"\n\t\t\t\t},\n\"DeleteMarkerReplication\": {\n\t\t\t\t\t\"Status\": \"Disabled\"\n\t\t\t\t},\n\"Destination\": {\n\t\t\t\t\t\"Bucket\": \"DEST-BUCKET-NAME\"\n\t\t\t\t}\n}\n]\n}"
   },
   {
     "id": "A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
@@ -124,6 +132,10 @@
     "translation": "編碼為 URL 查詢參數之物件的標籤集 (`Key1=Value1`)。對於 `object-tagging-put `，`STRUCTURE` 使用 JSON 語法。 請參閱 IBM Cloud 文件。"
   },
   {
+    "id": "A valid Service Instance ID / CRN must be configured to create or list buckets.\nIf the Service Instance has not been created already, create it using CLI: ‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\nAlternatively, you can create it using the IBM Cloud UI: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\nGet the CRN using: ‘ibmcloud resource service-instance <instance-name> --crn’.\nConfigure the CRN using: ‘ibmcloud cos config crn --crn <crn-value>’.\nVerify the Service Instance ID / CRN using: ‘ibmcloud cos config list’.",
+    "translation": "必須配置有效的服務實例 ID / CRN，才能建立或列出儲存區。\n如果尚未建立服務實例，請使用 CLI 建立：‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’。\n或者，您可以使用 IBM Cloud UI 建立：https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance。\n使用 下列指令取得 CRN：‘ibmcloud resource service-instance <instance-name> --crn’。\n使用下列指令配置 CRN：‘ibmcloud cos config crn --crn <crn-value>’。\n使用下列指令驗證服務實例 ID / CRN：‘ibmcloud cos config list’。"
+  },
+  {
     "id": "Abort an existing multipart upload",
     "translation": "中斷現有的多組件上傳"
   },
@@ -136,8 +148,8 @@
     "translation": "AbortIncompleteMultipartUpload: "
   },
   {
-    "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
-    "translation": "存取您的 IBM Cloud 帳戶遭拒絕。若要重新登入，請輸入 ibmcloud login --sso。"
+    "id": "Access to the IBM Cloud account was denied — please verify that the Service Instance ID / CRN is valid, and ensure the correct endpoint URL is being used (check using ‘ibmcloud cos config list’).",
+    "translation": "IBM Cloud 帳戶的存取遭到拒絕 - 請驗證服務實例 ID / CRN 是否有效，並確保使用正確的端點 URL（使用 ‘ibmcloud cos config list’ 檢查）。"
   },
   {
     "id": "Are you sure you would like to continue?",
@@ -184,6 +196,10 @@
     "translation": "清除選項值。"
   },
   {
+    "id": "Clear the value of a configuration item to the default",
+    "translation": "將配置項目的值清除為預設值"
+  },
+  {
     "id": "Command does not support Flag '--%s'",
     "translation": "指令不支援旗標 '--%s'"
   },
@@ -196,12 +212,12 @@
     "translation": "完成現有的多組件上傳"
   },
   {
-    "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
-    "translation": "複製自指定時間 (`TIMESTAMP`) 以來修改的物件。"
+    "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "如果物件在指定時間 (`TIMESTAMP`) 之後經修改，則複製該物件。時間戳記必須是 RFC3339 格式（例如 2025-01-01T00:00:00Z）"
   },
   {
-    "id": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`).",
-    "translation": "複製自指定時間 (`TIMESTAMP`) 以來未修改的物件。"
+    "id": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "如果物件自指定時間 (`TIMESTAMP`) 後未曾修改，則複製該物件。時間戳記必須是 RFC3339 格式（例如 2025-01-01T00:00:00Z）"
   },
   {
     "id": "Copies the object if its entity tag (ETag) is different than the specified tag (`ETAG`).",
@@ -310,6 +326,10 @@
   {
     "id": "Download an object using a managed multipart transfer",
     "translation": "使用受管理多組件傳送來下載物件"
+  },
+  {
+    "id": "Download location: '{{.destination}}'",
+    "translation": "下載位置：'{{.destination}}'"
   },
   {
     "id": "Download objects via Aspera",
@@ -428,6 +448,10 @@
     "translation": "取得儲存區上的靜態網站配置"
   },
   {
+    "id": "Get the value of a configuration item",
+    "translation": "取得配置項目的值"
+  },
+  {
     "id": "Get the versioning configuration for a bucket",
     "translation": "取得儲存區的版本化配置"
   },
@@ -458,10 +482,6 @@
   {
     "id": "Interact with IBM Cloud Object Storage services",
     "translation": "與 IBM Cloud Object Storage 服務互動"
-  },
-  {
-    "id": "A valid Service Instance ID / CRN must be configured to create or list buckets.\nIf the Service Instance has not been created already, create it using CLI: ‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\nAlternatively, you can create it using the IBM Cloud UI: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\nGet the CRN using: ‘ibmcloud resource service-instance <instance-name> --crn’.\nConfigure the CRN using: ‘ibmcloud cos config crn --crn <crn-value>’.\nVerify the Service Instance ID / CRN using: ‘ibmcloud cos config list’.",
-    "translation": "必須配置有效的服務實例 ID / CRN，才能建立或列出儲存區。\n如果尚未建立服務實例，請使用 CLI 建立：‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’。\n或者，您可以使用 IBM Cloud UI 建立：https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance。\n使用 下列指令取得 CRN：‘ibmcloud resource service-instance <instance-name> --crn’。\n使用下列指令配置 CRN：‘ibmcloud cos config crn --crn <crn-value>’。\n使用下列指令驗證服務實例 ID / CRN：‘ibmcloud cos config list’。"
   },
   {
     "id": "Invalid boolean flag '--%s'",
@@ -532,6 +552,10 @@
     "translation": "列出特定儲存區中的所有物件"
   },
   {
+    "id": "List all objects in a specific bucket with pagination support",
+    "translation": "列出特定儲存區中的所有物件，並支援分頁功能"
+  },
+  {
     "id": "List configuration",
     "translation": "列出配置"
   },
@@ -542,6 +566,10 @@
   {
     "id": "List parts of an active multipart upload",
     "translation": "列出作用中多組件上傳的組件"
+  },
+  {
+    "id": "List s3 endpoint-url for regions",
+    "translation": "列出區域的 s3 端點 URL"
   },
   {
     "id": "Location Constraint",
@@ -672,6 +700,10 @@
     "translation": "重新導向通訊協定： "
   },
   {
+    "id": "Region is empty. Use ‘ibmcloud cos endpoints --region <region-name>’ to specify a region.",
+    "translation": "區域為空。 使用 ‘ibmcloud cos endpoints --region <region-name>’ 指定一個區域。"
+  },
+  {
     "id": "Region: ",
     "translation": "區域： "
   },
@@ -720,12 +752,12 @@
     "translation": "保留期間： "
   },
   {
-    "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified).",
-    "translation": "僅傳回在指定的 `TIMESTAMP` 後修改的物件，否則傳回 304（未修改）。"
+    "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "僅傳回在指定的 `TIMESTAMP` 後修改的物件，否則傳回 304（未修改）。 時間戳記必須是 RFC3339 格式（例如 2025-01-01T00:00:00Z）"
   },
   {
-    "id": "Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed).",
-    "translation": "僅傳回在指定的 `TIMESTAMP` 後未修改的物件，否則傳回 412（前置條件失敗）。"
+    "id": "Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "僅傳回在指定的 `TIMESTAMP` 後未修改的物件，否則傳回 412（前置條件失敗）。 時間戳記必須是 RFC3339 格式（例如 2025-01-01T00:00:00Z）"
   },
   {
     "id": "Return the object only if its entity tag (ETag) is different from the `ETAG` specified, otherwise return a 304 (not modified).",
@@ -744,8 +776,16 @@
     "translation": "儲存新的服務實例 ID / CRN..."
   },
   {
+    "id": "Select the Service Instance ID / CRN",
+    "translation": "選取服務實例 ID / CRN"
+  },
+  {
     "id": "Service Endpoint",
     "translation": "服務端點"
+  },
+  {
+    "id": "Service Instance ID / CRN:",
+    "translation": "服務實例 ID / CRN："
   },
   {
     "id": "Set custom Service Endpoint for all operations",
@@ -860,12 +900,12 @@
     "translation": "指定是要從來源物件複製標籤集，還是將它取代為提供的標籤集"
   },
   {
-    "id": "Status: ",
-    "translation": "狀態： "
+    "id": "Specify the value of a configuration item",
+    "translation": "指定配置項目的值"
   },
   {
-    "id": "Store Service Instance ID / CRN in the config",
-    "translation": "在配置中儲存服務實例 ID / CRN"
+    "id": "Status: ",
+    "translation": "狀態： "
   },
   {
     "id": "Store Default Download Location in the config",
@@ -878,6 +918,10 @@
   {
     "id": "Store HMAC credentials in the config",
     "translation": "將 HMAC 認證儲存在配置中"
+  },
+  {
+    "id": "Store Service Instance ID / CRN in the config",
+    "translation": "在配置中儲存服務實例 ID / CRN"
   },
   {
     "id": "Store your Service Instance ID / `CRN` in the config.",
@@ -904,8 +948,8 @@
     "translation": "已順利地在儲存區 {{.Bucket}} 上刪除 CORS 配置"
   },
   {
-    "id": "Successfully deleted bucket '{{.Bucket}}'. The bucket '{{.Bucket}}' will be available for reuse after 15 minutes.",
-    "translation": "已順利地刪除儲存區 '{{.Bucket}}'。儲存區 '{{.Bucket}}' 將在 15 分鐘後可供重複使用。"
+    "id": "Successfully deleted bucket '{{.Bucket}}'. The bucket name '{{.Bucket}}' will be available for reuse after 15 minutes.",
+    "translation": "成功刪除儲存區 '{{.Bucket}}'。 15 分鐘後，儲存區名稱 '{{.Bucket}}' 將可重複使用。"
   },
   {
     "id": "Successfully downloaded '{{.Key}}' from bucket '{{.Bucket}}'",
@@ -934,18 +978,6 @@
   {
     "id": "Successfully stored your Service Instance ID / CRN.",
     "translation": "成功儲存您的服務實例 ID / CRN。"
-  },
-  {
-    "id": "Select the Service Instance ID / CRN",
-    "translation": "選取服務實例 ID / CRN"
-  },
-  {
-    "id": "Service Instance ID / CRN:",
-    "translation": "服務實例 ID / CRN："
-  },
-  {
-    "id": "Unable to store Service Instance ID / CRN.",
-    "translation": "無法儲存服務實例 ID / CRN。"
   },
   {
     "id": "Successfully switched to {{.Auth}}-based authentication. The program will access your Cloud Object Storage account using your {{.Auth}} Credentials.",
@@ -1028,6 +1060,10 @@
     "translation": "下載目的地 '{{.Location}}' 是目錄。"
   },
   {
+    "id": "The given region '{{.Region}}' is not valid. Use ‘ibmcloud cos endpoints --list-regions’ to list all regions.",
+    "translation": "給定的區域 '{{.Region}}' 無效。 使用 ‘ibmcloud cos endpoints --list-regions’ 來列出所有區域。"
+  },
+  {
     "id": "The lifecycle configuration was not found",
     "translation": "找不到生命週期配置"
   },
@@ -1036,8 +1072,8 @@
     "translation": "儲存區的名稱 (`BUCKET_NAME`)。"
   },
   {
-    "id": "The name (`CLASS_NAME`) of the Class.",
-    "translation": "類別的名稱 (`CLASS_NAME`)。"
+    "id": "The name (`CLASS_NAME`) of the storage class to assign to the bucket.",
+    "translation": "要指派給儲存區的儲存類別名稱 (`CLASS_NAME`)。"
   },
   {
     "id": "The number of goroutines to spin up in parallel per call to Upload when sending parts. Default value is 5.",
@@ -1090,6 +1126,10 @@
   {
     "id": "The specified key does not exist.",
     "translation": "指定的金鑰不存在。"
+  },
+  {
+    "id": "The stored region '{{.Region}}' is not valid. Store a valid region using ‘ibmcloud cos config region --region <region-name>’.",
+    "translation": "儲存的區域 '{{.Region}}' 無效。 使用 ‘ibmcloud cos config region --region <region-name>’ 儲存有效的區域。"
   },
   {
     "id": "The total `NUMBER` of items to return in the command's output.",
@@ -1224,6 +1264,10 @@
     "translation": "無法儲存秘密金鑰。"
   },
   {
+    "id": "Unable to store Service Instance ID / CRN.",
+    "translation": "無法儲存服務實例 ID / CRN。"
+  },
+  {
     "id": "Unable to store new download location.",
     "translation": "無法儲存新的下載位置。"
   },
@@ -1352,6 +1396,14 @@
     "translation": "天"
   },
   {
+    "id": "invalid URL Style, use valid style like VHost, Path etc",
+    "translation": "無效的 URL 樣式，請使用有效的樣式，如 VHost、Path 等"
+  },
+  {
+    "id": "invalid method, use valid methods like IAM, hmac etc",
+    "translation": "方法無效，請使用 IAM、hmac 等有效方法"
+  },
+  {
     "id": "key",
     "translation": "key"
   },
@@ -1410,5 +1462,9 @@
   {
     "id": "value",
     "translation": "值"
+  },
+  {
+    "id": "{{.operation}} a value for {{.subcommand}} option",
+    "translation": "{{.operation}}{{.subcommand}} 選項的值"
   }
 ]

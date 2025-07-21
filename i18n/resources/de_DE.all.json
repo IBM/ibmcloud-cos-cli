@@ -92,12 +92,20 @@
     "translation": "1 Übergang in der Lebenszykluskonfiguration des Buckets"
   },
   {
+    "id": "A JSON `STRUCTURE` for configuring static website hosting.\n\tExample:\n\t{\n\t\t\"ErrorDocument\": {\n\t\t\t\"Key\": \"error.html\"\n\t\t},\n\t\t\"IndexDocument\": {\n\t\t\t\"Suffix\": \"index.html\"\n\t\t},\n\t\t\"RoutingRules\": [\n\t\t\t{\n\t\t\t\t\"Condition\": {\n\t\t\t\t\t...\n\t\t\t\t},\n\t\t\t\t\"Redirect\": {\n\t\t\t\t\t...\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}",
+    "translation": "Eine Struktur ('STRUCTURE') mit JSON-Syntax zum Konfigurieren des Hostings statischer Websites. \nBeispiel:\n{\n\"ErrorDocument\": {\n\t\t\t\"Key\": \"error.html\"\n\t\t},\n\"IndexDocument\": {\n\t\t\t\"Suffix\": \"index.html\"\n\t\t},\n\"RoutingRules\": [\n{\n\"Condition\": {\n\t\t\t\t\t...\n\t\t\t\t},\n\"Redirect\": {\n\t\t\t\t\t...\n\t\t\t\t}\n}\n]\n}"
+  },
+  {
     "id": "A `DELIMITER` is a character you use to group keys.",
     "translation": "Ein Begrenzer (DELIMITER) ist ein Zeichen, das zum Gruppieren von Schlüsseln verwendet wird."
   },
   {
-    "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
-    "translation": "Eine Struktur (STRUCTURE), die JSON-Syntax in einer Datei verwendet. Weitere Informationen finden Sie in der Dokumentation zu IBM Cloud."
+    "id": "A `STRUCTURE` using JSON syntax in a file.\n\tExample:\n\t{\n\t\t\"CORSRules\": [\n\t\t\t{\n\t\t\t\t\"AllowedHeaders\": [\"*\"],\n\t\t\t\t\"AllowedMethods\": [\"PUT\", \"GET\", \"DELETE\"],\n\t\t\t\t\"AllowedOrigins\": [\"http://www.example.com\"],\n\t\t\t\t\"ExposeHeaders\": [\"ExposeHeader7\", \"ExposeHeader8\"],\n\t\t\t\t\"MaxAgeSeconds\": 75\n\t\t\t}\n\t\t]\n\t}",
+    "translation": "Eine Struktur ('STRUCTURE'), die JSON-Syntax in einer Datei verwendet.\nBeispiel:\n{\n\"CORSRules\": [\n{\n\t\t\t\t\"AllowedHeaders\": [\"*\"],\n\t\t\t\t\"AllowedMethods\": [\"PUT\", \"GET\", \"DELETE\"],\n\t\t\t\t\"AllowedOrigins\": [\"http://www.example.com\"],\n\t\t\t\t\"ExposeHeaders\": [\"ExposeHeader7\", \"ExposeHeader8\"],\n\t\t\t\t\"MaxAgeSeconds\": 75\n\t\t\t}\n]\n}"
+  },
+  {
+    "id": "A `STRUCTURE` using JSON syntax.\n\tExample:\n\t{\n\t\t\"Rules\": [\n\t\t\t{\n\t\t\t\t\"Status\": \"Enabled\",\n\t\t\t\t\"Priority\": 1,\n\t\t\t\t\"Filter\": {\n\t\t\t\t\t\"Prefix\": \"\"\n\t\t\t\t},\n\t\t\t\t\"DeleteMarkerReplication\": {\n\t\t\t\t\t\"Status\": \"Disabled\"\n\t\t\t\t},\n\t\t\t\t\"Destination\": {\n\t\t\t\t\t\"Bucket\": \"DEST-BUCKET-NAME\"\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}",
+    "translation": "Eine Struktur ('STRUCTURE'), die JSON-Syntax verwendet.\nBeispiel: \n{\n\"Rules\": [\n{\n\"Status\": \"Enabled\",\n\"Priority\": 1,\n\"Filter\": {\n\t\t\t\t\t\"Prefix\": \"\"\n\t\t\t\t},\n\"DeleteMarkerReplication\": {\n\t\t\t\t\t\"Status\": \"Disabled\"\n\t\t\t\t},\n\"Destination\": {\n\t\t\t\t\t\"Bucket\": \"DEST-BUCKET-NAME\"\n\t\t\t\t}\n}\n]\n}"
   },
   {
     "id": "A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
@@ -124,6 +132,10 @@
     "translation": "Eine Tag-Gruppe für das Objekt, das als URL-Abfrageparameter codiert ist (`Key1=Value1`). Für `object-tagging-put` eine Struktur (STRUCTURE) mit JSON-Syntax. Weitere Informationen finden Sie in der Dokumentation zu IBM Cloud."
   },
   {
+    "id": "A valid Service Instance ID / CRN must be configured to create or list buckets.\nIf the Service Instance has not been created already, create it using CLI: ‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\nAlternatively, you can create it using the IBM Cloud UI: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\nGet the CRN using: ‘ibmcloud resource service-instance <instance-name> --crn’.\nConfigure the CRN using: ‘ibmcloud cos config crn --crn <crn-value>’.\nVerify the Service Instance ID / CRN using: ‘ibmcloud cos config list’.",
+    "translation": "Eine gültige Service-Instanz-ID / CRN muss konfiguriert sein, um die Buckets zu erstellen oder aufzulisten.\nWenn die Service-Instanz noch nicht erstellt wurde, erstellen Sie sie mit der CLI: 'ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\nAlternatively, Sie können sie mit der IBM Cloud UI erstellen: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\nGet die CRN mit: 'ibmcloud resource service-instance <instance-name> --crn’.\nKonfigurieren Sie die CRN mit: 'ibmcloud cos config crn --crn <crn-value>’.\nVerifizieren Sie die Service-Instanz-ID / CRN mithilfe von: 'ibmcloud cos config list'."
+  },
+  {
     "id": "Abort an existing multipart upload",
     "translation": "Vorhandenen mehrteiligen Upload abbrechen"
   },
@@ -136,8 +148,8 @@
     "translation": "AbortIncompleteMultipartUpload: "
   },
   {
-    "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
-    "translation": "Der Zugriff auf Ihr IBM Cloud-Konto wurde verweigert. Melden Sie sich erneut an. Geben Sie dazu den Befehl 'ibmcloud login --sso' ein."
+    "id": "Access to the IBM Cloud account was denied — please verify that the Service Instance ID / CRN is valid, and ensure the correct endpoint URL is being used (check using ‘ibmcloud cos config list’).",
+    "translation": "Der Zugriff auf das IBM Cloud-Konto wurde verweigert. Überprüfen Sie, ob die ID/CRN für die Serviceinstanz gültig ist, und stellen Sie sicher, dass die richtige Endpunkt-URL verwendet wird. (Führen Sie die Prüfung mit 'ibmcloud cos config list' durch)."
   },
   {
     "id": "Are you sure you would like to continue?",
@@ -184,6 +196,10 @@
     "translation": "Löscht den Optionswert."
   },
   {
+    "id": "Clear the value of a configuration item to the default",
+    "translation": "Wert eines Konfigurationselements auf den Standardwert zurücksetzen"
+  },
+  {
     "id": "Command does not support Flag '--%s'",
     "translation": "Der Befehl unterstützt das Flag '--%s' nicht"
   },
@@ -196,12 +212,12 @@
     "translation": "Vorhandenen mehrteiligen Upload abschließen"
   },
   {
-    "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
-    "translation": "Kopiert das Objekt, wenn es nach dem angegebenen Zeitpunkt (TIMESTAMP) geändert wurde."
+    "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "Kopiert das Objekt, wenn seit dem durch die Zeitmarke ('TIMESTAMP') angegebenen Zeitpunkt Änderungen an ihm vorgenommen wurden. Die Zeitmarke muss dem RFC3339-Format entsprechen (Beispiel: 2025-01-01T00:00:00Z)."
   },
   {
-    "id": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`).",
-    "translation": "Kopiert das Objekt, wenn es nach dem angegebenen Zeitpunkt (TIMESTAMP) nicht geändert wurde."
+    "id": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "Kopiert das Objekt, wenn seit dem durch die Zeitmarke ('TIMESTAMP') angegebenen Zeitpunkt keine Änderungen an ihm vorgenommen wurden. Die Zeitmarke muss dem RFC3339-Format entsprechen (Beispiel: 2025-01-01T00:00:00Z)."
   },
   {
     "id": "Copies the object if its entity tag (ETag) is different than the specified tag (`ETAG`).",
@@ -310,6 +326,10 @@
   {
     "id": "Download an object using a managed multipart transfer",
     "translation": "Objekt mit einer verwalteten mehrteiligen Übertragung herunterladen"
+  },
+  {
+    "id": "Download location: '{{.destination}}'",
+    "translation": "Speicherposition für den Download: '{{.destination}}'"
   },
   {
     "id": "Download objects via Aspera",
@@ -428,6 +448,10 @@
     "translation": "Statische Websitekonfiguration für ein Bucket abrufen"
   },
   {
+    "id": "Get the value of a configuration item",
+    "translation": "Wert eines Konfigurationselements abrufen"
+  },
+  {
     "id": "Get the versioning configuration for a bucket",
     "translation": "Versionskonfiguration für ein Bucket abrufen"
   },
@@ -458,10 +482,6 @@
   {
     "id": "Interact with IBM Cloud Object Storage services",
     "translation": "Interaktion mit den IBM Cloud Object Storage-Services"
-  },
-  {
-    "id": "A valid Service Instance ID / CRN must be configured to create or list buckets.\nIf the Service Instance has not been created already, create it using CLI: ‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\nAlternatively, you can create it using the IBM Cloud UI: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\nGet the CRN using: ‘ibmcloud resource service-instance <instance-name> --crn’.\nConfigure the CRN using: ‘ibmcloud cos config crn --crn <crn-value>’.\nVerify the Service Instance ID / CRN using: ‘ibmcloud cos config list’.",
-    "translation": "Eine gültige Service-Instanz-ID / CRN muss konfiguriert sein, um die Buckets zu erstellen oder aufzulisten.\nWenn die Service-Instanz noch nicht erstellt wurde, erstellen Sie sie mit der CLI: 'ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\nAlternatively, Sie können sie mit der IBM Cloud UI erstellen: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\nGet die CRN mit: 'ibmcloud resource service-instance <instance-name> --crn’.\nKonfigurieren Sie die CRN mit: 'ibmcloud cos config crn --crn <crn-value>’.\nVerifizieren Sie die Service-Instanz-ID / CRN mithilfe von: 'ibmcloud cos config list'."
   },
   {
     "id": "Invalid boolean flag '--%s'",
@@ -532,6 +552,10 @@
     "translation": "Alle Objekte in einem bestimmten Bucket auflisten"
   },
   {
+    "id": "List all objects in a specific bucket with pagination support",
+    "translation": "Auflistung aller Objekte in einem bestimmten Bucket mit Paginierungsunterstützung"
+  },
+  {
     "id": "List configuration",
     "translation": "Konfiguration auflisten"
   },
@@ -542,6 +566,10 @@
   {
     "id": "List parts of an active multipart upload",
     "translation": "Teile eines aktiven mehrteiligen Uploads auflisten"
+  },
+  {
+    "id": "List s3 endpoint-url for regions",
+    "translation": "Auflisten der s3-Endpunkt-URL für Regionen"
   },
   {
     "id": "Location Constraint",
@@ -672,6 +700,10 @@
     "translation": "Umleitungsprotokoll: "
   },
   {
+    "id": "Region is empty. Use ‘ibmcloud cos endpoints --region <region-name>’ to specify a region.",
+    "translation": "Die Region ist leer. Verwenden Sie zum Angeben einer bestimmten Region den Befehl 'ibmcloud cos endpoints --region <region-name>’."
+  },
+  {
     "id": "Region: ",
     "translation": "Region: "
   },
@@ -720,12 +752,12 @@
     "translation": "Aufbewahrungszeitraum: "
   },
   {
-    "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified).",
-    "translation": "Gibt an, dass das Objekt nur zurückgegeben werden soll, wenn es seit der angegebenen Zeitmarke (TIMESTAMP) geändert wurde; andernfalls wird der Code 304 (nicht geändert) zurückgegeben."
+    "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "Gibt an, dass das Objekt nur zurückgegeben werden soll, wenn es seit der angegebenen Zeitmarke (TIMESTAMP) geändert wurde; andernfalls wird der Code 304 (nicht geändert) zurückgegeben. Die Zeitmarke muss dem RFC3339-Format entsprechen (Beispiel: 2025-01-01T00:00:00Z)."
   },
   {
-    "id": "Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed).",
-    "translation": "Gibt an, dass das Objekt nur zurückgegeben werden soll, wenn es seit der angegebenen Zeitmarke (TIMESTAMP) nicht geändert wurde; andernfalls wird der Code 412 (Vorbedingung fehlgeschlagen) zurückgegeben."
+    "id": "Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "Gibt an, dass das Objekt nur zurückgegeben werden soll, wenn es seit der angegebenen Zeitmarke (TIMESTAMP) nicht geändert wurde; andernfalls wird der Code 412 (Vorbedingung fehlgeschlagen) zurückgegeben. Die Zeitmarke muss dem RFC3339-Format entsprechen (Beispiel: 2025-01-01T00:00:00Z)."
   },
   {
     "id": "Return the object only if its entity tag (ETag) is different from the `ETAG` specified, otherwise return a 304 (not modified).",
@@ -744,8 +776,16 @@
     "translation": "Speichern der neuen Service-Instanz-ID / CRN..."
   },
   {
+    "id": "Select the Service Instance ID / CRN",
+    "translation": "Wählen Sie die Service-Instanz-ID / CRN"
+  },
+  {
     "id": "Service Endpoint",
     "translation": "Serviceendpunkt"
+  },
+  {
+    "id": "Service Instance ID / CRN:",
+    "translation": "Service-Instanz-ID / CRN:"
   },
   {
     "id": "Set custom Service Endpoint for all operations",
@@ -860,12 +900,12 @@
     "translation": "Gibt an, ob die Tag-Gruppe aus dem Quellenobjekt kopiert oder durch die bereitgestellte Tag-Gruppe ersetzt werden soll"
   },
   {
-    "id": "Status: ",
-    "translation": "Status: "
+    "id": "Specify the value of a configuration item",
+    "translation": "Wert eines Konfigurationselements angeben"
   },
   {
-    "id": "Store Service Instance ID / CRN in the config",
-    "translation": "Speichern der Service-Instanz-ID / CRN in der Konfiguration"
+    "id": "Status: ",
+    "translation": "Status: "
   },
   {
     "id": "Store Default Download Location in the config",
@@ -878,6 +918,10 @@
   {
     "id": "Store HMAC credentials in the config",
     "translation": "HMAC-Berechtigungsnachweise in der Konfiguration speichern"
+  },
+  {
+    "id": "Store Service Instance ID / CRN in the config",
+    "translation": "Speichern der Service-Instanz-ID / CRN in der Konfiguration"
   },
   {
     "id": "Store your Service Instance ID / `CRN` in the config.",
@@ -904,8 +948,8 @@
     "translation": "Die CORS-Konfiguration für Bucket '{{.Bucket}}' wurde erfolgreich gelöscht"
   },
   {
-    "id": "Successfully deleted bucket '{{.Bucket}}'. The bucket '{{.Bucket}}' will be available for reuse after 15 minutes.",
-    "translation": "Das Bucket '{{.Bucket}}' wurde erfolgreich gelöscht. Das Bucket '{{.Bucket}}' kann nach 15 Minuten wiederverwendet werden."
+    "id": "Successfully deleted bucket '{{.Bucket}}'. The bucket name '{{.Bucket}}' will be available for reuse after 15 minutes.",
+    "translation": "Das Bucket '{{.Bucket}}' wurde erfolgreich gelöscht. Der Bucketname '{{.Bucket}}' kann nach Ablauf von 15 Minuten wieder verwendet werden."
   },
   {
     "id": "Successfully downloaded '{{.Key}}' from bucket '{{.Bucket}}'",
@@ -934,18 +978,6 @@
   {
     "id": "Successfully stored your Service Instance ID / CRN.",
     "translation": "Ihre Service-Instanz-ID / CRN wurde erfolgreich gespeichert."
-  },
-  {
-    "id": "Select the Service Instance ID / CRN",
-    "translation": "Wählen Sie die Service-Instanz-ID / CRN"
-  },
-  {
-    "id": "Service Instance ID / CRN:",
-    "translation": "Service-Instanz-ID / CRN:"
-  },
-  {
-    "id": "Unable to store Service Instance ID / CRN.",
-    "translation": "Die Service-Instanz-ID / CRN kann nicht gespeichert werden."
   },
   {
     "id": "Successfully switched to {{.Auth}}-based authentication. The program will access your Cloud Object Storage account using your {{.Auth}} Credentials.",
@@ -1028,6 +1060,10 @@
     "translation": "Das Downloadziel '{{.Location}}' ist ein Verzeichnis."
   },
   {
+    "id": "The given region '{{.Region}}' is not valid. Use ‘ibmcloud cos endpoints --list-regions’ to list all regions.",
+    "translation": "Die angegebene Region '{{.Region}}' ist nicht gültig. Verwenden Sie zum Auflisten aller Regionen den Befehl 'ibmcloud cos endpoints --list-regions'."
+  },
+  {
     "id": "The lifecycle configuration was not found",
     "translation": "Die Lebenszykluskonfiguration wurde nicht gefunden"
   },
@@ -1036,8 +1072,8 @@
     "translation": "Der Name (BUCKET_NAME) des Buckets."
   },
   {
-    "id": "The name (`CLASS_NAME`) of the Class.",
-    "translation": "Der Name (CLASS_NAME) der Klasse."
+    "id": "The name (`CLASS_NAME`) of the storage class to assign to the bucket.",
+    "translation": "Der Name ('CLASS_NAME') der Speicherklasse, die dem Bucket zugewiesen werden soll."
   },
   {
     "id": "The number of goroutines to spin up in parallel per call to Upload when sending parts. Default value is 5.",
@@ -1090,6 +1126,10 @@
   {
     "id": "The specified key does not exist.",
     "translation": "Der angegebene Schlüssel ist nicht vorhanden."
+  },
+  {
+    "id": "The stored region '{{.Region}}' is not valid. Store a valid region using ‘ibmcloud cos config region --region <region-name>’.",
+    "translation": "Die gespeicherte Region '{{.Region}}' ist nicht gültig. Verwenden Sie zum Speichern einer gültigen Region den Befehl 'ibmcloud cos config region --region <region-name>'."
   },
   {
     "id": "The total `NUMBER` of items to return in the command's output.",
@@ -1224,6 +1264,10 @@
     "translation": "Der geheime Schlüssel kann nicht gespeichert werden."
   },
   {
+    "id": "Unable to store Service Instance ID / CRN.",
+    "translation": "Die Service-Instanz-ID / CRN kann nicht gespeichert werden."
+  },
+  {
     "id": "Unable to store new download location.",
     "translation": "Die neue Speicherposition für den Download kann nicht gespeichert werden."
   },
@@ -1352,6 +1396,14 @@
     "translation": "Tage"
   },
   {
+    "id": "invalid URL Style, use valid style like VHost, Path etc",
+    "translation": "URL-Stil ungültig; verwenden Sie gültige Stile wie VHost, Path usw."
+  },
+  {
+    "id": "invalid method, use valid methods like IAM, hmac etc",
+    "translation": "Methode ungültig; verwenden Sie gültige Methoden wie IAM, hmac usw."
+  },
+  {
     "id": "key",
     "translation": "Schlüssel"
   },
@@ -1410,5 +1462,9 @@
   {
     "id": "value",
     "translation": "Wert"
+  },
+  {
+    "id": "{{.operation}} a value for {{.subcommand}} option",
+    "translation": "{{.operation}} ein Wert für die {{.subcommand}}-Option"
   }
 ]

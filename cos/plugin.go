@@ -70,8 +70,8 @@ func (_ *Plugin) GetMetadata() plugin.PluginMetadata {
 
 	// Build Plugin Metadata for COS
 	cosPlugin := plugin.PluginMetadata{
-		Name:    "cloud-object-storage",
-		Version: version.CLIVersion,
+		Name:                     "cloud-object-storage",
+		Version:                  version.CLIVersion,
 		PrivateEndpointSupported: true,
 		Namespaces: append(ns, plugin.Namespace{
 			Name:        NameSpace,

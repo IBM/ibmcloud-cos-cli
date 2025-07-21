@@ -229,6 +229,9 @@ const (
 	// PublicAccessBlockPut Command
 	PublicAccessBlockPut = "public-access-block-put"
 
+	// Endpoints Command
+	Endpoints = "endpoints"
+
 	// Upload Command from S3Manager
 	Upload = "upload"
 
@@ -261,6 +264,15 @@ const (
 
 	// List Subcommand for Config
 	List = "list"
+
+	// Set Subcommand for Config
+	Set = "set"
+
+	// Get Subcommand for Config
+	Get = "get"
+
+	// Unset Subcommand for Config
+	Unset = "unset"
 
 	// RegionsEndpointURL Subcommand for Config
 	RegionsEndpointURL = "regions-endpoint"

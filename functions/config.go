@@ -7,12 +7,14 @@ import (
 	"strings"
 	"time"
 
+	cerrors "github.com/IBM/ibmcloud-cos-cli/errors"
 	"github.com/urfave/cli"
 
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/bluemix/terminal"
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/plugin"
 	"github.com/IBM/ibmcloud-cos-cli/config"
 	"github.com/IBM/ibmcloud-cos-cli/config/flags"
+	ierrors "github.com/IBM/ibmcloud-cos-cli/errors"
 	. "github.com/IBM/ibmcloud-cos-cli/i18n"
 	"github.com/IBM/ibmcloud-cos-cli/utils"
 )
@@ -245,6 +247,191 @@ func buildTable(ui terminal.UI, pc plugin.PluginConfig, fields []ConfigOption) t
 	return table
 }
 
+func GetConfigOption(commandName string) (*ConfigOption, error) {
+	options := map[string]*ConfigOption{
+		"auth":         &configOptionAuthenticationMethod,
+		flags.CRN:      &configOptionDefaultCRN,
+		flags.DDL:      &configOptionDefaultDownloadLocation,
+		"endpoint-url": &configOptionServiceEndpoint,
+		"hmac":         &configOptionHMACKey,
+		flags.Region:   &configOptionDefaultRegion,
+		"url-style":    &configOptionURLStyle,
+	}
+
+	if commandName != "" {
+		for key, value := range options {
+			if strings.EqualFold(key, commandName) {
+				return value, nil
+			}
+		}
+	}
+
+	// TODO: update error message to be send using cerrors.
+	return nil, errors.New("invalid option")
+}
+
+func ConfigSet(c *cli.Context) (err error) {
+	if c.NArg() > 1 {
+		return cerrors.CreateCommandError(c, cerrors.InvalidNArg, "", nil)
+	}
+
+	var cosContext *utils.CosContext
+	if cosContext, err = GetCosContext(c); err != nil {
+		return
+	}
+
+	conf := cosContext.Config
+
+	args := c.Args()
+	var option *ConfigOption
+	if option, err = GetConfigOption(c.Command.Name); err != nil {
+		return
+	}
+
+	var value string
+	if option != &configOptionHMACKey {
+		value = args.First()
+		if value == "" {
+			return cerrors.CreateCommandError(c, cerrors.InvalidNArg, "", nil)
+		}
+	}
+
+	var v any = value
+	done := false
+
+	switch option {
+	case &configOptionAuthenticationMethod:
+		if v, err = authToBool(value); err != nil {
+			return errors.New(T("invalid method, use valid methods like IAM, hmac etc"))
+		}
+	case &configOptionHMACKey:
+		if done, err = setHMACKeys(cosContext, conf); err != nil {
+			return
+		}
+	case &configOptionURLStyle:
+		if v, err = urlStyleToBool(value); err != nil {
+			return errors.New(T("invalid URL Style, use valid style like VHost, Path etc"))
+		}
+	}
+
+	if !done {
+		if err = conf.Set(option.Key, v); err != nil {
+			return
+		}
+	}
+
+	if err = UpdateTimeStamp(conf); err != nil {
+		return
+	}
+
+	cosContext.UI.Ok()
+	return
+}
+
+func setHMACKeys(cosContext *utils.CosContext, conf plugin.PluginConfig) (done bool, err error) {
+	var accessKeyID, secretAccessKey string
+	oldAccessKey := conf.Get(config.AccessKeyID)
+
+	cosContext.UI.Prompt("Access key", nil).Resolve(&accessKeyID)
+	if err = conf.Set(config.AccessKeyID, accessKeyID); err != nil {
+		return false, err
+	}
+
+	cosContext.UI.Prompt("Secret key", nil).Resolve(&secretAccessKey)
+	if err = conf.Set(config.SecretAccessKey, secretAccessKey); err != nil {
+		// Rollback if error occurs while setting Secret key
+		if err := conf.Set(config.AccessKeyID, oldAccessKey); err != nil {
+			conf.Erase(config.AccessKeyID)
+		}
+		return false, err
+	}
+
+	return true, nil
+}
+
+func ConfigGet(c *cli.Context) (err error) {
+	if c.NArg() > 0 {
+		return cerrors.CreateCommandError(c, cerrors.InvalidNArg, "", nil)
+	}
+
+	var cosContext *utils.CosContext
+	if cosContext, err = GetCosContext(c); err != nil {
+		return
+	}
+
+	config := cosContext.Config
+
+	var option *ConfigOption
+	if option, err = GetConfigOption(c.Command.Name); err != nil {
+		return
+	}
+
+	value := GetConfigOptionValue(config, option)
+	if value == "" {
+		value = "null"
+	}
+	cosContext.UI.Print("%v", value)
+	return
+}
+
+func GetConfigOptionValue(c plugin.PluginConfig, option *ConfigOption) (value any) {
+	if c.Exists(option.Key) {
+		rawValue := c.Get(option.Key)
+		if option.PostLoad != nil {
+			value = option.PostLoad(rawValue)
+		} else {
+			value = fmt.Sprintf("%v", rawValue)
+		}
+		return value
+	}
+	return option.Default
+}
+
+func ConfigUnset(c *cli.Context) (err error) {
+	if c.NArg() > 0 {
+		return cerrors.CreateCommandError(c, cerrors.InvalidNArg, "", nil)
+	}
+
+	var cosContext *utils.CosContext
+	if cosContext, err = GetCosContext(c); err != nil {
+		return
+	}
+
+	conf := cosContext.Config
+
+	var option *ConfigOption
+	if option, err = GetConfigOption(c.Command.Name); err != nil {
+		return
+	}
+
+	switch option {
+	case &configOptionHMACKey:
+		oldAccessKey := conf.Get(config.AccessKeyID)
+		if err = conf.Erase(config.AccessKeyID); err != nil {
+			return
+		}
+		if err = conf.Erase(config.SecretAccessKey); err != nil {
+			conf.Set(config.AccessKeyID, oldAccessKey)
+			return
+		}
+	default:
+		if err = conf.Erase(option.Key); err != nil {
+			return
+		}
+	}
+
+	if err = UpdateTimeStamp(conf); err != nil {
+		return
+	}
+
+	cosContext.UI.Ok()
+	return
+}
+
+func UpdateTimeStamp(c plugin.PluginConfig) (err error) {
+	return c.Set(config.LastUpdated, time.Now().Local().Format(config.StandardTimeFormat))
+}
+
 // ConfigChangeDefaultRegion allows the user to change the default region for the program to look for a bucket.
 func ConfigChangeDefaultRegion(c *cli.Context) error {
 
@@ -435,7 +622,11 @@ func ConfigCRN(c *cli.Context) error {
 
 	// validate the number of flags and the number of arguments passed to the command
 	if (c.IsSet(flags.List) && c.NumFlags() > 1) || c.NumFlags() > 2 || c.NArg() > 0 {
-		cli.ShowCommandHelpAndExit(c, c.Command.Name, 1)
+		err := &ierrors.CommandError{
+			CLIContext: c,
+			Cause:      ierrors.InvalidNArg,
+		}
+		return err
 	}
 
 	// if list flag set

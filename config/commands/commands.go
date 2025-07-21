@@ -8,6 +8,16 @@ import (
 	. "github.com/IBM/ibmcloud-cos-cli/i18n"
 )
 
+var subcommands = map[string]string{
+	"auth":         T("Switch between HMAC and IAM authentication"),
+	"crn":          T("Store Service Instance ID / CRN in the config"),
+	"ddl":          T("Store Default Download Location in the config"),
+	"endpoint-url": T("Set custom Service Endpoint for all operations"),
+	"hmac":         T("Store HMAC credentials in the config"),
+	"region":       T("Store Default Region in the config"),
+	"url-style":    T("Switch between VHost and Path URL style"),
+}
+
 var (
 	// CommandBucketCreate - Create a bucket (OneCloud version)
 	// command:
@@ -794,6 +804,17 @@ var (
 		Action: functions.PublicAccessBlockPut,
 	}
 
+	CommandEndpoints = cli.Command{
+		Name:        Endpoints,
+		Description: T("List s3 endpoint-url for regions"),
+		Flags: []cli.Flag{
+			flags.FlagEndpointRegion,
+			flags.FlagListRegions,
+			flags.FlagOutput,
+		},
+		Action: functions.Endpoints,
+	}
+
 	// CommandDownload - Download objects concurrently using S3 Transfer Manager
 	// command:
 	//	 ibmcloud cos download
@@ -959,6 +980,9 @@ var (
 		Name:        Config,
 		Description: T("Change plugin configuration"),
 		Subcommands: cli.Commands{
+			CommandSet,
+			CommandGet,
+			CommandUnset,
 			CommandList,
 			CommandRegion,
 			CommandDDL,
@@ -969,6 +993,26 @@ var (
 			CommandRegionsEndpointURL,
 			CommandSetEndpoint,
 		},
+	}
+
+	CommandSet = cli.Command{
+		Name:        Set,
+		Description: T("Specify the value of a configuration item"),
+		Subcommands: generateSubcommands(subcommands, Set),
+	}
+
+	CommandGet = cli.Command{
+		Name:        Get,
+		Description: T("Get the value of a configuration item"),
+		Subcommands: generateSubcommands(subcommands, Get),
+		Action:      functions.ConfigGet,
+	}
+
+	CommandUnset = cli.Command{
+		Name:        Unset,
+		Description: T("Clear the value of a configuration item to the default"),
+		Subcommands: generateSubcommands(subcommands, Unset),
+		Action:      functions.ConfigUnset,
 	}
 
 	// CommandList - (subcommand for Config)
@@ -1412,7 +1456,7 @@ var (
 	//	 ibmcloud cos list-objects-v2
 	CommandListObjectsV2 = cli.Command{
 		Name:        ListObjectsV2,
-		Description: T("List all objects in a specific bucket"),
+		Description: T("List all objects in a specific bucket with pagination support"),
 		Flags: []cli.Flag{
 			flags.FlagBucket,
 			flags.FlagContinuationToken,
@@ -1581,3 +1625,32 @@ var (
 		Hidden: true,
 	}
 )
+
+func generateSubcommands(commandDescriptions map[string]string, operation string) (subcommands []cli.Command) {
+	var usage string
+	var action func(*cli.Context) error
+	switch operation {
+	case Set:
+		usage = "[VALUE]"
+		action = functions.ConfigSet
+	case Get:
+		action = functions.ConfigGet
+	case Unset:
+		action = functions.ConfigUnset
+	}
+
+	for name, desc := range commandDescriptions {
+		if operation != Set {
+			desc = T("{{.operation}} a value for {{.subcommand}} option",
+				map[string]any{"operation": operation, "subcommand": name},
+			)
+		}
+		subcommands = append(subcommands, cli.Command{
+			Name:        name,
+			Description: desc,
+			ArgsUsage:   usage,
+			Action:      action,
+		})
+	}
+	return
+}

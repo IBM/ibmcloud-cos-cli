@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/IBM-Cloud/ibm-cloud-cli-sdk/bluemix/terminal"
+	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3/s3manager"
 )
@@ -27,17 +28,40 @@ func NewJSONRender(terminal terminal.UI) *JSONRender {
 	return tmp
 }
 
-func (jsr *JSONRender) Display(_ interface{}, output interface{}, _ map[string]interface{}) error {
+func (jsr *JSONRender) Display(input interface{}, output interface{}, additionalParameters map[string]interface{}) error {
 	// Turn off escape HTML characters
 	jsr.encoder.SetEscapeHTML(false)
 	switch castedOutput := output.(type) {
 	case *s3.AbortMultipartUploadOutput:
-		return nil
+		var castInput *s3.AbortMultipartUploadInput
+		var ok bool
+		if castInput, ok = input.(*s3.AbortMultipartUploadInput); !ok {
+			return badCastError
+		}
+		output = AbortMultipartUploadOutput{
+			Bucket: castInput.Bucket,
+			Key:    castInput.Key,
+		}
 	case *s3.CopyObjectOutput:
 		output = new(CopyObjectOutput)
 		structMap(output, castedOutput)
 	case *s3.CreateBucketOutput:
-		return nil
+		var castInput *s3.CreateBucketInput
+		var ok bool
+		if castInput, ok = input.(*s3.CreateBucketInput); !ok {
+			return badCastError
+		}
+		var location string
+		if castInput.CreateBucketConfiguration != nil {
+			location = aws.StringValue(castInput.CreateBucketConfiguration.LocationConstraint)
+		}
+		class := renderClass(getClassFromLocationConstraint(location))
+		region := getRegionFromLocationConstraint(location)
+		output = CreateBucketOutput{
+			Bucket: castInput.Bucket,
+			Class:  &class,
+			Region: &region,
+		}
 	case *s3.CreateMultipartUploadOutput:
 		output = new(CreateMultipartUploadOutput)
 		structMap(output, castedOutput)
@@ -45,14 +69,42 @@ func (jsr *JSONRender) Display(_ interface{}, output interface{}, _ map[string]i
 		output = new(CompleteMultipartUploadOutput)
 		structMap(output, castedOutput)
 	case *s3.DeleteBucketOutput:
-		return nil
+		var castInput *s3.DeleteBucketInput
+		var ok bool
+		if castInput, ok = input.(*s3.DeleteBucketInput); !ok {
+			return badCastError
+		}
+		output = DeleteBucketOutput{
+			Bucket: castInput.Bucket,
+		}
 	case *s3.DeleteBucketCorsOutput:
-		return nil
-	case *s3.GetObjectOutput:
+		var castInput *s3.DeleteBucketCorsInput
+		var ok bool
+		if castInput, ok = input.(*s3.DeleteBucketCorsInput); !ok {
+			return badCastError
+		}
+		output = DeleteBucketCorsOutput{
+			Bucket: castInput.Bucket,
+		}
+	case *GetObjectOutputWrapper:
 		output = new(GetObjectOutput)
 		structMap(output, castedOutput)
 	case *s3.HeadBucketOutput:
-		return nil
+		var castInput *s3.HeadBucketInput
+		var ok bool
+		if castInput, ok = input.(*s3.HeadBucketInput); !ok {
+			return badCastError
+		}
+		var region string
+		if regionKey, found := additionalParameters["region"]; found {
+			if region, ok = regionKey.(string); !ok {
+				return badCastError
+			}
+		}
+		output = HeadBucketOutput{
+			Bucket: castInput.Bucket,
+			Region: &region,
+		}
 	case *s3.HeadObjectOutput:
 		output = new(HeadObjectOutput)
 		structMap(output, castedOutput)
@@ -76,7 +128,14 @@ func (jsr *JSONRender) Display(_ interface{}, output interface{}, _ map[string]i
 		output = new(ListPartsOutput)
 		structMap(output, castedOutput)
 	case *s3.PutBucketCorsOutput:
-		return nil
+		var castInput *s3.PutBucketCorsInput
+		var ok bool
+		if castInput, ok = input.(*s3.PutBucketCorsInput); !ok {
+			return badCastError
+		}
+		output = PutBucketCorsOutput{
+			Bucket: castInput.Bucket,
+		}
 	case *s3manager.UploadOutput:
 		output = new(UploadOutput)
 		structMap(output, castedOutput)
@@ -91,6 +150,35 @@ func (jsr *JSONRender) Display(_ interface{}, output interface{}, _ map[string]i
 		return jsr.encoder.Encode(output)
 	}
 	return jsr.encoder.Encode(output)
+}
+
+type AbortMultipartUploadOutput struct {
+	Bucket *string `json:",omitempty"`
+	Key    *string `json:",omitempty"`
+}
+
+type CreateBucketOutput struct {
+	Bucket *string `json:",omitempty"`
+	Region *string `json:",omitempty"`
+	Class  *string `json:",omitempty"`
+}
+
+type DeleteBucketCorsOutput struct {
+	Bucket *string `json:",omitempty"`
+}
+
+type DeleteBucketOutput struct {
+	Bucket  *string `json:",omitempty"`
+	Deleted *bool   `json:",omitempty"`
+}
+
+type HeadBucketOutput struct {
+	Bucket *string `json:",omitempty"`
+	Region *string `json:",omitempty"`
+}
+
+type PutBucketCorsOutput struct {
+	Bucket *string `json:",omitempty"`
 }
 
 type CopyObjectOutput struct {
@@ -137,6 +225,14 @@ type GetObjectOutput struct {
 	VersionId               *string            `json:",omitempty"`
 	WebsiteRedirectLocation *string            `json:",omitempty"`
 	Expiration              *string            `json:",omitempty"`
+	DownloadLocation        *string            `json:",omitempty"`
+}
+
+// create a wrapper struct around GetObjectOutput to include a
+// new field DownloadLocation
+type GetObjectOutputWrapper struct {
+	*s3.GetObjectOutput
+	DownloadLocation *string `json:",omitempty"`
 }
 
 type HeadObjectOutput struct {

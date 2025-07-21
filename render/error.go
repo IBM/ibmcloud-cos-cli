@@ -42,10 +42,27 @@ func (er *ErrorRender) DisplayError(errorIn error) (err error) {
 		errorMessage = getMessageFromCommandError(typeCheckedError)
 	case errors.CodeError:
 		errorMessage = getMessageByCodeError(typeCheckedError)
+	case *errors.EndpointsError:
+		errorMessage = getMessageFromEndpointsError(typeCheckedError)
 	default:
 		errorMessage = errorIn.Error()
 	}
 	er.Failed(errorMessage)
+	return
+}
+
+func getMessageFromEndpointsError(ee *errors.EndpointsError) (message string) {
+	cause := ee.Cause
+	switch cause {
+	case errors.EndpointsRegionInvalid:
+		message = T("The given region '{{.Region}}' is not valid. Use ‘ibmcloud cos endpoints --list-regions’ to list all regions.", ee)
+	case errors.EndpointsRegionEmpty:
+		message = T("Region is empty. Use ‘ibmcloud cos endpoints --region <region-name>’ to specify a region.")
+	case errors.EndpointsStoredRegionInvalid:
+		message = T("The stored region '{{.Region}}' is not valid. Store a valid region using ‘ibmcloud cos config region --region <region-name>’.", ee)
+	default:
+		message = ee.Error()
+	}
 	return
 }
 
@@ -121,7 +138,7 @@ func getMessageByCodeError(errorIn errors.CodeError) string {
 	case "BucketAlreadyExists":
 		return T("The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.")
 	case "AccessDenied":
-		return T("Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.")
+		return T("Access to the IBM Cloud account was denied — please verify that the Service Instance ID / CRN is valid, and ensure the correct endpoint URL is being used (check using ‘ibmcloud cos config list’).")
 	case "BucketAlreadyOwnedByYou":
 		return T("A bucket with the specified name already exists in your account. Create a bucket with a new name.")
 	case "NoSuchBucket":

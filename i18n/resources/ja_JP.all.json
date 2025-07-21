@@ -92,12 +92,20 @@
     "translation": "バケットのライフサイクル構成が1つ変更されました"
   },
   {
+    "id": "A JSON `STRUCTURE` for configuring static website hosting.\n\tExample:\n\t{\n\t\t\"ErrorDocument\": {\n\t\t\t\"Key\": \"error.html\"\n\t\t},\n\t\t\"IndexDocument\": {\n\t\t\t\"Suffix\": \"index.html\"\n\t\t},\n\t\t\"RoutingRules\": [\n\t\t\t{\n\t\t\t\t\"Condition\": {\n\t\t\t\t\t...\n\t\t\t\t},\n\t\t\t\t\"Redirect\": {\n\t\t\t\t\t...\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}",
+    "translation": "静的Webサイトのホスティングを構成するためのJSON「STRUCTURE」。\n例:\n{\n\"ErrorDocument\": {\n\t\t\t\"Key\": \"error.html\"\n\t\t},\n\"IndexDocument\": {\n\t\t\t\"Suffix\": \"index.html\"\n\t\t},\n\"RoutingRules\": [\n{\n\"Condition\": {\n\t\t\t\t\t...\n\t\t\t\t},\n\"Redirect\": {\n\t\t\t\t\t...\n\t\t\t\t}\n}\n]\n}"
+  },
+  {
     "id": "A `DELIMITER` is a character you use to group keys.",
     "translation": "`DELIMITER` はキーをグループ化するために使用する文字です。"
   },
   {
-    "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
-    "translation": "ファイル内の JSON 構文を使用する `STRUCTURE` です。 IBM Cloud 資料を参照してください。"
+    "id": "A `STRUCTURE` using JSON syntax in a file.\n\tExample:\n\t{\n\t\t\"CORSRules\": [\n\t\t\t{\n\t\t\t\t\"AllowedHeaders\": [\"*\"],\n\t\t\t\t\"AllowedMethods\": [\"PUT\", \"GET\", \"DELETE\"],\n\t\t\t\t\"AllowedOrigins\": [\"http://www.example.com\"],\n\t\t\t\t\"ExposeHeaders\": [\"ExposeHeader7\", \"ExposeHeader8\"],\n\t\t\t\t\"MaxAgeSeconds\": 75\n\t\t\t}\n\t\t]\n\t}",
+    "translation": "ファイル内のJSON構文を使用した「STRUCTURE」。\n例:\n{\n\"CORSRules\": [\n{\n\t\t\t\t\"AllowedHeaders\": [\"*\"],\n\t\t\t\t\"AllowedMethods\": [\"PUT\", \"GET\", \"DELETE\"],\n\t\t\t\t\"AllowedOrigins\": [\"http://www.example.com\"],\n\t\t\t\t\"ExposeHeaders\": [\"ExposeHeader7\", \"ExposeHeader8\"],\n\t\t\t\t\"MaxAgeSeconds\": 75\n\t\t\t}\n]\n}"
+  },
+  {
+    "id": "A `STRUCTURE` using JSON syntax.\n\tExample:\n\t{\n\t\t\"Rules\": [\n\t\t\t{\n\t\t\t\t\"Status\": \"Enabled\",\n\t\t\t\t\"Priority\": 1,\n\t\t\t\t\"Filter\": {\n\t\t\t\t\t\"Prefix\": \"\"\n\t\t\t\t},\n\t\t\t\t\"DeleteMarkerReplication\": {\n\t\t\t\t\t\"Status\": \"Disabled\"\n\t\t\t\t},\n\t\t\t\t\"Destination\": {\n\t\t\t\t\t\"Bucket\": \"DEST-BUCKET-NAME\"\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}",
+    "translation": "JSON構文を使用した「STRUCTURE」。\n例:\n{\n\"Rules\": [\n{\n\"Status\": \"Enabled\",\n\"Priority\": 1,\n\"Filter\": {\n\t\t\t\t\t\"Prefix\": \"\"\n\t\t\t\t},\n\"DeleteMarkerReplication\": {\n\t\t\t\t\t\"Status\": \"Disabled\"\n\t\t\t\t},\n\"Destination\": {\n\t\t\t\t\t\"Bucket\": \"DEST-BUCKET-NAME\"\n\t\t\t\t}\n}\n]\n}"
   },
   {
     "id": "A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
@@ -124,6 +132,10 @@
     "translation": "URL 照会パラメーターとしてエンコードされたオブジェクトのタグ・セット (`Key1=Value1`)。「object-tagging-put」の場合は、JSON 構文を使用する「STRUCTURE」。 IBM Cloud 資料を参照してください。"
   },
   {
+    "id": "A valid Service Instance ID / CRN must be configured to create or list buckets.\nIf the Service Instance has not been created already, create it using CLI: ‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\nAlternatively, you can create it using the IBM Cloud UI: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\nGet the CRN using: ‘ibmcloud resource service-instance <instance-name> --crn’.\nConfigure the CRN using: ‘ibmcloud cos config crn --crn <crn-value>’.\nVerify the Service Instance ID / CRN using: ‘ibmcloud cos config list’.",
+    "translation": "バケットを作成または一覧表示するには、有効なサービス・インスタンス ID または CRN を設定する必要があります。\nサービス・インスタンスがまだ作成されていない場合は、CLI を使用して作成します:「ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>」。\nまたは、IBM Cloud UI を使用して作成することもできます: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance。\n次を使用して CRN を取得します:「ibmcloud resource service-instance <instance-name> --crn」。\n次を使用して CRN を設定します:「ibmcloud cos config crn --crn <crn-value>」\n次を使用してサービス・インスタンス ID/CRN を確認します:「ibmcloud cos config list」。"
+  },
+  {
     "id": "Abort an existing multipart upload",
     "translation": "既存のマルチパート・アップロードを中止します"
   },
@@ -136,8 +148,8 @@
     "translation": "AbortIncompleteMultipartUpload: "
   },
   {
-    "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
-    "translation": "IBM Cloud アカウントへのアクセスが拒否されました。 ibmcloud login --sso と入力することでログインをやり直してください。"
+    "id": "Access to the IBM Cloud account was denied — please verify that the Service Instance ID / CRN is valid, and ensure the correct endpoint URL is being used (check using ‘ibmcloud cos config list’).",
+    "translation": "IBM Cloudアカウントへのアクセスが拒否されました。サービス・インスタンスID/CRNが有効であること、正しいエンドポイントURLが使用されていることを確認してください(「ibmcloud cos config list」を使用して確認してください)。"
   },
   {
     "id": "Are you sure you would like to continue?",
@@ -184,6 +196,10 @@
     "translation": "オプション値をクリアします。"
   },
   {
+    "id": "Clear the value of a configuration item to the default",
+    "translation": "構成アイテムの値をデフォルトにクリアする"
+  },
+  {
     "id": "Command does not support Flag '--%s'",
     "translation": "コマンドがフラグ '--%s' をサポートしません"
   },
@@ -196,12 +212,12 @@
     "translation": "既存マルチパート・アップロードを完了します"
   },
   {
-    "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
-    "translation": "指定した時刻 (`TIMESTAMP`) 以降に変更されている場合にオブジェクトをコピーします。"
+    "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "指定された時刻(「TIMESTAMP」)以降に変更されたオブジェクトをコピーします。タイムスタンプはRFC3339形式である必要があります(例、2025-01-01T00:00:00Z)"
   },
   {
-    "id": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`).",
-    "translation": "指定した時刻 (`TIMESTAMP`) 以降に変更されていない場合にオブジェクトをコピーします。"
+    "id": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "指定された時刻(「TIMESTAMP」)以降に変更されていない場合、オブジェクトをコピーします。タイムスタンプはRFC3339形式である必要があります(例、2025-01-01T00:00:00Z)"
   },
   {
     "id": "Copies the object if its entity tag (ETag) is different than the specified tag (`ETAG`).",
@@ -310,6 +326,10 @@
   {
     "id": "Download an object using a managed multipart transfer",
     "translation": "管理対象マルチパート転送を使用しているオブジェクトをダウンロードします"
+  },
+  {
+    "id": "Download location: '{{.destination}}'",
+    "translation": "ダウンロード場所:「{{.destination}}」"
   },
   {
     "id": "Download objects via Aspera",
@@ -428,6 +448,10 @@
     "translation": "バケットの静的 Web サイト構成を取得します"
   },
   {
+    "id": "Get the value of a configuration item",
+    "translation": "構成アイテムの値の取得"
+  },
+  {
     "id": "Get the versioning configuration for a bucket",
     "translation": "バケットのバージョン管理構成を取得します"
   },
@@ -458,10 +482,6 @@
   {
     "id": "Interact with IBM Cloud Object Storage services",
     "translation": "IBM Cloud Object Storage サービスと対話します"
-  },
-  {
-    "id": "A valid Service Instance ID / CRN must be configured to create or list buckets.\nIf the Service Instance has not been created already, create it using CLI: ‘ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>’.\nAlternatively, you can create it using the IBM Cloud UI: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance.\nGet the CRN using: ‘ibmcloud resource service-instance <instance-name> --crn’.\nConfigure the CRN using: ‘ibmcloud cos config crn --crn <crn-value>’.\nVerify the Service Instance ID / CRN using: ‘ibmcloud cos config list’.",
-    "translation": "バケットを作成または一覧表示するには、有効なサービス・インスタンス ID または CRN を設定する必要があります。\nサービス・インスタンスがまだ作成されていない場合は、CLI を使用して作成します:「ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> <location>」。\nまたは、IBM Cloud UI を使用して作成することもできます: https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-provision#provision-instance。\n次を使用して CRN を取得します:「ibmcloud resource service-instance <instance-name> --crn」。\n次を使用して CRN を設定します:「ibmcloud cos config crn --crn <crn-value>」\n次を使用してサービス・インスタンス ID/CRN を確認します:「ibmcloud cos config list」。"
   },
   {
     "id": "Invalid boolean flag '--%s'",
@@ -532,6 +552,10 @@
     "translation": "特定のバケットのすべてのオブジェクトをリストします"
   },
   {
+    "id": "List all objects in a specific bucket with pagination support",
+    "translation": "特定のバケット内のすべてのオブジェクトを、ページ区切りのサポートを使用して一覧表示します"
+  },
+  {
     "id": "List configuration",
     "translation": "構成をリストします"
   },
@@ -542,6 +566,10 @@
   {
     "id": "List parts of an active multipart upload",
     "translation": "アクティブなマルチパート・アップロードのパーツをリストします"
+  },
+  {
+    "id": "List s3 endpoint-url for regions",
+    "translation": "リージョンのs3エンドポイント-urlのリスト"
   },
   {
     "id": "Location Constraint",
@@ -672,6 +700,10 @@
     "translation": "リダイレクト・プロトコル: "
   },
   {
+    "id": "Region is empty. Use ‘ibmcloud cos endpoints --region <region-name>’ to specify a region.",
+    "translation": "リージョンが空です。 「ibmcloud cos endpoints --region <region-name>」を使用してリージョンを指名します。"
+  },
+  {
     "id": "Region: ",
     "translation": "Region: "
   },
@@ -720,12 +752,12 @@
     "translation": "保存期間： "
   },
   {
-    "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified).",
-    "translation": "指定した `TIMESTAMP` までに変更された場合にのみオブジェクトを返します。それ以外の場合は 304 (変更なし) を返します。"
+    "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "指定した `TIMESTAMP` までに変更された場合にのみオブジェクトを返します。それ以外の場合は 304 (変更なし) を返します。 タイムスタンプはRFC3339形式である必要があります(例、2025-01-01T00:00:00Z)"
   },
   {
-    "id": "Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed).",
-    "translation": "指定した `TIMESTAMP` までに変更されなかった場合にのみオブジェクトを返します。それ以外の場合は 412 (前提条件に合いませんでした) を返します。"
+    "id": "Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "指定した `TIMESTAMP` までに変更されなかった場合にのみオブジェクトを返します。それ以外の場合は 412 (前提条件に合いませんでした) を返します。 タイムスタンプはRFC3339形式である必要があります(例、2025-01-01T00:00:00Z)"
   },
   {
     "id": "Return the object only if its entity tag (ETag) is different from the `ETAG` specified, otherwise return a 304 (not modified).",
@@ -744,8 +776,16 @@
     "translation": "新しいサービス・インスタンス ID/CRN を保存しています..."
   },
   {
+    "id": "Select the Service Instance ID / CRN",
+    "translation": "サービス・インスタンス ID/CRN を選択する"
+  },
+  {
     "id": "Service Endpoint",
     "translation": "サービス・エンドポイント"
+  },
+  {
+    "id": "Service Instance ID / CRN:",
+    "translation": "サービス・インスタンス ID/CRN:"
   },
   {
     "id": "Set custom Service Endpoint for all operations",
@@ -860,12 +900,12 @@
     "translation": "ソース・オブジェクトからタグ・セットをコピーするか、指定タグ・セットで置き換えるかを指定します。"
   },
   {
-    "id": "Status: ",
-    "translation": "状況: "
+    "id": "Specify the value of a configuration item",
+    "translation": "構成アイテムの値を指定します"
   },
   {
-    "id": "Store Service Instance ID / CRN in the config",
-    "translation": "設定にサービス・インスタンス ID/CRN を保存します。"
+    "id": "Status: ",
+    "translation": "状況: "
   },
   {
     "id": "Store Default Download Location in the config",
@@ -878,6 +918,10 @@
   {
     "id": "Store HMAC credentials in the config",
     "translation": "HMAC 資格情報を構成に保管します"
+  },
+  {
+    "id": "Store Service Instance ID / CRN in the config",
+    "translation": "設定にサービス・インスタンス ID/CRN を保存します。"
   },
   {
     "id": "Store your Service Instance ID / `CRN` in the config.",
@@ -904,8 +948,8 @@
     "translation": "次のバケット上に CORS 構成が正常に削除されました: {{.Bucket}}"
   },
   {
-    "id": "Successfully deleted bucket '{{.Bucket}}'. The bucket '{{.Bucket}}' will be available for reuse after 15 minutes.",
-    "translation": "バケット '{{.Bucket}}' が正常に削除されました。 バケット '{{.Bucket}}' は 15 分後に再使用が可能になります。"
+    "id": "Successfully deleted bucket '{{.Bucket}}'. The bucket name '{{.Bucket}}' will be available for reuse after 15 minutes.",
+    "translation": "バケット「{{.Bucket}}」の削除に成功しました。 バケット名「{{.Bucket}}」は15分後に再利用できるようになります。"
   },
   {
     "id": "Successfully downloaded '{{.Key}}' from bucket '{{.Bucket}}'",
@@ -934,18 +978,6 @@
   {
     "id": "Successfully stored your Service Instance ID / CRN.",
     "translation": "サービス・インスタンス ID/CRN を正常に保存しました。"
-  },
-  {
-    "id": "Select the Service Instance ID / CRN",
-    "translation": "サービス・インスタンス ID/CRN を選択する"
-  },
-  {
-    "id": "Service Instance ID / CRN:",
-    "translation": "サービス・インスタンス ID/CRN:"
-  },
-  {
-    "id": "Unable to store Service Instance ID / CRN.",
-    "translation": "サービス・インスタンス ID/CRN を保存できません。"
   },
   {
     "id": "Successfully switched to {{.Auth}}-based authentication. The program will access your Cloud Object Storage account using your {{.Auth}} Credentials.",
@@ -1028,6 +1060,10 @@
     "translation": "ダウンロード先 '{{.Location}}' がディレクトリーです。"
   },
   {
+    "id": "The given region '{{.Region}}' is not valid. Use ‘ibmcloud cos endpoints --list-regions’ to list all regions.",
+    "translation": "指定されたリージョン「{{.Region}}」は無効です。 「ibmcloud cos endpoints --list-regions」を使用して、すべてのリージョンをリストします。"
+  },
+  {
     "id": "The lifecycle configuration was not found",
     "translation": "ライフサイクル設定が見つかりません"
   },
@@ -1036,8 +1072,8 @@
     "translation": "バケットの名前 (`BUCKET_NAME`) です。"
   },
   {
-    "id": "The name (`CLASS_NAME`) of the Class.",
-    "translation": "クラスの名前 (`CLASS_NAME`) です。"
+    "id": "The name (`CLASS_NAME`) of the storage class to assign to the bucket.",
+    "translation": "バケットに割り当てるストレージ・クラスの名前(「CLASS_NAME」)。"
   },
   {
     "id": "The number of goroutines to spin up in parallel per call to Upload when sending parts. Default value is 5.",
@@ -1090,6 +1126,10 @@
   {
     "id": "The specified key does not exist.",
     "translation": "指定したキーが存在しません。"
+  },
+  {
+    "id": "The stored region '{{.Region}}' is not valid. Store a valid region using ‘ibmcloud cos config region --region <region-name>’.",
+    "translation": "保存されているリージョン「{{.Region}}」は有効ではありません。 「ibmcloud cos configregion --region <region-name>」を使用して有効なリージョンを保存します。"
   },
   {
     "id": "The total `NUMBER` of items to return in the command's output.",
@@ -1224,6 +1264,10 @@
     "translation": "秘密鍵を保管できません。"
   },
   {
+    "id": "Unable to store Service Instance ID / CRN.",
+    "translation": "サービス・インスタンス ID/CRN を保存できません。"
+  },
+  {
     "id": "Unable to store new download location.",
     "translation": "新規のダウンロード場所を保管できません。"
   },
@@ -1352,6 +1396,14 @@
     "translation": "日数"
   },
   {
+    "id": "invalid URL Style, use valid style like VHost, Path etc",
+    "translation": "無効なURLスタイル、VHost、Pathなどの有効なスタイルを使用してください"
+  },
+  {
+    "id": "invalid method, use valid methods like IAM, hmac etc",
+    "translation": "無効なメソッドなので、IAMやhmacなどの有効なメソッドを使用してください"
+  },
+  {
     "id": "key",
     "translation": "キー"
   },
@@ -1410,5 +1462,9 @@
   {
     "id": "value",
     "translation": "値"
+  },
+  {
+    "id": "{{.operation}} a value for {{.subcommand}} option",
+    "translation": "{{.operation}}{{.subcommand}}オプションの値"
   }
 ]

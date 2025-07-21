@@ -7,12 +7,14 @@ import (
 	"io/ioutil"
 	"net/http"
 	"regexp"
+	"sort"
 	"strings"
 	"sync"
 	"time"
 
 	"github.com/IBM/ibm-cos-sdk-go/aws/awserr"
 	"github.com/IBM/ibm-cos-sdk-go/aws/endpoints"
+	"github.com/IBM/ibmcloud-cos-cli/render"
 
 	"github.com/IBM/ibm-cos-sdk-go/aws"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
@@ -74,13 +76,44 @@ type PublicPrivateEP struct {
 	Private map[string]string `json:"private"`
 }
 
+// IBMEndPoints maps the struct of the endpoints region
+type IBMEndPointsWithDirect struct {
+	// Service urls organised by resiliency level
+	Service *ResiliencyEPWithDirect `json:"service-endpoints"`
+	// Identity service url
+	Identity *Identity `json:"identity-endpoints"`
+}
+
+// ResiliencyEP maps part of the struct of the endpoints region
+type ResiliencyEPWithDirect struct {
+	// CrossRegion service urls
+	CrossRegion *LocationEPWithDirect `json:"cross-region"`
+	// Regional service urls
+	Regional *LocationEPWithDirect `json:"regional"`
+	// SingleSite service urls
+	SingleSite *LocationEPWithDirect `json:"single-site"`
+}
+
+// LocationEP maps part of the struct of the endpoints region
+type LocationEPWithDirect map[string]*PublicPrivateDirectEP
+
+// PublicPrivateEP maps part of the struct of the endpoints region
+type PublicPrivateDirectEP struct {
+	// Public service urls
+	Public map[string]*string `json:"public"`
+	// Private service urls
+	Private map[string]*string `json:"private"`
+	// Direct service urls
+	Direct map[string]*string `json:"direct"`
+}
+
 // COSEndPointsWSClient represents a client to be used to retrieve regions endpoint value
 type COSEndPointsWSClient struct {
 	client       *http.Client
 	EndpointsURL string
 	endPoints    *IBMEndPoints
-
-	disableSSL bool
+	newEndPoints *IBMEndPointsWithDirect
+	disableSSL   bool
 
 	mutex     sync.RWMutex
 	lastFetch *time.Time
@@ -187,11 +220,14 @@ func (c *COSEndPointsWSClient) fetchEndPointsDetails() (err error) {
 	}
 	// parses the content of the response buffer
 	tmp := &IBMEndPoints{}
+	ntmp := &IBMEndPointsWithDirect{}
 	err = json.Unmarshal(data, tmp)
+	err = json.Unmarshal(data, ntmp)
 	if nil != err {
 		return
 	}
 	c.endPoints = tmp
+	c.newEndPoints = ntmp
 	// check the parse of the buffer was successfully
 	if c.endPoints.Service == nil || c.endPoints.Identity == nil {
 		c.endPoints = nil
@@ -319,4 +355,151 @@ func (c *COSEndPointsWSClient) GetAllRegions() ([]string, error) {
 	}
 
 	return regions, nil
+}
+
+func (c *COSEndPointsWSClient) NewGetAllRegions() (regions []*render.Regions, err error) {
+	c.mutex.RLock()
+	defer c.mutex.RUnlock()
+	// check if regions present
+	// if not fetch them
+	if c.endPoints == nil {
+		c.mutex.RUnlock()
+		err := c.fetchEndPointsDetails()
+		c.mutex.RLock()
+		if err != nil {
+			return nil, err
+		}
+	}
+	if c.endPoints.Service == nil {
+		return
+	}
+
+	// add cross region regions to slice
+	r := []string{}
+	for region := range c.endPoints.Service.CrossRegion {
+		r = append(r, region)
+	}
+	sort.Strings(r)
+	regions = append(regions, &render.Regions{ServiceType: "Cross Region", Region: r})
+
+	// add regional regions to slice
+	r = nil
+	for region := range c.endPoints.Service.Regional {
+		r = append(r, region)
+	}
+	sort.Strings(r)
+	regions = append(regions, &render.Regions{ServiceType: "Regional", Region: r})
+
+	// add single site regions to slice
+	r = nil
+	for region := range c.endPoints.Service.SingleSite {
+		r = append(r, region)
+	}
+	sort.Strings(r)
+	regions = append(regions, &render.Regions{ServiceType: "Single Site", Region: r})
+
+	return
+}
+
+func (c *COSEndPointsWSClient) GetAllEndpointsFor(
+	service, region string,
+	opts ...func(options *endpoints.Options),
+) (endpoint render.RegionEndpointsOutput, err error) {
+	// apply a read lock to guarantee other can read but no write can be dne until lock released
+	c.mutex.RLock()
+	// defer the release of the read lock
+	defer c.mutex.RUnlock()
+
+	// if no endpoints present
+	// release read lock
+	// acquire a full lock
+	if c.newEndPoints == nil {
+		c.mutex.RUnlock()
+		err := c.fetchEndPointsDetails()
+		c.mutex.RLock()
+		if err != nil {
+			return endpoint, err
+		}
+	}
+	// check the request is for S3 service
+	if service == s3.ServiceName {
+		// use the RegionDecoderRegex to break down region and class storage if present
+		regionDetails := RegionDecoderRegex.FindStringSubmatch(region)
+		if regionDetails != nil {
+			//region,geo,class := regionDetails[1],regionDetails[2],regionDetails[3]
+			region, geo := regionDetails[1], regionDetails[2]
+			// set -geo value for when look up the cross region
+			if geo == "" {
+				geo = "-geo"
+			}
+			c.mutex.RLock()
+			defer c.mutex.RUnlock()
+			regionsEP := render.RegionEndpointsOutput{
+				Endpoints: &render.PublicPrivateDirectEPOutput{},
+			}
+
+			var serviceType string
+			var r *PublicPrivateDirectEP
+			var exist bool
+			s := c.newEndPoints.Service
+			if r, exist = (*s.CrossRegion)[region]; exist {
+				serviceType = "Cross Region"
+				copyEndpoints(regionsEP, r)
+			} else if r, exist = (*s.Regional)[region]; exist {
+				serviceType = "Regional"
+				copyEndpoints(regionsEP, r)
+			} else if r, exist = (*s.SingleSite)[region]; exist {
+				serviceType = "Single Site"
+				copyEndpoints(regionsEP, r)
+			}
+
+			if r != nil {
+				regionsEP.ServiceType = &serviceType
+				regionsEP.Region = &region
+				var opt endpoints.Options
+				opt.DisableSSL = c.disableSSL
+				opt.Set(opts...)
+
+				var prefix string
+				if opt.DisableSSL {
+					prefix = "http://"
+				} else {
+					prefix = "https://"
+				}
+
+				addPrefixToEndpoints(r, prefix)
+				return regionsEP, nil
+			}
+			// return error if region not found
+			return endpoint, awserr.New("ibm.Resolver.RegionNotFound", "Region Not Found: "+region, nil)
+		}
+		// return error if region parse error
+		return endpoint, awserr.New("ibm.Resolver.ErrorParsingRegion", "Error parsing Region: "+region, nil)
+	}
+	// return error if service not s3
+	return endpoint, awserr.New("ibm.Resolver.ServiceNotSupported", service+": Service Not Supported", nil)
+}
+
+func copyEndpoints(regionsEP render.RegionEndpointsOutput, r *PublicPrivateDirectEP) {
+	regionsEP.Endpoints.Public = r.Public
+	regionsEP.Endpoints.Private = r.Private
+	regionsEP.Endpoints.Direct = r.Direct
+}
+
+func addPrefixToEndpoints(r *PublicPrivateDirectEP, prefix string) {
+	for key, valuePtr := range r.Public {
+		originalValue := *valuePtr
+		newValue := prefix + originalValue
+		r.Public[key] = &newValue
+	}
+	for key, valuePtr := range r.Private {
+		originalValue := *valuePtr
+		newValue := prefix + originalValue
+		r.Private[key] = &newValue
+	}
+	for key, valuePtr := range r.Direct {
+		originalValue := *valuePtr
+		newValue := prefix + originalValue
+		r.Direct[key] = &newValue
+	}
 }

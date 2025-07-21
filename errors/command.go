@@ -43,3 +43,12 @@ func (ce *CommandError) Error() string {
 	}
 	return fmt.Sprintf("%s: flag='%s' cause=%s", ce.Code(), ce.Flag, ce.Cause)
 }
+
+func CreateCommandError(c *cli.Context, cause CommandErrorCause, flag string, err error) error {
+	return &CommandError{
+		CLIContext: c,
+		Cause:      cause,
+		Flag:       flag,
+		IError:     err,
+	}
+}

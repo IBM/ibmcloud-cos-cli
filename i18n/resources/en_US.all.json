@@ -92,12 +92,20 @@
     "translation": "1 transitions in bucket lifecycle configuration"
   },
   {
+    "id": "A JSON `STRUCTURE` for configuring static website hosting.\n\tExample:\n\t{\n\t\t\"ErrorDocument\": {\n\t\t\t\"Key\": \"error.html\"\n\t\t},\n\t\t\"IndexDocument\": {\n\t\t\t\"Suffix\": \"index.html\"\n\t\t},\n\t\t\"RoutingRules\": [\n\t\t\t{\n\t\t\t\t\"Condition\": {\n\t\t\t\t\t...\n\t\t\t\t},\n\t\t\t\t\"Redirect\": {\n\t\t\t\t\t...\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}",
+    "translation": "A JSON `STRUCTURE` for configuring static website hosting.\n\tExample:\n\t{\n\t\t\"ErrorDocument\": {\n\t\t\t\"Key\": \"error.html\"\n\t\t},\n\t\t\"IndexDocument\": {\n\t\t\t\"Suffix\": \"index.html\"\n\t\t},\n\t\t\"RoutingRules\": [\n\t\t\t{\n\t\t\t\t\"Condition\": {\n\t\t\t\t\t...\n\t\t\t\t},\n\t\t\t\t\"Redirect\": {\n\t\t\t\t\t...\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}"
+  },
+  {
     "id": "A `DELIMITER` is a character you use to group keys.",
     "translation": "A `DELIMITER` is a character you use to group keys."
   },
   {
-    "id": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation.",
-    "translation": "A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation."
+    "id": "A `STRUCTURE` using JSON syntax in a file.\n\tExample:\n\t{\n\t\t\"CORSRules\": [\n\t\t\t{\n\t\t\t\t\"AllowedHeaders\": [\"*\"],\n\t\t\t\t\"AllowedMethods\": [\"PUT\", \"GET\", \"DELETE\"],\n\t\t\t\t\"AllowedOrigins\": [\"http://www.example.com\"],\n\t\t\t\t\"ExposeHeaders\": [\"ExposeHeader7\", \"ExposeHeader8\"],\n\t\t\t\t\"MaxAgeSeconds\": 75\n\t\t\t}\n\t\t]\n\t}",
+    "translation": "A `STRUCTURE` using JSON syntax in a file.\n\tExample:\n\t{\n\t\t\"CORSRules\": [\n\t\t\t{\n\t\t\t\t\"AllowedHeaders\": [\"*\"],\n\t\t\t\t\"AllowedMethods\": [\"PUT\", \"GET\", \"DELETE\"],\n\t\t\t\t\"AllowedOrigins\": [\"http://www.example.com\"],\n\t\t\t\t\"ExposeHeaders\": [\"ExposeHeader7\", \"ExposeHeader8\"],\n\t\t\t\t\"MaxAgeSeconds\": 75\n\t\t\t}\n\t\t]\n\t}"
+  },
+  {
+    "id": "A `STRUCTURE` using JSON syntax.\n\tExample:\n\t{\n\t\t\"Rules\": [\n\t\t\t{\n\t\t\t\t\"Status\": \"Enabled\",\n\t\t\t\t\"Priority\": 1,\n\t\t\t\t\"Filter\": {\n\t\t\t\t\t\"Prefix\": \"\"\n\t\t\t\t},\n\t\t\t\t\"DeleteMarkerReplication\": {\n\t\t\t\t\t\"Status\": \"Disabled\"\n\t\t\t\t},\n\t\t\t\t\"Destination\": {\n\t\t\t\t\t\"Bucket\": \"DEST-BUCKET-NAME\"\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}",
+    "translation": "A 'STRUCTURE' using JSON syntax.\n\tExample:\n\t{\n\t\t\"Rules\": [\n\t\t\t{\n\t\t\t\t\"Status\": \"Enabled\",\n\t\t\t\t\"Priority\": 1,\n\t\t\t\t\"Filter\": {\n\t\t\t\t\t\"Prefix\": \"\"\n\t\t\t\t},\n\t\t\t\t\"DeleteMarkerReplication\": {\n\t\t\t\t\t\"Status\": \"Disabled\"\n\t\t\t\t},\n\t\t\t\t\"Destination\": {\n\t\t\t\t\t\"Bucket\": \"DEST-BUCKET-NAME\"\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}"
   },
   {
     "id": "A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation.",
@@ -140,8 +148,8 @@
     "translation": "AbortIncompleteMultipartUpload: "
   },
   {
-    "id": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso.",
-    "translation": "Access to your IBM Cloud account was denied. Log in again by typing ibmcloud login --sso."
+    "id": "Access to the IBM Cloud account was denied — please verify that the Service Instance ID / CRN is valid, and ensure the correct endpoint URL is being used (check using ‘ibmcloud cos config list’).",
+    "translation": "Access to the IBM Cloud account was denied — please verify that the Service Instance ID / CRN is valid, and ensure the correct endpoint URL is being used (check using ‘ibmcloud cos config list’)."
   },
   {
     "id": "Are you sure you would like to continue?",
@@ -188,6 +196,10 @@
     "translation": "Clear the option value."
   },
   {
+    "id": "Clear the value of a configuration item to the default",
+    "translation": "Clear the value of a configuration item to the default"
+  },
+  {
     "id": "Command does not support Flag '--%s'",
     "translation": "Command does not support Flag '--%s'"
   },
@@ -200,12 +212,12 @@
     "translation": "Complete an existing multipart upload"
   },
   {
-    "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`).",
-    "translation": "Copies the object if it has been modified since the specified time (`TIMESTAMP`)."
+    "id": "Copies the object if it has been modified since the specified time (`TIMESTAMP`). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "Copies the object if it has been modified since the specified time (`TIMESTAMP`). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)"
   },
   {
-    "id": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`).",
-    "translation": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`)."
+    "id": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)"
   },
   {
     "id": "Copies the object if its entity tag (ETag) is different than the specified tag (`ETAG`).",
@@ -314,6 +326,10 @@
   {
     "id": "Download an object using a managed multipart transfer",
     "translation": "Download an object using a managed multipart transfer"
+  },
+  {
+    "id": "Download location: '{{.destination}}'",
+    "translation": "Download location: '{{.destination}}'"
   },
   {
     "id": "Download objects via Aspera",
@@ -432,6 +448,10 @@
     "translation": "Get the static website configuration on a bucket"
   },
   {
+    "id": "Get the value of a configuration item",
+    "translation": "Get the value of a configuration item"
+  },
+  {
     "id": "Get the versioning configuration for a bucket",
     "translation": "Get the versioning configuration for a bucket"
   },
@@ -532,6 +552,10 @@
     "translation": "List all objects in a specific bucket"
   },
   {
+    "id": "List all objects in a specific bucket with pagination support",
+    "translation": "List all objects in a specific bucket with pagination support"
+  },
+  {
     "id": "List configuration",
     "translation": "List configuration"
   },
@@ -542,6 +566,10 @@
   {
     "id": "List parts of an active multipart upload",
     "translation": "List parts of an active multipart upload"
+  },
+  {
+    "id": "List s3 endpoint-url for regions",
+    "translation": "List s3 endpoint-url for regions"
   },
   {
     "id": "Location Constraint",
@@ -672,6 +700,10 @@
     "translation": "Redirect Protocol: "
   },
   {
+    "id": "Region is empty. Use ‘ibmcloud cos endpoints --region <region-name>’ to specify a region.",
+    "translation": "Region is empty. Use ‘ibmcloud cos endpoints --region <region-name>’ to specify a region."
+  },
+  {
     "id": "Region: ",
     "translation": "Region: "
   },
@@ -720,12 +752,12 @@
     "translation": "Retention Period: "
   },
   {
-    "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified).",
-    "translation": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified)."
+    "id": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)"
   },
   {
-    "id": "Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed).",
-    "translation": "Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed)."
+    "id": "Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)"
   },
   {
     "id": "Return the object only if its entity tag (ETag) is different from the `ETAG` specified, otherwise return a 304 (not modified).",
@@ -868,6 +900,10 @@
     "translation": "Specifies whether to copy the tag-set from the source object or replace it with the tag-set provided"
   },
   {
+    "id": "Specify the value of a configuration item",
+    "translation": "Specify the value of a configuration item"
+  },
+  {
     "id": "Status: ",
     "translation": "Status: "
   },
@@ -912,8 +948,8 @@
     "translation": "Successfully deleted CORS configuration on bucket: {{.Bucket}}"
   },
   {
-    "id": "Successfully deleted bucket '{{.Bucket}}'. The bucket '{{.Bucket}}' will be available for reuse after 15 minutes.",
-    "translation": "Successfully deleted bucket '{{.Bucket}}'. The bucket '{{.Bucket}}' will be available for reuse after 15 minutes."
+    "id": "Successfully deleted bucket '{{.Bucket}}'. The bucket name '{{.Bucket}}' will be available for reuse after 15 minutes.",
+    "translation": "Successfully deleted bucket '{{.Bucket}}'. The bucket name '{{.Bucket}}' will be available for reuse after 15 minutes."
   },
   {
     "id": "Successfully downloaded '{{.Key}}' from bucket '{{.Bucket}}'",
@@ -1024,6 +1060,10 @@
     "translation": "The download destination '{{.Location}}' is a directory."
   },
   {
+    "id": "The given region '{{.Region}}' is not valid. Use ‘ibmcloud cos endpoints --list-regions’ to list all regions.",
+    "translation": "The given region '{{.Region}}' is not valid. Use ‘ibmcloud cos endpoints --list-regions’ to list all regions."
+  },
+  {
     "id": "The lifecycle configuration was not found",
     "translation": "The lifecycle configuration was not found"
   },
@@ -1032,8 +1072,8 @@
     "translation": "The name (`BUCKET_NAME`) of the bucket."
   },
   {
-    "id": "The name (`CLASS_NAME`) of the Class.",
-    "translation": "The name (`CLASS_NAME`) of the Class."
+    "id": "The name (`CLASS_NAME`) of the storage class to assign to the bucket.",
+    "translation": "The name (`CLASS_NAME`) of the storage class to assign to the bucket."
   },
   {
     "id": "The number of goroutines to spin up in parallel per call to Upload when sending parts. Default value is 5.",
@@ -1086,6 +1126,10 @@
   {
     "id": "The specified key does not exist.",
     "translation": "The specified key does not exist."
+  },
+  {
+    "id": "The stored region '{{.Region}}' is not valid. Store a valid region using ‘ibmcloud cos config region --region <region-name>’.",
+    "translation": "The stored region '{{.Region}}' is not valid. Store a valid region using ‘ibmcloud cos config region --region <region-name>’."
   },
   {
     "id": "The total `NUMBER` of items to return in the command's output.",
@@ -1352,6 +1396,14 @@
     "translation": "days"
   },
   {
+    "id": "invalid URL Style, use valid style like VHost, Path etc",
+    "translation": "invalid URL Style, use valid style like VHost, Path etc"
+  },
+  {
+    "id": "invalid method, use valid methods like IAM, hmac etc",
+    "translation": "invalid method, use valid methods like IAM, hmac etc"
+  },
+  {
     "id": "key",
     "translation": "key"
   },
@@ -1410,5 +1462,9 @@
   {
     "id": "value",
     "translation": "value"
+  },
+  {
+    "id": "{{.operation}} a value for {{.subcommand}} option",
+    "translation": "{{.operation}} a value for {{.subcommand}} option"
   }
 ]

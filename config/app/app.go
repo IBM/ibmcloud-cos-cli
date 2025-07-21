@@ -98,6 +98,7 @@ func NewApp(name string) *cli.App {
 		commands.CommandUpload,
 		commands.CommandAsperaDownload,
 		commands.CommandAsperaUpload,
+		commands.CommandEndpoints,
 		commands.CommandWait,
 		commands.CommandVersion,
 		// Legacy commands (deprecated syntax)

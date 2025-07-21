@@ -107,7 +107,7 @@ func (txtRender *TextRender) Display(
 		return txtRender.printUploadPartCopy(input, castedOutput)
 	case *s3.ListBucketsExtendedOutput:
 		return txtRender.printListBucketsExtended(input, castedOutput)
-	case *s3.GetObjectOutput:
+	case *GetObjectOutputWrapper:
 		return txtRender.printGetObject(input, castedOutput)
 	case *s3manager.UploadOutput:
 		return txtRender.printUpload(input, castedOutput)
@@ -137,7 +137,8 @@ func (txtRender *TextRender) Display(
 		return txtRender.printGetObjectRetention(input, castedOutput)
 	case *s3.GetBucketLifecycleConfigurationOutput:
 		return txtRender.printGetBucketLifecycleConfiguration(input, castedOutput)
-
+	case *RegionEndpointsOutput:
+		return txtRender.printEndpoints(castedOutput)
 	default:
 		return
 	}
@@ -234,7 +235,7 @@ func (txtRender *TextRender) printDeleteBucket(input interface{}, output *s3.Del
 	if castInput, ok = input.(*s3.DeleteBucketInput); !ok {
 		return badCastError
 	}
-	txtRender.Say(T("Successfully deleted bucket '{{.Bucket}}'. The bucket '{{.Bucket}}' will be available for reuse after 15 minutes.",
+	txtRender.Say(T("Successfully deleted bucket '{{.Bucket}}'. The bucket name '{{.Bucket}}' will be available for reuse after 15 minutes.",
 		map[string]interface{}{bucket: terminal.EntityNameColor(*castInput.Bucket)}))
 	return
 }
@@ -760,7 +761,7 @@ func (txtRender *TextRender) printListBucketsExtended(_ interface{}, output *s3.
 	return
 }
 
-func (txtRender *TextRender) printGetObject(input interface{}, output *s3.GetObjectOutput) (err error) {
+func (txtRender *TextRender) printGetObject(input interface{}, output *GetObjectOutputWrapper) (err error) {
 	var castInput *s3.GetObjectInput
 	var ok bool
 	if castInput, ok = input.(*s3.GetObjectInput); !ok {
@@ -776,6 +777,10 @@ func (txtRender *TextRender) printGetObject(input interface{}, output *s3.GetObj
 		txtRender.Say(T("Version ID: ") + terminal.EntityNameColor(aws.StringValue(output.VersionId)))
 	}
 	txtRender.Say(FormatFileSize(aws.Int64Value(output.ContentLength)) + T(" downloaded."))
+	txtRender.Print(T("Download location: '{{.destination}}'",
+		map[string]interface{}{
+			"destination": terminal.EntityNameColor(aws.StringValue(output.DownloadLocation)),
+		}))
 	return
 }
 
@@ -832,7 +837,7 @@ func (txtRender *TextRender) printGetBucketWebsite(input interface{}, output *s3
 	if indexDocument.Suffix != nil {
 		txtRender.Say(T("Index Suffix: ") + terminal.EntityNameColor(aws.StringValue(indexDocument.Suffix)))
 	}
-	if errorDocument.Key != nil {
+	if errorDocument != nil && errorDocument.Key != nil {
 		txtRender.Say(T("Error Document: ") + terminal.EntityNameColor(aws.StringValue(errorDocument.Key)))
 	}
 	if redirectRequests != nil && redirectRequests.HostName != nil {
@@ -1118,4 +1123,47 @@ func (txtRender *TextRender) printGetObjectRetention(input interface{}, output *
 	txtRender.Say(T("Mode: ") + terminal.EntityNameColor((aws.StringValue(config.Mode))))
 	txtRender.Say(T("Retain Until Date (UTC): ") + terminal.EntityNameColor(aws.TimeValue(config.RetainUntilDate).Format(timeFormat)))
 	return
+}
+
+func (txtRender *TextRender) printEndpoints(output *RegionEndpointsOutput) (err error) {
+	if output.ServiceType != nil {
+		txtRender.Print("Service Type: %s", *output.ServiceType)
+	}
+	if output.Regions != nil {
+		txtRender.Print("Regions:")
+		for _, region := range output.Regions {
+			txtRender.Print("  %s", region.ServiceType)
+			for _, r := range region.Region {
+				txtRender.Print("    %s", r)
+			}
+		}
+		return
+	}
+
+	if output.Region != nil {
+		txtRender.Print("Region: %s", *output.Region)
+	}
+	if output.Endpoints != nil {
+		if output.Endpoints.Public != nil {
+			txtRender.Print("Public:")
+			printMapOutput(txtRender, output.Endpoints.Public)
+		}
+		if output.Endpoints.Private != nil {
+			txtRender.Print("Private:")
+			printMapOutput(txtRender, output.Endpoints.Private)
+		}
+		if output.Endpoints.Direct != nil {
+			txtRender.Print("Direct:")
+			printMapOutput(txtRender, output.Endpoints.Direct)
+		}
+	}
+	return
+}
+
+func printMapOutput(t *TextRender, m map[string]*string) {
+	for key, valuePtr := range m {
+		if valuePtr != nil {
+			t.Print("  %s: %s", key, *valuePtr)
+		}
+	}
 }

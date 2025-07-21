@@ -24,7 +24,7 @@ var (
 
 	FlagClass = cli.StringFlag{
 		Name:  Class,
-		Usage: T("The name (`CLASS_NAME`) of the Class."),
+		Usage: T("The name (`CLASS_NAME`) of the storage class to assign to the bucket."),
 	}
 
 	FlagConcurrency = cli.StringFlag{
@@ -69,7 +69,7 @@ var (
 
 	FlagCopySourceIfModifiedSince = cli.StringFlag{
 		Name:  CopySourceIfModifiedSince,
-		Usage: T("Copies the object if it has been modified since the specified time (`TIMESTAMP`)."),
+		Usage: T("Copies the object if it has been modified since the specified time (`TIMESTAMP`). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)"),
 	}
 
 	FlagCopySourceIfNoneMatch = cli.StringFlag{
@@ -79,7 +79,7 @@ var (
 
 	FlagCopySourceIfUnmodifiedSince = cli.StringFlag{
 		Name:  CopySourceIfUnmodifiedSince,
-		Usage: T("Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`)."),
+		Usage: T("Copies the object if it hasn't been modified since the specified time (`TIMESTAMP`). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)"),
 	}
 
 	FlagCopySourceRange = cli.StringFlag{
@@ -95,7 +95,7 @@ var (
 
 	FlagCorsConfiguration = cli.StringFlag{
 		Name:  CorsConfiguration,
-		Usage: T("A `STRUCTURE` using JSON syntax in a file. See IBM Cloud Documentation."),
+		Usage: T("A `STRUCTURE` using JSON syntax in a file.\n\tExample:\n\t{\n\t\t\"CORSRules\": [\n\t\t\t{\n\t\t\t\t\"AllowedHeaders\": [\"*\"],\n\t\t\t\t\"AllowedMethods\": [\"PUT\", \"GET\", \"DELETE\"],\n\t\t\t\t\"AllowedOrigins\": [\"http://www.example.com\"],\n\t\t\t\t\"ExposeHeaders\": [\"ExposeHeader7\", \"ExposeHeader8\"],\n\t\t\t\t\"MaxAgeSeconds\": 75\n\t\t\t}\n\t\t]\n\t}"),
 	}
 
 	FlagDelete = cli.StringFlag{
@@ -138,7 +138,7 @@ var (
 
 	FlagIfModifiedSince = cli.StringFlag{
 		Name:  IfModifiedSince,
-		Usage: T("Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified)."),
+		Usage: T("Return the object only if it has been modified since the specified `TIMESTAMP`, otherwise return a 304 (not modified). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)"),
 	}
 
 	FlagIfNoneMatch = cli.StringFlag{
@@ -148,7 +148,7 @@ var (
 
 	FlagIfUnmodifiedSince = cli.StringFlag{
 		Name:  IfUnmodifiedSince,
-		Usage: T("Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed)."),
+		Usage: T("Return the object only if it has not been modified since the specified `TIMESTAMP`, otherwise return a 412 (precondition failed). Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)"),
 	}
 
 	FlagKey = cli.StringFlag{
@@ -240,7 +240,7 @@ var (
 
 	FlagReplicationConfiguration = cli.StringFlag{
 		Name:  ReplicationConfiguration,
-		Usage: T("A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation."),
+		Usage: T("A `STRUCTURE` using JSON syntax.\n\tExample:\n\t{\n\t\t\"Rules\": [\n\t\t\t{\n\t\t\t\t\"Status\": \"Enabled\",\n\t\t\t\t\"Priority\": 1,\n\t\t\t\t\"Filter\": {\n\t\t\t\t\t\"Prefix\": \"\"\n\t\t\t\t},\n\t\t\t\t\"DeleteMarkerReplication\": {\n\t\t\t\t\t\"Status\": \"Disabled\"\n\t\t\t\t},\n\t\t\t\t\"Destination\": {\n\t\t\t\t\t\"Bucket\": \"DEST-BUCKET-NAME\"\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}"),
 	}
 
 	FlagObjectLockConfiguration = cli.StringFlag{
@@ -314,8 +314,9 @@ var (
 	}
 
 	FlagWebsiteConfiguration = cli.StringFlag{
-		Name:  WebsiteConfiguration,
-		Usage: T("A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation."),
+		Name:   WebsiteConfiguration,
+		Usage:  T("A JSON `STRUCTURE` for configuring static website hosting.\n\tExample:\n\t{\n\t\t\"ErrorDocument\": {\n\t\t\t\"Key\": \"error.html\"\n\t\t},\n\t\t\"IndexDocument\": {\n\t\t\t\"Suffix\": \"index.html\"\n\t\t},\n\t\t\"RoutingRules\": [\n\t\t\t{\n\t\t\t\t\"Condition\": {\n\t\t\t\t\t...\n\t\t\t\t},\n\t\t\t\t\"Redirect\": {\n\t\t\t\t\t...\n\t\t\t\t}\n\t\t\t}\n\t\t]\n\t}"),
+		Hidden: true,
 	}
 
 	FlagWebsiteRedirectLocation = cli.StringFlag{
@@ -407,5 +408,15 @@ var (
 	FlagLifecycleConfiguration = cli.StringFlag{
 		Name:  LifecycleConfiguration,
 		Usage: T("A `STRUCTURE` using JSON syntax. See IBM Cloud Documentation."),
+	}
+
+	FlagListRegions = cli.BoolFlag{
+		Name:  ListRegions,
+		Usage: T("Display the list of all regions"),
+	}
+
+	FlagEndpointRegion = cli.StringFlag{
+		Name:  Region,
+		Usage: T("Display endpoint url for the `REGION`."),
 	}
 )

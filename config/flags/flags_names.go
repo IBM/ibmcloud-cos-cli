@@ -36,6 +36,7 @@ const (
 	KmsRootKeyCrn                  = "kms-root-key-crn"
 	KeyMarker                      = "key-marker"
 	LeavePartsOnErrors             = "leave-parts-on-errors"
+	ListRegions                    = "list-regions"
 	Marker                         = "marker"
 	MaxItems                       = "max-items"
 	MaxUploadParts                 = "max-upload-parts"

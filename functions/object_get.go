@@ -158,9 +158,15 @@ func ObjectGet(c *cli.Context) (err error) {
 	// flags the file should not be deleted
 	keepFile = true
 
+	// use a wrapper struct to add a new field
+	objectOutputWrapper := &render.GetObjectOutputWrapper{
+		GetObjectOutput:  output,
+		DownloadLocation: &dstPath,
+	}
+
 	// render the result in JSON or Textual format
 	// depending if the flag JSON was passed in the command invocation
-	err = cosContext.GetDisplay(c.String(flags.Output), c.Bool(flags.JSON)).Display(input, output, nil)
+	err = cosContext.GetDisplay(c.String(flags.Output), c.Bool(flags.JSON)).Display(input, objectOutputWrapper, nil)
 
 	// Return
 	return
