@@ -154,23 +154,27 @@ func (a *agent) GetAsperaTransferSpecV1(action string, bucket string, paths []*s
 	// The type of `tags` in the original proto file is string
 	// so I can't use TransferSpecV1 struct directly.
 	// Reported to Aspera team
-	data := fmt.Sprintf(`{
-		"transfer_requests": [
-		  {
-			"transfer_request": {
-			  "paths": %s,
-			  "tags": {
-				"aspera": {
-				  "node": {
-					"storage_credentials": %s
-				  }
-				}
-			  }
-			}
-		  }
-		]
-	  }
-	  `, jsonPaths, credentials)
+	dataObj := map[string]interface{}{
+		"transfer_requests": []map[string]interface{}{
+			{
+				"transfer_request": map[string]interface{}{
+					"paths": json.RawMessage(jsonPaths),
+					"tags": map[string]interface{}{
+						"aspera": map[string]interface{}{
+							"node": map[string]interface{}{
+								"storage_credentials": json.RawMessage(credentials),
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+	dataBytes, err := json.Marshal(dataObj)
+	if err != nil {
+		return "", fmt.Errorf("failed to marshal data object: %v", err)
+	}
+	data := string(dataBytes)
 
 	url := fmt.Sprintf("%s/files/%s_setup", *meta.ATSEndpoint, action)
 	req, err := http.NewRequest("POST", url, strings.NewReader(data))
