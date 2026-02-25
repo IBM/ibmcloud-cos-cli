@@ -94,7 +94,11 @@ func ConfigList(c *cli.Context) error {
 
 	// list as no args , check if the number of args is ZERO
 	if c.NArg() != 0 {
-		cli.ShowCommandHelpAndExit(c, c.Command.Name, 1)
+		err := &ierrors.CommandError{
+			CLIContext: c,
+			Cause:      ierrors.InvalidNArg,
+		}
+		return err
 	}
 
 	// takes the CosContext from application metadata
@@ -446,7 +450,11 @@ func ConfigChangeDefaultRegion(c *cli.Context) error {
 	// validate the number of flags and the number of arguments passed to the command
 	if c.NumFlags() > 1 || c.NArg() > 0 {
 		// if number of flags or number of args do not match show usage message
-		cli.ShowCommandHelpAndExit(c, c.Command.Name, 1)
+		err := &ierrors.CommandError{
+			CLIContext: c,
+			Cause:      ierrors.InvalidNArg,
+		}
+		return err
 	}
 
 	// if list flag is set, display the value of the region and exit
@@ -511,7 +519,11 @@ func ConfigSetDLLocation(c *cli.Context) error {
 
 	// check the number of args and flags
 	if c.NumFlags() > 1 || c.NArg() > 0 {
-		cli.ShowCommandHelpAndExit(c, c.Command.Name, 1)
+		err := &ierrors.CommandError{
+			CLIContext: c,
+			Cause:      ierrors.InvalidNArg,
+		}
+		return err
 	}
 
 	// if list flag is set, display current download default location and exit
@@ -714,7 +726,11 @@ func ConfigAmazonHMAC(c *cli.Context) error {
 
 	// validate the number of flags and arguments passed to the command
 	if c.NumFlags() > 1 || c.NArg() > 0 {
-		cli.ShowCommandHelpAndExit(c, c.Command.Name, 1)
+		err := &ierrors.CommandError{
+			CLIContext: c,
+			Cause:      ierrors.InvalidNArg,
+		}
+		return err
 	}
 
 	// if list flag set
@@ -782,7 +798,11 @@ func ConfigSetAuthMethod(c *cli.Context) error {
 
 	// validates the number of arguments and flags passed to to command
 	if c.NumFlags() > 1 || c.NArg() > 0 {
-		cli.ShowCommandHelpAndExit(c, c.Command.Name, 1)
+		err := &ierrors.CommandError{
+			CLIContext: c,
+			Cause:      ierrors.InvalidNArg,
+		}
+		return err
 	}
 
 	// if list flag is set, display current value and exit
@@ -861,7 +881,11 @@ func ConfigSetRegionsEndpointURL(c *cli.Context) error {
 
 	// validates the number of args and flags
 	if c.NumFlags() != 1 || c.NArg() > 0 {
-		cli.ShowCommandHelpAndExit(c, c.Command.Name, 1)
+		err := &ierrors.CommandError{
+			CLIContext: c,
+			Cause:      ierrors.InvalidNArg,
+		}
+		return err
 	}
 	// if list flag is set,
 	// list current value and exit
@@ -928,7 +952,11 @@ func ConfigSetURLStyle(c *cli.Context) error {
 
 	// validates the number of arguments and flags passed to to command
 	if c.NumFlags() > 1 || c.NArg() > 0 {
-		cli.ShowCommandHelpAndExit(c, c.Command.Name, 1)
+		err := &ierrors.CommandError{
+			CLIContext: c,
+			Cause:      ierrors.InvalidNArg,
+		}
+		return err
 	}
 
 	// if list flag is set, display current value and exit
@@ -1004,7 +1032,11 @@ func ConfigSetEndpointURL(c *cli.Context) error {
 	conf := cosContext.Config
 
 	if c.NumFlags() > 1 || c.NArg() > 0 {
-		cli.ShowCommandHelpAndExit(c, c.Command.Name, 1)
+		err := &ierrors.CommandError{
+			CLIContext: c,
+			Cause:      ierrors.InvalidNArg,
+		}
+		return err
 	}
 
 	if c.IsSet(flags.List) {

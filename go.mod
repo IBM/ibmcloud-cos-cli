@@ -1,6 +1,6 @@
 module github.com/IBM/ibmcloud-cos-cli
 
-go 1.24.11
+go 1.24.13
 
 require (
 	github.com/IBM-Cloud/ibm-cloud-cli-sdk v0.12.0
@@ -11,7 +11,7 @@ require (
 	github.com/prataprc/goparsec v0.0.0-20211219142520-daac0e635e7e
 	github.com/stretchr/testify v1.11.1
 	github.com/urfave/cli v1.22.17
-	google.golang.org/grpc v1.78.0
+	google.golang.org/grpc v1.79.1
 	google.golang.org/protobuf v1.36.11
 	gopkg.in/cheggaaa/pb.v1 v1.0.28
 )
@@ -53,7 +53,7 @@ require (
 	golang.org/x/sys v0.39.0 // indirect
 	golang.org/x/term v0.38.0 // indirect
 	golang.org/x/text v0.32.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20251029180050-ab9386a59fda // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20251202230838-ff82c1b0f217 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
