@@ -44,8 +44,10 @@ func ObjectDeletes(c *cli.Context) (err error) {
 		fields.Delete: flags.Delete,
 	}
 
-	// No optional parameters for DeleteObjectsInput
-	options := map[string]string{}
+	// Optional parameters for DeleteObjectsInput
+	options := map[string]string{
+		fields.BypassGovernanceRetention: flags.BypassGovernanceRetention,
+	}
 
 	// Validate User Inputs
 	if err = MapToSDKInput(c, input, mandatory, options); err != nil {

@@ -304,6 +304,7 @@ var (
 			flags.FlagBucket,
 			flags.FlagKey,
 			flags.FlagObjectRetention,
+			flags.FlagBypassGovernanceRetention,
 			flags.FlagRegion,
 			flags.FlagOutput,
 		},
@@ -480,6 +481,7 @@ var (
 			flags.FlagBucket,
 			flags.FlagKey,
 			flags.FlagVersionId,
+			flags.FlagBypassGovernanceRetention,
 			flags.FlagRegion,
 			flags.FlagForce,
 			flags.FlagOutput,
@@ -497,6 +499,7 @@ var (
 		Flags: []cli.Flag{
 			flags.FlagBucket,
 			flags.FlagDelete,
+			flags.FlagBypassGovernanceRetention,
 			flags.FlagRegion,
 			flags.FlagOutput,
 			flags.FlagJSON,

@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 1.11.0
+
+### Content
+
+#### Features
+
+* S3 Compatible Object Lock Governance Mode Support
+
+#### Defect Fixes
+
+* Internal fixes and improvements
+* Update to use Go SDK 1.14.0
+
 ## 1.10.5
 
 ### Content

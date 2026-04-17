@@ -3,6 +3,7 @@ package flags
 const (
 	Body                           = "body"
 	Bucket                         = "bucket"
+	BypassGovernanceRetention      = "bypass-governance-retention"
 	CacheControl                   = "cache-control"
 	Class                          = "class"
 	Concurrency                    = "concurrency"

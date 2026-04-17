@@ -38,7 +38,8 @@ func ObjectRetentionPut(c *cli.Context) (err error) {
 
 	// Optional parameters
 	options := map[string]string{
-		fields.VersionId: flags.VersionId,
+		fields.VersionId:                  flags.VersionId,
+		fields.BypassGovernanceRetention: flags.BypassGovernanceRetention,
 	}
 
 	// Validate User Inputs

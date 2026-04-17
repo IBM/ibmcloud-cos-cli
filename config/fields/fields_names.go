@@ -10,6 +10,7 @@ const (
 	// they use prior to making requests to the server side.
 	Body                           = "Body"
 	Bucket                         = "Bucket"
+	BypassGovernanceRetention      = "BypassGovernanceRetention"
 	CacheControl                   = "CacheControl"
 	Concurrency                    = "Concurrency"
 	ContentDisposition             = "ContentDisposition"

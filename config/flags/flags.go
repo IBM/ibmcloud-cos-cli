@@ -17,6 +17,11 @@ var (
 		Hidden: true,
 	}
 
+	FlagBypassGovernanceRetention = cli.BoolFlag{
+		Name:  BypassGovernanceRetention,
+		Usage: T("Indicates whether to bypass governance-mode restrictions to delete an object or modify its retention settings."),
+	}
+
 	FlagCacheControl = cli.StringFlag{
 		Name:  CacheControl,
 		Usage: T("Specifies `CACHING_DIRECTIVES` for the request/reply chain."),
