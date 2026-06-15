@@ -24,8 +24,10 @@ COMMANDS:
   bucket-lifecycle-configuration-put      Set the lifecycle configuration on a bucket
   bucket-location-get                     Get the location and billing tier of a bucket
   bucket-replication-delete               Delete the replication configuration from a bucket
+  bucket-replication-failures             List replication failures for a bucket
   bucket-replication-get                  Get the replication configuration for a bucket
   bucket-replication-put                  Set the replication configuration on a bucket
+  bucket-replication-reattempt            Reattempt replication for failed objects in a bucket
   bucket-versioning-get                   Get the versioning configuration for a bucket
   bucket-versioning-put                   Set the versioning configuration on a bucket
   bucket-website-delete                   Remove static website configuration from a bucket

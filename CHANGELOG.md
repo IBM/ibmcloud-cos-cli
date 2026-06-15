@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.11.1
+
+### Content
+
+#### Features
+
+* Internal fixes and improvements
+
 ## 1.11.0
 
 ### Content

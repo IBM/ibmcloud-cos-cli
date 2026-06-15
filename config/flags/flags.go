@@ -131,6 +131,11 @@ var (
 		Hidden: true,
 	}
 
+	FlagFirstSyncAttemptedBefore = cli.StringFlag{
+		Name:  FirstSyncAttemptedBefore,
+		Usage: T("Limits results to replication failures whose first sync attempt happened before the specified `TIMESTAMP`. Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)"),
+	}
+
 	FlagForce = cli.BoolFlag{
 		Name:  Force,
 		Usage: T("This option skips confirmation prompts and executes the operation."),
@@ -185,6 +190,11 @@ var (
 	FlagMaxItems = cli.StringFlag{
 		Name:  MaxItems,
 		Usage: T("The total `NUMBER` of items to return in the command's output."),
+	}
+
+	FlagMaxKeys = cli.StringFlag{
+		Name:  MaxKeys,
+		Usage: T("Sets the maximum number of keys returned in the response."),
 	}
 
 	FlagMaxUploadParts = cli.StringFlag{

@@ -29,6 +29,7 @@ const (
 	Delete                         = "Delete"
 	Delimiter                      = "Delimiter"
 	EncodingType                   = "EncodingType"
+	FirstSyncAttemptedBefore       = "FirstSyncAttemptedBefore"
 	IBMServiceInstanceID           = "IBMServiceInstanceId"
 	IfMatch                        = "IfMatch"
 	IfModifiedSince                = "IfModifiedSince"

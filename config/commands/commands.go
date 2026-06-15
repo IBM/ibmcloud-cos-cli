@@ -169,6 +169,23 @@ var (
 		Action: functions.BucketReplicationDelete,
 	}
 
+	// CommandBucketReplicationFailures - List bucket replication failures
+	CommandBucketReplicationFailures = cli.Command{
+		Name:        BucketReplicationFailures,
+		Description: T("List replication failures for a bucket"),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagContinuationToken,
+			flags.FlagEncodingType,
+			flags.FlagFirstSyncAttemptedBefore,
+			flags.FlagMaxKeys,
+			flags.FlagRegion,
+			flags.FlagOutput,
+			flags.FlagJSON,
+		},
+		Action: functions.BucketReplicationFailures,
+	}
+
 	// CommandBucketReplicationGet - Get the replication configuration for a bucket with GetBucketReplication
 	CommandBucketReplicationGet = cli.Command{
 		Name:        BucketReplicationGet,
@@ -192,6 +209,19 @@ var (
 			flags.FlagOutput,
 		},
 		Action: functions.BucketReplicationPut,
+	}
+
+	// CommandBucketReplicationReattempt - Reattempt bucket replication failures
+	CommandBucketReplicationReattempt = cli.Command{
+		Name:        BucketReplicationReattempt,
+		Description: T("Reattempt replication for failed objects in a bucket"),
+		Flags: []cli.Flag{
+			flags.FlagBucket,
+			flags.FlagRegion,
+			flags.FlagOutput,
+			flags.FlagJSON,
+		},
+		Action: functions.BucketReplicationReattempt,
 	}
 
 	// CommandBucketLifecycleConfigurationDelete - Delete the lifecycle configuration from a bucket with DeleteBucketLifeCycleConfiguration

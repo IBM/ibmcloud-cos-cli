@@ -127,6 +127,10 @@ func (txtRender *TextRender) Display(
 		return txtRender.printPutTaggingObject(input, castedOutput)
 	case *s3.GetPublicAccessBlockOutput:
 		return txtRender.printGetPublicAccessBlock(input, castedOutput)
+	case *s3.ListBucketReplicationFailuresOutput:
+		return txtRender.printListBucketReplicationFailures(input, castedOutput)
+	case *s3.PutBucketReplicationReattemptOutput:
+		return txtRender.printPutBucketReplicationReattempt(input, castedOutput)
 	case *s3.GetBucketReplicationOutput:
 		return txtRender.printGetBucketReplication(input, castedOutput)
 	case *s3.GetObjectLockConfigurationOutput:
@@ -1166,4 +1170,90 @@ func printMapOutput(t *TextRender, m map[string]*string) {
 			t.Print("  %s: %s", key, *valuePtr)
 		}
 	}
+}
+
+
+func (txtRender *TextRender) printListBucketReplicationFailures(input interface{}, output *s3.ListBucketReplicationFailuresOutput) (err error) {
+	var castInput *s3.ListBucketReplicationFailuresInput
+	var ok bool
+	if castInput, ok = input.(*s3.ListBucketReplicationFailuresInput); !ok {
+		return badCastError
+	}
+
+	if output == nil || output.ListReplicationFailureResult == nil {
+		txtRender.Say(T("No replication failure details found for bucket '{{.Bucket}}'.",
+			map[string]interface{}{fields.Bucket: terminal.EntityNameColor(aws.StringValue(castInput.Bucket))}))
+		return
+	}
+
+	result := output.ListReplicationFailureResult
+	
+	txtRender.Say(T("Bucket: ") + terminal.EntityNameColor(aws.StringValue(result.Name)))
+	
+	txtRender.Say(T("Key Count: ") + terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(result.KeyCount), 10)))
+
+	if result.EncodingType != nil {
+		txtRender.Say(T("Encoding Type: ") + terminal.EntityNameColor(aws.StringValue(result.EncodingType)))
+	}
+	if result.MaxKeys != nil {
+		txtRender.Say(T("Max Keys: ") + terminal.EntityNameColor(strconv.FormatInt(aws.Int64Value(result.MaxKeys), 10)))
+	}
+	if result.FirstSyncAttemptedBefore != nil {
+		txtRender.Say(T("First Sync Attempted Before: ") + terminal.EntityNameColor(aws.StringValue(result.FirstSyncAttemptedBefore)))
+	}
+	if result.ContinuationToken != nil {
+		txtRender.Say(T("Continuation Token: ") + terminal.EntityNameColor(aws.StringValue(result.ContinuationToken)))
+	}
+	
+	// Only display table if there are failures
+	if len(result.Contents) > 0 {
+		txtRender.Say("")
+		table := txtRender.Table([]string{
+			T("Name"),
+			T("Version ID"),
+			T("First Sync Attempted (UTC)"),
+			T("Last Sync Attempted (UTC)"),
+			T("Sync Type"),
+			T("Failure Cause"),
+		})
+		
+		for _, object := range result.Contents {
+			firstSyncAttempted := ""
+			lastSyncAttempted := ""
+			if object.FirstSyncAttempted != nil {
+				firstSyncAttempted = object.FirstSyncAttempted.Format(timeFormat)
+			}
+			if object.LastSyncAttempted != nil {
+				lastSyncAttempted = object.LastSyncAttempted.Format(timeFormat)
+			}
+			table.Add(
+				aws.StringValue(object.Key),
+				aws.StringValue(object.VersionId),
+				firstSyncAttempted,
+				lastSyncAttempted,
+				aws.StringValue(object.SyncType),
+				aws.StringValue(object.SyncFailureCause),
+			)
+		}
+		table.Print()
+		txtRender.Say("")
+	}
+
+	if aws.BoolValue(result.IsTruncated) {
+		txtRender.Say(T("To retrieve the next set of replication failures use this Token as your --continuation-token for the next command: "))
+		txtRender.Say(terminal.EntityNameColor(aws.StringValue(result.NextContinuationToken)))
+		txtRender.Say("")
+	}
+	return
+}
+
+func (txtRender *TextRender) printPutBucketReplicationReattempt(input interface{}, output *s3.PutBucketReplicationReattemptOutput) (err error) {
+	var castInput *s3.PutBucketReplicationReattemptInput
+	var ok bool
+	if castInput, ok = input.(*s3.PutBucketReplicationReattemptInput); !ok {
+		return badCastError
+	}
+	txtRender.Say(T("Successfully initiated replication reattempt for bucket '{{.Bucket}}'.",
+		map[string]interface{}{fields.Bucket: terminal.EntityNameColor(aws.StringValue(castInput.Bucket))}))
+	return
 }

@@ -43,11 +43,17 @@ const (
 	// BucketReplicationDelete Command
 	BucketReplicationDelete = "bucket-replication-delete"
 
+	// BucketReplicationFailures Command
+	BucketReplicationFailures = "bucket-replication-failures"
+
 	// BucketReplicationGet Command
 	BucketReplicationGet = "bucket-replication-get"
 
 	// BucketReplicationPut Command
 	BucketReplicationPut = "bucket-replication-put"
+
+	// BucketReplicationReattempt Command
+	BucketReplicationReattempt = "bucket-replication-reattempt"
 
 	// ObjectLockGet Command
 	ObjectLockGet = "object-lock-configuration-get"

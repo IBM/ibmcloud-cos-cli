@@ -44,6 +44,10 @@
     "translation": " parts in the multipart upload for '"
   },
   {
+    "id": " replication failures in bucket '",
+    "translation": " replication failures in bucket '"
+  },
+  {
     "id": " transitions in bucket lifecycle configuration",
     "translation": " transitions in bucket lifecycle configuration"
   },
@@ -86,6 +90,10 @@
   {
     "id": "1 part in the multipart upload for '",
     "translation": "1 part in the multipart upload for '"
+  },
+  {
+    "id": "1 replication failure in bucket '",
+    "translation": "1 replication failure in bucket '"
   },
   {
     "id": "1 transitions in bucket lifecycle configuration",
@@ -528,6 +536,10 @@
     "translation": "Lifecycle Configuration"
   },
   {
+    "id": "Limits results to replication failures whose first sync attempt happened before the specified `TIMESTAMP`. Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)",
+    "translation": "Limits results to replication failures whose first sync attempt happened before the specified `TIMESTAMP`. Timestamp must be in RFC3339 format (e.g., 2025-01-01T00:00:00Z)"
+  },
+  {
     "id": "Limits the response to keys that begin with the specified `PREFIX`.",
     "translation": "Limits the response to keys that begin with the specified `PREFIX`."
   },
@@ -568,6 +580,10 @@
     "translation": "List parts of an active multipart upload"
   },
   {
+    "id": "List replication failures for a bucket",
+    "translation": "List replication failures for a bucket"
+  },
+  {
     "id": "List s3 endpoint-url for regions",
     "translation": "List s3 endpoint-url for regions"
   },
@@ -602,6 +618,10 @@
   {
     "id": "No lifecycle configuration rules returned",
     "translation": "No lifecycle configuration rules returned"
+  },
+  {
+    "id": "No replication failure details found for bucket '{{.Bucket}}'.",
+    "translation": "No replication failure details found for bucket '{{.Bucket}}'."
   },
   {
     "id": "No tags returned",
@@ -690,6 +710,10 @@
   {
     "id": "Public Access Block Configuration",
     "translation": "Public Access Block Configuration"
+  },
+  {
+    "id": "Reattempt replication for failed objects in a bucket",
+    "translation": "Reattempt replication for failed objects in a bucket"
   },
   {
     "id": "Redirect Hostname: ",
@@ -956,6 +980,10 @@
     "translation": "Successfully downloaded '{{.Key}}' from bucket '{{.Bucket}}'"
   },
   {
+    "id": "Successfully initiated replication reattempt for bucket '{{.Bucket}}'.",
+    "translation": "Successfully initiated replication reattempt for bucket '{{.Bucket}}'."
+  },
+  {
     "id": "Successfully saved HMAC Credentials to file.",
     "translation": "Successfully saved HMAC Credentials to file."
   },
@@ -1166,6 +1194,10 @@
   {
     "id": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: ",
     "translation": "To retrieve the next set of parts, use this marker as your part-number-marker for the next command: "
+  },
+  {
+    "id": "To retrieve the next set of replication failures use this Token as your --starting-token for the next command: ",
+    "translation": "To retrieve the next set of replication failures use this Token as your --starting-token for the next command: "
   },
   {
     "id": "Together with another listing parameter, specifies the key from which to start listing",
@@ -1438,6 +1470,10 @@
   {
     "id": "no parts in the multipart upload for '",
     "translation": "no parts in the multipart upload for '"
+  },
+  {
+    "id": "no replication failures in bucket '",
+    "translation": "no replication failures in bucket '"
   },
   {
     "id": "no such directory: %s",
