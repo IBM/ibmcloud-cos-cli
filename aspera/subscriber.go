@@ -38,7 +38,7 @@ func (p *ProgressBarSubscriber) Queued(resp *sdk.TransferResponse) {
 
 func (p *ProgressBarSubscriber) Running(resp *sdk.TransferResponse) {
 	p.bar.Prefix("Running")
-	p.bar.Set(int(resp.TransferInfo.BytesTransferred))
+	p.bar.Set64(resp.TransferInfo.BytesTransferred)
 }
 
 func (p *ProgressBarSubscriber) Done(resp *sdk.TransferResponse) {

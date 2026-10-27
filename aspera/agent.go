@@ -91,7 +91,7 @@ func (a *agent) GetBucketAspera(bucket string) (info *BucketAsperaInfo, err erro
 	return output, nil
 }
 
-//GetICOSSpec get COS spec for a bucket
+// GetICOSSpec get COS spec for a bucket
 func (a *agent) GetICOSSpec(bucket string) *sdk.ICOSSpec {
 	creds, _ := a.svc.Config.Credentials.Get()
 	ICOSSpec := &sdk.ICOSSpec{
@@ -103,7 +103,7 @@ func (a *agent) GetICOSSpec(bucket string) *sdk.ICOSSpec {
 	return ICOSSpec
 }
 
-//GetAsperaTransferSpecV2 get transfer spec version 2
+// GetAsperaTransferSpecV2 get transfer spec version 2
 func (a *agent) GetAsperaTransferSpecV2(action string, bucket string, paths []*sdk.Path) (spec string, err error) {
 
 	ICOSSpec := a.GetICOSSpec(bucket)

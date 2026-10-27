@@ -1,10 +1,19 @@
 # CHANGELOG
 
+## 1.11.2
+
+### Content
+
+#### Defect Fixes
+
+* Internal fixes and improvements
+* Update to use Go SDK 1.15.1
+
 ## 1.11.1
 
 ### Content
 
-#### Features
+#### Defect Fixes
 
 * Internal fixes and improvements
 
